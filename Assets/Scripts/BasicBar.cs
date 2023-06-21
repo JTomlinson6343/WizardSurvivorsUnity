@@ -23,7 +23,7 @@ public class BasicBar : MonoBehaviour
         UpdateSize(current, max);
     }
 
-    void UpdateSize(float currentValue, float maxValue)
+    public void UpdateSize(float currentValue, float maxValue)
     {
         GetComponent<RectTransform>().localScale = new Vector2(currentValue / maxValue * baseScale.x, baseScale.y);
     }

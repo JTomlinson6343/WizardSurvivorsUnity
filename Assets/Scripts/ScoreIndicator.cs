@@ -17,7 +17,7 @@ public class ScoreIndicator : MonoBehaviour
         
     }
 
-    void UpdateScore(int newScore)
+    public void UpdateScore(int newScore)
     {
         GetComponent<TextMeshPro>().text = newScore.ToString();
     }
