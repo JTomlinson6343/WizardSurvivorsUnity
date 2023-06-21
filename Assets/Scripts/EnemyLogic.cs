@@ -33,7 +33,7 @@ public class EnemyLogic : MonoBehaviour
 
         m_RigidBody.velocity = currentVelocity;
 
-        transform.GetComponentInChildren<SpriteRenderer>().flipX = currentVelocity.x < 0;
+        transform.GetComponentInChildren<SpriteRenderer>().flipX = targetVelocity.x < 0;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
