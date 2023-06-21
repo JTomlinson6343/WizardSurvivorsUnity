@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
+
+        transform.GetComponentInChildren<SpriteRenderer>().flipX = rigidBody.velocity.x < 0;
     }
 }
