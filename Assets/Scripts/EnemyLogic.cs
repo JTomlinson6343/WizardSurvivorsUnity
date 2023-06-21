@@ -48,7 +48,5 @@ public class EnemyLogic : MonoBehaviour
         currentVelocity -= moveDir * 1.0f;
 
         //m_RigidBody.velocity = currentVelocity;
-
-        Debug.Log("collision!");
     }
 }
