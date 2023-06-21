@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigidBody: {fileID: 8679808496323243270}
-  m_WalkSpeed: 3
+  m_WalkSpeed: 2
 --- !u!1 &4223907447917793029
 GameObject:
   m_ObjectHideFlags: 0
