@@ -24,7 +24,7 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
-    void Shoot(Vector2 pos, Vector2 dir, float speed, Color colour, float damage, float lifetime)
+    public void Shoot(Vector2 pos, Vector2 dir, float speed, Color colour, float damage, float lifetime)
     {
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
@@ -41,7 +41,7 @@ public class ProjectileManager : MonoBehaviour
 
     }
 
-    void MultiShot(Vector2 pos, float speed, Color colour, int numShots, float damage, float lifetime)
+    public void MultiShot(Vector2 pos, float speed, Color colour, int numShots, float damage, float lifetime)
     {
         float interval = 360 / numShots;
 
