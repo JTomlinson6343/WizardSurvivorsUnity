@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyLogic : MonoBehaviour
 {
     [SerializeField] private GameObject m_PlayerReference;
+    [SerializeField] private Rigidbody2D m_RigidBody;
     [SerializeField] private float m_WalkSpeed = 1.0f;
 
     private void Awake()
@@ -25,6 +26,27 @@ public class EnemyLogic : MonoBehaviour
         Vector3 playerPos = m_PlayerReference.transform.position;
         Vector3 moveDir = (playerPos - currentPos).normalized;
 
-        transform.parent.GetComponent<Rigidbody2D>().velocity = moveDir * m_WalkSpeed;
+        Vector3 targetVelocity = moveDir * m_WalkSpeed;
+        Vector3 currentVelocity = m_RigidBody.velocity;
+
+        currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
+
+        m_RigidBody.velocity = currentVelocity;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Vector3 objectPos = collision.gameObject.transform.position;
+        Vector3 currentPos = gameObject.transform.position;
+
+        Vector3 moveDir = (objectPos - currentPos).normalized;
+
+        Vector3 currentVelocity = m_RigidBody.velocity;
+
+        currentVelocity -= moveDir * 1.0f;
+
+        //m_RigidBody.velocity = currentVelocity;
+
+        Debug.Log("collision!");
     }
 }
