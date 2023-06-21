@@ -20,7 +20,7 @@ public class ProjectileManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MultiShot(new Vector2(0, 0), 10, Color.blue, 4, 1, 0.2f);
+            MultiShot(new Vector2(0, 0), 10, Color.blue, 4, 1, 1.0f);
         }
     }
 
@@ -29,8 +29,8 @@ public class ProjectileManager : MonoBehaviour
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
 
-        //bullet.GetComponent<Projectile>().damage = damage;
-        //bullet.GetComponent<Projectile>().lifetime = lifetime;
+        bullet.GetComponent<Projectile>().damage = damage;
+        bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
         bullet.transform.position = pos;
@@ -38,6 +38,7 @@ public class ProjectileManager : MonoBehaviour
 
         // Set colour of light
         bullet.transform.GetComponent<Light2D>().color = colour;
+
     }
 
     void MultiShot(Vector2 pos, float speed, Color colour, int numShots, float damage, float lifetime)

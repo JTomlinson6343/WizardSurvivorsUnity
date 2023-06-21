@@ -6,16 +6,15 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float damage;
-    public float lifetime;
 
-    public void StartLifetimeTimer()
+    public void StartLifetimeTimer(float lifetime)
     {
         Invoke(nameof(DestroySelf), lifetime);
     }
 
     private void DestroySelf()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
