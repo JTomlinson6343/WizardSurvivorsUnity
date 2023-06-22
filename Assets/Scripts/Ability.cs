@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
+[System.Serializable]
 public struct AbilityStats
 {
-    public float aoe;           // Modifier of radius
+    public float AOE;           // Modifier of radius
     public float duration;      // Durarion in seconds
     public float damageScaling; // Percentage of player damage dealt by the ability
     public float speed;         // Speed of projectile/animation of the ability
@@ -20,10 +21,31 @@ public class Ability : MonoBehaviour
     // Level of the ability
     int m_Level;
 
-    AbilityStats m_BaseStats;   // Base stats of the ability
-    AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
-    AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and character stats (from buffs)
+    public AbilityStats    m_BaseStats;   // Base stats of the ability
+    protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
+    protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
 
+    void UpdateTotalStats(AbilityStats abilityStatsBuffs)
+    {
+        // Update total stats
+        m_TotalStats.AOE = m_BaseStats.AOE + m_BonusStats.AOE + abilityStatsBuffs.AOE;
+
+        m_TotalStats.duration = m_BaseStats.duration + m_BonusStats.duration + abilityStatsBuffs.duration;
+
+        m_TotalStats.damageScaling = m_BaseStats.damageScaling + m_BonusStats.damageScaling + abilityStatsBuffs.damageScaling;
+
+        m_TotalStats.speed = m_BaseStats.speed + m_BonusStats.speed + abilityStatsBuffs.speed;
+
+        m_TotalStats.cooldown = m_BaseStats.cooldown + m_BonusStats.cooldown + abilityStatsBuffs.cooldown;
+
+        m_TotalStats.amount = m_BaseStats.amount + m_BonusStats.amount + abilityStatsBuffs.amount;
+
+        m_TotalStats.knockback = m_BaseStats.knockback + m_BonusStats.knockback + abilityStatsBuffs.knockback;
+
+        m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + m_BonusStats.pierceAmount + abilityStatsBuffs.pierceAmount;
+    }
+
+    // Called on level up and calls a different function depending on current ability level
     void LevelUp()
     {
         switch (m_Level)
