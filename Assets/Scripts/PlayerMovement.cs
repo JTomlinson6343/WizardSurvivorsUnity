@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         m_RigidBody.velocity = currentVelocity;
 
         SetAnimState(targetVelocity);
+
+        UpdateHealthBar();
     }
 
     void SetAnimState(Vector3 targetVelocity)
@@ -58,5 +60,16 @@ public class PlayerMovement : MonoBehaviour
             m_Animator.SetBool("Moving", false); // Disable the moving state
             m_Animator.SetBool("Idle", true);
         }
+    }
+
+    void UpdateHealthBar()
+    {
+        Actor actorComponent = gameObject.GetComponent<Actor>();
+
+        float health = actorComponent.GetHealthAsRatio();
+
+        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
+
+        bar.UpdateSize(health);
     }
 }

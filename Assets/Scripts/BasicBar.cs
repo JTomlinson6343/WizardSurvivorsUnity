@@ -17,10 +17,9 @@ public class BasicBar : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateSize(float sizeRatio)
     {
-        UpdateSize(current, max);
+        GetComponent<RectTransform>().localScale = new Vector2(sizeRatio * baseScale.x, baseScale.y);
     }
 
     public void UpdateSize(float currentValue, float maxValue)

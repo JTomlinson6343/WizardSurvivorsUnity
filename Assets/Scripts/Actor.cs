@@ -65,4 +65,9 @@ public class Actor : MonoBehaviour
 
         return true;
     }
+
+    public float GetHealthAsRatio()
+    {
+        return m_Health / m_MaxHealth;
+    }
 }
