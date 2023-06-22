@@ -15,7 +15,10 @@ public class Actor : MonoBehaviour
 {
     private float m_MaxHealth = 100.0f;
     private float m_Health = 100.0f;
-    private float m_HealthRegen = 0.0f;
+    private float m_HealthRegen = 0.5f;
+    private float m_IFramesTimer = 0.1f;
+
+    private float m_LastHit = 0.0f;
 
     private DamageStats m_BaseResistance;
     private DamageStats m_BonusResistance;
@@ -32,8 +35,19 @@ public class Actor : MonoBehaviour
         m_Health = Mathf.Clamp(m_Health, 0, m_MaxHealth);
     }
 
-    public void TakeDamage(float amount)
+    public bool TakeDamage(float amount)
     {
+        float now = Time.realtimeSinceStartup;
+
+        if (now - m_LastHit < m_IFramesTimer)
+        {
+            return false;
+        }
+
         m_Health -= amount;
+
+        m_LastHit = now;
+
+        return true;
     }
 }
