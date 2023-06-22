@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_RigidBody;
     [SerializeField] private float m_WalkSpeed = 1.0f;
+    private float m_Acceleration = 8.0f;
 
     private Animator m_Animator;
 
@@ -24,35 +25,30 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 targetVelocity = moveDir * m_WalkSpeed;
 
-        currentVelocity = targetVelocity;
-        //currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
+        //currentVelocity = targetVelocity;
+        currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * m_Acceleration;
 
         m_RigidBody.velocity = currentVelocity;
 
-        transform.GetComponentInChildren<SpriteRenderer>().flipX = targetVelocity.x < 0;
+        SetAnimState(targetVelocity);
 
-        SetAnimState();
+        UpdateHealthBar();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void SetAnimState(Vector3 targetVelocity)
     {
-        Vector3 objectPos = collision.gameObject.transform.position;
-        Vector3 currentPos = gameObject.transform.position;
+        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
-        Vector3 moveDir = (objectPos - currentPos).normalized;
+        if (targetVelocity.x > 0)
+        {
+            sprite.flipX = false;
+        }
+        else if (targetVelocity.x < 0)
+        {
+            sprite.flipX = true;
+        }
 
-        Vector3 currentVelocity = m_RigidBody.velocity;
-
-        currentVelocity -= moveDir * 1.0f;
-
-        //m_RigidBody.velocity = currentVelocity;
-    }
-
-    void SetAnimState()
-    {
-        Vector3 currentVelocity = m_RigidBody.velocity;
-
-        if (currentVelocity.magnitude > 0)
+        if (targetVelocity.magnitude > 0)
         {
             // Object is moving
             m_Animator.SetBool("Moving", true);
@@ -64,5 +60,16 @@ public class PlayerMovement : MonoBehaviour
             m_Animator.SetBool("Moving", false); // Disable the moving state
             m_Animator.SetBool("Idle", true);
         }
+    }
+
+    void UpdateHealthBar()
+    {
+        Actor actorComponent = gameObject.GetComponent<Actor>();
+
+        float health = actorComponent.GetHealthAsRatio();
+
+        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
+
+        bar.UpdateSize(health);
     }
 }

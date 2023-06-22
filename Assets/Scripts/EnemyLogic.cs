@@ -36,30 +36,51 @@ public class EnemyLogic : MonoBehaviour
 
         m_RigidBody.velocity = currentVelocity;
 
-        transform.GetComponentInChildren<SpriteRenderer>().flipX = targetVelocity.x < 0;
-
-        SetAnimState();
+        SetAnimState(targetVelocity);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Vector3 objectPos = collision.gameObject.transform.position;
+        GameObject otherObject = collision.gameObject;
+
+        Vector3 objectPos = otherObject.transform.position;
         Vector3 currentPos = gameObject.transform.position;
 
         Vector3 moveDir = (objectPos - currentPos).normalized;
 
-        Vector3 currentVelocity = m_RigidBody.velocity;
+        //Vector3 currentVelocity = m_RigidBody.velocity;
 
-        currentVelocity -= moveDir * 1.0f;
+        //currentVelocity -= moveDir * 1.0f;
 
-        //m_RigidBody.velocity = currentVelocity;
+        if (otherObject.name == "Player")
+        {
+            Actor actorComponent = otherObject.GetComponent<Actor>();
+
+            bool validHit = actorComponent.TakeDamage(1.0f);
+
+            if (validHit)
+            {
+                Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
+
+                playerBody.velocity += new Vector2(moveDir.x, moveDir.y) * 15.0f;
+            }
+        }
     }
 
-    void SetAnimState()
+    void SetAnimState(Vector3 targetVelocity)
     {
-        Vector3 currentVelocity = m_RigidBody.velocity;
+        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
-        if (currentVelocity.magnitude > 0.3f)
+        if (targetVelocity.x > 0)
+        {
+            sprite.flipX = false;
+        }
+        else if (targetVelocity.x < 0)
+        {
+            sprite.flipX = true;
+        }
+
+        if (targetVelocity.magnitude > 0)
         {
             // Object is moving
             m_Animator.SetBool("Moving", true);
