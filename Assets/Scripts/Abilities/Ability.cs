@@ -28,9 +28,9 @@ public struct AbilityStats
 
 public class Ability : MonoBehaviour
 {
-    int m_Level;                // Level of the ability
+    protected int m_Level;                // Level of the ability
 
-    bool m_Enabled = false;     // If ability is enabled, it will fire as normal
+    protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
 
     public bool m_isMaxed;      // If an ability is max level, it won't show up in the ability selection
 
