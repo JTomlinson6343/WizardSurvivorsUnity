@@ -18,6 +18,6 @@ public class AbilityManager : MonoBehaviour
     {
         Image[] icons = GetComponentsInChildren<Image>();
 
-
+        icons[0].sprite = m_Abilities[0].m_Info.icon;
     }
 }

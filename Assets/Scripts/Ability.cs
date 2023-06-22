@@ -10,7 +10,7 @@ public struct AbilityInfo
 {
     public string name;
     public string description;
-    public Texture2D icon;
+    public Sprite icon;
 }
 
 [System.Serializable]
