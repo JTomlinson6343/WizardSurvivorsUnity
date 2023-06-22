@@ -1,7 +1,17 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.UI;
+
+[System.Serializable]
+public struct AbilityInfo
+{
+    public string name;
+    public string description;
+    public Texture2D icon;
+}
 
 [System.Serializable]
 public struct AbilityStats
@@ -24,6 +34,7 @@ public class Ability : MonoBehaviour
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
+
 
     void UpdateTotalStats(AbilityStats abilityStatsBuffs)
     {
