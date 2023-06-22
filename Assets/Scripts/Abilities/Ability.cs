@@ -45,6 +45,8 @@ public class Ability : MonoBehaviour
         {
             Debug.Log(m_Info.name + " was enabled.");
             m_Enabled = true;
+            CancelInvoke(nameof(OnCast));
+            InvokeRepeating(nameof(OnCast), 0, 0.2f);
         }
         else
         {
@@ -52,6 +54,11 @@ public class Ability : MonoBehaviour
 
             LevelUp();
         }
+    }
+
+    virtual public void OnCast()
+    {
+
     }
 
     void UpdateTotalStats(AbilityStats abilityStatsBuffs)

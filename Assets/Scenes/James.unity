@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Abilities:
-  - {fileID: 753783867}
+  - {fileID: 0}
 --- !u!1001 &680866500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 753783868}
-  - component: {fileID: 753783867}
+  - component: {fileID: 753783869}
   m_Layer: 0
   m_Name: CrossShot
   m_TagString: Untagged
@@ -338,32 +338,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &753783867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753783866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 829e3ea99a867fb40b8cc22bd48c0bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isMaxed: 0
-  m_BaseStats:
-    AOE: 0
-    duration: 0
-    damageScaling: 0
-    speed: 0
-    cooldown: 0
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-  m_Info:
-    name: Cross Shot
-    description: Shoots four fireballs in an X shape
-    icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
 --- !u!4 &753783868
 Transform:
   m_ObjectHideFlags: 0
@@ -379,6 +353,32 @@ Transform:
   m_Father: {fileID: 1305149506}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &753783869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753783866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49dc5fbfdec5594d88fb77997929291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damageScaling: 0
+    speed: 0
+    cooldown: 0
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+  m_Info:
+    name: cross shot
+    description: 
+    icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
 --- !u!1 &836811178
 GameObject:
   m_ObjectHideFlags: 0
