@@ -34,7 +34,7 @@ public class Ability : MonoBehaviour
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
-
+    public AbilityInfo     m_Info;        // Info about the ability to display on upgrad screen
 
     void UpdateTotalStats(AbilityStats abilityStatsBuffs)
     {
