@@ -11,6 +11,21 @@ public struct DamageStats
     public float m_PhysicalResist;
 }
 
+public enum DamageType
+{
+    Fire,
+    Frost,
+    Lightning,
+    Poison,
+    Physical
+}
+
+public struct DamageInstance
+{
+    DamageType type;
+    float amount;
+}
+
 public class Actor : MonoBehaviour
 {
     private float m_MaxHealth = 100.0f;
