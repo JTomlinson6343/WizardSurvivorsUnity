@@ -31,12 +31,26 @@ public class Ability : MonoBehaviour
     // Level of the ability
     int m_Level;
 
+    bool m_Enabled;
+
     public bool m_isMaxed;
 
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
     public AbilityInfo     m_Info;        // Info about the ability to display on upgrad screen
+
+    public void OnChosen()
+    {
+        if (!m_Enabled)
+        {
+            m_Enabled = true;
+        }
+        else
+        {
+            LevelUp();
+        }
+    }
 
     void UpdateTotalStats(AbilityStats abilityStatsBuffs)
     {

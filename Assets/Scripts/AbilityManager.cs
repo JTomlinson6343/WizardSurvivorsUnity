@@ -94,6 +94,11 @@ public class AbilityManager : MonoBehaviour
 
     void AbilityWasSelected(AbilityIcon icon)
     {
-
+        if (icon.enabled)
+        {
+            // Check if icon is displayed and then enable the ability displayed
+            icon.displayedAbility.OnChosen();
+            m_AbilityChoicesShown = false;
+        }
     }
 }
