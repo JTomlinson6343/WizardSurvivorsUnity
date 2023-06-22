@@ -20,7 +20,7 @@ public class Actor : MonoBehaviour
     private DamageStats m_BaseResistance;
     private DamageStats m_BonusResistance;
 
-    void Awake()
+    void Start()
     {
         m_Health = m_MaxHealth;
     }
