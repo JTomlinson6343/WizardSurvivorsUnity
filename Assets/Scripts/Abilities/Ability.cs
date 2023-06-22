@@ -77,6 +77,7 @@ public class Ability : MonoBehaviour
     // Called on level up and calls a different function depending on current ability level
     void LevelUp()
     {
+        m_Level++;
         switch (m_Level)
         {
             case 1:

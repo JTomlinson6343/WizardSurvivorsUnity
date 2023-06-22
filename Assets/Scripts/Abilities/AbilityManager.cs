@@ -52,6 +52,7 @@ public class AbilityManager : MonoBehaviour
             m_Icons[iconCounter].image.sprite = ability.m_Info.icon;
             m_Icons[iconCounter].displayedAbility = ability;
             m_Icons[iconCounter].image.enabled = true;
+
             iconCounter++;
         }
     }
