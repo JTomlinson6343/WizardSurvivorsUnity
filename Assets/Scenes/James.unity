@@ -215,6 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Abilities:
   - {fileID: 4605246138511128740, guid: 9b7aae9c983cbd642833f15a1f9e5792, type: 3}
+  - {fileID: 4605246138511128740, guid: 9b7aae9c983cbd642833f15a1f9e5792, type: 3}
+  - {fileID: 4605246138511128740, guid: 9b7aae9c983cbd642833f15a1f9e5792, type: 3}
 --- !u!1001 &680866500
 PrefabInstance:
   m_ObjectHideFlags: 0
