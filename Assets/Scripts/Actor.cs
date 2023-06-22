@@ -22,8 +22,8 @@ public enum DamageType
 
 public struct DamageInstance
 {
-    DamageType type;
-    float amount;
+    public DamageType type;
+    public float amount;
 }
 
 public class Actor : MonoBehaviour
