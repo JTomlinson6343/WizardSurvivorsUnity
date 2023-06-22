@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8905442331990796436}
   - component: {fileID: 7012599788201182033}
   m_Layer: 5
-  m_Name: 3
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,8 +120,8 @@ RectTransform:
   m_Children:
   - {fileID: 5019186250280241482}
   - {fileID: 7781830362832503939}
-  - {fileID: 5738165999241611769}
   - {fileID: 7791671762312219703}
+  - {fileID: 5738165999241611769}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7019710891217388467}
   - component: {fileID: 3959383883921936118}
   m_Layer: 5
-  m_Name: 4
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

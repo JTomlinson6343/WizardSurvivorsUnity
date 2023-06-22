@@ -19,7 +19,7 @@ public class AbilityManager : MonoBehaviour
         m_Icons = GetComponentsInChildren<AbilityIcon>();
         foreach (AbilityIcon icon in m_Icons)
         {
-            icon.enabled = false;
+            icon.image.enabled = false;
         }
 
         ShowAbilityOptions();
@@ -51,12 +51,21 @@ public class AbilityManager : MonoBehaviour
                 continue;
             }
             // If all checks pass, set the icon of the UI to the icon of the ability
-            m_Icons[iconCounter].GetComponent<Image>().sprite = ability.m_Info.icon;
-            m_Icons[iconCounter].enabled = true;
+            m_Icons[iconCounter].image.sprite = ability.m_Info.icon;
+            m_Icons[iconCounter].image.enabled = true;
             iconCounter++;
         }
     }
-    
+
+    void HideAbilityOptions()
+    {
+        m_AbilityChoicesShown = false;
+        foreach (AbilityIcon icon in m_Icons)
+        {
+            icon.enabled = false;
+        }
+    }
+
     bool CheckAlreadyDisplayed(Ability ability, Ability[] displayedAbilities)
     {
         // Check if ability is already displayed
@@ -98,7 +107,7 @@ public class AbilityManager : MonoBehaviour
         {
             // Check if icon is displayed and then enable the ability displayed
             icon.displayedAbility.OnChosen();
-            m_AbilityChoicesShown = false;
+            HideAbilityOptions();
         }
     }
 }
