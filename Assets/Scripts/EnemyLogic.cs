@@ -48,9 +48,9 @@ public class EnemyLogic : MonoBehaviour
 
         Vector3 moveDir = (objectPos - currentPos).normalized;
 
-        Vector3 currentVelocity = m_RigidBody.velocity;
+        //Vector3 currentVelocity = m_RigidBody.velocity;
 
-        currentVelocity -= moveDir * 1.0f;
+        //currentVelocity -= moveDir * 1.0f;
 
         if (otherObject.name == "Player")
         {
