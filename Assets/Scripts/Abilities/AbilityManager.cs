@@ -19,7 +19,7 @@ public class AbilityManager : MonoBehaviour
         //Get ability icons
         m_Icons = GetComponentsInChildren<AbilityIcon>();
 
-            HideAbilityOptions();
+        HideAbilityOptions();
         ShowAbilityOptions();
     }
 
@@ -38,20 +38,25 @@ public class AbilityManager : MonoBehaviour
 
         int iconCounter = 0;
 
+        // Loop through each ability
         foreach (Ability ability in m_Abilities)
         {
             if (ability.m_isMaxed)
             {
+                // If the ability is maxed, remove it from the list and move on
                 m_Abilities.Remove(ability);
                 continue;
             }
             if (CheckAlreadyDisplayed(ability, displayedAbilities))
             {
+                //If the ability is already displayed on the other choices, move on
                 continue;
             }
             // If all checks pass, set the icon of the UI to the icon of the ability
             m_Icons[iconCounter].image.sprite = ability.m_Info.icon;
+            // Set the ability the icon represents to that ability
             m_Icons[iconCounter].displayedAbility = ability;
+            // Show the icon
             m_Icons[iconCounter].image.enabled = true;
 
             iconCounter++;
