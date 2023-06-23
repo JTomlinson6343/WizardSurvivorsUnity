@@ -26,7 +26,7 @@ public class ProjectileManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ShootMultipleSpinning(200, Color.red, 10, 30, 3,10);
+            ShootMultipleSpinning(200, Color.red, 10, 3,10);
         }
     }
 
@@ -133,7 +133,7 @@ public class ProjectileManager : MonoBehaviour
         bulletScript.Init();
     }
     
-    public void ShootMultipleSpinning(float speed, Color colour, float damage, float offset, float radius, int amount)
+    public void ShootMultipleSpinning(float speed, Color colour, float damage, float radius, int amount)
     {
         float interval = 360 / amount;
         for (int i = 0; i < amount; i++)
