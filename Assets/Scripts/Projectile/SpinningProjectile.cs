@@ -14,16 +14,17 @@ public class SpinningProjectile : MonoBehaviour
 
     public void Init()
     {
-        angle = offset;
+        angle = offset * Mathf.Deg2Rad;
+    }
+
+    private void Awake()
+    {
+        Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (angle > 360)
-        {
-            angle = 0;
-        }
         angle += speed * Time.deltaTime * Mathf.Deg2Rad;
 
         float x = Player.m_Instance.transform.position.x + radius*Mathf.Sin(angle);
