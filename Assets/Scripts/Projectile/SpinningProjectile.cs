@@ -25,10 +25,12 @@ public class SpinningProjectile : Projectile
     // Update is called once per frame
     void Update()
     {
+        // Increment the angle
         angle += speed * Time.deltaTime * Mathf.Deg2Rad;
 
-        float x = Player.m_Instance.GetStaffTransform().position.x + radius*Mathf.Sin(angle);
-        float y = Player.m_Instance.GetStaffTransform().position.y + radius*Mathf.Cos(angle);
+        // Move the projectile
+        float x = Player.m_Instance.GetCentrePos().x + radius*Mathf.Sin(angle);
+        float y = Player.m_Instance.GetCentrePos().y + radius*Mathf.Cos(angle);
 
         transform.position = new Vector2(x, y);
     }
