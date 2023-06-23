@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+public enum SpawnPoint
+{
+    Player,
+    Staff
+}
 
 public class ProjectileManager : MonoBehaviour
 {
@@ -39,6 +44,36 @@ public class ProjectileManager : MonoBehaviour
 
         // Set pos and velocity of bullet
         bullet.transform.position = pos;
+        bullet.transform.GetComponent<Rigidbody2D>().velocity = dir * speed;
+
+        // Set colour of light
+        bullet.transform.GetComponent<Light2D>().color = colour;
+    }
+
+    public void Shoot(SpawnPoint spawnPoint, Vector2 dir, float speed, Color colour, float damage, float lifetime)
+    {
+        // Create bullet from prefab
+        GameObject bullet = Instantiate(m_BulletPrefab);
+
+        bullet.GetComponent<Projectile>().damage = damage * GetPlayerDamage();
+        bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+
+        Vector2 pos = Vector2.zero;
+        // Set pos of bullet
+        switch (spawnPoint)
+        {
+            case SpawnPoint.Player:
+                pos = Player.m_Instance.GetPosition();
+                break;
+            case SpawnPoint.Staff:
+                pos = Player.m_Instance.GetStaffTransform().position;
+                break;
+            default:
+                break;
+        }
+        bullet.transform.position = pos;
+
+        // Set velocity of bullet
         bullet.transform.GetComponent<Rigidbody2D>().velocity = dir * speed;
 
         // Set colour of light
