@@ -117,4 +117,9 @@ public class ProjectileManager : MonoBehaviour
             Shoot(spawnPoint, new Vector2(x,y), speed, colour, damage, lifetime);
         }
     }
+
+    public void SpinningShot(Vector2 pos, float speed, Color colour, float damage)
+    {
+
+    }
 }
