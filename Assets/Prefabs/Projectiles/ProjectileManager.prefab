@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BulletPrefab: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+  m_SpinningBulletPrefab: {fileID: 6648363045516341059, guid: 43e6435c3974abf48908807b62ac234e, type: 3}

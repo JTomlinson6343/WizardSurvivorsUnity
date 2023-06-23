@@ -14,6 +14,7 @@ public class ProjectileManager : MonoBehaviour
     public static ProjectileManager m_Instance;
 
     [SerializeField] GameObject m_BulletPrefab;
+    [SerializeField] GameObject m_SpinningBulletPrefab;
 
     void Awake()
     {
@@ -25,7 +26,7 @@ public class ProjectileManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MultiShot(new Vector2(0, 0), 10, Color.blue, 4, 1, 1.0f);
+            ShootMultipleSpinning(200, Color.red, 10, 3,10);
         }
     }
 
@@ -115,6 +116,38 @@ public class ProjectileManager : MonoBehaviour
             float y = Mathf.Cos(angle);
 
             Shoot(spawnPoint, new Vector2(x,y), speed, colour, damage, lifetime);
+        }
+    }
+
+    public void ShootSpinning(float speed, Color colour, float damage, float offset, float radius)
+    {
+        // Create bullet from prefab
+        GameObject bullet = Instantiate(m_SpinningBulletPrefab);
+
+        SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
+
+        bulletScript.damage = damage * GetPlayerDamage();
+        bulletScript.speed = speed;
+        bulletScript.offset = offset;
+        bulletScript.radius = radius;
+        bulletScript.Init();
+    }
+    
+    public void ShootMultipleSpinning(float speed, Color colour, float damage, float radius, int amount)
+    {
+        float interval = 360 / amount;
+        for (int i = 0; i < amount; i++)
+        {
+            // Create bullet from prefab
+            GameObject bullet = Instantiate(m_SpinningBulletPrefab);
+
+            SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
+
+            bulletScript.damage = damage * GetPlayerDamage();
+            bulletScript.speed = speed;
+            bulletScript.offset = interval*i;
+            bulletScript.radius = radius;
+            bulletScript.Init();
         }
     }
 }
