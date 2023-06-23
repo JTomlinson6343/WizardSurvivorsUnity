@@ -18,7 +18,8 @@ public class AbilityManager : MonoBehaviour
     {
         //Get ability icons
         m_Icons = GetComponentsInChildren<AbilityIcon>();
-        HideAbilityOptions();
+
+            HideAbilityOptions();
         ShowAbilityOptions();
     }
 

@@ -24,12 +24,17 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
+    private float GetPlayerDamage()
+    {
+        return Player.m_Instance.GetStats().damage;
+    }
+
     public void Shoot(Vector2 pos, Vector2 dir, float speed, Color colour, float damage, float lifetime)
     {
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
 
-        bullet.GetComponent<Projectile>().damage = damage;
+        bullet.GetComponent<Projectile>().damage = damage * GetPlayerDamage();
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
