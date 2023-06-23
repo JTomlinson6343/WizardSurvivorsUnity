@@ -16,12 +16,10 @@ public class AbilityManager : MonoBehaviour
 
     public void Start()
     {
+        //Get ability icons
         m_Icons = GetComponentsInChildren<AbilityIcon>();
-        foreach (AbilityIcon icon in m_Icons)
-        {
-            icon.image.enabled = false;
-        }
 
+        HideAbilityOptions();
         ShowAbilityOptions();
     }
 
@@ -29,30 +27,38 @@ public class AbilityManager : MonoBehaviour
     {
         if (m_AbilityChoicesShown)
         {
-
+            HandleInput();
         }
     }
 
     void ShowAbilityOptions()
     {
+        m_AbilityChoicesShown = true;
         Ability[] displayedAbilities = new Ability[3];
 
         int iconCounter = 0;
 
+        // Loop through each ability
         foreach (Ability ability in m_Abilities)
         {
             if (ability.m_isMaxed)
             {
+                // If the ability is maxed, remove it from the list and move on
                 m_Abilities.Remove(ability);
                 continue;
             }
             if (CheckAlreadyDisplayed(ability, displayedAbilities))
             {
+                //If the ability is already displayed on the other choices, move on
                 continue;
             }
             // If all checks pass, set the icon of the UI to the icon of the ability
             m_Icons[iconCounter].image.sprite = ability.m_Info.icon;
+            // Set the ability the icon represents to that ability
+            m_Icons[iconCounter].displayedAbility = ability;
+            // Show the icon
             m_Icons[iconCounter].image.enabled = true;
+
             iconCounter++;
         }
     }
@@ -60,9 +66,10 @@ public class AbilityManager : MonoBehaviour
     void HideAbilityOptions()
     {
         m_AbilityChoicesShown = false;
+
         foreach (AbilityIcon icon in m_Icons)
         {
-            icon.enabled = false;
+            icon.image.enabled = false;
         }
     }
 
@@ -80,25 +87,25 @@ public class AbilityManager : MonoBehaviour
         return false;
     }
 
-    void HandleInput(KeyCode key)
+    void HandleInput()
     {
-        switch(key)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            case KeyCode.UpArrow:
-                AbilityWasSelected(m_Icons[0]);
-                break;
-            case KeyCode.DownArrow:
-                AbilityWasSelected(m_Icons[1]);
-                break;
-            case KeyCode.LeftArrow:
-                AbilityWasSelected(m_Icons[2]);
-                break;
-            case KeyCode.RightArrow:
-                AbilityWasSelected(m_Icons[3]);
-                break;
-            default:
-                break;
+            AbilityWasSelected(m_Icons[0]);
         }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            AbilityWasSelected(m_Icons[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            AbilityWasSelected(m_Icons[2]);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            AbilityWasSelected(m_Icons[3]);
+        }
+
     }
 
     void AbilityWasSelected(AbilityIcon icon)

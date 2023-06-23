@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+public enum SpawnPoint
+{
+    Player,
+    Staff
+}
 
 public class ProjectileManager : MonoBehaviour
 {
@@ -24,12 +29,17 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
+    private float GetPlayerDamage()
+    {
+        return Player.m_Instance.GetStats().damage;
+    }
+
     public void Shoot(Vector2 pos, Vector2 dir, float speed, Color colour, float damage, float lifetime)
     {
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
 
-        bullet.GetComponent<Projectile>().damage = damage;
+        bullet.GetComponent<Projectile>().damage = damage * GetPlayerDamage();
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
@@ -38,13 +48,44 @@ public class ProjectileManager : MonoBehaviour
 
         // Set colour of light
         bullet.transform.GetComponent<Light2D>().color = colour;
+    }
 
+    public void Shoot(SpawnPoint spawnPoint, Vector2 dir, float speed, Color colour, float damage, float lifetime)
+    {
+        // Create bullet from prefab
+        GameObject bullet = Instantiate(m_BulletPrefab);
+
+        bullet.GetComponent<Projectile>().damage = damage * GetPlayerDamage();
+        bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+
+        Vector2 pos = Vector2.zero;
+        // Set pos of bullet
+        switch (spawnPoint)
+        {
+            case SpawnPoint.Player:
+                pos = Player.m_Instance.GetPosition();
+                break;
+            case SpawnPoint.Staff:
+                pos = Player.m_Instance.GetStaffTransform().position;
+                break;
+            default:
+                break;
+        }
+        bullet.transform.position = pos;
+
+        // Set velocity of bullet
+        bullet.transform.GetComponent<Rigidbody2D>().velocity = dir * speed;
+
+        // Set colour of light
+        bullet.transform.GetComponent<Light2D>().color = colour;
     }
 
     public void MultiShot(Vector2 pos, float speed, Color colour, int numShots, float damage, float lifetime)
     {
+        // How many degrees separate each shot
         float interval = 360 / numShots;
 
+        // How far from 0 degrees to start spawning shots
         float offset = interval / 2;
 
         for (int i = 0; i < numShots; i++)
@@ -55,6 +96,25 @@ public class ProjectileManager : MonoBehaviour
             float y = Mathf.Cos(angle);
 
             Shoot(pos, new Vector2(x,y), speed, colour, damage, lifetime);
+        }
+    }
+
+    public void MultiShot(SpawnPoint spawnPoint, float speed, Color colour, int numShots, float damage, float lifetime)
+    {
+        // How many degrees separate each shot
+        float interval = 360 / numShots;
+
+        // How far from 0 degrees to start spawning shots
+        float offset = interval / 2;
+
+        for (int i = 0; i < numShots; i++)
+        {
+            float angle = (interval * i + offset) * Mathf.Deg2Rad;
+
+            float x = Mathf.Sin(angle);
+            float y = Mathf.Cos(angle);
+
+            Shoot(spawnPoint, new Vector2(x,y), speed, colour, damage, lifetime);
         }
     }
 }

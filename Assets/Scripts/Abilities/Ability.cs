@@ -28,12 +28,11 @@ public struct AbilityStats
 
 public class Ability : MonoBehaviour
 {
-    // Level of the ability
-    int m_Level;
+    protected int m_Level;                // Level of the ability
 
-    bool m_Enabled;
+    protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
 
-    public bool m_isMaxed;
+    public bool m_isMaxed;      // If an ability is max level, it won't show up in the ability selection
 
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
@@ -44,12 +43,22 @@ public class Ability : MonoBehaviour
     {
         if (!m_Enabled)
         {
+            Debug.Log(m_Info.name + " was enabled.");
             m_Enabled = true;
+            CancelInvoke(nameof(OnCast));
+            InvokeRepeating(nameof(OnCast), 0, 0.2f);
         }
         else
         {
+            Debug.Log(m_Info.name + " is now level "+ m_Level.ToString());
+
             LevelUp();
         }
+    }
+
+    virtual public void OnCast()
+    {
+
     }
 
     void UpdateTotalStats(AbilityStats abilityStatsBuffs)
@@ -75,6 +84,7 @@ public class Ability : MonoBehaviour
     // Called on level up and calls a different function depending on current ability level
     void LevelUp()
     {
+        m_Level++;
         switch (m_Level)
         {
             case 1:
