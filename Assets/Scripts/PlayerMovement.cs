@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,10 +12,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator m_Animator;
 
+    private Vector3 staffPos;
+
     // Start is called before the first frame update
     void Start()
     {
         m_Animator = GetComponentInChildren<Animator>();
+
+        staffPos = Player.m_Instance.GetStaffTransform().localPosition;
     }
 
     // Update is called once per frame
@@ -39,13 +45,18 @@ public class PlayerMovement : MonoBehaviour
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
+        // If player is moving right, face right
         if (targetVelocity.x > 0)
         {
             sprite.flipX = false;
+            Player.m_Instance.GetStaffTransform().localPosition = staffPos;
         }
+        // If player is moving left, face left
         else if (targetVelocity.x < 0)
         {
             sprite.flipX = true;
+            Player.m_Instance.GetStaffTransform().localPosition = staffPos* new Vector2(-1,1);
+
         }
 
         if (targetVelocity.magnitude > 0)

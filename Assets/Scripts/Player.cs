@@ -14,6 +14,8 @@ public struct PlayerStats
 
 public class Player : Actor
 {
+    [SerializeField] GameObject staffPos;
+
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
     PlayerStats m_BonusStats;
@@ -24,7 +26,7 @@ public class Player : Actor
         m_Instance = this;
     }
 
-    public Vector2 GetPosition()
+    public Vector3 GetPosition()
     {
         return transform.position;
     }
@@ -32,5 +34,10 @@ public class Player : Actor
     public PlayerStats GetStats()
     {
         return m_TotalStats;
+    }
+
+    public Transform GetStaffTransform()
+    {
+        return staffPos.transform;
     }
 }

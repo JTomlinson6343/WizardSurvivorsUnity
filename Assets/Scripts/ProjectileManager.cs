@@ -43,7 +43,6 @@ public class ProjectileManager : MonoBehaviour
 
         // Set colour of light
         bullet.transform.GetComponent<Light2D>().color = colour;
-
     }
 
     public void MultiShot(Vector2 pos, float speed, Color colour, int numShots, float damage, float lifetime)
