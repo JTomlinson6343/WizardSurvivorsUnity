@@ -215,7 +215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Abilities:
-  - {fileID: 0}
+  - {fileID: 753783869}
+  - {fileID: 753783869}
+  - {fileID: 753783869}
+  - {fileID: 753783869}
 --- !u!1001 &680866500
 PrefabInstance:
   m_ObjectHideFlags: 0
