@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinningProjectile : MonoBehaviour
+public class SpinningProjectile : Projectile
 {
     public float speed;     // Degrees the projectile moves per fer
 
@@ -27,8 +27,8 @@ public class SpinningProjectile : MonoBehaviour
     {
         angle += speed * Time.deltaTime * Mathf.Deg2Rad;
 
-        float x = Player.m_Instance.transform.position.x + radius*Mathf.Sin(angle);
-        float y = Player.m_Instance.transform.position.y + radius*Mathf.Cos(angle);
+        float x = Player.m_Instance.GetStaffTransform().position.x + radius*Mathf.Sin(angle);
+        float y = Player.m_Instance.GetStaffTransform().position.y + radius*Mathf.Cos(angle);
 
         transform.position = new Vector2(x, y);
     }
