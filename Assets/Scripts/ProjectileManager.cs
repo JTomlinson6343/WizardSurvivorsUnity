@@ -82,8 +82,10 @@ public class ProjectileManager : MonoBehaviour
 
     public void MultiShot(Vector2 pos, float speed, Color colour, int numShots, float damage, float lifetime)
     {
+        // How many degrees separate each shot
         float interval = 360 / numShots;
 
+        // How far from 0 degrees to start spawning shots
         float offset = interval / 2;
 
         for (int i = 0; i < numShots; i++)
@@ -94,6 +96,25 @@ public class ProjectileManager : MonoBehaviour
             float y = Mathf.Cos(angle);
 
             Shoot(pos, new Vector2(x,y), speed, colour, damage, lifetime);
+        }
+    }
+
+    public void MultiShot(SpawnPoint spawnPoint, float speed, Color colour, int numShots, float damage, float lifetime)
+    {
+        // How many degrees separate each shot
+        float interval = 360 / numShots;
+
+        // How far from 0 degrees to start spawning shots
+        float offset = interval / 2;
+
+        for (int i = 0; i < numShots; i++)
+        {
+            float angle = (interval * i + offset) * Mathf.Deg2Rad;
+
+            float x = Mathf.Sin(angle);
+            float y = Mathf.Cos(angle);
+
+            Shoot(spawnPoint, new Vector2(x,y), speed, colour, damage, lifetime);
         }
     }
 }
