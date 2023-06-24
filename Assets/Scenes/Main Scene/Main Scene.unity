@@ -267,18 +267,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238939569}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f22d261921adda540a1448a9fa8510ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 9938197fb39889c4989492f98d31a730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeData:
+  prefabData:
   - prefab: {fileID: 5532907872796235166, guid: e9b236ae55be4aa40abfab53f21fe2b0, type: 3}
-    density: 1
-  - prefab: {fileID: 2206546898697121767, guid: 8b5a36a2ec0464f4dbbc99213cfec433, type: 3}
-    density: 1
-  areaSize: 256
-  spawnChance: 0.02
+    density: 0.0208
+    minDistance: 2
+  renderDistance: 16
+  gridSize: 64
 --- !u!1001 &245591732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5454086327865430330, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_WalkSpeed
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7066416600859335895, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_RendererIndex
@@ -763,7 +762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7881663950925942816, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 29.08
+      value: 31.37
       objectReference: {fileID: 0}
     - target: {fileID: 7881663950925942816, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
@@ -1259,7 +1258,7 @@ MonoBehaviour:
   - tile: {fileID: 11400000, guid: b740a65003f53024685c2c5c399b5ab2, type: 2}
     ratio: 1
   renderDistance: 16
-  gridSize: 32
+  gridSize: 256
 --- !u!224 &1805368710 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6229566499917816928, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}

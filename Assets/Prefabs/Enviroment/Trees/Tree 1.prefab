@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7745080032157147970}
   - component: {fileID: 7995757075670549685}
   - component: {fileID: 6060859307034058015}
-  - component: {fileID: 757296241974861916}
   - component: {fileID: 1433766256021818664}
   m_Layer: 0
   m_Name: Tree 1
@@ -113,22 +112,10 @@ MonoBehaviour:
   - {x: 0.16099432, y: -0.02945733, z: 0}
   m_ShapePathHash: 953860957
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47252
+  m_InstanceId: 32340
   m_LocalBounds:
     m_Center: {x: 0.006508827, y: 0.119853795, z: 0}
     m_Extent: {x: 0.1602315, y: 0.15298289, z: 0}
---- !u!114 &757296241974861916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5532907872796235166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d704b4acb895c44ab17b4a8e28bc3ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1433766256021818664
 CircleCollider2D:
   m_ObjectHideFlags: 0
