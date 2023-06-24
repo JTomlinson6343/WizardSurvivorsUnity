@@ -159,10 +159,14 @@ public class TilemapGenerator : MonoBehaviour
         TileBase[] tiles = new TileBase[count];
         for (int i = 0; i < count; i++)
         {
-            Vector2Int tilePos = new Vector2Int(tilePositionsBuffer[i].x, tilePositionsBuffer[i].y);
-            tiles[i] = spawnedTiles[tilePos].tile;
+            Vector3Int tilePos = tilePositionsBuffer[i];
+            Vector2Int tilePosition = new Vector2Int(tilePos.x, tilePos.y);
+            TileData tileData;
+            if (spawnedTiles.TryGetValue(tilePosition, out tileData))
+            {
+                tiles[i] = tileData.tile;
+            }
         }
         return tiles;
     }
-
 }

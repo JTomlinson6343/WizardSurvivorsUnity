@@ -277,7 +277,7 @@ MonoBehaviour:
     density: 0.0208
     minDistance: 2
   renderDistance: 16
-  gridSize: 64
+  gridSize: 128
 --- !u!1001 &245591732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,6 +692,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1125695373351685672, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133933721834249584, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_TagString
+      value: AnimatorMask
+      objectReference: {fileID: 0}
     - target: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -704,6 +712,26 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3793565455578594936, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -714,6 +742,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_MaskInteraction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
@@ -736,6 +768,30 @@ PrefabInstance:
       propertyPath: m_WalkSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5685897533416626910, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Color.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685897533416626910, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685897533416626910, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685897533416626910, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685897533416626910, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685897533416626910, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
     - target: {fileID: 7066416600859335895, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_RendererIndex
       value: -1
@@ -1258,7 +1314,7 @@ MonoBehaviour:
   - tile: {fileID: 11400000, guid: b740a65003f53024685c2c5c399b5ab2, type: 2}
     ratio: 1
   renderDistance: 16
-  gridSize: 256
+  gridSize: 128
 --- !u!224 &1805368710 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6229566499917816928, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
