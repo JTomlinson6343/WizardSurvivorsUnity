@@ -652,21 +652,33 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 560991699726566219, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_Damage
       value: 23.67
       objectReference: {fileID: 0}
     - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_Colour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_Colour.b
-      value: 0.07662869
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_Colour.g
-      value: 0.3352234
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_Colour.r
-      value: 0.7735849
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_Colour.rgba
+      value: 27391
       objectReference: {fileID: 0}
     - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_ShrinkSpeed

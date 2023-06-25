@@ -15,6 +15,7 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
+    [SerializeField] GameObject m_FloatingDamagePrefab;
 
     void Awake()
     {
@@ -24,10 +25,7 @@ public class ProjectileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShootMultipleSpinning(200, Color.red, 10, 3,10);
-        }
+
     }
 
     private float GetPlayerDamage()
