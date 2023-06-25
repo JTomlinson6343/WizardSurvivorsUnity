@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8742784870262972193}
   - component: {fileID: 560991699726566219}
   - component: {fileID: 4033256847111033670}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FloatingDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,8 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4071f743f079e354b9872166af16fb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RiseSpeed: 1
-  m_ShrinkTime: 0.75
+  m_RiseSpeed: 0.5
+  m_ShrinkTime: 1
   m_StartSize: {x: 1, y: 1, z: 1}
   m_EndSize: {x: 0, y: 0, z: 0}
   m_Colour: {r: 0.9528302, g: 0.03146139, b: 0.03146139, a: 0}
+  m_Damage: 0
