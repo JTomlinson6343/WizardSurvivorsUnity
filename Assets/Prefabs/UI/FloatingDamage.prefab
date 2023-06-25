@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4384131703156116006}
   - component: {fileID: 8742784870262972193}
   - component: {fileID: 560991699726566219}
+  - component: {fileID: 4033256847111033670}
   m_Layer: 0
   m_Name: FloatingDamage
   m_TagString: Untagged
@@ -172,3 +173,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8742784870262972193}
   m_maskType: 0
+--- !u!114 &4033256847111033670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035281070457857526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4071f743f079e354b9872166af16fb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RiseSpeed: 1
+  m_ShrinkSpeed: 5
+  m_StartSize: {x: 1, y: 1, z: 1}
+  m_EndSize: {x: 0, y: 0, z: 0}
+  m_Colour: {r: 0.9528302, g: 0.03146139, b: 0.03146139, a: 0}
