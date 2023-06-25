@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7745080032157147970}
   - component: {fileID: 7995757075670549685}
-  - component: {fileID: 3219938579018489101}
   - component: {fileID: 6060859307034058015}
+  - component: {fileID: 1433766256021818664}
+  - component: {fileID: 5924150069317007427}
   m_Layer: 0
   m_Name: Tree 1
   m_TagString: Untagged
@@ -27,12 +28,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5532907872796235166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.56, y: 1.24, z: 0}
+  m_LocalPosition: {x: 6.56, y: 1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7995757075670549685
 SpriteRenderer:
@@ -86,8 +87,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &3219938579018489101
-BoxCollider2D:
+--- !u!114 &6060859307034058015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532907872796235166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 3f05506e
+  m_ShapePath:
+  - {x: -0.15179053, y: -0.033129096, z: 0}
+  - {x: -0.15372267, y: 0.2728367, z: 0}
+  - {x: 0.16674033, y: 0.27216733, z: 0}
+  - {x: 0.16099432, y: -0.02945733, z: 0}
+  m_ShapePathHash: 953860957
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 42450
+  m_LocalBounds:
+    m_Center: {x: 0.006508827, y: 0.119853795, z: 0}
+    m_Extent: {x: 0.1602315, y: 0.15298289, z: 0}
+--- !u!58 &1433766256021818664
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,46 +149,57 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.003276348, y: 0.12571096}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4957828, y: 0.009711835}
-    oldSize: {x: 3.5, y: 4.34375}
-    newSize: {x: 3.5, y: 4.34375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.0026432276, y: 0.12825131}
   serializedVersion: 2
-  m_Size: {x: 0.35335255, y: 0.3357935}
-  m_EdgeRadius: 0
---- !u!114 &6060859307034058015
-MonoBehaviour:
+  m_Radius: 0.16463625
+--- !u!331 &5924150069317007427
+SpriteMask:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5532907872796235166}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_ComponentVersion: 1
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 3f05506e00000000
-  m_ShapePath:
-  - {x: -0.15179053, y: -0.033129096, z: 0}
-  - {x: -0.15372267, y: 0.2728367, z: 0}
-  - {x: 0.16674033, y: 0.27216733, z: 0}
-  - {x: 0.16099432, y: -0.02945733, z: 0}
-  m_ShapePathHash: 953860957
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 63280
-  m_LocalBounds:
-    m_Center: {x: 0.006508827, y: 0.119853795, z: 0}
-    m_Extent: {x: 0.1602315, y: 0.15298289, z: 0}
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 937998773, guid: 41ae3a76342df6449ad9068c4262f794, type: 3}
+  m_MaskAlphaCutoff: 0.2
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
+  m_SpriteSortPoint: 0
