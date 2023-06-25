@@ -37,7 +37,7 @@ public struct AbilityStats
     public float damageScaling; // Percentage of player damage dealt by the ability
     public float speed;         // Speed of projectile/animation of the ability
     public float cooldown;      // Cooldown in seconds of the ability
-    public float amount;        // Amount of projectiles fired by the ability
+    public int amount;        // Amount of projectiles fired by the ability
     public float knockback;     // Knockback of the ability
     public int   pierceAmount;  // Number of enemies that can be pierced
 }
