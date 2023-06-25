@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] GameObject m_DamageNumberPrefab;
+    [SerializeField] protected GameObject m_DamageNumberPrefab;
 
     public float m_Damage;
 
