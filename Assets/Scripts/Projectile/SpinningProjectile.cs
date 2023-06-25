@@ -15,6 +15,7 @@ public class SpinningProjectile : Projectile
     public void Init()
     {
         angle = offset * Mathf.Deg2Rad;
+        Update();
     }
 
     private void Awake()

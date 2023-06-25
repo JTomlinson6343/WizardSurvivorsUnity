@@ -15,6 +15,7 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
+    [SerializeField] GameObject m_FloatingDamagePrefab;
 
     void Awake()
     {
@@ -24,10 +25,7 @@ public class ProjectileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShootMultipleSpinning(200, Color.red, 10, 3,10);
-        }
+
     }
 
     private float GetPlayerDamage()
@@ -40,7 +38,7 @@ public class ProjectileManager : MonoBehaviour
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
 
-        bullet.GetComponent<Projectile>().damage = damage * GetPlayerDamage();
+        bullet.GetComponent<Projectile>().m_Damage = damage * GetPlayerDamage();
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
@@ -56,7 +54,7 @@ public class ProjectileManager : MonoBehaviour
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
 
-        bullet.GetComponent<Projectile>().damage = damage * GetPlayerDamage();
+        bullet.GetComponent<Projectile>().m_Damage = damage * GetPlayerDamage();
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         Vector2 pos = Vector2.zero;
@@ -126,7 +124,7 @@ public class ProjectileManager : MonoBehaviour
 
         SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
-        bulletScript.damage = damage * GetPlayerDamage();
+        bulletScript.m_Damage = damage * GetPlayerDamage();
         bulletScript.speed = speed;
         bulletScript.offset = offset;
         bulletScript.radius = radius;
@@ -143,7 +141,7 @@ public class ProjectileManager : MonoBehaviour
 
             SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
-            bulletScript.damage = damage * GetPlayerDamage();
+            bulletScript.m_Damage = damage * GetPlayerDamage();
             bulletScript.speed = speed;
             bulletScript.offset = interval*i;
             bulletScript.radius = radius;

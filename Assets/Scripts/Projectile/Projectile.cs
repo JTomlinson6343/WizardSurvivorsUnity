@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float damage;
+    [SerializeField] GameObject m_DamageNumberPrefab;
+
+    public float m_Damage;
 
     public void StartLifetimeTimer(float lifetime)
     {
@@ -17,12 +19,16 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            GameObject enemy = collision.gameObject;
-            //enemy.GetComponent<EnemyLogic>().TakeDamage(damage);
+            Actor enemy = collision.GetComponentInParent<Actor>();
+            bool a = enemy.TakeDamage(m_Damage);
+            GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
+            damageNumber.transform.position = this.transform.position;
+            damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
+            damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage;
             DestroySelf();
         }
     }
