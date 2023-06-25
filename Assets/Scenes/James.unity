@@ -653,12 +653,24 @@ PrefabInstance:
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
-      propertyPath: m_ShrinkTime
-      value: 5
+      propertyPath: m_Damage
+      value: 23.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_Colour.b
+      value: 0.07662869
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_Colour.g
+      value: 0.3352234
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_Colour.r
+      value: 0.7735849
       objectReference: {fileID: 0}
     - target: {fileID: 4033256847111033670, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_ShrinkSpeed
-      value: 500
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4384131703156116006, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_Pivot.x

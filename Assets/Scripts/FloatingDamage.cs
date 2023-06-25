@@ -11,7 +11,6 @@ public class FloatingDamage : MonoBehaviour
     [SerializeField] private Vector3 m_EndSize;
 
     private float m_Gradient;
-
     public Color m_Colour;
     public float m_Damage;
 
