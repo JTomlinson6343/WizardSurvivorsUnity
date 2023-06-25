@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class FloatingDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        Invoke(nameof(DestroySelf),1.5f);
     }
-
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
