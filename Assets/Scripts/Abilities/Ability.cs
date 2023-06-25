@@ -52,8 +52,14 @@ public class Ability : MonoBehaviour
 
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
+    protected AbilityStats m_AbilityStatsBuffs;
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
     public AbilityInfo     m_Info;        // Info about the ability to display on upgrad screen
+
+    private void Start()
+    {
+        UpdateTotalStats(m_AbilityStatsBuffs);
+    }
 
     virtual public void OnChosen()
     {
@@ -62,7 +68,7 @@ public class Ability : MonoBehaviour
             Debug.Log(m_Info.name + " was enabled.");
             m_Enabled = true;
             CancelInvoke(nameof(OnCast));
-            InvokeRepeating(nameof(OnCast), 0, 0.2f);
+            InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
         }
         else
         {
