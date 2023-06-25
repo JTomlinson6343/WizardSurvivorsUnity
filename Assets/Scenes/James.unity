@@ -140,6 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4071f743f079e354b9872166af16fb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RiseSpeed: 1
+  m_ShrinkSpeed: 5
+  m_StartSize: {x: 1, y: 1, z: 1}
+  m_EndSize: {x: 0, y: 0, z: 0}
+  m_Colour: {r: 0.9528302, g: 0.03146139, b: 0.03146139, a: 0}
 --- !u!1 &1101833284
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +707,14 @@ PrefabInstance:
       value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4384131703156116006, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384131703156116006, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384131703156116006, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -731,11 +744,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4384131703156116006, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.3467
+      value: 9.04
       objectReference: {fileID: 0}
     - target: {fileID: 4384131703156116006, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.0662
+      value: -3.43
       objectReference: {fileID: 0}
     - target: {fileID: 4384131703156116006, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
