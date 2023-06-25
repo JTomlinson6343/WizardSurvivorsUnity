@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,21 @@ public struct AbilityInfo
 [System.Serializable]
 public struct AbilityStats
 {
+    public static AbilityStats operator +(AbilityStats left, AbilityStats right)
+    {
+        AbilityStats stats;
+        stats.AOE = left.AOE + right.AOE;
+        stats.duration = left.duration + right.duration;
+        stats.damageScaling = left.damageScaling + right.damageScaling;
+        stats.speed = left.speed + right.speed;
+        stats.cooldown = left.cooldown + right.cooldown;
+        stats.amount = left.amount + right.amount;
+        stats.knockback =  left.amount + right.amount;
+        stats.pierceAmount = left.pierceAmount + right.pierceAmount;
+
+        return stats;
+    }
+
     public float AOE;           // Modifier of radius
     public float duration;      // Duration in seconds
     public float damageScaling; // Percentage of player damage dealt by the ability
@@ -64,21 +80,7 @@ public class Ability : MonoBehaviour
     void UpdateTotalStats(AbilityStats abilityStatsBuffs)
     {
         // Update total stats
-        m_TotalStats.AOE = m_BaseStats.AOE + m_BonusStats.AOE + abilityStatsBuffs.AOE;
-
-        m_TotalStats.duration = m_BaseStats.duration + m_BonusStats.duration + abilityStatsBuffs.duration;
-
-        m_TotalStats.damageScaling = m_BaseStats.damageScaling + m_BonusStats.damageScaling + abilityStatsBuffs.damageScaling;
-
-        m_TotalStats.speed = m_BaseStats.speed + m_BonusStats.speed + abilityStatsBuffs.speed;
-
-        m_TotalStats.cooldown = m_BaseStats.cooldown + m_BonusStats.cooldown + abilityStatsBuffs.cooldown;
-
-        m_TotalStats.amount = m_BaseStats.amount + m_BonusStats.amount + abilityStatsBuffs.amount;
-
-        m_TotalStats.knockback = m_BaseStats.knockback + m_BonusStats.knockback + abilityStatsBuffs.knockback;
-
-        m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + m_BonusStats.pierceAmount + abilityStatsBuffs.pierceAmount;
+        m_TotalStats = m_BaseStats + m_BonusStats + abilityStatsBuffs;
     }
 
     // Called on level up and calls a different function depending on current ability level
