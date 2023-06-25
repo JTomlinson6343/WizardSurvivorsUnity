@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RiseSpeed: 1
-  m_ShrinkSpeed: 5
+  m_ShrinkTime: 0.75
   m_StartSize: {x: 1, y: 1, z: 1}
   m_EndSize: {x: 0, y: 0, z: 0}
   m_Colour: {r: 0.9528302, g: 0.03146139, b: 0.03146139, a: 0}

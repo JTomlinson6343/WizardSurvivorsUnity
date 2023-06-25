@@ -5,11 +5,11 @@ using UnityEngine;
 public class FloatingDamage : MonoBehaviour
 {
     [SerializeField] private float m_RiseSpeed;
-    [SerializeField] private float m_ShrinkSpeed;
+    [SerializeField] private float m_ShrinkTime;
     [SerializeField] private Vector3 m_StartSize;
     [SerializeField] private Vector3 m_EndSize;
 
-    private Vector3 m_Gradient;
+    private float m_Gradient;
 
     public Color m_Colour;
 
@@ -19,15 +19,15 @@ public class FloatingDamage : MonoBehaviour
     }
     private void Awake()
     {
-        Invoke(nameof(DestroySelf), m_ShrinkSpeed);
-        m_Gradient = Vector2.Lerp(m_StartSize, m_EndSize, 1/m_ShrinkSpeed);
+        Invoke(nameof(DestroySelf), m_ShrinkTime);
+        m_Gradient = (m_StartSize.x - m_EndSize.x) / m_ShrinkTime;
     }
     // Update is called once per frame
     void Update()
     {
         if(transform.localScale.x > m_EndSize.x)
         {
-            transform.localScale -= m_Gradient * Time.deltaTime;
+            transform.localScale -= new Vector3(m_Gradient * Time.deltaTime, m_Gradient * Time.deltaTime);
         }
         float risePerFrame = m_RiseSpeed * Time.deltaTime;
 
