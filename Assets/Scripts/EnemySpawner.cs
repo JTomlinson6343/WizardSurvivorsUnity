@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject m_EnemiesFolder;
     
     private float m_NextSpawn = 0.0f;
-    private float m_SpawnCooldown = 1.0f;
+    [SerializeField] private float m_SpawnCooldown = 1.0f;
     private float m_SpawnRadius = 30.0f;
 
     private Vector3 GetSpawnPosition()
@@ -41,4 +41,11 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.parent = m_EnemiesFolder.transform;
         }
     }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(m_PlayerReference.transform.position, m_SpawnRadius);
+    }
 }
+

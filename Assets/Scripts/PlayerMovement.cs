@@ -10,15 +10,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_WalkSpeed = 1.0f;
     private float m_Acceleration = 8.0f;
 
-    private Animator m_Animator;
+    [SerializeField] private Animator m_Animator;
+
+    [SerializeField] private Animator m_AnimatorMask;
+    [SerializeField] private SpriteRenderer spriteMask;
 
     private Vector3 staffPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_Animator = GetComponentInChildren<Animator>();
-
         staffPos = Player.m_Instance.GetStaffTransform().localPosition;
     }
 
@@ -49,12 +50,14 @@ public class PlayerMovement : MonoBehaviour
         if (targetVelocity.x > 0)
         {
             sprite.flipX = false;
+            spriteMask.flipX = false;
             Player.m_Instance.GetStaffTransform().localPosition = staffPos;
         }
         // If player is moving left, face left
         else if (targetVelocity.x < 0)
         {
             sprite.flipX = true;
+            spriteMask.flipX = true;
             Player.m_Instance.GetStaffTransform().localPosition = staffPos* new Vector2(-1,1);
 
         }
@@ -64,12 +67,18 @@ public class PlayerMovement : MonoBehaviour
             // Object is moving
             m_Animator.SetBool("Moving", true);
             m_Animator.SetBool("Idle", false); // Disable the idle state
+
+            m_AnimatorMask.SetBool("Moving", true);
+            m_AnimatorMask.SetBool("Idle", false); // Disable the idle state
         }
         else
         {
             // Object is not moving
             m_Animator.SetBool("Moving", false); // Disable the moving state
             m_Animator.SetBool("Idle", true);
+
+            m_AnimatorMask.SetBool("Moving", false);
+            m_AnimatorMask.SetBool("Idle", true); // Disable the idle state
         }
     }
 
