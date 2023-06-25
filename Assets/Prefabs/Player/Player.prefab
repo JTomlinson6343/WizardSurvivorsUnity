@@ -200,7 +200,7 @@ MonoBehaviour:
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
   m_BaseStats:
-    damage: 0
+    damage: 100
     speed: 0
     maxHealth: 0
     healthRegen: 0

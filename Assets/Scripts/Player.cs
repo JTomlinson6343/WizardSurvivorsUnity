@@ -6,6 +6,16 @@ using UnityEngine;
 [System.Serializable]
 public struct PlayerStats
 {
+    // Overload + operator to allow two PlayerStats structs together
+    public static PlayerStats operator +(PlayerStats left, PlayerStats right)
+    {
+        PlayerStats newstats;
+        newstats.damage = left.damage + right.damage;
+        newstats.speed = left.speed + right.speed;
+        newstats.maxHealth = left.maxHealth + right.maxHealth;
+        newstats.healthRegen = left.maxHealth + right.maxHealth;
+        return newstats;
+    }
     public float damage;
     public float speed;
     public float maxHealth;
@@ -25,6 +35,16 @@ public class Player : Actor
     private void Awake()
     {
         m_Instance = this;
+    }
+
+    private void Start()
+    {
+        Player.m_Instance.UpdateStats();
+    }
+
+    public void UpdateStats()
+    {
+        m_TotalStats = m_BaseStats + m_BonusStats;
     }
 
     public Vector3 GetPosition()

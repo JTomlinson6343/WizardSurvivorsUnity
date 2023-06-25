@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpinningProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5855194254980486322, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
     m_RemovedGameObjects: []
@@ -82,6 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5d3380235b4ba44a599f4bbf433cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_DamageNumberPrefab: {fileID: 5035281070457857526, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+  m_Damage: 1
   speed: 200
   radius: 2
   offset: 45

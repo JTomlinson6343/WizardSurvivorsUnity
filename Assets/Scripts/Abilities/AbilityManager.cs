@@ -115,6 +115,7 @@ public class AbilityManager : MonoBehaviour
             // Check if icon is displayed and then enable the ability displayed
             icon.displayedAbility.OnChosen();
             HideAbilityOptions();
+            Player.m_Instance.UpdateStats();
         }
     }
 }
