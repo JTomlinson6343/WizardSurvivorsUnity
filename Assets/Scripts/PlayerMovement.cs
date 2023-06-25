@@ -10,17 +10,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_WalkSpeed = 1.0f;
     private float m_Acceleration = 8.0f;
 
-    private Animator m_Animator;
-    private Animator m_AnimatorMask;
+    [SerializeField] private Animator m_Animator;
+
+    [SerializeField] private Animator m_AnimatorMask;
+    [SerializeField] private SpriteRenderer spriteMask;
 
     private Vector3 staffPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_Animator = GetComponentInChildren<Animator>();
-        m_AnimatorMask = GameObject.FindGameObjectWithTag("AnimatorMask").GetComponent<Animator>();
-
         staffPos = Player.m_Instance.GetStaffTransform().localPosition;
     }
 
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     void SetAnimState(Vector3 targetVelocity)
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
-        SpriteRenderer spriteMask = GameObject.FindGameObjectWithTag("AnimatorMask").GetComponent<SpriteRenderer>();
 
         // If player is moving right, face right
         if (targetVelocity.x > 0)

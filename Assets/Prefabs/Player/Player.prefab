@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3793565455578594936}
   m_Layer: 0
   m_Name: Animator Mask
-  m_TagString: Untagged
+  m_TagString: AnimatorMask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0acbf5f129eaa244aaf6ec709358ab75, type: 2}
+  - {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,9 +104,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2074738113, guid: b3cbde3067e99f749be64ae573348bb3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 2687768136547122572}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +255,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigidBody: {fileID: 8679808496323243270}
-  m_WalkSpeed: 2
+  m_WalkSpeed: 3
+  m_Animator: {fileID: 3585064873875077332}
+  m_AnimatorMask: {fileID: 3793565455578594936}
+  spriteMask: {fileID: 5685897533416626910}
 --- !u!70 &8451655563064316095
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -464,12 +467,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FalloffIntensity: 1
+  m_Color: {r: 1, g: 0.8517593, b: 0.6084906, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 3f05506e00000000
+  m_ApplyToSortingLayers: 3f05506e0000000015d1c7f1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -479,7 +482,7 @@ MonoBehaviour:
   m_NormalMapQuality: 1
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 1
-  m_ShadowIntensity: 0.085
+  m_ShadowIntensity: 0.233
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
@@ -488,7 +491,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 2.5299714
-  m_PointLightOuterRadius: 11.32
+  m_PointLightOuterRadius: 31.37
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -599,7 +602,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -828,6 +831,14 @@ PrefabInstance:
     - target: {fileID: 7002764564321052147, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671104541359663102, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7671104541359663102, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8403218026394921570, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
       propertyPath: m_PresetInfoIsWorld
