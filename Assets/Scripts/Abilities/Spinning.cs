@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Spinning : Ability
 {
-    public override void OnCast()
+    public override void OnChosen()
     {
-        ProjectileManager.m_Instance.ShootMultipleSpinning(200, Color.blue, 0.7f, 3, 1);
+        ProjectileManager.m_Instance.ShootMultipleSpinning(200, Color.blue, 0.7f, 3, 3);
     }
 }
