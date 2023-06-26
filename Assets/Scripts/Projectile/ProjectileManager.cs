@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
+
 public enum SpawnPoint
 {
     Player,
@@ -47,7 +49,12 @@ public class ProjectileManager : MonoBehaviour
 
         // Set pos and velocity of bullet
         bullet.transform.position = pos;
-        bullet.transform.GetComponent<Rigidbody2D>().velocity = dir * speed;
+
+        Rigidbody2D rb = bullet.transform.GetComponent<Rigidbody2D>();
+        rb.velocity = dir * speed;
+
+        // Rotate projectile in direction of travel
+        bullet.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -90);
 
         // Set colour of light
         bullet.transform.GetComponent<Light2D>().color = colour;
