@@ -25,7 +25,10 @@ public class ProjectileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Shoot(SpawnPoint.Player,Vector2.one,1,Color.green,1,1);
+        }
     }
 
     private float GetPlayerDamage()
@@ -38,6 +41,7 @@ public class ProjectileManager : MonoBehaviour
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
 
+        bullet.transform.SetParent(transform);
         bullet.GetComponent<Projectile>().m_Damage = damage * GetPlayerDamage();
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
@@ -51,12 +55,6 @@ public class ProjectileManager : MonoBehaviour
 
     public void Shoot(SpawnPoint spawnPoint, Vector2 dir, float speed, Color colour, float damage, float lifetime)
     {
-        // Create bullet from prefab
-        GameObject bullet = Instantiate(m_BulletPrefab);
-
-        bullet.GetComponent<Projectile>().m_Damage = damage * GetPlayerDamage();
-        bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
-
         Vector2 pos = Vector2.zero;
         // Set pos of bullet
         switch (spawnPoint)
@@ -70,13 +68,8 @@ public class ProjectileManager : MonoBehaviour
             default:
                 break;
         }
-        bullet.transform.position = pos;
-
-        // Set velocity of bullet
-        bullet.transform.GetComponent<Rigidbody2D>().velocity = dir * speed;
-
-        // Set colour of light
-        bullet.transform.GetComponent<Light2D>().color = colour;
+        // Call shoot function
+        Shoot(pos,dir,speed, colour, damage, lifetime);
     }
 
     public void MultiShot(Vector2 pos, float speed, Color colour, int numShots, float damage, float lifetime)
@@ -121,6 +114,7 @@ public class ProjectileManager : MonoBehaviour
     {
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_SpinningBulletPrefab);
+        bullet.transform.SetParent(transform);
 
         SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
@@ -137,15 +131,7 @@ public class ProjectileManager : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             // Create bullet from prefab
-            GameObject bullet = Instantiate(m_SpinningBulletPrefab);
-
-            SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
-
-            bulletScript.m_Damage = damage * GetPlayerDamage();
-            bulletScript.speed = speed;
-            bulletScript.offset = interval*i;
-            bulletScript.radius = radius;
-            bulletScript.Init();
+            ShootSpinning(speed, colour, damage, interval*i, radius);
         }
     }
 }
