@@ -88,6 +88,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageNumberPrefab: {fileID: 5035281070457857526, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
   m_Damage: 1
-  speed: 200
-  radius: 2
-  offset: 45
+  speed: 500
+  radius: 4
+  offset: 90
