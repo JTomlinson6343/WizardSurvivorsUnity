@@ -12,6 +12,7 @@ public struct PlayerStats
         PlayerStats newstats;
         newstats.damage = left.damage + right.damage;
         newstats.speed = left.speed + right.speed;
+        newstats.fireDelay = left.fireDelay + right.fireDelay;
         newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
         newstats.maxHealth = left.maxHealth + right.maxHealth;
         newstats.healthRegen = left.maxHealth + right.maxHealth;
@@ -19,6 +20,7 @@ public struct PlayerStats
     }
     public float damage;
     public float speed;
+    public float fireDelay;
     public float shotSpeed;
     public float maxHealth;
     public float healthRegen;

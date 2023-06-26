@@ -311,6 +311,7 @@ MonoBehaviour:
   m_BaseStats:
     damage: 100
     speed: 0
+    fireDelay: 0.2
     shotSpeed: 10
     maxHealth: 100
     healthRegen: 1

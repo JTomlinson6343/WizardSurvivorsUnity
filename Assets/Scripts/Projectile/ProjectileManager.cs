@@ -27,6 +27,8 @@ public class ProjectileManager : MonoBehaviour
     [SerializeField] Color m_BasicAttackColour;
     [SerializeField] float m_BasicAttackLifetime;
 
+    float m_LastShot = 0;
+
     void Awake()
     {
         m_Instance = this;
@@ -37,10 +39,22 @@ public class ProjectileManager : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            shootDir = (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - Player.m_Instance.GetStaffTransform().position).normalized;
+            float now = Time.realtimeSinceStartup;
 
-            Shoot(Player.m_Instance.GetStaffTransform().position, shootDir.normalized, Player.m_Instance.GetStats().shotSpeed, m_BasicAttackColour, m_BasicAttackScaling, m_BasicAttackLifetime);
+            if (now - m_LastShot > Player.m_Instance.GetStats().fireDelay)
+            {
+                BasicAttack();
+                m_LastShot = now;
+            }
         }
+    }
+
+    private void BasicAttack()
+    {
+        shootDir = (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - Player.m_Instance.GetStaffTransform().position).normalized;
+
+        Shoot(Player.m_Instance.GetStaffTransform().position, shootDir.normalized, Player.m_Instance.GetStats().shotSpeed, m_BasicAttackColour, m_BasicAttackScaling, m_BasicAttackLifetime);
+
     }
 
     private float GetPlayerDamage()
