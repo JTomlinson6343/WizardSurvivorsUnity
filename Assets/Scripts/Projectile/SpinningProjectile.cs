@@ -29,9 +29,17 @@ public class SpinningProjectile : Projectile
         // Increment the angle
         angle += speed * Time.deltaTime * Mathf.Deg2Rad;
 
+        float sinAngle = Mathf.Sin(angle);
+        float cosAngle = Mathf.Cos(angle);
+
         // Move the projectile
-        float x = Player.m_Instance.GetCentrePos().x + radius*Mathf.Sin(angle);
-        float y = Player.m_Instance.GetCentrePos().y + radius*Mathf.Cos(angle);
+        float x = Player.m_Instance.GetCentrePos().x + radius*sinAngle;
+        float y = Player.m_Instance.GetCentrePos().y + radius*cosAngle;
+
+        // Calculate direction to rotate in
+        Vector2 dir = new Vector2(sinAngle, cosAngle);
+
+        transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(-dir.x,dir.y)*Mathf.Rad2Deg-90);
 
         transform.position = new Vector2(x, y);
     }
