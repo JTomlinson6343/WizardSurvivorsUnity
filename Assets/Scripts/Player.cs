@@ -12,15 +12,16 @@ public struct PlayerStats
         PlayerStats newstats;
         newstats.damage = left.damage + right.damage;
         newstats.speed = left.speed + right.speed;
-        newstats.fireDelay = left.fireDelay + right.fireDelay;
+        newstats.fireRate = left.fireRate + right.fireRate;
         newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
         newstats.maxHealth = left.maxHealth + right.maxHealth;
         newstats.healthRegen = left.maxHealth + right.maxHealth;
         return newstats;
     }
+
     public float damage;
     public float speed;
-    public float fireDelay;
+    public float fireRate;
     public float shotSpeed;
     public float maxHealth;
     public float healthRegen;
@@ -69,5 +70,10 @@ public class Player : Actor
     public Vector3 GetCentrePos()
     {
         return centrePos.transform.position;
+    }
+
+    public float GetFireDelay()
+    {
+        return 1 / (1 + m_TotalStats.fireRate);
     }
 }

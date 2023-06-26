@@ -41,7 +41,7 @@ public class ProjectileManager : MonoBehaviour
         {
             float now = Time.realtimeSinceStartup;
 
-            if (now - m_LastShot > Player.m_Instance.GetStats().fireDelay)
+            if (now - m_LastShot > Player.m_Instance.GetFireDelay())
             {
                 BasicAttack();
                 m_LastShot = now;
