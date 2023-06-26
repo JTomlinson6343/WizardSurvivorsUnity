@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 
 [System.Serializable]
 public class PrefabData
@@ -15,7 +14,6 @@ public class PrefabData
 public class PrefabGenerator : MonoBehaviour
 {
     public PrefabData[] prefabData;
-    public float renderDistance = 20f;
     public int gridSize = 128; // Size of the grid and the overall map
 
     private Dictionary<Vector2Int, GameObject> spawnedPrefabs;
@@ -30,11 +28,6 @@ public class PrefabGenerator : MonoBehaviour
     private void Start()
     {
         GenerateInitialGrid();
-    }
-
-    private void Update()
-    {
-        RenderPrefabsInRange();
     }
 
     private void GenerateInitialGrid()
@@ -57,43 +50,12 @@ public class PrefabGenerator : MonoBehaviour
                 if (selectedPrefab != null && ShouldSpawnPrefab(selectedPrefab, tilePos))
                 {
                     GameObject prefabInstance = Instantiate(selectedPrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
-                    prefabInstance.SetActive(false);
                     spawnedPrefabs.Add(tilePos, prefabInstance);
                 }
             }
         }
     }
 
-    private void RenderPrefabsInRange()
-    {
-        Vector2Int playerTile = GetTilePosition(playerTransform.position);
-
-        int minX = playerTile.x - Mathf.CeilToInt(renderDistance);
-        int maxX = playerTile.x + Mathf.CeilToInt(renderDistance);
-        int minY = playerTile.y - Mathf.CeilToInt(renderDistance);
-        int maxY = playerTile.y + Mathf.CeilToInt(renderDistance);
-
-        int startX = Mathf.Max(minX, -gridSize / 2);
-        int startY = Mathf.Max(minY, -gridSize / 2);
-        int endX = Mathf.Min(maxX, gridSize / 2);
-        int endY = Mathf.Min(maxY, gridSize / 2);
-
-        foreach (var prefabPos in spawnedPrefabs.Keys.ToList())
-        {
-            GameObject prefabInstance;
-            if (spawnedPrefabs.TryGetValue(prefabPos, out prefabInstance))
-            {
-                if (prefabPos.x < startX || prefabPos.x >= endX || prefabPos.y < startY || prefabPos.y >= endY)
-                {
-                    prefabInstance.SetActive(false);
-                }
-                else
-                {
-                    prefabInstance.SetActive(true);
-                }
-            }
-        }
-    }
 
     private GameObject GetRandomPrefab()
     {

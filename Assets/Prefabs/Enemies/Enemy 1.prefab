@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 354215999
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1720386396, guid: 8d25aba0360cefe44b3f94a98e37e124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -142,7 +142,7 @@ Transform:
   - {fileID: 4807051098039868445}
   - {fileID: 2627720532519537070}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4918430836151260397
 Rigidbody2D:
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5052370198308364571}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -316,12 +316,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_FalloffIntensity: 0.237
+  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000003f05506e
+  m_ApplyToSortingLayers: 15d1c7f13f05506e000000003fe81c15
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensityEnabled: 0
   m_ShadowIntensity: 0.279
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
@@ -339,8 +339,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 2.5299714
-  m_PointLightOuterRadius: 3.3
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 3.22
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 000000003f05506e
+  m_ApplyToSortingLayers: 3f05506e
   m_ShapePath:
   - {x: 0.064863205, y: -0.045259, z: 0}
   - {x: 0.03700459, y: 0.9389572, z: 0}
@@ -377,7 +377,7 @@ MonoBehaviour:
   - {x: 0.093715966, y: -0.036560774, z: 0}
   m_ShapePathHash: -2118541171
   m_Mesh: {fileID: 0}
-  m_InstanceId: -20016
+  m_InstanceId: 34966
   m_LocalBounds:
     m_Center: {x: 0.06536028, y: 0.4468491, z: 0}
     m_Extent: {x: 0.028355688, y: 0.4921081, z: 0}

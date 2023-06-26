@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TX Plant_0
+  m_Name: TX Plant No Base_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1356385325, guid: 5addcc9d5ec02984b8940e2f48c45c4a, type: 3}
+  m_Sprite: {fileID: 937998773, guid: 41ae3a76342df6449ad9068c4262f794, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
