@@ -63,11 +63,22 @@ public class Actor : MonoBehaviour
 
         m_LastHit = now;
 
+        if (m_Health < 0)
+        {
+            // If this has no hp left, destroy it
+            OnDeath();
+        }
+
         return true;
     }
 
     public float GetHealthAsRatio()
     {
         return m_Health / m_MaxHealth;
+    }
+
+    virtual protected void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }
