@@ -18,15 +18,17 @@ public class Projectile : MonoBehaviour
     {
         Actor actorComponent = enemy.GetComponent<Actor>();
         // Damage actor
-        actorComponent.TakeDamage(m_Damage);
+        if (actorComponent.TakeDamage(m_Damage) == true)
+        {
+            // Spawn damage numbers
+            GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
+            damageNumber.transform.position = this.transform.position;
+            damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
+            damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage;
 
-        // Spawn damage numbers
-        GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
-        damageNumber.transform.position = this.transform.position;
-        damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
-        damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage;
+            DestroySelf();
+        }
 
-        DestroySelf();
     }
 
     private void DestroySelf()

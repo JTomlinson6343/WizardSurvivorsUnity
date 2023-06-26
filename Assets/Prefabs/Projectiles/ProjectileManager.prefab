@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3ebd0bcde652948be76643db7ce8dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CameraRef: {fileID: 0}
   m_BulletPrefab: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
   m_SpinningBulletPrefab: {fileID: 6648363045516341059, guid: 43e6435c3974abf48908807b62ac234e, type: 3}
   m_FloatingDamagePrefab: {fileID: 5035281070457857526, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
+  m_BasicAttackScaling: 0.3
+  m_BasicAttackColour: {r: 1, g: 1, b: 1, a: 0}
+  m_BasicAttackLifetime: 2

@@ -311,8 +311,10 @@ MonoBehaviour:
   m_BaseStats:
     damage: 100
     speed: 0
-    maxHealth: 0
-    healthRegen: 0
+    fireRate: 1
+    shotSpeed: 10
+    maxHealth: 100
+    healthRegen: 1
 --- !u!1 &5053946717149841329
 GameObject:
   m_ObjectHideFlags: 0

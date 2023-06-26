@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public struct AbilityInfo
 {
     public string name;
+    public string element;
     public string description;
     public Sprite icon;
 }
