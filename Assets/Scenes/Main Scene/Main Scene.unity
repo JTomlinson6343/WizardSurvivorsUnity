@@ -817,6 +817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectileManager
       objectReference: {fileID: 0}
+    - target: {fileID: 180643404611373539, guid: 6f316507ed86e0d4d86c8b00cdafee97, type: 3}
+      propertyPath: m_CameraRef
+      value: 
+      objectReference: {fileID: 1302723539}
     - target: {fileID: 4535579549486382522, guid: 6f316507ed86e0d4d86c8b00cdafee97, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -929,6 +933,10 @@ PrefabInstance:
     - target: {fileID: 2133933721834249584, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_TagString
       value: AnimatorMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687768136547122572, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_BaseStats.fireRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_Name
@@ -1087,6 +1095,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2306347578233978857, guid: 286aa68e04046fb428aed84264250f7a, type: 3}
   m_PrefabInstance: {fileID: 198673988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1302723539 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4834166685093268812, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+  m_PrefabInstance: {fileID: 1118329391}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621228006
 GameObject:

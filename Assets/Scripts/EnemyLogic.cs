@@ -12,7 +12,7 @@ public class EnemyLogic : MonoBehaviour
 
     private void Awake()
     {
-        m_PlayerReference = GameObject.Find("Player");
+        m_PlayerReference = Player.m_Instance.gameObject;
         m_Animator = GetComponentInChildren<Animator>();
     }
 

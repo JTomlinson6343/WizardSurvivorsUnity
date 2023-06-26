@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Spinning : Ability
 {
-    public override void OnCast()
+    [SerializeField] Color m_Colour;
+
+    public override void OnChosen()
     {
-        ProjectileManager.m_Instance.ShootMultipleSpinning(200, Color.blue, 10, 3, 1);
+        ProjectileManager.m_Instance.ShootMultipleSpinning(m_TotalStats.speed, m_Colour, m_TotalStats.damageScaling, m_TotalStats.AOE, m_TotalStats.amount);
     }
 }

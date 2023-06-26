@@ -48,16 +48,19 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damageScaling: 0
-    speed: 0
-    cooldown: 0
-    amount: 0
+    damageScaling: 0.5
+    speed: 10
+    cooldown: 4
+    amount: 4
     knockback: 0
     pierceAmount: 0
   m_Info:
-    name: cross shot
+    name: Cross Shot
+    element: Fire
     description: 
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_Colour: {r: 1, g: 1, b: 1, a: 0}
+  m_Lifetime: 2
 --- !u!1 &2428647305684531859
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,18 +294,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_BaseStats:
-    AOE: 0
+    AOE: 3
     duration: 0
-    damageScaling: 0
-    speed: 0
+    damageScaling: 0.3
+    speed: 150
     cooldown: 0
-    amount: 0
+    amount: 3
     knockback: 0
     pierceAmount: 0
   m_Info:
     name: Icicle
+    element: Ice
     description: 
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_Colour: {r: 0, g: 0.25267506, b: 1, a: 0.7529412}
 --- !u!1001 &6119338760695220255
 PrefabInstance:
   m_ObjectHideFlags: 0
