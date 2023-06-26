@@ -41,7 +41,7 @@ public class Player : Actor
 
     private void Start()
     {
-        Player.m_Instance.UpdateStats();
+        UpdateStats();
     }
 
     public void UpdateStats()
