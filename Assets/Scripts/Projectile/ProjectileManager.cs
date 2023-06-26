@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.Rendering.Universal;
 
 public enum SpawnPoint
@@ -14,9 +16,12 @@ public class ProjectileManager : MonoBehaviour
 {
     public static ProjectileManager m_Instance;
 
+    [SerializeField] Camera     m_CameraRef;
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
     [SerializeField] GameObject m_FloatingDamagePrefab;
+
+    Vector2 shootDir;
 
     void Awake()
     {
@@ -26,9 +31,11 @@ public class ProjectileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButton(0))
         {
-            Shoot(SpawnPoint.Player,Vector2.one,1,Color.green,1,1);
+            shootDir = (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - Player.m_Instance.GetStaffTransform().position).normalized;
+
+            Shoot(Player.m_Instance.GetStaffTransform().position, shootDir.normalized, 10,Color.green,1,1);
         }
     }
 
