@@ -9,27 +9,36 @@ public class PathGenerator : MonoBehaviour
     public TileBase[] tileArray;
     public int gridSize = 128;
     public int pathWidth = 2;
+    public GameObject player;
+    public float minDistance = 10f;
 
     private Transform startPoint;
     private Transform endPoint;
 
-    public float minDistance = 10f;
-
     private void Start()
     {
-        PlaceEndPoints();
+        Vector3 playerPosition = player.transform.position;
+        PlaceEndPoints(playerPosition);
         GeneratePath();
     }
 
-    private void PlaceEndPoints()
+    private void PlaceEndPoints(Vector3 playerPosition)
     {
         float halfGridSize = gridSize / 2f;
 
         startPoint = Instantiate(pathEndPointPrefab, Vector3.zero, Quaternion.identity);
         endPoint = Instantiate(pathEndPointPrefab, Vector3.zero, Quaternion.identity);
 
-        startPoint.position = GetRandomPositionWithinGrid(halfGridSize, minDistance);
-        endPoint.position = GetRandomPositionWithinGrid(halfGridSize, minDistance);
+        Vector3 randomOffset;
+        float distance;
+        do
+        {
+            randomOffset = GetRandomPositionWithinGrid(halfGridSize, minDistance);
+            distance = Vector3.Distance(playerPosition + randomOffset, playerPosition);
+        } while (distance < minDistance);
+
+        startPoint.position = playerPosition + randomOffset;
+        endPoint.position = playerPosition - randomOffset;
     }
 
     private Vector3 GetRandomPositionWithinGrid(float halfGridSize, float minDistanceFraction)
@@ -41,24 +50,27 @@ public class PathGenerator : MonoBehaviour
                 Random.Range(-halfGridSize + 1f, halfGridSize - 1f),
                 Random.Range(-halfGridSize + 1f, halfGridSize - 1f),
                 0f);
+
+            // Clamp the random position within the grid boundaries
+            randomPosition.x = Mathf.Clamp(randomPosition.x, -halfGridSize + minDistanceFraction, halfGridSize - minDistanceFraction);
+            randomPosition.y = Mathf.Clamp(randomPosition.y, -halfGridSize + minDistanceFraction, halfGridSize - minDistanceFraction);
+
         } while (Vector2.Distance(randomPosition, startPoint.position) < minDistanceFraction ||
-                 Vector2.Distance(randomPosition, endPoint.position) < minDistanceFraction ||
-                 !IsWithinGrid(randomPosition));
+                 Vector2.Distance(randomPosition, endPoint.position) < minDistanceFraction);
 
         return randomPosition;
-    }
-
-    private bool IsWithinGrid(Vector3 position)
-    {
-        Vector3Int cellPosition = tilemap.WorldToCell(position);
-        BoundsInt bounds = tilemap.cellBounds;
-        return bounds.Contains(cellPosition);
     }
 
     private void GeneratePath()
     {
         Vector3Int startCell = tilemap.WorldToCell(startPoint.position);
         Vector3Int endCell = tilemap.WorldToCell(endPoint.position);
+
+        if (startCell == endCell)
+        {
+            Debug.LogWarning("Start and end cells are the same. Skipping path generation.");
+            return;
+        }
 
         Vector3Int[] pathCells = CalculatePathCells(startCell, endCell);
 
