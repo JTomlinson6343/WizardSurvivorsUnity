@@ -7,13 +7,13 @@ public class AbilityStatBuff : Ability
 
     public override void OnChosen()
     {
-        base.OnChosen();
         AbilityManager.m_Instance.AddAbilityStatBuffs(m_StatBuffs);
+        base.OnChosen();
     }
 
     public override void LevelUp()
     {
-        base.LevelUp();
         AbilityManager.m_Instance.AddAbilityStatBuffs(m_StatBuffs);
+        base.LevelUp();
     }
 }
