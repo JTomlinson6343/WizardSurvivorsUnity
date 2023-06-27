@@ -89,6 +89,6 @@ public class Player : Actor
 
     public float GetFireDelay()
     {
-        return 1 / (1 + m_TotalStats.fireRate);
+        return 1 / (0.1f + m_TotalStats.fireRate);
     }
 }
