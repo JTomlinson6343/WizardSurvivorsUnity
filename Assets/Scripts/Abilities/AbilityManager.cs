@@ -128,4 +128,9 @@ public class AbilityManager : MonoBehaviour
     {
         return m_AbilityStatsBuffs;
     }
+
+    public void AddAbilityStatBuffs(AbilityStats stats)
+    {
+        m_AbilityStatsBuffs += stats;
+    }
 }
