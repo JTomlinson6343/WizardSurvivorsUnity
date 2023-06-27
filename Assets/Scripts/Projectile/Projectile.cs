@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] protected GameObject m_DamageNumberPrefab;
 
-    public float m_Damage;
+    [HideInInspector]public float m_Damage;
 
     public void StartLifetimeTimer(float lifetime)
     {
