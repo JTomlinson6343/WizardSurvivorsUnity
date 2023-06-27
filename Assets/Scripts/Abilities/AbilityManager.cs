@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
 {
+    public static AbilityManager m_Instance;
+
     [SerializeField] List<Ability> m_Abilities;
 
     AbilityStats m_AbilityStatsBuffs;
@@ -14,16 +16,20 @@ public class AbilityManager : MonoBehaviour
 
     bool m_AbilityChoicesShown;
 
-    public void Start()
+    private void Awake()
+    {
+        m_Instance = this;
+    }
+
+    private void Start()
     {
         //Get ability icons
         m_Icons = GetComponentsInChildren<AbilityIcon>();
 
         HideAbilityOptions();
-        ShowAbilityOptions();
     }
 
-    public void Update()
+    private void Update()
     {
         if (m_AbilityChoicesShown)
         {
@@ -31,7 +37,7 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
-    void ShowAbilityOptions()
+    public void ShowAbilityOptions()
     {
         m_AbilityChoicesShown = true;
         Ability[] displayedAbilities = new Ability[3];
@@ -93,19 +99,18 @@ public class AbilityManager : MonoBehaviour
         {
             AbilityWasSelected(m_Icons[0]);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             AbilityWasSelected(m_Icons[1]);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AbilityWasSelected(m_Icons[2]);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             AbilityWasSelected(m_Icons[3]);
         }
-
     }
 
     void AbilityWasSelected(AbilityIcon icon)
@@ -117,5 +122,10 @@ public class AbilityManager : MonoBehaviour
             HideAbilityOptions();
             Player.m_Instance.UpdateStats();
         }
+    }
+
+    public AbilityStats GetAbilityStatBuffs()
+    {
+        return m_AbilityStatsBuffs;
     }
 }
