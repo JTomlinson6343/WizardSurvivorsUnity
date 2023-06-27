@@ -31,6 +31,10 @@ public class AbilityManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ShowAbilityOptions();
+        }
         if (m_AbilityChoicesShown)
         {
             HandleInput();
@@ -115,7 +119,7 @@ public class AbilityManager : MonoBehaviour
 
     void AbilityWasSelected(AbilityIcon icon)
     {
-        if (icon.enabled)
+        if (icon.enabled && icon.displayedAbility != null)
         {
             // Check if icon is displayed and then enable the ability displayed
             icon.displayedAbility.OnChosen();
