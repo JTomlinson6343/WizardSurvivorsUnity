@@ -82,7 +82,7 @@ public class ProjectileManager : MonoBehaviour
         GameObject bullet = Instantiate(m_BulletPrefab);
 
         bullet.transform.SetParent(transform);
-        bullet.GetComponent<Projectile>().m_Damage = damageScaling * GetPlayerDamage();
+        bullet.GetComponent<Projectile>().m_Damage = damageScaling;
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
@@ -126,7 +126,7 @@ public class ProjectileManager : MonoBehaviour
 
         SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
-        bulletScript.m_Damage = damageScaling * GetPlayerDamage();
+        bulletScript.m_Damage = damageScaling;
         bulletScript.speed = speed;
         bulletScript.offset = offset;
         bulletScript.radius = radius;

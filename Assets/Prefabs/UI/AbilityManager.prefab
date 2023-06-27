@@ -435,7 +435,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 3
     duration: 0
-    damageScaling: 0.3
+    damageScaling: 0.1
     speed: 150
     cooldown: -1
     amount: 3

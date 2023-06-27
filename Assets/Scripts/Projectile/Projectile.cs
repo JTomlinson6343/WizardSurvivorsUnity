@@ -17,13 +17,13 @@ public class Projectile : MonoBehaviour
     {
         Actor actorComponent = enemy.GetComponent<Actor>();
         // Damage actor
-        if (actorComponent.TakeDamage(m_Damage) == true)
+        if (actorComponent.TakeDamage(m_Damage * Player.m_Instance.GetStats().damage) == true)
         {
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
             damageNumber.transform.position = this.transform.position;
             damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
-            damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage;
+            damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage * Player.m_Instance.GetStats().damage;
 
             DestroySelf();
         }

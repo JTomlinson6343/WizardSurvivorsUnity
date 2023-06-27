@@ -48,12 +48,12 @@ public class SpinningProjectile : Projectile
     {
         Actor actorComponent = enemy.GetComponent<Actor>();
         // Damage actor
-        actorComponent.TakeDamage(m_Damage);
+        actorComponent.TakeDamage(m_Damage * Player.m_Instance.GetStats().damage);
 
         // Spawn damage numbers
         GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
-        damageNumber.transform.position = this.transform.position;
+        damageNumber.transform.position = transform.position;
         damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
-        damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage;
+        damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage * Player.m_Instance.GetStats().damage;
     }
 }
