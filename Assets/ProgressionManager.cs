@@ -23,12 +23,12 @@ public class ProgressionManager : MonoBehaviour
         m_Instance = this;
     }
 
-    public void AddScore(int score)
+    public void AddScore(float score)
     {
 
     }
 
-    public bool AddXP(int xp)
+    public bool AddXP(float xp)
     {
         BasicBar xpBar = GetComponentInChildren<BasicBar>();
 
