@@ -72,6 +72,19 @@ public class Actor : MonoBehaviour
         return true;
     }
 
+    public bool TakeDamageNoIFrames(float amount)
+    {
+        m_Health -= amount;
+
+        if (m_Health < 0)
+        {
+            // If this has no hp left, destroy it
+            OnDeath();
+        }
+
+        return true;
+    }
+
     public float GetHealthAsRatio()
     {
         return m_Health / m_MaxHealth;
