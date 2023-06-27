@@ -59,7 +59,7 @@ public class Ability : MonoBehaviour
 
     private void Start()
     {
-        UpdateTotalStats(m_AbilityStatsBuffs);
+        UpdateTotalStats();
     }
 
     virtual public void OnChosen()
@@ -84,10 +84,10 @@ public class Ability : MonoBehaviour
 
     }
 
-    void UpdateTotalStats(AbilityStats abilityStatsBuffs)
+    void UpdateTotalStats()
     {
         // Update total stats
-        m_TotalStats = m_BaseStats + m_BonusStats + abilityStatsBuffs;
+        m_TotalStats = m_BaseStats + m_BonusStats + AbilityManager.m_Instance.GetAbilityStatBuffs();
     }
 
     // Called on level up and calls a different function depending on current ability level
@@ -112,6 +112,7 @@ public class Ability : MonoBehaviour
             default:
                 break;
         }
+        UpdateTotalStats();
     }
 
     // Functions called when the ability is upgraded to the specific level
