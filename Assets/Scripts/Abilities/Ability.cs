@@ -49,7 +49,7 @@ public class Ability : MonoBehaviour
 
     protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
 
-    public bool m_isMaxed;      // If an ability is max level, it won't show up in the ability selection
+    [HideInInspector] public bool m_isMaxed;      // If an ability is max level, it won't show up in the ability selection
 
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
@@ -69,7 +69,14 @@ public class Ability : MonoBehaviour
             Debug.Log(m_Info.name + " was enabled.");
             m_Enabled = true;
             CancelInvoke(nameof(OnCast));
-            InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
+            if (m_TotalStats.cooldown < 0)
+            {
+                OnCast();
+            }
+            else
+            {
+                InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
+            }
         }
         else
         {
@@ -84,14 +91,14 @@ public class Ability : MonoBehaviour
 
     }
 
-    void UpdateTotalStats()
+    public void UpdateTotalStats()
     {
         // Update total stats
         m_TotalStats = m_BaseStats + m_BonusStats + AbilityManager.m_Instance.GetAbilityStatBuffs();
     }
 
     // Called on level up and calls a different function depending on current ability level
-    void LevelUp()
+    public virtual void LevelUp()
     {
         m_Level++;
         switch (m_Level)

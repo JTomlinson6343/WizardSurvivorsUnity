@@ -31,6 +31,10 @@ public class AbilityManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ShowAbilityOptions();
+        }
         if (m_AbilityChoicesShown)
         {
             HandleInput();
@@ -40,17 +44,36 @@ public class AbilityManager : MonoBehaviour
     public void ShowAbilityOptions()
     {
         m_AbilityChoicesShown = true;
-        Ability[] displayedAbilities = new Ability[3];
+        Ability[] displayedAbilities = new Ability[4];
 
         int iconCounter = 0;
 
-        // Loop through each ability
-        foreach (Ability ability in m_Abilities)
+        int count = 0;
+
+        int optionCount;
+
+        if (m_Abilities.Count < 4)
         {
+            optionCount = m_Abilities.Count;
+        }
+        else
+        {
+            optionCount = 4;
+        }
+
+        // Loop through each ability
+        while (count < optionCount)
+        {
+            Ability ability = m_Abilities[Random.Range(0, m_Abilities.Count)];
             if (ability.m_isMaxed)
             {
                 // If the ability is maxed, remove it from the list and move on
                 m_Abilities.Remove(ability);
+                if(m_Abilities.Count < 4)
+                {
+                    // Reduce the number of options shown if there arent enough viable abilities
+                    optionCount -= 1;
+                }
                 continue;
             }
             if (CheckAlreadyDisplayed(ability, displayedAbilities))
@@ -58,6 +81,7 @@ public class AbilityManager : MonoBehaviour
                 //If the ability is already displayed on the other choices, move on
                 continue;
             }
+            displayedAbilities[count] = ability;
             // If all checks pass, set the icon of the UI to the icon of the ability
             m_Icons[iconCounter].image.sprite = ability.m_Info.icon;
             // Set the ability the icon represents to that ability
@@ -66,6 +90,8 @@ public class AbilityManager : MonoBehaviour
             m_Icons[iconCounter].image.enabled = true;
 
             iconCounter++;
+
+            count++;
         }
     }
 
@@ -115,17 +141,31 @@ public class AbilityManager : MonoBehaviour
 
     void AbilityWasSelected(AbilityIcon icon)
     {
-        if (icon.enabled)
+        if (icon.enabled && icon.displayedAbility != null)
         {
             // Check if icon is displayed and then enable the ability displayed
             icon.displayedAbility.OnChosen();
             HideAbilityOptions();
+            // Update player stats
             Player.m_Instance.UpdateStats();
+
+            Ability[] abilities = GetComponentsInChildren<Ability>();
+
+            // Update ability stats
+            foreach (Ability ability in abilities)
+            {
+                ability.UpdateTotalStats();
+            }
         }
     }
 
     public AbilityStats GetAbilityStatBuffs()
     {
         return m_AbilityStatsBuffs;
+    }
+
+    public void AddAbilityStatBuffs(AbilityStats stats)
+    {
+        m_AbilityStatsBuffs += stats;
     }
 }

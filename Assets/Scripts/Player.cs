@@ -14,7 +14,7 @@ public struct PlayerStats
         newstats.fireRate = left.fireRate + right.fireRate;
         newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
         newstats.maxHealth = left.maxHealth + right.maxHealth;
-        newstats.healthRegen = left.maxHealth + right.maxHealth;
+        newstats.healthRegen = left.healthRegen + right.healthRegen;
         return newstats;
     }
 
@@ -49,6 +49,10 @@ public class Player : Actor
     public void UpdateStats()
     {
         m_TotalStats = m_BaseStats + m_BonusStats;
+        UpdateHealth();
+
+        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
+        bar.UpdateSize(GetHealthAsRatio());
     }
 
     public Vector3 GetPosition()
@@ -59,6 +63,18 @@ public class Player : Actor
     public PlayerStats GetStats()
     {
         return m_TotalStats;
+    }
+
+    public void AddBonusStats(PlayerStats stats)
+    {
+        m_BonusStats += stats;
+    }
+
+    public void UpdateHealth()
+    {
+        float ratio = GetHealthAsRatio();
+        m_MaxHealth = m_TotalStats.maxHealth;
+        m_Health = m_MaxHealth * ratio;
     }
 
     public Transform GetStaffTransform()
@@ -73,6 +89,6 @@ public class Player : Actor
 
     public float GetFireDelay()
     {
-        return 1 / (1 + m_TotalStats.fireRate);
+        return 1 / (0.1f + m_TotalStats.fireRate);
     }
 }
