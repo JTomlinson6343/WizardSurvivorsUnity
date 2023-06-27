@@ -9,12 +9,6 @@ public class BasicBar : MonoBehaviour
     [SerializeField] float current;
     [SerializeField] float max;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        UpdateSize(current, max);
-    }
-
     public void UpdateSize(float sizeRatio)
     {
         GetComponent<RectTransform>().localScale = new Vector2(sizeRatio * baseScale.x, baseScale.y);
