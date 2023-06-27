@@ -49,6 +49,10 @@ public class Player : Actor
     public void UpdateStats()
     {
         m_TotalStats = m_BaseStats + m_BonusStats;
+        UpdateHealth();
+
+        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
+        bar.UpdateSize(GetHealthAsRatio());
     }
 
     public Vector3 GetPosition()
@@ -64,6 +68,13 @@ public class Player : Actor
     public void AddBonusStats(PlayerStats stats)
     {
         m_BonusStats += stats;
+    }
+
+    public void UpdateHealth()
+    {
+        float ratio = GetHealthAsRatio();
+        m_MaxHealth = m_TotalStats.maxHealth;
+        m_Health = m_MaxHealth * ratio;
     }
 
     public Transform GetStaffTransform()
