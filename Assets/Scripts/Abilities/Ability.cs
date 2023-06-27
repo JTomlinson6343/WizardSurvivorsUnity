@@ -91,7 +91,7 @@ public class Ability : MonoBehaviour
     }
 
     // Called on level up and calls a different function depending on current ability level
-    void LevelUp()
+    public virtual void LevelUp()
     {
         m_Level++;
         switch (m_Level)
@@ -113,6 +113,7 @@ public class Ability : MonoBehaviour
                 break;
         }
         UpdateTotalStats();
+        Player.m_Instance.UpdateStats();
     }
 
     // Functions called when the ability is upgraded to the specific level

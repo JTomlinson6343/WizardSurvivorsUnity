@@ -61,6 +61,11 @@ public class Player : Actor
         return m_TotalStats;
     }
 
+    public void AddBonusStats(PlayerStats stats)
+    {
+        m_BonusStats += stats;
+    }
+
     public Transform GetStaffTransform()
     {
         return staffPos.transform;
