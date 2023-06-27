@@ -99,19 +99,18 @@ public class AbilityManager : MonoBehaviour
         {
             AbilityWasSelected(m_Icons[0]);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             AbilityWasSelected(m_Icons[1]);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AbilityWasSelected(m_Icons[2]);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             AbilityWasSelected(m_Icons[3]);
         }
-
     }
 
     void AbilityWasSelected(AbilityIcon icon)
