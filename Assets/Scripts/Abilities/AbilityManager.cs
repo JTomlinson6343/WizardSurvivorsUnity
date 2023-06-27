@@ -120,7 +120,16 @@ public class AbilityManager : MonoBehaviour
             // Check if icon is displayed and then enable the ability displayed
             icon.displayedAbility.OnChosen();
             HideAbilityOptions();
+            // Update player stats
             Player.m_Instance.UpdateStats();
+
+            Ability[] abilities = GetComponentsInChildren<Ability>();
+
+            // Update ability stats
+            foreach (Ability ability in abilities)
+            {
+                ability.UpdateTotalStats();
+            }
         }
     }
 

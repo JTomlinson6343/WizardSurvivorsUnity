@@ -84,7 +84,7 @@ public class Ability : MonoBehaviour
 
     }
 
-    void UpdateTotalStats()
+    public void UpdateTotalStats()
     {
         // Update total stats
         m_TotalStats = m_BaseStats + m_BonusStats + AbilityManager.m_Instance.GetAbilityStatBuffs();
@@ -113,7 +113,6 @@ public class Ability : MonoBehaviour
                 break;
         }
         UpdateTotalStats();
-        Player.m_Instance.UpdateStats();
     }
 
     // Functions called when the ability is upgraded to the specific level

@@ -28,8 +28,8 @@ public struct DamageInstance
 
 public class Actor : MonoBehaviour
 {
-    private float m_MaxHealth = 100.0f;
-    private float m_Health = 100.0f;
+    protected float m_MaxHealth = 100.0f;
+    protected float m_Health = 100.0f;
     private float m_HealthRegen = 0.5f;
     private float m_IFramesTimer = 0.1f;
 
