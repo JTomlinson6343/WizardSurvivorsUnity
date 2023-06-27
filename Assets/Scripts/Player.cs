@@ -14,7 +14,7 @@ public struct PlayerStats
         newstats.fireRate = left.fireRate + right.fireRate;
         newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
         newstats.maxHealth = left.maxHealth + right.maxHealth;
-        newstats.healthRegen = left.maxHealth + right.maxHealth;
+        newstats.healthRegen = left.healthRegen + right.healthRegen;
         return newstats;
     }
 
