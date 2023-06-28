@@ -43,6 +43,9 @@ TagManager:
   - name: Background
     uniqueID: 1850737983
     locked: 0
+  - name: Projectile
+    uniqueID: 4131392967
+    locked: 0
   - name: Trees
     uniqueID: 4056404245
     locked: 0

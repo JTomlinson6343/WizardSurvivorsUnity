@@ -344,7 +344,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1850737983
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Intensity: 1.11
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000003f05506e15d1c7f1
+  m_ApplyToSortingLayers: 000000003f05506e15d1c7f1c70d40f6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -623,6 +623,14 @@ PrefabInstance:
     - target: {fileID: 924587526256757331, guid: d0928c366b1d5b14e8774b5c845e521e, type: 3}
       propertyPath: m_Name
       value: ProgressionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438229177116225608, guid: d0928c366b1d5b14e8774b5c845e521e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275741610078245795, guid: d0928c366b1d5b14e8774b5c845e521e, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8506685405991039763, guid: d0928c366b1d5b14e8774b5c845e521e, type: 3}
       propertyPath: m_Pivot.x
@@ -1158,7 +1166,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1850737983
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
