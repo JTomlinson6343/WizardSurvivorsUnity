@@ -31,6 +31,8 @@ public class Player : Actor
     [SerializeField] GameObject staffPos;
     [SerializeField] GameObject centrePos;
 
+    [SerializeField] GameObject m_DamageNumberPrefab;
+
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
     PlayerStats m_BonusStats;
@@ -90,5 +92,19 @@ public class Player : Actor
     public float GetFireDelay()
     {
         return 1 / (0.1f + m_TotalStats.fireRate);
+    }
+
+    public void DamageInstance(GameObject enemy, float damageScaling, Vector2 pos)
+    {
+        Actor actorComponent = enemy.GetComponent<Actor>();
+        // Damage actor
+        if (actorComponent.TakeDamage(damageScaling * GetStats().damage) == true)
+        {
+            // Spawn damage numbers
+            GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
+            damageNumber.transform.position = pos;
+            damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
+            damageNumber.GetComponent<FloatingDamage>().m_Damage = damageScaling * GetStats().damage;
+        }
     }
 }

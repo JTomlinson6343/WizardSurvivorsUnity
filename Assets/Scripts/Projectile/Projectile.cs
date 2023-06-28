@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] protected GameObject m_DamageNumberPrefab;
 
-    [HideInInspector]public float m_Damage;
+    [HideInInspector] public float m_DamageScaling;
 
     public void StartLifetimeTimer(float lifetime)
     {
@@ -15,19 +15,8 @@ public class Projectile : MonoBehaviour
 
     virtual protected void OnEnemyHit(GameObject enemy)
     {
-        Actor actorComponent = enemy.GetComponent<Actor>();
-        // Damage actor
-        if (actorComponent.TakeDamage(m_Damage * Player.m_Instance.GetStats().damage) == true)
-        {
-            // Spawn damage numbers
-            GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
-            damageNumber.transform.position = this.transform.position;
-            damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
-            damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage * Player.m_Instance.GetStats().damage;
-
-            DestroySelf();
-        }
-
+        Player.m_Instance.DamageInstance(enemy, m_DamageScaling, transform.position);
+        DestroySelf();
     }
 
     private void DestroySelf()

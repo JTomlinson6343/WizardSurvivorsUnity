@@ -46,14 +46,6 @@ public class SpinningProjectile : Projectile
 
     protected override void OnEnemyHit(GameObject enemy)
     {
-        Actor actorComponent = enemy.GetComponent<Actor>();
-        // Damage actor
-        actorComponent.TakeDamage(m_Damage * Player.m_Instance.GetStats().damage);
-
-        // Spawn damage numbers
-        GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
-        damageNumber.transform.position = transform.position;
-        damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
-        damageNumber.GetComponent<FloatingDamage>().m_Damage = m_Damage * Player.m_Instance.GetStats().damage;
+        Player.m_Instance.DamageInstance(enemy, m_DamageScaling, transform.position);
     }
 }

@@ -178,7 +178,7 @@ Transform:
   - {fileID: 500438556679477036}
   - {fileID: 968768309004026213}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8679808496323243270
 Rigidbody2D:
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
+  m_DamageNumberPrefab: {fileID: 5035281070457857526, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
   m_BaseStats:
     damage: 100
     speed: 0
