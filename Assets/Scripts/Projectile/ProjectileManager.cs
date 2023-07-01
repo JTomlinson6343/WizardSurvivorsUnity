@@ -150,12 +150,13 @@ public class ProjectileManager : MonoBehaviour
         return bullets;
     }
 
-    public void SpawnBlizzard(float damageScaling, float scale)
+    public GameObject SpawnBlizzard(float damageScaling, float scale)
     {
         GameObject aoe = Instantiate(m_AOEPrefab);
         aoe.transform.localScale *= scale;
         aoe.transform.SetParent(Player.m_Instance.gameObject.transform);
         aoe.transform.position = Player.m_Instance.GetCentrePos();
         aoe.GetComponent<AOEObject>().m_DamageScaling = damageScaling;
+        return aoe;
     }
 }
