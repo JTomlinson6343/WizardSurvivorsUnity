@@ -24,11 +24,23 @@ public class AOEObject : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (m_CanDamage)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (!collision.gameObject.GetComponent<Debuff>())
             {
-                //Player.m_Instance.DamageInstance(collision.gameObject, m_DamageScaling, collision.transform.position,false);
+                collision.gameObject.AddComponent<Debuff>().Init(-1f, 0.001f);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debuff debuff = collision.gameObject.GetComponent<Debuff>();
+            if (debuff)
+            {
+                Destroy(debuff);
             }
         }
     }

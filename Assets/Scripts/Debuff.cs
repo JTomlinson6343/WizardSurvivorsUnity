@@ -6,20 +6,25 @@ using UnityEngine;
 
 public class Debuff : MonoBehaviour
 {
-    [SerializeField] float m_DebuffTime;
+    public float m_DebuffTime;
+    private float m_TickInterval = 0.25f;
+    public float m_DamageScaling;
+
     float m_LastTick;
-    [SerializeField] float m_TickInterval;
-    [SerializeField] Actor m_ActorComponent;
+
+    public void Init(float debuffTime, float damageScaling)
+    {
+        m_DebuffTime = debuffTime;
+        m_DamageScaling = damageScaling;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        var debuffsOfThisType = GetComponents(GetType());
-        if (debuffsOfThisType.Length>1)
+        if(m_DebuffTime > 0)
         {
-            Destroy(debuffsOfThisType[0]);
+            Invoke(nameof(EndDebuff), m_DebuffTime);
         }
-        Invoke(nameof(EndDebuff),m_DebuffTime);
     }
 
     // Update is called once per frame
@@ -47,6 +52,6 @@ public class Debuff : MonoBehaviour
 
     virtual protected void OnTick()
     {
-
+        Player.m_Instance.DamageInstance(gameObject,m_DamageScaling,transform.position,false);
     }
 }
