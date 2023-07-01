@@ -19,19 +19,7 @@ public class AOEObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float now = Time.realtimeSinceStartup;
 
-        // Disable damaging if not enough time has passed since last tick
-        if (now - m_LastTick < m_TickTimer)
-        {
-            m_CanDamage = false;
-        }
-        else
-        {
-            Debug.Log("tick");
-            m_CanDamage = true;
-            m_LastTick = now;
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -40,7 +28,7 @@ public class AOEObject : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Player.m_Instance.DamageInstance(collision.gameObject, m_DamageScaling, collision.transform.position,false);
+                //Player.m_Instance.DamageInstance(collision.gameObject, m_DamageScaling, collision.transform.position,false);
             }
         }
     }
