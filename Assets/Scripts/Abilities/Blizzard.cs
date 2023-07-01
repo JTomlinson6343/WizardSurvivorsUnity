@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Blizzard : Ability
 {
-    public float m_DamageScaling;
     public override void OnCast()
     {
-        ProjectileManager.m_Instance.SpawnBlizzard(m_DamageScaling);
+        ProjectileManager.m_Instance.SpawnBlizzard(m_TotalStats.damageScaling, m_TotalStats.AOE);
     }
 }
