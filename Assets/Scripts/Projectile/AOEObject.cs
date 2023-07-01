@@ -5,22 +5,7 @@ using UnityEngine;
 
 public class AOEObject : MonoBehaviour
 {
-    [SerializeField] float m_TickTimer;
-    public float m_DamageScaling;
-    float m_LastTick = 0;
-    public bool m_CanDamage = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [HideInInspector] public float m_DamageScaling;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -28,7 +13,8 @@ public class AOEObject : MonoBehaviour
         {
             if (!collision.gameObject.GetComponent<Debuff>())
             {
-                collision.gameObject.AddComponent<Debuff>().Init(-1f, 0.001f);
+                // If enemy is in the zone and doesnt yet have the debuff, add debuff 
+                collision.gameObject.AddComponent<Debuff>().Init(-1f, m_DamageScaling);
             }
         }
     }
@@ -37,6 +23,7 @@ public class AOEObject : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            // If enemy leaves zone, remove debuff
             Debuff debuff = collision.gameObject.GetComponent<Debuff>();
             if (debuff)
             {

@@ -21,6 +21,7 @@ public class ProjectileManager : MonoBehaviour
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
     [SerializeField] GameObject m_FloatingDamagePrefab;
+    [SerializeField] GameObject m_AOEPrefab;
 
     Vector2 shootDir;
 
@@ -147,5 +148,11 @@ public class ProjectileManager : MonoBehaviour
         }
 
         return bullets;
+    }
+
+    public void SpawnBlizzard(float damageScaling)
+    {
+        GameObject aoe = Instantiate(m_AOEPrefab);
+        aoe.GetComponent<AOEObject>().m_DamageScaling = damageScaling;
     }
 }
