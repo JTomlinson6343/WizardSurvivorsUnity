@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
-    private float m_SpawnRadius = 30.0f;
+    [SerializeField] private float m_SpawnRadius = 30.0f;
 
     private Vector3 GetSpawnPosition()
     {
