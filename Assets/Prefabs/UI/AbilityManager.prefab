@@ -126,6 +126,65 @@ MonoBehaviour:
     description: 
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
+--- !u!1 &1764913179728977767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5551550952803688504}
+  - component: {fileID: 962118566423954903}
+  m_Layer: 0
+  m_Name: Blizzard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5551550952803688504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764913179728977767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 108723972155499655}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &962118566423954903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764913179728977767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42bb9af21ebed6a4fb86b66f8f308fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_BaseStats:
+    AOE: 4
+    duration: 0
+    damageScaling: 0.1
+    speed: 0
+    cooldown: -1
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+  m_Info:
+    name: Blizzard
+    element: Ice
+    description: 
+    icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
 --- !u!1 &2428647305684531859
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +239,7 @@ MonoBehaviour:
   - {fileID: 4950013284993266611}
   - {fileID: 5658227801760431723}
   - {fileID: 5948010017796388371}
+  - {fileID: 962118566423954903}
 --- !u!1 &3059596126850882156
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +275,7 @@ Transform:
   - {fileID: 3518402708227926171}
   - {fileID: 7273168184379887125}
   - {fileID: 375279200941003027}
+  - {fileID: 5551550952803688504}
   m_Father: {fileID: 2547574514073728478}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

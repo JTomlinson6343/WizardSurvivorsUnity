@@ -12,14 +12,13 @@ public class EnemyLogic : MonoBehaviour
 
     private void Awake()
     {
-        m_PlayerReference = Player.m_Instance.gameObject;
         m_Animator = GetComponentInChildren<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_PlayerReference = Player.m_Instance.gameObject;
     }
 
     // Update is called once per frame

@@ -21,6 +21,7 @@ public class ProjectileManager : MonoBehaviour
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
     [SerializeField] GameObject m_FloatingDamagePrefab;
+    [SerializeField] GameObject m_AOEPrefab;
 
     Vector2 shootDir;
 
@@ -82,7 +83,7 @@ public class ProjectileManager : MonoBehaviour
         GameObject bullet = Instantiate(m_BulletPrefab);
 
         bullet.transform.SetParent(transform);
-        bullet.GetComponent<Projectile>().m_Damage = damageScaling;
+        bullet.GetComponent<Projectile>().m_DamageScaling = damageScaling;
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
@@ -126,7 +127,7 @@ public class ProjectileManager : MonoBehaviour
 
         SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
-        bulletScript.m_Damage = damageScaling;
+        bulletScript.m_DamageScaling = damageScaling;
         bulletScript.speed = speed;
         bulletScript.offset = offset;
         bulletScript.radius = radius;
@@ -147,5 +148,15 @@ public class ProjectileManager : MonoBehaviour
         }
 
         return bullets;
+    }
+
+    public GameObject SpawnBlizzard(float damageScaling, float scale)
+    {
+        GameObject aoe = Instantiate(m_AOEPrefab);
+        aoe.transform.localScale *= scale;
+        aoe.transform.SetParent(Player.m_Instance.gameObject.transform);
+        aoe.transform.position = Player.m_Instance.GetCentrePos();
+        aoe.GetComponent<AOEObject>().m_DamageScaling = damageScaling;
+        return aoe;
     }
 }
