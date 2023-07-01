@@ -213,7 +213,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4782787995318582076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74679525e76eb445bc85ff315da5164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Health: 100
   m_XPAwarded: 1
 --- !u!1 &5052370198308364571
 GameObject:
@@ -378,7 +379,7 @@ MonoBehaviour:
   - {x: 0.093715966, y: -0.036560774, z: 0}
   m_ShapePathHash: -2118541171
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34966
+  m_InstanceId: 31206
   m_LocalBounds:
     m_Center: {x: 0.06536028, y: 0.4468491, z: 0}
     m_Extent: {x: 0.028355688, y: 0.4921081, z: 0}

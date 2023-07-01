@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
 
     virtual protected void OnEnemyHit(GameObject enemy)
     {
-        Player.m_Instance.DamageInstance(enemy, m_DamageScaling, transform.position);
+        Player.m_Instance.DamageInstance(enemy, m_DamageScaling, transform.position, true);
         DestroySelf();
     }
 

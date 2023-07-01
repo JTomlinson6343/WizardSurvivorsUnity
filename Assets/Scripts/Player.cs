@@ -94,11 +94,21 @@ public class Player : Actor
         return 1 / (0.1f + m_TotalStats.fireRate);
     }
 
-    public void DamageInstance(GameObject enemy, float damageScaling, Vector2 pos)
+    public void DamageInstance(GameObject enemy, float damageScaling, Vector2 pos, bool doIframes)
     {
         Actor actorComponent = enemy.GetComponent<Actor>();
-        // Damage actor
-        if (actorComponent.TakeDamage(damageScaling * GetStats().damage) == true)
+        bool validHit = true;
+        if (doIframes)
+        {
+            // Damage actor
+            validHit = actorComponent.TakeDamage(damageScaling * GetStats().damage);
+        }
+        else
+        {
+            actorComponent.TakeDamageNoIFrames(damageScaling * GetStats().damage);
+        }
+
+        if (validHit)
         {
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
