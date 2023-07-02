@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cb0acb80cdbe8f948bcd049ae758e8bc
+guid: 2e29250e4e5df704a9efc131b8f1f0a5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton Walk_0
+      name: Skeleton Basic Move_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d674f2937d9ef2344a2035a26da52c9d
-      internalID: 1642069932
+      spriteID: 3d177dca5bb3ac345910fd2ce629d6a6
+      internalID: 574087725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_1
+      name: Skeleton Basic Move_1
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d9d1ceae8e471543973273978bdd120
-      internalID: -44391815
+      spriteID: 2f8b6b274016ee147a58fe248f5217f7
+      internalID: 1345808741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_2
+      name: Skeleton Basic Move_2
       rect:
         serializedVersion: 2
         x: 128
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dab73e32721801540a3f74307fa67d2d
-      internalID: 1992526921
+      spriteID: 89577f4c6af948d4da2907b7ba276938
+      internalID: 1808297732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_3
+      name: Skeleton Basic Move_3
       rect:
         serializedVersion: 2
         x: 192
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dda57c58bf15ab14aa4267b9cec99eac
-      internalID: 254413788
+      spriteID: 17b1f32431a762e439c8fcc9c24547df
+      internalID: -615515987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_4
+      name: Skeleton Basic Move_4
       rect:
         serializedVersion: 2
         x: 256
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 144e98b31ac87e343a9fe7564d8f2867
-      internalID: -583542009
+      spriteID: 531e4eac254ed054b86ab47147c31125
+      internalID: -218815256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_5
+      name: Skeleton Basic Move_5
       rect:
         serializedVersion: 2
         x: 320
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5be6196c77ab7844495a4e100ff82ab7
-      internalID: -1768106206
+      spriteID: 10a6bf49daebedb499ed84bf6d4e92a9
+      internalID: -949872461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_6
+      name: Skeleton Basic Move_6
       rect:
         serializedVersion: 2
         x: 384
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0204983be18e78547b479952c1f7c394
-      internalID: 454316609
+      spriteID: 7abe9c0bdf5e446489d768833dde3fb5
+      internalID: -1049258483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_7
+      name: Skeleton Basic Move_7
       rect:
         serializedVersion: 2
         x: 448
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bb889ec3c9b3494183dd8c4040008fe
-      internalID: 663018936
+      spriteID: 9569481a8df3ab6498fb655eec15135d
+      internalID: 311796158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_8
+      name: Skeleton Basic Move_8
       rect:
         serializedVersion: 2
         x: 512
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2927a0cdce3aaa4cabeb395c32b40a1
-      internalID: 2094696063
+      spriteID: ffecc55dbffc08140815f9d5050b2a34
+      internalID: -1918380520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_9
+      name: Skeleton Basic Move_9
       rect:
         serializedVersion: 2
         x: 576
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f80cc122e88fd6841969c0baae53bc4d
-      internalID: -1482259598
+      spriteID: 9d0d4dc2af2b77d42ae6df55d6f296de
+      internalID: -1558588688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_10
+      name: Skeleton Basic Move_10
       rect:
         serializedVersion: 2
         x: 640
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad8456cf3281b134bb50d06931f15a62
-      internalID: -501861475
+      spriteID: 68497ecda4e4bf84299fb22080bc5ea0
+      internalID: -58421786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Walk_11
+      name: Skeleton Basic Move_11
       rect:
         serializedVersion: 2
         x: 704
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99015f0ff9752224bb4c4da87d49db7f
-      internalID: 992518850
+      spriteID: 3cc2a3dd90dacb14d9815d46b34e7d48
+      internalID: -868569548
       vertices: []
       indices: 
       edges: []
@@ -372,18 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton Walk_0: 1642069932
-      Skeleton Walk_1: -44391815
-      Skeleton Walk_10: -501861475
-      Skeleton Walk_11: 992518850
-      Skeleton Walk_2: 1992526921
-      Skeleton Walk_3: 254413788
-      Skeleton Walk_4: -583542009
-      Skeleton Walk_5: -1768106206
-      Skeleton Walk_6: 454316609
-      Skeleton Walk_7: 663018936
-      Skeleton Walk_8: 2094696063
-      Skeleton Walk_9: -1482259598
+      Skeleton Basic Move_0: 574087725
+      Skeleton Basic Move_1: 1345808741
+      Skeleton Basic Move_10: -58421786
+      Skeleton Basic Move_11: -868569548
+      Skeleton Basic Move_2: 1808297732
+      Skeleton Basic Move_3: -615515987
+      Skeleton Basic Move_4: -218815256
+      Skeleton Basic Move_5: -949872461
+      Skeleton Basic Move_6: -1049258483
+      Skeleton Basic Move_7: 311796158
+      Skeleton Basic Move_8: -1918380520
+      Skeleton Basic Move_9: -1558588688
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

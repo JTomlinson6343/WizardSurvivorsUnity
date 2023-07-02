@@ -878,6 +878,22 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 79845286}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 740431455, guid: 966866a55fe047647b5e80872d88c320, type: 3}
+    - target: {fileID: 3975254935380324057, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4834166685093268812, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_FocalLength
       value: 39.250233
