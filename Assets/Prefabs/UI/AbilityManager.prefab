@@ -174,7 +174,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 4
     duration: 0
-    damageScaling: 0.1
+    damageScaling: 0.02
     speed: 0
     cooldown: -1
     amount: 0

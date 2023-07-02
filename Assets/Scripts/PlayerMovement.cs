@@ -6,7 +6,6 @@ using UnityEngine.U2D;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_RigidBody;
-    [SerializeField] private float m_WalkSpeed = 1.0f;
     private float m_Acceleration = 8.0f;
 
     [SerializeField] private Animator m_Animator;
@@ -29,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
 
-        Vector3 targetVelocity = moveDir * m_WalkSpeed;
+        Vector3 targetVelocity = moveDir * GetComponent<Player>().GetStats().speed;
 
         //currentVelocity = targetVelocity;
         currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * m_Acceleration;
