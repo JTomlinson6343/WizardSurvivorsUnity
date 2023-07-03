@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour
 {
-    [SerializeField] private GameObject m_PlayerReference;
+    private GameObject m_PlayerReference;
     [SerializeField] private Rigidbody2D m_RigidBody;
     [SerializeField] private float m_WalkSpeed = 1.0f;
 
