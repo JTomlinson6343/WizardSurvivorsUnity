@@ -95,6 +95,8 @@ public class ProjectileManager : MonoBehaviour
         // Rotate projectile in direction of travel
         bullet.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -90);
 
+        AudioManager.m_Instance.PlaySound(4);
+
         return bullet;
     }
 
