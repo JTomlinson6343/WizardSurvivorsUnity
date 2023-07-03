@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
         }
         AudioSource musicSourceComponent = gameObject.AddComponent<AudioSource>();
         m_MusicSource = musicSourceComponent;
+        m_MusicSource.loop = true;
 
         PlayMusic(3);
     }

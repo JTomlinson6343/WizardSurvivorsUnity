@@ -60,6 +60,7 @@ public class Actor : MonoBehaviour
         }
 
         m_Health -= amount;
+        AudioManager.m_Instance.PlaySound(0);
 
         m_LastHit = now;
 
