@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip[] m_AudioClips;
 
     AudioSource[] m_AudioSources = new AudioSource[32];
+    AudioSource m_MusicSource;
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,6 +24,10 @@ public class AudioManager : MonoBehaviour
             AudioSource sourceComponent = gameObject.AddComponent<AudioSource>();
             m_AudioSources[i] = sourceComponent;
         }
+        AudioSource musicSourceComponent = gameObject.AddComponent<AudioSource>();
+        m_MusicSource = musicSourceComponent;
+
+        PlayMusic(3);
     }
 
     public void PlaySound(int soundID)
@@ -31,6 +36,12 @@ public class AudioManager : MonoBehaviour
         source.clip = m_AudioClips[soundID];
         source.Play();
 
+    }
+
+    public void PlayMusic(int soundID)
+    {
+        m_MusicSource.clip = m_AudioClips[soundID];
+        m_MusicSource.Play();
     }
 
     AudioSource GetFreeAudioSource()
