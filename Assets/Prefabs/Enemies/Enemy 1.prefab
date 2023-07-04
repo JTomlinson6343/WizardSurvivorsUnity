@@ -252,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8b66723ba5e5f4aa2a64a95e4043ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerReference: {fileID: 0}
   m_RigidBody: {fileID: 4918430836151260397}
   m_WalkSpeed: 2
 --- !u!114 &2410185791024842489
@@ -267,5 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74679525e76eb445bc85ff315da5164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Health: 100
+  m_MaxHealth: 20
+  m_Health: 20
   m_XPAwarded: 1
