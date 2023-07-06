@@ -24,11 +24,20 @@ public class ChunkManager : MonoBehaviour
     {
         foreach (GameObject tilePrefab in tiles)
         {
-            Vector2 position = tilePrefab.transform.position;
+            Vector2Int chunkPosition = new Vector2Int(
+                Mathf.FloorToInt(tilePrefab.transform.position.x / 16),
+                Mathf.FloorToInt(tilePrefab.transform.position.y / 16)
+            );
+
+            Vector2 position = new Vector2(
+                chunkPosition.x * 16 + tilePrefab.transform.localPosition.x,
+                chunkPosition.y * 16 + tilePrefab.transform.localPosition.y
+            );
+
             Quaternion rotation = tilePrefab.transform.rotation;
 
             GameObject tileInstance = Instantiate(tilePrefab, position, rotation);
-            activeTiles.Add(new TileInstanceData(tileInstance, position));
+            activeTiles.Add(new TileInstanceData(tileInstance, chunkPosition));
         }
     }
 
@@ -39,9 +48,9 @@ public class ChunkManager : MonoBehaviour
         for (int i = activeTiles.Count - 1; i >= 0; i--)
         {
             TileInstanceData tileData = activeTiles[i];
-            Vector2 position = tileData.position;
+            Vector2Int chunkPosition = tileData.chunkPosition;
 
-            if (IsPositionOutsideView(position, viewDistance))
+            if (IsPositionOutsideView(chunkPosition, viewDistance))
             {
                 Destroy(tileData.tile);
                 activeTiles.RemoveAt(i);
@@ -51,20 +60,27 @@ public class ChunkManager : MonoBehaviour
 
     private void AddTilesInsideView()
     {
-        Vector2 playerPosition = playerCharacter.position;
+        Vector2Int playerChunkPosition = new Vector2Int(
+            Mathf.FloorToInt(playerCharacter.position.x / 16),
+            Mathf.FloorToInt(playerCharacter.position.y / 16)
+        );
+
         float viewDistance = GetViewDistance();
 
         foreach (GameObject tilePrefab in tiles)
         {
-            Vector2 position = tilePrefab.transform.position;
+            Vector2Int chunkPosition = new Vector2Int(
+                Mathf.FloorToInt(tilePrefab.transform.position.x / 16),
+                Mathf.FloorToInt(tilePrefab.transform.position.y / 16)
+            );
 
-            if (IsPositionInsideView(position, viewDistance))
+            if (IsPositionInsideView(chunkPosition, viewDistance))
             {
                 bool found = false;
 
                 foreach (TileInstanceData tileData in activeTiles)
                 {
-                    if (tileData.position == position)
+                    if (tileData.chunkPosition == chunkPosition)
                     {
                         found = true;
                         break;
@@ -73,25 +89,38 @@ public class ChunkManager : MonoBehaviour
 
                 if (!found)
                 {
+                    Vector2 position = new Vector2(
+                        chunkPosition.x * 16 + tilePrefab.transform.localPosition.x,
+                        chunkPosition.y * 16 + tilePrefab.transform.localPosition.y
+                    );
+
                     Quaternion rotation = tilePrefab.transform.rotation;
 
                     GameObject tileInstance = Instantiate(tilePrefab, position, rotation);
-                    activeTiles.Add(new TileInstanceData(tileInstance, position));
+                    activeTiles.Add(new TileInstanceData(tileInstance, chunkPosition));
                 }
             }
         }
     }
 
-    private bool IsPositionOutsideView(Vector2 position, float viewDistance)
+    private bool IsPositionOutsideView(Vector2Int chunkPosition, float viewDistance)
     {
-        Vector2 playerPosition = playerCharacter.position;
-        return Vector2.Distance(playerPosition, position) > viewDistance;
+        Vector2Int playerChunkPosition = new Vector2Int(
+            Mathf.FloorToInt(playerCharacter.position.x / 16),
+            Mathf.FloorToInt(playerCharacter.position.y / 16)
+        );
+
+        return Vector2Int.Distance(playerChunkPosition, chunkPosition) > viewDistance;
     }
 
-    private bool IsPositionInsideView(Vector2 position, float viewDistance)
+    private bool IsPositionInsideView(Vector2Int chunkPosition, float viewDistance)
     {
-        Vector2 playerPosition = playerCharacter.position;
-        return Vector2.Distance(playerPosition, position) <= viewDistance;
+        Vector2Int playerChunkPosition = new Vector2Int(
+            Mathf.FloorToInt(playerCharacter.position.x / 16),
+            Mathf.FloorToInt(playerCharacter.position.y / 16)
+        );
+
+        return Vector2Int.Distance(playerChunkPosition, chunkPosition) <= viewDistance;
     }
 
     private float GetViewDistance()
@@ -103,19 +132,19 @@ public class ChunkManager : MonoBehaviour
     private float GetBaseViewDistance()
     {
         // Calculate the base view distance based on your desired logic
-        // For example, you can use the scale of your tiles or a fixed value
+        // For example, you can use the scale of your chunks or a fixed value
         return 10f;
     }
 
     private class TileInstanceData
     {
         public GameObject tile;
-        public Vector2 position;
+        public Vector2Int chunkPosition;
 
-        public TileInstanceData(GameObject tile, Vector2 position)
+        public TileInstanceData(GameObject tile, Vector2Int chunkPosition)
         {
             this.tile = tile;
-            this.position = position;
+            this.chunkPosition = chunkPosition;
         }
     }
 }
