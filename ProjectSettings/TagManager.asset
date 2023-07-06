@@ -45,6 +45,12 @@ TagManager:
   - name: Background
     uniqueID: 1850737983
     locked: 0
+  - name: Shadows
+    uniqueID: 994533999
+    locked: 0
+  - name: Player
+    uniqueID: 2274947617
+    locked: 0
   - name: Projectile
     uniqueID: 4131392967
     locked: 0
