@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.U2D;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_RigidBody;
-    private float m_Acceleration = 8.0f;
+    private float m_Acceleration = 50.0f;
 
     [SerializeField] private Animator m_Animator;
 
@@ -91,3 +92,5 @@ public class PlayerMovement : MonoBehaviour
         bar.UpdateSize(health);
     }
 }
+
+
