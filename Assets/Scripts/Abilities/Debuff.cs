@@ -52,6 +52,6 @@ public class Debuff : MonoBehaviour
 
     virtual protected void OnTick()
     {
-        Player.m_Instance.DamageInstance(gameObject,m_DamageScaling,transform.position,false);
+        DamageManager.m_Instance.DamageInstance(gameObject,m_DamageScaling,transform.position,false,true);
     }
 }
