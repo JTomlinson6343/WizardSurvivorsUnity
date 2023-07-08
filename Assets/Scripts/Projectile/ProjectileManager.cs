@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -44,24 +45,19 @@ public class ProjectileManager : MonoBehaviour
 
             if (now - m_LastShot > Player.m_Instance.GetFireDelay())
             {
-                BasicAttack();
+                //BasicAttack();
                 m_LastShot = now;
             }
         }
     }
 
-    private void BasicAttack()
-    {
-        shootDir = (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - Player.m_Instance.GetStaffTransform().position).normalized;
+    //private void BasicAttack()
+    //{
+    //    shootDir = (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - Player.m_Instance.GetStaffTransform().position).normalized;
 
-        Shoot(Player.m_Instance.GetStaffTransform().position, shootDir.normalized, Player.m_Instance.GetStats().shotSpeed, m_BasicAttackScaling, m_BasicAttackLifetime);
+    //    Shoot(Player.m_Instance.GetStaffTransform().position, shootDir.normalized, Player.m_Instance.GetStats().shotSpeed, m_BasicAttackScaling, m_BasicAttackLifetime);
 
-    }
-
-    private float GetPlayerDamage()
-    {
-        return Player.m_Instance.GetStats().damage;
-    }
+    //}
 
     // Function used to spawn bullets at a pre-defined point
     private Vector2 GetSpawnPoint(SpawnPoint spawnPoint)
@@ -77,13 +73,13 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
-    public GameObject Shoot(Vector2 pos, Vector2 dir, float speed, float damageScaling, float lifetime)
+    public GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
     {
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_BulletPrefab);
 
         bullet.transform.SetParent(transform);
-        bullet.GetComponent<Projectile>().m_DamageScaling = damageScaling;
+        bullet.GetComponent<Projectile>().m_AbilitySource = ability;
         bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
@@ -100,7 +96,7 @@ public class ProjectileManager : MonoBehaviour
         return bullet;
     }
 
-    public GameObject[] MultiShot(Vector2 pos, float speed, int numShots, float damageScaling, float lifetime)
+    public GameObject[] MultiShot(Vector2 pos, float speed, int numShots, Ability ability, float lifetime)
     {
         GameObject[] bullets = new GameObject[numShots];
         // How many degrees separate each shot
@@ -116,12 +112,12 @@ public class ProjectileManager : MonoBehaviour
             float x = Mathf.Sin(angle);
             float y = Mathf.Cos(angle);
 
-            bullets[i] = Shoot(pos, new Vector2(x,y), speed, damageScaling, lifetime);
+            bullets[i] = Shoot(pos, new Vector2(x,y), speed, ability, lifetime);
         }
         return bullets;
     }
 
-    public GameObject ShootSpinning(float speed, float damageScaling, float offset, float radius)
+    public GameObject ShootSpinning(float speed, Ability ability, float offset, float radius)
     {
         // Create bullet from prefab
         GameObject bullet = Instantiate(m_SpinningBulletPrefab);
@@ -129,7 +125,7 @@ public class ProjectileManager : MonoBehaviour
 
         SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
-        bulletScript.m_DamageScaling = damageScaling;
+        bulletScript.m_AbilitySource = ability;
         bulletScript.speed = speed;
         bulletScript.offset = offset;
         bulletScript.radius = radius;
@@ -138,7 +134,7 @@ public class ProjectileManager : MonoBehaviour
         return bullet;
     }
     
-    public GameObject[] ShootMultipleSpinning(float speed, float damageScaling, float radius, int amount)
+    public GameObject[] ShootMultipleSpinning(float speed, Ability ability, float radius, int amount)
     {
         GameObject[] bullets = new GameObject[amount];
 
@@ -146,19 +142,19 @@ public class ProjectileManager : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             // Create bullet from prefab
-            bullets[i] = ShootSpinning(speed, damageScaling, interval*i, radius);
+            bullets[i] = ShootSpinning(speed, ability, interval*i, radius);
         }
 
         return bullets;
     }
 
-    public GameObject SpawnBlizzard(float damageScaling, float scale)
+    public GameObject SpawnBlizzard(Ability ability, float scale)
     {
         GameObject aoe = Instantiate(m_AOEPrefab);
         aoe.transform.localScale *= scale;
         aoe.transform.SetParent(Player.m_Instance.gameObject.transform);
         aoe.transform.position = Player.m_Instance.GetCentrePos();
-        aoe.GetComponent<AOEObject>().m_DamageScaling = damageScaling;
+        aoe.GetComponent<AOEObject>().m_AbilitySource = ability;
         return aoe;
     }
 }

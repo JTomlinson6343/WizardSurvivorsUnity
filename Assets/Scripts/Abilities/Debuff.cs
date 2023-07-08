@@ -8,14 +8,14 @@ public class Debuff : MonoBehaviour
 {
     public float m_DebuffTime;
     private float m_TickInterval = 0.25f;
-    public float m_DamageScaling;
+    public float m_Damage;
 
     float m_LastTick;
 
     public void Init(float debuffTime, float damageScaling)
     {
         m_DebuffTime = debuffTime;
-        m_DamageScaling = damageScaling;
+        m_Damage = damageScaling;
     }
 
     // Start is called before the first frame update
@@ -52,6 +52,6 @@ public class Debuff : MonoBehaviour
 
     virtual protected void OnTick()
     {
-        DamageManager.m_Instance.DamageInstance(gameObject,m_DamageScaling,transform.position,false,true);
+        DamageManager.m_Instance.DamageInstance(gameObject,m_Damage,transform.position,false,true);
     }
 }

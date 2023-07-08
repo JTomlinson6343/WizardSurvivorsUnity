@@ -9,7 +9,6 @@ public struct PlayerStats
     public static PlayerStats operator +(PlayerStats left, PlayerStats right)
     {
         PlayerStats newstats;
-        newstats.damage = left.damage + right.damage;
         newstats.speed = left.speed + right.speed;
         newstats.fireRate = left.fireRate + right.fireRate;
         newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
@@ -18,7 +17,6 @@ public struct PlayerStats
         return newstats;
     }
 
-    public float damage;
     public float speed;
     public float fireRate;
     public float shotSpeed;

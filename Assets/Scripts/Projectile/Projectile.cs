@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] protected GameObject m_DamageNumberPrefab;
 
-    [HideInInspector] public float m_DamageScaling;
+    [HideInInspector] public Ability m_AbilitySource;
 
     public void StartLifetimeTimer(float lifetime)
     {
@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
 
     virtual protected void OnEnemyHit(GameObject enemy)
     {
-        DamageManager.m_Instance.DamageInstance(enemy, m_DamageScaling, transform.position, true, true);
+        DamageManager.m_Instance.DamageInstance(enemy, m_AbilitySource.GetTotalStats().damage, transform.position, true, true);
         DestroySelf();
     }
 
