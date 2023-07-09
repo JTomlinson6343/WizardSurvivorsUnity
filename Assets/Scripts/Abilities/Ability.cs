@@ -23,7 +23,7 @@ public struct AbilityStats
         AbilityStats stats;
         stats.AOE = left.AOE + right.AOE;
         stats.duration = left.duration + right.duration;
-        stats.damageScaling = left.damageScaling + right.damageScaling;
+        stats.damage = left.damage + right.damage;
         stats.speed = left.speed + right.speed;
         stats.cooldown = left.cooldown + right.cooldown;
         stats.amount = left.amount + right.amount;
@@ -32,10 +32,24 @@ public struct AbilityStats
 
         return stats;
     }
+    public static AbilityStats operator *(AbilityStats left, AbilityStats right)
+    {
+        AbilityStats stats;
+        stats.AOE = left.AOE * right.AOE;
+        stats.duration = left.duration * right.duration;
+        stats.damage = left.damage * right.damage;
+        stats.speed = left.speed * right.speed;
+        stats.cooldown = left.cooldown * right.cooldown;
+        stats.amount = left.amount * right.amount;
+        stats.knockback = left.amount * right.amount;
+        stats.pierceAmount = left.pierceAmount * right.pierceAmount;
+
+        return stats;
+    }
 
     public float AOE;           // Modifier of radius
     public float duration;      // Duration in seconds
-    public float damageScaling; // Percentage of player damage dealt by the ability
+    public float damage; // Percentage of player damage dealt by the ability
     public float speed;         // Speed of projectile/animation of the ability
     public float cooldown;      // Cooldown in seconds of the ability
     public int amount;        // Amount of projectiles fired by the ability
@@ -46,6 +60,7 @@ public struct AbilityStats
 public class Ability : MonoBehaviour
 {
     protected int m_Level;                // Level of the ability
+    [SerializeField] float m_DamageUpgradeAmount;
 
     protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
 
@@ -94,49 +109,19 @@ public class Ability : MonoBehaviour
     public void UpdateTotalStats()
     {
         // Update total stats
-        m_TotalStats = m_BaseStats + m_BonusStats + AbilityManager.m_Instance.GetAbilityStatBuffs();
+        m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
+    }
+
+    public AbilityStats GetTotalStats()
+    {
+        return m_TotalStats;
     }
 
     // Called on level up and calls a different function depending on current ability level
     public virtual void LevelUp()
     {
         m_Level++;
-        switch (m_Level)
-        {
-            case 1:
-                Level2();
-                break;
-            case 2:
-                Level3();
-                break;
-            case 3:
-                Level4();
-                break;
-            case 4:
-                Level5();
-                m_isMaxed = true;
-                break;
-            default:
-                break;
-        }
+        m_BonusStats.damage += m_DamageUpgradeAmount;
         UpdateTotalStats();
-    }
-
-    // Functions called when the ability is upgraded to the specific level
-    protected virtual void Level2()
-    {
-
-    }
-    protected virtual void Level3()
-    {
-
-    }
-    protected virtual void Level4()
-    {
-
-    }
-    protected virtual void Level5()
-    {
-
     }
 }

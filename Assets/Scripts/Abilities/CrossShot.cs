@@ -9,6 +9,6 @@ public class CrossShot : Ability
     {
         ProjectileManager.m_Instance.MultiShot(
             Player.m_Instance.GetStaffTransform().position, m_TotalStats.speed,
-            m_TotalStats.amount, m_TotalStats.damageScaling, m_Lifetime);
+            m_TotalStats.amount, this, m_Lifetime);
     }
 }

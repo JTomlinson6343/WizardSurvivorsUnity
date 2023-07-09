@@ -9,7 +9,6 @@ public struct PlayerStats
     public static PlayerStats operator +(PlayerStats left, PlayerStats right)
     {
         PlayerStats newstats;
-        newstats.damage = left.damage + right.damage;
         newstats.speed = left.speed + right.speed;
         newstats.fireRate = left.fireRate + right.fireRate;
         newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
@@ -18,7 +17,6 @@ public struct PlayerStats
         return newstats;
     }
 
-    public float damage;
     public float speed;
     public float fireRate;
     public float shotSpeed;
@@ -92,29 +90,5 @@ public class Player : Actor
     public float GetFireDelay()
     {
         return 1 / (0.1f + m_TotalStats.fireRate);
-    }
-
-    public void DamageInstance(GameObject enemy, float damageScaling, Vector2 pos, bool doIframes)
-    {
-        Actor actorComponent = enemy.GetComponent<Actor>();
-        bool validHit = true;
-        if (doIframes)
-        {
-            // Damage actor
-            validHit = actorComponent.TakeDamage(damageScaling * GetStats().damage);
-        }
-        else
-        {
-            actorComponent.TakeDamageNoIFrames(damageScaling * GetStats().damage);
-        }
-
-        if (validHit)
-        {
-            // Spawn damage numbers
-            GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
-            damageNumber.transform.position = pos;
-            damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
-            damageNumber.GetComponent<FloatingDamage>().m_Damage = damageScaling * GetStats().damage;
-        }
     }
 }
