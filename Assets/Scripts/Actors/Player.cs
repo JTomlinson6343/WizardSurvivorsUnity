@@ -10,7 +10,6 @@ public struct PlayerStats
     {
         PlayerStats newstats;
         newstats.speed = left.speed + right.speed;
-        newstats.fireRate = left.fireRate + right.fireRate;
         newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
         newstats.maxHealth = left.maxHealth + right.maxHealth;
         newstats.healthRegen = left.healthRegen + right.healthRegen;
@@ -18,7 +17,6 @@ public struct PlayerStats
     }
 
     public float speed;
-    public float fireRate;
     public float shotSpeed;
     public float maxHealth;
     public float healthRegen;
@@ -60,7 +58,7 @@ public class Player : Actor
         {
             float now = Time.realtimeSinceStartup;
 
-            if (now - m_LastShot > GetFireDelay())
+            if (now - m_LastShot > m_BasicAbility.GetTotalStats().cooldown)
             {
                 m_BasicAbility.OnCast();
                 m_LastShot = now;
@@ -113,10 +111,5 @@ public class Player : Actor
     public Vector3 GetCentrePos()
     {
         return centrePos.transform.position;
-    }
-
-    public float GetFireDelay()
-    {
-        return 1 / (0.1f + m_TotalStats.fireRate);
     }
 }
