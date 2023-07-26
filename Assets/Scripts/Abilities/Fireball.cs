@@ -8,7 +8,7 @@ public class Fireball : Ability
     public override void OnCast()
     {
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
-            Player.m_Instance.GetAimDirection(),
+            Player.m_Instance.GetAimDirection().normalized,
             m_TotalStats.speed, this, m_Lifetime);
     }
 }
