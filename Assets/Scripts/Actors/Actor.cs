@@ -43,7 +43,7 @@ public class Actor : MonoBehaviour
         m_Health = m_MaxHealth;
     }
 
-    void Update()
+    virtual public void Update()
     {
         m_Health += m_HealthRegen * Time.deltaTime;
 
@@ -76,6 +76,7 @@ public class Actor : MonoBehaviour
     public bool TakeDamageNoIFrames(float amount)
     {
         m_Health -= amount;
+        AudioManager.m_Instance.PlaySound(0);
 
         if (m_Health <= 0)
         {
