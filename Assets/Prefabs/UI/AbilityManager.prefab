@@ -69,71 +69,6 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
---- !u!1 &1165459740606524747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3518402708227926171}
-  - component: {fileID: 4950013284993266611}
-  m_Layer: 0
-  m_Name: FireRateBuff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3518402708227926171
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165459740606524747}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 108723972155499655}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4950013284993266611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165459740606524747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84259f1aea4cc0347b07384cce73bb04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
-  m_isMaxed: 0
-  m_BaseStats:
-    AOE: 0
-    duration: 0
-    damage: 0
-    speed: 0
-    cooldown: 0
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-  m_Info:
-    name: Cooldown Buff
-    element: 
-    description: 
-    icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
-  m_StatBuffs:
-    speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
 --- !u!1 &1258795364781033673
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,10 +371,10 @@ MonoBehaviour:
   - {fileID: 6463285543125099977}
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
-  - {fileID: 4950013284993266611}
   - {fileID: 5658227801760431723}
   - {fileID: 5948010017796388371}
   - {fileID: 962118566423954903}
+  - {fileID: 204038953275463825}
 --- !u!1 &3059596126850882156
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,13 +407,13 @@ Transform:
   - {fileID: 1676737976221650996}
   - {fileID: 756340687166742223}
   - {fileID: 6479882441623149796}
-  - {fileID: 3518402708227926171}
   - {fileID: 7273168184379887125}
   - {fileID: 375279200941003027}
   - {fileID: 5551550952803688504}
   - {fileID: 840383081709359216}
   - {fileID: 7459760006963061408}
   - {fileID: 1492004237946260043}
+  - {fileID: 5329281915602941155}
   m_Father: {fileID: 2547574514073728478}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -909,6 +844,75 @@ MonoBehaviour:
     shotSpeed: 0
     maxHealth: 20
     healthRegen: 0
+--- !u!1 &8659435202303001752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5329281915602941155}
+  - component: {fileID: 204038953275463825}
+  m_Layer: 0
+  m_Name: CooldownBuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5329281915602941155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659435202303001752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 108723972155499655}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &204038953275463825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659435202303001752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DamageUpgradeAmount: 0
+  m_isMaxed: 0
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 0
+    speed: 0
+    cooldown: 0
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+  m_Info:
+    name: 
+    element: 
+    description: 
+    icon: {fileID: 789409541, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_StatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0
+    speed: 0
+    cooldown: -0.05
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
 --- !u!1001 &6119338760695220255
 PrefabInstance:
   m_ObjectHideFlags: 0
