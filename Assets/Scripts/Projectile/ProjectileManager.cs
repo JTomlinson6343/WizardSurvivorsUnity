@@ -18,46 +18,18 @@ public class ProjectileManager : MonoBehaviour
 {
     public static ProjectileManager m_Instance;
 
-    [SerializeField] Camera     m_CameraRef;
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
     [SerializeField] GameObject m_FloatingDamagePrefab;
     [SerializeField] GameObject m_AOEPrefab;
 
-    Vector2 shootDir;
-
     [SerializeField] float m_BasicAttackScaling;
     [SerializeField] float m_BasicAttackLifetime;
-
-    float m_LastShot = 0;
 
     void Awake()
     {
         m_Instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            float now = Time.realtimeSinceStartup;
-
-            if (now - m_LastShot > Player.m_Instance.GetFireDelay())
-            {
-                //BasicAttack();
-                m_LastShot = now;
-            }
-        }
-    }
-
-    //private void BasicAttack()
-    //{
-    //    shootDir = (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - Player.m_Instance.GetStaffTransform().position).normalized;
-
-    //    Shoot(Player.m_Instance.GetStaffTransform().position, shootDir.normalized, Player.m_Instance.GetStats().shotSpeed, m_BasicAttackScaling, m_BasicAttackLifetime);
-
-    //}
 
     // Function used to spawn bullets at a pre-defined point
     private Vector2 GetSpawnPoint(SpawnPoint spawnPoint)

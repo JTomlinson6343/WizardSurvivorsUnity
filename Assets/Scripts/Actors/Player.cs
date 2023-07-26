@@ -26,6 +26,8 @@ public struct PlayerStats
 
 public class Player : Actor
 {
+    [SerializeField] Camera m_CameraRef;
+
     [SerializeField] GameObject staffPos;
     [SerializeField] GameObject centrePos;
 
@@ -36,6 +38,10 @@ public class Player : Actor
     PlayerStats m_BonusStats;
     PlayerStats m_TotalStats;
 
+    [SerializeField] Ability m_BasicAbility;
+
+    float m_LastShot = 0;
+
     private void Awake()
     {
         m_Instance = this;
@@ -44,6 +50,22 @@ public class Player : Actor
     private void Start()
     {
         UpdateStats();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (Input.GetMouseButton(0))
+        {
+            float now = Time.realtimeSinceStartup;
+
+            if (now - m_LastShot > GetFireDelay())
+            {
+                m_BasicAbility.OnCast();
+                m_LastShot = now;
+            }
+        }
     }
 
     public void UpdateStats()
@@ -58,6 +80,12 @@ public class Player : Actor
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    public Vector2 GetAimDirection()
+    {
+        return (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
+
     }
 
     public PlayerStats GetStats()

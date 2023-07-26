@@ -43,7 +43,7 @@ public class Actor : MonoBehaviour
         m_Health = m_MaxHealth;
     }
 
-    void Update()
+    virtual public void Update()
     {
         m_Health += m_HealthRegen * Time.deltaTime;
 
