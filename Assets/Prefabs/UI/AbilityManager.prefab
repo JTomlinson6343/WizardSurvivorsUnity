@@ -125,13 +125,12 @@ MonoBehaviour:
     knockback: 0
     pierceAmount: 0
   m_Info:
-    name: 
+    name: Cooldown Buff
     element: 
     description: 
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     speed: 0
-    fireRate: 0.25
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
@@ -648,7 +647,6 @@ MonoBehaviour:
     icon: {fileID: 244486248, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     speed: 0
-    fireRate: 0
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0.5
@@ -774,7 +772,6 @@ MonoBehaviour:
     icon: {fileID: -632504653, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     speed: 0.2
-    fireRate: 0
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
@@ -909,7 +906,6 @@ MonoBehaviour:
     icon: {fileID: 576402560, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     speed: 0
-    fireRate: 0
     shotSpeed: 0
     maxHealth: 20
     healthRegen: 0
