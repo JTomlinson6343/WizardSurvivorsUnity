@@ -76,6 +76,7 @@ public class Actor : MonoBehaviour
     public bool TakeDamageNoIFrames(float amount)
     {
         m_Health -= amount;
+        AudioManager.m_Instance.PlaySound(0);
 
         if (m_Health <= 0)
         {
