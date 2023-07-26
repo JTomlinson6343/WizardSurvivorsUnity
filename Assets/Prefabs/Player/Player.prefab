@@ -307,16 +307,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 20
   m_Health: 20
+  m_CameraRef: {fileID: 4834166685093268812}
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
   m_DamageNumberPrefab: {fileID: 5035281070457857526, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
   m_BaseStats:
-    damage: 20
     speed: 2
     fireRate: 1
     shotSpeed: 10
     maxHealth: 20
     healthRegen: 0
+  m_BasicAbility: {fileID: 0}
 --- !u!1 &5053946717149841329
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +391,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2020019679
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 740431455, guid: 966866a55fe047647b5e80872d88c320, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
