@@ -9,6 +9,8 @@ public class Skill : MonoBehaviour
     // List of skills that unlock this skill
     [SerializeField] protected Skill[] m_Prerequisites;
 
+    public bool m_Unlocked;
+
     public string m_SkillName;
 
     public string m_Description;
@@ -25,6 +27,21 @@ public class Skill : MonoBehaviour
         m_SkillTreeRef = GetComponentInParent<SkillTree>();
         m_ButtonRef = GetComponent<Button>();
         m_ButtonRef.onClick.AddListener(OnClick);
+    }
+
+    public bool CheckPrerequisites()
+    {
+        if (m_Prerequisites.Length == 0)
+        {
+            return true;
+        }
+
+        bool canEnable = false;
+        foreach (Skill preReq in m_Prerequisites)
+        {
+            canEnable = canEnable || preReq.m_Unlocked;
+        }
+        return canEnable;
     }
 
     private void OnClick()

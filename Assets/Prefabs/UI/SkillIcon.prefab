@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Prerequisites: []
   m_SkillName: 
   m_Description: 
+  m_Cost: 0
   m_Icon: {fileID: 0}
 --- !u!1 &7048812934334818688
 GameObject:

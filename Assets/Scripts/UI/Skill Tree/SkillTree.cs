@@ -9,7 +9,7 @@ public class SkillTree : MonoBehaviour
     private Skill m_CurrentSkill;
 
     private int m_TotalSkillPoints;
-    private int m_CurrentSkillPoints = 100;
+    [SerializeField] private int m_CurrentSkillPoints;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
@@ -24,17 +24,37 @@ public class SkillTree : MonoBehaviour
     public void SetHighlightedSkill(Skill skill)
     {
         m_CurrentSkill = skill;
+
+        // Set info labels to the info of the skill
         m_NameLabel.text = m_CurrentSkill.m_SkillName;
         m_DescriptionLabel.text = m_CurrentSkill.m_Description;
         m_CostLabel.text = m_CurrentSkill.m_Cost.ToString();
+
+        if (!m_UnlockButton.enabled )
+        {
+            m_UnlockButton.enabled = true;
+        }
+
+        m_UnlockButton.interactable = true;
+
+        if (m_CurrentSkillPoints < m_CurrentSkill.m_Cost)
+        {
+            m_UnlockButton.interactable = false;
+        }
+        if (m_CurrentSkill.m_Unlocked == true)
+        {
+            m_UnlockButton.interactable = false;
+        }
+        if (!m_CurrentSkill.CheckPrerequisites())
+        {
+            m_UnlockButton.interactable = false;
+        }
     }
 
     void OnUnlockPressed()
     {
-        if (m_CurrentSkillPoints >= m_CurrentSkill.m_Cost)
-        {
-            m_CurrentSkill.enabled = false;
-        }
+        m_CurrentSkill.m_Unlocked = true;
+        m_UnlockButton.interactable = false;
     }
 
     private void Update()
