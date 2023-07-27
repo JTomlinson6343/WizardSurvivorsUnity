@@ -14,7 +14,11 @@ public class SkillTree : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
+    [SerializeField] TextMeshProUGUI m_CantUnlockLabel;
     [SerializeField] Button          m_UnlockButton;
+
+    [SerializeField] string m_NotEnoughSkillPointsMsg;
+    [SerializeField] string m_PrereqMsg;
 
     private void Start()
     {
@@ -30,31 +34,37 @@ public class SkillTree : MonoBehaviour
         m_DescriptionLabel.text = m_CurrentSkill.m_Description;
         m_CostLabel.text = m_CurrentSkill.m_Cost.ToString();
 
-        if (!m_UnlockButton.enabled )
-        {
-            m_UnlockButton.enabled = true;
-        }
-
+        // Display unlock button
+        m_UnlockButton.gameObject.SetActive(true);
         m_UnlockButton.interactable = true;
+        m_CantUnlockLabel.text = "";
 
+        // Unlock button won't work unless it passes these checks
         if (m_CurrentSkillPoints < m_CurrentSkill.m_Cost)
         {
             m_UnlockButton.interactable = false;
+            m_CantUnlockLabel.text = m_NotEnoughSkillPointsMsg;
         }
         if (m_CurrentSkill.m_Unlocked == true)
         {
-            m_UnlockButton.interactable = false;
+            m_UnlockButton.gameObject.SetActive(false);
+            m_CostLabel.text = "";
         }
         if (!m_CurrentSkill.CheckPrerequisites())
         {
             m_UnlockButton.interactable = false;
+            m_CantUnlockLabel.text = m_PrereqMsg;
+            m_CostLabel.text = "";
         }
     }
 
     void OnUnlockPressed()
     {
         m_CurrentSkill.m_Unlocked = true;
+        m_CurrentSkillPoints -= m_CurrentSkill.m_Cost;
+
         m_UnlockButton.interactable = false;
+        m_UnlockButton.gameObject.SetActive(false);
     }
 
     private void Update()
