@@ -36,7 +36,7 @@ public class Player : Actor
     PlayerStats m_BonusStats;
     PlayerStats m_TotalStats;
 
-    [SerializeField] Ability m_BasicAbility;
+    [SerializeField] Ability m_ActiveAbility;
 
     float m_LastShot = 0;
 
@@ -58,9 +58,9 @@ public class Player : Actor
         {
             float now = Time.realtimeSinceStartup;
 
-            if (now - m_LastShot > m_BasicAbility.GetTotalStats().cooldown)
+            if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
             {
-                m_BasicAbility.OnCast();
+                m_ActiveAbility.OnMouseInput(GetAimDirection().normalized);
                 m_LastShot = now;
             }
         }

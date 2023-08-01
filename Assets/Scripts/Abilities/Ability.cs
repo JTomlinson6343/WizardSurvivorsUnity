@@ -106,6 +106,13 @@ public class Ability : MonoBehaviour
 
     }
 
+    // Override this to add behaviour to take in the mouse position
+    virtual public void OnMouseInput(Vector2 aimDirection)
+    {
+        Debug.Log("No OnMouseInput behaviour defined. Defaulting to normal ability cast.");
+        OnCast();
+    }
+
     public void UpdateTotalStats()
     {
         // Update total stats
