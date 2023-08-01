@@ -1,7 +1,10 @@
 using UnityEngine;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner m_Instance;
+
     [SerializeField] private GameObject m_PlayerReference;
     [SerializeField] private GameObject m_EnemyPrefab;
     [SerializeField] private GameObject m_EnemiesFolder;
@@ -23,6 +26,11 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
 
+    }
+
+    void Awake()
+    {
+        m_Instance = this;
     }
 
     // Update is called once per frame
