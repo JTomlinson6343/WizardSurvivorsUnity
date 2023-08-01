@@ -119,7 +119,7 @@ MonoBehaviour:
     AOE: 0
     duration: 0
     damage: 50
-    speed: 2
+    speed: 5
     cooldown: 1
     amount: 0
     knockback: 0
