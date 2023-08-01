@@ -316,7 +316,7 @@ MonoBehaviour:
     shotSpeed: 10
     maxHealth: 20
     healthRegen: 0
-  m_BasicAbility: {fileID: 8201127561021254593}
+  m_ActiveAbility: {fileID: 8201127561021254593}
 --- !u!1 &5053946717149841329
 GameObject:
   m_ObjectHideFlags: 0
