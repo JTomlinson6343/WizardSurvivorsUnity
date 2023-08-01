@@ -59,7 +59,7 @@ public struct AbilityStats
 
 public class Ability : MonoBehaviour
 {
-    protected int m_Level;                // Level of the ability
+    protected int m_Level = 1;                // Level of the ability
     [SerializeField] float m_DamageUpgradeAmount;
 
     protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
@@ -95,9 +95,8 @@ public class Ability : MonoBehaviour
         }
         else
         {
-            Debug.Log(m_Info.name + " is now level "+ m_Level.ToString());
-
             LevelUp();
+            Debug.Log(m_Info.name + " is now level "+ m_Level.ToString());
         }
     }
 
@@ -127,15 +126,13 @@ public class Ability : MonoBehaviour
     // Called on level up and calls a different function depending on current ability level
     public virtual void LevelUp()
     {
-        if (m_Level < 5)
-        {
-            m_Level++;
-            m_BonusStats.damage += m_DamageUpgradeAmount;
-        }
-        else
+        if (m_Level >= 4)
         {
             m_isMaxed = true;
+
         }
+        m_Level++;
+        m_BonusStats.damage += m_DamageUpgradeAmount;
         UpdateTotalStats();
     }
 }
