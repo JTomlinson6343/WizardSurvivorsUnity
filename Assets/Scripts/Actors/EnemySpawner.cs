@@ -60,13 +60,18 @@ public class EnemySpawner : MonoBehaviour
         Enemy closestEnemy = null;
 
         // Get enemies
-        Enemy[] enemies = GetComponentsInChildren<Enemy>();
+        Enemy[] enemies = m_EnemiesFolder.GetComponentsInChildren<Enemy>();
+
+        if (enemies == null)
+        {
+            return Vector2.negativeInfinity;
+        }
 
         foreach (Enemy enemy in enemies)
         {
             // Calculate distance from enemy
-            float dist = Vector2.Distance(pos, enemy.transform.position);
-            if (minDist > dist)
+            float dist = Vector3.Distance(enemy.transform.position, pos);
+            if (dist < minDist)
             {
                 // If enemy is closer than the closest enemy so far, set closest enemy to this
                 minDist = dist;
@@ -79,6 +84,6 @@ public class EnemySpawner : MonoBehaviour
 
     public Vector2 GetDirectionToEnemy(Vector2 pos)
     {
-        return (pos - GetClosestEnemyPos(pos).normalized);
+        return (GetClosestEnemyPos(pos)-pos).normalized;
     }
 }
