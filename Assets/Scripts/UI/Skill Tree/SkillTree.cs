@@ -28,6 +28,7 @@ public class SkillTree : MonoBehaviour
     private void Start()
     {
         m_UnlockButton.onClick.AddListener(OnUnlockPressed);
+        m_RespecButton.onClick.AddListener(OnRespecPressed);
 
         m_CurrentSkillPoints = m_TotalSkillPoints;
 
@@ -59,7 +60,7 @@ public class SkillTree : MonoBehaviour
             m_UnlockButton.interactable = false;
             m_CantUnlockLabel.text = m_NotEnoughSkillPointsMsg;
         }
-        if (m_CurrentSkill.m_Unlocked == true)
+        if (m_CurrentSkill.m_SkillLevel >= m_CurrentSkill.m_MaxSkillLevel)
         {
             m_UnlockButton.gameObject.SetActive(false);
             m_CostLabel.text = "";
@@ -74,6 +75,7 @@ public class SkillTree : MonoBehaviour
 
     void OnUnlockPressed()
     {
+        m_CurrentSkill.m_Unlocked = true;
         m_CurrentSkillPoints -= m_CurrentSkill.m_Cost;
         UpdateSkillPointsLabel();
         m_CurrentSkill.m_SkillLevel++;
@@ -81,11 +83,24 @@ public class SkillTree : MonoBehaviour
 
         if (m_CurrentSkill.m_SkillLevel < m_CurrentSkill.m_MaxSkillLevel)
             return;
-
-        m_CurrentSkill.m_Unlocked = true;
+        // If skill can't be leveled up further, disable unlock button
         m_UnlockButton.interactable = false;
         m_UnlockButton.gameObject.SetActive(false);
         m_CostLabel.text = "";
+    }
+
+    void OnRespecPressed()
+    {
+        Skill[] skills = GetComponentsInChildren<Skill>();
+
+        foreach (Skill skill in skills)
+        {
+            skill.m_Unlocked = false;
+            skill.m_SkillLevel = 0;
+        }
+
+        m_CurrentSkillPoints = m_TotalSkillPoints;
+        UpdateSkillPointsLabel();
     }
 
     private void Update()
