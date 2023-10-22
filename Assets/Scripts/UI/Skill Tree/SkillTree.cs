@@ -8,14 +8,19 @@ public class SkillTree : MonoBehaviour
 {
     private Skill m_CurrentSkill;
 
-    private int m_TotalSkillPoints;
-    [SerializeField] private int m_CurrentSkillPoints;
+    [SerializeField] private int m_TotalSkillPoints;
+    private int m_SkillPointCap;
+    private int m_CurrentSkillPoints;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
     [SerializeField] TextMeshProUGUI m_CantUnlockLabel;
+    [SerializeField] TextMeshProUGUI m_SkillLevelLabel;
+    [SerializeField] TextMeshProUGUI m_SkillPointsLabel;
+
     [SerializeField] Button          m_UnlockButton;
+    [SerializeField] Button          m_RespecButton;
 
     [SerializeField] string m_NotEnoughSkillPointsMsg;
     [SerializeField] string m_PrereqMsg;
@@ -23,6 +28,15 @@ public class SkillTree : MonoBehaviour
     private void Start()
     {
         m_UnlockButton.onClick.AddListener(OnUnlockPressed);
+
+        m_CurrentSkillPoints = m_TotalSkillPoints;
+
+        UpdateSkillPointsLabel();
+    }
+
+    private void UpdateSkillPointsLabel()
+    {
+        m_SkillPointsLabel.text = "SP: " + m_CurrentSkillPoints.ToString() + "/" + m_TotalSkillPoints.ToString();
     }
 
     public void SetHighlightedSkill(Skill skill)
@@ -60,9 +74,15 @@ public class SkillTree : MonoBehaviour
 
     void OnUnlockPressed()
     {
-        m_CurrentSkill.m_Unlocked = true;
         m_CurrentSkillPoints -= m_CurrentSkill.m_Cost;
+        UpdateSkillPointsLabel();
+        m_CurrentSkill.m_SkillLevel++;
+        // Ability unlock animation goes here
 
+        if (m_CurrentSkill.m_SkillLevel < m_CurrentSkill.m_MaxSkillLevel)
+            return;
+
+        m_CurrentSkill.m_Unlocked = true;
         m_UnlockButton.interactable = false;
         m_UnlockButton.gameObject.SetActive(false);
         m_CostLabel.text = "";

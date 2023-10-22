@@ -17,6 +17,10 @@ public class Skill : MonoBehaviour
 
     public int m_Cost;
 
+    public int m_SkillLevel;
+
+    public int m_MaxSkillLevel;
+
     [SerializeField] protected Image m_Icon;
 
     private SkillTree m_SkillTreeRef;
