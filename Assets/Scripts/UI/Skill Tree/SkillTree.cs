@@ -65,6 +65,7 @@ public class SkillTree : MonoBehaviour
 
         m_UnlockButton.interactable = false;
         m_UnlockButton.gameObject.SetActive(false);
+        m_CostLabel.text = "";
     }
 
     private void Update()
