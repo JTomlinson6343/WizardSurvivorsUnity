@@ -115,11 +115,21 @@ public class SkillTree : MonoBehaviour
             if (!skill.m_Unlocked) continue;
 
             SkillManager.m_Instance.AddSkill(skill);
+
+            Debug.Log(skill.m_SkillName + "added");
         }
     }
 
     void OnCloseSkillTreeMenu()
     {
         PassEnabledSkillsToManager();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PassEnabledSkillsToManager();
+        }
     }
 }

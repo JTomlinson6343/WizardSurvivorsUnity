@@ -13,6 +13,11 @@ public class SkillManager : MonoBehaviour
         m_Instance = this;
     }
 
+    private void Start()
+    {
+        m_Skills = new List<Skill>();
+    }
+
     public void AddSkill(Skill skill)
     {
         m_Skills.Add(skill);
