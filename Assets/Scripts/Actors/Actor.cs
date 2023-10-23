@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public struct DamageStats
 {
@@ -47,6 +48,10 @@ public class Actor : MonoBehaviour
 
     private DamageStats m_BaseResistance;
     private DamageStats m_BonusResistance;
+
+    public class DataEvent : UnityEvent<DamageInstance> { }
+
+    public static DataEvent m_DamageInstanceEvent;
 
     void Start()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public struct PlayerStats
@@ -15,11 +16,22 @@ public struct PlayerStats
         newstats.healthRegen = left.healthRegen + right.healthRegen;
         return newstats;
     }
+    public static PlayerStats operator -(PlayerStats left, PlayerStats right)
+    {
+        PlayerStats newstats;
+        newstats.speed = left.speed + right.speed;
+        newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
+        newstats.maxHealth = left.maxHealth + right.maxHealth;
+        newstats.healthRegen = left.healthRegen + right.healthRegen;
+        return newstats;
+    }
 
     public float speed;
     public float shotSpeed;
     public float maxHealth;
     public float healthRegen;
+
+    public static PlayerStats Zero = new PlayerStats();
 }
 
 public class Player : Actor
@@ -34,6 +46,7 @@ public class Player : Actor
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
     PlayerStats m_BonusStats;
+    PlayerStats m_TempStats;
     PlayerStats m_TotalStats;
 
     [SerializeField] Ability m_ActiveAbility;
@@ -64,6 +77,8 @@ public class Player : Actor
                 m_LastShot = now;
             }
         }
+
+        UpdateStats();
     }
 
     public void UpdateStats()
@@ -94,6 +109,19 @@ public class Player : Actor
     public void AddBonusStats(PlayerStats stats)
     {
         m_BonusStats += stats;
+    }
+
+    public void AddTempStats(PlayerStats stats, float duration)
+    {
+        m_TempStats += stats;
+        m_BonusStats += m_TempStats;
+        Invoke(nameof(RemoveTempStats), duration);
+    }
+
+    private void RemoveTempStats()
+    {
+        m_BonusStats -= m_TempStats;
+        m_TempStats = PlayerStats.Zero;
     }
 
     public void UpdateHealth()

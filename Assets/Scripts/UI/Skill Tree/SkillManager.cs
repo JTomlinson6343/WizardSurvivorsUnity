@@ -6,16 +6,11 @@ public class SkillManager : MonoBehaviour
 {
     public static SkillManager m_Instance;
 
-    List<Skill> m_Skills;
+    List<Skill> m_Skills = new();
 
     private void Awake()
     {
         m_Instance = this;
-    }
-
-    private void Start()
-    {
-        m_Skills = new List<Skill>();
     }
 
     public void AddSkill(Skill skill)
