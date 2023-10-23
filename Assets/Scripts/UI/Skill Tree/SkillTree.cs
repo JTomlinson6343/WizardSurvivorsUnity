@@ -103,6 +103,18 @@ public class SkillTree : MonoBehaviour
         UpdateSkillPointsLabel();
     }
 
+    void PassEnabledSkillsToManager()
+    {
+        Skill[] skills = GetComponentsInChildren<Skill>();
+
+        foreach (Skill skill in skills)
+        {
+            if (!skill.m_Unlocked) continue;
+
+            SkillManager.m_Instance.AddSkill(skill);
+        }
+    }
+
     private void Update()
     {
         
