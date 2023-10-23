@@ -20,10 +20,20 @@ public enum DamageType
     Physical
 }
 
+public enum ActorType
+{
+
+}
+
+// An instance of damage dealt to an actor
 public struct DamageInstance
 {
-    public DamageType type;
+    public DamageType damageType;
+    public ActorType userType;
+    public ActorType recieverType;
     public float amount;
+    public bool didCrit;
+    public bool didKill;
 }
 
 public class Actor : MonoBehaviour
