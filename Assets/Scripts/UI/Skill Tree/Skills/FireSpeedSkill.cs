@@ -19,6 +19,6 @@ public class FireSpeedSkill : Skill
     {
         if (damageInstance.damageType != DamageType.Fire) return;
 
-        Player.m_Instance.AddTempStats(bonusSpeed, 2);
+        Debug.Log("Player's speed increased by" + bonusSpeed.speed.ToString());
     }
 }

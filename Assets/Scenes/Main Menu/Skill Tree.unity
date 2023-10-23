@@ -51516,6 +51516,52 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &297323943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297323944}
+  - component: {fileID: 297323945}
+  m_Layer: 0
+  m_Name: actor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297323944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297323943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1672754360}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297323945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297323943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4aa37216953d7b4faa84746bae373ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxHealth: 100
+  m_Health: 100
 --- !u!43 &345741905
 Mesh:
   m_ObjectHideFlags: 0
@@ -52510,17 +52556,36 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
   m_PrefabInstance: {fileID: 1178849153}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &801720555 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+--- !u!1 &808651007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
   m_PrefabInstance: {fileID: 1178849153}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &808651011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808651007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684cc42fb61056344a75bcf879751527, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cbeb75226cc29e459b1a1f6218438e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Prerequisites: []
+  m_Unlocked: 0
+  m_SkillName: Fire Speed
+  m_Description: When dealing fire damage, move faster
+  m_Cost: 20
+  m_SkillLevel: 0
+  m_MaxSkillLevel: 1
+  m_Icon: {fileID: 0}
+  bonusSpeed:
+    speed: 10
+    shotSpeed: 0
+    maxHealth: 0
+    healthRegen: 0
 --- !u!1 &932800439
 GameObject:
   m_ObjectHideFlags: 0
@@ -52934,6 +52999,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillName
       value: Skill 2
       objectReference: {fileID: 0}
@@ -52965,10 +53034,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 808651011}
   m_SourcePrefab: {fileID: 100100000, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
 --- !u!1 &1191613813
 GameObject:
@@ -54182,7 +54255,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 297323944}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54734,7 +54808,7 @@ PrefabInstance:
     - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
       value: 
-      objectReference: {fileID: 801720555}
+      objectReference: {fileID: 808651011}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
       value: SkillIcon_11

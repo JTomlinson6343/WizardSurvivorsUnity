@@ -123,13 +123,28 @@ public class SkillTree : MonoBehaviour
     void OnCloseSkillTreeMenu()
     {
         PassEnabledSkillsToManager();
+
+        Skill[] skills = GetComponentsInChildren<Skill>();
+
+        foreach (Skill skill in skills)
+        {
+            skill.Init();
+        }
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PassEnabledSkillsToManager();
+            OnCloseSkillTreeMenu();
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            DamageInstance di = new DamageInstance();
+            di.damageType = DamageType.Fire;
+            di.amount = 10;
+
+            Actor.m_DamageInstanceEvent.Invoke(di);
         }
     }
 }

@@ -57,4 +57,6 @@ public class Skill : MonoBehaviour
     {
         m_SkillTreeRef.SetHighlightedSkill(this);
     }
+
+    public virtual void Init() { }
 }

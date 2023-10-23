@@ -51,7 +51,7 @@ public class Actor : MonoBehaviour
 
     public class DataEvent : UnityEvent<DamageInstance> { }
 
-    public static DataEvent m_DamageInstanceEvent;
+    public static DataEvent m_DamageInstanceEvent = new DataEvent();
 
     void Start()
     {
