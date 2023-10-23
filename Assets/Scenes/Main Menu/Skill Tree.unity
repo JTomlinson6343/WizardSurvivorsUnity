@@ -51736,6 +51736,7 @@ MonoBehaviour:
   m_UnlockButton: {fileID: 1314594664}
   m_RespecButton: {fileID: 1257481874}
   m_NotEnoughSkillPointsMsg: Not enough skill points
+  m_SkillMaxedMsg: Skill is at max level
   m_PrereqMsg: Unlock previous abilities first
 --- !u!1 &436483462
 GameObject:
@@ -53656,6 +53657,10 @@ PrefabInstance:
       value: The quick brown fox jumps over the lazy dog
       objectReference: {fileID: 0}
     - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_MaxSkillLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -53946,6 +53951,10 @@ PrefabInstance:
     - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description
       value: The quick brown fox jumps over the lazy dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_MaxSkillLevel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.size
@@ -54670,6 +54679,10 @@ PrefabInstance:
       value: The quick brown fox jumps over the lazy dog
       objectReference: {fileID: 0}
     - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_MaxSkillLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -54805,10 +54818,6 @@ PrefabInstance:
     - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description
       value: The quick brown fox jumps over the lazy dog
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782722612153189587, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
-      propertyPath: m_MaxSkillLevel
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name

@@ -13,18 +13,6 @@ public class SkillManager : MonoBehaviour
         m_Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddSkill(Skill skill)
     {
         m_Skills.Add(skill);

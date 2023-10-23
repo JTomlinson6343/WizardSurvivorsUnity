@@ -33,6 +33,11 @@ public class Skill : MonoBehaviour
         m_ButtonRef.onClick.AddListener(OnClick);
     }
 
+    public bool IsMaxed()
+    {
+        return m_SkillLevel >= m_MaxSkillLevel;
+    }
+
     public bool CheckPrerequisites()
     {
         if (m_Prerequisites.Length == 0)

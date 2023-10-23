@@ -23,6 +23,7 @@ public class SkillTree : MonoBehaviour
     [SerializeField] Button          m_RespecButton;
 
     [SerializeField] string m_NotEnoughSkillPointsMsg;
+    [SerializeField] string m_SkillMaxedMsg;
     [SerializeField] string m_PrereqMsg;
 
     private void Start()
@@ -54,16 +55,22 @@ public class SkillTree : MonoBehaviour
         m_UnlockButton.interactable = true;
         m_CantUnlockLabel.text = "";
 
+        CheckSelectedSkill();
+    }
+
+    void CheckSelectedSkill()
+    {
         // Unlock button won't work unless it passes these checks
+        if (m_CurrentSkill.IsMaxed())
+        {
+            m_UnlockButton.gameObject.SetActive(false);
+            m_CantUnlockLabel.text = m_SkillMaxedMsg;
+            m_CostLabel.text = "";
+        }
         if (m_CurrentSkillPoints < m_CurrentSkill.m_Cost)
         {
             m_UnlockButton.interactable = false;
             m_CantUnlockLabel.text = m_NotEnoughSkillPointsMsg;
-        }
-        if (m_CurrentSkill.m_SkillLevel >= m_CurrentSkill.m_MaxSkillLevel)
-        {
-            m_UnlockButton.gameObject.SetActive(false);
-            m_CostLabel.text = "";
         }
         if (!m_CurrentSkill.CheckPrerequisites())
         {
@@ -81,12 +88,7 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkill.m_SkillLevel++;
         // Ability unlock animation goes here
 
-        if (m_CurrentSkill.m_SkillLevel < m_CurrentSkill.m_MaxSkillLevel)
-            return;
-        // If skill can't be leveled up further, disable unlock button
-        m_UnlockButton.interactable = false;
-        m_UnlockButton.gameObject.SetActive(false);
-        m_CostLabel.text = "";
+        CheckSelectedSkill();
     }
 
     void OnRespecPressed()
@@ -101,6 +103,7 @@ public class SkillTree : MonoBehaviour
 
         m_CurrentSkillPoints = m_TotalSkillPoints;
         UpdateSkillPointsLabel();
+        CheckSelectedSkill();
     }
 
     void PassEnabledSkillsToManager()
@@ -115,8 +118,8 @@ public class SkillTree : MonoBehaviour
         }
     }
 
-    private void Update()
+    void OnCloseSkillTreeMenu()
     {
-        
+        PassEnabledSkillsToManager();
     }
 }

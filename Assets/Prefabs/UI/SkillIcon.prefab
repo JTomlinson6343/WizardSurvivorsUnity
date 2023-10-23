@@ -136,9 +136,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Prerequisites: []
+  m_Unlocked: 0
   m_SkillName: 
   m_Description: 
   m_Cost: 0
+  m_SkillLevel: 0
+  m_MaxSkillLevel: 1
   m_Icon: {fileID: 0}
 --- !u!1 &7048812934334818688
 GameObject:
