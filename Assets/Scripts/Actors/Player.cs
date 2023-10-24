@@ -16,6 +16,7 @@ public struct PlayerStats
         newstats.healthRegen = left.healthRegen + right.healthRegen;
         return newstats;
     }
+    // Overload + operator to allow two PlayerStats structs together
     public static PlayerStats operator -(PlayerStats left, PlayerStats right)
     {
         PlayerStats newstats;
@@ -83,15 +84,7 @@ public class Player : Actor
         UpdateStats();
     }
 
-    public void UpdateStats()
-    {
-        m_TotalStats = m_BaseStats + m_BonusStats;
-        UpdateHealth();
-
-        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
-        bar.UpdateSize(GetHealthAsRatio());
-    }
-
+    #region Skills
     public void ResetSkillsAdded()
     {
         m_Skills.Clear();
@@ -100,23 +93,17 @@ public class Player : Actor
     {
         m_Skills.Add(skill);
     }
+    #endregion
 
-    public Vector3 GetPosition()
+    #region Stats Functions
+    public void UpdateStats()
     {
-        return transform.position;
+        m_TotalStats = m_BaseStats + m_BonusStats;
+        UpdateHealth();
+
+        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
+        bar.UpdateSize(GetHealthAsRatio());
     }
-
-    public Vector2 GetAimDirection()
-    {
-        return (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
-
-    }
-
-    public PlayerStats GetStats()
-    {
-        return m_TotalStats;
-    }
-
     public void AddBonusStats(PlayerStats stats)
     {
         m_BonusStats += stats;
@@ -134,7 +121,24 @@ public class Player : Actor
         m_BonusStats -= m_TempStats;
         m_TempStats = PlayerStats.Zero;
     }
+    #endregion
 
+    #region Getters
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public Vector2 GetAimDirection()
+    {
+        return (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
+
+    }
+
+    public PlayerStats GetStats()
+    {
+        return m_TotalStats;
+    }
     public void UpdateHealth()
     {
         float ratio = GetHealthAsRatio();
@@ -151,4 +155,5 @@ public class Player : Actor
     {
         return centrePos.transform.position;
     }
+    #endregion
 }
