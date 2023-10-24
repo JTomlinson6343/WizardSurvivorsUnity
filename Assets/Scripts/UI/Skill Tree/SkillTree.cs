@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
@@ -21,6 +22,7 @@ public class SkillTree : MonoBehaviour
 
     [SerializeField] Button          m_UnlockButton;
     [SerializeField] Button          m_RespecButton;
+    [SerializeField] Button          m_BackButton;
 
     [SerializeField] string m_NotEnoughSkillPointsMsg;
     [SerializeField] string m_SkillMaxedMsg;
@@ -30,6 +32,7 @@ public class SkillTree : MonoBehaviour
     {
         m_UnlockButton.onClick.AddListener(OnUnlockPressed);
         m_RespecButton.onClick.AddListener(OnRespecPressed);
+        m_BackButton.onClick.AddListener(OnBackPressed);
 
         m_CurrentSkillPoints = m_TotalSkillPoints;
 
@@ -104,6 +107,11 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkillPoints = m_TotalSkillPoints;
         UpdateSkillPointsLabel();
         CheckSelectedSkill();
+    }
+
+    void OnBackPressed()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     void PassEnabledSkillsToManager()
