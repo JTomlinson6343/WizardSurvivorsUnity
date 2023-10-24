@@ -123,13 +123,13 @@ public class SkillTree : MonoBehaviour
     {
         Skill[] skills = GetComponentsInChildren<Skill>();
 
-        Player.m_Instance.ResetSkillsAdded();
+        SkillManager.m_Instance.ResetSkillsAdded();
 
         foreach (Skill skill in skills)
         {
             if (!skill.m_Unlocked) continue;
 
-            Player.m_Instance.AddSkill(skill);
+            SkillManager.m_Instance.AddSkill(skill);
 
             Debug.Log(skill.m_SkillName + "added");
         }
@@ -144,18 +144,6 @@ public class SkillTree : MonoBehaviour
         foreach (Skill skill in skills)
         {
             skill.Init();
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            DamageInstance di = new DamageInstance();
-            di.damageType = DamageType.Fire;
-            di.amount = 10;
-
-            Actor.m_DamageInstanceEvent.Invoke(di);
         }
     }
 }

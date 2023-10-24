@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
 
     [HideInInspector] public Ability m_AbilitySource;
 
+    public DamageType m_DamageType;
+
     public void StartLifetimeTimer(float lifetime)
     {
         Invoke(nameof(DestroySelf), lifetime);
@@ -15,7 +17,7 @@ public class Projectile : MonoBehaviour
 
     virtual protected void OnEnemyHit(GameObject enemy)
     {
-        DamageManager.m_Instance.DamageInstance(enemy, m_AbilitySource.GetTotalStats().damage, transform.position, true, true);
+        DamageManager.m_Instance.DamageInstance(ActorType.Player, enemy, m_DamageType, m_AbilitySource.GetTotalStats().damage, transform.position, true, true);
         DestroySelf();
     }
 

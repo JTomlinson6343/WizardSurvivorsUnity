@@ -55,9 +55,7 @@ public class EnemyLogic : MonoBehaviour
         {
             Actor actorComponent = otherObject.GetComponent<Actor>();
 
-            bool validHit = actorComponent.TakeDamage(1.0f);
-
-            if (validHit)
+            if (actorComponent.TakeDamage(1.0f) >= DamageOutput.invalidHit)
             {
                 Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 

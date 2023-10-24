@@ -9,6 +9,7 @@ public class Debuff : MonoBehaviour
     public float m_DebuffTime;
     private float m_TickInterval = 0.25f;
     public float m_Damage;
+    public DamageType m_DamageType;
 
     float m_LastTick;
 
@@ -52,6 +53,6 @@ public class Debuff : MonoBehaviour
 
     virtual protected void OnTick()
     {
-        DamageManager.m_Instance.DamageInstance(gameObject,m_Damage,transform.position,false,true);
+        DamageManager.m_Instance.DamageInstance(ActorType.Player,gameObject, m_DamageType, m_Damage,transform.position,false,true);
     }
 }

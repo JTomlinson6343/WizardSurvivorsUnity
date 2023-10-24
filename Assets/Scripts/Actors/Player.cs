@@ -50,8 +50,6 @@ public class Player : Actor
     PlayerStats m_TempStats;
     PlayerStats m_TotalStats;
 
-    List<Skill> m_Skills = new();
-
     [SerializeField] Ability m_ActiveAbility;
 
     float m_LastShot = 0;
@@ -63,6 +61,7 @@ public class Player : Actor
 
     private void Start()
     {
+        m_ActorType = ActorType.Player;
         UpdateStats();
     }
 
@@ -83,17 +82,6 @@ public class Player : Actor
 
         UpdateStats();
     }
-
-    #region Skills
-    public void ResetSkillsAdded()
-    {
-        m_Skills.Clear();
-    }
-    public void AddSkill(Skill skill)
-    {
-        m_Skills.Add(skill);
-    }
-    #endregion
 
     #region Stats Functions
     public void UpdateStats()

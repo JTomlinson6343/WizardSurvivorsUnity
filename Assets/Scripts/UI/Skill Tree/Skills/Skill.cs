@@ -30,7 +30,10 @@ public class Skill : MonoBehaviour
     {
         m_SkillTreeRef = GetComponentInParent<SkillTree>();
         m_ButtonRef = GetComponent<Button>();
-        m_ButtonRef.onClick.AddListener(OnClick);
+        if (m_ButtonRef != null)
+        {
+            m_ButtonRef.onClick.AddListener(OnClick);
+        }
     }
 
     public bool IsMaxed()
@@ -59,4 +62,6 @@ public class Skill : MonoBehaviour
     }
 
     public virtual void Init() { }
+    public virtual void OnDamageInstance(DamageInstanceData damageInstance) { }
+
 }
