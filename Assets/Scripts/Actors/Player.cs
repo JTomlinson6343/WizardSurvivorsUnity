@@ -49,6 +49,8 @@ public class Player : Actor
     PlayerStats m_TempStats;
     PlayerStats m_TotalStats;
 
+    List<Skill> m_Skills = new();
+
     [SerializeField] Ability m_ActiveAbility;
 
     float m_LastShot = 0;
@@ -88,6 +90,15 @@ public class Player : Actor
 
         BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
         bar.UpdateSize(GetHealthAsRatio());
+    }
+
+    public void ResetSkillsAdded()
+    {
+        m_Skills.Clear();
+    }
+    public void AddSkill(Skill skill)
+    {
+        m_Skills.Add(skill);
     }
 
     public Vector3 GetPosition()

@@ -114,6 +114,7 @@ public class SkillTree : MonoBehaviour
 
     void OnBackPressed()
     {
+        OnCloseSkillTreeMenu();
         gameObject.SetActive(false);
         CharacterMenu.m_Instance.gameObject.SetActive(true);
     }
@@ -122,11 +123,13 @@ public class SkillTree : MonoBehaviour
     {
         Skill[] skills = GetComponentsInChildren<Skill>();
 
+        Player.m_Instance.ResetSkillsAdded();
+
         foreach (Skill skill in skills)
         {
             if (!skill.m_Unlocked) continue;
 
-            SkillManager.m_Instance.AddSkill(skill);
+            Player.m_Instance.AddSkill(skill);
 
             Debug.Log(skill.m_SkillName + "added");
         }
@@ -146,10 +149,6 @@ public class SkillTree : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OnCloseSkillTreeMenu();
-        }
         if (Input.GetKeyDown(KeyCode.G))
         {
             DamageInstance di = new DamageInstance();
