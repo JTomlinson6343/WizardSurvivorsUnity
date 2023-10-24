@@ -2041,7 +2041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
-      value: SkillIcon_10
+      value: FireSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 8057482391219771895, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_text
@@ -2099,10 +2099,11 @@ MonoBehaviour:
   m_MaxSkillLevel: 1
   m_Icon: {fileID: 0}
   bonusSpeed:
-    speed: 10
+    speed: 0.05
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
+  duration: 0.5
 --- !u!1001 &2728964734379579272
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -20,13 +20,22 @@ public struct PlayerStats
     public static PlayerStats operator -(PlayerStats left, PlayerStats right)
     {
         PlayerStats newstats;
-        newstats.speed = left.speed + right.speed;
-        newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
-        newstats.maxHealth = left.maxHealth + right.maxHealth;
-        newstats.healthRegen = left.healthRegen + right.healthRegen;
+        newstats.speed = left.speed - right.speed;
+        newstats.shotSpeed = left.shotSpeed - right.shotSpeed;
+        newstats.maxHealth = left.maxHealth - right.maxHealth;
+        newstats.healthRegen = left.healthRegen - right.healthRegen;
         return newstats;
     }
 
+    public static PlayerStats operator *(PlayerStats left, PlayerStats right)
+    {
+        PlayerStats newstats;
+        newstats.speed = left.speed * right.speed;
+        newstats.shotSpeed = left.shotSpeed * right.shotSpeed;
+        newstats.maxHealth = left.maxHealth * right.maxHealth;
+        newstats.healthRegen = left.healthRegen * right.healthRegen;
+        return newstats;
+    }
     public float speed;
     public float shotSpeed;
     public float maxHealth;
@@ -47,7 +56,6 @@ public class Player : Actor
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
     PlayerStats m_BonusStats;
-    PlayerStats m_TempStats;
     PlayerStats m_TotalStats;
 
     [SerializeField] Ability m_ActiveAbility;
@@ -82,7 +90,6 @@ public class Player : Actor
 
         UpdateStats();
     }
-
     #region Stats Functions
     public void UpdateStats()
     {
@@ -99,16 +106,18 @@ public class Player : Actor
 
     public void AddTempStats(PlayerStats stats, float duration)
     {
-        m_TempStats += stats;
-        m_BonusStats += m_TempStats;
-        Invoke(nameof(RemoveTempStats), duration);
+        m_BonusStats += stats;
+        //In Start() or wherever
+        StartCoroutine(RemoveTempStats(stats, duration));
     }
 
-    private void RemoveTempStats()
+    private IEnumerator RemoveTempStats(PlayerStats stats, float duration)
     {
-        m_BonusStats -= m_TempStats;
-        m_TempStats = PlayerStats.Zero;
+        yield return new WaitForSeconds(duration);
+
+        m_BonusStats -= stats;
     }
+    
     #endregion
 
     #region Getters

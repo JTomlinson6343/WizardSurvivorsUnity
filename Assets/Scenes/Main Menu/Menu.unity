@@ -53389,10 +53389,11 @@ MonoBehaviour:
   m_MaxSkillLevel: 2
   m_Icon: {fileID: 0}
   bonusSpeed:
-    speed: 10
+    speed: 0.2
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
+  duration: 1
 --- !u!4 &822464847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 557211682419933354, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}

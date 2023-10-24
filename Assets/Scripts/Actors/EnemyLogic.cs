@@ -52,7 +52,7 @@ public class EnemyLogic : MonoBehaviour
 
         //currentVelocity -= moveDir * 1.0f;
 
-        if (otherObject.name == "Player")
+        if (otherObject.GetComponent<Player>() != null)
         {
             Actor actorComponent = otherObject.GetComponent<Actor>();
 

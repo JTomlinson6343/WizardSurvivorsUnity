@@ -9,6 +9,8 @@ public class FireSpeedSkill : Skill
 {
     [SerializeField] PlayerStats bonusSpeed;
 
+    [SerializeField] float duration;
+
     public override void Init()
     {
         base.Init();
@@ -21,6 +23,6 @@ public class FireSpeedSkill : Skill
 
         Debug.Log("Player's speed increased by" + bonusSpeed.speed.ToString());
 
-        Player.m_Instance.AddTempStats(bonusSpeed, 2.0f);
+        Player.m_Instance.AddTempStats(bonusSpeed, duration);
     }
 }
