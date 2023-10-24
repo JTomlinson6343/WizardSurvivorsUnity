@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharacterMenu : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_InfoLabel;
 
+    [SerializeField] GameObject m_Buttons;
+
     [SerializeField] MainMenu m_MainMenuRef;
 
-    private SkillTree m_CurrentCharacterSkillTree;
+    private GameObject m_CurrentCharacter;
+    private SkillTree  m_CurrentCharacterSkillTree;
 
     static CharacterIcon m_CurrentCharIcon;
 
@@ -35,6 +39,10 @@ public class CharacterMenu : MonoBehaviour
         m_InfoLabel.text = charIcon.m_CharName + "\n\n" + charIcon.m_Description;
 
         m_CurrentCharacterSkillTree = charIcon.m_SkillTree;
+        m_CurrentCharacter = charIcon.m_Character;
+
+        m_Buttons.SetActive(true);
+
     }
 
     public void SetCurrentIcon(CharacterIcon charIcon)
@@ -54,6 +62,10 @@ public class CharacterMenu : MonoBehaviour
 
     public void OnStartPressed()
     {
+        if (m_CurrentCharacter == null)
+            return;
+
+        PlayerSpawner.m_Character = m_CurrentCharacter;
         SceneManager.LoadScene("Main Scene");
     }
 

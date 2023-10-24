@@ -53386,7 +53386,7 @@ MonoBehaviour:
   m_Description: When dealing fire damage, move faster
   m_Cost: 20
   m_SkillLevel: 0
-  m_MaxSkillLevel: 1
+  m_MaxSkillLevel: 2
   m_Icon: {fileID: 0}
   bonusSpeed:
     speed: 10
@@ -53398,17 +53398,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 557211682419933354, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
   m_PrefabInstance: {fileID: 1854402918}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &822464848 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2687768136547122572, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
-  m_PrefabInstance: {fileID: 1854402918}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fe22b813bae9804bb59654a1f58058a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &881787369
 GameObject:
   m_ObjectHideFlags: 0
@@ -54441,7 +54430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
-      value: SkillIcon_10
+      value: FireSpeedIcon
       objectReference: {fileID: 0}
     - target: {fileID: 8057482391219771895, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_text
@@ -54722,6 +54711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InfoLabel: {fileID: 1693789579}
+  m_Buttons: {fileID: 1602720851}
   m_MainMenuRef: {fileID: 317946537}
 --- !u!224 &1207659753
 RectTransform:
@@ -56091,7 +56081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1602720852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57890,7 +57880,7 @@ PrefabInstance:
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Character
       value: 
-      objectReference: {fileID: 822464848}
+      objectReference: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTree
       value: 

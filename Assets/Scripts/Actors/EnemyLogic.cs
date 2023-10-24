@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour
 {
-    private GameObject m_PlayerReference;
     [SerializeField] private Rigidbody2D m_RigidBody;
     [SerializeField] private float m_WalkSpeed = 1.0f;
 
@@ -18,24 +17,26 @@ public class EnemyLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_PlayerReference = Player.m_Instance.gameObject;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 currentPos = gameObject.transform.position;
-        Vector3 playerPos = m_PlayerReference.transform.position;
-        Vector3 moveDir = (playerPos - currentPos).normalized;
+        if (Player.m_Instance != null )
+        {
+            Vector3 playerPos = Player.m_Instance.transform.position;
+            Vector3 moveDir = (playerPos - currentPos).normalized;
+            Vector3 targetVelocity = moveDir * m_WalkSpeed;
+            Vector3 currentVelocity = m_RigidBody.velocity;
 
-        Vector3 targetVelocity = moveDir * m_WalkSpeed;
-        Vector3 currentVelocity = m_RigidBody.velocity;
+            currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
 
-        currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
+            m_RigidBody.velocity = currentVelocity;
 
-        m_RigidBody.velocity = currentVelocity;
-
-        SetAnimState(targetVelocity);
+            SetAnimState(targetVelocity);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
