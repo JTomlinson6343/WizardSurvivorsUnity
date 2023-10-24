@@ -11,6 +11,8 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_InfoLabel;
 
+    [SerializeField] MainMenu m_MainMenuRef;
+
     private SkillTree m_CurrentCharacterSkillTree;
 
     static CharacterIcon m_CurrentCharIcon;
@@ -52,7 +54,7 @@ public class CharacterMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
-        SceneManager.LoadSceneAsync("Main Menu");
-
+        gameObject.SetActive(false);
+        m_MainMenuRef.gameObject.SetActive(true);
     }
 }

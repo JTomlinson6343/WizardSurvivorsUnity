@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] CharacterMenu m_CharMenuRef;
+
     public void StartGame()
     {
-        //SceneManager.LoadSceneAsync("Main Scene");
-        SceneManager.LoadSceneAsync("Character Menu");
+        gameObject.SetActive(false);
+        m_CharMenuRef.gameObject.SetActive(true);
     }
 
     public void Options()
