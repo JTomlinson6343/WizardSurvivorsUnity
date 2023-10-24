@@ -63,6 +63,9 @@ public class SkillTree : MonoBehaviour
 
     void CheckSelectedSkill()
     {
+        if (m_CurrentSkill == null)
+            return;
+
         // Unlock button won't work unless it passes these checks
         if (m_CurrentSkill.IsMaxed())
         {
@@ -111,7 +114,8 @@ public class SkillTree : MonoBehaviour
 
     void OnBackPressed()
     {
-        SceneManager.LoadScene("Menu");
+        gameObject.SetActive(false);
+        CharacterMenu.m_Instance.gameObject.SetActive(true);
     }
 
     void PassEnabledSkillsToManager()

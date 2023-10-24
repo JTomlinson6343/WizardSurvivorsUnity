@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         //SceneManager.LoadSceneAsync("Main Scene");
-        SceneManager.LoadSceneAsync("Skill Tree");
+        SceneManager.LoadSceneAsync("Character Menu");
     }
 
     public void Options()
