@@ -52,6 +52,11 @@ public class CharacterMenu : MonoBehaviour
         m_CurrentCharacterSkillTree.gameObject.SetActive(true);
     }
 
+    public void OnStartPressed()
+    {
+        SceneManager.LoadScene("Main Scene");
+    }
+
     public void OnBackPressed()
     {
         gameObject.SetActive(false);
