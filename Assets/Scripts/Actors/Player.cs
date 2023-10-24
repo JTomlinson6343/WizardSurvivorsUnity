@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public struct PlayerStats
@@ -15,11 +16,32 @@ public struct PlayerStats
         newstats.healthRegen = left.healthRegen + right.healthRegen;
         return newstats;
     }
+    // Overload + operator to allow two PlayerStats structs together
+    public static PlayerStats operator -(PlayerStats left, PlayerStats right)
+    {
+        PlayerStats newstats;
+        newstats.speed = left.speed - right.speed;
+        newstats.shotSpeed = left.shotSpeed - right.shotSpeed;
+        newstats.maxHealth = left.maxHealth - right.maxHealth;
+        newstats.healthRegen = left.healthRegen - right.healthRegen;
+        return newstats;
+    }
 
+    public static PlayerStats operator *(PlayerStats left, PlayerStats right)
+    {
+        PlayerStats newstats;
+        newstats.speed = left.speed * right.speed;
+        newstats.shotSpeed = left.shotSpeed * right.shotSpeed;
+        newstats.maxHealth = left.maxHealth * right.maxHealth;
+        newstats.healthRegen = left.healthRegen * right.healthRegen;
+        return newstats;
+    }
     public float speed;
     public float shotSpeed;
     public float maxHealth;
     public float healthRegen;
+
+    public static PlayerStats Zero = new PlayerStats();
 }
 
 public class Player : Actor
@@ -47,6 +69,7 @@ public class Player : Actor
 
     private void Start()
     {
+        m_ActorType = ActorType.Player;
         UpdateStats();
     }
 
@@ -64,8 +87,10 @@ public class Player : Actor
                 m_LastShot = now;
             }
         }
-    }
 
+        UpdateStats();
+    }
+    #region Stats Functions
     public void UpdateStats()
     {
         m_TotalStats = m_BaseStats + m_BonusStats;
@@ -74,7 +99,28 @@ public class Player : Actor
         BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
         bar.UpdateSize(GetHealthAsRatio());
     }
+    public void AddBonusStats(PlayerStats stats)
+    {
+        m_BonusStats += stats;
+    }
 
+    public void AddTempStats(PlayerStats stats, float duration)
+    {
+        m_BonusStats += stats;
+        //In Start() or wherever
+        StartCoroutine(RemoveTempStats(stats, duration));
+    }
+
+    private IEnumerator RemoveTempStats(PlayerStats stats, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        m_BonusStats -= stats;
+    }
+    
+    #endregion
+
+    #region Getters
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -90,12 +136,6 @@ public class Player : Actor
     {
         return m_TotalStats;
     }
-
-    public void AddBonusStats(PlayerStats stats)
-    {
-        m_BonusStats += stats;
-    }
-
     public void UpdateHealth()
     {
         float ratio = GetHealthAsRatio();
@@ -112,4 +152,5 @@ public class Player : Actor
     {
         return centrePos.transform.position;
     }
+    #endregion
 }

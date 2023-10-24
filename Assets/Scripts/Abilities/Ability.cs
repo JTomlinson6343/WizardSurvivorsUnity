@@ -114,7 +114,7 @@ public class Ability : MonoBehaviour
 
     public void UpdateTotalStats()
     {
-        // Update total stats
+        // Update total stats. Bonus stats are applied as a percentage of the base damage
         m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
     }
 

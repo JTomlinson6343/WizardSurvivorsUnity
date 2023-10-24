@@ -6,6 +6,11 @@ public class Enemy : Actor
 {
     [SerializeField] float m_XPAwarded;
 
+    private void Start()
+    {
+        m_ActorType = ActorType.Enemy;
+    }
+
     protected override void OnDeath()
     {
         base.OnDeath();

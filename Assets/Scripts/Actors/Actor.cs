@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public struct DamageStats
 {
@@ -20,14 +21,24 @@ public enum DamageType
     Physical
 }
 
-public struct DamageInstance
+public enum ActorType
 {
-    public DamageType type;
-    public float amount;
+    None,
+    Player,
+    Enemy
+}
+
+public enum DamageOutput
+{
+    validHit = 0,
+    wasKilled = 1,
+    invalidHit = -1
 }
 
 public class Actor : MonoBehaviour
 {
+    public ActorType m_ActorType;
+
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
     private float m_HealthRegen = 0.5f;
@@ -40,6 +51,7 @@ public class Actor : MonoBehaviour
 
     void Start()
     {
+        m_ActorType = ActorType.None;
         m_Health = m_MaxHealth;
     }
 
@@ -50,30 +62,26 @@ public class Actor : MonoBehaviour
         m_Health = Mathf.Clamp(m_Health, 0, m_MaxHealth);
     }
 
-    public bool TakeDamage(float amount)
+    // If actor has i-frames, return false. Else, return true
+    public DamageOutput TakeDamage(float amount)
     {
         float now = Time.realtimeSinceStartup;
 
         if (now - m_LastHit < m_IFramesTimer)
         {
-            return false;
+            return DamageOutput.validHit;
         }
-
-        m_Health -= amount;
-        AudioManager.m_Instance.PlaySound(0);
-
         m_LastHit = now;
 
-        if (m_Health <= 0)
-        {
-            // If this has no hp left, destroy it
-            OnDeath();
-        }
-
-        return true;
+        return OnDamage(amount);
     }
 
-    public bool TakeDamageNoIFrames(float amount)
+    public DamageOutput TakeDamageNoIFrames(float amount)
+    {
+        return OnDamage(amount);
+    }
+    // Called when a valid hit is registered
+    public DamageOutput OnDamage(float amount)
     {
         m_Health -= amount;
         AudioManager.m_Instance.PlaySound(0);
@@ -82,9 +90,10 @@ public class Actor : MonoBehaviour
         {
             // If this has no hp left, destroy it
             OnDeath();
+            return DamageOutput.wasKilled;
         }
 
-        return true;
+        return DamageOutput.validHit;
     }
 
     public float GetHealthAsRatio()

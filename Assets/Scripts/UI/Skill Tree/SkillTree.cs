@@ -2,27 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
 {
     private Skill m_CurrentSkill;
 
-    private int m_TotalSkillPoints;
-    [SerializeField] private int m_CurrentSkillPoints;
+    [SerializeField] private int m_TotalSkillPoints;
+    private int m_SkillPointCap;
+    private int m_CurrentSkillPoints;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
     [SerializeField] TextMeshProUGUI m_CantUnlockLabel;
+    [SerializeField] TextMeshProUGUI m_SkillLevelLabel;
+    [SerializeField] TextMeshProUGUI m_SkillPointsLabel;
+
     [SerializeField] Button          m_UnlockButton;
+    [SerializeField] Button          m_RespecButton;
+    [SerializeField] Button          m_BackButton;
 
     [SerializeField] string m_NotEnoughSkillPointsMsg;
+    [SerializeField] string m_SkillMaxedMsg;
     [SerializeField] string m_PrereqMsg;
 
     private void Start()
     {
         m_UnlockButton.onClick.AddListener(OnUnlockPressed);
+        m_RespecButton.onClick.AddListener(OnRespecPressed);
+        m_BackButton.onClick.AddListener(OnBackPressed);
+
+        m_CurrentSkillPoints = m_TotalSkillPoints;
+
+        UpdateSkillPointsLabel();
+    }
+
+    private void UpdateSkillPointsLabel()
+    {
+        m_SkillPointsLabel.text = "SP: " + m_CurrentSkillPoints.ToString() + "/" + m_TotalSkillPoints.ToString();
     }
 
     public void SetHighlightedSkill(Skill skill)
@@ -39,16 +58,25 @@ public class SkillTree : MonoBehaviour
         m_UnlockButton.interactable = true;
         m_CantUnlockLabel.text = "";
 
+        CheckSelectedSkill();
+    }
+
+    void CheckSelectedSkill()
+    {
+        if (m_CurrentSkill == null)
+            return;
+
         // Unlock button won't work unless it passes these checks
+        if (m_CurrentSkill.IsMaxed())
+        {
+            m_UnlockButton.gameObject.SetActive(false);
+            m_CantUnlockLabel.text = m_SkillMaxedMsg;
+            m_CostLabel.text = "";
+        }
         if (m_CurrentSkillPoints < m_CurrentSkill.m_Cost)
         {
             m_UnlockButton.interactable = false;
             m_CantUnlockLabel.text = m_NotEnoughSkillPointsMsg;
-        }
-        if (m_CurrentSkill.m_Unlocked == true)
-        {
-            m_UnlockButton.gameObject.SetActive(false);
-            m_CostLabel.text = "";
         }
         if (!m_CurrentSkill.CheckPrerequisites())
         {
@@ -62,14 +90,60 @@ public class SkillTree : MonoBehaviour
     {
         m_CurrentSkill.m_Unlocked = true;
         m_CurrentSkillPoints -= m_CurrentSkill.m_Cost;
+        UpdateSkillPointsLabel();
+        m_CurrentSkill.m_SkillLevel++;
+        // Ability unlock animation goes here
 
-        m_UnlockButton.interactable = false;
-        m_UnlockButton.gameObject.SetActive(false);
-        m_CostLabel.text = "";
+        CheckSelectedSkill();
     }
 
-    private void Update()
+    void OnRespecPressed()
     {
-        
+        Skill[] skills = GetComponentsInChildren<Skill>();
+
+        foreach (Skill skill in skills)
+        {
+            skill.m_Unlocked = false;
+            skill.m_SkillLevel = 0;
+        }
+
+        m_CurrentSkillPoints = m_TotalSkillPoints;
+        UpdateSkillPointsLabel();
+        CheckSelectedSkill();
+    }
+
+    void OnBackPressed()
+    {
+        OnCloseSkillTreeMenu();
+        gameObject.SetActive(false);
+        CharacterMenu.m_Instance.gameObject.SetActive(true);
+    }
+
+    void PassEnabledSkillsToManager()
+    {
+        Skill[] skills = GetComponentsInChildren<Skill>();
+
+        SkillManager.m_Instance.ResetSkillsAdded();
+
+        foreach (Skill skill in skills)
+        {
+            if (!skill.m_Unlocked) continue;
+
+            SkillManager.m_Instance.AddSkill(skill);
+
+            Debug.Log(skill.m_SkillName + "added");
+        }
+    }
+
+    void OnCloseSkillTreeMenu()
+    {
+        PassEnabledSkillsToManager();
+
+        Skill[] skills = GetComponentsInChildren<Skill>();
+
+        foreach (Skill skill in skills)
+        {
+            skill.Init();
+        }
     }
 }
