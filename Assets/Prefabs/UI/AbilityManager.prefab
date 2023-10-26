@@ -118,7 +118,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 50
+    damage: 5
     speed: 5
     cooldown: 1
     amount: 0

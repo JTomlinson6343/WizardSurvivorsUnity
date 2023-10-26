@@ -10,16 +10,16 @@ public class Debuff : MonoBehaviour
     private float m_TickInterval = 0.25f;
     public float m_Damage;
     public DamageType m_DamageType;
-    private ActorType m_SourceType;
+    private GameObject m_Source;
 
     float m_LastTick;
 
-    public void Init(float debuffTime, float damage, DamageType damageType, ActorType sourceType)
+    public void Init(float debuffTime, float damage, DamageType damageType, GameObject source)
     {
         m_DebuffTime = debuffTime;
         m_Damage = damage;
         m_DamageType = damageType;
-        m_SourceType = sourceType;
+        m_Source = source;
     }
 
     // Start is called before the first frame update
@@ -59,8 +59,9 @@ public class Debuff : MonoBehaviour
         DamageInstanceData data = new DamageInstanceData();
         data.amount = m_Damage;
         data.damageType = m_DamageType;
-        data.user = gameObject;
-
-        DamageManager.m_Instance.DamageInstance(data,gameObject,transform.position,false,true);
+        data.user = m_Source;
+        data.target = gameObject;
+        data.isDoT = true;
+        DamageManager.m_Instance.DamageInstance(data,transform.position,false,true);
     }
 }

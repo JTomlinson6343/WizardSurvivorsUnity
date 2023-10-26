@@ -18,7 +18,7 @@ public struct DamageInstanceData
 {
     public DamageType damageType;
     public GameObject user;
-    public GameObject reciever;
+    public GameObject target;
     public float amount;
     public bool didCrit;
     public bool didKill;
@@ -39,9 +39,9 @@ public class DamageManager : MonoBehaviour
         m_Instance = this;
     }
 
-    public void DamageInstance(DamageInstanceData data, GameObject target, Vector2 pos, bool doIframes, bool doDamageNumbers)
+    public void DamageInstance(DamageInstanceData data, Vector2 pos, bool doIframes, bool doDamageNumbers)
     {
-        Actor actorComponent = target.GetComponent<Actor>();
+        Actor actorComponent = data.target.GetComponent<Actor>();
         DamageOutput damageOutput = 0;
         if (doIframes)
         {

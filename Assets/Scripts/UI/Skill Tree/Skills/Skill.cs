@@ -5,7 +5,8 @@ using UnityEngine;
 public enum SkillID
 {
     None,
-    FireSpeed
+    FireSpeed,
+    FireDebuff
 }
 
 public class Skill : MonoBehaviour

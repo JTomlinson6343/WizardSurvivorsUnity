@@ -14,7 +14,7 @@ public class AOEObject : MonoBehaviour
             if (!collision.gameObject.GetComponent<Debuff>())
             {
                 // If enemy is in the zone and doesnt yet have the debuff, add debuff 
-                collision.gameObject.AddComponent<Debuff>().Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Info.damageType,ActorType.Player);
+                collision.gameObject.AddComponent<Debuff>().Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Info.damageType,Player.m_Instance.gameObject);
             }
         }
     }

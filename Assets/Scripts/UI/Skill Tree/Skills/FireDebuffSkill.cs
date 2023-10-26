@@ -18,6 +18,6 @@ public class FireDebuffSkill : Skill
         if (damageInstance.damageType != DamageType.Fire) return;
         if (damageInstance.isDoT) return;
 
-        damageInstance.reciever.AddComponent<Debuff>().Init(5, m_Damage, m_DamageType, damageInstance.user.GetComponent<Actor>().m_ActorType);
+        damageInstance.target.AddComponent<Debuff>().Init(5, m_Damage, m_DamageType, damageInstance.user);
     }
 }
