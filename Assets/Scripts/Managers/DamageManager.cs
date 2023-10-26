@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum DamageType
+{
+    Fire,
+    Frost,
+    Lightning,
+    Poison,
+    Light,
+    Physical
+}
 
-
-
-// Data about an instance of damage dealt to an actor
+// An instance of damage dealt to an actor
 public struct DamageInstanceData
 {
     public DamageType damageType;
@@ -50,7 +57,7 @@ public class DamageManager : MonoBehaviour
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
             damageNumber.transform.position = pos;
-            damageNumber.GetComponent<FloatingDamage>().m_Colour = Color.white;
+            damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(damageType);
             damageNumber.GetComponent<FloatingDamage>().m_Damage = damage;
 
             // Invoke damage instance event
@@ -63,6 +70,21 @@ public class DamageManager : MonoBehaviour
             di.didCrit = false; // Change this when crits are implemented
 
             m_DamageInstanceEvent.Invoke(di);
+        }
+    }
+
+    private Color GetDamageNumberColor(DamageType damageType)
+    {
+        switch(damageType)
+        {
+            case DamageType.Fire: return new Color(1, 0.4f, 0);
+            case DamageType.Frost: return Color.cyan;
+            case DamageType.Light: return Color.white;
+            case DamageType.Physical: return Color.red;
+            case DamageType.Poison: return Color.green;
+            case DamageType.Lightning: return Color.blue;
+            default:
+                return Color.white;
         }
     }
 }

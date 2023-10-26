@@ -6,16 +6,6 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum DamageType
-{
-    Fire,
-    Frost,
-    Lightning,
-    Poison,
-    Light,
-    Physical
-}
-
 [System.Serializable]
 public struct AbilityInfo
 {
