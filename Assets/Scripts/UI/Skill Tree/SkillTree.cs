@@ -17,6 +17,7 @@ public class SkillTree : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
+    [SerializeField] TextMeshProUGUI m_OnLevelUpLabel;
     [SerializeField] TextMeshProUGUI m_CantUnlockLabel;
     [SerializeField] TextMeshProUGUI m_SkillLevelLabel;
     [SerializeField] TextMeshProUGUI m_SkillPointsLabel;
@@ -54,6 +55,14 @@ public class SkillTree : MonoBehaviour
 
     }
 
+    private string GetCurrentOnLevelUpMessage()
+    {
+        if (m_CurrentSkill.m_Cost.Length <= m_CurrentSkill.m_Data.level || m_CurrentSkill.m_Data.level == 0)
+            return "";
+        else
+            return "Next level: " + m_CurrentSkill.m_OnLevelUpDescription[m_CurrentSkill.m_Data.level-1];
+    }
+
     public void SetHighlightedSkill(SkillIcon skill)
     {
         m_CurrentSkill = skill;
@@ -61,6 +70,8 @@ public class SkillTree : MonoBehaviour
         // Set info labels to the info of the skill
         m_NameLabel.text = m_CurrentSkill.m_SkillName;
         m_DescriptionLabel.text = m_CurrentSkill.m_Description;
+
+        m_OnLevelUpLabel.text = GetCurrentOnLevelUpMessage();
         m_CostLabel.text = "Cost: " + GetCurrentLevelCost().ToString();
 
         // Display unlock button
@@ -104,7 +115,7 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkill.m_Data.level++;
         // Ability unlock animation goes here
 
-        CheckSelectedSkill();
+        SetHighlightedSkill(m_CurrentSkill);
     }
 
     void OnRespecPressed()
