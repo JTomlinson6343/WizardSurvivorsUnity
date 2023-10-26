@@ -8,17 +8,13 @@ public class SkillIcon : MonoBehaviour
 {
     public bool m_Unlocked;
 
-    public int m_SkillLevel;
-
-    public int m_MaxSkillLevel;
-
     public string m_SkillName;
 
     public string m_Description;
 
     public int m_Cost;
 
-    public SkillID m_SkillID;
+    public SkillData m_Data;
 
     // List of skills that unlock this skill
     [SerializeField] protected SkillIcon[] m_Prerequisites;
@@ -55,7 +51,7 @@ public class SkillIcon : MonoBehaviour
 
     public bool IsMaxed()
     {
-        return m_SkillLevel >= m_MaxSkillLevel;
+        return m_Data.level >= m_Data.maxLevel;
     }
 
     private void OnClick()

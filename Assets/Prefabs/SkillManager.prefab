@@ -90,8 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e5e0e358fe5e0499d9bcbdfa4fe425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ID: 2
-  m_Damage: 3
+  m_Data:
+    id: 2
+    level: 0
+    maxLevel: 1
+  m_Damage: 0.01
   m_DamageType: 0
 --- !u!1 &8975141264384055795
 GameObject:
@@ -137,7 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cbeb75226cc29e459b1a1f6218438e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ID: 1
+  m_Data:
+    id: 1
+    level: 0
+    maxLevel: 1
   m_Cooldown: 3
   m_BonusSpeed:
     speed: 2

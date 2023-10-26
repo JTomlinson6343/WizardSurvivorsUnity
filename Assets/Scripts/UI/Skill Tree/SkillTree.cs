@@ -92,7 +92,7 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkill.m_Unlocked = true;
         m_CurrentSkillPoints -= m_CurrentSkill.m_Cost;
         UpdateSkillPointsLabel();
-        m_CurrentSkill.m_SkillLevel++;
+        m_CurrentSkill.m_Data.level++;
         // Ability unlock animation goes here
 
         CheckSelectedSkill();
@@ -105,12 +105,12 @@ public class SkillTree : MonoBehaviour
         foreach (SkillIcon skill in skills)
         {
             skill.m_Unlocked = false;
-            skill.m_SkillLevel = 0;
+            skill.m_Data.level = 0;
         }
 
         m_CurrentSkillPoints = m_TotalSkillPoints;
         UpdateSkillPointsLabel();
-        CheckSelectedSkill();
+        SetHighlightedSkill(m_CurrentSkill);
     }
 
     void OnBackPressed()
@@ -130,7 +130,7 @@ public class SkillTree : MonoBehaviour
         {
             if (!skillIcon.m_Unlocked) continue;
 
-            SkillManager.m_Instance.AddSkill(skillIcon.m_SkillID);
+            SkillManager.m_Instance.AddSkill(skillIcon.m_Data);
 
             Debug.Log(skillIcon.m_SkillName + "added");
         }

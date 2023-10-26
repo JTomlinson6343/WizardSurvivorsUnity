@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
     public static SkillManager m_Instance;
 
-    static List<SkillID> m_Skills = new();
+    static List<SkillData> m_Skills = new();
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class SkillManager : MonoBehaviour
     {
         m_Skills.Clear();
     }
-    public void AddSkill(SkillID skillID)
+    public void AddSkill(SkillData skillID)
     {
         m_Skills.Add(skillID);
     }
@@ -31,7 +32,7 @@ public class SkillManager : MonoBehaviour
 
         foreach (Skill skill in skills)
         {
-            if (m_Skills.Contains(skill.m_ID))
+            if (m_Skills.Any(skillData => skillData.id == skill.m_Data.id))
             {
                 skill.Init();
             }

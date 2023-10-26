@@ -9,9 +9,18 @@ public enum SkillID
     FireDebuff
 }
 
+[System.Serializable]
+
+public struct SkillData
+{
+    public SkillID id;
+    public int level;
+    public int maxLevel;
+}
+
 public class Skill : MonoBehaviour
 {
-    public SkillID m_ID;
+    public SkillData m_Data;
 
     public virtual void Init() { }
 }
