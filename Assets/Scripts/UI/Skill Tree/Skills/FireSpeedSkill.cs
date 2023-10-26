@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-
-public class FireSpeedSkill : Skill
+public class FireSpeedSkill : CooldownSkill
 {
-    [SerializeField] PlayerStats bonusSpeed;
+    [SerializeField] PlayerStats m_BonusSpeed;
 
-    [SerializeField] float duration;
+    [SerializeField] float m_Duration;
 
     public override void Init()
     {
@@ -17,12 +16,15 @@ public class FireSpeedSkill : Skill
         DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
     }
 
-    override public void OnDamageInstance(DamageInstanceData damageInstance)
+    public void OnDamageInstance(DamageInstanceData damageInstance)
     {
+        if (m_OnCooldown) return;
         if (damageInstance.damageType != DamageType.Fire) return;
 
-        Debug.Log("Player's speed increased by" + bonusSpeed.speed.ToString());
+        StartCooldown();
 
-        Player.m_Instance.AddTempStats(bonusSpeed, duration);
+        Debug.Log("Player's speed increased by" + m_BonusSpeed.speed.ToString());
+
+        Player.m_Instance.AddTempStats(m_BonusSpeed, m_Duration);
     }
 }

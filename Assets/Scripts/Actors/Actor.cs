@@ -12,15 +12,6 @@ public struct DamageStats
     public float m_PhysicalResist;
 }
 
-public enum DamageType
-{
-    Fire,
-    Frost,
-    Lightning,
-    Poison,
-    Physical
-}
-
 public enum ActorType
 {
     None,

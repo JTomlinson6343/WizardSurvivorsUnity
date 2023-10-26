@@ -13,7 +13,7 @@ public class Debuff : MonoBehaviour
 
     float m_LastTick;
 
-    public void Init(float debuffTime, float damageScaling)
+    public void Init(float debuffTime, float damageScaling, DamageType damageType)
     {
         m_DebuffTime = debuffTime;
         m_Damage = damageScaling;

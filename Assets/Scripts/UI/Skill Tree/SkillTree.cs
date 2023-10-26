@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
 {
-    private Skill m_CurrentSkill;
+    private SkillIcon m_CurrentSkill;
 
     [SerializeField] private int m_TotalSkillPoints;
     private int m_SkillPointCap;
@@ -44,7 +45,7 @@ public class SkillTree : MonoBehaviour
         m_SkillPointsLabel.text = "SP: " + m_CurrentSkillPoints.ToString() + "/" + m_TotalSkillPoints.ToString();
     }
 
-    public void SetHighlightedSkill(Skill skill)
+    public void SetHighlightedSkill(SkillIcon skill)
     {
         m_CurrentSkill = skill;
 
@@ -99,9 +100,9 @@ public class SkillTree : MonoBehaviour
 
     void OnRespecPressed()
     {
-        Skill[] skills = GetComponentsInChildren<Skill>();
+        SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
-        foreach (Skill skill in skills)
+        foreach (SkillIcon skill in skills)
         {
             skill.m_Unlocked = false;
             skill.m_SkillLevel = 0;
@@ -121,17 +122,17 @@ public class SkillTree : MonoBehaviour
 
     void PassEnabledSkillsToManager()
     {
-        Skill[] skills = GetComponentsInChildren<Skill>();
+        SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
         SkillManager.m_Instance.ResetSkillsAdded();
 
-        foreach (Skill skill in skills)
+        foreach (SkillIcon skillIcon in skills)
         {
-            if (!skill.m_Unlocked) continue;
+            if (!skillIcon.m_Unlocked) continue;
 
-            SkillManager.m_Instance.AddSkill(skill);
+            SkillManager.m_Instance.AddSkill(skillIcon.m_SkillID);
 
-            Debug.Log(skill.m_SkillName + "added");
+            Debug.Log(skillIcon.m_SkillName + "added");
         }
     }
 

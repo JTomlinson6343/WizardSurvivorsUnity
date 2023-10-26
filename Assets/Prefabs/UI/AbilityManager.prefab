@@ -57,7 +57,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: 
-    element: 
+    damageType: 0
     description: 
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
@@ -126,7 +126,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: Fireball
-    element: Fire
+    damageType: 0
     description: 
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
@@ -187,7 +187,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: Cross Shot
-    element: Fire
+    damageType: 0
     description: 
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
@@ -248,7 +248,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: Blizzard
-    element: Ice
+    damageType: 1
     description: 
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
 --- !u!1 &2386790702650785497
@@ -308,7 +308,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: 
-    element: 
+    damageType: 0
     description: 
     icon: {fileID: -1837857369, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
@@ -577,7 +577,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: 
-    element: 
+    damageType: 0
     description: 
     icon: {fileID: 244486248, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
@@ -642,7 +642,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: Icicle
-    element: Ice
+    damageType: 4
     description: 
     icon: {fileID: 2107994407, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
 --- !u!1 &4314956624914319036
@@ -702,7 +702,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: 
-    element: 
+    damageType: 0
     description: 
     icon: {fileID: -632504653, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
@@ -767,7 +767,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: 
-    element: 
+    damageType: 0
     description: 
     icon: {fileID: 1803759905, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
@@ -836,7 +836,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: 
-    element: 
+    damageType: 0
     description: 
     icon: {fileID: 576402560, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
@@ -901,7 +901,7 @@ MonoBehaviour:
     pierceAmount: 0
   m_Info:
     name: 
-    element: 
+    damageType: 0
     description: 
     icon: {fileID: 789409541, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:

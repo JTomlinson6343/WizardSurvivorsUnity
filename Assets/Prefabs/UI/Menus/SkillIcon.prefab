@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1850618200212795084}
   - component: {fileID: 4646585010986615600}
   - component: {fileID: 6184846941713039215}
-  - component: {fileID: 3782722612153189587}
+  - component: {fileID: -4493752689443122928}
   m_Layer: 0
   m_Name: SkillIcon
   m_TagString: Untagged
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3782722612153189587
+--- !u!114 &-4493752689443122928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,16 +132,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6307877255442194112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684cc42fb61056344a75bcf879751527, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Prerequisites: []
   m_Unlocked: 0
   m_SkillName: 
   m_Description: 
-  m_Cost: 0
-  m_SkillLevel: 0
-  m_MaxSkillLevel: 1
+  m_Cost: 20
+  m_SkillRef: {fileID: 0}
+  m_Prerequisites: []
   m_Icon: {fileID: 0}
 --- !u!1 &7048812934334818688
 GameObject:
