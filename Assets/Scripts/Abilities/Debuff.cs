@@ -19,11 +19,14 @@ public class Debuff : MonoBehaviour
     public DamageType m_DamageType;
     private GameObject m_Source;
     private DebuffType m_DebuffType;
+    private int m_StackAmount = 1;
 
     float m_LastTick;
 
-    public void Init(float debuffTime, float damage, DamageType damageType, GameObject source)
-    {    
+    public void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks)
+    {
+        m_Damage = damage;
+
         // Check that the debuff isn't already on the gameObject. If it is, refresh it.
         foreach (Debuff debuff in GetComponents<Debuff>())
         {
@@ -31,13 +34,17 @@ public class Debuff : MonoBehaviour
             if (debuff.m_DebuffType == m_DebuffType && debuff != this)
             {
                 // Refresh debuff time
-                debuff.RefreshDebuffTier(debuffTime);
+                debuff.RefreshDebuffTimer(debuffTime);
+                debuff.IncrementStackAmount(maxStacks);
+
                 EndDebuff();
             }
         }
 
+        if (percentHealth)
+            m_Damage *= GetComponent<Actor>().m_MaxHealth;
+
         m_DebuffTime = debuffTime;
-        m_Damage = damage;
         m_DamageType = damageType;
         m_Source = source;
     }
@@ -51,11 +58,17 @@ public class Debuff : MonoBehaviour
         }
     }
 
-    public void RefreshDebuffTier(float newTime)
+    public void RefreshDebuffTimer(float newTime)
     {
         CancelInvoke();
         m_DebuffTime = newTime;
         Invoke(nameof(EndDebuff), m_DebuffTime);
+    }
+
+    public void IncrementStackAmount(int maxStacks)
+    {
+        if (m_StackAmount < maxStacks)
+            m_StackAmount++;
     }
 
     // Update is called once per frame
@@ -89,7 +102,7 @@ public class Debuff : MonoBehaviour
     virtual protected void OnTick()
     {
         DamageInstanceData data = new DamageInstanceData();
-        data.amount = m_Damage;
+        data.amount = m_Damage*m_StackAmount;
         data.damageType = m_DamageType;
         data.user = m_Source;
         data.target = gameObject;
