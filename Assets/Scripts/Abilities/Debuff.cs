@@ -1,8 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+
+public enum DebuffType
+{
+    Blaze,
+    Blizzard
+}
 
 public class Debuff : MonoBehaviour
 {
@@ -11,11 +18,24 @@ public class Debuff : MonoBehaviour
     public float m_Damage;
     public DamageType m_DamageType;
     private GameObject m_Source;
+    private DebuffType m_DebuffType;
 
     float m_LastTick;
 
     public void Init(float debuffTime, float damage, DamageType damageType, GameObject source)
-    {
+    {    
+        // Check that the debuff isn't already on the gameObject. If it is, refresh it.
+        foreach (Debuff debuff in GetComponents<Debuff>())
+        {
+            // If debuff type is same as this debuff type
+            if (debuff.m_DebuffType == m_DebuffType && debuff != this)
+            {
+                // Refresh debuff time
+                debuff.RefreshDebuffTier(debuffTime);
+                EndDebuff();
+            }
+        }
+
         m_DebuffTime = debuffTime;
         m_Damage = damage;
         m_DamageType = damageType;
@@ -31,10 +51,22 @@ public class Debuff : MonoBehaviour
         }
     }
 
+    public void RefreshDebuffTier(float newTime)
+    {
+        CancelInvoke();
+        m_DebuffTime = newTime;
+        Invoke(nameof(EndDebuff), m_DebuffTime);
+    }
+
     // Update is called once per frame
     void Update()
     {
         TickRoutine();
+    }
+
+    public DebuffType GetDebuffType()
+    {
+        return m_DebuffType;
     }
 
     void TickRoutine()
