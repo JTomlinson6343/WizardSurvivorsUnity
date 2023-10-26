@@ -117,7 +117,6 @@ public class Player : Actor
 
         m_BonusStats -= stats;
     }
-    
     #endregion
 
     #region Getters

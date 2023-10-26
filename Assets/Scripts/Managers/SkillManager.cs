@@ -6,28 +6,39 @@ public class SkillManager : MonoBehaviour
 {
     public static SkillManager m_Instance;
 
-    static List<Skill> m_Skills = new();
+    static List<SkillID> m_Skills = new();
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         m_Instance = this;
-        DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
+        ActivateSkills();
     }
+
     public void ResetSkillsAdded()
     {
         m_Skills.Clear();
     }
-    public void AddSkill(Skill skill)
+    public void AddSkill(SkillID skillID)
     {
-        m_Skills.Add(skill);
+        m_Skills.Add(skillID);
     }
 
-    void OnDamageInstance(DamageInstanceData damageInstance)
+    private void ActivateSkills()
     {
-        foreach (Skill skill in m_Skills)
+        Skill[] skills = GetComponentsInChildren<Skill>();
+        if (skills == null)
+            return;
+
+        foreach (Skill skill in skills)
         {
-            skill.OnDamageInstance(damageInstance);
+            if (m_Skills.Contains(skill.m_ID))
+            {
+                skill.Init();
+            }
+            else
+            {
+                skill.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -6,11 +6,21 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum DamageType
+{
+    Fire,
+    Frost,
+    Lightning,
+    Poison,
+    Light,
+    Physical
+}
+
 [System.Serializable]
 public struct AbilityInfo
 {
     public string name;
-    public string element;
+    public DamageType damageType;
     public string description;
     public Sprite icon;
 }

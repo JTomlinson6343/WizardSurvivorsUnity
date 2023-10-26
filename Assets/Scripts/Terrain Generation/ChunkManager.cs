@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
 {
-    public Transform playerCharacter;
+    private Transform playerCharacter;
     public float renderDistanceModifier = 1.0f;
     public GameObject[] chunks;
     public GameObject[] randomChunks;
@@ -12,6 +12,7 @@ public class ChunkManager : MonoBehaviour
 
     private void Start()
     {
+        playerCharacter = Player.m_Instance.transform;
         GenerateChunks();
     }
 
