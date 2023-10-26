@@ -17,6 +17,7 @@ public class Debuff : MonoBehaviour
     {
         m_DebuffTime = debuffTime;
         m_Damage = damageScaling;
+        m_DamageType = damageType;
     }
 
     // Start is called before the first frame update

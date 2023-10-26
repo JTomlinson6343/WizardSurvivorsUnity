@@ -46,6 +46,6 @@ public class SpinningProjectile : Projectile
 
     protected override void OnEnemyHit(GameObject enemy)
     {
-        DamageManager.m_Instance.DamageInstance(ActorType.Player, enemy, m_DamageType, m_AbilitySource.GetTotalStats().damage, transform.position, true, true);
+        DamageManager.m_Instance.DamageInstance(ActorType.Player, enemy, m_AbilitySource.m_Info.damageType, m_AbilitySource.GetTotalStats().damage, transform.position, true, true);
     }
 }
