@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// An instance of damage dealt to an actor
+
+
+
+// Data about an instance of damage dealt to an actor
 public struct DamageInstanceData
 {
     public DamageType damageType;
