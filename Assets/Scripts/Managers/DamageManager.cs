@@ -38,38 +38,28 @@ public class DamageManager : MonoBehaviour
         m_Instance = this;
     }
 
-    public void DamageInstance(ActorType sourceType, GameObject target, DamageType damageType, float damage, Vector2 pos, bool doIframes, bool doDamageNumbers)
+    public void DamageInstance(DamageInstanceData data, GameObject target, Vector2 pos, bool doIframes, bool doDamageNumbers)
     {
         Actor actorComponent = target.GetComponent<Actor>();
         DamageOutput damageOutput = 0;
         if (doIframes)
         {
             // Damage actor
-            damageOutput = actorComponent.TakeDamage(damage);
+            damageOutput = actorComponent.TakeDamage(data.amount);
         }
         else
         {
-            actorComponent.TakeDamageNoIFrames(damage);
+            actorComponent.TakeDamageNoIFrames(data.amount);
         }
-
         if (damageOutput >= DamageOutput.invalidHit && doDamageNumbers)
         {
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
             damageNumber.transform.position = pos;
-            damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(damageType);
-            damageNumber.GetComponent<FloatingDamage>().m_Damage = damage;
+            damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(data.damageType);
+            damageNumber.GetComponent<FloatingDamage>().m_Damage = data.amount;
 
-            // Invoke damage instance event
-            DamageInstanceData di = new DamageInstanceData();
-            di.damageType = damageType;
-            di.userType = sourceType;
-            di.recieverType = target.GetComponent<Actor>().m_ActorType;
-            di.amount = damage;
-            di.didKill = damageOutput == DamageOutput.wasKilled;
-            di.didCrit = false; // Change this when crits are implemented
-
-            m_DamageInstanceEvent.Invoke(di);
+            m_DamageInstanceEvent.Invoke(data);
         }
     }
 
