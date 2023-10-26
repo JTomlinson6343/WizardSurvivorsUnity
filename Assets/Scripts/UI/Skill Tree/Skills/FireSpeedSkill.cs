@@ -10,9 +10,9 @@ public class FireSpeedSkill : CooldownSkill
 
     [SerializeField] float m_Duration;
 
-    public override void Init()
+    public override void Init(SkillData data)
     {
-        base.Init();
+        base.Init(data);
         DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
     }
 

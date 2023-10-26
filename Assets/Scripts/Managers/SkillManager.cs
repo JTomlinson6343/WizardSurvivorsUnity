@@ -30,15 +30,18 @@ public class SkillManager : MonoBehaviour
         if (skills == null)
             return;
 
-        foreach (Skill skill in skills)
+        foreach(Skill skill in skills)
         {
-            if (m_Skills.Any(skillData => skillData.id == skill.m_Data.id))
+            foreach(SkillData skillData in m_Skills)
             {
-                skill.Init();
-            }
-            else
-            {
-                skill.gameObject.SetActive(false);
+                if (skill.m_Data.id == skillData.id)
+                {
+                    skill.Init(skillData);
+                }
+                else
+                {
+                    skill.gameObject.SetActive(false);
+                }
             }
         }
     }

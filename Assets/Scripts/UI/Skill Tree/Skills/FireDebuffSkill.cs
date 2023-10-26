@@ -6,9 +6,9 @@ public class FireDebuffSkill : Skill
 {
     public float m_Damage;
     public DamageType m_DamageType;
-    public override void Init()
+    public override void Init(SkillData data)
     {
-        base.Init();
+        base.Init(data);
         DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
     }
 
@@ -18,6 +18,16 @@ public class FireDebuffSkill : Skill
         if (damageInstance.damageType != DamageType.Fire) return;
         if (damageInstance.isDoT) return;
 
-        damageInstance.target.AddComponent<Debuff>().Init(5, m_Damage, m_DamageType, damageInstance.user, true, 1);
+        switch (m_Data.level)
+        {
+            case 1:
+                damageInstance.target.AddComponent<Debuff>().Init(5, m_Damage, m_DamageType, damageInstance.user, true, 1);
+                break;
+            case 2:
+                damageInstance.target.AddComponent<Debuff>().Init(5, m_Damage, m_DamageType, damageInstance.user, true, 3);
+                break;
+            default:
+                break;
+        }
     }
 }

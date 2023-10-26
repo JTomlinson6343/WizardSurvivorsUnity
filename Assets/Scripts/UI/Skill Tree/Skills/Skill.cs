@@ -22,5 +22,8 @@ public class Skill : MonoBehaviour
 {
     public SkillData m_Data;
 
-    public virtual void Init() { }
+    public virtual void Init(SkillData data)
+    {
+        m_Data = data;
+    }
 }

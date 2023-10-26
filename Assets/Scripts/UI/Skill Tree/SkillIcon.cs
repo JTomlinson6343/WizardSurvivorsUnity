@@ -12,7 +12,7 @@ public class SkillIcon : MonoBehaviour
 
     public string m_Description;
 
-    public int m_Cost;
+    public int[] m_Cost;
 
     public SkillData m_Data;
 
