@@ -138,8 +138,11 @@ MonoBehaviour:
   m_Unlocked: 0
   m_SkillName: 
   m_Description: 
-  m_Cost: 20
-  m_SkillRef: {fileID: 0}
+  m_Cost: 
+  m_Data:
+    id: 0
+    level: 0
+    maxLevel: 1
   m_Prerequisites: []
   m_Icon: {fileID: 0}
 --- !u!1 &7048812934334818688

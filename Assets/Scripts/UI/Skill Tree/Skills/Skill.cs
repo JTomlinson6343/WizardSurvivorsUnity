@@ -5,12 +5,25 @@ using UnityEngine;
 public enum SkillID
 {
     None,
-    FireSpeed
+    FireSpeed,
+    FireDebuff
+}
+
+[System.Serializable]
+
+public struct SkillData
+{
+    public SkillID id;
+    public int level;
+    public int maxLevel;
 }
 
 public class Skill : MonoBehaviour
 {
-    public SkillID m_ID;
+    public SkillData m_Data;
 
-    public virtual void Init() { }
+    public virtual void Init(SkillData data)
+    {
+        m_Data = data;
+    }
 }

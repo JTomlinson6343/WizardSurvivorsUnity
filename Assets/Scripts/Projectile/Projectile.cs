@@ -15,8 +15,18 @@ public class Projectile : MonoBehaviour
 
     virtual protected void OnEnemyHit(GameObject enemy)
     {
-        DamageManager.m_Instance.DamageInstance(ActorType.Player, enemy, m_AbilitySource.m_Info.damageType, m_AbilitySource.GetTotalStats().damage, transform.position, true, true);
+        DamageEnemy(enemy);
         DestroySelf();
+    }
+
+    protected void DamageEnemy(GameObject enemy)
+    {
+        DamageInstanceData data = new DamageInstanceData();
+        data.amount = m_AbilitySource.GetTotalStats().damage;
+        data.damageType = m_AbilitySource.m_Info.damageType;
+        data.user = Player.m_Instance.gameObject;
+        data.target = enemy;
+        DamageManager.m_Instance.DamageInstance(data, transform.position, true, true);
     }
 
     private void DestroySelf()
@@ -26,7 +36,7 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
         {
             OnEnemyHit(collision.gameObject);
         }

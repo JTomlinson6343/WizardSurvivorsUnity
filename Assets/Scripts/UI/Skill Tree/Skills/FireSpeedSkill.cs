@@ -10,15 +10,16 @@ public class FireSpeedSkill : CooldownSkill
 
     [SerializeField] float m_Duration;
 
-    public override void Init()
+    public override void Init(SkillData data)
     {
-        base.Init();
+        base.Init(data);
         DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
     }
 
     public void OnDamageInstance(DamageInstanceData damageInstance)
     {
         if (m_OnCooldown) return;
+        if (damageInstance.user.GetComponent<Actor>().m_ActorType != ActorType.Player) return;
         if (damageInstance.damageType != DamageType.Fire) return;
 
         StartCooldown();

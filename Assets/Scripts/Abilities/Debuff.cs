@@ -1,8 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+
+public enum DebuffType
+{
+    Blaze,
+    Blizzard
+}
 
 public class Debuff : MonoBehaviour
 {
@@ -10,14 +17,36 @@ public class Debuff : MonoBehaviour
     private float m_TickInterval = 0.25f;
     public float m_Damage;
     public DamageType m_DamageType;
+    private GameObject m_Source;
+    private DebuffType m_DebuffType;
+    private int m_StackAmount = 1;
 
     float m_LastTick;
 
-    public void Init(float debuffTime, float damageScaling, DamageType damageType)
+    public void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks)
     {
+        m_Damage = damage;
+
+        // Check that the debuff isn't already on the gameObject. If it is, refresh it.
+        foreach (Debuff debuff in GetComponents<Debuff>())
+        {
+            // If debuff type is same as this debuff type
+            if (debuff.m_DebuffType == m_DebuffType && debuff != this)
+            {
+                // Refresh debuff time
+                debuff.RefreshDebuffTimer(debuffTime);
+                debuff.IncrementStackAmount(maxStacks);
+
+                EndDebuff();
+            }
+        }
+
+        if (percentHealth)
+            m_Damage *= GetComponent<Actor>().m_MaxHealth;
+
         m_DebuffTime = debuffTime;
-        m_Damage = damageScaling;
         m_DamageType = damageType;
+        m_Source = source;
     }
 
     // Start is called before the first frame update
@@ -29,10 +58,28 @@ public class Debuff : MonoBehaviour
         }
     }
 
+    public void RefreshDebuffTimer(float newTime)
+    {
+        CancelInvoke();
+        m_DebuffTime = newTime;
+        Invoke(nameof(EndDebuff), m_DebuffTime);
+    }
+
+    public void IncrementStackAmount(int maxStacks)
+    {
+        if (m_StackAmount < maxStacks)
+            m_StackAmount++;
+    }
+
     // Update is called once per frame
     void Update()
     {
         TickRoutine();
+    }
+
+    public DebuffType GetDebuffType()
+    {
+        return m_DebuffType;
     }
 
     void TickRoutine()
@@ -54,6 +101,12 @@ public class Debuff : MonoBehaviour
 
     virtual protected void OnTick()
     {
-        DamageManager.m_Instance.DamageInstance(ActorType.Player,gameObject, m_DamageType, m_Damage,transform.position,false,true);
+        DamageInstanceData data = new DamageInstanceData();
+        data.amount = m_Damage*m_StackAmount;
+        data.damageType = m_DamageType;
+        data.user = m_Source;
+        data.target = gameObject;
+        data.isDoT = true;
+        DamageManager.m_Instance.DamageInstance(data,transform.position,false,true);
     }
 }

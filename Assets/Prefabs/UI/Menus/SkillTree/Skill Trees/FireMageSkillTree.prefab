@@ -9,12 +9,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1416694447175087685}
     m_Modifications:
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.id
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillRef
       value: 
       objectReference: {fileID: 2607771296458429215, guid: 09cee6f2aaa6d064ca66df7a1e78eedc, type: 3}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_MaxSkillLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.size
@@ -142,6 +154,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1416694447175087685}
     m_Modifications:
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillID
       value: 1
       objectReference: {fileID: 0}
@@ -156,6 +172,14 @@ PrefabInstance:
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_MaxSkillLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
@@ -360,8 +384,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 1416694447175087685}
     m_Modifications:
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.id
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Blaze
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description
+      value: Dealing fire damage with an ability sets the target on fire
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.maxLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_MaxSkillLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[1]
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
@@ -449,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
-      value: SkillIcon
+      value: FireDebuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -481,12 +537,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1416694447175087685}
     m_Modifications:
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.id
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillRef
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_MaxSkillLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.size
@@ -616,8 +684,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1416694447175087685}
     m_Modifications:
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.id
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_MaxSkillLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.size

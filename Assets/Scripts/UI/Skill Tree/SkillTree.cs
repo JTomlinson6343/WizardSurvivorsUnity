@@ -45,6 +45,15 @@ public class SkillTree : MonoBehaviour
         m_SkillPointsLabel.text = "SP: " + m_CurrentSkillPoints.ToString() + "/" + m_TotalSkillPoints.ToString();
     }
 
+    private int GetCurrentLevelCost()
+    {
+        if (m_CurrentSkill.m_Cost.Length <= m_CurrentSkill.m_Data.level)
+            return -1;
+        else
+            return m_CurrentSkill.m_Cost[m_CurrentSkill.m_Data.level];
+
+    }
+
     public void SetHighlightedSkill(SkillIcon skill)
     {
         m_CurrentSkill = skill;
@@ -52,7 +61,7 @@ public class SkillTree : MonoBehaviour
         // Set info labels to the info of the skill
         m_NameLabel.text = m_CurrentSkill.m_SkillName;
         m_DescriptionLabel.text = m_CurrentSkill.m_Description;
-        m_CostLabel.text = m_CurrentSkill.m_Cost.ToString();
+        m_CostLabel.text = "Cost: " + GetCurrentLevelCost().ToString();
 
         // Display unlock button
         m_UnlockButton.gameObject.SetActive(true);
@@ -74,7 +83,7 @@ public class SkillTree : MonoBehaviour
             m_CantUnlockLabel.text = m_SkillMaxedMsg;
             m_CostLabel.text = "";
         }
-        if (m_CurrentSkillPoints < m_CurrentSkill.m_Cost)
+        if (m_CurrentSkillPoints < GetCurrentLevelCost())
         {
             m_UnlockButton.interactable = false;
             m_CantUnlockLabel.text = m_NotEnoughSkillPointsMsg;
@@ -90,9 +99,9 @@ public class SkillTree : MonoBehaviour
     void OnUnlockPressed()
     {
         m_CurrentSkill.m_Unlocked = true;
-        m_CurrentSkillPoints -= m_CurrentSkill.m_Cost;
+        m_CurrentSkillPoints -= GetCurrentLevelCost();
         UpdateSkillPointsLabel();
-        m_CurrentSkill.m_SkillLevel++;
+        m_CurrentSkill.m_Data.level++;
         // Ability unlock animation goes here
 
         CheckSelectedSkill();
@@ -105,12 +114,12 @@ public class SkillTree : MonoBehaviour
         foreach (SkillIcon skill in skills)
         {
             skill.m_Unlocked = false;
-            skill.m_SkillLevel = 0;
+            skill.m_Data.level = 0;
         }
 
         m_CurrentSkillPoints = m_TotalSkillPoints;
         UpdateSkillPointsLabel();
-        CheckSelectedSkill();
+        SetHighlightedSkill(m_CurrentSkill);
     }
 
     void OnBackPressed()
@@ -130,7 +139,7 @@ public class SkillTree : MonoBehaviour
         {
             if (!skillIcon.m_Unlocked) continue;
 
-            SkillManager.m_Instance.AddSkill(skillIcon.m_SkillID);
+            SkillManager.m_Instance.AddSkill(skillIcon.m_Data);
 
             Debug.Log(skillIcon.m_SkillName + "added");
         }
@@ -139,12 +148,5 @@ public class SkillTree : MonoBehaviour
     void OnCloseSkillTreeMenu()
     {
         PassEnabledSkillsToManager();
-
-        Skill[] skills = GetComponentsInChildren<Skill>();
-
-        foreach (Skill skill in skills)
-        {
-            skill.Init();
-        }
     }
 }
