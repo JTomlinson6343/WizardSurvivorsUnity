@@ -17,11 +17,12 @@ public enum DamageType
 public struct DamageInstanceData
 {
     public DamageType damageType;
-    public ActorType userType;
-    public ActorType recieverType;
+    public GameObject user;
+    public GameObject reciever;
     public float amount;
     public bool didCrit;
     public bool didKill;
+    public bool isDoT;
 }
 
 public class DamageManager : MonoBehaviour

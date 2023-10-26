@@ -14,10 +14,10 @@ public class Debuff : MonoBehaviour
 
     float m_LastTick;
 
-    public void Init(float debuffTime, float damageScaling, DamageType damageType, ActorType sourceType)
+    public void Init(float debuffTime, float damage, DamageType damageType, ActorType sourceType)
     {
         m_DebuffTime = debuffTime;
-        m_Damage = damageScaling;
+        m_Damage = damage;
         m_DamageType = damageType;
         m_SourceType = sourceType;
     }
@@ -59,7 +59,7 @@ public class Debuff : MonoBehaviour
         DamageInstanceData data = new DamageInstanceData();
         data.amount = m_Damage;
         data.damageType = m_DamageType;
-        data.userType = m_SourceType;
+        data.user = gameObject;
 
         DamageManager.m_Instance.DamageInstance(data,gameObject,transform.position,false,true);
     }

@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         DamageInstanceData data = new DamageInstanceData();
         data.amount = m_AbilitySource.GetTotalStats().damage;
         data.damageType = m_AbilitySource.m_Info.damageType;
-        data.userType = ActorType.Player;
+        data.user = Player.m_Instance.gameObject;
         DamageManager.m_Instance.DamageInstance(data, enemy, transform.position, true, true);
     }
 
