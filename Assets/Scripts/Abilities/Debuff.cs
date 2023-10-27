@@ -23,7 +23,7 @@ public class Debuff : MonoBehaviour
 
     float m_LastTick;
 
-    public void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks)
+    public virtual void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks)
     {
         m_Damage = damage;
 
@@ -50,7 +50,7 @@ public class Debuff : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         if(m_DebuffTime > 0)
         {
@@ -94,7 +94,7 @@ public class Debuff : MonoBehaviour
         m_LastTick = now;
     }
 
-    void EndDebuff()
+    protected virtual void EndDebuff()
     {
         Destroy(this);
     }

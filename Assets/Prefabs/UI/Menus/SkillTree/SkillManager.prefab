@@ -94,6 +94,7 @@ MonoBehaviour:
     id: 2
     level: 0
     maxLevel: 1
+  m_FireParticlePrefab: {fileID: 1695107528181939108, guid: 62ebe611e871de54c81899026eb0d82a, type: 3}
   m_Damage: 0.01
   m_DamageType: 0
 --- !u!1 &8975141264384055795
