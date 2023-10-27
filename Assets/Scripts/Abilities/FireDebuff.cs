@@ -11,6 +11,9 @@ public class FireDebuff : Debuff
     {
         base.Init(debuffTime, damage, damageType, source, percentHealth, maxStacks);
 
+        if (GetComponentInChildren<ParticleSystem>() != null )
+            return;
+
         m_FireEffect = Instantiate(m_FireParticlePrefab);
         m_FireEffect.transform.SetParent(gameObject.transform, false);
     }
