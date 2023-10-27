@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using System.Reflection;
 
 public class FireDebuff : Debuff
 {
     public GameObject m_FireParticlePrefab;
+    public Light2D m_LightPrefab;
     private GameObject m_FireEffect;
+    private Light2D m_Light;
 
     public override void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks)
     {
@@ -16,11 +22,21 @@ public class FireDebuff : Debuff
 
         m_FireEffect = Instantiate(m_FireParticlePrefab);
         m_FireEffect.transform.SetParent(gameObject.transform, false);
+
+        m_Light = gameObject.AddComponent<Light2D>();
+        m_Light.intensity = 5;
+        m_Light.color = m_LightPrefab.color;
+        m_Light.pointLightInnerRadius = m_LightPrefab.pointLightInnerRadius;
+        m_Light.pointLightOuterRadius = m_LightPrefab.pointLightOuterRadius;
+        m_Light.pointLightOuterAngle = m_LightPrefab.pointLightOuterAngle;
+        m_Light.pointLightInnerAngle = m_LightPrefab.pointLightInnerAngle;
+        m_Light.falloffIntensity = m_LightPrefab.falloffIntensity;
     }
 
     protected override void EndDebuff()
     {
         Destroy(m_FireEffect);
+        Destroy(m_Light);
         base.EndDebuff();
     }
 }
