@@ -305,7 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe22b813bae9804bb59654a1f58058a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ActorType: 0
   m_MaxHealth: 20
   m_Health: 20
   m_CameraRef: {fileID: 4834166685093268812}

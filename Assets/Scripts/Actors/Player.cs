@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct PlayerStats
@@ -69,7 +70,6 @@ public class Player : Actor
 
     private void Start()
     {
-        m_ActorType = ActorType.Player;
         UpdateStats();
     }
 
@@ -89,6 +89,12 @@ public class Player : Actor
         }
 
         UpdateStats();
+    }
+
+    protected override void OnDeath()
+    {
+        SceneManager.LoadScene("Menu");
+        base.OnDeath();
     }
     #region Stats Functions
     public void UpdateStats()

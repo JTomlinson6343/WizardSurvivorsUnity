@@ -8,7 +8,6 @@ public class Enemy : Actor
 
     private void Start()
     {
-        m_ActorType = ActorType.Enemy;
         m_Health = m_MaxHealth;
     }
 
