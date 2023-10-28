@@ -16,11 +16,14 @@ public class Projectile : MonoBehaviour
     virtual protected void OnEnemyHit(GameObject enemy)
     {
         DamageEnemy(enemy);
+        enemy.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized;
         DestroySelf();
     }
 
     protected void DamageEnemy(GameObject enemy)
     {
+        enemy.GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().velocity.normalized * 0.05f);
+
         DamageInstanceData data = new DamageInstanceData();
         data.amount = m_AbilitySource.GetTotalStats().damage;
         data.damageType = m_AbilitySource.m_Info.damageType;

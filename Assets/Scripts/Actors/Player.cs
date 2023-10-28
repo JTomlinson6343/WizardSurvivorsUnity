@@ -58,7 +58,6 @@ public class Player : Actor
     PlayerStats m_BonusStats;
     PlayerStats m_TotalStats;
 
-
     [SerializeField] Ability m_ActiveAbility;
 
     float m_LastShot = 0;
