@@ -18,6 +18,8 @@ public class ChunkManager : MonoBehaviour
 
     private void Update()
     {
+        if (playerCharacter == null) return;
+
         DisableChunksOutsideView();
         EnableChunksInsideView();
     }

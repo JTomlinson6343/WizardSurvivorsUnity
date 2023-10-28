@@ -19,7 +19,7 @@ public class FireDebuffSkill : Skill
 
     public void OnDamageInstance(DamageInstanceData damageInstance)
     {
-        if (damageInstance.user.GetComponent<Actor>().m_ActorType != ActorType.Player) return;
+        if (!damageInstance.user.CompareTag("Player")) return;
         if (damageInstance.damageType != DamageType.Fire) return;
         if (damageInstance.isDoT) return;
 

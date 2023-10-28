@@ -12,13 +12,6 @@ public struct DamageStats
     public float m_PhysicalResist;
 }
 
-public enum ActorType
-{
-    None,
-    Player,
-    Enemy
-}
-
 public enum DamageOutput
 {
     validHit = 0,
@@ -28,8 +21,6 @@ public enum DamageOutput
 
 public class Actor : MonoBehaviour
 {
-    public ActorType m_ActorType;
-
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
     private float m_HealthRegen = 0.5f;
@@ -42,7 +33,6 @@ public class Actor : MonoBehaviour
 
     void Start()
     {
-        m_ActorType = ActorType.None;
         m_Health = m_MaxHealth;
     }
 

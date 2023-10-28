@@ -19,7 +19,7 @@ public class FireSpeedSkill : CooldownSkill
     public void OnDamageInstance(DamageInstanceData damageInstance)
     {
         if (m_OnCooldown) return;
-        if (damageInstance.user.GetComponent<Actor>().m_ActorType != ActorType.Player) return;
+        if (!damageInstance.user.CompareTag("Player")) return;
         if (damageInstance.damageType != DamageType.Fire) return;
 
         StartCooldown();
