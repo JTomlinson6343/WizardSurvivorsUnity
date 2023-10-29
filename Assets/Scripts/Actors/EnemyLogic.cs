@@ -66,7 +66,7 @@ public class EnemyLogic : MonoBehaviour
             {
                 Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
-                playerBody.velocity += new Vector2(moveDir.x, moveDir.y) * 60.0f;
+                playerBody.velocity += new Vector2(moveDir.x, moveDir.y) * 30.0f;
             }
         }
     }
