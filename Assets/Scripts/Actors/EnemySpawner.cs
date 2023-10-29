@@ -7,7 +7,6 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private GameObject m_PlayerReference;
     [SerializeField] private GameObject m_EnemyPrefab;
-    [SerializeField] private GameObject m_EnemiesFolder;
 
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
@@ -46,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject enemy = Instantiate(m_EnemyPrefab);
             enemy.transform.position = GetSpawnPosition();
-            enemy.transform.parent = m_EnemiesFolder.transform;
+            enemy.transform.SetParent(transform, false);
         }
     }
 
@@ -61,15 +60,7 @@ public class EnemySpawner : MonoBehaviour
         float minDist = Mathf.Infinity;
         Enemy closestEnemy = null;
 
-        // Get enemies
-        Enemy[] enemies = m_EnemiesFolder.GetComponentsInChildren<Enemy>();
-
-        if (enemies == null)
-        {
-            return Vector2.negativeInfinity;
-        }
-
-        foreach (Enemy enemy in enemies)
+        foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
         {
             // Calculate distance from enemy
             float dist = Vector3.Distance(enemy.transform.position, pos);
@@ -87,5 +78,13 @@ public class EnemySpawner : MonoBehaviour
     public Vector2 GetDirectionToEnemy(Vector2 pos)
     {
         return (GetClosestEnemyPos(pos)-pos).normalized;
+    }
+
+    public void PurgeEnemies()
+    {
+        foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
+        {
+            enemy.gameObject.SetActive(false);
+        }
     }
 }

@@ -95,7 +95,8 @@ public class Player : Actor
 
     protected override void OnDeath()
     {
-        gameObject.SetActive(false);
+        GetComponentInChildren<Renderer>().enabled = false;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         ProgressionManager.m_Instance.GameOver();
     }
     #region Stats Functions

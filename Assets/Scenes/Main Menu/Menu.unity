@@ -54023,6 +54023,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7066416600859335895, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7403745329682096272, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: looping
       value: 1

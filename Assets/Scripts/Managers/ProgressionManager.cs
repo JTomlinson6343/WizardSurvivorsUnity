@@ -110,6 +110,10 @@ public class ProgressionManager : MonoBehaviour
 
     public void GameOver()
     {
+        StateManager.ChangeState(State.GAME_OVER);
+
+        EnemySpawner.m_Instance.PurgeEnemies();
+
         m_GameOverInfoLabel.text = "Enemies Killed: " + m_EnemiesKilled.ToString() + "\n";
         if (m_ChampionsKilled > 0)
         {
