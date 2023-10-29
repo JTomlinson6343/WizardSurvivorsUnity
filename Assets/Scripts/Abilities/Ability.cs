@@ -102,7 +102,7 @@ public class Ability : MonoBehaviour
 
     virtual public void OnCast()
     {
-
+        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
     }
 
     // Override this to add behaviour to take in the mouse position

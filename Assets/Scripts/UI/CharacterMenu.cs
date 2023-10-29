@@ -66,6 +66,7 @@ public class CharacterMenu : MonoBehaviour
             return;
 
         PlayerSpawner.m_Character = m_CurrentCharacter;
+        StateManager.ChangeState(State.PLAYING);
         SceneManager.LoadScene("Main Scene");
     }
 

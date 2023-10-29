@@ -23,6 +23,12 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING)
+        {
+            m_RigidBody.velocity = Vector3.zero;
+            return;
+        }
+
         Vector3 currentPos = gameObject.transform.position;
         if (Player.m_Instance != null )
         {
@@ -60,7 +66,7 @@ public class EnemyLogic : MonoBehaviour
             {
                 Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
-                playerBody.velocity += new Vector2(moveDir.x, moveDir.y) * 60.0f;
+                playerBody.velocity += new Vector2(moveDir.x, moveDir.y) * 30.0f;
             }
         }
     }

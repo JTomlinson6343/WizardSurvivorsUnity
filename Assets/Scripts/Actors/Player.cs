@@ -75,6 +75,8 @@ public class Player : Actor
 
     public override void Update()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
+
         base.Update();
 
         if (Input.GetMouseButton(0))
@@ -93,8 +95,9 @@ public class Player : Actor
 
     protected override void OnDeath()
     {
-        SceneManager.LoadScene("Menu");
-        base.OnDeath();
+        GetComponentInChildren<Renderer>().enabled = false;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        ProgressionManager.m_Instance.GameOver();
     }
     #region Stats Functions
     public void UpdateStats()

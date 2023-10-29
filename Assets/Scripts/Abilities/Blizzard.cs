@@ -7,6 +7,7 @@ public class Blizzard : Ability
     GameObject m_AOEObject;
     public override void OnCast()
     {
+        base.OnCast();
         m_AOEObject = ProjectileManager.m_Instance.SpawnBlizzard(this, m_TotalStats.AOE);
     }
 }

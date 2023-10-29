@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
+
         Vector3 currentVelocity = m_RigidBody.velocity;
 
         Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
