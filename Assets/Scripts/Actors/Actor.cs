@@ -65,7 +65,6 @@ public class Actor : MonoBehaviour
     public DamageOutput OnDamage(float amount)
     {
         m_Health -= amount;
-        AudioManager.m_Instance.PlaySound(0);
 
         if (m_Health <= 0)
         {

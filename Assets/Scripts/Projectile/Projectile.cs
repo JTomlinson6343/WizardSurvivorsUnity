@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
         data.damageType = m_AbilitySource.m_Info.damageType;
         data.user = Player.m_Instance.gameObject;
         data.target = enemy;
-        DamageManager.m_Instance.DamageInstance(data, transform.position, true, true);
+        DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
 
     private void DestroySelf()

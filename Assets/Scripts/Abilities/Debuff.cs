@@ -108,6 +108,9 @@ public class Debuff : MonoBehaviour
         data.user = m_Source;
         data.target = gameObject;
         data.isDoT = true;
-        DamageManager.m_Instance.DamageInstance(data,transform.position,false,true);
+        data.doDamageNumbers = true;
+        data.doSoundEffect = false;
+        data.doIFrames = false;
+        DamageManager.m_Instance.DamageInstance(data,transform.position);
     }
 }

@@ -10,19 +10,23 @@ public enum DamageType
     Lightning,
     Poison,
     Light,
-    Physical
+    Physical,
+    None
 }
 
 // An instance of damage dealt to an actor
-public struct DamageInstanceData
+public class DamageInstanceData
 {
-    public DamageType damageType;
+    public DamageType damageType = DamageType.None;
     public GameObject user;
     public GameObject target;
-    public float amount;
-    public bool didCrit;
-    public bool didKill;
-    public bool isDoT;
+    public float amount = 0;
+    public bool didCrit = false;
+    public bool didKill = false;
+    public bool isDoT = false;
+    public bool doIFrames = true;
+    public bool doDamageNumbers = true;
+    public bool doSoundEffect = true;
 }
 
 public class DamageManager : MonoBehaviour
@@ -39,11 +43,14 @@ public class DamageManager : MonoBehaviour
         m_Instance = this;
     }
 
-    public void DamageInstance(DamageInstanceData data, Vector2 pos, bool doIframes, bool doDamageNumbers)
+    public void DamageInstance(DamageInstanceData data, Vector2 pos)
     {
+        if (data.doSoundEffect)
+            AudioManager.m_Instance.PlaySound(0);
+
         Actor actorComponent = data.target.GetComponent<Actor>();
         DamageOutput damageOutput = 0;
-        if (doIframes)
+        if (data.doIFrames)
         {
             // Damage actor
             damageOutput = actorComponent.TakeDamage(data.amount);
@@ -52,7 +59,7 @@ public class DamageManager : MonoBehaviour
         {
             actorComponent.TakeDamageNoIFrames(data.amount);
         }
-        if (damageOutput >= DamageOutput.invalidHit && doDamageNumbers)
+        if (damageOutput >= DamageOutput.invalidHit && data.doDamageNumbers)
         {
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
