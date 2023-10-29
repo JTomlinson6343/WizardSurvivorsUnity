@@ -23,6 +23,12 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING)
+        {
+            m_RigidBody.velocity = Vector3.zero;
+            return;
+        }
+
         Vector3 currentPos = gameObject.transform.position;
         if (Player.m_Instance != null )
         {

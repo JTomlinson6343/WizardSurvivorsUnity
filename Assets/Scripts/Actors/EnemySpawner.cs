@@ -36,6 +36,8 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
+
         float now = Time.realtimeSinceStartup;
 
         if (now > m_NextSpawn)

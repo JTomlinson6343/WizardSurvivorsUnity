@@ -14,6 +14,8 @@ public class Fireball : Ability
 
     public override void OnCast()
     {
+        base.OnCast();
+
         if (EnemySpawner.m_Instance.GetClosestEnemyPos(Player.m_Instance.GetCentrePos()) == Vector2.negativeInfinity)
             return;
 
