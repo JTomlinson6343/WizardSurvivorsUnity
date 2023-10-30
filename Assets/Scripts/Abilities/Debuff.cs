@@ -17,9 +17,9 @@ public class Debuff : MonoBehaviour
     private float m_TickInterval = 0.25f;
     public float m_Damage;
     public DamageType m_DamageType;
-    private GameObject m_Source;
+    protected GameObject m_Source;
     private DebuffType m_DebuffType;
-    private int m_StackAmount = 1;
+    protected int m_StackAmount = 1;
 
     float m_LastTick;
 

@@ -31,8 +31,12 @@ public class Actor : MonoBehaviour
     private DamageStats m_BaseResistance;
     private DamageStats m_BonusResistance;
 
-    void Start()
+    private Material m_DefaultMaterial;
+    public Material m_WhiteFlashMaterial;
+
+    public virtual void Start()
     {
+        m_DefaultMaterial = GetComponentInChildren<SpriteRenderer>().material;
         m_Health = m_MaxHealth;
     }
 
@@ -41,18 +45,27 @@ public class Actor : MonoBehaviour
         m_Health += m_HealthRegen * Time.deltaTime;
 
         m_Health = Mathf.Clamp(m_Health, 0, m_MaxHealth);
+
+        if (IsInvincible())
+            GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
+        else
+            GetComponentInChildren<SpriteRenderer>().material = m_DefaultMaterial;
+    }
+
+    bool IsInvincible()
+    {
+        float now = Time.realtimeSinceStartup;
+
+        return now - m_LastHit < m_IFramesTimer;
     }
 
     // If actor has i-frames, return false. Else, return true
     public DamageOutput TakeDamage(float amount)
     {
-        float now = Time.realtimeSinceStartup;
-
-        if (now - m_LastHit < m_IFramesTimer)
+        if (IsInvincible())
         {
             return DamageOutput.invalidHit;
         }
-        m_LastHit = now;
 
         return OnDamage(amount);
     }
@@ -64,6 +77,8 @@ public class Actor : MonoBehaviour
     // Called when a valid hit is registered
     public DamageOutput OnDamage(float amount)
     {
+        m_LastHit = Time.realtimeSinceStartup;
+
         m_Health -= amount;
 
         if (m_Health <= 0)

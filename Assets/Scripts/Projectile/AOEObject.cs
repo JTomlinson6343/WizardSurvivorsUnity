@@ -11,10 +11,10 @@ public class AOEObject : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (!collision.gameObject.GetComponent<Debuff>())
+            if (!collision.gameObject.GetComponent<BlizzardDebuff>())
             {
                 // If enemy is in the zone and doesnt yet have the debuff, add debuff 
-                collision.gameObject.AddComponent<Debuff>().Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Info.damageType,Player.m_Instance.gameObject,false,1);
+                collision.gameObject.AddComponent<BlizzardDebuff>().Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Info.damageType,Player.m_Instance.gameObject,false,1);
             }
         }
     }
@@ -24,7 +24,7 @@ public class AOEObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // If enemy leaves zone, remove debuff
-            Debuff debuff = collision.gameObject.GetComponent<Debuff>();
+            Debuff debuff = collision.gameObject.GetComponent<BlizzardDebuff>();
             if (debuff)
             {
                 Destroy(debuff);

@@ -68,8 +68,9 @@ public class Player : Actor
         m_Instance = this;
     }
 
-    private void Start()
+    override public void Start()
     {
+        base.Start();
         UpdateStats();
     }
 
