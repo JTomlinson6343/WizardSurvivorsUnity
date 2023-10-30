@@ -17,6 +17,8 @@ public enum DamageType
 // An instance of damage dealt to an actor
 public class DamageInstanceData
 {
+    public DamageInstanceData(GameObject _user, GameObject _target) { user = _user; target = _target; }
+
     public DamageType damageType = DamageType.None;
     public GameObject user;
     public GameObject target;
@@ -43,7 +45,7 @@ public class DamageManager : MonoBehaviour
         m_Instance = this;
     }
 
-    public void DamageInstance(DamageInstanceData data, Vector2 pos)
+    public DamageOutput DamageInstance(DamageInstanceData data, Vector2 pos)
     {
         if (data.doSoundEffect)
             AudioManager.m_Instance.PlaySound(0);
@@ -66,9 +68,10 @@ public class DamageManager : MonoBehaviour
             damageNumber.transform.position = pos;
             damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(data.damageType);
             damageNumber.GetComponent<FloatingDamage>().m_Damage = data.amount;
-
+            data.didKill = damageOutput == DamageOutput.invalidHit;
             m_DamageInstanceEvent.Invoke(data);
         }
+        return damageOutput;
     }
 
     private Color GetDamageNumberColor(DamageType damageType)

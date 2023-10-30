@@ -102,11 +102,9 @@ public class Debuff : MonoBehaviour
 
     virtual protected void OnTick()
     {
-        DamageInstanceData data = new DamageInstanceData();
+        DamageInstanceData data = new DamageInstanceData(m_Source,gameObject);
         data.amount = m_Damage*m_StackAmount;
         data.damageType = m_DamageType;
-        data.user = m_Source;
-        data.target = gameObject;
         data.isDoT = true;
         data.doDamageNumbers = true;
         data.doSoundEffect = false;

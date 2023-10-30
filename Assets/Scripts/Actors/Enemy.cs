@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : Actor
 {
     [SerializeField] float m_XPAwarded;
+    public float m_ContactDamage;
 
     private void Start()
     {

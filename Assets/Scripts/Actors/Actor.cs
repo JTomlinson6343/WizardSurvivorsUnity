@@ -50,7 +50,7 @@ public class Actor : MonoBehaviour
 
         if (now - m_LastHit < m_IFramesTimer)
         {
-            return DamageOutput.validHit;
+            return DamageOutput.invalidHit;
         }
         m_LastHit = now;
 

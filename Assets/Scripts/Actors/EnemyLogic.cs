@@ -49,10 +49,10 @@ public class EnemyLogic : MonoBehaviour
     {
         GameObject otherObject = collision.gameObject;
 
-        Vector3 objectPos = otherObject.transform.position;
-        Vector3 currentPos = gameObject.transform.position;
+        Vector2 objectPos = otherObject.transform.position;
+        Vector2 currentPos = gameObject.transform.position;
 
-        Vector3 moveDir = (objectPos - currentPos).normalized;
+        Vector2 moveDir = (objectPos - currentPos).normalized;
 
         //Vector3 currentVelocity = m_RigidBody.velocity;
 
@@ -60,13 +60,17 @@ public class EnemyLogic : MonoBehaviour
 
         if (otherObject.GetComponent<Player>() != null)
         {
-            Actor actorComponent = otherObject.GetComponent<Actor>();
+            Enemy enemy = GetComponent<Enemy>();
+            DamageInstanceData data = new(gameObject, otherObject);
+            data.amount = enemy.m_ContactDamage;
+            data.damageType = DamageType.Physical;
+            data.doDamageNumbers = false;
 
-            if (actorComponent.TakeDamage(1.0f) >= DamageOutput.validHit)
+            if (DamageManager.m_Instance.DamageInstance(data, transform.position) >= DamageOutput.validHit)
             {
                 Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
-                playerBody.velocity += new Vector2(moveDir.x, moveDir.y) * 30.0f;
+                playerBody.velocity += GetComponent<Rigidbody2D>().velocity.normalized * 45.0f;
             }
         }
     }

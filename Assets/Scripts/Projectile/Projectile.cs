@@ -22,10 +22,9 @@ public class Projectile : MonoBehaviour
 
     protected void DamageEnemy(GameObject enemy)
     {
-        DamageInstanceData data = new DamageInstanceData();
+        DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject,enemy);
         data.amount = m_AbilitySource.GetTotalStats().damage;
         data.damageType = m_AbilitySource.m_Info.damageType;
-        data.user = Player.m_Instance.gameObject;
         data.target = enemy;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }

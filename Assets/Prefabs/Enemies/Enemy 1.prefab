@@ -269,3 +269,4 @@ MonoBehaviour:
   m_MaxHealth: 1000
   m_Health: 1000
   m_XPAwarded: 1
+  m_ContactDamage: 1
