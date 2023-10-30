@@ -307,6 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 20
   m_Health: 20
+  m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_CameraRef: {fileID: 4834166685093268812}
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
