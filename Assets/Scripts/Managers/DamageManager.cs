@@ -23,6 +23,7 @@ public class DamageInstanceData
     public GameObject user;
     public GameObject target;
     public Ability abilitySource;
+    public Skill skillSource;
     public float amount = 0;
     public bool didCrit = false;
     public bool didKill = false;
