@@ -22,6 +22,8 @@ public class DamageInstanceData
     public DamageType damageType = DamageType.None;
     public GameObject user;
     public GameObject target;
+    public Ability abilitySource;
+    public Skill skillSource;
     public float amount = 0;
     public bool didCrit = false;
     public bool didKill = false;

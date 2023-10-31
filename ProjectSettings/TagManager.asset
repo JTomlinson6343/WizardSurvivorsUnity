@@ -54,6 +54,9 @@ TagManager:
   - name: Projectile
     uniqueID: 4131392967
     locked: 0
+  - name: Particles
+    uniqueID: 3977391305
+    locked: 0
   - name: Trees
     uniqueID: 4056404245
     locked: 0

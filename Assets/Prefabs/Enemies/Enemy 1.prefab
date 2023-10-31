@@ -266,8 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74679525e76eb445bc85ff315da5164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 1000
-  m_Health: 1000
+  m_MaxHealth: 10
+  m_Health: 1
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_XPAwarded: 1
   m_ContactDamage: 1
