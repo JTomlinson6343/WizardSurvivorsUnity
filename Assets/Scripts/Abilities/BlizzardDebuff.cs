@@ -21,6 +21,5 @@ public class BlizzardDebuff : Debuff
     protected override void EndDebuff()
     {
         base.EndDebuff();
-        gameObject.
     }
 }
