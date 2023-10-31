@@ -17,4 +17,10 @@ public class BlizzardDebuff : Debuff
         data.abilitySource = m_AbilitySource;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
+
+    protected override void EndDebuff()
+    {
+        base.EndDebuff();
+        gameObject.
+    }
 }

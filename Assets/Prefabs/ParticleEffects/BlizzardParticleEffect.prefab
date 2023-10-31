@@ -4860,7 +4860,7 @@ Transform:
   m_Children:
   - {fileID: 3976650069971138179}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1042268866318456460
 ParticleSystem:
@@ -5638,12 +5638,12 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 1
       spread: 0
       speed:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 0
+        scalar: 2
         minScalar: 1
         maxCurve:
           serializedVersion: 2

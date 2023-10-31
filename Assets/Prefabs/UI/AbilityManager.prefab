@@ -252,7 +252,8 @@ MonoBehaviour:
     damageType: 1
     description: 
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
-  m_Particles: {fileID: 6251831300220787743}
+  m_Fog: {fileID: 7281175807753145478}
+  m_Snow: {fileID: 6251831300220787743}
 --- !u!1 &2386790702650785497
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5551550952803688504}
     m_Modifications:
+    - target: {fileID: 3787198762738359824, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.039215688
+      objectReference: {fileID: 0}
     - target: {fileID: 4277215404916861540, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -988,6 +993,11 @@ Transform:
 --- !u!1 &6251831300220787743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7393008292068779161, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+  m_PrefabInstance: {fileID: 3484601587707607174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7281175807753145478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6147453621041214464, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
   m_PrefabInstance: {fileID: 3484601587707607174}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6119338760695220255
