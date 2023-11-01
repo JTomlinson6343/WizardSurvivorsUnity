@@ -8,7 +8,6 @@ public class FireDebuffSkill : Skill
     public GameObject m_FireParticlePrefab;
     public Light2D m_LightPrefab;
 
-
     public float m_Damage;
     public DamageType m_DamageType;
     public override void Init(SkillData data)
@@ -31,6 +30,7 @@ public class FireDebuffSkill : Skill
         FireDebuff debuff = target.AddComponent<FireDebuff>();
         debuff.m_FireParticlePrefab = m_FireParticlePrefab;
         debuff.m_LightPrefab = m_LightPrefab;
+        AudioManager.m_Instance.PlaySound(8);
         switch (m_Data.level)
         {
             case 1:
