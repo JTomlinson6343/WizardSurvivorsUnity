@@ -49,16 +49,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
 
-        float now = Time.realtimeSinceStartup;
 
-        if (now > m_NextSpawn)
-        {
-            m_NextSpawn = now + m_SpawnCooldown;
+        if (m_EnemyCount >= m_SpawnLimit) return;
+        if (m_EnemiesKilledThisWave >= m_SpawnLimit)
+            StartNewWave();
 
-            GameObject enemy = Instantiate(m_EnemyPrefab);
-            enemy.transform.position = GetSpawnPosition();
-            enemy.transform.SetParent(transform, false);
-        }
+        SpawnEnemy();
     }
 
     public void OnDrawGizmosSelected()
@@ -67,29 +63,9 @@ public class EnemySpawner : MonoBehaviour
         Gizmos.DrawWireSphere(m_PlayerReference.transform.position, m_SpawnRadius);
     }
 
-    public Vector2 GetClosestEnemyPos(Vector2 pos)
+    public void IncrementEnemiesKilled()
     {
-        float minDist = Mathf.Infinity;
-        Enemy closestEnemy = null;
-
-        foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
-        {
-            // Calculate distance from enemy
-            float dist = Vector3.Distance(enemy.transform.position, pos);
-            if (dist < minDist)
-            {
-                // If enemy is closer than the closest enemy so far, set closest enemy to this
-                minDist = dist;
-                closestEnemy = enemy;
-            }
-        }
-
-        return closestEnemy.transform.position;
-    }
-
-    public Vector2 GetDirectionToEnemy(Vector2 pos)
-    {
-        return (GetClosestEnemyPos(pos)-pos).normalized;
+        m_EnemiesKilledThisWave++;
     }
 
     public void PurgeEnemies()
@@ -100,8 +76,25 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private void SpawnEnemy()
+    {
+        float now = Time.realtimeSinceStartup;
+
+        if (now > m_NextSpawn)
+        {
+            m_NextSpawn = now + m_SpawnCooldown;
+
+            GameObject enemy = Instantiate(m_EnemyPrefab);
+            enemy.transform.position = GetSpawnPosition();
+            enemy.transform.SetParent(transform, false);
+            m_EnemyCount++;
+        }
+    }
+
     private void StartNewWave()
     {
+        m_EnemiesKilledThisWave = 0;
+
         int currentWave = ProgressionManager.m_Instance.m_WaveCounter;
 
         currentWave++;

@@ -16,11 +16,11 @@ public class Fireball : Ability
     {
         base.OnCast();
 
-        if (EnemySpawner.m_Instance.GetClosestEnemyPos(Player.m_Instance.GetCentrePos()) == Vector2.negativeInfinity)
+        if (GameplayManager.GetClosestEnemyPos(Player.m_Instance.GetCentrePos()) == Vector2.negativeInfinity)
             return;
 
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
-            EnemySpawner.m_Instance.GetDirectionToEnemy(Player.m_Instance.GetCentrePos()),
+            GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos()),
             m_TotalStats.speed, this, m_Lifetime);
     }
 }
