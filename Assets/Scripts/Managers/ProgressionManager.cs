@@ -53,15 +53,15 @@ public class ProgressionManager : MonoBehaviour
         xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
     }
 
-    public void UpdateWaveIndicator(float wave)
+    public void UpdateWaveLabel(float wave)
     {
         m_WaveIndicator.GetComponent<TextMeshProUGUI>().text = "Wave: " + Mathf.RoundToInt(wave).ToString();
     }    
-    public void UpdateScoreIndicator(float score)
+    public void UpdateScoreLabel(float score)
     {
         m_ScoreIndicator.GetComponent<TextMeshProUGUI>().text = "Score: " + Mathf.RoundToInt(score).ToString();
     }    
-    public void UpdateLevelIndicator(float level)
+    public void UpdateLevelLabel(float level)
     {
         m_LevelIndicator.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(level).ToString();
     }
@@ -69,7 +69,7 @@ public class ProgressionManager : MonoBehaviour
     public void AddScore(float score)
     {
         m_Score += score;
-        UpdateScoreIndicator(m_Score);
+        UpdateScoreLabel(m_Score);
     }
 
     public bool AddXP(float xp)
