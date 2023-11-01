@@ -109,7 +109,7 @@ public class SkillTree : MonoBehaviour
 
     void OnUnlockPressed()
     {
-        m_CurrentSkill.m_Unlocked = true;
+        m_CurrentSkill.Unlock();
         m_CurrentSkillPoints -= GetCurrentLevelCost();
         UpdateSkillPointsLabel();
         m_CurrentSkill.m_Data.level++;
@@ -124,7 +124,7 @@ public class SkillTree : MonoBehaviour
 
         foreach (SkillIcon skill in skills)
         {
-            skill.m_Unlocked = false;
+            skill.Lock();
             skill.m_Data.level = 0;
         }
 
