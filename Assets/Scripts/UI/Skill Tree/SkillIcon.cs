@@ -8,6 +8,8 @@ public class SkillIcon : MonoBehaviour
 {
     public bool m_Unlocked;
 
+    public Color m_Color;
+
     public string m_SkillName;
 
     public string m_Description;
@@ -59,5 +61,18 @@ public class SkillIcon : MonoBehaviour
     private void OnClick()
     {
         m_SkillTreeRef.SetHighlightedSkill(this);
+    }
+
+    public void Unlock()
+    {
+        m_Unlocked = true;
+        GetComponent<Image>().color = m_Color;
+    }
+
+    public void Lock()
+    {
+        m_Unlocked = false;
+        GetComponent<Image>().color = Color.white;
+
     }
 }
