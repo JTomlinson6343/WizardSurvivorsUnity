@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : Actor
 {
-    [SerializeField] float m_XPAwarded;
+    [SerializeField] int m_XPAwarded;
     public float m_ContactDamage;
 
     override public void Start()

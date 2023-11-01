@@ -13,16 +13,16 @@ public class ProgressionManager : MonoBehaviour
 
     BasicBar xpBar;
 
-    [SerializeField] GameObject m_WaveIndicator;
-    [SerializeField] GameObject m_ScoreIndicator;
-    [SerializeField] GameObject m_LevelIndicator;
+    [SerializeField] GameObject m_WaveLabel;
+    [SerializeField] GameObject m_ScoreLabel;
+    [SerializeField] GameObject m_LevelLabel;
 
     [SerializeField] GameObject m_GameOverScreen;
     [SerializeField] TextMeshProUGUI m_GameOverInfoLabel;
 
-    float m_Score = 0;
-    float m_Level = 1;
-    float m_WaveCounter = 1;
+    int m_Score = 0;
+    int m_Level = 1;
+    [HideInInspector] public int m_WaveCounter = 1;
 
     float m_CurrentXP = 0;
     float m_NextLevelXP;
@@ -53,20 +53,20 @@ public class ProgressionManager : MonoBehaviour
         xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
     }
 
-    public void UpdateWaveLabel(float wave)
+    public void UpdateWaveLabel(int wave)
     {
-        m_WaveIndicator.GetComponent<TextMeshProUGUI>().text = "Wave: " + Mathf.RoundToInt(wave).ToString();
+        m_WaveLabel.GetComponent<TextMeshProUGUI>().text = "Wave: " + wave.ToString();
     }    
-    public void UpdateScoreLabel(float score)
+    public void UpdateScoreLabel(int score)
     {
-        m_ScoreIndicator.GetComponent<TextMeshProUGUI>().text = "Score: " + Mathf.RoundToInt(score).ToString();
+        m_ScoreLabel.GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
     }    
-    public void UpdateLevelLabel(float level)
+    public void UpdateLevelLabel(int level)
     {
-        m_LevelIndicator.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(level).ToString();
+        m_LevelLabel.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(level).ToString();
     }
 
-    public void AddScore(float score)
+    public void AddScore(int score)
     {
         m_Score += score;
         UpdateScoreLabel(m_Score);
