@@ -27,5 +27,7 @@ public class FireSpeedSkill : CooldownSkill
         Debug.Log("Player's speed increased by" + m_BonusSpeed.speed.ToString());
 
         Player.m_Instance.AddTempStats(m_BonusSpeed, m_Duration);
+
+        AudioManager.m_Instance.PlaySound(9);
     }
 }
