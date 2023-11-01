@@ -22,7 +22,7 @@ public class ProgressionManager : MonoBehaviour
 
     int m_Score = 0;
     int m_Level = 1;
-    [HideInInspector] public int m_WaveCounter = 1;
+    [HideInInspector] public int m_WaveCounter = 0;
 
     float m_CurrentXP = 0;
     float m_NextLevelXP;

@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 GetSpawnPosition()
     {
-        Vector3 playerPos = m_PlayerReference.transform.position;
+        Vector3 playerPos = Player.m_Instance.transform.position;
 
         Vector3 spawnPos = playerPos + new Vector3(Random.Range(-m_SpawnRadius, m_SpawnRadius), Random.Range(-m_SpawnRadius, m_SpawnRadius), 0).normalized * m_SpawnRadius;
 
@@ -34,6 +34,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartNewWave();
+
         if (Player.m_Instance == null)  return;
 
         m_PlayerReference = Player.m_Instance.gameObject;
@@ -49,10 +51,9 @@ public class EnemySpawner : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
 
-
-        if (m_EnemyCount >= m_SpawnLimit) return;
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
             StartNewWave();
+        if (m_EnemyCount >= m_SpawnLimit) return;
 
         SpawnEnemy();
     }
@@ -93,12 +94,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void StartNewWave()
     {
+        m_EnemyCount = 0;
         m_EnemiesKilledThisWave = 0;
 
-        int currentWave = ProgressionManager.m_Instance.m_WaveCounter;
+        ProgressionManager.m_Instance.m_WaveCounter++;
 
-        currentWave++;
+        m_SpawnLimit = m_InitialSpawnLimit + Mathf.RoundToInt(m_MaxSpawnLimit * (m_CurveA * Mathf.Pow(ProgressionManager.m_Instance.m_WaveCounter, 3) + m_CurveB * ProgressionManager.m_Instance.m_WaveCounter + m_CurveC)/1000f);
+        ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
 
-        m_SpawnLimit = m_InitialSpawnLimit + Mathf.RoundToInt(m_MaxSpawnLimit * (m_CurveA * Mathf.Pow(currentWave, 3) + m_CurveB * currentWave + m_CurveC));
+        print("Wave " + ProgressionManager.m_Instance.m_WaveCounter.ToString() + " started. " + m_SpawnLimit.ToString() + " enemies spawning.");
     }
 }
