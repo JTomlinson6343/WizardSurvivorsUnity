@@ -62,7 +62,7 @@ public class DamageManager : MonoBehaviour
         }
         else
         {
-            actorComponent.TakeDamageNoIFrames(data.amount);
+            damageOutput = actorComponent.TakeDamageNoIFrames(data.amount);
         }
         if (damageOutput >= DamageOutput.invalidHit && data.doDamageNumbers)
         {
