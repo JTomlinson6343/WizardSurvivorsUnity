@@ -17,7 +17,7 @@ public static class GameplayManager
             float distance = Vector2.Distance(pos, enemy.transform.position);
             if (distance < radius)
             {
-                outEnemies.Append(enemy.gameObject);
+                outEnemies.Add(enemy.gameObject);
             }
         }
         return outEnemies;

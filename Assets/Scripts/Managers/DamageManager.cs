@@ -24,6 +24,7 @@ public class DamageInstanceData
     public GameObject target;
     public Ability abilitySource;
     public Skill skillSource;
+    public Debuff debuff;
     public float amount = 0;
     public bool didCrit = false;
     public bool didKill = false;
@@ -70,7 +71,7 @@ public class DamageManager : MonoBehaviour
             damageNumber.transform.position = pos;
             damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(data.damageType);
             damageNumber.GetComponent<FloatingDamage>().m_Damage = data.amount;
-            data.didKill = damageOutput == DamageOutput.invalidHit;
+            data.didKill = damageOutput == DamageOutput.wasKilled;
             m_DamageInstanceEvent.Invoke(data);
         }
         return damageOutput;
