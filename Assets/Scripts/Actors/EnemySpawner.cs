@@ -5,12 +5,22 @@ public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner m_Instance;
 
-    [SerializeField] private GameObject m_PlayerReference;
+    private GameObject m_PlayerReference;
     [SerializeField] private GameObject m_EnemyPrefab;
 
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
     [SerializeField] private float m_SpawnRadius = 30.0f;
+
+    private int m_EnemyCount;
+    private int m_EnemiesKilledThisWave;
+    private int m_SpawnLimit;
+
+    [SerializeField] int m_InitialSpawnLimit;
+    [SerializeField] private float m_CurveA;
+    [SerializeField] private float m_CurveB;
+    [SerializeField] private float m_CurveC;
+    [SerializeField] private float m_MaxSpawnLimit;
 
     private Vector3 GetSpawnPosition()
     {
@@ -24,7 +34,9 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Player.m_Instance == null)  return;
 
+        m_PlayerReference = Player.m_Instance.gameObject;
     }
 
     void Awake()
@@ -86,5 +98,14 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+    }
+
+    private void StartNewWave()
+    {
+        int currentWave = ProgressionManager.m_Instance.m_WaveCounter;
+
+        currentWave++;
+
+        m_SpawnLimit = m_InitialSpawnLimit + Mathf.RoundToInt(m_MaxSpawnLimit * (m_CurveA * Mathf.Pow(currentWave, 3) + m_CurveB * currentWave + m_CurveC));
     }
 }
