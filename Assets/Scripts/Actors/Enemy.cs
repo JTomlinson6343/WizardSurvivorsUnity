@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : Actor
 {
-    [SerializeField] float m_XPAwarded;
+    [SerializeField] int m_XPAwarded;
     public float m_ContactDamage;
 
     override public void Start()
@@ -19,5 +19,6 @@ public class Enemy : Actor
         ProgressionManager.m_Instance.AddXP(m_XPAwarded);
         ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
+        EnemySpawner.m_Instance.IncrementEnemiesKilled();
     }
 }

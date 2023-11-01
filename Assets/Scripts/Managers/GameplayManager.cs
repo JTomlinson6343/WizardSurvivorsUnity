@@ -22,4 +22,29 @@ public static class GameplayManager
         }
         return outEnemies;
     }
+    public static Vector2 GetClosestEnemyPos(Vector2 pos)
+    {
+        if (EnemySpawner.m_Instance == null) return Vector2.negativeInfinity;
+
+        float minDist = Mathf.Infinity;
+        Enemy closestEnemy = null;
+
+        foreach (Enemy enemy in EnemySpawner.m_Instance.GetComponentsInChildren<Enemy>())
+        {
+            // Calculate distance from enemy
+            float dist = Vector3.Distance(enemy.transform.position, pos);
+            if (dist < minDist)
+            {
+                // If enemy is closer than the closest enemy so far, set closest enemy to this
+                minDist = dist;
+                closestEnemy = enemy;
+            }
+        }
+        return closestEnemy.transform.position;
+    }
+
+    public static Vector2 GetDirectionToEnemy(Vector2 pos)
+    {
+        return (GetClosestEnemyPos(pos) - pos).normalized;
+    }
 }

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6919754387104255630
 MonoBehaviour:
@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c0a087103bbd14e9784e26c4be93ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerReference: {fileID: 0}
   m_EnemyPrefab: {fileID: 4782787995318582076, guid: 41affc13d066f11498b357961699e749, type: 3}
-  m_EnemiesFolder: {fileID: 0}
+  m_SpawnCooldown: 1
+  m_SpawnRadius: 30
+  m_InitialSpawnLimit: 6
+  m_CurveA: 0.7
+  m_CurveB: 0.3
+  m_CurveC: 0
+  m_MaxSpawnLimit: 300
