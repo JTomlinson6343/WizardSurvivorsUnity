@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public struct AbilityInfo
+public struct AbilityData
 {
     public string name;
     public DamageType damageType;
@@ -70,7 +70,7 @@ public class Ability : MonoBehaviour
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
     protected AbilityStats m_AbilityStatsBuffs;
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
-    public AbilityInfo     m_Info;        // Info about the ability to display on upgrad screen
+    public AbilityData     m_Data;        // Info about the ability to display on upgrad screen
 
     private void Start()
     {
@@ -81,7 +81,7 @@ public class Ability : MonoBehaviour
     {
         if (!m_Enabled)
         {
-            Debug.Log(m_Info.name + " was enabled.");
+            Debug.Log(m_Data.name + " was enabled.");
             m_Enabled = true;
             CancelInvoke(nameof(OnCast));
             if (m_TotalStats.cooldown < 0)
@@ -96,7 +96,7 @@ public class Ability : MonoBehaviour
         else
         {
             LevelUp();
-            Debug.Log(m_Info.name + " is now level "+ m_Level.ToString());
+            Debug.Log(m_Data.name + " is now level "+ m_Level.ToString());
         }
     }
 
@@ -110,6 +110,11 @@ public class Ability : MonoBehaviour
     {
         Debug.Log("No OnMouseInput behaviour defined. Defaulting to normal ability cast.");
         OnCast();
+    }
+
+    public void AddBonusStats(AbilityStats stats)
+    {
+        m_BonusStats += stats;
     }
 
     virtual public void UpdateTotalStats()
