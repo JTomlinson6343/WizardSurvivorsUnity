@@ -149,13 +149,18 @@ public class AbilityManager : MonoBehaviour
             icon.displayedAbility.OnChosen();
             HideAbilityOptions();
 
-            Ability[] abilities = GetComponentsInChildren<Ability>();
+            UpdateAllAbilityStats();
+        }
+    }
 
-            // Update ability stats
-            foreach (Ability ability in abilities)
-            {
-                ability.UpdateTotalStats();
-            }
+    private void UpdateAllAbilityStats()
+    {
+        Ability[] abilities = GetComponentsInChildren<Ability>();
+
+        // Update ability stats
+        foreach (Ability ability in abilities)
+        {
+            ability.UpdateTotalStats();
         }
     }
 
@@ -167,5 +172,6 @@ public class AbilityManager : MonoBehaviour
     public void AddAbilityStatBuffs(AbilityStats stats)
     {
         m_AbilityStatsBuffs += stats;
+        UpdateAllAbilityStats();
     }
 }
