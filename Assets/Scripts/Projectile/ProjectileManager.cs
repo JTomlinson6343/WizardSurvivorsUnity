@@ -21,7 +21,8 @@ public class ProjectileManager : MonoBehaviour
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
     [SerializeField] GameObject m_FloatingDamagePrefab;
-    [SerializeField] GameObject m_AOEPrefab;
+    [SerializeField] GameObject m_BlizzardPrefab;
+    [SerializeField] GameObject m_AOEObjectPrefab;
 
     [SerializeField] float m_BasicAttackScaling;
     [SerializeField] float m_BasicAttackLifetime;
@@ -122,11 +123,35 @@ public class ProjectileManager : MonoBehaviour
 
     public GameObject SpawnBlizzard(Ability ability, float scale)
     {
-        GameObject aoe = Instantiate(m_AOEPrefab);
+        GameObject aoe = Instantiate(m_BlizzardPrefab);
         aoe.transform.localScale *= scale;
         aoe.transform.SetParent(Player.m_Instance.gameObject.transform);
         aoe.transform.position = Player.m_Instance.GetCentrePos();
+        aoe.GetComponent<BlizzardAOE>().m_AbilitySource = ability;
+        return aoe;
+    }
+
+    public GameObject SpawnAOE(Vector2 pos, float scale, float lifetime)
+    {
+        GameObject aoe = Instantiate(m_AOEObjectPrefab);
+        aoe.transform.localScale *= scale;
+        aoe.transform.position = pos;
+        aoe.GetComponent<AOEObject>().StartLifetimeTimer(lifetime);
+        return aoe;
+    }
+
+    public GameObject SpawnAOE(Ability ability, Vector2 pos, float scale, float lifetime)
+    {
+        GameObject aoe = SpawnAOE(pos, scale, lifetime);
         aoe.GetComponent<AOEObject>().m_AbilitySource = ability;
         return aoe;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnAOE(Player.m_Instance.transform.position, 5f, 0.2f);
+        }
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] protected GameObject m_DamageNumberPrefab;
-
     [HideInInspector] public Ability m_AbilitySource;
 
     public void StartLifetimeTimer(float lifetime)
@@ -20,7 +18,7 @@ public class Projectile : MonoBehaviour
         DestroySelf();
     }
 
-    protected void DamageEnemy(GameObject enemy)
+    virtual protected void DamageEnemy(GameObject enemy)
     {
         DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject,enemy);
         data.amount = m_AbilitySource.GetTotalStats().damage;
@@ -35,7 +33,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    virtual public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
         {

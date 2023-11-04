@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2535485973356852505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2952040072457066399}
+  - component: {fileID: 7758741341760293182}
+  m_Layer: 0
+  m_Name: FireAOE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2952040072457066399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535485973356852505}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7758741341760293182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535485973356852505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6539d0ef047e4fb2af421a55cbf57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 4
+    level: 0
+    maxLevel: 0
+  m_Cooldown: 15
+  m_AOEObject: {fileID: 3052370167837948753, guid: 7fa5786f9cbd20442b17108559df7306, type: 3}
+  m_Lifetime: 0.15
+  m_Scale: 5
+  m_Damage: 0.4
 --- !u!1 &2552562239275552613
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +137,7 @@ Transform:
   - {fileID: 9219015484848714404}
   - {fileID: 4812586764241665464}
   - {fileID: 1679599635638595887}
+  - {fileID: 2952040072457066399}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,7 +164,7 @@ GameObject:
   - component: {fileID: 1436505027361116513}
   - component: {fileID: 123649086491848199}
   m_Layer: 0
-  m_Name: FireAOE
+  m_Name: FireSpreadVfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
