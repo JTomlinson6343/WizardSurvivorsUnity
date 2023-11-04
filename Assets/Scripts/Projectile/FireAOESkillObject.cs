@@ -16,7 +16,5 @@ public class FireAOESkillObject : AOEObject
         data.target = enemy;
         data.skillSource = m_SkillSource;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
-
-        m_FireDebuffSkillRef.ApplyFireDebuff(data.user, enemy);
     }
 }
