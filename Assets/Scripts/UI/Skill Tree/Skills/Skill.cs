@@ -7,7 +7,8 @@ public enum SkillID
     None,
     FireSpeed,
     FireDebuff,
-    FireSpread
+    FireSpread,
+    FireAOE
 }
 
 [System.Serializable]

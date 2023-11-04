@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireSkillAOE : AOEObject
+public class FireAOESkillObject : AOEObject
 {
-    // Percent health the ability does
-    public float m_Damage;
-    public Skill m_SkillSource;
+    [HideInInspector] public float m_Damage; // percent max hp
+    [HideInInspector] public Skill m_SkillSource;
+    [HideInInspector] public FireDebuffSkill m_FireDebuffSkillRef;
 
     override protected void DamageEnemy(GameObject enemy)
     {
@@ -16,5 +16,7 @@ public class FireSkillAOE : AOEObject
         data.target = enemy;
         data.skillSource = m_SkillSource;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
+
+        m_FireDebuffSkillRef.ApplyFireDebuff(data.user, enemy);
     }
 }
