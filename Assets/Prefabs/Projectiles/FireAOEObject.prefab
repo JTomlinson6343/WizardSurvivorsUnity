@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1198198037605485938}
   - component: {fileID: 7593901780818403666}
   - component: {fileID: 5688349083064297626}
+  - component: {fileID: 7704637336877597947}
   m_Layer: 0
   m_Name: FireAOEObject
   m_TagString: Untagged
@@ -101,3 +102,38 @@ MonoBehaviour:
   m_Damage: 0.2
   m_SkillSource: {fileID: 0}
   m_FireDebuffSkillRef: {fileID: 0}
+--- !u!58 &7704637336877597947
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3052370167837948753}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

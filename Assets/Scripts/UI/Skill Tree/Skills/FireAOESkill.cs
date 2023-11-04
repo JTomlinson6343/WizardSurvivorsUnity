@@ -6,6 +6,7 @@ public class FireAOE : CooldownSkill
 {
     [SerializeField] GameObject m_AOEObject;
     [SerializeField] float m_Lifetime;
+    [SerializeField] float m_Scale;
     [SerializeField] float m_Damage; // percent max hp
     [SerializeField] FireDebuffSkill m_FireDebuffSkillRef;
 
@@ -23,9 +24,12 @@ public class FireAOE : CooldownSkill
         if (!damageInstance.didKill) return;
 
         GameObject aoe = Instantiate(m_AOEObject);
-        FireAOESkillObject fireSkillAoe = GetComponent<FireAOESkillObject>();
+        FireAOESkillObject fireSkillAoe = aoe.GetComponent<FireAOESkillObject>();
         fireSkillAoe.StartLifetimeTimer(m_Lifetime);
         fireSkillAoe.m_Damage = m_Damage;
+        fireSkillAoe.transform.localScale *= m_Scale;
         fireSkillAoe.m_FireDebuffSkillRef = m_FireDebuffSkillRef;
+        fireSkillAoe.transform.position = damageInstance.target.transform.position;
+        AudioManager.m_Instance.PlaySound(2);
     }
 }
