@@ -13,6 +13,8 @@ public class FireAOE : CooldownSkill
     {
         base.Init(data);
         DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
+        if (m_Data.level >= 2)
+            m_Cooldown *= 0.8f;
     }
 
     public void OnDamageInstance(DamageInstanceData damageInstance)
