@@ -20,4 +20,9 @@ public class Flamethrower : Ability
         m_FlamethrowerObject.SetActive(Input.GetMouseButton(0));
         m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg - 90);
     }
+
+    public void Enable()
+    {
+        m_Enabled = true;
+    }
 }

@@ -303,7 +303,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
-    duration: 0.01
+    duration: 0
     damage: 3
     speed: 0
     cooldown: 0

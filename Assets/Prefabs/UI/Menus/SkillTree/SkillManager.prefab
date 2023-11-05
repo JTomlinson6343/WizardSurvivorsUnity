@@ -105,6 +105,54 @@ MonoBehaviour:
   m_Cooldown: 10
   m_Radius: 3
   m_FireDebuffSkillRef: {fileID: 4598356389941605190}
+--- !u!1 &3183462911509279723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3605185406383346496}
+  - component: {fileID: 2882575437999604054}
+  m_Layer: 0
+  m_Name: Flamethrower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3605185406383346496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183462911509279723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2882575437999604054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183462911509279723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9ce803285eb5b4ba79b5a468c166a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 6
+    level: 0
+    maxLevel: 0
 --- !u!1 &5110542835106140633
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +210,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+  m_DamageType: 0
 --- !u!1 &6529186928086989564
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +245,7 @@ Transform:
   - {fileID: 1679599635638595887}
   - {fileID: 2952040072457066399}
   - {fileID: 8585810826466197889}
+  - {fileID: 3605185406383346496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
