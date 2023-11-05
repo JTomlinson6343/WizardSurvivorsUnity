@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8549380336161259966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3287, y: 3.5779, z: 0}
-  m_LocalScale: {x: 1.44, y: -5.4711037, z: 1}
+  m_LocalPosition: {x: -0.0025, y: 1.9677, z: 0}
+  m_LocalScale: {x: 1.9344958, y: -3.4356582, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1104320923202733108}
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayer: -5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34117648}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -236,15 +236,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 3
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: InheritVelocityModule.m_Curve.scalar
@@ -308,15 +308,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5642356860601568045, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25999987
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5642356860601568045, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0.497
       objectReference: {fileID: 0}
     - target: {fileID: 5642356860601568045, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.97
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 5642356860601568045, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: m_LocalRotation.w
