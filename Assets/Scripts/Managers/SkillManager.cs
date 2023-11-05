@@ -12,6 +12,10 @@ public class SkillManager : MonoBehaviour
     private void Awake()
     {
         m_Instance = this;
+    }
+
+    private void Start()
+    {
         ActivateSkills();
     }
 
