@@ -30,7 +30,6 @@ public class FireDebuffSkill : Skill
         FireDebuff debuff = target.AddComponent<FireDebuff>();
         debuff.m_FireParticlePrefab = m_FireParticlePrefab;
         debuff.m_LightPrefab = m_LightPrefab;
-        AudioManager.m_Instance.PlaySound(8);
         switch (m_Data.level)
         {
             case 1:

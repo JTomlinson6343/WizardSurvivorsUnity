@@ -31,6 +31,8 @@ public class FireDebuff : Debuff
         m_Light.pointLightOuterAngle = m_LightPrefab.pointLightOuterAngle;
         m_Light.pointLightInnerAngle = m_LightPrefab.pointLightInnerAngle;
         m_Light.falloffIntensity = m_LightPrefab.falloffIntensity;
+
+        AudioManager.m_Instance.PlaySound(8);
     }
 
     protected override void EndDebuff()

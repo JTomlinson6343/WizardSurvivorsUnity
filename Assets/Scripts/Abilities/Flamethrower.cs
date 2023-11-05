@@ -6,6 +6,9 @@ public class Flamethrower : Ability
 {
     [SerializeField] GameObject m_FlamethrowerObject;
 
+    private bool m_Lockout;
+    private float m_LockoutTime = 0.25f;
+
     override public void Start()
     {
         base.Start();
@@ -17,12 +20,28 @@ public class Flamethrower : Ability
     {
         if (!m_Enabled) return;
         Vector2 vec = Player.m_Instance.GetAimDirection().normalized;
-        m_FlamethrowerObject.SetActive(Input.GetMouseButton(0));
+        if (Input.GetMouseButton(0))
+        {
+            if (!m_Lockout)
+                m_FlamethrowerObject.SetActive(true);
+            else
+                Invoke(nameof(EndLockout), m_LockoutTime);
+        }
+        else
+        {
+            m_FlamethrowerObject.SetActive(false);
+            m_Lockout = true;
+        }
         m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg - 90);
     }
 
     public void Enable()
     {
         m_Enabled = true;
+    }
+
+    private void EndLockout()
+    {
+        m_Lockout = false;
     }
 }
