@@ -5,7 +5,6 @@ using static Unity.VisualScripting.Member;
 
 public class BlizzardDebuff : Debuff
 {
-    public Ability m_AbilitySource;
     override protected void OnTick()
     {
         DamageInstanceData data = new DamageInstanceData(m_Source, gameObject);

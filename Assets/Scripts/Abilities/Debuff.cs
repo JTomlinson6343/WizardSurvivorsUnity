@@ -18,6 +18,7 @@ public class Debuff : MonoBehaviour
     public float m_Damage;
     public DamageType m_DamageType;
     protected GameObject m_Source;
+    public Ability m_AbilitySource;
     private DebuffType m_DebuffType;
     protected int m_StackAmount = 1;
 
