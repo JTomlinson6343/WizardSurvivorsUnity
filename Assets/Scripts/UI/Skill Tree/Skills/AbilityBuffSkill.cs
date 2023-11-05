@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class AbilityBuffSkill : Skill
 {
-    [SerializeField] AbilityStats m_StatBuffs;
+    public AbilityStats m_StatBuffs;
+    public DamageType m_DamageType;
 
     public override void Init(SkillData data)
     {
         base.Init(data);
 
-        AbilityManager.m_Instance.AddAbilityStatBuffs(m_StatBuffs);
+        for (int i = 0; i < data.level; i++)
+        {
+            AbilityManager.m_Instance.AddElementalAbilityStatBuffs(m_DamageType, m_StatBuffs);
+        }
     }
 }
