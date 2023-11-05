@@ -13,7 +13,7 @@ public class FlamethrowerAOE : AOEObject
             {
                 // If enemy is in the zone and doesnt yet have the debuff, add debuff 
                 FlamethrowerDebuff flamethrowerDebuff = collision.gameObject.AddComponent<FlamethrowerDebuff>();
-                flamethrowerDebuff.Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Data.damageType,Player.m_Instance.gameObject,false,1);
+                flamethrowerDebuff.Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Data.damageType,Player.m_Instance.gameObject,false,1, DebuffType.Flamethrower);
                 flamethrowerDebuff.m_AbilitySource = m_AbilitySource;
             }
         }

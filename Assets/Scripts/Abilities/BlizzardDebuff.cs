@@ -10,7 +10,7 @@ public class BlizzardDebuff : Debuff
         DamageInstanceData data = new DamageInstanceData(m_Source, gameObject);
         data.amount = m_Damage * m_StackAmount;
         data.damageType = m_DamageType;
-        data.isDoT = true;
+        data.isDoT = false;
         data.doDamageNumbers = true;
         data.doIFrames = false;
         data.abilitySource = m_AbilitySource;

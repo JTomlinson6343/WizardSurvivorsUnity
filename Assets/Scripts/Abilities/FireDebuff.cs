@@ -13,9 +13,9 @@ public class FireDebuff : Debuff
     private GameObject m_FireEffect;
     private Light2D m_Light;
 
-    public override void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks)
+    public override void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks, DebuffType debuffType)
     {
-        base.Init(debuffTime, damage, damageType, source, percentHealth, maxStacks);
+        base.Init(debuffTime, damage, damageType, source, percentHealth, maxStacks, debuffType);
 
         if (GetComponentInChildren<ParticleSystem>() != null )
             return;
