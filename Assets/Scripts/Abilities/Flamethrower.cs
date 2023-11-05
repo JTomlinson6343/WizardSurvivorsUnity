@@ -6,9 +6,11 @@ public class Flamethrower : Ability
 {
     [SerializeField] GameObject m_FlamethrowerObject;
 
-    private void Start()
+    override public void Start()
     {
+        base.Start();
         m_FlamethrowerObject.transform.SetParent(Player.m_Instance.GetStaffTransform(), false);
+        m_FlamethrowerObject.GetComponentInChildren<FlamethrowerAOE>().m_AbilitySource = this;
     }
     private void Update()
     {

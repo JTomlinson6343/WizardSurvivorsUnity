@@ -72,7 +72,7 @@ public class Ability : MonoBehaviour
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
     public AbilityData     m_Data;        // Info about the ability to display on upgrad screen
 
-    private void Start()
+    virtual public void Start()
     {
         UpdateTotalStats();
     }

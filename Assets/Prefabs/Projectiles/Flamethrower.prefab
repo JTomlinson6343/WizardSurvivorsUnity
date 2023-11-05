@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1991876124172702781}
-  - component: {fileID: 4378427699547489064}
   m_Layer: 0
   m_Name: Flamethrower
   m_TagString: Untagged
@@ -34,33 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &4378427699547489064
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3854598476368457782}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &6685796868807171541
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +126,8 @@ GameObject:
   - component: {fileID: 7496638190251206696}
   - component: {fileID: 5884793844887169968}
   - component: {fileID: 7166003447989865710}
+  - component: {fileID: 7359815592076032314}
+  - component: {fileID: 4746508959885924093}
   m_Layer: 0
   m_Name: FlamethowerHitbox
   m_TagString: Untagged
@@ -277,6 +251,46 @@ PolygonCollider2D:
       - {x: -0.27155954, y: -0.4089181}
       - {x: 0.59137607, y: -0.40891826}
   m_UseDelaunayMesh: 0
+--- !u!114 &7359815592076032314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549380336161259966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f8efd1f57165a4b83b4b2cedc48d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AbilitySource: {fileID: 0}
+--- !u!50 &4746508959885924093
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549380336161259966}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &4692464581369581337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -363,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1
-      value: 19275
+      value: 23323
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime2
@@ -371,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime3
-      value: 25058
+      value: 33731
       objectReference: {fileID: 0}
     - target: {fileID: 4103215155701972176, guid: 5d702e71bd8db7d4495dc177cddbd9a4, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime1
