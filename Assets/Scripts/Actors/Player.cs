@@ -90,7 +90,6 @@ public class Player : Actor
                 m_LastShot = now;
             }
         }
-
         UpdateStats();
     }
 

@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     {
         DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject,enemy);
         data.amount = m_AbilitySource.GetTotalStats().damage;
-        data.damageType = m_AbilitySource.m_Info.damageType;
+        data.damageType = m_AbilitySource.m_Data.damageType;
         data.target = enemy;
         data.abilitySource = m_AbilitySource;
         DamageManager.m_Instance.DamageInstance(data, transform.position);

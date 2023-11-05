@@ -83,7 +83,7 @@ public class AbilityManager : MonoBehaviour
             }
             displayedAbilities[count] = ability;
             // If all checks pass, set the icon of the UI to the icon of the ability
-            m_Icons[iconCounter].image.sprite = ability.m_Info.icon;
+            m_Icons[iconCounter].image.sprite = ability.m_Data.icon;
             // Set the ability the icon represents to that ability
             m_Icons[iconCounter].displayedAbility = ability;
             // Show the icon
@@ -149,13 +149,18 @@ public class AbilityManager : MonoBehaviour
             icon.displayedAbility.OnChosen();
             HideAbilityOptions();
 
-            Ability[] abilities = GetComponentsInChildren<Ability>();
+            UpdateAllAbilityStats();
+        }
+    }
 
-            // Update ability stats
-            foreach (Ability ability in abilities)
-            {
-                ability.UpdateTotalStats();
-            }
+    private void UpdateAllAbilityStats()
+    {
+        Ability[] abilities = GetComponentsInChildren<Ability>();
+
+        // Update ability stats
+        foreach (Ability ability in abilities)
+        {
+            ability.UpdateTotalStats();
         }
     }
 
@@ -167,5 +172,20 @@ public class AbilityManager : MonoBehaviour
     public void AddAbilityStatBuffs(AbilityStats stats)
     {
         m_AbilityStatsBuffs += stats;
+        UpdateAllAbilityStats();
+    }
+
+    public void AddElementalAbilityStatBuffs(DamageType type, AbilityStats stats)
+    {
+        Ability[] abilities = GetComponentsInChildren<Ability>();
+
+        // Update ability stats
+        foreach (Ability ability in abilities)
+        {
+            // Add bonus stats to abilities with same damage type
+            if (ability.m_Data.damageType == type || type == DamageType.None)
+                ability.AddBonusStats(stats);
+        }
+        UpdateAllAbilityStats();
     }
 }

@@ -13,7 +13,7 @@ public class BlizzardAOE : AOEObject
             {
                 // If enemy is in the zone and doesnt yet have the debuff, add debuff 
                 BlizzardDebuff blizzardDebuff = collision.gameObject.AddComponent<BlizzardDebuff>();
-                blizzardDebuff.Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Info.damageType,Player.m_Instance.gameObject,false,1);
+                blizzardDebuff.Init(-1f, m_AbilitySource.GetTotalStats().damage, m_AbilitySource.m_Data.damageType,Player.m_Instance.gameObject,false,1);
                 blizzardDebuff.m_AbilitySource = m_AbilitySource;
             }
         }

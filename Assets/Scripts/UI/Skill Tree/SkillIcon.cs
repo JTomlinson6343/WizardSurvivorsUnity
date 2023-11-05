@@ -12,7 +12,7 @@ public class SkillIcon : MonoBehaviour
 
     public string m_SkillName;
 
-    public string m_Description;
+    public string[] m_Description;
 
     public string[] m_OnLevelUpDescription;
 
@@ -22,8 +22,6 @@ public class SkillIcon : MonoBehaviour
 
     // List of skills that unlock this skill
     [SerializeField] protected SkillIcon[] m_Prerequisites;
-
-    [SerializeField] protected Image m_Icon;
 
     private SkillTree m_SkillTreeRef;
     private Button m_ButtonRef;
@@ -73,6 +71,5 @@ public class SkillIcon : MonoBehaviour
     {
         m_Unlocked = false;
         GetComponent<Image>().color = Color.white;
-
     }
 }

@@ -55,10 +55,10 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
-  m_Info:
-    name: 
-    damageType: 0
-    description: 
+  m_Data:
+    name: Zone Size Buff
+    damageType: 6
+    description: +20% size of zone effects
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     AOE: 0.2
@@ -124,10 +124,10 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
-  m_Info:
+  m_Data:
     name: Fireball
     damageType: 0
-    description: 
+    description: Fires a fireball at the closest enemy
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
 --- !u!1 &1630798436203245395
@@ -185,10 +185,10 @@ MonoBehaviour:
     amount: 4
     knockback: 0
     pierceAmount: 0
-  m_Info:
+  m_Data:
     name: Cross Shot
     damageType: 0
-    description: 
+    description: Fires four fireballs diagonally
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
 --- !u!1 &1764913179728977767
@@ -247,10 +247,10 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
-  m_Info:
+  m_Data:
     name: Blizzard
     damageType: 1
-    description: 
+    description: Spawns a blizzard that deals damage to enemies in the area.
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Fog: {fileID: 7281175807753145478}
   m_Snow: {fileID: 6251831300220787743}
@@ -503,10 +503,10 @@ MonoBehaviour:
     amount: 2
     knockback: 0
     pierceAmount: 0
-  m_Info:
-    name: Icicle
+  m_Data:
+    name: Orbiting Stars
     damageType: 4
-    description: 
+    description: Spawn two stars that orbit the player and deal damage
     icon: {fileID: 2107994407, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
 --- !u!1 &7813613701837229948
 GameObject:
@@ -563,10 +563,10 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
-  m_Info:
-    name: 
-    damageType: 0
-    description: 
+  m_Data:
+    name: Spell Power
+    damageType: 6
+    description: +10% ability damage
     icon: {fileID: 1803759905, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     AOE: 0
@@ -632,10 +632,10 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
-  m_Info:
-    name: 
-    damageType: 0
-    description: 
+  m_Data:
+    name: Health
+    damageType: 6
+    description: +20 max health
     icon: {fileID: 576402560, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     speed: 0
