@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -69,7 +70,14 @@ public class SkillTree : MonoBehaviour
 
         // Set info labels to the info of the skill
         m_NameLabel.text = m_CurrentSkill.m_SkillName;
-        m_DescriptionLabel.text = m_CurrentSkill.m_Description;
+
+        string description = "";
+        // If the current level is greater than the number of descriptions, use the last description.
+        if (m_CurrentSkill.m_Data.level > m_CurrentSkill.m_Description.Length-1)
+            description = m_CurrentSkill.m_Description.Last();
+        else
+            description = m_CurrentSkill.m_Description[m_CurrentSkill.m_Data.level];
+        m_DescriptionLabel.text = description;
 
         m_OnLevelUpLabel.text = GetCurrentOnLevelUpMessage();
         m_CostLabel.text = "Cost: " + GetCurrentLevelCost().ToString();

@@ -12,7 +12,7 @@ public class SkillIcon : MonoBehaviour
 
     public string m_SkillName;
 
-    public string m_Description;
+    public string[] m_Description;
 
     public string[] m_OnLevelUpDescription;
 
@@ -71,6 +71,5 @@ public class SkillIcon : MonoBehaviour
     {
         m_Unlocked = false;
         GetComponent<Image>().color = Color.white;
-
     }
 }
