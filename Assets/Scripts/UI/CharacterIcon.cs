@@ -8,6 +8,7 @@ public class CharacterIcon : MonoBehaviour
 
     public string m_CharName;
 
+    [TextArea(3, 10)]
     public string m_Description;
 
     public GameObject m_Character;
