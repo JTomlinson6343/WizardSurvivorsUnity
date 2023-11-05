@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1399394667365797148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ RectTransform:
   - {fileID: 2642147571590088984}
   - {fileID: 7835037105228985189}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InfoLabel: {fileID: 8711716377945167243}
+  m_Buttons: {fileID: 0}
   m_MainMenuRef: {fileID: 0}
 --- !u!1 &2424751185252111872
 GameObject:
@@ -1427,15 +1428,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_CharName
-      value: Fire Mage
+      value: Pyromancer
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Unlocked
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Character
+      value: 
+      objectReference: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+    - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 3799507802252995062, guid: d0c62923748d14b4b96c55c122bd2c12, type: 3}
+    - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Description
-      value: Fire magic and movement speed
+      value: Engulf enemies with intense flames that leave them ablaze!
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTreeScene
@@ -1533,8 +1542,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireMageIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 740431455, guid: 966866a55fe047647b5e80872d88c320, type: 3}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Color.g
+      value: 0.40945297
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4039157871873374028, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
