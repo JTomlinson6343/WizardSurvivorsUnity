@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioClip[] m_AudioClips;
 
-    AudioSource[] m_AudioSources = new AudioSource[8];
+    AudioSource[] m_AudioSources = new AudioSource[256];
     AudioSource m_MusicSource;
     // Start is called before the first frame update
     void Awake()

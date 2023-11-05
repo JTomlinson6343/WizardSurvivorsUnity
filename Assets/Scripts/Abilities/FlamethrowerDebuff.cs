@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
-public class BlizzardDebuff : Debuff
+public class FlamethrowerDebuff : Debuff
 {
     override protected void OnTick()
     {

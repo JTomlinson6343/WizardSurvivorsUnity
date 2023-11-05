@@ -9,7 +9,8 @@ public enum SkillID
     FireDebuff,
     FireSpread,
     FireAOE,
-    FireDamageBuff
+    FireDamageBuff,
+    FireFlamethrower
 }
 
 [System.Serializable]

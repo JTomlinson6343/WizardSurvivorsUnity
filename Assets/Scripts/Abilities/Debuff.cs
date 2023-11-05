@@ -7,25 +7,29 @@ using UnityEngine;
 
 public enum DebuffType
 {
+    None,
     Blaze,
-    Blizzard
+    Blizzard,
+    Flamethrower
 }
 
 public class Debuff : MonoBehaviour
 {
-    public float m_DebuffTime;
+    public float m_Duration;
     private float m_TickInterval = 0.25f;
     public float m_Damage;
     public DamageType m_DamageType;
     protected GameObject m_Source;
-    private DebuffType m_DebuffType;
+    public Ability m_AbilitySource;
+    public DebuffType m_DebuffType;
     protected int m_StackAmount = 1;
 
     float m_LastTick;
 
-    public virtual void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks)
+    public virtual void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks, DebuffType debuffType)
     {
         m_Damage = damage;
+        m_DebuffType = debuffType;
 
         // Check that the debuff isn't already on the gameObject. If it is, refresh it.
         foreach (Debuff debuff in GetComponents<Debuff>())
@@ -44,7 +48,7 @@ public class Debuff : MonoBehaviour
         if (percentHealth)
             m_Damage *= GetComponent<Actor>().m_MaxHealth;
 
-        m_DebuffTime = debuffTime;
+        m_Duration = debuffTime;
         m_DamageType = damageType;
         m_Source = source;
     }
@@ -52,17 +56,17 @@ public class Debuff : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
-        if(m_DebuffTime > 0)
+        if(m_Duration > 0)
         {
-            Invoke(nameof(EndDebuff), m_DebuffTime);
+            Invoke(nameof(EndDebuff), m_Duration);
         }
     }
 
     public void RefreshDebuffTimer(float newTime)
     {
         CancelInvoke();
-        m_DebuffTime = newTime;
-        Invoke(nameof(EndDebuff), m_DebuffTime);
+        m_Duration = newTime;
+        Invoke(nameof(EndDebuff), m_Duration);
     }
 
     public void IncrementStackAmount(int maxStacks)
