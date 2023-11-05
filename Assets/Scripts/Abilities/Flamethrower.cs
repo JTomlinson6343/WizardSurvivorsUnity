@@ -14,7 +14,6 @@ public class Flamethrower : Ability
     {
         Vector2 vec = Player.m_Instance.GetAimDirection().normalized;
         m_FlamethrowerObject.SetActive(Input.GetMouseButton(0));
-        m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg - 90); 
-        m_FlamethrowerObject.GetComponentInChildren<ParticleSystem>().startRotation3D = new Vector3(0f, 0f, Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg - 90);
+        m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg - 90);
     }
 }
