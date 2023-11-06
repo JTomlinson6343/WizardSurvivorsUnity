@@ -47,8 +47,6 @@ public struct PlayerStats
 
 public class Player : Actor
 {
-    [SerializeField] Camera m_CameraRef;
-
     [SerializeField] GameObject staffPos;
     [SerializeField] GameObject centrePos;
 
@@ -136,8 +134,7 @@ public class Player : Actor
 
     public Vector2 GetAimDirection()
     {
-        return (m_CameraRef.ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
-
+        return (PlayerSpawner.m_Instance.m_Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
     }
 
     public PlayerStats GetStats()
