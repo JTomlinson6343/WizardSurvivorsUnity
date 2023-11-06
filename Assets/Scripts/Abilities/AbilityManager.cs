@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,13 @@ public class AbilityManager : MonoBehaviour
 
     AbilityIcon[] m_Icons;
 
+    AbilityIcon m_HighlightedIcon;
+
+    [SerializeField] GameObject m_AbilityCanvas;
+
+    [SerializeField] TextMeshProUGUI m_NameLabel;
+    [SerializeField] TextMeshProUGUI m_DescriptionLabel;
+
     bool m_AbilityChoicesShown;
 
     private void Awake()
@@ -26,7 +34,7 @@ public class AbilityManager : MonoBehaviour
         //Get ability icons
         m_Icons = GetComponentsInChildren<AbilityIcon>();
 
-        HideAbilityOptions();
+        m_AbilityCanvas.SetActive(false);
     }
 
     private void Update()
@@ -43,6 +51,14 @@ public class AbilityManager : MonoBehaviour
 
     public void ShowAbilityOptions()
     {
+        if (m_Abilities.Count == 0) return;
+
+        m_AbilityCanvas.SetActive(true);
+        foreach (AbilityIcon icon in m_Icons)
+        {
+            icon.image.enabled = false;
+        }
+
         m_AbilityChoicesShown = true;
         Ability[] displayedAbilities = new Ability[4];
 
@@ -60,7 +76,6 @@ public class AbilityManager : MonoBehaviour
         {
             optionCount = 4;
         }
-
         // Loop through each ability
         while (count < optionCount)
         {
@@ -95,16 +110,19 @@ public class AbilityManager : MonoBehaviour
 
             count++;
         }
+        ProgressionManager.m_Instance.ToggleHUD(false);
+        StateManager.TogglePause(true);
     }
 
     void HideAbilityOptions()
     {
         m_AbilityChoicesShown = false;
 
-        foreach (AbilityIcon icon in m_Icons)
-        {
-            icon.image.enabled = false;
-        }
+        m_AbilityCanvas.SetActive(false);
+
+        ProgressionManager.m_Instance.ToggleHUD(true);
+
+        StateManager.TogglePause(false);
     }
 
     bool CheckAlreadyDisplayed(Ability ability, Ability[] displayedAbilities)
@@ -123,6 +141,8 @@ public class AbilityManager : MonoBehaviour
 
     void HandleInput()
     {
+        if (StateManager.GetCurrentState() != State.PAUSED) return;
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             AbilityWasSelected(m_Icons[0]);
@@ -139,18 +159,31 @@ public class AbilityManager : MonoBehaviour
         {
             AbilityWasSelected(m_Icons[3]);
         }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (m_HighlightedIcon.enabled && m_HighlightedIcon.displayedAbility != null)
+            {
+                // Check if icon is displayed and then enable the ability displayed
+                UnlockAbility();
+            }
+        }
     }
 
     void AbilityWasSelected(AbilityIcon icon)
     {
-        if (icon.enabled && icon.displayedAbility != null)
-        {
-            // Check if icon is displayed and then enable the ability displayed
-            icon.displayedAbility.OnChosen();
-            HideAbilityOptions();
+        if (icon.displayedAbility == null) return;
 
-            UpdateAllAbilityStats();
-        }
+        m_HighlightedIcon = icon;
+        m_NameLabel.text = icon.displayedAbility.m_Data.name;
+        m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
+    }
+
+    void UnlockAbility()
+    {
+        m_HighlightedIcon.displayedAbility.OnChosen();
+        HideAbilityOptions();
+
+        UpdateAllAbilityStats();
+        m_HighlightedIcon = null;
     }
 
     private void UpdateAllAbilityStats()

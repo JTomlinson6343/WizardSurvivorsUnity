@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea5ed9c67360634bab3b3deb10fcc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Hud: {fileID: 1608674284550717189}
   m_WaveLabel: {fileID: 7627002825617424798}
   m_ScoreLabel: {fileID: 7550208601253903267}
   m_LevelLabel: {fileID: 8549522059742752834}

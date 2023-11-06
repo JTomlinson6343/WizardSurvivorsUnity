@@ -146,12 +146,4 @@ public class ProjectileManager : MonoBehaviour
         aoe.GetComponent<AOEObject>().m_AbilitySource = ability;
         return aoe;
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnAOE(Player.m_Instance.transform.position, 5f, 0.2f);
-        }
-    }
 }

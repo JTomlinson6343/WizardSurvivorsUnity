@@ -13,6 +13,8 @@ public class ProgressionManager : MonoBehaviour
 
     BasicBar xpBar;
 
+    [SerializeField] GameObject m_Hud;
+
     [SerializeField] GameObject m_WaveLabel;
     [SerializeField] GameObject m_ScoreLabel;
     [SerializeField] GameObject m_LevelLabel;
@@ -53,6 +55,11 @@ public class ProgressionManager : MonoBehaviour
         xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
     }
 
+    public void ToggleHUD(bool toggle)
+    {
+        m_Hud.SetActive(toggle);
+    }
+
     public void UpdateWaveLabel(int wave)
     {
         m_WaveLabel.GetComponent<TextMeshProUGUI>().text = "Wave: " + wave.ToString();
@@ -61,9 +68,9 @@ public class ProgressionManager : MonoBehaviour
     {
         m_ScoreLabel.GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
     }    
-    public void UpdateLevelLabel(int level)
+    public void UpdateLevelLabel()
     {
-        m_LevelLabel.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(level).ToString();
+        m_LevelLabel.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(m_Level).ToString();
     }
 
     public void AddScore(int score)
@@ -95,8 +102,9 @@ public class ProgressionManager : MonoBehaviour
 
         CalculateNextLevelXP();
 
-        AbilityManager.m_Instance.ShowAbilityOptions();
+        UpdateLevelLabel();
 
+        AbilityManager.m_Instance.ShowAbilityOptions();
     }
 
     private void CalculateNextLevelXP()
