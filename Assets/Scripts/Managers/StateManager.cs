@@ -32,7 +32,7 @@ public static class StateManager
     {
         if (toggle)
         {
-            if (m_PreviousState != State.PAUSED)
+            if (m_CurrentState != State.PAUSED)
                 m_PreviousState = m_CurrentState;
 
             Time.timeScale = 0;
