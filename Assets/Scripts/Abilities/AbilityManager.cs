@@ -173,8 +173,8 @@ public class AbilityManager : MonoBehaviour
         if (icon.displayedAbility == null) return;
 
         m_HighlightedIcon = icon;
-        m_NameLabel.text = icon.displayedAbility.name;
-        m_DescriptionLabel.text = icon.displayedAbility.name;
+        m_NameLabel.text = icon.displayedAbility.m_Data.name;
+        m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
     }
 
     void UnlockAbility()
