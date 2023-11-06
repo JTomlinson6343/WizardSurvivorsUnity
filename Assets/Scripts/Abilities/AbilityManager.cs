@@ -141,6 +141,8 @@ public class AbilityManager : MonoBehaviour
 
     void HandleInput()
     {
+        if (StateManager.GetCurrentState() != State.PAUSED) return;
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             AbilityWasSelected(m_Icons[0]);
