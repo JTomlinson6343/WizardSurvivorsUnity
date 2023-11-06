@@ -68,9 +68,9 @@ public class ProgressionManager : MonoBehaviour
     {
         m_ScoreLabel.GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
     }    
-    public void UpdateLevelLabel(int level)
+    public void UpdateLevelLabel()
     {
-        m_LevelLabel.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(level).ToString();
+        m_LevelLabel.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(m_Level).ToString();
     }
 
     public void AddScore(int score)
@@ -102,8 +102,9 @@ public class ProgressionManager : MonoBehaviour
 
         CalculateNextLevelXP();
 
-        AbilityManager.m_Instance.ShowAbilityOptions();
+        UpdateLevelLabel();
 
+        AbilityManager.m_Instance.ShowAbilityOptions();
     }
 
     private void CalculateNextLevelXP()
