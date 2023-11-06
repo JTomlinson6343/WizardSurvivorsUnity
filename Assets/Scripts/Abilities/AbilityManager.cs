@@ -110,6 +110,7 @@ public class AbilityManager : MonoBehaviour
 
             count++;
         }
+        ProgressionManager.m_Instance.ToggleHUD(false);
         StateManager.TogglePause(true);
     }
 
@@ -118,6 +119,8 @@ public class AbilityManager : MonoBehaviour
         m_AbilityChoicesShown = false;
 
         m_AbilityCanvas.SetActive(false);
+
+        ProgressionManager.m_Instance.ToggleHUD(true);
 
         StateManager.TogglePause(false);
     }

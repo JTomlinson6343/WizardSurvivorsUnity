@@ -13,6 +13,8 @@ public class ProgressionManager : MonoBehaviour
 
     BasicBar xpBar;
 
+    [SerializeField] GameObject m_Hud;
+
     [SerializeField] GameObject m_WaveLabel;
     [SerializeField] GameObject m_ScoreLabel;
     [SerializeField] GameObject m_LevelLabel;
@@ -51,6 +53,11 @@ public class ProgressionManager : MonoBehaviour
         CalculateNextLevelXP();
 
         xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
+    }
+
+    public void ToggleHUD(bool toggle)
+    {
+        m_Hud.SetActive(toggle);
     }
 
     public void UpdateWaveLabel(int wave)
