@@ -16,6 +16,8 @@ public static class StateManager
 {
     private static State m_CurrentState = State.NONE;
 
+    private static State m_PreviousState = State.NONE;
+
     public static void ChangeState(State state)
     {
         m_CurrentState = state;
@@ -24,5 +26,22 @@ public static class StateManager
     public static State GetCurrentState()
     {
         return m_CurrentState;
+    }
+
+    public static void TogglePause(bool toggle)
+    {
+        if (toggle)
+        {
+            if (m_PreviousState != State.PAUSED)
+                m_PreviousState = m_CurrentState;
+
+            Time.timeScale = 0;
+            ChangeState(State.PAUSED);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            ChangeState(m_PreviousState);
+        }
     }
 }
