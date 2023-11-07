@@ -725,6 +725,14 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 1994052101450514199}
+    - target: {fileID: 8087658994112551336, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
+      propertyPath: m_FireballRef
+      value: 
+      objectReference: {fileID: 8201127561021254593}
+    - target: {fileID: 8087658994112551336, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
+      propertyPath: m_BaseStats.damage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -916,6 +924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 557211682419933354}
     m_Modifications:
+    - target: {fileID: 2882575437999604054, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
+      propertyPath: m_FireballRef
+      value: 
+      objectReference: {fileID: 8201127561021254593}
     - target: {fileID: 3722616304487041102, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -972,10 +984,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3722616304487041102, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 6406092053411678422}
     - targetCorrespondingSourceObject: {fileID: 3722616304487041102, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
-      insertIndex: -1
+      insertIndex: 6
       addedObject: {fileID: 1821996248007592977}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
