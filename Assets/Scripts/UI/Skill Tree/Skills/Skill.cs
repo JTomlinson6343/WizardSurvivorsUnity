@@ -10,11 +10,12 @@ public enum SkillID
     FireSpread,
     FireAOE,
     FireDamageBuff,
-    FireFlamethrower
+    FireFlamethrower,
+    FireballAttackSpeed,
+    FireballDamageBuff
 }
 
 [System.Serializable]
-
 public struct SkillData
 {
     public SkillID id;

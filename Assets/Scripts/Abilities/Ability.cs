@@ -117,6 +117,11 @@ public class Ability : MonoBehaviour
         m_BonusStats += stats;
     }
 
+    public AbilityStats GetBonusStats()
+    {
+        return m_BonusStats;
+    }
+
     virtual public void UpdateTotalStats()
     {
         // Update total stats. Bonus stats are applied as a percentage of the base damage

@@ -11,6 +11,7 @@ public class SkillIcon : MonoBehaviour
 
     public string m_SkillName;
 
+    [TextArea(3, 10)]
     public string[] m_Description;
 
     public string[] m_OnLevelUpDescription;

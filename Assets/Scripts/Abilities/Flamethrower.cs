@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flamethrower : Ability
 {
     [SerializeField] GameObject m_FlamethrowerObject;
+    [HideInInspector] public Fireball m_FireballRef;
 
     private bool m_Lockout;
     private float m_LockoutTime = 0.25f;

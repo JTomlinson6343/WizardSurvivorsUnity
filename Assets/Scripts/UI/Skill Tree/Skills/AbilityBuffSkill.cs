@@ -5,15 +5,11 @@ using UnityEngine;
 public class AbilityBuffSkill : Skill
 {
     public AbilityStats m_StatBuffs;
-    public DamageType m_DamageType;
+    public Ability m_Ability;
 
     public override void Init(SkillData data)
     {
         base.Init(data);
-
-        for (int i = 0; i < data.level; i++)
-        {
-            AbilityManager.m_Instance.AddElementalAbilityStatBuffs(m_DamageType, m_StatBuffs);
-        }
+        m_Ability.AddBonusStats(m_StatBuffs);
     }
 }
