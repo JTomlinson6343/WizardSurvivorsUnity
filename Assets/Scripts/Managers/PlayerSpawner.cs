@@ -9,21 +9,6 @@ struct PlayerBounds
     public float bottom;
     public float left;
     public float right;
-
-    // Locks gameobject to bounds and outputs true if object is outside bounds
-    public bool Contains(GameObject gameObject)
-    {
-        Vector3 pos = gameObject.transform.position;
-        if (pos.x < left)
-            return false;
-        if (pos.x > right)
-            return false;
-        if (pos.y > top)
-            return false;
-        if (pos.y < bottom)
-            return false;
-        return true;
-    }
 }
 
 public class PlayerSpawner : MonoBehaviour
@@ -56,10 +41,24 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Update()
     {
+        // Bind camera to camera bounds
         if (Player.m_Instance.transform.position.x > m_CameraBounds.left && Player.m_Instance.transform.position.x < m_CameraBounds.right)
             m_Camera.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z);
 
         if (Player.m_Instance.transform.position.y > m_CameraBounds.bottom && Player.m_Instance.transform.position.y < m_CameraBounds.top)
             m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z);
+
+        // Bind player to world bounds
+        if (Player.m_Instance.transform.position.x < m_WorldBounds.left)
+            Player.m_Instance.transform.position = new Vector3(m_WorldBounds.left, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.x > m_WorldBounds.right)
+            Player.m_Instance.transform.position = new Vector3(m_WorldBounds.right, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.y < m_WorldBounds.bottom)
+            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_WorldBounds.bottom, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.y > m_WorldBounds.top)
+            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_WorldBounds.top, Player.m_Instance.transform.position.z);
     }
 }
