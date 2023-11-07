@@ -837,9 +837,9 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[0]
       value: 'Fireball Augment:
 
-        +30% Damage
+        +100% Damage
 
-        +20% Cooldown'
+        +50% Cooldown'
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[1]
@@ -1033,6 +1033,10 @@ PrefabInstance:
     - target: {fileID: 7762850377071330625, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
+      propertyPath: m_TotalSkillPoints
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
