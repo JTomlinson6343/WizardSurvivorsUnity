@@ -25,6 +25,8 @@ public class FireSpeedSkill : CooldownSkill
         StartCooldown();
 
         Player.m_Instance.AddTempStats(m_BonusSpeed, m_Duration);
+        m_Active = true;
+        Invoke(nameof(ResetActiveFlag), m_Duration);
 
         AudioManager.m_Instance.PlaySound(9);
     }
