@@ -23,7 +23,6 @@ public class Actor : MonoBehaviour
 {
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
-    private float m_HealthRegen = 0.5f;
     private float m_IFramesTimer = 0.1f;
 
     private float m_LastHit = 0.0f;
@@ -42,8 +41,6 @@ public class Actor : MonoBehaviour
 
     virtual public void Update()
     {
-        m_Health += m_HealthRegen * Time.deltaTime;
-
         m_Health = Mathf.Clamp(m_Health, 0, m_MaxHealth);
 
         if (IsInvincible())
