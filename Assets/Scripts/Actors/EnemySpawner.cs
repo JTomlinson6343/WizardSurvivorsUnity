@@ -8,10 +8,9 @@ struct Curve
     public float min;
     public float max;
 
-    public float Evaluate(float x, float xMax)
+    public float Evaluate(float x, float alpha)
     {
-        float a = curve.Evaluate(x);
-        return min + (max-min) * curve.Evaluate(x/xMax);
+        return min + (max-min) * curve.Evaluate(x/alpha);
     }
 }
 
@@ -31,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private int m_SpawnLimit;
 
     [SerializeField] Curve m_SpawnCurve;
+    [SerializeField] Curve m_HealthCurve;
 
     private Vector3 GetSpawnPosition()
     {
@@ -98,7 +98,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(m_EnemyPrefab);
             enemy.transform.position = GetSpawnPosition();
             enemy.transform.SetParent(transform, false);
-            enemy.GetComponent<Enemy>().m_MaxHealth = 
+            enemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave();
             m_EnemyCount++;
         }
     }
@@ -114,5 +114,12 @@ public class EnemySpawner : MonoBehaviour
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
 
         print("Wave " + ProgressionManager.m_Instance.m_WaveCounter.ToString() + " started. " + m_SpawnLimit.ToString() + " enemies spawning.");
+
+        print("Enemy HP this wave: " + GetEnemyHPForWave().ToString());
+    }
+
+    private float GetEnemyHPForWave()
+    {
+        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100);
     }
 }

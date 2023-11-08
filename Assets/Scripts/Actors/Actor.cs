@@ -36,7 +36,7 @@ public class Actor : MonoBehaviour
     public virtual void Start()
     {
         m_DefaultMaterial = GetComponentInChildren<SpriteRenderer>().material;
-        m_Health = m_MaxHealth;
+        Init();
     }
 
     virtual public void Update()
@@ -47,6 +47,11 @@ public class Actor : MonoBehaviour
             GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
         else
             GetComponentInChildren<SpriteRenderer>().material = m_DefaultMaterial;
+    }
+
+    public virtual void Init()
+    {
+        m_Health = m_MaxHealth;
     }
 
     bool IsInvincible()
