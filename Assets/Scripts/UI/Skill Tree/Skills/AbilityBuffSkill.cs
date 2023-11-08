@@ -10,6 +10,7 @@ public class AbilityBuffSkill : Skill
     public override void Init(SkillData data)
     {
         base.Init(data);
-        m_Ability.AddBonusStats(m_StatBuffs);
+        for (int i = 0; i < data.level; i++)
+            m_Ability.AddBonusStats(m_StatBuffs);
     }
 }

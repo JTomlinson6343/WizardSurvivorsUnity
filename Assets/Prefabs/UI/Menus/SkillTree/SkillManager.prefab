@@ -153,6 +153,7 @@ MonoBehaviour:
     id: 6
     level: 0
     maxLevel: 0
+  m_FireballRef: {fileID: 0}
 --- !u!1 &5110542835106140633
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +212,59 @@ MonoBehaviour:
     knockback: 0
     pierceAmount: 0
   m_DamageType: 0
+--- !u!1 &5174106268233750101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145443347349664950}
+  - component: {fileID: 3015698108252655364}
+  m_Layer: 0
+  m_Name: FirePassiveSpeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &145443347349664950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174106268233750101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3015698108252655364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174106268233750101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a32f29c9fcc1f44e93217e81eced7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 9
+    level: 0
+    maxLevel: 0
+  m_StatBuffs:
+    speed: 0.1
+    shotSpeed: 0
+    maxHealth: 0
+    healthRegen: 0
 --- !u!1 &6529186928086989564
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +300,7 @@ Transform:
   - {fileID: 2952040072457066399}
   - {fileID: 8585810826466197889}
   - {fileID: 3605185406383346496}
+  - {fileID: 145443347349664950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -447,7 +502,7 @@ MonoBehaviour:
     maxLevel: 1
   m_Cooldown: 7
   m_BonusSpeed:
-    speed: 1
+    speed: 0.5
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0

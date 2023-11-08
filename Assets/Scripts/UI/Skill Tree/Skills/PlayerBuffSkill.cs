@@ -9,7 +9,7 @@ public class PlayerBuffSkill : Skill
     public override void Init(SkillData data)
     {
         base.Init(data);
-
-        Player.m_Instance.AddBonusStats(m_StatBuffs);
+        for (int i = 0; i < data.level; i++)
+            Player.m_Instance.AddBonusStats(m_StatBuffs);
     }
 }

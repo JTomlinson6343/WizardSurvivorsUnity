@@ -13,7 +13,8 @@ public enum SkillID
     FireDamageBuff,
     FireFlamethrower,
     FireballAttackSpeed,
-    FireballDamageBuff
+    FireballDamageBuff,
+    FirePassiveSpeed
 }
 
 [System.Serializable]
