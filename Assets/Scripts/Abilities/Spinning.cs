@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Spinning : Ability
 {
+    [SerializeField] float m_Radius;
     public override void OnCast()
     {
         base.OnCast();
 
-        ProjectileManager.m_Instance.ShootMultipleSpinning(m_TotalStats.speed, this, m_TotalStats.AOE, m_TotalStats.amount);
+        ProjectileManager.m_Instance.ShootMultipleSpinning(m_TotalStats.speed, this, m_Radius, m_TotalStats.amount);
     }
 }
