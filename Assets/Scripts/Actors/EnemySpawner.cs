@@ -1,6 +1,20 @@
 using UnityEngine;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
+[System.Serializable]
+struct Curve
+{
+    public AnimationCurve curve;
+    public float min;
+    public float max;
+
+    public float Evaluate(float x, float xMax)
+    {
+        float a = curve.Evaluate(x);
+        return min + (max-min) * curve.Evaluate(x/xMax);
+    }
+}
+
 public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner m_Instance;
@@ -16,11 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private int m_EnemiesKilledThisWave;
     private int m_SpawnLimit;
 
-    [SerializeField] int m_InitialSpawnLimit;
-    [SerializeField] private float m_CurveA;
-    [SerializeField] private float m_CurveB;
-    [SerializeField] private float m_CurveC;
-    [SerializeField] private float m_MaxSpawnLimit;
+    [SerializeField] Curve m_SpawnCurve;
 
     private Vector3 GetSpawnPosition()
     {
@@ -88,6 +98,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(m_EnemyPrefab);
             enemy.transform.position = GetSpawnPosition();
             enemy.transform.SetParent(transform, false);
+            enemy.GetComponent<Enemy>().m_MaxHealth = 
             m_EnemyCount++;
         }
     }
@@ -97,9 +108,9 @@ public class EnemySpawner : MonoBehaviour
         m_EnemyCount = 0;
         m_EnemiesKilledThisWave = 0;
 
-        ProgressionManager.m_Instance.m_WaveCounter++;
+        m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter, 10));
 
-        m_SpawnLimit = m_InitialSpawnLimit + Mathf.RoundToInt(m_MaxSpawnLimit * (m_CurveA * Mathf.Pow(ProgressionManager.m_Instance.m_WaveCounter, 3) + m_CurveB * ProgressionManager.m_Instance.m_WaveCounter + m_CurveC)/1000f);
+        ProgressionManager.m_Instance.m_WaveCounter++;
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
 
         print("Wave " + ProgressionManager.m_Instance.m_WaveCounter.ToString() + " started. " + m_SpawnLimit.ToString() + " enemies spawning.");
