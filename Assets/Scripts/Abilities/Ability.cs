@@ -32,6 +32,20 @@ public struct AbilityStats
 
         return stats;
     }
+    public static AbilityStats operator -(AbilityStats left, AbilityStats right)
+    {
+        AbilityStats stats;
+        stats.AOE = left.AOE - right.AOE;
+        stats.duration = left.duration - right.duration;
+        stats.damage = left.damage - right.damage;
+        stats.speed = left.speed - right.speed;
+        stats.cooldown = left.cooldown - right.cooldown;
+        stats.amount = left.amount - right.amount;
+        stats.knockback =  left.amount - right.amount;
+        stats.pierceAmount = left.pierceAmount - right.pierceAmount;
+
+        return stats;
+    }
     public static AbilityStats operator *(AbilityStats left, AbilityStats right)
     {
         AbilityStats stats;
@@ -131,6 +145,20 @@ public class Ability : MonoBehaviour
     public AbilityStats GetTotalStats()
     {
         return m_TotalStats;
+    }
+
+    public void AddTempStats(AbilityStats stats)
+    {
+        m_BonusStats += stats;
+        UpdateTotalStats();
+    }
+
+    private IEnumerator RemoveTempStats(AbilityStats stats, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        m_BonusStats -= stats;
+        UpdateTotalStats();
     }
 
     // Called on level up and calls a different function depending on current ability level
