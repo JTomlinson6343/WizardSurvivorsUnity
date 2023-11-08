@@ -221,4 +221,18 @@ public class AbilityManager : MonoBehaviour
         }
         UpdateAllAbilityStats();
     }
+
+    public void AddTempElementalAbilityStatBuffs(DamageType type, AbilityStats stats, float duration)
+    {
+        Ability[] abilities = GetComponentsInChildren<Ability>();
+
+        // Update ability stats
+        foreach (Ability ability in abilities)
+        {
+            // Add bonus stats to abilities with same damage type
+            if (ability.m_Data.damageType == type || type == DamageType.None)
+                ability.AddTempStats(stats);
+        }
+        UpdateAllAbilityStats();
+    }
 }

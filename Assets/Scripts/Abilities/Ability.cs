@@ -129,6 +129,7 @@ public class Ability : MonoBehaviour
     public void AddBonusStats(AbilityStats stats)
     {
         m_BonusStats += stats;
+        UpdateTotalStats();
     }
 
     public AbilityStats GetBonusStats()
@@ -167,7 +168,6 @@ public class Ability : MonoBehaviour
         if (m_Level >= 4)
         {
             m_isMaxed = true;
-
         }
         m_Level++;
         m_BonusStats.damage += m_DamageUpgradeAmount;
