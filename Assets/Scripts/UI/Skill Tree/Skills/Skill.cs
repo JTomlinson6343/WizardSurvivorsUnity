@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum SkillID
 {
@@ -27,8 +28,19 @@ public class Skill : MonoBehaviour
 {
     public SkillData m_Data;
 
+    protected bool m_Active;
+
     public virtual void Init(SkillData data)
     {
         m_Data = data;
+    }
+    protected void ResetActiveFlag()
+    {
+        m_Active = false;
+    }
+
+    public bool IsActive()
+    {
+        return m_Active;
     }
 }
