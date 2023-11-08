@@ -165,11 +165,11 @@ public class Ability : MonoBehaviour
     // Called on level up and calls a different function depending on current ability level
     public virtual void LevelUp()
     {
-        if (m_Level >= 4)
+        m_Level++;
+        if (m_Level >= 3)
         {
             m_isMaxed = true;
         }
-        m_Level++;
         m_BonusStats.damage += m_DamageUpgradeAmount;
         UpdateTotalStats();
     }
