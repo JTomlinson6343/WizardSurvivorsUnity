@@ -394,8 +394,11 @@ MonoBehaviour:
   m_GameOverScreen: {fileID: 1082158155544052260}
   m_GameOverInfoLabel: {fileID: 4948284584994689657}
   m_WaveCounter: 0
-  m_XPCurveGradient: 1
-  m_XPCurveIntercept: 5
+  m_InitialNextLevelXP: 3
+  m_XPCurveA: 0.1
+  m_XPCurveB: 0.5
+  m_XPCurveC: 0
+  m_MaxNextLevelXP: 200
 --- !u!1 &1082158155544052260
 GameObject:
   m_ObjectHideFlags: 0

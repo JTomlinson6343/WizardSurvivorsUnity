@@ -29,8 +29,11 @@ public class ProgressionManager : MonoBehaviour
     float m_CurrentXP = 0;
     float m_NextLevelXP;
 
-    public float m_XPCurveGradient;
-    public float m_XPCurveIntercept;
+    [SerializeField] private float m_InitialNextLevelXP;
+    [SerializeField] private float m_XPCurveA;
+    [SerializeField] private float m_XPCurveB;
+    [SerializeField] private float m_XPCurveC;
+    [SerializeField] private float m_MaxNextLevelXP;
 
     //Data
     private int m_EnemiesKilled = 0;
@@ -110,7 +113,8 @@ public class ProgressionManager : MonoBehaviour
     private void CalculateNextLevelXP()
     {
         // Set next level xp
-        m_NextLevelXP = m_XPCurveGradient * Mathf.Pow(m_Level, 3) + m_XPCurveIntercept;
+        m_NextLevelXP = m_InitialNextLevelXP + Mathf.RoundToInt(m_MaxNextLevelXP * (m_XPCurveA * Mathf.Pow(m_Level, 3) + m_XPCurveB * m_Level + m_XPCurveC) / 100f);
+        print(m_NextLevelXP.ToString() + " XP to level" + (m_Level+1).ToString());
     }
 
     public void IncrementEnemyKills() { m_EnemiesKilled++; }
