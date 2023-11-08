@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EnemyPrefab: {fileID: 4782787995318582076, guid: 41affc13d066f11498b357961699e749, type: 3}
-  m_SpawnCooldown: 1
+  m_SpawnCooldown: 0.25
   m_SpawnRadius: 50
   m_InitialSpawnLimit: 6
   m_CurveA: 0.7
