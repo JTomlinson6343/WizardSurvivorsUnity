@@ -70,6 +70,15 @@ public class SkillIcon : MonoBehaviour
     public void Lock()
     {
         m_Unlocked = false;
-        GetComponent<Image>().color = Color.white;
+    }
+
+    public void GreyOrWhite()
+    {
+        if (m_Unlocked) return;
+
+        if (CheckPrerequisites())
+            GetComponent<Image>().color = Color.white;
+        else
+            GetComponent<Image>().color = Color.gray;
     }
 }

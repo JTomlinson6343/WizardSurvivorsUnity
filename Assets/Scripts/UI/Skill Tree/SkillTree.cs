@@ -40,6 +40,7 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkillPoints = m_TotalSkillPoints;
 
         UpdateSkillPointsLabel();
+        GreyOrWhitePass();
     }
 
     private void UpdateSkillPointsLabel()
@@ -124,6 +125,7 @@ public class SkillTree : MonoBehaviour
         // Ability unlock animation goes here
 
         SetHighlightedSkill(m_CurrentSkill);
+        GreyOrWhitePass();
     }
 
     void OnRespecPressed()
@@ -139,6 +141,17 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkillPoints = m_TotalSkillPoints;
         UpdateSkillPointsLabel();
         SetHighlightedSkill(m_CurrentSkill);
+        GreyOrWhitePass();
+    }
+
+    void GreyOrWhitePass()
+    {
+        SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
+
+        foreach (SkillIcon skill in skills)
+        {
+            skill.GreyOrWhite();
+        }
     }
 
     void OnBackPressed()

@@ -19,6 +19,8 @@ public class Flamethrower : Ability
     }
     private void Update()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
+
         if (!m_Enabled) return;
         Vector2 vec = Player.m_Instance.GetAimDirection().normalized;
         if (Input.GetMouseButton(0))
