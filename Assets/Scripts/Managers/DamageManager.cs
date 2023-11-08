@@ -39,9 +39,9 @@ public class DamageManager : MonoBehaviour
     [SerializeField] GameObject m_DamageNumberPrefab;
 
     public static DamageManager m_Instance;
-    public class DataEvent : UnityEvent<DamageInstanceData> { }
+    public class DamageDataEvent : UnityEvent<DamageInstanceData> { }
 
-    public static DataEvent m_DamageInstanceEvent = new DataEvent();
+    public static DamageDataEvent m_DamageInstanceEvent = new DamageDataEvent();
 
     private void Awake()
     {
