@@ -363,8 +363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe22b813bae9804bb59654a1f58058a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 20
-  m_Health: 20
+  m_MaxHealth: 200
+  m_Health: 999
+  m_IFramesTimer: 0.5
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
@@ -372,7 +373,7 @@ MonoBehaviour:
   m_BaseStats:
     speed: 2
     shotSpeed: 10
-    maxHealth: 20
+    maxHealth: 200
     healthRegen: 0
   m_ActiveAbility: {fileID: 8201127561021254593}
 --- !u!1 &5053946717149841329

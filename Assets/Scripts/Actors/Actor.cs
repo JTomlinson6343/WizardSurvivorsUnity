@@ -23,7 +23,7 @@ public class Actor : MonoBehaviour
 {
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
-    private float m_IFramesTimer = 0.1f;
+    public float m_IFramesTimer;
 
     private float m_LastHit = 0.0f;
 
@@ -36,7 +36,7 @@ public class Actor : MonoBehaviour
     public virtual void Start()
     {
         m_DefaultMaterial = GetComponentInChildren<SpriteRenderer>().material;
-        m_Health = m_MaxHealth;
+        Init();
     }
 
     virtual public void Update()
@@ -47,6 +47,11 @@ public class Actor : MonoBehaviour
             GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
         else
             GetComponentInChildren<SpriteRenderer>().material = m_DefaultMaterial;
+    }
+
+    public virtual void Init()
+    {
+        m_Health = m_MaxHealth;
     }
 
     bool IsInvincible()
