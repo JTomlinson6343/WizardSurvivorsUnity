@@ -50,8 +50,6 @@ public class Player : Actor
     [SerializeField] GameObject staffPos;
     [SerializeField] GameObject centrePos;
 
-    [SerializeField] GameObject m_DamageNumberPrefab;
-
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
     PlayerStats m_BonusStats;

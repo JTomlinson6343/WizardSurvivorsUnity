@@ -70,7 +70,8 @@ public class EnemyLogic : MonoBehaviour
             {
                 Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
-                playerBody.velocity += GetComponent<Rigidbody2D>().velocity.normalized * 45.0f;
+                //playerBody.velocity += GetComponent<Rigidbody2D>().velocity.normalized * 60.0f;
+                playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * 0.25f);
             }
         }
     }
