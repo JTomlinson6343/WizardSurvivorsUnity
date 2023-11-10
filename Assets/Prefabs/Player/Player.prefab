@@ -365,17 +365,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 200
   m_Health: 999
-  m_IFramesTimer: 0.5
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
-  m_DamageNumberPrefab: {fileID: 5035281070457857526, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
   m_BaseStats:
     speed: 2
     shotSpeed: 10
     maxHealth: 200
     healthRegen: 0
   m_ActiveAbility: {fileID: 8201127561021254593}
+  m_IFramesTimer: 0.5
 --- !u!1 &5053946717149841329
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,10 +661,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 557211682419933354}
     m_Modifications:
-    - target: {fileID: 962118566423954903, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
-      propertyPath: m_BaseStats.damage
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2132552316873171511, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
       propertyPath: image
       value: 
@@ -733,10 +728,6 @@ PrefabInstance:
     - target: {fileID: 6463285543125099977, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
       propertyPath: m_BaseStats.AOE
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6463285543125099977, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
-      propertyPath: m_BaseStats.damage
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7070313333552203497, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
       propertyPath: image

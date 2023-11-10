@@ -55,6 +55,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Zone Size Buff
     damageType: 6
@@ -69,6 +70,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
 --- !u!1 &1258795364781033673
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +126,7 @@ MonoBehaviour:
     amount: 0
     knockback: 8
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Fireball
     damageType: 0
@@ -320,6 +323,7 @@ MonoBehaviour:
     amount: 4
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Cross Shot
     damageType: 0
@@ -376,12 +380,13 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 4
     duration: 0
-    damage: 6
+    damage: 2
     speed: 0
     cooldown: -1
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Blizzard
     damageType: 1
@@ -445,12 +450,14 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: 
     damageType: 0
     description: 
     icon: {fileID: 0}
   m_FlamethrowerObject: {fileID: 475971777736552130}
+  m_FireballRef: {fileID: 0}
 --- !u!1 &2205560206458252644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,17 +1054,19 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 2.5
     duration: 0
-    damage: 80
+    damage: 1
     speed: 100
     cooldown: -1
     amount: 2
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 1
   m_Data:
     name: Orbiting Stars
     damageType: 4
     description: Spawn two stars that orbit the player and deal damage
     icon: {fileID: 2107994407, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_Radius: 0
 --- !u!1 &5325821446040161954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1336,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Spell Power
     damageType: 6
@@ -1341,6 +1351,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
 --- !u!1 &7944674399469636646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1407,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Health
     damageType: 6

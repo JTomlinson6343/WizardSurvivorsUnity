@@ -52,17 +52,7 @@ public class ProjectileManager : MonoBehaviour
         GameObject bullet = Instantiate(m_BulletPrefab);
 
         bullet.transform.SetParent(transform);
-        bullet.GetComponent<Projectile>().m_AbilitySource = ability;
-        bullet.GetComponent<Projectile>().StartLifetimeTimer(lifetime);
-
-        // Set pos and velocity of bullet
-        bullet.transform.position = pos;
-
-        Rigidbody2D rb = bullet.transform.GetComponent<Rigidbody2D>();
-        rb.velocity = dir * speed;
-
-        // Rotate projectile in direction of travel
-        bullet.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -90);
+        bullet.GetComponent<Projectile>().Init(pos,dir,speed,ability,lifetime);
 
         AudioManager.m_Instance.PlaySound(4);
 
@@ -98,11 +88,7 @@ public class ProjectileManager : MonoBehaviour
 
         SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
-        bulletScript.m_AbilitySource = ability;
-        bulletScript.speed = speed;
-        bulletScript.offset = offset;
-        bulletScript.radius = radius;
-        bulletScript.Init();
+        bulletScript.Init(speed,ability,offset,radius);
 
         return bullet;
     }
