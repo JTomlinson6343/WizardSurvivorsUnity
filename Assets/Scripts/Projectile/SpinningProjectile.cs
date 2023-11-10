@@ -46,15 +46,4 @@ public class SpinningProjectile : Projectile
 
         transform.position = new Vector2(x, y);
     }
-
-    protected override void OnEnemyHit(GameObject enemy)
-    {
-        if (m_HitEnemies.Contains(enemy)) return;
-
-        m_HitEnemies.Add(enemy);
-
-        StartCoroutine(EndEnemyCooldown(enemy));
-
-        DamageEnemy(enemy);
-    }
 }
