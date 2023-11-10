@@ -46,6 +46,12 @@ public class SpinningProjectile : Projectile
 
     protected override void OnEnemyHit(GameObject enemy)
     {
+        if (m_HitEnemies.Contains(enemy)) return;
+
+        m_HitEnemies.Add(enemy);
+
+        StartCoroutine(EndEnemyCooldown(enemy));
+
         DamageEnemy(enemy);
     }
 }
