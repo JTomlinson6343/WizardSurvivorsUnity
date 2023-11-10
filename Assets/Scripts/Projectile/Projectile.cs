@@ -6,8 +6,26 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public Ability m_AbilitySource;
+    private int m_PierceCount;
 
     protected List<GameObject> m_HitEnemies = new List<GameObject>();
+
+    virtual public void Init(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
+    {
+        GetComponent<Projectile>().m_AbilitySource = ability;
+        GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+
+        // Set pos and velocity of bullet
+        transform.position = pos;
+
+        Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
+        rb.velocity = dir * speed;
+
+        // Rotate projectile in direction of travel
+        transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
+
+        m_PierceCount = m_AbilitySource.GetTotalStats().pierceAmount;
+    }
 
     public void StartLifetimeTimer(float lifetime)
     {
