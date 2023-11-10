@@ -23,15 +23,13 @@ public class Actor : MonoBehaviour
 {
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
-    public float m_IFramesTimer;
-
-    private float m_LastHit = 0.0f;
 
     private DamageStats m_BaseResistance;
     private DamageStats m_BonusResistance;
 
     private Material m_DefaultMaterial;
     public Material m_WhiteFlashMaterial;
+    private float m_FlashTime = 0.1f;
 
     public virtual void Start()
     {
@@ -42,11 +40,6 @@ public class Actor : MonoBehaviour
     virtual public void Update()
     {
         m_Health = Mathf.Clamp(m_Health, 0, m_MaxHealth);
-
-        if (IsInvincible())
-            GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
-        else
-            GetComponentInChildren<SpriteRenderer>().material = m_DefaultMaterial;
     }
 
     public virtual void Init()
@@ -54,32 +47,20 @@ public class Actor : MonoBehaviour
         m_Health = m_MaxHealth;
     }
 
-    bool IsInvincible()
-    {
-        float now = Time.realtimeSinceStartup;
-
-        return now - m_LastHit < m_IFramesTimer;
-    }
-
     // If actor has i-frames, return false. Else, return true
-    public DamageOutput TakeDamage(float amount)
-    {
-        if (IsInvincible())
-        {
-            return DamageOutput.invalidHit;
-        }
-
-        return OnDamage(amount);
-    }
-
-    public DamageOutput TakeDamageNoIFrames(float amount)
+    virtual public DamageOutput TakeDamage(float amount)
     {
         return OnDamage(amount);
     }
+    virtual public DamageOutput TakeDamageNoIFrames(float amount)
+    {
+        return OnDamage(amount);
+    }
+
     // Called when a valid hit is registered
-    public DamageOutput OnDamage(float amount)
+    virtual public DamageOutput OnDamage(float amount)
     {
-        m_LastHit = Time.realtimeSinceStartup;
+        StartFlashing();
 
         m_Health -= amount;
 
@@ -96,6 +77,17 @@ public class Actor : MonoBehaviour
     public float GetHealthAsRatio()
     {
         return m_Health / m_MaxHealth;
+    }
+
+    virtual protected void StartFlashing()
+    {
+        GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
+        Invoke(nameof(EndFlashing), m_FlashTime);
+    }
+
+    virtual protected void EndFlashing()
+    {
+        GetComponentInChildren<SpriteRenderer>().material = m_DefaultMaterial;
     }
 
     virtual protected void OnDeath()
