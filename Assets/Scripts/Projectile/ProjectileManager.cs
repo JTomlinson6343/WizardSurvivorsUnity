@@ -88,11 +88,7 @@ public class ProjectileManager : MonoBehaviour
 
         SpinningProjectile bulletScript = bullet.GetComponent<SpinningProjectile>();
 
-        bulletScript.m_AbilitySource = ability;
-        bulletScript.speed = speed;
-        bulletScript.offset = offset;
-        bulletScript.radius = radius;
-        bulletScript.Init();
+        bulletScript.Init(speed,ability,offset,radius);
 
         return bullet;
     }
