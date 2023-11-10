@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpinningProjectile : Projectile
@@ -26,6 +27,7 @@ public class SpinningProjectile : Projectile
     // Update is called once per frame
     void Update()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING) return;
         // Increment the angle
         angle += speed * Time.deltaTime * Mathf.Deg2Rad;
 
@@ -46,6 +48,12 @@ public class SpinningProjectile : Projectile
 
     protected override void OnEnemyHit(GameObject enemy)
     {
+        if (m_HitEnemies.Contains(enemy)) return;
+
+        m_HitEnemies.Add(enemy);
+
+        StartCoroutine(EndEnemyCooldown(enemy));
+
         DamageEnemy(enemy);
     }
 }

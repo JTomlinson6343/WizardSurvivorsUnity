@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public Ability m_AbilitySource;
+
+    protected List<GameObject> m_HitEnemies = new List<GameObject>();
 
     public void StartLifetimeTimer(float lifetime)
     {
@@ -13,9 +16,22 @@ public class Projectile : MonoBehaviour
 
     virtual protected void OnEnemyHit(GameObject enemy)
     {
+        if (m_HitEnemies.Contains(enemy)) return;
+
+        m_HitEnemies.Add(enemy);
+
+        StartCoroutine(EndEnemyCooldown(enemy));
+
         enemy.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * m_AbilitySource.GetTotalStats().knockback;
         DamageEnemy(enemy);
         DestroySelf();
+    }
+
+    protected IEnumerator EndEnemyCooldown(GameObject enemy)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        m_HitEnemies.Remove(enemy);
     }
 
     virtual protected void DamageEnemy(GameObject enemy)

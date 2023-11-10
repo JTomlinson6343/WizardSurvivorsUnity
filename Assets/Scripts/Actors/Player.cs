@@ -57,7 +57,11 @@ public class Player : Actor
 
     public Ability m_ActiveAbility;
 
+    private float m_LastHit = 0.0f;
     float m_LastShot = 0;
+
+    public float m_IFramesTimer;
+    private bool m_IsInvincible;
 
     private void Awake()
     {
@@ -87,6 +91,29 @@ public class Player : Actor
             }
         }
         UpdateStats();
+    }
+    // If actor has i-frames, return false. Else, return true
+    override public DamageOutput TakeDamage(float amount)
+    {
+        if (m_IsInvincible)
+        {
+            return DamageOutput.invalidHit;
+        }
+
+        return OnDamage(amount);
+    }
+
+    protected override void StartFlashing()
+    {
+        m_IsInvincible = true;
+        GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
+        Invoke(nameof(EndFlashing), m_IFramesTimer);
+    }
+
+    protected override void EndFlashing ()
+    {
+        m_IsInvincible = false;
+        base.EndFlashing();
     }
 
     protected override void OnDeath()
