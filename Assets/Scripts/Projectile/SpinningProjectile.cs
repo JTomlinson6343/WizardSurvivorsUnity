@@ -21,6 +21,8 @@ public class SpinningProjectile : Projectile
         m_Speed = speed;
         m_Offset = offset;
         m_Radius = radius;
+
+        m_PierceCount = m_AbilitySource.GetTotalStats().pierceAmount;
     }
 
     // Update is called once per frame

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public Ability m_AbilitySource;
-    private int m_PierceCount;
+    protected int m_PierceCount;
 
     protected List<GameObject> m_HitEnemies = new List<GameObject>();
 
@@ -42,7 +42,17 @@ public class Projectile : MonoBehaviour
 
         enemy.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * m_AbilitySource.GetTotalStats().knockback;
         DamageEnemy(enemy);
-        DestroySelf();
+
+        // If pierce count is set to -1, pierce infinitely
+        if (m_PierceCount < 0)
+            return;
+
+        if (m_PierceCount > 0)
+            m_PierceCount--;
+        else
+        {
+            DestroySelf();
+        }
     }
 
     protected IEnumerator EndEnemyCooldown(GameObject enemy)
