@@ -43,8 +43,7 @@ public class Projectile : MonoBehaviour
         enemy.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * m_AbilitySource.GetTotalStats().knockback;
         DamageEnemy(enemy);
 
-        // If pierce count is set to -1, pierce infinitely
-        if (m_PierceCount < 0)
+        if (m_AbilitySource.GetTotalStats().infinitePierce)
             return;
 
         if (m_PierceCount > 0)

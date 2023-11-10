@@ -29,6 +29,7 @@ public struct AbilityStats
         stats.amount = left.amount + right.amount;
         stats.knockback =  left.knockback + right.knockback;
         stats.pierceAmount = left.pierceAmount + right.pierceAmount;
+        stats.infinitePierce = left.infinitePierce;
 
         return stats;
     }
@@ -43,6 +44,7 @@ public struct AbilityStats
         stats.amount = left.amount - right.amount;
         stats.knockback =  left.knockback - right.knockback;
         stats.pierceAmount = left.pierceAmount - right.pierceAmount;
+        stats.infinitePierce = left.infinitePierce;
 
         return stats;
     }
@@ -57,6 +59,7 @@ public struct AbilityStats
         stats.amount = left.amount * right.amount;
         stats.knockback = left.amount * right.amount;
         stats.pierceAmount = left.pierceAmount * right.pierceAmount;
+        stats.infinitePierce = left.infinitePierce;
 
         return stats;
     }
@@ -66,9 +69,10 @@ public struct AbilityStats
     public float damage; // Percentage of player damage dealt by the ability
     public float speed;         // Speed of projectile/animation of the ability
     public float cooldown;      // Cooldown in seconds of the ability
-    public int amount;        // Amount of projectiles fired by the ability
+    public int   amount;        // Amount of projectiles fired by the ability
     public float knockback;     // Knockback of the ability
     public int   pierceAmount;  // Number of enemies that can be pierced
+    public bool  infinitePierce;
 }
 
 public class Ability : MonoBehaviour

@@ -55,6 +55,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Zone Size Buff
     damageType: 6
@@ -69,6 +70,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
 --- !u!1 &1258795364781033673
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +126,7 @@ MonoBehaviour:
     amount: 0
     knockback: 8
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Fireball
     damageType: 0
@@ -320,6 +323,7 @@ MonoBehaviour:
     amount: 4
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Cross Shot
     damageType: 0
@@ -382,6 +386,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Blizzard
     damageType: 1
@@ -445,6 +450,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: 
     damageType: 0
@@ -1053,7 +1059,8 @@ MonoBehaviour:
     cooldown: -1
     amount: 2
     knockback: 0
-    pierceAmount: -1
+    pierceAmount: 0
+    infinitePierce: 1
   m_Data:
     name: Orbiting Stars
     damageType: 4
@@ -1329,6 +1336,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Spell Power
     damageType: 6
@@ -1343,6 +1351,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
 --- !u!1 &7944674399469636646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,6 +1407,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Data:
     name: Health
     damageType: 6
