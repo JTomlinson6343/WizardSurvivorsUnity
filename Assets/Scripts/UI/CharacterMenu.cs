@@ -10,6 +10,7 @@ public class CharacterMenu : MonoBehaviour
 {
     public static CharacterMenu m_Instance;
 
+    [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_InfoLabel;
 
     [SerializeField] GameObject m_Buttons;
@@ -36,7 +37,8 @@ public class CharacterMenu : MonoBehaviour
         if (charIcon == null)
             return;
 
-        m_InfoLabel.text = charIcon.m_CharName + "\n\n" + charIcon.m_Description;
+        m_NameLabel.text = charIcon.m_CharName;
+        m_InfoLabel.text = charIcon.m_Description;
 
         m_CurrentCharacterSkillTree = charIcon.m_SkillTree;
         m_CurrentCharacter = charIcon.m_Character;
