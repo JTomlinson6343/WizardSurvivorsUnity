@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : Actor
 {
     [SerializeField] int m_XPAwarded;
-    [SerializeField] float m_HealthModifier;
+    public float m_HealthModifier;
     [SerializeField] float m_Speed;
     [SerializeField] float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;

@@ -98,7 +98,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(m_EnemyPrefab);
             enemy.transform.position = GetSpawnPosition();
             enemy.transform.SetParent(transform, false);
-            enemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave();
+            enemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * enemy.GetComponent<Enemy>().m_HealthModifier;
             m_EnemyCount++;
         }
     }
