@@ -19,7 +19,8 @@ public class EnemySpawner : MonoBehaviour
     public static EnemySpawner m_Instance;
 
     private GameObject m_PlayerReference;
-    [SerializeField] private GameObject m_EnemyPrefab;
+    [SerializeField] private GameObject[] m_EnemyPrefabs;
+    private float m_TotalSpawnProbability;
 
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
@@ -54,6 +55,13 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         m_Instance = this;
+
+        // Calculate the total spawn probability
+        foreach (GameObject enemyPrefab in m_EnemyPrefabs)
+        {
+            Enemy enemy = enemyPrefab.GetComponent<Enemy>();
+            m_TotalSpawnProbability += enemy.m_SpawnProbability;
+        }
     }
 
     // Update is called once per frame
@@ -91,11 +99,29 @@ public class EnemySpawner : MonoBehaviour
     {
         float now = Time.realtimeSinceStartup;
 
+        GameObject enemyToSpawn = null;
+
+        // Generate a random number between 0 and the total probability
+        float randomValue = Random.Range(0f, m_TotalSpawnProbability);
+
+        // Select the enemy based on the generated random value
+        foreach (GameObject enemyPrefab in m_EnemyPrefabs)
+        {
+            Enemy enemy = enemyPrefab.GetComponent<Enemy>();
+
+            if (randomValue < enemy.m_SpawnProbability)
+            {
+                enemyToSpawn = enemyPrefab;
+                break;
+            }
+            randomValue -= enemy.m_SpawnProbability;
+        }
+
         if (now > m_NextSpawn)
         {
             m_NextSpawn = now + m_SpawnCooldown;
 
-            GameObject enemy = Instantiate(m_EnemyPrefab);
+            GameObject enemy = Instantiate(enemyToSpawn);
             enemy.transform.position = GetSpawnPosition();
             enemy.transform.SetParent(transform, false);
             enemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * enemy.GetComponent<Enemy>().m_HealthModifier;

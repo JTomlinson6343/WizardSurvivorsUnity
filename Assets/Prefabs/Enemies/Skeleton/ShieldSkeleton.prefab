@@ -101,12 +101,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2410185791024842489, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_SpawnWeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410185791024842489, guid: 41affc13d066f11498b357961699e749, type: 3}
       propertyPath: m_ContactDamage
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2410185791024842489, guid: 41affc13d066f11498b357961699e749, type: 3}
       propertyPath: m_HealthModifier
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410185791024842489, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_SpawnProbability
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2410185791024842489, guid: 41affc13d066f11498b357961699e749, type: 3}
       propertyPath: m_KnockbackModifier

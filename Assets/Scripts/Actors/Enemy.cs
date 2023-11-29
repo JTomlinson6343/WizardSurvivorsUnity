@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Enemy : Actor
 {
-    [SerializeField] int m_XPAwarded;
     public float m_HealthModifier;
+    public float m_SpawnProbability; // The ratio of how common this spawns compared to other enemies
+
+    [SerializeField] int m_XPAwarded;
     [SerializeField] float m_Speed;
     [SerializeField] float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
