@@ -88,6 +88,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Ability: {fileID: 8201127561021254593}
 --- !u!1 &2133933721834249584
 GameObject:
@@ -206,7 +207,6 @@ GameObject:
   - component: {fileID: 557211682419933354}
   - component: {fileID: 8679808496323243270}
   - component: {fileID: 8052129665245364222}
-  - component: {fileID: 5454086327865430330}
   - component: {fileID: 8451655563064316095}
   - component: {fileID: 2687768136547122572}
   m_Layer: 0
@@ -300,22 +300,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0022191291, y: 0.09818776}
   m_Size: {x: 0.6346088, y: 0.31925264}
   m_Direction: 1
---- !u!114 &5454086327865430330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149948031472934145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd23e90a3166ebe4abd632242ae125ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RigidBody: {fileID: 8679808496323243270}
-  m_Animator: {fileID: 3585064873875077332}
-  m_AnimatorMask: {fileID: 3793565455578594936}
-  spriteMask: {fileID: 5685897533416626910}
 --- !u!70 &8451655563064316095
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -375,6 +359,9 @@ MonoBehaviour:
     healthRegen: 0
   m_ActiveAbility: {fileID: 8201127561021254593}
   m_IFramesTimer: 0.5
+  m_Animator: {fileID: 3585064873875077332}
+  m_AnimatorMask: {fileID: 3793565455578594936}
+  spriteMask: {fileID: 5685897533416626910}
 --- !u!1 &5053946717149841329
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +526,7 @@ MonoBehaviour:
     amount: 0
     knockback: 0
     pierceAmount: 0
+    infinitePierce: 0
   m_Ability: {fileID: 8201127561021254593}
 --- !u!1 &6784381578431142382
 GameObject:
