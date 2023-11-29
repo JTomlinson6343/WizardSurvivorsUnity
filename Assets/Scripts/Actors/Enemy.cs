@@ -88,13 +88,12 @@ public class Enemy : Actor
 
         if (targetVelocity.x > 0)
         {
-            sprite.flipX = false;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
         else if (targetVelocity.x < 0)
         {
-            sprite.flipX = true;
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-
         if (targetVelocity.magnitude > 0)
         {
             // Object is moving
