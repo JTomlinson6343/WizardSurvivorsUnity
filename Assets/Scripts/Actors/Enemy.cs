@@ -10,7 +10,8 @@ public class Enemy : Actor
     [SerializeField] float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
 
-    private readonly float m_kKnockbackConst = 0.25f;
+    private readonly float m_kKnockback = 0.25f;
+    private readonly float m_kMoveSpeed = 2f;
 
     private Rigidbody2D m_RigidBody;
     private Animator m_Animator;
@@ -40,7 +41,7 @@ public class Enemy : Actor
         {
             Vector3 playerPos = Player.m_Instance.transform.position;
             Vector3 moveDir = (playerPos - currentPos).normalized;
-            Vector3 targetVelocity = moveDir * m_Speed;
+            Vector3 targetVelocity = moveDir * m_kMoveSpeed * m_Speed;
             Vector3 currentVelocity = m_RigidBody.velocity;
 
             currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
@@ -77,7 +78,7 @@ public class Enemy : Actor
                 Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
                 //playerBody.velocity += GetComponent<Rigidbody2D>().velocity.normalized * 60.0f;
-                playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockbackConst * m_KnockbackModifier);
+                playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
             }
         }
     }
@@ -86,14 +87,10 @@ public class Enemy : Actor
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
-        if (targetVelocity.x > 0)
-        {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
-        else if (targetVelocity.x < 0)
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
+        transform.localScale = new Vector3(
+        targetVelocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z
+        );
+
         if (targetVelocity.magnitude > 0)
         {
             // Object is moving
