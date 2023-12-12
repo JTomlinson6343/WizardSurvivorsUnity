@@ -113,7 +113,7 @@ public class ProjectileManager : MonoBehaviour
         aoe.transform.localScale *= scale;
         aoe.transform.SetParent(Player.m_Instance.gameObject.transform);
         aoe.transform.position = Player.m_Instance.GetCentrePos();
-        aoe.GetComponent<BlizzardAOE>().m_AbilitySource = ability;
+        aoe.GetComponent<DebuffAOE>().m_AbilitySource = ability;
         return aoe;
     }
 

@@ -15,7 +15,7 @@ public class Flamethrower : Ability
         base.Start();
 
         m_FlamethrowerObject.transform.SetParent(Player.m_Instance.GetStaffTransform(), false);
-        m_FlamethrowerObject.GetComponentInChildren<FlamethrowerAOE>().m_AbilitySource = this;
+        m_FlamethrowerObject.GetComponentInChildren<DebuffAOE>().m_AbilitySource = this;
     }
     private void Update()
     {
