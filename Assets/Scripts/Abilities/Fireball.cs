@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Fireball : Ability
 {
-    [SerializeField] float m_Lifetime;
+    [SerializeField] protected float m_ProjectileLifetime;
     public override void OnMouseInput(Vector2 aimDirection)
     {
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
             Player.m_Instance.GetAimDirection().normalized,
-            m_TotalStats.speed, this, m_Lifetime);
+            m_TotalStats.speed, this, m_ProjectileLifetime);
     }
 
     public override void OnCast()
@@ -21,6 +21,6 @@ public class Fireball : Ability
 
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
             GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos()),
-            m_TotalStats.speed, this, m_Lifetime);
+            m_TotalStats.speed, this, m_ProjectileLifetime);
     }
 }

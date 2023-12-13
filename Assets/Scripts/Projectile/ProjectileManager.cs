@@ -64,9 +64,9 @@ public class ProjectileManager : MonoBehaviour
         return Shoot(pos, dir, speed, ability, lifetime, m_BulletPrefab);
     }
 
-    public GameObject ShootAOESpawningProjectile(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, AOEObject aoe, float aoeLifetime)
+    public GameObject ShootAOESpawningProjectile(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject aoe, float aoeLifetime)
     {
-        GameObject bullet = Shoot(pos, dir, speed, ability, lifetime, m_SpinningBulletPrefab);
+        GameObject bullet = Shoot(pos, dir, speed, ability, lifetime, m_AOESpawningProjectile);
         bullet.GetComponent<AOESpawningProjectile>().aoePrefab = aoe;
         bullet.GetComponent<AOESpawningProjectile>().aoeLifetime = aoeLifetime;
 

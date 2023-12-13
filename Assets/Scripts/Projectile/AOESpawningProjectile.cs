@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class AOESpawningProjectile : Projectile
 {
-    public AOEObject aoePrefab;
+    public GameObject aoePrefab;
     public float aoeLifetime;
 
-    private void OnDestroy()
+    override protected void DestroySelf()
     {
-        AOEObject aoe = Instantiate(aoePrefab);
-        aoe.StartLifetimeTimer(aoeLifetime);
+        GameObject aoe = Instantiate(aoePrefab);
+        aoe.transform.position = transform.position;
+        aoe.GetComponent<Projectile>().StartLifetimeTimer(aoeLifetime);
+        aoe.GetComponent<Projectile>().m_AbilitySource = m_AbilitySource;
+        base.DestroySelf();
     }
 }

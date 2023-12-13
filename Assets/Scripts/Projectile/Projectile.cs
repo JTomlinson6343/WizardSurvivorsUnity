@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
 
-    private void DestroySelf()
+    virtual protected void DestroySelf()
     {
         Destroy(gameObject);
     }

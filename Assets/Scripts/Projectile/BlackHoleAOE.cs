@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BlackHoleAOE : DebuffAOE
 {
-    readonly float pullSpeedConst = 0.01f;
-
-    public new Ability m_AbilitySource;
+    readonly float kPullSpeedConst = 0.01f;
+    [SerializeField] float m_SuckSpeed;
 
     protected override void OnTriggerStay2D(Collider2D collision)
     {
@@ -16,7 +16,7 @@ public class BlackHoleAOE : DebuffAOE
 
         Vector3 towardsCentre = (transform.position - collision.transform.position).normalized;
 
-        collision.gameObject.transform.position += towardsCentre * pullSpeedConst * 5f;
+        collision.gameObject.transform.position += towardsCentre * kPullSpeedConst * m_SuckSpeed;
     }
     override public void OnTriggerEnter2D(Collider2D collision)
     {
