@@ -20,6 +20,7 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
+    [SerializeField] GameObject m_AOESpawningProjectile;
 
     [SerializeField] float m_BasicAttackScaling;
     [SerializeField] float m_BasicAttackLifetime;
@@ -43,15 +44,31 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
-    public GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
+    private GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject bulletPrefab)
     {
+        if (!bulletPrefab.GetComponent<Projectile>()) return null;
+
         // Create bullet from prefab
-        GameObject bullet = Instantiate(m_BulletPrefab);
+        GameObject bullet = Instantiate(bulletPrefab);
 
         bullet.transform.SetParent(transform);
-        bullet.GetComponent<Projectile>().Init(pos,dir,speed,ability,lifetime);
+        bullet.GetComponent<Projectile>().Init(pos, dir, speed, ability, lifetime);
 
         AudioManager.m_Instance.PlaySound(4);
+
+        return bullet;
+    }
+
+    public GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
+    {
+        return Shoot(pos, dir, speed, ability, lifetime, m_BulletPrefab);
+    }
+
+    public GameObject ShootAOESpawningProjectile(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, AOEObject aoe, float aoeLifetime)
+    {
+        GameObject bullet = Shoot(pos, dir, speed, ability, lifetime, m_SpinningBulletPrefab);
+        bullet.GetComponent<AOESpawningProjectile>().aoePrefab = aoe;
+        bullet.GetComponent<AOESpawningProjectile>().aoeLifetime = aoeLifetime;
 
         return bullet;
     }
@@ -103,9 +120,4 @@ public class ProjectileManager : MonoBehaviour
 
         return bullets;
     }
-
-    //public GameObject ShootAOESpawningProjectile()
-    //{
-
-    //}
 }
