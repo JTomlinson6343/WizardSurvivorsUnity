@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AOESpawningProjectile : Projectile
 {
-    AOEObject aoePrefab;
+    public AOEObject aoePrefab;
     public float aoeLifetime;
 
     private void OnDestroy()
