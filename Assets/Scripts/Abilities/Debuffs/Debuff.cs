@@ -10,7 +10,8 @@ public enum DebuffType
     None,
     Blaze,
     Blizzard,
-    Flamethrower
+    Flamethrower,
+    BlackHole
 }
 
 public class Debuff : MonoBehaviour
@@ -25,6 +26,15 @@ public class Debuff : MonoBehaviour
     protected int m_StackAmount = 1;
 
     float m_LastTick;
+
+    public static bool IsDebuffPresent(GameObject gameObject, DebuffType debuffType)
+    {
+        foreach (Debuff debuff in gameObject.GetComponents<Debuff>())
+        {
+            if (debuff.m_DebuffType == debuffType) return true;
+        }
+        return false;
+    }
 
     public virtual void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks, DebuffType debuffType)
     {
