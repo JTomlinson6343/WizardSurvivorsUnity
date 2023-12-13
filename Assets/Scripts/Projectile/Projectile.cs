@@ -29,6 +29,8 @@ public class Projectile : MonoBehaviour
 
     public void StartLifetimeTimer(float lifetime)
     {
+        if (lifetime < 0f) return;
+
         Invoke(nameof(DestroySelf), lifetime);
     }
 

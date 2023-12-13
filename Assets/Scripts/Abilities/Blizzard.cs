@@ -11,14 +11,16 @@ public class Blizzard : Ability
     public override void OnCast()
     {
         base.OnCast();
+
         m_AOEObject = Instantiate(m_BlizzardPrefab);
-        m_AOEObject.transform.localScale *= m_TotalStats.AOE;
-        m_AOEObject.transform.SetParent(Player.m_Instance.gameObject.transform);
-        m_AOEObject.transform.position = Player.m_Instance.GetCentrePos();
-        m_AOEObject.GetComponent<DebuffAOE>().m_AbilitySource = this;
+        m_AOEObject.GetComponent<AOEObject>().Init(
+            Player.m_Instance.gameObject,
+             Player.m_Instance.GetCentrePos(),
+             this,
+             m_TotalStats.duration);
 
         m_Snow.transform.SetParent(Player.m_Instance.gameObject.transform, false);
-        m_Snow.transform.position = Player.m_Instance.GetCentrePos();
+        m_Snow.transform.position = Player.m_Instance.GetCentrePos(); ;
 
         m_Snow.SetActive(true);
         m_Fog.SetActive(true);

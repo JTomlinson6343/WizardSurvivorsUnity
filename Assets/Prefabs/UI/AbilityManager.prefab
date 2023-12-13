@@ -379,7 +379,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_BaseStats:
     AOE: 4
-    duration: 0
+    duration: -1
     damage: 2
     speed: 0
     cooldown: -1
@@ -699,10 +699,10 @@ MonoBehaviour:
   m_isMaxed: 0
   m_BaseStats:
     AOE: 4
-    duration: 5
+    duration: 3
     damage: 2
-    speed: 2
-    cooldown: 1
+    speed: 2.5
+    cooldown: 10
     amount: 0
     knockback: 0
     pierceAmount: 0

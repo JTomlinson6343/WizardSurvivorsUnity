@@ -9,9 +9,7 @@ public class AOESpawningProjectile : Projectile
     override protected void DestroySelf()
     {
         GameObject aoe = Instantiate(aoePrefab);
-        aoe.transform.position = transform.position;
-        aoe.GetComponent<Projectile>().StartLifetimeTimer(aoeLifetime);
-        aoe.GetComponent<Projectile>().m_AbilitySource = m_AbilitySource;
+        aoe.GetComponent<AOEObject>().Init(transform.position, m_AbilitySource, aoeLifetime);
         base.DestroySelf();
     }
 }
