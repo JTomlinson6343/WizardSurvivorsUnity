@@ -698,7 +698,7 @@ MonoBehaviour:
   m_DamageUpgradeAmount: 0.2
   m_isMaxed: 0
   m_BaseStats:
-    AOE: 4
+    AOE: 3
     duration: 3
     damage: 2
     speed: 2.5
