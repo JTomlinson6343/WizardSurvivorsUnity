@@ -9,6 +9,16 @@ public class AOEObject : Projectile
         DamageEnemy(enemy);
     }
 
+    protected override void DamageEnemy(GameObject enemy)
+    {
+        DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject, enemy);
+        data.amount = m_AbilitySource.GetTotalStats().damage;
+        data.damageType = m_AbilitySource.m_Data.damageType;
+        data.target = enemy;
+        data.abilitySource = m_AbilitySource;
+        DamageManager.m_Instance.DamageInstance(data, enemy.transform.position);
+    }
+
     public void Init(Vector2 pos, Ability ability, float lifetime)
     {
         GetComponent<Projectile>().m_AbilitySource = ability;

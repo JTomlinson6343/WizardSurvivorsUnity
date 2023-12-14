@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlackHole : Firebolt
+public class Fireball : Firebolt
 {
     [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] GameObject m_AOEPrefab;
