@@ -60,6 +60,7 @@ MonoBehaviour:
     name: Zone Size Buff
     damageType: 6
     description: +20% size of zone effects
+    levelUpInfo: +20% size of zone effects
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     AOE: 0.2
@@ -131,6 +132,7 @@ MonoBehaviour:
     name: Firebolt
     damageType: 0
     description: Fires a fireball at the closest enemy
+    levelUpInfo: +20% damage
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_ProjectileLifetime: 2
 --- !u!1 &1320370673017010591
@@ -193,6 +195,7 @@ MonoBehaviour:
     name: Fireball
     damageType: 0
     description: Fires a fireball that explodes on impact
+    levelUpInfo: +20% damage
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_ProjectileLifetime: 2
   m_ProjectilePrefab: {fileID: 7034863490182940137, guid: 8f3e941ee978a4a4985657ee68e52396, type: 3}
@@ -392,6 +395,7 @@ MonoBehaviour:
     name: Cross Shot
     damageType: 0
     description: Fires four fireballs diagonally (2s cooldown)
+    levelUpInfo: +20% damage
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
 --- !u!1 &1764913179728977767
@@ -455,6 +459,7 @@ MonoBehaviour:
     name: Blizzard
     damageType: 1
     description: Spawns a blizzard that deals damage to enemies in the area.
+    levelUpInfo: +20% damage
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Fog: {fileID: 7281175807753145478}
   m_Snow: {fileID: 6251831300220787743}
@@ -520,6 +525,7 @@ MonoBehaviour:
     name: 
     damageType: 0
     description: 
+    levelUpInfo: 
     icon: {fileID: 0}
   m_FlamethrowerObject: {fileID: 475971777736552130}
   m_FireballRef: {fileID: 0}
@@ -776,6 +782,7 @@ MonoBehaviour:
     name: Black Hole
     damageType: 5
     description: Fire a black hole to suck in and damage any enemies in its area.
+    levelUpInfo: +20% damage
     icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
   m_ProjectileLifetime: 2
   m_ProjectilePrefab: {fileID: 7256483112163839321, guid: 9d79a94f1e46cbc46b9fb096645fc54a, type: 3}
@@ -1197,6 +1204,7 @@ MonoBehaviour:
     name: Orbiting Stars
     damageType: 4
     description: Spawn two stars that orbit the player and deal damage
+    levelUpInfo: +20% damage
     icon: {fileID: 2107994407, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Radius: 0
 --- !u!1 &5325821446040161954
@@ -1473,6 +1481,7 @@ MonoBehaviour:
     name: Spell Power
     damageType: 6
     description: +10% ability damage
+    levelUpInfo: +10% ability damage
     icon: {fileID: 1803759905, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     AOE: 0
@@ -1544,6 +1553,7 @@ MonoBehaviour:
     name: Health
     damageType: 6
     description: +20 max health
+    levelUpInfo: +20 max health
     icon: {fileID: 576402560, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_StatBuffs:
     speed: 0

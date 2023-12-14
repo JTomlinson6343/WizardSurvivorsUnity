@@ -53,6 +53,9 @@ public class AbilityManager : MonoBehaviour
     {
         if (m_Abilities.Count == 0) return;
 
+        m_NameLabel.text = "";
+        m_DescriptionLabel.text = "";
+
         m_AbilityCanvas.SetActive(true);
         foreach (AbilityIcon icon in m_Icons)
         {
@@ -80,17 +83,7 @@ public class AbilityManager : MonoBehaviour
         while (count < optionCount)
         {
             Ability ability = m_Abilities[Random.Range(0, m_Abilities.Count)];
-            if (ability.m_isMaxed)
-            {
-                // If the ability is maxed, remove it from the list and move on
-                m_Abilities.Remove(ability);
-                if(m_Abilities.Count < 4)
-                {
-                    // Reduce the number of options shown if there arent enough viable abilities
-                    optionCount -= 1;
-                }
-                continue;
-            }
+
             if (CheckAlreadyDisplayed(ability, displayedAbilities))
             {
                 //If the ability is already displayed on the other choices, move on
@@ -160,7 +153,7 @@ public class AbilityManager : MonoBehaviour
             AbilityWasSelected(m_Icons[3]);
         }
         if (Input.GetKeyDown(KeyCode.Space)) {
-            if (m_HighlightedIcon.enabled && m_HighlightedIcon.displayedAbility != null)
+            if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null)
             {
                 // Check if icon is displayed and then enable the ability displayed
                 UnlockAbility();
@@ -170,17 +163,23 @@ public class AbilityManager : MonoBehaviour
 
     void AbilityWasSelected(AbilityIcon icon)
     {
-        if (icon.displayedAbility == null) return;
+        if (!icon.image.enabled) return;
 
         m_HighlightedIcon = icon;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
-        if (icon.displayedAbility.GetLevel() >= 1) m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel()+1);
         m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
+        if (icon.displayedAbility.GetLevel() >= 1)
+        {
+            m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
+            m_DescriptionLabel.text += "\n\nNext level: " + icon.displayedAbility.m_Data.levelUpInfo;
+        }
     }
 
     void UnlockAbility()
     {
         m_HighlightedIcon.displayedAbility.OnChosen();
+        if (m_HighlightedIcon.displayedAbility.m_isMaxed)
+            m_Abilities.Remove(m_HighlightedIcon.displayedAbility);
         HideAbilityOptions();
 
         UpdateAllAbilityStats();

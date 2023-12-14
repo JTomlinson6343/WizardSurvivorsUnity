@@ -12,6 +12,7 @@ public struct AbilityData
     public string name;
     public DamageType damageType;
     public string description;
+    public string levelUpInfo;
     public Sprite icon;
 }
 
