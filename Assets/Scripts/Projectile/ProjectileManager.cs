@@ -54,8 +54,6 @@ public class ProjectileManager : MonoBehaviour
         bullet.transform.SetParent(transform);
         bullet.GetComponent<Projectile>().Init(pos, dir, speed, ability, lifetime);
 
-        AudioManager.m_Instance.PlaySound(4);
-
         return bullet;
     }
 

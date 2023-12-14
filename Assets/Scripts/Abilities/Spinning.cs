@@ -10,5 +10,7 @@ public class Spinning : Ability
         base.OnCast();
 
         ProjectileManager.m_Instance.ShootMultipleSpinning(m_TotalStats.speed, this, m_Radius, m_TotalStats.amount);
+
+        AudioManager.m_Instance.PlaySound(4);
     }
 }

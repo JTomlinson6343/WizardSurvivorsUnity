@@ -11,6 +11,8 @@ public class BlackHole : Fireball
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
             Player.m_Instance.GetAimDirection().normalized,
             m_TotalStats.speed, this, m_ProjectileLifetime, m_BlackHoleAOEPrefab, m_TotalStats.duration);
+
+        AudioManager.m_Instance.PlaySound(4);
     }
 
     public override void OnCast()
@@ -23,5 +25,7 @@ public class BlackHole : Fireball
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
             GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos()),
             m_TotalStats.speed, this, m_ProjectileLifetime, m_BlackHoleAOEPrefab, m_TotalStats.duration);
+
+        AudioManager.m_Instance.PlaySound(4);
     }
 }
