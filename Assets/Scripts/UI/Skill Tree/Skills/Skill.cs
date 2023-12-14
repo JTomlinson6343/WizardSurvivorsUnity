@@ -12,8 +12,8 @@ public enum SkillID
     FireAOE,
     FireDamageBuff,
     FireFlamethrower,
-    FireballAttackSpeed,
-    FireballDamageBuff,
+    FireboltAttackSpeed,
+    FireboltDamageBuff,
     FirePassiveSpeed
 }
 
