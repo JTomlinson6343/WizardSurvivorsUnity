@@ -174,6 +174,7 @@ public class AbilityManager : MonoBehaviour
 
         m_HighlightedIcon = icon;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
+        if (icon.displayedAbility.GetLevel() >= 1) m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel()+1);
         m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
     }
 
