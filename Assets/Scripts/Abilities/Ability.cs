@@ -12,6 +12,7 @@ public struct AbilityData
     public string name;
     public DamageType damageType;
     public string description;
+    public string levelUpInfo;
     public Sprite icon;
 }
 
@@ -77,7 +78,7 @@ public struct AbilityStats
 
 public class Ability : MonoBehaviour
 {
-    protected int m_Level = 1;                // Level of the ability
+    protected int m_Level = 0;                // Level of the ability
     [SerializeField] float m_DamageUpgradeAmount;
 
     protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
@@ -110,6 +111,7 @@ public class Ability : MonoBehaviour
             {
                 InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
             }
+            LevelUp();
         }
         else
         {
@@ -177,4 +179,6 @@ public class Ability : MonoBehaviour
         m_BonusStats.damage += m_DamageUpgradeAmount;
         UpdateTotalStats();
     }
+
+    public int GetLevel() { return m_Level; }
 }

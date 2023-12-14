@@ -47,4 +47,19 @@ public static class GameplayManager
     {
         return (GetClosestEnemyPos(pos) - pos).normalized;
     }
+
+    public static string IntToRomanNumeral(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                return "I";
+            case 2:
+                return "II";
+            case 3:
+                return "III";
+            default:
+                return "";
+        }
+    }
 }
