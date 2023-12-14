@@ -20,20 +20,22 @@ public class BlackHoleAOE : DebuffAOE
     }
     override public void OnTriggerEnter2D(Collider2D collision)
     {
-        Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-        if (!rb) return;
-
-        rb.isKinematic = true;
-
+        TogglePhysics(collision.gameObject, true);
     }
 
     override public void OnTriggerExit2D(Collider2D collision)
     {
         base.OnTriggerExit2D(collision);
 
-        Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+        TogglePhysics(collision.gameObject, false);
+    }
+
+    private void TogglePhysics(GameObject gameObject, bool toggle)
+    {
+        if (!gameObject.CompareTag("Enemy")) return;
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         if (!rb) return;
 
-        rb.isKinematic = false;
+        rb.isKinematic = toggle;
     }
 }
