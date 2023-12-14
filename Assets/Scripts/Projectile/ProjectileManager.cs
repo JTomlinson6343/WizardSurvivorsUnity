@@ -20,7 +20,6 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
-    [SerializeField] GameObject m_AOESpawningProjectile;
 
     [SerializeField] float m_BasicAttackScaling;
     [SerializeField] float m_BasicAttackLifetime;
@@ -62,9 +61,9 @@ public class ProjectileManager : MonoBehaviour
         return Shoot(pos, dir, speed, ability, lifetime, m_BulletPrefab);
     }
 
-    public GameObject ShootAOESpawningProjectile(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject aoe, float aoeLifetime)
+    public GameObject ShootAOESpawningProjectile(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject aoe, float aoeLifetime, GameObject bulletPrefab)
     {
-        GameObject bullet = Shoot(pos, dir, speed, ability, lifetime, m_AOESpawningProjectile);
+        GameObject bullet = Shoot(pos, dir, speed, ability, lifetime, bulletPrefab);
         bullet.GetComponent<AOESpawningProjectile>().aoePrefab = aoe;
         bullet.GetComponent<AOESpawningProjectile>().aoeLifetime = aoeLifetime;
 

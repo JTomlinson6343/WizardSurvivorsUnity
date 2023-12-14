@@ -133,6 +133,70 @@ MonoBehaviour:
     description: Fires a fireball at the closest enemy
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_ProjectileLifetime: 2
+--- !u!1 &1320370673017010591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6735998765025304221}
+  - component: {fileID: 7835109944898195398}
+  m_Layer: 0
+  m_Name: Fireball
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6735998765025304221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320370673017010591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 108723972155499655}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7835109944898195398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320370673017010591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf646ad5ded55cb43a4a580d0c250ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DamageUpgradeAmount: 0
+  m_isMaxed: 0
+  m_BaseStats:
+    AOE: 3.5
+    duration: 0.1
+    damage: 10
+    speed: 5
+    cooldown: 5
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+  m_Data:
+    name: Fireball
+    damageType: 0
+    description: Fires a fireball that explodes on impact
+    icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_ProjectileLifetime: 2
+  m_ProjectilePrefab: {fileID: 7034863490182940137, guid: 8f3e941ee978a4a4985657ee68e52396, type: 3}
+  m_AOEPrefab: {fileID: 6942711934382557578, guid: 146d44ef169bcd64392eaba1b5ff097e, type: 3}
 --- !u!1 &1328896173505012888
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +712,7 @@ MonoBehaviour:
   - {fileID: 962118566423954903}
   - {fileID: 1009511130477330040}
   - {fileID: 2211182422588704078}
+  - {fileID: 7835109944898195398}
   m_AbilityCanvas: {fileID: 3061035875882456239}
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
@@ -713,7 +778,8 @@ MonoBehaviour:
     description: Fire a black hole to suck in and damage any enemies in its area.
     icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
   m_ProjectileLifetime: 2
-  m_BlackHoleAOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
+  m_ProjectilePrefab: {fileID: 7256483112163839321, guid: 9d79a94f1e46cbc46b9fb096645fc54a, type: 3}
+  m_AOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
 --- !u!1 &2773975333500883567
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +952,7 @@ Transform:
   - {fileID: 5551550952803688504}
   - {fileID: 2476588330463725169}
   - {fileID: 5681418072448918305}
+  - {fileID: 6735998765025304221}
   m_Father: {fileID: 2547574514073728478}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
