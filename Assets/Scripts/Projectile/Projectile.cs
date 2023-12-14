@@ -29,6 +29,8 @@ public class Projectile : MonoBehaviour
 
     public void StartLifetimeTimer(float lifetime)
     {
+        if (lifetime < 0f) return;
+
         Invoke(nameof(DestroySelf), lifetime);
     }
 
@@ -71,7 +73,7 @@ public class Projectile : MonoBehaviour
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
 
-    private void DestroySelf()
+    virtual protected void DestroySelf()
     {
         Destroy(gameObject);
     }

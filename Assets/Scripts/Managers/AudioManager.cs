@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class AudioManager : MonoBehaviour
 {
@@ -36,7 +37,14 @@ public class AudioManager : MonoBehaviour
         AudioSource source = GetFreeAudioSource();
         source.clip = m_AudioClips[soundID];
         source.Play();
+    }
 
+    public void PlaySound(int soundID, float volume)
+    {
+        AudioSource source = GetFreeAudioSource();
+        source.volume = volume;
+        source.clip = m_AudioClips[soundID];
+        source.Play();
     }
 
     public void PlayMusic(int soundID)

@@ -20,9 +20,7 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] GameObject m_BulletPrefab;
     [SerializeField] GameObject m_SpinningBulletPrefab;
-    [SerializeField] GameObject m_FloatingDamagePrefab;
-    [SerializeField] GameObject m_BlizzardPrefab;
-    [SerializeField] GameObject m_AOEObjectPrefab;
+    [SerializeField] GameObject m_AOESpawningProjectile;
 
     [SerializeField] float m_BasicAttackScaling;
     [SerializeField] float m_BasicAttackLifetime;
@@ -46,15 +44,29 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
-    public GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
+    private GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject bulletPrefab)
     {
+        if (!bulletPrefab.GetComponent<Projectile>()) return null;
+
         // Create bullet from prefab
-        GameObject bullet = Instantiate(m_BulletPrefab);
+        GameObject bullet = Instantiate(bulletPrefab);
 
         bullet.transform.SetParent(transform);
-        bullet.GetComponent<Projectile>().Init(pos,dir,speed,ability,lifetime);
+        bullet.GetComponent<Projectile>().Init(pos, dir, speed, ability, lifetime);
 
-        AudioManager.m_Instance.PlaySound(4);
+        return bullet;
+    }
+
+    public GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
+    {
+        return Shoot(pos, dir, speed, ability, lifetime, m_BulletPrefab);
+    }
+
+    public GameObject ShootAOESpawningProjectile(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject aoe, float aoeLifetime)
+    {
+        GameObject bullet = Shoot(pos, dir, speed, ability, lifetime, m_AOESpawningProjectile);
+        bullet.GetComponent<AOESpawningProjectile>().aoePrefab = aoe;
+        bullet.GetComponent<AOESpawningProjectile>().aoeLifetime = aoeLifetime;
 
         return bullet;
     }
@@ -105,31 +117,5 @@ public class ProjectileManager : MonoBehaviour
         }
 
         return bullets;
-    }
-
-    public GameObject SpawnBlizzard(Ability ability, float scale)
-    {
-        GameObject aoe = Instantiate(m_BlizzardPrefab);
-        aoe.transform.localScale *= scale;
-        aoe.transform.SetParent(Player.m_Instance.gameObject.transform);
-        aoe.transform.position = Player.m_Instance.GetCentrePos();
-        aoe.GetComponent<BlizzardAOE>().m_AbilitySource = ability;
-        return aoe;
-    }
-
-    public GameObject SpawnAOE(Vector2 pos, float scale, float lifetime)
-    {
-        GameObject aoe = Instantiate(m_AOEObjectPrefab);
-        aoe.transform.localScale *= scale;
-        aoe.transform.position = pos;
-        aoe.GetComponent<AOEObject>().StartLifetimeTimer(lifetime);
-        return aoe;
-    }
-
-    public GameObject SpawnAOE(Ability ability, Vector2 pos, float scale, float lifetime)
-    {
-        GameObject aoe = SpawnAOE(pos, scale, lifetime);
-        aoe.GetComponent<AOEObject>().m_AbilitySource = ability;
-        return aoe;
     }
 }

@@ -10,6 +10,7 @@ public enum DamageType
     Lightning,
     Poison,
     Light,
+    Dark,
     Physical,
     None
 }
@@ -84,6 +85,7 @@ public class DamageManager : MonoBehaviour
             case DamageType.Fire: return new Color(1, 0.4f, 0);
             case DamageType.Frost: return Color.cyan;
             case DamageType.Light: return Color.white;
+            case DamageType.Dark: return Color.magenta;
             case DamageType.Physical: return Color.red;
             case DamageType.Poison: return Color.green;
             case DamageType.Lightning: return Color.blue;

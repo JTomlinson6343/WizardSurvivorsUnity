@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Playables;
 using UnityEngine;
 
 public class FireAOESkillObject : AOEObject
@@ -16,5 +17,12 @@ public class FireAOESkillObject : AOEObject
         data.target = enemy;
         data.skillSource = m_SkillSource;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
+    }
+
+    public void Init(Vector2 pos, float damage, float scale, float lifetime)
+    {
+        transform.localScale *= scale;
+        GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+        transform.position = pos;
     }
 }

@@ -8,4 +8,18 @@ public class AOEObject : Projectile
     {
         DamageEnemy(enemy);
     }
+
+    public void Init(Vector2 pos, Ability ability, float lifetime)
+    {
+        GetComponent<Projectile>().m_AbilitySource = ability;
+        transform.localScale = new Vector2(ability.GetTotalStats().AOE, ability.GetTotalStats().AOE);
+        GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+        transform.position = pos;
+    }
+
+    public void Init(GameObject parent, Vector2 pos, Ability ability, float lifetime)
+    {
+        transform.SetParent(parent.transform);
+        Init(pos, ability, lifetime);
+    }
 }

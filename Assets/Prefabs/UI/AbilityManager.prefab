@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 1492004237946260043}
   - component: {fileID: 6916207627428093818}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: Firebolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,11 +128,11 @@ MonoBehaviour:
     pierceAmount: 0
     infinitePierce: 0
   m_Data:
-    name: Fireball
+    name: Firebolt
     damageType: 0
     description: Fires a fireball at the closest enemy
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
-  m_Lifetime: 2
+  m_ProjectileLifetime: 2
 --- !u!1 &1328896173505012888
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_BaseStats:
     AOE: 4
-    duration: 0
+    duration: -1
     damage: 2
     speed: 0
     cooldown: -1
@@ -394,6 +394,7 @@ MonoBehaviour:
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Fog: {fileID: 7281175807753145478}
   m_Snow: {fileID: 6251831300220787743}
+  m_BlizzardPrefab: {fileID: 6689438443112598672, guid: 1ff7dae28a3955f4791c85436356a2f7, type: 3}
 --- !u!1 &2161477861579764211
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,9 +647,73 @@ MonoBehaviour:
   - {fileID: 4209457953118322408}
   - {fileID: 962118566423954903}
   - {fileID: 1009511130477330040}
+  - {fileID: 2211182422588704078}
   m_AbilityCanvas: {fileID: 3061035875882456239}
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
+--- !u!1 &2471490994338420301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5681418072448918305}
+  - component: {fileID: 2211182422588704078}
+  m_Layer: 0
+  m_Name: BlackHole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5681418072448918305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471490994338420301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 108723972155499655}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2211182422588704078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471490994338420301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e259f9928a81f438c291a4a875799b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DamageUpgradeAmount: 0.2
+  m_isMaxed: 0
+  m_BaseStats:
+    AOE: 3
+    duration: 3
+    damage: 2
+    speed: 2.5
+    cooldown: 10
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+  m_Data:
+    name: Black Hole
+    damageType: 5
+    description: Fire a black hole to suck in and damage any enemies in its area.
+    icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+  m_ProjectileLifetime: 2
+  m_BlackHoleAOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
 --- !u!1 &2773975333500883567
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +885,7 @@ Transform:
   - {fileID: 1676737976221650996}
   - {fileID: 5551550952803688504}
   - {fileID: 2476588330463725169}
+  - {fileID: 5681418072448918305}
   m_Father: {fileID: 2547574514073728478}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
