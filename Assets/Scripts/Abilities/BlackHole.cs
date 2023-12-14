@@ -17,8 +17,6 @@ public class BlackHole : Fireball
 
     public override void OnCast()
     {
-        base.OnCast();
-
         if (GameplayManager.GetClosestEnemyPos(Player.m_Instance.GetCentrePos()) == Vector2.negativeInfinity)
             return;
 

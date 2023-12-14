@@ -20,17 +20,21 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.6187506
       objectReference: {fileID: 0}
+    - target: {fileID: 2441900490676211127, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Intensity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2797514019960074390, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.1981132
       objectReference: {fileID: 0}
     - target: {fileID: 2797514019960074390, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.0028034835
       objectReference: {fileID: 0}
     - target: {fileID: 2797514019960074390, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.14006245
       objectReference: {fileID: 0}
     - target: {fileID: 3497046635279025321, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_RootOrder
@@ -78,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Name
-      value: AOESpawningProjectile
+      value: BlackHoleProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5855194254980486322, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
