@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlamethrowerSkill : Skill
 {
-    public Fireball m_FireballRef;
+    public Firebolt m_FireballRef;
     public override void Init(SkillData data)
     {
         base.Init(data);
