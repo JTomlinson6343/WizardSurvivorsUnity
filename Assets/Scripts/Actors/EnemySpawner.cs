@@ -146,6 +146,6 @@ public class EnemySpawner : MonoBehaviour
 
     private float GetEnemyHPForWave()
     {
-        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100);
+        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100) * 10f;
     }
 }

@@ -120,7 +120,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 5
+    damage: 50
     speed: 5
     cooldown: 1
     amount: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 3.5
     duration: 0.1
-    damage: 10
+    damage: 100
     speed: 5
     cooldown: 5
     amount: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 80
+    damage: 800
     speed: 10
     cooldown: 2
     amount: 4
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 4
     duration: -1
-    damage: 2
+    damage: 8
     speed: 0
     cooldown: -1
     amount: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 1
+    damage: 10
     speed: 0
     cooldown: 0
     amount: 0
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 3
     duration: 3
-    damage: 2
+    damage: 5
     speed: 2.5
     cooldown: 10
     amount: 0
@@ -1186,7 +1186,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 2.5
     duration: 0
-    damage: 15
+    damage: 150
     speed: 100
     cooldown: -1
     amount: 2
