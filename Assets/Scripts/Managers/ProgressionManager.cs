@@ -80,7 +80,7 @@ public class ProgressionManager : MonoBehaviour
         UpdateScoreLabel(m_Score);
     }
 
-    public void SpawnXP(Vector2 pos, float value)
+    public void SpawnXP(Vector2 pos, int value)
     {
         GameObject xpOrb = Instantiate(m_XPOrbPrefab);
 
