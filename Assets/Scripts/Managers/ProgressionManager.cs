@@ -11,6 +11,7 @@ public class ProgressionManager : MonoBehaviour
 {
     public static ProgressionManager m_Instance;
 
+    //UI
     BasicBar xpBar;
 
     [SerializeField] GameObject m_Hud;
@@ -22,9 +23,13 @@ public class ProgressionManager : MonoBehaviour
     [SerializeField] GameObject m_GameOverScreen;
     [SerializeField] TextMeshProUGUI m_GameOverInfoLabel;
 
+    //Wave system
     int m_Score = 0;
     int m_Level = 1;
     [HideInInspector] public int m_WaveCounter = 0;
+
+    //XP
+    [SerializeField] GameObject m_XPOrbPrefab;
 
     float m_CurrentXP = 0;
     float m_NextLevelXP;
@@ -35,9 +40,6 @@ public class ProgressionManager : MonoBehaviour
     private int m_EnemiesKilled = 0;
     private int m_ChampionsKilled = 0;
     private int m_SkillPointsGained = 0;
-
-    // State machine
-
 
     // Start is called before the first frame update
     void Awake()
@@ -76,6 +78,14 @@ public class ProgressionManager : MonoBehaviour
     {
         m_Score += score;
         UpdateScoreLabel(m_Score);
+    }
+
+    public void SpawnXP(Vector2 pos, float value)
+    {
+        GameObject xpOrb = Instantiate(m_XPOrbPrefab);
+
+        xpOrb.GetComponent<XPPickup>().m_XPValue = value;
+        xpOrb.transform.position = pos;
     }
 
     public bool AddXP(float xp)

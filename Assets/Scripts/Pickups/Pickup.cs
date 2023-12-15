@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Pickup : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Player")) return;
 
         OnPickup();
     }
 
-    abstract protected void OnPickup();
+    virtual protected void OnPickup()
+    {
+        Destroy(gameObject);
+    }
 }
