@@ -11,7 +11,9 @@ public struct AbilityData
 {
     public string name;
     public DamageType damageType;
+    [TextArea(3, 10)]
     public string description;
+    [TextArea(3, 10)]
     public string levelUpInfo;
     public Sprite icon;
 }
@@ -26,7 +28,7 @@ public struct AbilityStats
         stats.duration = left.duration + right.duration;
         stats.damage = left.damage + right.damage;
         stats.speed = left.speed + right.speed;
-        stats.cooldown = left.cooldown + right.cooldown;
+        stats.cooldown = left.cooldown - right.cooldown;
         stats.amount = left.amount + right.amount;
         stats.knockback =  left.knockback + right.knockback;
         stats.pierceAmount = left.pierceAmount + right.pierceAmount;
@@ -41,7 +43,7 @@ public struct AbilityStats
         stats.duration = left.duration - right.duration;
         stats.damage = left.damage - right.damage;
         stats.speed = left.speed - right.speed;
-        stats.cooldown = left.cooldown - right.cooldown;
+        stats.cooldown = left.cooldown + right.cooldown;
         stats.amount = left.amount - right.amount;
         stats.knockback =  left.knockback - right.knockback;
         stats.pierceAmount = left.pierceAmount - right.pierceAmount;
