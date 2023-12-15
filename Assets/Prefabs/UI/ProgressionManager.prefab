@@ -124,6 +124,7 @@ MonoBehaviour:
   m_GameOverScreen: {fileID: 1082158155544052260}
   m_GameOverInfoLabel: {fileID: 4948284584994689657}
   m_WaveCounter: 0
+  m_XPOrbPrefab: {fileID: 2768687642517184637, guid: 86a958f61d404a0419ba473565116eed, type: 3}
   m_LevelCurve:
     curve:
       serializedVersion: 2
