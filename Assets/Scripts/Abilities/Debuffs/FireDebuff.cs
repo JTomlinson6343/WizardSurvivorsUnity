@@ -21,7 +21,7 @@ public class FireDebuff : Debuff
             return;
 
         m_FireEffect = Instantiate(m_FireParticlePrefab);
-        m_FireEffect.transform.SetParent(gameObject.transform, false);
+        //m_FireEffect.transform.SetParent(gameObject.transform, false);
 
         m_Light = gameObject.AddComponent<Light2D>();
         m_Light.intensity = 5;
@@ -40,5 +40,15 @@ public class FireDebuff : Debuff
         Destroy(m_FireEffect);
         Destroy(m_Light);
         base.EndDebuff();
+    }
+
+    private void Update()
+    {
+        m_FireEffect.transform.position = transform.position;
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(m_FireEffect);
     }
 }
