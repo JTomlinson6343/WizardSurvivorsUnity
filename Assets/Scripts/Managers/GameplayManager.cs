@@ -59,7 +59,7 @@ public static class GameplayManager
             case 3:
                 return "III";
             default:
-                return "";
+                return num.ToString();
         }
     }
 }

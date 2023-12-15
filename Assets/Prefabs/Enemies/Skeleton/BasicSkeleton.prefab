@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4918430836151260397}
   - component: {fileID: 1324143088530707475}
   - component: {fileID: 3599725834311313513}
-  - component: {fileID: 2410185791024842489}
+  - component: {fileID: 7644056101305145373}
   m_Layer: 0
   m_Name: BasicSkeleton
   m_TagString: Enemy
@@ -239,7 +239,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01956898, y: 0.41034544}
   m_Size: {x: 0.629032, y: 1.106277}
   m_Direction: 0
---- !u!114 &2410185791024842489
+--- !u!114 &7644056101305145373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,11 +248,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4782787995318582076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74679525e76eb445bc85ff315da5164, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d092601c8ced62439ad5e279e344f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxHealth: 20
-  m_Health: 1
+  m_Health: 20
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_HealthModifier: 1
   m_SpawnProbability: 1
