@@ -191,7 +191,7 @@ public class AbilityManager : MonoBehaviour
         if (icon.displayedAbility.GetLevel() >= 1)
         {
             m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
-            m_DescriptionLabel.text += "\n\nNext level: " + icon.displayedAbility.m_Data.levelUpInfo;
+            m_DescriptionLabel.text += "\n\nNext level:\n" + icon.displayedAbility.m_Data.levelUpInfo;
         }
     }
 
