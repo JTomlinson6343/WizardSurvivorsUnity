@@ -22,6 +22,10 @@ public class AbilityManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
+    [SerializeField] TextMeshProUGUI m_InstructionsLabel;
+
+    [SerializeField] string m_SpellInstructions;
+    [SerializeField] string m_ItemInstructions;
 
     bool m_AbilityChoicesShown;
 
@@ -57,10 +61,12 @@ public class AbilityManager : MonoBehaviour
     public void ChoosePassiveAbility()
     {
         ShowAbilityOptions(m_PassiveAbilities);
+        m_InstructionsLabel.text = m_SpellInstructions;
     }
     public void ChooseBuffAbility()
     {
         ShowAbilityOptions(m_BuffAbilities);
+        m_InstructionsLabel.text = m_ItemInstructions;
     }
 
     private void ShowAbilityOptions(List<Ability> abilities)
@@ -226,7 +232,7 @@ public class AbilityManager : MonoBehaviour
         UpdateAllAbilityStats();
     }
 
-    public void AddElementalAbilityStatBuffs(DamageType type, AbilityStats stats)
+    public void AddElementalAbilityBonusStats(DamageType type, AbilityStats stats)
     {
         Ability[] abilities = GetComponentsInChildren<Ability>();
 

@@ -45,8 +45,8 @@ public class Projectile : MonoBehaviour
         enemy.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * m_AbilitySource.GetTotalStats().knockback;
         DamageEnemy(enemy);
 
-        if (m_AbilitySource.GetTotalStats().infinitePierce)
-            return;
+        if (m_AbilitySource.GetTotalStats().infinitePierce) return;
+        if (m_AbilitySource.GetTotalStats().neverPierce) DestroySelf();
 
         if (m_PierceCount > 0)
             m_PierceCount--;

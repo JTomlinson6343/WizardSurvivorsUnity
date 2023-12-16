@@ -33,6 +33,7 @@ public struct AbilityStats
         stats.knockback =  left.knockback + right.knockback;
         stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
+        stats.neverPierce = left.neverPierce;
 
         return stats;
     }
@@ -48,6 +49,7 @@ public struct AbilityStats
         stats.knockback =  left.knockback - right.knockback;
         stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
+        stats.neverPierce = left.neverPierce;
 
         return stats;
     }
@@ -63,6 +65,7 @@ public struct AbilityStats
         stats.knockback = left.knockback * right.knockback;
         stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
+        stats.neverPierce = left.neverPierce;
 
         return stats;
     }
@@ -76,6 +79,7 @@ public struct AbilityStats
     public float knockback;     // Knockback of the ability
     public int   pierceAmount;  // Number of enemies that can be pierced
     public bool  infinitePierce;
+    public bool  neverPierce;
 }
 
 public class Ability : MonoBehaviour
@@ -113,13 +117,9 @@ public class Ability : MonoBehaviour
             {
                 InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
             }
-            LevelUp();
         }
-        else
-        {
-            LevelUp();
-            Debug.Log(m_Data.name + " is now level "+ m_Level.ToString());
-        }
+        LevelUp();
+        Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
     virtual public void OnCast()
