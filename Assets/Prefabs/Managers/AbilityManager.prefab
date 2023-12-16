@@ -732,21 +732,21 @@ MonoBehaviour:
   m_Data:
     name: Etherweave Gloves
     damageType: 6
-    description: '+100% knockback
+    description: '+30% knockback
 
       +10% damage'
-    levelUpInfo: '+100% knockback
+    levelUpInfo: '+30% knockback
 
       +10% damage'
     icon: {fileID: -1837857369, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.1
     speed: 0
     cooldown: 0
     amount: 0
-    knockback: 1
+    knockback: 0.3
     pierceAmount: 0
     infinitePierce: 0
   m_PlayerStatBuffs:

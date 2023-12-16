@@ -60,7 +60,7 @@ public struct AbilityStats
         stats.speed = left.speed * right.speed;
         stats.cooldown = left.cooldown * right.cooldown;
         stats.amount = left.amount * right.amount;
-        stats.knockback = left.amount * right.amount;
+        stats.knockback = left.knockback * right.knockback;
         stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
 
