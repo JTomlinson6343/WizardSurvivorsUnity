@@ -86,8 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5d3380235b4ba44a599f4bbf433cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageNumberPrefab: {fileID: 5035281070457857526, guid: 3d2b14383016edb49aa0c74feca34093, type: 3}
-  m_Damage: 1
-  speed: 500
-  radius: 4
-  offset: 90
+  m_AbilitySource: {fileID: 0}
+  m_Speed: 0
+  m_Radius: 0
+  m_Offset: 0

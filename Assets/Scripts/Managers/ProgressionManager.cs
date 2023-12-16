@@ -56,6 +56,12 @@ public class ProgressionManager : MonoBehaviour
         xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+            OnLevelUp();
+    }
+
     public void ToggleHUD(bool toggle)
     {
         m_Hud.SetActive(toggle);
@@ -113,7 +119,19 @@ public class ProgressionManager : MonoBehaviour
 
         UpdateLevelLabel();
 
-        AbilityManager.m_Instance.ShowAbilityOptions();
+        if (m_Level == 2)
+        {
+            AbilityManager.m_Instance.ChoosePassiveAbility();
+            return;
+        }
+        if (m_Level%5 == 0)
+        {
+            AbilityManager.m_Instance.ChoosePassiveAbility();
+        }
+        else
+        {
+            AbilityManager.m_Instance.ChooseBuffAbility();
+        }
     }
 
     private void CalculateNextLevelXP()

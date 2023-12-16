@@ -67,7 +67,7 @@ MonoBehaviour:
       +5 health'
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_AbilityStatBuffs:
-    AOE: 20
+    AOE: 0.2
     duration: 0
     damage: 0
     speed: 0
@@ -746,7 +746,7 @@ MonoBehaviour:
     speed: 0
     cooldown: 0
     amount: 0
-    knockback: 2
+    knockback: 1
     pierceAmount: 0
     infinitePierce: 0
   m_PlayerStatBuffs:
@@ -800,15 +800,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033ec6437df752d438c07fa7f4f54745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Abilities:
+  m_PassiveAbilities:
+  - {fileID: 2211182422588704078}
   - {fileID: 9205272294203817715}
   - {fileID: 6463285543125099977}
+  - {fileID: 962118566423954903}
+  - {fileID: 7835109944898195398}
+  m_BuffAbilities:
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
-  - {fileID: 962118566423954903}
   - {fileID: 1009511130477330040}
-  - {fileID: 2211182422588704078}
-  - {fileID: 7835109944898195398}
+  - {fileID: 8730308040721381745}
+  - {fileID: 4534873248877913365}
+  - {fileID: 1866523184639576387}
   m_AbilityCanvas: {fileID: 3061035875882456239}
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
@@ -1336,6 +1340,7 @@ Transform:
   - {fileID: 840383081709359216}
   - {fileID: 1542396192144174587}
   - {fileID: 1373399027024024409}
+  - {fileID: 3061095120820179638}
   m_Father: {fileID: 108723972155499655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1654,6 +1659,87 @@ Transform:
   m_Father: {fileID: 108723972155499655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7609364591772771841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3061095120820179638}
+  - component: {fileID: 1866523184639576387}
+  m_Layer: 0
+  m_Name: Cooldown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3061095120820179638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609364591772771841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9001687665959845470}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1866523184639576387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609364591772771841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DamageUpgradeAmount: 0
+  m_isMaxed: 0
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 0
+    speed: 0
+    cooldown: 10
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+  m_Data:
+    name: Celestial Hourglass
+    damageType: 0
+    description: '+10% cooldown reduction
+
+      +1 move speed'
+    levelUpInfo: '+10% cooldown reduction
+
+      +1 move speed'
+    icon: {fileID: 789409541, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_AbilityStatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0
+    speed: 0
+    cooldown: 0.1
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+  m_PlayerStatBuffs:
+    speed: 0.1
+    shotSpeed: 0
+    maxHealth: 0
+    healthRegen: 0
 --- !u!1 &7813613701837229948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,9 +1809,9 @@ MonoBehaviour:
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 5
+    damage: 0.05
     speed: 0
-    cooldown: 5
+    cooldown: -0.05
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -1796,7 +1882,7 @@ MonoBehaviour:
     damageType: 0
     description: +20 health
     levelUpInfo: +20 health
-    icon: {fileID: 0}
+    icon: {fileID: 576402560, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0

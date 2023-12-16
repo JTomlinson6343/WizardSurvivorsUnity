@@ -28,10 +28,10 @@ public struct AbilityStats
         stats.duration = left.duration + right.duration;
         stats.damage = left.damage + right.damage;
         stats.speed = left.speed + right.speed;
-        stats.cooldown = left.cooldown - right.cooldown;
+        stats.cooldown = left.cooldown + right.cooldown;
         stats.amount = left.amount + right.amount;
         stats.knockback =  left.knockback + right.knockback;
-        stats.pierceAmount = left.pierceAmount + right.pierceAmount;
+        stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
 
         return stats;
@@ -43,10 +43,10 @@ public struct AbilityStats
         stats.duration = left.duration - right.duration;
         stats.damage = left.damage - right.damage;
         stats.speed = left.speed - right.speed;
-        stats.cooldown = left.cooldown + right.cooldown;
+        stats.cooldown = left.cooldown - right.cooldown;
         stats.amount = left.amount - right.amount;
         stats.knockback =  left.knockback - right.knockback;
-        stats.pierceAmount = left.pierceAmount - right.pierceAmount;
+        stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
 
         return stats;
@@ -61,7 +61,7 @@ public struct AbilityStats
         stats.cooldown = left.cooldown * right.cooldown;
         stats.amount = left.amount * right.amount;
         stats.knockback = left.amount * right.amount;
-        stats.pierceAmount = left.pierceAmount * right.pierceAmount;
+        stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
 
         return stats;
@@ -149,6 +149,7 @@ public class Ability : MonoBehaviour
     {
         // Update total stats. Bonus stats are applied as a percentage of the base damage
         m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
+        m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
     }
 
     public AbilityStats GetTotalStats()

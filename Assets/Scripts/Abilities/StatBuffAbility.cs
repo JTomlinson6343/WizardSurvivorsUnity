@@ -10,13 +10,11 @@ public class StatBuffAbility : Ability
     {
         AbilityManager.m_Instance.AddAbilityStatBuffs(m_AbilityStatBuffs);
         Player.m_Instance.AddBonusStats(m_PlayerStatBuffs);
-        base.OnChosen();
     }
 
     public override void LevelUp()
     {
         AbilityManager.m_Instance.AddAbilityStatBuffs(m_AbilityStatBuffs);
         Player.m_Instance.AddBonusStats(m_PlayerStatBuffs);
-        base.LevelUp();
     }
 }
