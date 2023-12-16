@@ -57,12 +57,12 @@ MonoBehaviour:
     pierceAmount: 0
     infinitePierce: 0
   m_Data:
-    name: Encantation of the Aegis
+    name: Incantation of Reach
     damageType: 6
-    description: '+20% size of zone effects
+    description: '+20% size increase to zone effects
 
       +5 health'
-    levelUpInfo: '+20% size of zone effects
+    levelUpInfo: '+20% size increase to zone effects
 
       +5 health'
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
