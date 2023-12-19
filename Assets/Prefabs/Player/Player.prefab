@@ -294,7 +294,7 @@ MonoBehaviour:
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
   m_BaseStats:
-    speed: 2
+    speed: 2.5
     shotSpeed: 10
     maxHealth: 200
     healthRegen: 0
@@ -548,6 +548,7 @@ MonoBehaviour:
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
+    neverPierce: 0
   m_Data:
     name: 
     damageType: 5
