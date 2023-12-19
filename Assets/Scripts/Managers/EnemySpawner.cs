@@ -32,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_HealthCurve;
+    readonly float kHealthConstant = 10f;
 
     private Vector3 GetSpawnPosition()
     {
@@ -69,9 +70,10 @@ public class EnemySpawner : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
 
+        if (m_EnemyCount >= m_SpawnLimit) return;
+
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
             StartNewWave();
-        if (m_EnemyCount >= m_SpawnLimit) return;
 
         SpawnEnemy();
     }
@@ -146,6 +148,6 @@ public class EnemySpawner : MonoBehaviour
 
     private float GetEnemyHPForWave()
     {
-        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100) * 10f;
+        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100) * kHealthConstant;
     }
 }
