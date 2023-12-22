@@ -9,7 +9,8 @@ public class AbilityManager : MonoBehaviour
 {
     public static AbilityManager m_Instance;
 
-    [SerializeField] List<Ability> m_Abilities;
+    [SerializeField] List<Ability> m_PassiveAbilities;
+    [SerializeField] List<Ability> m_BuffAbilities;
 
     AbilityStats m_AbilityStatsBuffs;
 
@@ -21,6 +22,10 @@ public class AbilityManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
+    [SerializeField] TextMeshProUGUI m_InstructionsLabel;
+
+    [SerializeField] string m_SpellInstructions;
+    [SerializeField] string m_ItemInstructions;
 
     bool m_AbilityChoicesShown;
 
@@ -41,7 +46,11 @@ public class AbilityManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            ShowAbilityOptions();
+            ShowAbilityOptions(m_PassiveAbilities);
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            ShowAbilityOptions(m_BuffAbilities);
         }
         if (m_AbilityChoicesShown)
         {
@@ -49,9 +58,20 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
-    public void ShowAbilityOptions()
+    public void ChoosePassiveAbility()
     {
-        if (m_Abilities.Count == 0) return;
+        ShowAbilityOptions(m_PassiveAbilities);
+        m_InstructionsLabel.text = m_SpellInstructions;
+    }
+    public void ChooseBuffAbility()
+    {
+        ShowAbilityOptions(m_BuffAbilities);
+        m_InstructionsLabel.text = m_ItemInstructions;
+    }
+
+    private void ShowAbilityOptions(List<Ability> abilities)
+    {
+        if (abilities.Count == 0) return;
 
         m_NameLabel.text = "";
         m_DescriptionLabel.text = "";
@@ -71,9 +91,9 @@ public class AbilityManager : MonoBehaviour
 
         int optionCount;
 
-        if (m_Abilities.Count < 4)
+        if (abilities.Count < 4)
         {
-            optionCount = m_Abilities.Count;
+            optionCount = abilities.Count;
         }
         else
         {
@@ -82,7 +102,7 @@ public class AbilityManager : MonoBehaviour
         // Loop through each ability
         while (count < optionCount)
         {
-            Ability ability = m_Abilities[Random.Range(0, m_Abilities.Count)];
+            Ability ability = abilities[Random.Range(0, abilities.Count)];
 
             if (CheckAlreadyDisplayed(ability, displayedAbilities))
             {
@@ -171,7 +191,7 @@ public class AbilityManager : MonoBehaviour
         if (icon.displayedAbility.GetLevel() >= 1)
         {
             m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
-            m_DescriptionLabel.text += "\n\nNext level: " + icon.displayedAbility.m_Data.levelUpInfo;
+            m_DescriptionLabel.text += "\n\nNext level:\n" + icon.displayedAbility.m_Data.levelUpInfo;
         }
     }
 
@@ -179,7 +199,10 @@ public class AbilityManager : MonoBehaviour
     {
         m_HighlightedIcon.displayedAbility.OnChosen();
         if (m_HighlightedIcon.displayedAbility.m_isMaxed)
-            m_Abilities.Remove(m_HighlightedIcon.displayedAbility);
+        {
+            m_PassiveAbilities.Remove(m_HighlightedIcon.displayedAbility);
+            m_BuffAbilities.Remove(m_HighlightedIcon.displayedAbility);
+        }
         HideAbilityOptions();
 
         UpdateAllAbilityStats();
@@ -205,10 +228,11 @@ public class AbilityManager : MonoBehaviour
     public void AddAbilityStatBuffs(AbilityStats stats)
     {
         m_AbilityStatsBuffs += stats;
+        m_AbilityStatsBuffs.pierceAmount += stats.pierceAmount;
         UpdateAllAbilityStats();
     }
 
-    public void AddElementalAbilityStatBuffs(DamageType type, AbilityStats stats)
+    public void AddElementalAbilityBonusStats(DamageType type, AbilityStats stats)
     {
         Ability[] abilities = GetComponentsInChildren<Ability>();
 

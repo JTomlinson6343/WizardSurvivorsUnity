@@ -11,7 +11,9 @@ public struct AbilityData
 {
     public string name;
     public DamageType damageType;
+    [TextArea(3, 10)]
     public string description;
+    [TextArea(3, 10)]
     public string levelUpInfo;
     public Sprite icon;
 }
@@ -29,8 +31,9 @@ public struct AbilityStats
         stats.cooldown = left.cooldown + right.cooldown;
         stats.amount = left.amount + right.amount;
         stats.knockback =  left.knockback + right.knockback;
-        stats.pierceAmount = left.pierceAmount + right.pierceAmount;
+        stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
+        stats.neverPierce = left.neverPierce;
 
         return stats;
     }
@@ -44,8 +47,9 @@ public struct AbilityStats
         stats.cooldown = left.cooldown - right.cooldown;
         stats.amount = left.amount - right.amount;
         stats.knockback =  left.knockback - right.knockback;
-        stats.pierceAmount = left.pierceAmount - right.pierceAmount;
+        stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
+        stats.neverPierce = left.neverPierce;
 
         return stats;
     }
@@ -58,9 +62,10 @@ public struct AbilityStats
         stats.speed = left.speed * right.speed;
         stats.cooldown = left.cooldown * right.cooldown;
         stats.amount = left.amount * right.amount;
-        stats.knockback = left.amount * right.amount;
-        stats.pierceAmount = left.pierceAmount * right.pierceAmount;
+        stats.knockback = left.knockback * right.knockback;
+        stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
+        stats.neverPierce = left.neverPierce;
 
         return stats;
     }
@@ -74,6 +79,7 @@ public struct AbilityStats
     public float knockback;     // Knockback of the ability
     public int   pierceAmount;  // Number of enemies that can be pierced
     public bool  infinitePierce;
+    public bool  neverPierce;
 }
 
 public class Ability : MonoBehaviour
@@ -111,13 +117,9 @@ public class Ability : MonoBehaviour
             {
                 InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
             }
-            LevelUp();
         }
-        else
-        {
-            LevelUp();
-            Debug.Log(m_Data.name + " is now level "+ m_Level.ToString());
-        }
+        LevelUp();
+        Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
     virtual public void OnCast()
@@ -147,6 +149,7 @@ public class Ability : MonoBehaviour
     {
         // Update total stats. Bonus stats are applied as a percentage of the base damage
         m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
+        m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
     }
 
     public AbilityStats GetTotalStats()

@@ -51,7 +51,7 @@ TagManager:
   - name: Floor
     uniqueID: 3531497471
     locked: 0
-  - name: Player
+  - name: Actor
     uniqueID: 2274947617
     locked: 0
   - name: Projectile
