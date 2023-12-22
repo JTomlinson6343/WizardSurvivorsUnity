@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
     private int m_EnemyCount;
     private int m_EnemiesKilledThisWave;
     private int m_SpawnLimit;
+    private int m_EnemiesSpawnedThisWave;
 
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_HealthCurve;
@@ -70,10 +71,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
 
-        if (m_EnemyCount >= m_SpawnLimit) return;
+        if (m_EnemyCount > m_SpawnLimit) print("MORE ENEMIES?");
 
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
-            StartNewWave();
+            Invoke(nameof(StartNewWave),2f);
+
+        if (m_EnemiesSpawnedThisWave >= m_SpawnLimit) return;
 
         SpawnEnemy();
     }
@@ -87,6 +90,11 @@ public class EnemySpawner : MonoBehaviour
     public void IncrementEnemiesKilled()
     {
         m_EnemiesKilledThisWave++;
+        m_EnemyCount--;
+
+        print("this wave kills: " + m_EnemiesKilledThisWave.ToString() +
+            "   total wave spawns: " + m_SpawnLimit.ToString() +
+            "   enemy count" + m_EnemyCount.ToString());
     }
 
     public void PurgeEnemies()
@@ -128,13 +136,14 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.SetParent(transform, false);
             enemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * enemy.GetComponent<Enemy>().m_HealthModifier;
             m_EnemyCount++;
+            m_EnemiesSpawnedThisWave++;
         }
     }
 
     private void StartNewWave()
     {
-        m_EnemyCount = 0;
         m_EnemiesKilledThisWave = 0;
+        m_EnemiesSpawnedThisWave = 0;
 
         m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter, 10));
 

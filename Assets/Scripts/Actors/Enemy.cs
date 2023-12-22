@@ -112,6 +112,7 @@ public class Enemy : Actor
         base.OnDeath();
 
         ProgressionManager.m_Instance.SpawnXP(transform.position, m_XPAwarded);
+        ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemySpawner.m_Instance.IncrementEnemiesKilled();
     }
