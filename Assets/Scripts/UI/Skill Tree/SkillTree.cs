@@ -11,7 +11,7 @@ public class SkillTree : MonoBehaviour
 {
     private SkillIcon m_CurrentSkill;
 
-    [SerializeField] private int m_TotalSkillPoints;
+    public int m_TotalSkillPoints;
     private int m_SkillPointCap;
     private int m_CurrentSkillPoints;
 

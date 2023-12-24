@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_CharMenuRef.gameObject.SetActive(true);
+        SaveManager.LoadFromFile();
     }
 
     public void Options()
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitButton()
     {
+        SaveManager.SaveToFile();
         Application.Quit();
         Debug.Log("Game has been closed");
     }
