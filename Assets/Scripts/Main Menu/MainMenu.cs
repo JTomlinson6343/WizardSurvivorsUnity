@@ -11,7 +11,6 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_CharMenuRef.gameObject.SetActive(true);
-        SaveManager.LoadFromFile();
     }
 
     public void Options()

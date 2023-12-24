@@ -3,6 +3,7 @@ using System.Xml;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using TreeEditor;
 
 [System.Serializable]
 public struct SaveData
@@ -58,6 +59,32 @@ public class SaveManager
     {
         // Load json
         // Set values in json to files in skill tree class
+
+        if (!File.Exists(m_Path))
+        {
+            Debug.LogWarning("Save file not found: " + m_Path);
+            m_SaveData = new SaveData(); // or null, depending on your needs
+            return;
+        }
+
+        string json = File.ReadAllText(m_Path);
+        m_SaveData = JsonUtility.FromJson<SaveData>(json);
+
+        for (int i = 0; i < m_SaveData.skillTrees.Length; i++)
+        {
+            SkillTreeData treeData = m_SaveData.skillTrees[i];
+            int[] skillData = m_SaveData.skillTrees[i].skills;
+            SkillTree tree = m_SkillTrees[i];
+
+            tree.m_TotalSkillPoints = treeData.points;
+
+            for (int j = 0; j < skillData.Length; j++)
+            {
+                tree.GetComponentsInChildren<SkillIcon>()[j].InitFromFile(skillData[j]);
+            }
+
+            tree.PassEnabledSkillsToManager();
+        }
     }
 
     // Adds skill points to the specified tree. Called at the end of a run

@@ -38,6 +38,7 @@ public class CharacterMenu : MonoBehaviour
         }
 
         SaveManager.PopulateSkillTreesArray(m_SkillTreeRefs);
+        SaveManager.LoadFromFile();
     }
 
     private void Update()

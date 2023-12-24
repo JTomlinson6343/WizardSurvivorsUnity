@@ -161,7 +161,7 @@ public class SkillTree : MonoBehaviour
         CharacterMenu.m_Instance.gameObject.SetActive(true);
     }
 
-    void PassEnabledSkillsToManager()
+    public void PassEnabledSkillsToManager()
     {
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 

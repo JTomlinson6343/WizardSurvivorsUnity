@@ -36,6 +36,14 @@ public class SkillIcon : MonoBehaviour
         }
     }
 
+    public void InitFromFile(int level)
+    {
+        if (level <= 0) return;
+
+        Unlock();
+        m_Data.level = level;
+    }
+
     public bool CheckPrerequisites()
     {
         if (m_Prerequisites.Length == 0)
