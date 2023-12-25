@@ -89,13 +89,25 @@ public class ProgressionManager : MonoBehaviour
         UpdateScoreLabel(m_Score);
     }
 
-    public void SpawnXP(Vector2 pos, int value)
+    #region Pickups
+    public void SpawnPickup(GameObject pickupPrefab, Vector2 pos, int amount)
     {
-        GameObject xpOrb = Instantiate(m_XPOrbPrefab);
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject pickup = Instantiate(pickupPrefab);
+            pickup.transform.position = pos;
+            Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
+            if (!rb) return;
 
-        xpOrb.GetComponent<XPPickup>().m_XPValue = value;
-        xpOrb.transform.position = pos;
+            rb.velocity = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f));
+        }
     }
+
+    public void SpawnXP(Vector2 pos, int amount)
+    {
+        SpawnPickup(m_XPOrbPrefab, pos, amount);
+    }
+    #endregion
 
     public bool AddXP(float xp)
     {
