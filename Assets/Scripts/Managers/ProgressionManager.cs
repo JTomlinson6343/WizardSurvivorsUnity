@@ -28,9 +28,10 @@ public class ProgressionManager : MonoBehaviour
     int m_Level = 1;
     [HideInInspector] public int m_WaveCounter = 0;
 
-    //XP
+    //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
     [SerializeField] GameObject m_SkillPointOrbPrefab;
+    readonly float kPickupMoveSpeed = 15f;
 
     float m_CurrentXP = 0;
     float m_NextLevelXP;
@@ -100,7 +101,7 @@ public class ProgressionManager : MonoBehaviour
             Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
             if (!rb) return;
 
-            rb.velocity = new Vector2(Random.Range(-10f, 10f), Random.Range(-10f, 10f));
+            rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed), Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed));
         }
     }
 
