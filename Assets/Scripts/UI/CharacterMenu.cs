@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -13,9 +14,9 @@ public class CharacterMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_InfoLabel;
 
-    [SerializeField] GameObject m_Buttons;
-
     [SerializeField] MainMenu m_MainMenuRef;
+
+    SkillTree[] m_SkillTreeRefs;
 
     private GameObject m_CurrentCharacter;
     private SkillTree  m_CurrentCharacterSkillTree;
@@ -25,6 +26,19 @@ public class CharacterMenu : MonoBehaviour
     private void Awake()
     {
         m_Instance = this;
+    }
+
+    private void Start()
+    {
+        m_SkillTreeRefs = new SkillTree[GetComponentsInChildren<CharacterIcon>().Length];
+
+        for (int i = 0; i < GetComponentsInChildren<CharacterIcon>().Length; i++)
+        {
+            m_SkillTreeRefs[i] = GetComponentsInChildren<CharacterIcon>()[i].m_SkillTree;
+        }
+
+        SaveManager.PopulateSkillTreesArray(m_SkillTreeRefs);
+        SaveManager.LoadFromFile();
     }
 
     private void Update()
@@ -42,9 +56,6 @@ public class CharacterMenu : MonoBehaviour
 
         m_CurrentCharacterSkillTree = charIcon.m_SkillTree;
         m_CurrentCharacter = charIcon.m_Character;
-
-        m_Buttons.SetActive(true);
-
     }
 
     public void SetCurrentIcon(CharacterIcon charIcon)
@@ -67,7 +78,8 @@ public class CharacterMenu : MonoBehaviour
         if (m_CurrentCharacter == null)
             return;
 
-        PlayerSpawner.m_Character = m_CurrentCharacter;
+        PlayerManager.m_Character = m_CurrentCharacter;
+        PlayerManager.m_SkillTreeRef = m_CurrentCharacterSkillTree;
         StateManager.ChangeState(State.PLAYING);
         SceneManager.LoadScene("Main Scene");
     }
@@ -77,4 +89,6 @@ public class CharacterMenu : MonoBehaviour
         gameObject.SetActive(false);
         m_MainMenuRef.gameObject.SetActive(true);
     }
+
+
 }

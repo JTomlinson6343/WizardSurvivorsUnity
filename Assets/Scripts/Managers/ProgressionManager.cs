@@ -60,6 +60,9 @@ public class ProgressionManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
             OnLevelUp();
+
+        if (Input.GetKeyDown(KeyCode.P))
+            AddSkillPoints(1);
     }
 
     public void ToggleHUD(bool toggle)
@@ -108,6 +111,8 @@ public class ProgressionManager : MonoBehaviour
         return false;
     }
 
+    public void AddSkillPoints(int points) { m_SkillPointsGained += points; }
+
     private void OnLevelUp()
     {
         // If current xp is enough to level up, reset xp + excess
@@ -149,6 +154,8 @@ public class ProgressionManager : MonoBehaviour
         StateManager.ChangeState(State.GAME_OVER);
 
         EnemySpawner.m_Instance.PurgeEnemies();
+
+        PlayerManager.m_Instance.SaveSkillPoints(m_SkillPointsGained);
 
         m_GameOverInfoLabel.text = "Enemies Killed: " + m_EnemiesKilled.ToString() + "\n";
         if (m_ChampionsKilled > 0)

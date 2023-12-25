@@ -11,9 +11,9 @@ public class SkillTree : MonoBehaviour
 {
     private SkillIcon m_CurrentSkill;
 
-    [SerializeField] private int m_TotalSkillPoints;
+    public int m_TotalSkillPoints;
     private int m_SkillPointCap;
-    private int m_CurrentSkillPoints;
+    public int m_CurrentSkillPoints;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
@@ -36,8 +36,6 @@ public class SkillTree : MonoBehaviour
         m_UnlockButton.onClick.AddListener(OnUnlockPressed);
         m_RespecButton.onClick.AddListener(OnRespecPressed);
         m_BackButton.onClick.AddListener(OnBackPressed);
-
-        m_CurrentSkillPoints = m_TotalSkillPoints;
 
         UpdateSkillPointsLabel();
         GreyOrWhitePass();
@@ -70,15 +68,18 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkill = skill;
 
         // Set info labels to the info of the skill
-        m_NameLabel.text = m_CurrentSkill.m_SkillName;
+        if (!m_CurrentSkill)
+        {
+            ClearInfoScreen();
+            return;
+        }
 
-        string description = "";
+        m_NameLabel.text = m_CurrentSkill.m_SkillName;
         // If the current level is greater than the number of descriptions, use the last description.
-        if (m_CurrentSkill.m_Data.level > m_CurrentSkill.m_Description.Length-1)
-            description = m_CurrentSkill.m_Description.Last();
+        if (m_CurrentSkill.m_Data.level > m_CurrentSkill.m_Description.Length - 1)
+            m_DescriptionLabel.text = m_CurrentSkill.m_Description.Last();
         else
-            description = m_CurrentSkill.m_Description[m_CurrentSkill.m_Data.level];
-        m_DescriptionLabel.text = description;
+            m_DescriptionLabel.text = m_CurrentSkill.m_Description[m_CurrentSkill.m_Data.level];
 
         m_OnLevelUpLabel.text = GetCurrentOnLevelUpMessage();
         m_CostLabel.text = "Cost: " + GetCurrentLevelCost().ToString();
@@ -89,6 +90,15 @@ public class SkillTree : MonoBehaviour
         m_CantUnlockLabel.text = "";
 
         CheckSelectedSkill();
+    }
+
+    private void ClearInfoScreen()
+    {
+        m_NameLabel.text = "";
+        m_DescriptionLabel.text = "";
+        m_OnLevelUpLabel.text = "";
+        m_CantUnlockLabel.text = "";
+        m_CostLabel.text = "";
     }
 
     void CheckSelectedSkill()
@@ -140,7 +150,7 @@ public class SkillTree : MonoBehaviour
 
         m_CurrentSkillPoints = m_TotalSkillPoints;
         UpdateSkillPointsLabel();
-        SetHighlightedSkill(m_CurrentSkill);
+        SetHighlightedSkill(null);
         GreyOrWhitePass();
     }
 
@@ -161,8 +171,10 @@ public class SkillTree : MonoBehaviour
         CharacterMenu.m_Instance.gameObject.SetActive(true);
     }
 
-    void PassEnabledSkillsToManager()
+    public void PassEnabledSkillsToManager()
     {
+        SaveManager.SaveToFile();
+
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
         SkillManager.m_Instance.ResetSkillsAdded();

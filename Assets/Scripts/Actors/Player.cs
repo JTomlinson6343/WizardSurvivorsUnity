@@ -240,7 +240,7 @@ public class Player : Actor
 
     public Vector2 GetAimDirection()
     {
-        return (PlayerSpawner.m_Instance.m_Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
+        return (PlayerManager.m_Instance.m_Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
     }
 
     public PlayerStats GetStats()
