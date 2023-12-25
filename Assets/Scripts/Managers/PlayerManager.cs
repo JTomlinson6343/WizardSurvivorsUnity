@@ -66,6 +66,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     public void SaveSkillPoints(int points)
     {
         m_SkillTreeRef.m_TotalSkillPoints += points;
+        m_SkillTreeRef.m_CurrentSkillPoints += points;
         SaveManager.SaveToFile();
     }
 }
