@@ -8,6 +8,7 @@ public class Enemy : Actor
     public float m_SpawnProbability; // The ratio of how common this spawns compared to other enemies
 
     [SerializeField] int m_XPAwarded;
+    [SerializeField] float m_SkillPointDropChance;
     [SerializeField] float m_Speed;
     [SerializeField] float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
@@ -107,11 +108,19 @@ public class Enemy : Actor
         }
     }
 
+    private void RollForSkillPoint()
+    {
+        if (Random.Range(0f, 1f) > m_SkillPointDropChance) return;
+
+        ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, 1);
+    }
+
     protected override void OnDeath()
     {
         base.OnDeath();
 
         ProgressionManager.m_Instance.SpawnXP(transform.position, m_XPAwarded);
+        RollForSkillPoint();
         ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemySpawner.m_Instance.IncrementEnemiesKilled();

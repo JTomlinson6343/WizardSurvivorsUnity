@@ -28,8 +28,10 @@ public class ProgressionManager : MonoBehaviour
     int m_Level = 1;
     [HideInInspector] public int m_WaveCounter = 0;
 
-    //XP
+    //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
+    [SerializeField] GameObject m_SkillPointOrbPrefab;
+    readonly float kPickupMoveSpeed = 15f;
 
     float m_CurrentXP = 0;
     float m_NextLevelXP;
@@ -89,13 +91,29 @@ public class ProgressionManager : MonoBehaviour
         UpdateScoreLabel(m_Score);
     }
 
-    public void SpawnXP(Vector2 pos, int value)
+    #region Pickups
+    public void SpawnPickup(GameObject pickupPrefab, Vector2 pos, int amount)
     {
-        GameObject xpOrb = Instantiate(m_XPOrbPrefab);
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject pickup = Instantiate(pickupPrefab);
+            pickup.transform.position = pos;
+            Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
+            if (!rb) return;
 
-        xpOrb.GetComponent<XPPickup>().m_XPValue = value;
-        xpOrb.transform.position = pos;
+            rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed), Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed));
+        }
     }
+
+    public void SpawnXP(Vector2 pos, int amount)
+    {
+        SpawnPickup(m_XPOrbPrefab, pos, amount);
+    }
+    public void SpawnSkillPoint(Vector2 pos, int amount)
+    {
+        SpawnPickup(m_SkillPointOrbPrefab, pos, amount);
+    }
+    #endregion
 
     public bool AddXP(float xp)
     {
