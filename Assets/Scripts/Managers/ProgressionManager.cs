@@ -30,6 +30,7 @@ public class ProgressionManager : MonoBehaviour
 
     //XP
     [SerializeField] GameObject m_XPOrbPrefab;
+    [SerializeField] GameObject m_SkillPointOrbPrefab;
 
     float m_CurrentXP = 0;
     float m_NextLevelXP;
@@ -106,6 +107,10 @@ public class ProgressionManager : MonoBehaviour
     public void SpawnXP(Vector2 pos, int amount)
     {
         SpawnPickup(m_XPOrbPrefab, pos, amount);
+    }
+    public void SpawnSkillPoint(Vector2 pos, int amount)
+    {
+        SpawnPickup(m_SkillPointOrbPrefab, pos, amount);
     }
     #endregion
 

@@ -125,6 +125,7 @@ MonoBehaviour:
   m_GameOverInfoLabel: {fileID: 4948284584994689657}
   m_WaveCounter: 0
   m_XPOrbPrefab: {fileID: 2768687642517184637, guid: 86a958f61d404a0419ba473565116eed, type: 3}
+  m_SkillPointOrbPrefab: {fileID: 2768687642517184637, guid: 691ce5b8f6a5d2948917d85ce8b902a2, type: 3}
   m_LevelCurve:
     curve:
       serializedVersion: 2
