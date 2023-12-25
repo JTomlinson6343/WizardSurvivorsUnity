@@ -11,10 +11,11 @@ struct PlayerBounds
     public float right;
 }
 
-public class PlayerSpawner : MonoBehaviour
+public class PlayerManager : MonoBehaviour // Manager that controls the player in-game
 {
-    public static PlayerSpawner m_Instance;
+    public static PlayerManager m_Instance;
     public static GameObject m_Character;
+    public static SkillTree m_SkillTreeRef;
     public GameObject m_Camera;
 
     [SerializeField] PlayerBounds m_CameraBounds;
@@ -60,5 +61,11 @@ public class PlayerSpawner : MonoBehaviour
 
         if (Player.m_Instance.transform.position.y > m_WorldBounds.top)
             Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_WorldBounds.top, Player.m_Instance.transform.position.z);
+    }
+
+    public void SaveSkillPoints(int points)
+    {
+        m_SkillTreeRef.m_TotalSkillPoints += points;
+        SaveManager.SaveToFile();
     }
 }

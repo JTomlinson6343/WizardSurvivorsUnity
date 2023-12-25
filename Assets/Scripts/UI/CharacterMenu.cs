@@ -78,7 +78,8 @@ public class CharacterMenu : MonoBehaviour
         if (m_CurrentCharacter == null)
             return;
 
-        PlayerSpawner.m_Character = m_CurrentCharacter;
+        PlayerManager.m_Character = m_CurrentCharacter;
+        PlayerManager.m_SkillTreeRef = m_CurrentCharacterSkillTree;
         StateManager.ChangeState(State.PLAYING);
         SceneManager.LoadScene("Main Scene");
     }
@@ -88,4 +89,6 @@ public class CharacterMenu : MonoBehaviour
         gameObject.SetActive(false);
         m_MainMenuRef.gameObject.SetActive(true);
     }
+
+
 }
