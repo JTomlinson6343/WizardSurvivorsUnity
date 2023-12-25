@@ -15,7 +15,8 @@ public struct SaveData
 public struct SkillTreeData
 {
     public int[] skills;
-    public int points;
+    public int totalPoints;
+    public int currentPoints;
 }
 
 public class SaveManager
@@ -42,7 +43,8 @@ public class SaveManager
         {
             SkillTree tree = m_SkillTrees[i];
             SkillIcon[] skills = tree.GetComponentsInChildren<SkillIcon>();
-            m_SaveData.skillTrees[i].points = tree.m_TotalSkillPoints;
+            m_SaveData.skillTrees[i].totalPoints = tree.m_TotalSkillPoints;
+            m_SaveData.skillTrees[i].currentPoints = tree.m_CurrentSkillPoints;
             m_SaveData.skillTrees[i].skills = new int[skills.Length];
 
             for (int j = 0; j < skills.Length; j++)
@@ -76,7 +78,8 @@ public class SaveManager
             int[] skillData = m_SaveData.skillTrees[i].skills;
             SkillTree tree = m_SkillTrees[i];
 
-            tree.m_TotalSkillPoints = treeData.points;
+            tree.m_TotalSkillPoints = treeData.totalPoints;
+            tree.m_CurrentSkillPoints = treeData.currentPoints;
 
             for (int j = 0; j < skillData.Length; j++)
             {

@@ -20,7 +20,6 @@ public class MainMenu : MonoBehaviour
 
     public void QuitButton()
     {
-        SaveManager.SaveToFile();
         Application.Quit();
         Debug.Log("Game has been closed");
     }
