@@ -48,8 +48,8 @@ public class FireDebuff : Debuff
         m_FireEffect.transform.position = transform.position;
     }
 
-    //private void OnDestroy()
-    //{
-    //    EndDebuff();
-    //}
+    private void OnDestroy()
+    {
+        EndDebuff();
+    }
 }

@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_HealthCurve;
     readonly float kHealthConstant = 10f;
+    readonly float kGracePeriodTime = 2f;
 
     private Vector3 GetSpawnPosition()
     {
@@ -74,7 +75,9 @@ public class EnemySpawner : MonoBehaviour
         if (m_EnemyCount > m_SpawnLimit) print("MORE ENEMIES?");
 
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
-            Invoke(nameof(StartNewWave),2f);
+        {
+            GracePeriod();
+        }
 
         if (m_EnemiesSpawnedThisWave >= m_SpawnLimit) return;
 
@@ -140,11 +143,16 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void StartNewWave()
+    private void GracePeriod()
     {
+        // Reset values
         m_EnemiesKilledThisWave = 0;
         m_EnemiesSpawnedThisWave = 0;
+        Invoke(nameof(StartNewWave), kGracePeriodTime);
+    }
 
+    private void StartNewWave()
+    {
         m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter, 10));
 
         ProgressionManager.m_Instance.m_WaveCounter++;
