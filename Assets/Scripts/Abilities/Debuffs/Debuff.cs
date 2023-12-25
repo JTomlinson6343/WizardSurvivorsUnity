@@ -86,7 +86,7 @@ public class Debuff : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    virtual protected void Update()
     {
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
         TickRoutine();

@@ -17,7 +17,7 @@ public class FireDebuff : Debuff
     {
         base.Init(debuffTime, damage, damageType, source, percentHealth, maxStacks, debuffType);
 
-        if (GetComponentInChildren<ParticleSystem>() != null )
+        if (GetComponentInChildren<Light2D>() != null )
             return;
 
         m_FireEffect = Instantiate(m_FireParticlePrefab);
@@ -42,13 +42,14 @@ public class FireDebuff : Debuff
         base.EndDebuff();
     }
 
-    private void Update()
+    override protected void Update()
     {
+        base.Update();
         m_FireEffect.transform.position = transform.position;
     }
 
-    private void OnDestroy()
-    {
-        Destroy(m_FireEffect);
-    }
+    //private void OnDestroy()
+    //{
+    //    EndDebuff();
+    //}
 }
