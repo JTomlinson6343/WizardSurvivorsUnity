@@ -43,6 +43,7 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
+    #region Projectiles
     private GameObject Shoot(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject bulletPrefab)
     {
         if (!bulletPrefab.GetComponent<Projectile>()) return null;
@@ -117,4 +118,5 @@ public class ProjectileManager : MonoBehaviour
 
         return bullets;
     }
+    #endregion
 }

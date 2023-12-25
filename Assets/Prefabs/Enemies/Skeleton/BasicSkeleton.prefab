@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2020019679
-  m_SortingLayer: -5
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: 713669850, guid: 38aab7961e77bc24d98b7defd74c1e17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_HealthModifier: 1
   m_SpawnProbability: 1
-  m_XPAwarded: 1
+  m_XPAwarded: 30
   m_Speed: 1
   m_ContactDamage: 25
   m_KnockbackModifier: 1
