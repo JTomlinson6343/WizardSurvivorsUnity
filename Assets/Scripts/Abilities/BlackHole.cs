@@ -22,7 +22,7 @@ public class BlackHole : Firebolt
             return;
 
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
-            GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos()),
+            GameplayManager.GetDirectionToClosestEnemy(Player.m_Instance.GetCentrePos()),
             m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
 
         AudioManager.m_Instance.PlaySound(4);

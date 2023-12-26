@@ -22,7 +22,7 @@ public class Firebolt : Ability
             return;
 
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
-            GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos()),
+            GameplayManager.GetDirectionToClosestEnemy(Player.m_Instance.GetCentrePos()),
             m_TotalStats.speed, this, m_ProjectileLifetime);
 
         AudioManager.m_Instance.PlaySound(4);

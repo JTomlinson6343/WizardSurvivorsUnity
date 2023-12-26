@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [HideInInspector] public Ability m_AbilitySource;
+     public Ability m_AbilitySource;
     protected int m_PierceCount;
 
     protected List<GameObject> m_HitEnemies = new List<GameObject>();
