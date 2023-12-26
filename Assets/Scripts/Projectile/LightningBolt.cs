@@ -26,4 +26,13 @@ public class LightningBolt : AOEObject
             Vector2.Distance(transform.position, enemyPos * m_LengthModifier)
             );
     }
+
+    protected override void OnEnemyHit(GameObject enemy)
+    {
+        if (m_AbilitySource.DamageOnCooldownCheck(enemy)) return;
+
+        m_AbilitySource.StartDamageCooldown(enemy);
+
+        base.OnEnemyHit(enemy);
+    }
 }
