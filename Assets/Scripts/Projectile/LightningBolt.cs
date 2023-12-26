@@ -38,26 +38,47 @@ public class LightningBolt : AOEObject
     {
         //Vector2 enemyPos = GameplayManager.GetGameObjectCentre(GameplayManager.GetClosestEnemy(transform.position).gameObject);
 
-        Vector2 enemyPos = new Vector2(GameplayManager.GetClosestEnemyPos(transform.position).x, GameplayManager.GetClosestEnemyPos(transform.position).y+1f);
+        Vector2 enemyPos = Vector2.negativeInfinity;
+
+        if (!GameplayManager.GetClosestEnemyInRange(transform.position, kBaseRange)) 
+        {
+            ZeroLength();
+            return;
+        }
+        
+        enemyPos = new Vector2(
+        GameplayManager.GetClosestEnemyInRange(transform.position, kBaseRange).transform.position.x,
+        GameplayManager.GetClosestEnemyInRange(transform.position, kBaseRange).transform.position.y);
 
         if (Vector2.Distance(enemyPos, transform.position) > kBaseRange * m_AbilitySource.GetTotalStats().AOE)
         {
-            GetComponent<SpriteRenderer>().size = new Vector2(
-            GetComponent<SpriteRenderer>().size.x,
-            0f
-            );
+            ZeroLength();
             return;
         }
 
-        if (enemyPos == Vector2.negativeInfinity) return;
+        if (enemyPos == Vector2.negativeInfinity)
+        {
+            ZeroLength();
+            return;
+        }
 
-        Vector2 dir = GameplayManager.GetDirectionToClosestEnemy(transform.position);
+        Vector2 dir = GameplayManager.GetDirectionToEnemy(
+            transform.position,GameplayManager.GetClosestEnemyInRange(transform.position,
+            kBaseRange * m_AbilitySource.GetTotalStats().AOE));
 
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
 
         GetComponent<SpriteRenderer>().size = new Vector2(
             GetComponent<SpriteRenderer>().size.x,
             Vector2.Distance((Vector2)transform.position, enemyPos) * m_LengthModifier
+            );
+    }
+
+    private void ZeroLength()
+    {
+        GetComponent<SpriteRenderer>().size = new Vector2(
+            GetComponent<SpriteRenderer>().size.x,
+            0f
             );
     }
 

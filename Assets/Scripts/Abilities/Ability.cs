@@ -99,6 +99,8 @@ public class Ability : MonoBehaviour
 
     private List<GameObject> m_HitEnemies = new List<GameObject>();
 
+    protected readonly float kDefaultAutofireRange = 6f;
+
     virtual public void Start()
     {
         UpdateTotalStats();

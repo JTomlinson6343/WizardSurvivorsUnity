@@ -7,7 +7,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public static class GameplayManager
 {
-    public static List<GameObject> GetAllEnemiesInRadius(Vector2 pos, float radius)
+    public static List<GameObject> GetAllEnemiesInRange(Vector2 pos, float radius)
     {
         if (EnemySpawner.m_Instance == null) return null;
 
@@ -25,14 +25,14 @@ public static class GameplayManager
         return outEnemies;
     }
 
-    public static GameObject GetClosestEnemy(Vector2 pos)
+    public static GameObject GetClosestEnemyInRange(Vector2 pos, float radius)
     {
         if (EnemySpawner.m_Instance == null) return null;
 
         float minDist = Mathf.Infinity;
-        Enemy closestEnemy = null;
+        GameObject closestEnemy = null;
 
-        foreach (Enemy enemy in EnemySpawner.m_Instance.GetComponentsInChildren<Enemy>())
+        foreach (GameObject enemy in GetAllEnemiesInRange(pos, radius))
         {
             // Calculate distance from enemy
             float dist = Vector3.Distance(enemy.transform.position, pos);
@@ -43,30 +43,33 @@ public static class GameplayManager
                 closestEnemy = enemy;
             }
         }
-        return closestEnemy.gameObject;
+        return closestEnemy;
     }
 
-    public static Vector2 GetClosestEnemyPos(Vector2 pos)
-    {
-        return GetClosestEnemy(pos).transform.position;
-    }
+    //public static GameObject GetFurthestEnemyInRange(Vector2 pos, float radius)
+    //{
+    //    if (EnemySpawner.m_Instance == null) return null;
 
-    public static Vector2 GetDirectionToClosestEnemy(Vector2 pos)
-    {
-        return (GetClosestEnemyPos(pos) - pos).normalized;
-    }
+    //    float maxDist = 0;
+    //    GameObject closestEnemy = null;
 
-    public static Vector2 GetGameObjectCentre(GameObject gameObject)
-    {
-        // Get the SpriteRenderer component
-        SpriteRenderer spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+    //    foreach (GameObject enemy in GetAllEnemiesInRange(pos, radius))
+    //    {
+    //        // Calculate distance from enemy
+    //        float dist = Vector3.Distance(enemy.transform.position, pos);
+    //        if (dist > maxDist)
+    //        {
+    //            // If enemy is closer than the closest enemy so far, set closest enemy to this
+    //            maxDist = dist;
+    //            closestEnemy = enemy;
+    //        }
+    //    }
+    //    return closestEnemy;
+    //}
 
-        if (!spriteRenderer) return Vector2.negativeInfinity;
-        // Calculate the center point based on position and sprite bounds
-        Vector2 centerPoint = gameObject.transform.position + new Vector3(spriteRenderer.bounds.size.x * (0.5f - spriteRenderer.sprite.pivot.x),
-                                                                spriteRenderer.bounds.size.y * (0.5f - spriteRenderer.sprite.pivot.y),
-                                                                0f);
-        return centerPoint;
+    public static Vector2 GetDirectionToEnemy(Vector2 pos, GameObject enemy)
+    {
+        return ((Vector2)enemy.transform.position - pos).normalized;
     }
 
     public static string IntToRomanNumeral(int num)

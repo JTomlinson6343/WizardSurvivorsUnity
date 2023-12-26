@@ -18,11 +18,13 @@ public class Fireball : Firebolt
 
     public override void OnCast()
     {
-        if (GameplayManager.GetClosestEnemyPos(Player.m_Instance.GetCentrePos()) == Vector2.negativeInfinity)
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), kDefaultAutofireRange);
+
+        if ((Vector2)closestEnemy.transform.position == Vector2.negativeInfinity)
             return;
 
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
-            GameplayManager.GetDirectionToClosestEnemy(Player.m_Instance.GetCentrePos()),
+            GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos(), closestEnemy),
             m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
 
         AudioManager.m_Instance.PlaySound(4);

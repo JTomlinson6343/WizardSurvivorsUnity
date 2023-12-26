@@ -18,11 +18,13 @@ public class Firebolt : Ability
     {
         base.OnCast();
 
-        if (GameplayManager.GetClosestEnemyPos(Player.m_Instance.GetCentrePos()) == Vector2.negativeInfinity)
+        Vector2 closestEnemyPos = (Vector2)GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), kDefaultAutofireRange).transform.position;
+
+        if (closestEnemyPos == Vector2.negativeInfinity)
             return;
 
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
-            GameplayManager.GetDirectionToClosestEnemy(Player.m_Instance.GetCentrePos()),
+            closestEnemyPos,
             m_TotalStats.speed, this, m_ProjectileLifetime);
 
         AudioManager.m_Instance.PlaySound(4);

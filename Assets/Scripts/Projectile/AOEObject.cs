@@ -27,9 +27,9 @@ public class AOEObject : Projectile
 
     public virtual void Init(Vector2 pos, Ability ability, float lifetime)
     {
-        GetComponent<Projectile>().m_AbilitySource = ability;
+        m_AbilitySource = ability;
         transform.localScale = new Vector2(ability.GetTotalStats().AOE, ability.GetTotalStats().AOE);
-        GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+        StartLifetimeTimer(lifetime);
         transform.position = pos;
     }
 
