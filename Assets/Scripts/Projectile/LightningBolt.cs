@@ -17,7 +17,7 @@ public class LightningBolt : AOEObject
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
 
         //Vector2 enemyPos = GameplayManager.GetGameObjectCentre(GameplayManager.GetClosestEnemy(transform.position).gameObject);
-        Vector2 enemyPos = GameplayManager.GetClosestEnemyPos(transform.position);
+        Vector2 enemyPos = new Vector2(GameplayManager.GetClosestEnemyPos(transform.position).x, GameplayManager.GetClosestEnemyPos(transform.position).y+1f);
 
         if (enemyPos == Vector2.negativeInfinity) return;
 
