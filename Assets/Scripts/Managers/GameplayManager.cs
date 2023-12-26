@@ -25,7 +25,7 @@ public static class GameplayManager
         return outEnemies;
     }
 
-    public static Enemy GetClosestEnemy(Vector2 pos)
+    public static GameObject GetClosestEnemy(Vector2 pos)
     {
         if (EnemySpawner.m_Instance == null) return null;
 
@@ -43,7 +43,7 @@ public static class GameplayManager
                 closestEnemy = enemy;
             }
         }
-        return closestEnemy;
+        return closestEnemy.gameObject;
     }
 
     public static Vector2 GetClosestEnemyPos(Vector2 pos)

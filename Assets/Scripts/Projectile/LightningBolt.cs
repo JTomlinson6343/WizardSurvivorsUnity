@@ -1,25 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LightningBolt : AOEObject
 {
     float m_LengthModifier;
 
+    static readonly int kJumpLimit;
+    static int kJumpCount = 0;
+    readonly float kBaseRange = 10f;
+
     private void Start()
     {
         m_LengthModifier = 1f / (transform.localScale.y * 0.9f);
     }
+
     private void Update()
     {
+        //Vector2 enemyPos = GameplayManager.GetGameObjectCentre(GameplayManager.GetClosestEnemy(transform.position).gameObject);
+
+        Vector2 enemyPos = new Vector2(GameplayManager.GetClosestEnemyPos(transform.position).x, GameplayManager.GetClosestEnemyPos(transform.position).y+1f);
+
+        if (Vector2.Distance(enemyPos, transform.position) > kBaseRange * m_AbilitySource.GetTotalStats().AOE)
+        {
+            GetComponent<SpriteRenderer>().size = new Vector2(
+            GetComponent<SpriteRenderer>().size.x,
+            0f
+            );
+            return;
+        }
+
+        if (enemyPos == Vector2.negativeInfinity) return;
+
         Vector2 dir = GameplayManager.GetDirectionToClosestEnemy(transform.position);
 
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
-
-        //Vector2 enemyPos = GameplayManager.GetGameObjectCentre(GameplayManager.GetClosestEnemy(transform.position).gameObject);
-        Vector2 enemyPos = new Vector2(GameplayManager.GetClosestEnemyPos(transform.position).x, GameplayManager.GetClosestEnemyPos(transform.position).y+1f);
-
-        if (enemyPos == Vector2.negativeInfinity) return;
 
         GetComponent<SpriteRenderer>().size = new Vector2(
             GetComponent<SpriteRenderer>().size.x,
@@ -34,5 +50,15 @@ public class LightningBolt : AOEObject
         m_AbilitySource.StartDamageCooldown(enemy);
 
         base.OnEnemyHit(enemy);
+        LightningJump();
+    }
+
+    // Function for when the lightning jumps to another target.
+    private void LightningJump()
+    {
+        if (kJumpCount >= kJumpLimit) return;
+
+        GameObject newLightning = Instantiate(gameObject);
+        kJumpCount++;
     }
 }

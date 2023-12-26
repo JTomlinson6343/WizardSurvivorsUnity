@@ -25,7 +25,7 @@ public class AOEObject : Projectile
         DamageManager.m_Instance.DamageInstance(data, enemy.transform.position);
     }
 
-    public void Init(Vector2 pos, Ability ability, float lifetime)
+    public virtual void Init(Vector2 pos, Ability ability, float lifetime)
     {
         GetComponent<Projectile>().m_AbilitySource = ability;
         transform.localScale = new Vector2(ability.GetTotalStats().AOE, ability.GetTotalStats().AOE);
