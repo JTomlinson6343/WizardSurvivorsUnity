@@ -1,17 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Playables;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class LightningBolt : AOEObject
 {
     float m_LengthModifier;
 
-    static readonly int kJumpLimit;
+    static readonly int kJumpLimit = 3;
     static int kJumpCount = 0;
-    readonly float kBaseRange = 10f;
+    readonly float kBaseRange = 5f;
+
+    [SerializeField] GameObject m_LightningPrefab;
 
     private void Start()
+    {
+        InitLengthModifier();
+    }
+
+    public override void Init(Vector2 pos, Ability ability, float lifetime)
+    {
+        m_AbilitySource = ability;
+        StartLifetimeTimer(lifetime);
+        transform.position = pos;
+        InitLengthModifier();
+        print(m_LengthModifier);
+    }
+
+    private void InitLengthModifier()
     {
         m_LengthModifier = 1f / (transform.localScale.y * 0.9f);
     }
@@ -39,7 +57,7 @@ public class LightningBolt : AOEObject
 
         GetComponent<SpriteRenderer>().size = new Vector2(
             GetComponent<SpriteRenderer>().size.x,
-            Vector2.Distance(transform.position, enemyPos * m_LengthModifier)
+            Vector2.Distance((Vector2)transform.position, enemyPos) * m_LengthModifier
             );
     }
 
@@ -50,15 +68,22 @@ public class LightningBolt : AOEObject
         m_AbilitySource.StartDamageCooldown(enemy);
 
         base.OnEnemyHit(enemy);
-        LightningJump();
+        LightningJump(enemy);
     }
 
     // Function for when the lightning jumps to another target.
-    private void LightningJump()
+    private void LightningJump(GameObject enemy)
     {
         if (kJumpCount >= kJumpLimit) return;
 
-        GameObject newLightning = Instantiate(gameObject);
+        GameObject newLightning = Instantiate(m_LightningPrefab);
+        newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, 0.4f);
         kJumpCount++;
+    }
+
+    protected override void DestroySelf()
+    {
+        kJumpCount--;
+        base.DestroySelf();
     }
 }
