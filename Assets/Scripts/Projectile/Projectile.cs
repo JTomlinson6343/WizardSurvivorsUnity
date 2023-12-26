@@ -12,8 +12,8 @@ public class Projectile : MonoBehaviour
 
     virtual public void Init(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
     {
-        GetComponent<Projectile>().m_AbilitySource = ability;
-        GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+        m_AbilitySource = ability;
+        StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
         transform.position = pos;
