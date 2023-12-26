@@ -122,7 +122,6 @@ public class Debuff : MonoBehaviour
         data.isDoT = true;
         data.doDamageNumbers = true;
         data.doSoundEffect = false;
-        data.doIFrames = false;
         DamageManager.m_Instance.DamageInstance(data,transform.position);
     }
 }

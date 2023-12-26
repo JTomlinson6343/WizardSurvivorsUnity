@@ -12,7 +12,6 @@ public class AOEDebuff : Debuff // Debuff applied when something is in the AOE
         data.damageType = m_DamageType;
         data.isDoT = false;
         data.doDamageNumbers = true;
-        data.doIFrames = false;
         data.abilitySource = m_AbilitySource;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
