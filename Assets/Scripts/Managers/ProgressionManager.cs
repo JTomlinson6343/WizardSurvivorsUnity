@@ -33,8 +33,8 @@ public class ProgressionManager : MonoBehaviour
     [SerializeField] GameObject m_SkillPointOrbPrefab;
     readonly float kPickupMoveSpeed = 15f;
 
-    float m_CurrentXP = 0;
-    float m_NextLevelXP;
+    int m_CurrentXP = 0;
+    int m_NextLevelXP;
 
     [SerializeField] Curve m_LevelCurve;
 
@@ -42,6 +42,7 @@ public class ProgressionManager : MonoBehaviour
     private int m_EnemiesKilled = 0;
     private int m_ChampionsKilled = 0;
     private int m_SkillPointsGained = 0;
+    private int m_XPGained = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -116,10 +117,11 @@ public class ProgressionManager : MonoBehaviour
     }
     #endregion
 
-    public bool AddXP(float xp)
+    public bool AddXP(int xp)
     {
         // Increase XP
         m_CurrentXP += xp;
+        m_XPGained += xp;
 
         if (m_CurrentXP >= m_NextLevelXP)
         {
@@ -161,8 +163,8 @@ public class ProgressionManager : MonoBehaviour
     private void CalculateNextLevelXP()
     {
         // Set next level xp
-        m_NextLevelXP = m_LevelCurve.Evaluate(m_Level-1, 10);
-        print(Mathf.RoundToInt(m_NextLevelXP).ToString() + " XP to level" + (m_Level+1).ToString());
+        m_NextLevelXP = (Mathf.RoundToInt(m_LevelCurve.Evaluate(m_Level-1, 10)));
+        print(m_NextLevelXP.ToString() + " XP to level" + (m_Level+1).ToString());
     }
 
     public void IncrementEnemyKills() { m_EnemiesKilled++; }
@@ -178,13 +180,16 @@ public class ProgressionManager : MonoBehaviour
         PlayerManager.m_Instance.SaveSkillPoints(m_SkillPointsGained);
 
         // Display game over screen
-        m_GameOverInfoLabel.text = "Enemies Killed: " + m_EnemiesKilled.ToString() + "\n";
+        m_GameOverInfoLabel.text = "";
+        m_GameOverInfoLabel.text += "XP Gained: " + m_XPGained.ToString() + "\n";
+
+        m_GameOverInfoLabel.text += "Skill Points Gained: " + m_SkillPointsGained.ToString() + "\n";
+
+        m_GameOverInfoLabel.text += "Enemies Killed: " + m_EnemiesKilled.ToString() + "\n";
         if (m_ChampionsKilled > 0)
         {
             m_GameOverInfoLabel.text += "Champions Killed: " + m_ChampionsKilled.ToString() + "\n";
         }
-
-        m_GameOverInfoLabel.text += "Skill Points Gained: " + m_SkillPointsGained.ToString();
 
         m_GameOverScreen.SetActive(true);
     }
