@@ -10,8 +10,7 @@ public class LightningBolt : AOEObject
     float m_LengthModifier;
 
     static readonly int kJumpLimit = 3;
-    static int kJumpCount = 0;
-    readonly float kBaseRange = 6f;
+    static int m_JumpCount = 0;
 
     [SerializeField] GameObject m_LightningPrefab;
 
@@ -25,24 +24,12 @@ public class LightningBolt : AOEObject
         m_AbilitySource = ability;
         transform.position = pos;
         InitLengthModifier();
+        Zap();
     }
 
     private void InitLengthModifier()
     {
         m_LengthModifier = 1f / (transform.localScale.y * 0.9f);
-    }
-
-    private void Update()
-    {
-        //Vector2 enemyPos = GameplayManager.GetGameObjectCentre(GameplayManager.GetClosestEnemy(transform.position).gameObject);
-
-        Vector2 enemyPos = Vector2.negativeInfinity;
-
-        if (!GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange))
-        {
-            ZeroLength();
-            return;
-        }
     }
 
     private void ZeroLength()
@@ -53,11 +40,15 @@ public class LightningBolt : AOEObject
             );
     }
 
-    void Zap(Vector2 enemyPos)
+    public void Zap()
     {
+        float range = Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE;
+
+        Vector2 enemyPos = (Vector2)GameplayManager.GetFurthestEnemyInRange(transform.position, range).transform.position;
+
         Vector2 dir = GameplayManager.GetDirectionToEnemy(
-    transform.position, GameplayManager.GetFurthestEnemyInRange(transform.position,
-    kBaseRange * m_AbilitySource.GetTotalStats().AOE));
+            transform.position, GameplayManager.GetFurthestEnemyInRange(transform.position,
+            range));
 
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
 
@@ -80,16 +71,16 @@ public class LightningBolt : AOEObject
     // Function for when the lightning jumps to another target.
     private void LightningJump(GameObject enemy)
     {
-        if (kJumpCount >= kJumpLimit) return;
+        if (m_JumpCount >= kJumpLimit) return;
 
         GameObject newLightning = Instantiate(m_LightningPrefab);
         newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, 0.4f);
-        kJumpCount++;
+        m_JumpCount++;
     }
 
     protected override void DestroySelf()
     {
-        kJumpCount--;
+        m_JumpCount--;
         base.DestroySelf();
     }
 }
