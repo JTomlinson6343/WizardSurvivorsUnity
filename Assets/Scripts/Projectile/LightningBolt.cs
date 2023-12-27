@@ -18,8 +18,6 @@ public class LightningBolt : AOEObject
     private void Start()
     {
         Init(new Vector2(0, 0), m_AbilitySource, 0.2f);
-
-        StartCoroutine(WaitForValidTarget());
     }
 
     public override void Init(Vector2 pos, Ability ability, float lifetime)
@@ -53,25 +51,6 @@ public class LightningBolt : AOEObject
             GetComponent<SpriteRenderer>().size.x,
             0f
             );
-    }
-
-    IEnumerator WaitForValidTarget()
-    {
-        while (true)
-        {
-            if (GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange))
-            {
-                Zap(new Vector2(
-                    GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.x,
-                    GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.y));
-                break;
-            }
-            else
-            {
-                ZeroLength();
-                yield return null;
-            }
-        }
     }
 
     void Zap(Vector2 enemyPos)
