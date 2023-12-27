@@ -68,21 +68,17 @@ public class Enemy : Actor
 
         //currentVelocity -= moveDir * 1.0f;
 
-        if (otherObject.GetComponent<Player>() != null)
+        if (otherObject.GetComponent<Player>())
         {
             Enemy enemy = GetComponent<Enemy>();
             DamageInstanceData data = new(gameObject, otherObject);
             data.amount = enemy.m_ContactDamage;
             data.damageType = DamageType.Physical;
             data.doDamageNumbers = false;
+            Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
-            if (DamageManager.m_Instance.DamageInstance(data, transform.position) >= DamageOutput.validHit)
-            {
-                Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
-
-                //playerBody.velocity += GetComponent<Rigidbody2D>().velocity.normalized * 60.0f;
-                playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
-            }
+            // Knock player back
+            playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
         }
     }
 
