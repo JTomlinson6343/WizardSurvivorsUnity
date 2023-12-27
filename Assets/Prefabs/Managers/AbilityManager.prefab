@@ -207,7 +207,9 @@ MonoBehaviour:
   m_Data:
     name: Fireball
     damageType: 0
-    description: Fires a fireball that explodes on impact
+    description: 'Fires a fireball that explodes on impact.
+
+      (5s cooldown)'
     levelUpInfo: +20% damage
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_ProjectileLifetime: 2
@@ -408,7 +410,9 @@ MonoBehaviour:
   m_Data:
     name: Cross Shot
     damageType: 0
-    description: Fires four fireballs diagonally (2s cooldown)
+    description: 'Fires four fireballs diagonally
+
+      (2s cooldown)'
     levelUpInfo: +20% damage
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
@@ -889,7 +893,10 @@ MonoBehaviour:
   m_Data:
     name: Black Hole
     damageType: 5
-    description: Fire a black hole to suck in and damage any enemies in its area.
+    description: 'Fire a black hole to suck in and damage any enemies in its area.
+
+      (10s
+      cooldown)'
     levelUpInfo: +20% damage
     icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
   m_ProjectileLifetime: 2
@@ -1982,8 +1989,9 @@ MonoBehaviour:
   m_Data:
     name: Lightning
     damageType: 2
-    description: Fire a bolt of lightning at the furthest enemy in range that jumps
-      to other enemies. AOE increases range and pierce increases number of jumps.
+    description: "Fire a bolt of lightning at the furthest enemy in range that jumps
+      to other enemies. \n(5s cooldown)\n\nAOE increases range.\nPierce increases
+      number of jumps."
     levelUpInfo: 
     icon: {fileID: 858001479, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_LightningPrefab: {fileID: 2166970280264147096, guid: 083b444d868984b44840e3961d0e7c2e, type: 3}
