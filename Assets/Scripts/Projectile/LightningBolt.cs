@@ -37,13 +37,7 @@ public class LightningBolt : AOEObject
         // Get position of furthest enemy in range
         Vector2 enemyPos = (Vector2)GameplayManager.GetFurthestEnemyInRange(transform.position, range).transform.position;
 
-        // Get direction to point towards
-        Vector2 dir = GameplayManager.GetDirectionToEnemy(
-            transform.position, GameplayManager.GetFurthestEnemyInRange(transform.position,
-            range));
-
-        // Point towards said direction
-        transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
+        GameplayManager.PointTowards(enemyPos, gameObject);
 
         // Extend lightning bolt towards enemy position
         GetComponent<SpriteRenderer>().size = new Vector2(
