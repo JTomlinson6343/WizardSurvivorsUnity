@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrossShot : Ability
+public class CrossShot : Spell
 {
     [SerializeField] float m_Lifetime;
     public override void OnCast()

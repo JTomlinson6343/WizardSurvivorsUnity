@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spinning : Ability
+public class Spinning : Spell
 {
     [SerializeField] float m_Radius;
     public override void OnCast()

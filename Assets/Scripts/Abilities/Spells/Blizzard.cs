@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blizzard : Ability
+public class Blizzard : Spell
 {
     GameObject m_AOEObject;
     [SerializeField] GameObject m_Fog;
