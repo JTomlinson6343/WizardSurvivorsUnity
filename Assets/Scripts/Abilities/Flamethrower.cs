@@ -22,6 +22,8 @@ public class Flamethrower : Ability
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
 
         if (!m_Enabled) return;
+
+        // While left mouse is held, enable flamethrower after a short lockout delay
         Vector2 vec = Player.m_Instance.GetAimDirection().normalized;
         if (Input.GetMouseButton(0))
         {

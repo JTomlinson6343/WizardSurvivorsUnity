@@ -21,6 +21,7 @@ public struct AbilityData
 [System.Serializable]
 public struct AbilityStats
 {
+    // Operator functions for adding ability stats together.
     public static AbilityStats operator +(AbilityStats left, AbilityStats right)
     {
         AbilityStats stats;
@@ -101,11 +102,16 @@ public class Ability : MonoBehaviour
 
     protected readonly float kDefaultAutofireRange = 6f;
 
+    //Getters//
+    public AbilityStats GetBonusStats() { return m_BonusStats; }
+    public AbilityStats GetTotalStats() { return m_TotalStats; }
+
     virtual public void Start()
     {
         UpdateTotalStats();
     }
 
+    // Called when the ability is chosen on the ability menu
     virtual public void OnChosen()
     {
         if (!m_Enabled)
@@ -126,6 +132,7 @@ public class Ability : MonoBehaviour
         Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
+    // Called every time the cooldown ends
     virtual public void OnCast()
     {
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
@@ -138,15 +145,11 @@ public class Ability : MonoBehaviour
         OnCast();
     }
 
+    #region Stats
     public void AddBonusStats(AbilityStats stats)
     {
         m_BonusStats += stats;
         UpdateTotalStats();
-    }
-
-    public AbilityStats GetBonusStats()
-    {
-        return m_BonusStats;
     }
 
     virtual public void UpdateTotalStats()
@@ -154,11 +157,6 @@ public class Ability : MonoBehaviour
         // Update total stats. Bonus stats are applied as a percentage of the base damage
         m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
         m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
-    }
-
-    public AbilityStats GetTotalStats()
-    {
-        return m_TotalStats;
     }
 
     public void AddTempStats(AbilityStats stats)
@@ -174,6 +172,7 @@ public class Ability : MonoBehaviour
         m_BonusStats -= stats;
         UpdateTotalStats();
     }
+    #endregion
 
     // Called on level up and calls a different function depending on current ability level
     public virtual void LevelUp()
