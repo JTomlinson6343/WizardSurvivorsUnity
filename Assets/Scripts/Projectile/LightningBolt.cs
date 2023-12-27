@@ -71,6 +71,8 @@ public class LightningBolt : AOEObject
     {
         if (m_JumpCount >= kJumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
 
+        if (GameplayManager.GetAllEnemiesInRange(transform.position, Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE).Count <= 1) return;
+
         GameObject newLightning = Instantiate(m_LightningPrefab);
         newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, m_Lifetime);
         m_JumpCount++;
