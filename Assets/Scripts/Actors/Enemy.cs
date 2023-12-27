@@ -77,6 +77,8 @@ public class Enemy : Actor
             data.doDamageNumbers = false;
             Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
+            DamageManager.m_Instance.DamageInstance(data, transform.position);
+
             // Knock player back
             playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
         }
