@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lightning : Ability
+public class Lightning : Spell
 {
     [SerializeField] GameObject m_LightningPrefab;
     public static readonly float kBaseRange = 6f;

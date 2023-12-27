@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Firebolt : Ability
+public class Firebolt : Spell
 {
     [SerializeField] protected float m_ProjectileLifetime;
     public override void OnMouseInput(Vector2 aimDirection)
