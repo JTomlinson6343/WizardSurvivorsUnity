@@ -14,6 +14,8 @@ public class Lightning : Ability
         {
             GameObject newLightning = Instantiate(m_LightningPrefab);
 
+            newLightning.transform.SetParent(Player.m_Instance.transform);
+
             newLightning.GetComponent<LightningBolt>().Init(Player.m_Instance.GetStaffTransform().position, this, 0.4f);
         }
     }

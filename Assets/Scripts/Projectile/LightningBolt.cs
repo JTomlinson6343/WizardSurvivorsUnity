@@ -8,22 +8,20 @@ using static UnityEditor.PlayerSettings;
 public class LightningBolt : AOEObject
 {
     float m_LengthModifier;
+    float m_Lifetime;
 
     static readonly int kJumpLimit = 3;
     static int m_JumpCount = 0;
 
     [SerializeField] GameObject m_LightningPrefab;
 
-    private void Start()
-    {
-        Init(new Vector2(0, 0), m_AbilitySource, 0.2f);
-    }
-
     public override void Init(Vector2 pos, Ability ability, float lifetime)
     {
         m_AbilitySource = ability;
-        transform.position = pos;
+        transform.position = pos;// Player.m_Instance.GetStaffTransform().position;
         InitLengthModifier();
+        m_Lifetime = lifetime;
+        StartLifetimeTimer(lifetime);
         Zap();
     }
 
@@ -71,10 +69,10 @@ public class LightningBolt : AOEObject
     // Function for when the lightning jumps to another target.
     private void LightningJump(GameObject enemy)
     {
-        if (m_JumpCount >= kJumpLimit) return;
+        if (m_JumpCount >= kJumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
 
         GameObject newLightning = Instantiate(m_LightningPrefab);
-        newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, 0.4f);
+        newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, m_Lifetime);
         m_JumpCount++;
     }
 
