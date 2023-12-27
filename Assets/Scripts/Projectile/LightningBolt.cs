@@ -17,16 +17,16 @@ public class LightningBolt : AOEObject
 
     private void Start()
     {
-        InitLengthModifier();
+        Init(new Vector2(0, 0), m_AbilitySource, 0.2f);
+
+        StartCoroutine(WaitForValidTarget());
     }
 
     public override void Init(Vector2 pos, Ability ability, float lifetime)
     {
         m_AbilitySource = ability;
-        StartLifetimeTimer(lifetime);
         transform.position = pos;
         InitLengthModifier();
-        print(m_LengthModifier);
     }
 
     private void InitLengthModifier()
@@ -40,38 +40,11 @@ public class LightningBolt : AOEObject
 
         Vector2 enemyPos = Vector2.negativeInfinity;
 
-        if (!GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange)) 
+        if (!GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange))
         {
             ZeroLength();
             return;
         }
-        
-        enemyPos = new Vector2(
-        GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.x,
-        GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.y);
-
-        if (Vector2.Distance(enemyPos, transform.position) > kBaseRange * m_AbilitySource.GetTotalStats().AOE)
-        {
-            ZeroLength();
-            return;
-        }
-
-        if (enemyPos == Vector2.negativeInfinity)
-        {
-            ZeroLength();
-            return;
-        }
-
-        Vector2 dir = GameplayManager.GetDirectionToEnemy(
-            transform.position,GameplayManager.GetFurthestEnemyInRange(transform.position,
-            kBaseRange * m_AbilitySource.GetTotalStats().AOE));
-
-        transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
-
-        GetComponent<SpriteRenderer>().size = new Vector2(
-            GetComponent<SpriteRenderer>().size.x,
-            Vector2.Distance((Vector2)transform.position, enemyPos) * m_LengthModifier
-            );
     }
 
     private void ZeroLength()
@@ -79,6 +52,39 @@ public class LightningBolt : AOEObject
         GetComponent<SpriteRenderer>().size = new Vector2(
             GetComponent<SpriteRenderer>().size.x,
             0f
+            );
+    }
+
+    IEnumerator WaitForValidTarget()
+    {
+        while (true)
+        {
+            if (GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange))
+            {
+                Zap(new Vector2(
+                    GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.x,
+                    GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.y));
+                break;
+            }
+            else
+            {
+                ZeroLength();
+                yield return null;
+            }
+        }
+    }
+
+    void Zap(Vector2 enemyPos)
+    {
+        Vector2 dir = GameplayManager.GetDirectionToEnemy(
+    transform.position, GameplayManager.GetFurthestEnemyInRange(transform.position,
+    kBaseRange * m_AbilitySource.GetTotalStats().AOE));
+
+        transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
+
+        GetComponent<SpriteRenderer>().size = new Vector2(
+            GetComponent<SpriteRenderer>().size.x,
+            Vector2.Distance((Vector2)transform.position, enemyPos) * m_LengthModifier
             );
     }
 
