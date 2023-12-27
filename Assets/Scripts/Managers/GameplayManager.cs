@@ -46,26 +46,26 @@ public static class GameplayManager
         return closestEnemy;
     }
 
-    //public static GameObject GetFurthestEnemyInRange(Vector2 pos, float radius)
-    //{
-    //    if (EnemySpawner.m_Instance == null) return null;
+    public static GameObject GetFurthestEnemyInRange(Vector2 pos, float radius)
+    {
+        if (EnemySpawner.m_Instance == null) return null;
 
-    //    float maxDist = 0;
-    //    GameObject closestEnemy = null;
+        float maxDist = 0;
+        GameObject furthestEnemy = null;
 
-    //    foreach (GameObject enemy in GetAllEnemiesInRange(pos, radius))
-    //    {
-    //        // Calculate distance from enemy
-    //        float dist = Vector3.Distance(enemy.transform.position, pos);
-    //        if (dist > maxDist)
-    //        {
-    //            // If enemy is closer than the closest enemy so far, set closest enemy to this
-    //            maxDist = dist;
-    //            closestEnemy = enemy;
-    //        }
-    //    }
-    //    return closestEnemy;
-    //}
+        foreach (GameObject enemy in GetAllEnemiesInRange(pos, radius))
+        {
+            // Calculate distance from enemy
+            float dist = Vector3.Distance(enemy.transform.position, pos);
+            if (dist > maxDist)
+            {
+                // If enemy is closer than the closest enemy so far, set closest enemy to this
+                maxDist = dist;
+                furthestEnemy = enemy;
+            }
+        }
+        return furthestEnemy;
+    }
 
     public static Vector2 GetDirectionToEnemy(Vector2 pos, GameObject enemy)
     {

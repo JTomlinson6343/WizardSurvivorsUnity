@@ -11,7 +11,7 @@ public class LightningBolt : AOEObject
 
     static readonly int kJumpLimit = 3;
     static int kJumpCount = 0;
-    readonly float kBaseRange = 5f;
+    readonly float kBaseRange = 6f;
 
     [SerializeField] GameObject m_LightningPrefab;
 
@@ -40,15 +40,15 @@ public class LightningBolt : AOEObject
 
         Vector2 enemyPos = Vector2.negativeInfinity;
 
-        if (!GameplayManager.GetClosestEnemyInRange(transform.position, kBaseRange)) 
+        if (!GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange)) 
         {
             ZeroLength();
             return;
         }
         
         enemyPos = new Vector2(
-        GameplayManager.GetClosestEnemyInRange(transform.position, kBaseRange).transform.position.x,
-        GameplayManager.GetClosestEnemyInRange(transform.position, kBaseRange).transform.position.y);
+        GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.x,
+        GameplayManager.GetFurthestEnemyInRange(transform.position, kBaseRange).transform.position.y);
 
         if (Vector2.Distance(enemyPos, transform.position) > kBaseRange * m_AbilitySource.GetTotalStats().AOE)
         {
@@ -63,7 +63,7 @@ public class LightningBolt : AOEObject
         }
 
         Vector2 dir = GameplayManager.GetDirectionToEnemy(
-            transform.position,GameplayManager.GetClosestEnemyInRange(transform.position,
+            transform.position,GameplayManager.GetFurthestEnemyInRange(transform.position,
             kBaseRange * m_AbilitySource.GetTotalStats().AOE));
 
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
