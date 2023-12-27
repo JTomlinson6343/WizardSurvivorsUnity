@@ -33,6 +33,12 @@ public class LightningBolt : AOEObject
     {
         float range = Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE;
 
+        if (!GameplayManager.GetFurthestEnemyInRange(transform.position, range))
+        {
+            DestroySelf();
+            return;
+        }
+
         // Get position of furthest enemy in range
         Vector2 enemyPos = (Vector2)GameplayManager.GetFurthestEnemyInRange(transform.position, range).transform.position;
 
