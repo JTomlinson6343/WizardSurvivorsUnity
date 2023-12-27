@@ -48,13 +48,14 @@ public class SkillTree : MonoBehaviour
 
     private int GetCurrentLevelCost()
     {
+        // If the number of costs defined is less/equal to the current level of the skill, return -1. If this happens, it is due to human error.
         if (m_CurrentSkill.m_Cost.Length <= m_CurrentSkill.m_Data.level)
             return -1;
         else
             return m_CurrentSkill.m_Cost[m_CurrentSkill.m_Data.level];
-
     }
 
+    // Message displayed for what happens when leveling up the skill
     private string GetCurrentOnLevelUpMessage()
     {
         if (m_CurrentSkill.m_Cost.Length <= m_CurrentSkill.m_Data.level || m_CurrentSkill.m_Data.level == 0)
@@ -142,18 +143,23 @@ public class SkillTree : MonoBehaviour
     {
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
+        // Re-lock all skills and set their levels to 0
         foreach (SkillIcon skill in skills)
         {
             skill.Lock();
             skill.m_Data.level = 0;
         }
 
+        // Refund all spent skill points.
         m_CurrentSkillPoints = m_TotalSkillPoints;
+
+        // Reset the skill tree visuals
         UpdateSkillPointsLabel();
         SetHighlightedSkill(null);
         GreyOrWhitePass();
     }
 
+    // Called every time an an ability is unlocked or reset.
     void GreyOrWhitePass()
     {
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
@@ -164,6 +170,7 @@ public class SkillTree : MonoBehaviour
         }
     }
 
+    // Return to character menu
     void OnBackPressed()
     {
         OnCloseSkillTreeMenu();
@@ -171,6 +178,7 @@ public class SkillTree : MonoBehaviour
         CharacterMenu.m_Instance.gameObject.SetActive(true);
     }
 
+    // Enable certain skills in skill manager in the main game depending on which skills are enabled on the menu
     public void PassEnabledSkillsToManager()
     {
         SaveManager.SaveToFile();

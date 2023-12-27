@@ -22,7 +22,8 @@ public class Projectile : MonoBehaviour
         rb.velocity = dir * speed;
 
         // Rotate projectile in direction of travel
-        transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
+        GameplayManager.PointInDirection(dir, gameObject);
+        //transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
 
         m_PierceCount = m_AbilitySource.GetTotalStats().pierceAmount;
     }

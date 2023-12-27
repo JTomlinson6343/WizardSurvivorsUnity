@@ -30,26 +30,16 @@ public class LightningBolt : AOEObject
         m_LengthModifier = 1f / (transform.localScale.y * 0.9f);
     }
 
-    private void ZeroLength()
-    {
-        GetComponent<SpriteRenderer>().size = new Vector2(
-            GetComponent<SpriteRenderer>().size.x,
-            0f
-            );
-    }
-
     public void Zap()
     {
         float range = Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE;
 
+        // Get position of furthest enemy in range
         Vector2 enemyPos = (Vector2)GameplayManager.GetFurthestEnemyInRange(transform.position, range).transform.position;
 
-        Vector2 dir = GameplayManager.GetDirectionToEnemy(
-            transform.position, GameplayManager.GetFurthestEnemyInRange(transform.position,
-            range));
+        GameplayManager.PointTowards(enemyPos, gameObject);
 
-        transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
-
+        // Extend lightning bolt towards enemy position
         GetComponent<SpriteRenderer>().size = new Vector2(
             GetComponent<SpriteRenderer>().size.x,
             Vector2.Distance((Vector2)transform.position, enemyPos) * m_LengthModifier
@@ -69,8 +59,9 @@ public class LightningBolt : AOEObject
     // Function for when the lightning jumps to another target.
     private void LightningJump(GameObject enemy)
     {
+        // If the lightning has already jumped the max number of times, return
         if (m_JumpCount >= kJumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
-
+        // If there are no other enemies in range, return
         if (GameplayManager.GetAllEnemiesInRange(transform.position, Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE).Count <= 1) return;
 
         GameObject newLightning = Instantiate(m_LightningPrefab);

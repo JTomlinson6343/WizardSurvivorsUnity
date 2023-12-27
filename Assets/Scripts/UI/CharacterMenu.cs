@@ -46,6 +46,7 @@ public class CharacterMenu : MonoBehaviour
         UpdateInfo(m_CurrentCharIcon);
     }
 
+    // Display info on info panel based on selected character
     public void UpdateInfo(CharacterIcon charIcon)
     {
         if (charIcon == null)
@@ -73,6 +74,7 @@ public class CharacterMenu : MonoBehaviour
         m_CurrentCharacterSkillTree.gameObject.SetActive(true);
     }
 
+    // Pass character information into player manager and load main scene
     public void OnStartPressed()
     {
         if (m_CurrentCharacter == null)

@@ -80,6 +80,7 @@ public class SkillIcon : MonoBehaviour
         m_Unlocked = false;
     }
 
+    // Displays skills as light or dark based on if theyre able to be unlocked
     public void GreyOrWhite()
     {
         if (m_Unlocked) return;

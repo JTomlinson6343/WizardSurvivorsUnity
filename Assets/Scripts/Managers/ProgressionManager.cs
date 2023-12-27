@@ -101,6 +101,7 @@ public class ProgressionManager : MonoBehaviour
             Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
             if (!rb) return;
 
+            // Fire pickup in a random direction
             rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed), Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed));
         }
     }
@@ -173,8 +174,10 @@ public class ProgressionManager : MonoBehaviour
 
         EnemySpawner.m_Instance.PurgeEnemies();
 
+        // Save skill points to file
         PlayerManager.m_Instance.SaveSkillPoints(m_SkillPointsGained);
 
+        // Display game over screen
         m_GameOverInfoLabel.text = "Enemies Killed: " + m_EnemiesKilled.ToString() + "\n";
         if (m_ChampionsKilled > 0)
         {

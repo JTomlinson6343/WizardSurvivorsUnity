@@ -43,6 +43,7 @@ public class SaveManager
         {
             SkillTree tree = m_SkillTrees[i];
             SkillIcon[] skills = tree.GetComponentsInChildren<SkillIcon>();
+            // Serialise data in skill tree into save data format
             m_SaveData.skillTrees[i].totalPoints = tree.m_TotalSkillPoints;
             m_SaveData.skillTrees[i].currentPoints = tree.m_CurrentSkillPoints;
             m_SaveData.skillTrees[i].skills = new int[skills.Length];
@@ -52,7 +53,7 @@ public class SaveManager
                 m_SaveData.skillTrees[i].skills[j] = skills[j].m_Data.level;
             }
         }
-
+        // Save data as JSON
         string json = JsonUtility.ToJson(m_SaveData, true);
         File.WriteAllText(m_Path, json);
         Debug.Log(json);
@@ -69,11 +70,13 @@ public class SaveManager
             return;
         }
 
+        // Convert json into save data format
         string json = File.ReadAllText(m_Path);
         m_SaveData = JsonUtility.FromJson<SaveData>(json);
 
         for (int i = 0; i < m_SaveData.skillTrees.Length; i++)
         {
+            // De-serialise data from save data into skill tree data
             SkillTreeData treeData = m_SaveData.skillTrees[i];
             int[] skillData = m_SaveData.skillTrees[i].skills;
             SkillTree tree = m_SkillTrees[i];

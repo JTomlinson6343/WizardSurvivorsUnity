@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
         if (m_Character == null)
             return;
 
+        // Spawn character passed in by character menu
         Instantiate(m_Character);
         m_Character.transform.position = Vector3.zero;
     }

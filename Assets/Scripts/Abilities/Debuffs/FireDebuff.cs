@@ -20,9 +20,10 @@ public class FireDebuff : Debuff
         if (GetComponentInChildren<Light2D>() != null )
             return;
 
+        // Add fire particle effect to enemy inflicted with this debuff
         m_FireEffect = Instantiate(m_FireParticlePrefab);
-        //m_FireEffect.transform.SetParent(gameObject.transform, false);
 
+        // Add light to enemy
         m_Light = gameObject.AddComponent<Light2D>();
         m_Light.intensity = 5;
         m_Light.color = m_LightPrefab.color;

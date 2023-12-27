@@ -29,6 +29,7 @@ public class Debuff : MonoBehaviour
 
     public static bool IsDebuffPresent(GameObject gameObject, DebuffType debuffType)
     {
+        // Check if a debuff with the same type is already present
         foreach (Debuff debuff in gameObject.GetComponents<Debuff>())
         {
             if (debuff.m_DebuffType == debuffType) return true;
@@ -114,6 +115,7 @@ public class Debuff : MonoBehaviour
         Destroy(this);
     }
 
+    // Called once per tick of the debuff
     virtual protected void OnTick()
     {
         DamageInstanceData data = new DamageInstanceData(m_Source,gameObject);
