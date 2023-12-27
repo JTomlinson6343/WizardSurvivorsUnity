@@ -17,6 +17,6 @@ public class Lightning : Spell
 
         newLightning.transform.SetParent(Player.m_Instance.transform);
 
-        newLightning.GetComponent<ParentLightningBolt>().Init(Player.m_Instance.GetStaffTransform().position, this, 0.4f);
+        newLightning.GetComponent<ParentLightningBolt>().Init(Player.m_Instance.GetStaffTransform().position, this, 0.2f);
     }
 }
