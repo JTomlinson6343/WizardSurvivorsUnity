@@ -52,10 +52,6 @@ public class Actor : MonoBehaviour
     {
         return OnDamage(amount);
     }
-    virtual public DamageOutput TakeDamageNoIFrames(float amount)
-    {
-        return OnDamage(amount);
-    }
 
     // Called when a valid hit is registered
     virtual public DamageOutput OnDamage(float amount)

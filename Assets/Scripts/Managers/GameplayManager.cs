@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public static class GameplayManager
 {
-    public static List<GameObject> GetAllEnemiesInRadius(Vector2 pos, float radius)
+    public static List<GameObject> GetAllEnemiesInRange(Vector2 pos, float radius)
     {
         if (EnemySpawner.m_Instance == null) return null;
 
@@ -22,14 +24,15 @@ public static class GameplayManager
         }
         return outEnemies;
     }
-    public static Vector2 GetClosestEnemyPos(Vector2 pos)
+
+    public static GameObject GetClosestEnemyInRange(Vector2 pos, float radius)
     {
-        if (EnemySpawner.m_Instance == null) return Vector2.negativeInfinity;
+        if (EnemySpawner.m_Instance == null) return null;
 
         float minDist = Mathf.Infinity;
-        Enemy closestEnemy = null;
+        GameObject closestEnemy = null;
 
-        foreach (Enemy enemy in EnemySpawner.m_Instance.GetComponentsInChildren<Enemy>())
+        foreach (GameObject enemy in GetAllEnemiesInRange(pos, radius))
         {
             // Calculate distance from enemy
             float dist = Vector3.Distance(enemy.transform.position, pos);
@@ -40,12 +43,33 @@ public static class GameplayManager
                 closestEnemy = enemy;
             }
         }
-        return closestEnemy.transform.position;
+        return closestEnemy;
     }
 
-    public static Vector2 GetDirectionToEnemy(Vector2 pos)
+    public static GameObject GetFurthestEnemyInRange(Vector2 pos, float radius)
     {
-        return (GetClosestEnemyPos(pos) - pos).normalized;
+        if (EnemySpawner.m_Instance == null) return null;
+
+        float maxDist = 0;
+        GameObject furthestEnemy = null;
+
+        foreach (GameObject enemy in GetAllEnemiesInRange(pos, radius))
+        {
+            // Calculate distance from enemy
+            float dist = Vector3.Distance(enemy.transform.position, pos);
+            if (dist > maxDist)
+            {
+                // If enemy is closer than the closest enemy so far, set closest enemy to this
+                maxDist = dist;
+                furthestEnemy = enemy;
+            }
+        }
+        return furthestEnemy;
+    }
+
+    public static Vector2 GetDirectionToEnemy(Vector2 pos, GameObject enemy)
+    {
+        return ((Vector2)enemy.transform.position - pos).normalized;
     }
 
     public static string IntToRomanNumeral(int num)

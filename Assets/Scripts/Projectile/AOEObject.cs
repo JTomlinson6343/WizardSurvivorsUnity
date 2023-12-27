@@ -6,6 +6,12 @@ public class AOEObject : Projectile
 {
     protected override void OnEnemyHit(GameObject enemy)
     {
+        if (m_HitEnemies.Contains(enemy)) return;
+
+        m_HitEnemies.Add(enemy);
+
+        StartCoroutine(EndEnemyCooldown(enemy));
+
         DamageEnemy(enemy);
     }
 
@@ -19,11 +25,11 @@ public class AOEObject : Projectile
         DamageManager.m_Instance.DamageInstance(data, enemy.transform.position);
     }
 
-    public void Init(Vector2 pos, Ability ability, float lifetime)
+    public virtual void Init(Vector2 pos, Ability ability, float lifetime)
     {
-        GetComponent<Projectile>().m_AbilitySource = ability;
+        m_AbilitySource = ability;
         transform.localScale = new Vector2(ability.GetTotalStats().AOE, ability.GetTotalStats().AOE);
-        GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+        StartLifetimeTimer(lifetime);
         transform.position = pos;
     }
 

@@ -207,7 +207,9 @@ MonoBehaviour:
   m_Data:
     name: Fireball
     damageType: 0
-    description: Fires a fireball that explodes on impact
+    description: 'Fires a fireball that explodes on impact.
+
+      (5s cooldown)'
     levelUpInfo: +20% damage
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_ProjectileLifetime: 2
@@ -408,7 +410,9 @@ MonoBehaviour:
   m_Data:
     name: Cross Shot
     damageType: 0
-    description: Fires four fireballs diagonally (2s cooldown)
+    description: 'Fires four fireballs diagonally
+
+      (2s cooldown)'
     levelUpInfo: +20% damage
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_Lifetime: 2
@@ -815,6 +819,7 @@ MonoBehaviour:
   - {fileID: 6463285543125099977}
   - {fileID: 962118566423954903}
   - {fileID: 7835109944898195398}
+  - {fileID: 6229028645011167872}
   m_BuffAbilities:
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
@@ -888,7 +893,10 @@ MonoBehaviour:
   m_Data:
     name: Black Hole
     damageType: 5
-    description: Fire a black hole to suck in and damage any enemies in its area.
+    description: 'Fire a black hole to suck in and damage any enemies in its area.
+
+      (10s
+      cooldown)'
     levelUpInfo: +20% damage
     icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
   m_ProjectileLifetime: 2
@@ -1672,6 +1680,7 @@ Transform:
   - {fileID: 2476588330463725169}
   - {fileID: 5681418072448918305}
   - {fileID: 6735998765025304221}
+  - {fileID: 5364458179868387482}
   m_Father: {fileID: 108723972155499655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1920,6 +1929,72 @@ MonoBehaviour:
     shotSpeed: 0
     maxHealth: 20
     healthRegen: 0
+--- !u!1 &8590091372280641179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5364458179868387482}
+  - component: {fileID: 6229028645011167872}
+  m_Layer: 0
+  m_Name: Lightning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5364458179868387482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590091372280641179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6229028645011167872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590091372280641179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460f9b200ea2c094a883fd253ee35fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DamageUpgradeAmount: 0
+  m_isMaxed: 0
+  m_BaseStats:
+    AOE: 1
+    duration: 0
+    damage: 20
+    speed: 0
+    cooldown: 5
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: Lightning
+    damageType: 2
+    description: "Fire a bolt of lightning at the furthest enemy in range that jumps
+      to other enemies. \n(5s cooldown)\n\nAOE increases range.\nPierce increases
+      number of jumps."
+    levelUpInfo: 
+    icon: {fileID: 858001479, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_LightningPrefab: {fileID: 2166970280264147096, guid: 083b444d868984b44840e3961d0e7c2e, type: 3}
 --- !u!1 &9143691106947824035
 GameObject:
   m_ObjectHideFlags: 0

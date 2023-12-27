@@ -95,7 +95,11 @@ public class Ability : MonoBehaviour
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
     protected AbilityStats m_AbilityStatsBuffs;
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
-    public AbilityData     m_Data;        // Info about the ability to display on upgrad screen
+    public AbilityData     m_Data;        // Info about the ability to display on upgrade screen
+
+    private List<GameObject> m_HitEnemies = new List<GameObject>();
+
+    protected readonly float kDefaultAutofireRange = 6f;
 
     virtual public void Start()
     {
@@ -184,4 +188,25 @@ public class Ability : MonoBehaviour
     }
 
     public int GetLevel() { return m_Level; }
+
+    // Cooldown to prevent the same enemy from being affected by this ability too often.
+    public void StartDamageCooldown(GameObject enemy)
+    {
+        m_HitEnemies.Add(enemy);
+        StartCoroutine(EndDamageCooldown(enemy));
+    }
+
+    private IEnumerator EndDamageCooldown(GameObject enemy)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        m_HitEnemies.Remove(enemy);
+    }
+
+    public bool DamageOnCooldownCheck(GameObject enemy)
+    {
+        if (m_HitEnemies.Contains(enemy)) return true;
+
+        return false;
+    }
 }

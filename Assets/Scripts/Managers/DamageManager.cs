@@ -30,7 +30,6 @@ public class DamageInstanceData
     public bool didCrit = false;
     public bool didKill = false;
     public bool isDoT = false;
-    public bool doIFrames = true;
     public bool doDamageNumbers = true;
     public bool doSoundEffect = true;
 }
@@ -56,15 +55,9 @@ public class DamageManager : MonoBehaviour
 
         Actor actorComponent = data.target.GetComponent<Actor>();
         DamageOutput damageOutput = 0;
-        if (data.doIFrames)
-        {
-            // Damage actor
-            damageOutput = actorComponent.TakeDamage(data.amount);
-        }
-        else
-        {
-            damageOutput = actorComponent.TakeDamageNoIFrames(data.amount);
-        }
+
+        damageOutput = actorComponent.TakeDamage(data.amount);
+
         if (damageOutput >= DamageOutput.invalidHit && data.doDamageNumbers)
         {
             // Spawn damage numbers

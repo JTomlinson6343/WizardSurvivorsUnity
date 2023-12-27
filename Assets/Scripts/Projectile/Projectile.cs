@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [HideInInspector] public Ability m_AbilitySource;
+    public Ability m_AbilitySource;
     protected int m_PierceCount;
 
     protected List<GameObject> m_HitEnemies = new List<GameObject>();
 
     virtual public void Init(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
     {
-        GetComponent<Projectile>().m_AbilitySource = ability;
-        GetComponent<Projectile>().StartLifetimeTimer(lifetime);
+        m_AbilitySource = ability;
+        StartLifetimeTimer(lifetime);
 
         // Set pos and velocity of bullet
         transform.position = pos;
