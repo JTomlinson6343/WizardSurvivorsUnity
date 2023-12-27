@@ -1980,7 +1980,7 @@ MonoBehaviour:
     duration: 0
     damage: 20
     speed: 0
-    cooldown: 0.5
+    cooldown: 5
     amount: 0
     knockback: 0
     pierceAmount: 0
