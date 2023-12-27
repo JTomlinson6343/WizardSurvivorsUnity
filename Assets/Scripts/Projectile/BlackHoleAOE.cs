@@ -15,6 +15,7 @@ public class BlackHoleAOE : DebuffAOE
 
         base.OnTriggerStay2D(collision);
 
+        // Pull all enemies in range into the centre
         Vector3 towardsCentre = (transform.position - collision.transform.position).normalized;
 
         collision.gameObject.transform.position += towardsCentre * kPullSpeedConst * m_SuckSpeed;

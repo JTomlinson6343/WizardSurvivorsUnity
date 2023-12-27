@@ -10,13 +10,14 @@ public class Lightning : Ability
     public override void OnCast()
     {
         base.OnCast();
-        if (GameplayManager.GetFurthestEnemyInRange(Player.m_Instance.GetStaffTransform().position, kBaseRange * m_TotalStats.AOE))
-        {
-            GameObject newLightning = Instantiate(m_LightningPrefab);
+        // If there is an enemy in range
+        if (!GameplayManager.GetFurthestEnemyInRange(Player.m_Instance.GetStaffTransform().position, kBaseRange * m_TotalStats.AOE)) return;
+        
+        GameObject newLightning = Instantiate(m_LightningPrefab);
 
-            newLightning.transform.SetParent(Player.m_Instance.transform);
+        newLightning.transform.SetParent(Player.m_Instance.transform);
 
-            newLightning.GetComponent<LightningBolt>().Init(Player.m_Instance.GetStaffTransform().position, this, 0.2f);
-        }
+        newLightning.GetComponent<LightningBolt>().Init(Player.m_Instance.GetStaffTransform().position, this, 0.2f);
+        
     }
 }

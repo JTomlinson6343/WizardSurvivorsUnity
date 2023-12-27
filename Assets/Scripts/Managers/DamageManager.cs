@@ -48,6 +48,9 @@ public class DamageManager : MonoBehaviour
         m_Instance = this;
     }
 
+    // Whenever damage is dealt, is goes via the damage manager with all the relevant data passed into it via 'data'.
+    // This data then determines what happens such as the colour of the damage numbers, sound effect played etc.
+    // This information is then passed to a damage instance event which some skills listen for to check if their conditions are met.
     public DamageOutput DamageInstance(DamageInstanceData data, Vector2 pos)
     {
         if (data.doSoundEffect)

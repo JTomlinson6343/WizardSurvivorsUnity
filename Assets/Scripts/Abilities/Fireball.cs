@@ -20,8 +20,7 @@ public class Fireball : Firebolt
     {
         GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), kDefaultAutofireRange);
 
-        if ((Vector2)closestEnemy.transform.position == Vector2.negativeInfinity)
-            return;
+        if (!closestEnemy) return;
 
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
             GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos(), closestEnemy),

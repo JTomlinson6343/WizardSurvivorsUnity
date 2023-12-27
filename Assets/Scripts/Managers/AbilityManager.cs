@@ -58,11 +58,13 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+    // Displays 4 spells for the player to choose
     public void ChoosePassiveAbility()
     {
         ShowAbilityOptions(m_PassiveAbilities);
         m_InstructionsLabel.text = m_SpellInstructions;
     }
+    // Displays 4 items for the player to choose
     public void ChooseBuffAbility()
     {
         ShowAbilityOptions(m_BuffAbilities);
@@ -73,6 +75,7 @@ public class AbilityManager : MonoBehaviour
     {
         if (abilities.Count == 0) return;
 
+        // Reset info panel
         m_NameLabel.text = "";
         m_DescriptionLabel.text = "";
 
@@ -181,6 +184,7 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+    // Called whenever an ability is highlighted
     void AbilityWasSelected(AbilityIcon icon)
     {
         if (!icon.image.enabled) return;
@@ -195,6 +199,7 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+    // Unlocks the currently highlighted ability
     void UnlockAbility()
     {
         m_HighlightedIcon.displayedAbility.OnChosen();
