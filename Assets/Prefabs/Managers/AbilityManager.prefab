@@ -1994,7 +1994,7 @@ MonoBehaviour:
       number of jumps."
     levelUpInfo: 
     icon: {fileID: 858001479, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
-  m_LightningPrefab: {fileID: 2166970280264147096, guid: 083b444d868984b44840e3961d0e7c2e, type: 3}
+  m_LightningPrefab: {fileID: 5106067701834446676, guid: 01c88d37db1c12843bf69f8fe2addc82, type: 3}
 --- !u!1 &9143691106947824035
 GameObject:
   m_ObjectHideFlags: 0

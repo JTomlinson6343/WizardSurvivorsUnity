@@ -8,24 +8,23 @@ using static UnityEditor.PlayerSettings;
 public class LightningBolt : AOEObject
 {
     float m_LengthModifier;
-    float m_Lifetime;
 
-    static readonly int kJumpLimit = 3;
-    static int m_JumpCount = 0;
+    ParentLightningBolt m_ParentLightning;
 
-    [SerializeField] GameObject m_LightningPrefab;
+    public GameObject m_LightningPrefab;
 
-    public override void Init(Vector2 pos, Ability ability, float lifetime)
+    public void Init(Vector2 pos, Ability ability, ParentLightningBolt parent)
     {
         m_AbilitySource = ability;
         transform.position = pos;// Player.m_Instance.GetStaffTransform().position;
+        m_ParentLightning = parent;
         InitLengthModifier();
-        m_Lifetime = lifetime;
-        StartLifetimeTimer(lifetime);
         Zap();
+        m_ParentLightning.m_JumpCount++;
+        m_ParentLightning.AddToChildBolts(gameObject);
     }
 
-    private void InitLengthModifier()
+    protected void InitLengthModifier()
     {
         m_LengthModifier = 1f / (transform.localScale.y * 0.9f);
     }
@@ -53,25 +52,18 @@ public class LightningBolt : AOEObject
         m_AbilitySource.StartDamageCooldown(enemy);
 
         base.OnEnemyHit(enemy);
-        LightningJump(enemy);
     }
 
     // Function for when the lightning jumps to another target.
-    private void LightningJump(GameObject enemy)
+    protected virtual void LightningJump(GameObject enemy)
     {
         // If the lightning has already jumped the max number of times, return
-        if (m_JumpCount >= kJumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
+        if (m_ParentLightning.m_JumpCount >= m_ParentLightning.kJumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
         // If there are no other enemies in range, return
         if (GameplayManager.GetAllEnemiesInRange(transform.position, Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE).Count <= 1) return;
 
         GameObject newLightning = Instantiate(m_LightningPrefab);
-        newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, m_Lifetime);
-        m_JumpCount++;
-    }
-
-    protected override void DestroySelf()
-    {
-        m_JumpCount--;
-        base.DestroySelf();
+        newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, m_ParentLightning);
+        m_ParentLightning.m_JumpCount++;
     }
 }
