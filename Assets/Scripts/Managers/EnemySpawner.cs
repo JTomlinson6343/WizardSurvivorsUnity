@@ -38,10 +38,11 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 GetSpawnPosition()
     {
-        Vector3 playerPos = Player.m_Instance.transform.position;
+        Vector2 playerPos = Player.m_Instance.transform.position;
 
-        Vector3 spawnPos = playerPos + new Vector3(Random.Range(-m_SpawnRadius, m_SpawnRadius), Random.Range(-m_SpawnRadius, m_SpawnRadius), 0).normalized * m_SpawnRadius;
+        Vector2 spawnPos = playerPos + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_SpawnRadius;
 
+        print(spawnPos);
         return spawnPos;
     }
 
@@ -71,8 +72,6 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
-
-        if (m_EnemyCount > m_SpawnLimit) print("MORE ENEMIES?");
 
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
         {

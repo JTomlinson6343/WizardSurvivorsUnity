@@ -16,6 +16,7 @@ public class SkillManager : MonoBehaviour
 
     private void Start()
     {
+        m_Instance = this;
         ActivateSkills();
     }
 
