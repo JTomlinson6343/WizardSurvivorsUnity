@@ -60,7 +60,7 @@ public class Player : Actor
     private float m_LastHit = 0.0f;
     float m_LastShot = 0;
 
-    public float m_IFramesTimer;
+    public float m_IFramesTime;
     private bool m_IsInvincible;
 
     Vector3 staffStartPos;
@@ -188,7 +188,7 @@ public class Player : Actor
     {
         m_IsInvincible = true;
         GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
-        Invoke(nameof(EndFlashing), m_IFramesTimer);
+        Invoke(nameof(EndFlashing), m_IFramesTime);
     }
 
     protected override void EndFlashing ()

@@ -299,7 +299,7 @@ MonoBehaviour:
     maxHealth: 200
     healthRegen: 0
   m_ActiveAbility: {fileID: 8201127561021254593}
-  m_IFramesTimer: 0.5
+  m_IFramesTime: 1
   m_Animator: {fileID: 3585064873875077332}
   m_AnimatorMask: {fileID: 3793565455578594936}
   spriteMask: {fileID: 5685897533416626910}

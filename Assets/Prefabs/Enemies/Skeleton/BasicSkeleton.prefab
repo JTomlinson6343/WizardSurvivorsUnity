@@ -260,4 +260,4 @@ MonoBehaviour:
   m_SkillPointDropChance: 0.15
   m_Speed: 1
   m_ContactDamage: 25
-  m_KnockbackModifier: 1
+  m_KnockbackModifier: 0
