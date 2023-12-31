@@ -120,8 +120,6 @@ public class Player : Actor
         m_RigidBody.velocity = currentVelocity;
 
         SetAnimState(targetVelocity);
-
-        UpdateHealthBar();
     }
 
     void SetAnimState(Vector3 targetVelocity)
@@ -162,16 +160,6 @@ public class Player : Actor
             m_AnimatorMask.SetBool("Idle", true); // Disable the idle state
         }
     }
-    void UpdateHealthBar()
-    {
-        Actor actorComponent = gameObject.GetComponent<Actor>();
-
-        float health = actorComponent.GetHealthAsRatio();
-
-        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
-
-        bar.UpdateSize(health);
-    }
 
     // If actor has i-frames, return false. Else, return true
     override public DamageOutput TakeDamage(float amount)
@@ -208,9 +196,6 @@ public class Player : Actor
     {
         m_TotalStats = m_BaseStats + m_BonusStats;
         UpdateHealth();
-
-        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
-        bar.UpdateSize(GetHealthAsRatio());
     }
     public void AddBonusStats(PlayerStats stats)
     {

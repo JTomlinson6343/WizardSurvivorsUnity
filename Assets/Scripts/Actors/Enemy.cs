@@ -123,4 +123,11 @@ public class Enemy : Actor
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemySpawner.m_Instance.IncrementEnemiesKilled();
     }
+
+    public void MakeChampion()
+    {
+        transform.localScale *= 2f;
+        m_MaxHealth *= 2f;
+        GetComponent<SpriteRenderer>().color = Color.red;
+    }
 }
