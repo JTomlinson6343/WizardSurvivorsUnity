@@ -88,9 +88,8 @@ public class Enemy : Actor
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
-        transform.localScale = new Vector3(
-        targetVelocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z
-        );
+        // If velocity > 0, don't flip. if it is less than, flip
+        sprite.flipX = targetVelocity.x > 0 ? false : true;
 
         if (targetVelocity.magnitude > 0)
         {

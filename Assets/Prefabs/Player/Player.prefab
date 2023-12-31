@@ -860,14 +860,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
-    - target: {fileID: 7671104541359663102, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7671104541359663102, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8403218026394921570, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
