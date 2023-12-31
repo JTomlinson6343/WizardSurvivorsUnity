@@ -55,7 +55,7 @@ public class Enemy : Actor
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         GameObject otherObject = collision.gameObject;
 
@@ -68,7 +68,7 @@ public class Enemy : Actor
 
         //currentVelocity -= moveDir * 1.0f;
 
-        if (otherObject.GetComponent<Player>())
+        if (otherObject.GetComponent<Player>() && !otherObject.GetComponent<Player>().m_IsInvincible)
         {
             Enemy enemy = GetComponent<Enemy>();
             DamageInstanceData data = new(gameObject, otherObject);

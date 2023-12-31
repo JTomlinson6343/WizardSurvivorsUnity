@@ -61,7 +61,7 @@ public class Player : Actor
     float m_LastShot = 0;
 
     public float m_IFramesTime;
-    private bool m_IsInvincible;
+    public bool m_IsInvincible;
 
     Vector3 staffStartPos;
 
