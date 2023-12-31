@@ -14,7 +14,7 @@ public class Enemy : Actor
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;
-    private readonly float m_kMoveSpeed = 2f;
+    private readonly float m_kBaseMoveSpeed = 2.3f;
 
     private Rigidbody2D m_RigidBody;
     private Animator m_Animator;
@@ -44,7 +44,7 @@ public class Enemy : Actor
         {
             Vector3 playerPos = Player.m_Instance.transform.position;
             Vector3 moveDir = (playerPos - currentPos).normalized;
-            Vector3 targetVelocity = moveDir * m_kMoveSpeed * m_Speed;
+            Vector3 targetVelocity = moveDir * m_kBaseMoveSpeed * m_Speed;
             Vector3 currentVelocity = m_RigidBody.velocity;
 
             currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
