@@ -23,7 +23,7 @@ public class Fireball : Firebolt
         if (!closestEnemy) return;
 
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
-            GameplayManager.GetDirectionToEnemy(Player.m_Instance.GetCentrePos(), closestEnemy),
+            GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetCentrePos(), closestEnemy),
             m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
 
         AudioManager.m_Instance.PlaySound(4);

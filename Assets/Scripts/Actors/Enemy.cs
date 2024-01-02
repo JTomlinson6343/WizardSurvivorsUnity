@@ -22,7 +22,7 @@ public class Enemy : Actor
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;
-    private readonly float m_kBaseMoveSpeed = 2.3f;
+    private readonly float m_kBaseMoveSpeed = 2.2f;
 
     private Rigidbody2D m_RigidBody;
     private Animator m_Animator;
