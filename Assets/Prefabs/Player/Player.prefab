@@ -667,6 +667,10 @@ PrefabInstance:
       propertyPath: m_BaseStats.AOE
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6916207627428093818, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
+      propertyPath: m_BaseStats.knockback
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7070313333552203497, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
       propertyPath: image
       value: 
@@ -675,10 +679,6 @@ PrefabInstance:
       propertyPath: m_FireballRef
       value: 
       objectReference: {fileID: 8201127561021254593}
-    - target: {fileID: 8087658994112551336, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
-      propertyPath: m_BaseStats.damage
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9205272294203817715, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
       propertyPath: m_BaseStats.damage
       value: 40

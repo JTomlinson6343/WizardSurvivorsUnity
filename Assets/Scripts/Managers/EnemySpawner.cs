@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     readonly float kHealthConstant = 10f;
     readonly float kGracePeriodTime = 2f;
-    readonly float kChampionChance = 0.01f;
+    readonly float kChampionChance = 0.5f;//0.01f;
 
     private Vector3 GetSpawnPosition()
     {
@@ -139,7 +139,7 @@ public class EnemySpawner : MonoBehaviour
         newEnemy.transform.SetParent(transform, false);
         newEnemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * newEnemy.GetComponent<Enemy>().m_HealthModifier;
 
-        if (Random.Range(0f, 1f) < kChampionChance)
+        if (Random.Range(0f, 1f) < kChampionChance * ProgressionManager.m_Instance.m_WaveCounter)
             newEnemy.GetComponent<Enemy>().MakeChampion();
 
         m_EnemyCount++;

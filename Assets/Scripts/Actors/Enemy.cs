@@ -27,6 +27,8 @@ public class Enemy : Actor
     private Rigidbody2D m_RigidBody;
     private Animator m_Animator;
 
+    [SerializeField] GameObject m_HealthbarPrefab;
+
     private void Awake()
     {
         m_Animator = GetComponentInChildren<Animator>();
@@ -150,5 +152,8 @@ public class Enemy : Actor
         transform.localScale *= kChampSizeMod;
         m_MaxHealth *= kChampHealthMod;
         GetComponentInChildren<SpriteRenderer>().color = kChampColour;
+        GameObject hpBar = Instantiate(m_HealthbarPrefab);
+        hpBar.transform.SetParent(transform, false);
+        hpBar.GetComponentInChildren<BasicBar>().m_Actor = this;
     }
 }

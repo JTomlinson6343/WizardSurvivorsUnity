@@ -9,7 +9,7 @@ public class BasicBar : MonoBehaviour
     [SerializeField] float current;
     [SerializeField] float max;
 
-    [SerializeField] Actor m_Actor;
+    public Actor m_Actor;
 
     private void Update()
     {
