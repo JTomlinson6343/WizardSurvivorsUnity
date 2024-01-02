@@ -9,6 +9,14 @@ public class Enemy : Actor
 
     [SerializeField] protected int m_XPAwarded;
     [SerializeField] float m_SkillPointDropChance;
+
+    [SerializeField] int m_MinChampSkillPoints;
+    [SerializeField] int m_MaxChampSkillPoints;
+    private bool m_IsChampion = false;
+    private readonly float kChampSizeMod = 2f;
+    private readonly float kChampHealthMod = 2f;
+    private readonly Color kChampColour = new Color(1, 0.3f, 0);
+
     [SerializeField] float m_Speed;
     [SerializeField] float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
@@ -116,10 +124,31 @@ public class Enemy : Actor
     {
         base.OnDeath();
 
+        if (m_IsChampion) ChampionDeath();
+        else              NormalDeath();
+
         ProgressionManager.m_Instance.SpawnXP(transform.position, m_XPAwarded);
-        RollForSkillPoint();
         ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemySpawner.m_Instance.IncrementEnemiesKilled();
+    }
+
+    private void NormalDeath()
+    {
+        RollForSkillPoint();
+    }
+
+    private void ChampionDeath()
+    {
+        ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, Random.Range(m_MinChampSkillPoints, m_MaxChampSkillPoints+1));
+        ProgressionManager.m_Instance.IncrementChampionKills();
+    }
+
+    public void MakeChampion()
+    {
+        m_IsChampion = true;
+        transform.localScale *= kChampSizeMod;
+        m_MaxHealth *= kChampHealthMod;
+        GetComponentInChildren<SpriteRenderer>().color = kChampColour;
     }
 }
