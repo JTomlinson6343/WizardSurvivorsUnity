@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     readonly float kHealthConstant = 10f;
     readonly float kGracePeriodTime = 2f;
-    readonly float kChampionChance = 0.5f;//0.01f;
+    readonly float kChampionChance = 0.01f;
 
     private Vector3 GetSpawnPosition()
     {

@@ -14,6 +14,7 @@ public class Enemy : Actor
     [SerializeField] int m_MaxChampSkillPoints;
     private bool m_IsChampion = false;
     private readonly float kChampSizeMod = 2f;
+    private readonly int kChampXPMod = 2;
     private readonly float kChampHealthMod = 2f;
     private readonly Color kChampColour = new Color(1, 0.3f, 0);
 
@@ -151,6 +152,7 @@ public class Enemy : Actor
         m_IsChampion = true;
         transform.localScale *= kChampSizeMod;
         m_MaxHealth *= kChampHealthMod;
+        m_XPAwarded *= kChampXPMod;
         GetComponentInChildren<SpriteRenderer>().color = kChampColour;
         GameObject hpBar = Instantiate(m_HealthbarPrefab);
         hpBar.transform.SetParent(transform, false);
