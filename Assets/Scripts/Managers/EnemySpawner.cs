@@ -144,7 +144,6 @@ public class EnemySpawner : MonoBehaviour
 
         m_EnemyCount++;
         m_EnemiesSpawnedThisWave++;
-        
     }
 
     private void GracePeriod()
