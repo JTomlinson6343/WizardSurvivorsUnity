@@ -929,10 +929,6 @@ PrefabInstance:
       propertyPath: m_Ability
       value: 
       objectReference: {fileID: 8201127561021254593}
-    - target: {fileID: 4598356389941605190, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
-      propertyPath: m_Damage
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6529186928086989564, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
       propertyPath: m_Name
       value: SkillManager
