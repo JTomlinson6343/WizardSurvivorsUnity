@@ -86,7 +86,6 @@ public struct AbilityStats
 public class Ability : MonoBehaviour
 {
     protected int m_Level = 0;                // Level of the ability
-    [SerializeField] float m_DamageUpgradeAmount;
 
     protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
 
@@ -182,7 +181,6 @@ public class Ability : MonoBehaviour
         {
             m_isMaxed = true;
         }
-        m_BonusStats.damage += m_DamageUpgradeAmount;
         UpdateTotalStats();
     }
 
