@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EnemyPrefabs:
   - {fileID: 4782787995318582076, guid: 41affc13d066f11498b357961699e749, type: 3}
   - {fileID: 1457567220182255292, guid: 699b757e7a7b9c1448cc2069ae20d6e4, type: 3}
+  - {fileID: 3945503132666325212, guid: e5f8856ba41ca234c93fcc2a794c9143, type: 3}
   m_SpawnCooldown: 0.5
   m_SpawnRadius: 50
   m_SpawnCurve:
