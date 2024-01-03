@@ -60,8 +60,8 @@ public class Player : Actor
     private float m_LastHit = 0.0f;
     float m_LastShot = 0;
 
-    public float m_IFramesTimer;
-    private bool m_IsInvincible;
+    public float m_IFramesTime;
+    public bool m_IsInvincible;
 
     Vector3 staffStartPos;
 
@@ -120,8 +120,6 @@ public class Player : Actor
         m_RigidBody.velocity = currentVelocity;
 
         SetAnimState(targetVelocity);
-
-        UpdateHealthBar();
     }
 
     void SetAnimState(Vector3 targetVelocity)
@@ -162,16 +160,6 @@ public class Player : Actor
             m_AnimatorMask.SetBool("Idle", true); // Disable the idle state
         }
     }
-    void UpdateHealthBar()
-    {
-        Actor actorComponent = gameObject.GetComponent<Actor>();
-
-        float health = actorComponent.GetHealthAsRatio();
-
-        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
-
-        bar.UpdateSize(health);
-    }
 
     // If actor has i-frames, return false. Else, return true
     override public DamageOutput TakeDamage(float amount)
@@ -188,7 +176,7 @@ public class Player : Actor
     {
         m_IsInvincible = true;
         GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
-        Invoke(nameof(EndFlashing), m_IFramesTimer);
+        Invoke(nameof(EndFlashing), m_IFramesTime);
     }
 
     protected override void EndFlashing ()
@@ -208,9 +196,6 @@ public class Player : Actor
     {
         m_TotalStats = m_BaseStats + m_BonusStats;
         UpdateHealth();
-
-        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
-        bar.UpdateSize(GetHealthAsRatio());
     }
     public void AddBonusStats(PlayerStats stats)
     {

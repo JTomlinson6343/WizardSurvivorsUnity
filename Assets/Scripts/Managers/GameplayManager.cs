@@ -73,9 +73,9 @@ public static class GameplayManager
         return furthestEnemy;
     }
 
-    public static Vector2 GetDirectionToEnemy(Vector2 pos, GameObject enemy)
+    public static Vector2 GetDirectionToGameObject(Vector2 pos, GameObject gameObject)
     {
-        return ((Vector2)enemy.transform.position - pos).normalized;
+        return ((Vector2)gameObject.transform.position - pos).normalized;
     }
 
     public static void PointTowards(Vector2 targetPos, GameObject pointingObject)

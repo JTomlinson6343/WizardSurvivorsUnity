@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -127,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb896f140784e81438ab7914a54a78a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0.2
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -191,7 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf646ad5ded55cb43a4a580d0c250ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 3.5
@@ -394,16 +391,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49dc5fbfdec5594d88fb77997929291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0.2
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 800
+    damage: 100
     speed: 10
     cooldown: 2
     amount: 4
-    knockback: 0
+    knockback: 4
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
@@ -461,7 +457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bb9af21ebed6a4fb86b66f8f308fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0.2
   m_isMaxed: 0
   m_BaseStats:
     AOE: 4
@@ -528,12 +523,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84e37e481567bf40b1fcad7520739cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0.2
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 10
+    damage: 20
     speed: 0
     cooldown: 0
     amount: 0
@@ -728,7 +722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -877,7 +870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e259f9928a81f438c291a4a875799b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0.2
   m_isMaxed: 0
   m_BaseStats:
     AOE: 3
@@ -1295,7 +1287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -1411,12 +1402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485e986bba4de94e9efdbcf1193b776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0.2
   m_isMaxed: 0
   m_BaseStats:
     AOE: 2.5
     duration: 0
-    damage: 150
+    damage: 60
     speed: 100
     cooldown: -1
     amount: 2
@@ -1728,7 +1718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -1811,7 +1800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -1894,7 +1882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -1973,12 +1960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460f9b200ea2c094a883fd253ee35fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 1
     duration: 0
-    damage: 20
+    damage: 10
     speed: 0
     cooldown: 5
     amount: 0

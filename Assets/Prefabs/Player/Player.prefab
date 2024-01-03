@@ -299,7 +299,8 @@ MonoBehaviour:
     maxHealth: 200
     healthRegen: 0
   m_ActiveAbility: {fileID: 8201127561021254593}
-  m_IFramesTimer: 0.5
+  m_IFramesTime: 1
+  m_IsInvincible: 0
   m_Animator: {fileID: 3585064873875077332}
   m_AnimatorMask: {fileID: 3793565455578594936}
   spriteMask: {fileID: 5685897533416626910}
@@ -536,7 +537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ba6f034ac7b4b45877ecd62a409e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageUpgradeAmount: 0
   m_isMaxed: 0
   m_BaseStats:
     AOE: 0
@@ -666,6 +666,10 @@ PrefabInstance:
       propertyPath: m_BaseStats.AOE
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6916207627428093818, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
+      propertyPath: m_BaseStats.knockback
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7070313333552203497, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
       propertyPath: image
       value: 
@@ -674,18 +678,6 @@ PrefabInstance:
       propertyPath: m_FireballRef
       value: 
       objectReference: {fileID: 8201127561021254593}
-    - target: {fileID: 8087658994112551336, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
-      propertyPath: m_BaseStats.damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205272294203817715, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
-      propertyPath: m_BaseStats.damage
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205272294203817715, guid: 149f08a5316cad84eb8c7ddab5947b8a, type: 3}
-      propertyPath: m_BaseStats.knockback
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -767,6 +759,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 557211682419933354}
     m_Modifications:
+    - target: {fileID: 1286880397000306946, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
+      propertyPath: m_Actor
+      value: 
+      objectReference: {fileID: 2687768136547122572}
     - target: {fileID: 6229566499917816928, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -855,14 +851,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
-    - target: {fileID: 7671104541359663102, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7671104541359663102, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8403218026394921570, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -941,10 +929,6 @@ PrefabInstance:
       propertyPath: m_Ability
       value: 
       objectReference: {fileID: 8201127561021254593}
-    - target: {fileID: 4598356389941605190, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
-      propertyPath: m_Damage
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6529186928086989564, guid: 4b95d6c5028286a499083dc8a2043662, type: 3}
       propertyPath: m_Name
       value: SkillManager

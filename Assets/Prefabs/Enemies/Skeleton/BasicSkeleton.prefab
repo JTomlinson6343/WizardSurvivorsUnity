@@ -257,7 +257,10 @@ MonoBehaviour:
   m_HealthModifier: 1
   m_SpawnProbability: 1
   m_XPAwarded: 3
-  m_SkillPointDropChance: 0.15
+  m_SkillPointDropChance: 0.1
+  m_MinChampSkillPoints: 1
+  m_MaxChampSkillPoints: 3
   m_Speed: 1
   m_ContactDamage: 25
-  m_KnockbackModifier: 1
+  m_KnockbackModifier: 0
+  m_HealthbarPrefab: {fileID: 4744852511909570002, guid: 8428296ae52269e4999616608d4f9e7d, type: 3}

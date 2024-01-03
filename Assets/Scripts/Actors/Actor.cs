@@ -75,6 +75,20 @@ public class Actor : MonoBehaviour
         return m_Health / m_MaxHealth;
     }
 
+    // Flips the actor in the direction of the their velocity
+    protected void FaceVelocity(Transform transform, Vector3 targetVelocity, bool reverse)
+    {
+        if (reverse)
+        {
+            transform.localScale = new Vector3(
+                targetVelocity.x > 0 ? -Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            return;
+        }
+
+        transform.localScale = new Vector3(
+            targetVelocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+    }
+
     virtual protected void StartFlashing()
     {
         GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;

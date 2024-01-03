@@ -33,8 +33,10 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_HealthCurve;
+
     readonly float kHealthConstant = 10f;
     readonly float kGracePeriodTime = 2f;
+    readonly float kChampionChance = 0.01f;
 
     private Vector3 GetSpawnPosition()
     {
@@ -110,6 +112,10 @@ public class EnemySpawner : MonoBehaviour
     {
         float now = Time.realtimeSinceStartup;
 
+        if (now < m_NextSpawn) return;
+
+        m_NextSpawn = now + m_SpawnCooldown;
+
         GameObject enemyToSpawn = null;
 
         // Generate a random number between 0 and the total probability
@@ -127,18 +133,17 @@ public class EnemySpawner : MonoBehaviour
             }
             randomValue -= enemy.m_SpawnProbability;
         }
+        
+        GameObject newEnemy = Instantiate(enemyToSpawn);
+        newEnemy.transform.position = GetSpawnPosition();
+        newEnemy.transform.SetParent(transform, false);
+        newEnemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * newEnemy.GetComponent<Enemy>().m_HealthModifier;
 
-        if (now > m_NextSpawn)
-        {
-            m_NextSpawn = now + m_SpawnCooldown;
+        if (Random.Range(0f, 1f) < kChampionChance * ProgressionManager.m_Instance.m_WaveCounter)
+            newEnemy.GetComponent<Enemy>().MakeChampion();
 
-            GameObject enemy = Instantiate(enemyToSpawn);
-            enemy.transform.position = GetSpawnPosition();
-            enemy.transform.SetParent(transform, false);
-            enemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * enemy.GetComponent<Enemy>().m_HealthModifier;
-            m_EnemyCount++;
-            m_EnemiesSpawnedThisWave++;
-        }
+        m_EnemyCount++;
+        m_EnemiesSpawnedThisWave++;
     }
 
     private void GracePeriod()

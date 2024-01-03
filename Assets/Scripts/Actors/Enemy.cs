@@ -7,17 +7,28 @@ public class Enemy : Actor
     public float m_HealthModifier;
     public float m_SpawnProbability; // The ratio of how common this spawns compared to other enemies
 
-    [SerializeField] int m_XPAwarded;
+    [SerializeField] protected int m_XPAwarded;
     [SerializeField] float m_SkillPointDropChance;
+
+    [SerializeField] int m_MinChampSkillPoints;
+    [SerializeField] int m_MaxChampSkillPoints;
+    private bool m_IsChampion = false;
+    private readonly float kChampSizeMod = 2f;
+    private readonly int kChampXPMod = 2;
+    private readonly float kChampHealthMod = 2f;
+    private readonly Color kChampColour = new Color(1, 0.3f, 0);
+
     [SerializeField] float m_Speed;
     [SerializeField] float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;
-    private readonly float m_kBaseMoveSpeed = 2.3f;
+    private readonly float m_kBaseMoveSpeed = 2.2f;
 
     private Rigidbody2D m_RigidBody;
     private Animator m_Animator;
+
+    [SerializeField] GameObject m_HealthbarPrefab;
 
     private void Awake()
     {
@@ -55,7 +66,7 @@ public class Enemy : Actor
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         GameObject otherObject = collision.gameObject;
 
@@ -68,7 +79,7 @@ public class Enemy : Actor
 
         //currentVelocity -= moveDir * 1.0f;
 
-        if (otherObject.GetComponent<Player>())
+        if (otherObject.GetComponent<Player>() && !otherObject.GetComponent<Player>().m_IsInvincible)
         {
             Enemy enemy = GetComponent<Enemy>();
             DamageInstanceData data = new(gameObject, otherObject);
@@ -88,9 +99,8 @@ public class Enemy : Actor
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
-        transform.localScale = new Vector3(
-        targetVelocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z
-        );
+        // If velocity > 0, don't flip. if it is less than, flip
+        sprite.flipX = targetVelocity.x > 0 ? false : true;
 
         if (targetVelocity.magnitude > 0)
         {
@@ -117,10 +127,35 @@ public class Enemy : Actor
     {
         base.OnDeath();
 
+        if (m_IsChampion) ChampionDeath();
+        else              NormalDeath();
+
         ProgressionManager.m_Instance.SpawnXP(transform.position, m_XPAwarded);
-        RollForSkillPoint();
         ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemySpawner.m_Instance.IncrementEnemiesKilled();
+    }
+
+    private void NormalDeath()
+    {
+        RollForSkillPoint();
+    }
+
+    private void ChampionDeath()
+    {
+        ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, Random.Range(m_MinChampSkillPoints, m_MaxChampSkillPoints+1));
+        ProgressionManager.m_Instance.IncrementChampionKills();
+    }
+
+    public void MakeChampion()
+    {
+        m_IsChampion = true;
+        transform.localScale *= kChampSizeMod;
+        m_MaxHealth *= kChampHealthMod;
+        m_XPAwarded *= kChampXPMod;
+        GetComponentInChildren<SpriteRenderer>().color = kChampColour;
+        GameObject hpBar = Instantiate(m_HealthbarPrefab);
+        hpBar.transform.SetParent(transform, false);
+        hpBar.GetComponentInChildren<BasicBar>().m_Actor = this;
     }
 }

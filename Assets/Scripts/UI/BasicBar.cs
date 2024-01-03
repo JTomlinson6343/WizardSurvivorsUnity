@@ -9,6 +9,23 @@ public class BasicBar : MonoBehaviour
     [SerializeField] float current;
     [SerializeField] float max;
 
+    public Actor m_Actor;
+
+    private void Update()
+    {
+        UpdateHealthBar();
+    }
+
+    public void UpdateHealthBar()
+    {
+        if (!gameObject.GetComponentInParent<Actor>()) return;
+        if (!m_Actor) return;
+
+        BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
+
+        bar.UpdateSize(m_Actor.GetHealthAsRatio());
+    }
+
     public void UpdateSize(float sizeRatio)
     {
         GetComponent<RectTransform>().localScale = new Vector2(sizeRatio * baseScale.x, baseScale.y);
