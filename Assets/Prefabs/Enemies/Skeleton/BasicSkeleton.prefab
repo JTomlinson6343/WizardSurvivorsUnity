@@ -254,7 +254,7 @@ MonoBehaviour:
   m_MaxHealth: 20
   m_Health: 20
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
-  m_HealthModifier: 1
+  m_HealthModifier: 0.9
   m_SpawnProbability: 1
   m_XPAwarded: 3
   m_SkillPointDropChance: 0.1
