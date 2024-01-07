@@ -33,6 +33,8 @@ public class Actor : MonoBehaviour
     public Material m_WhiteFlashMaterial;
     private float m_FlashTime = 0.1f;
 
+    public GameObject m_DebuffPlacement;
+
     public virtual void Start()
     {
         m_DefaultMaterial = GetComponentInChildren<SpriteRenderer>().material;
@@ -92,10 +94,10 @@ public class Actor : MonoBehaviour
     }
 
     // Called whenever this actor is knocked back
-    virtual public void KnockbackRoutine(float knockbackMagnitude)
+    virtual public void KnockbackRoutine(Vector2 dir, float knockbackMagnitude)
     {
-        knockbackMagnitude = Mathf.Clamp01(1 - m_KnockbackResist) * knockbackMagnitude;
-        GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * knockbackMagnitude;
+        knockbackMagnitude = Mathf.Clamp01(1f - m_KnockbackResist) * knockbackMagnitude;
+        GetComponent<Rigidbody2D>().velocity += dir.normalized * knockbackMagnitude;
     }
 
     virtual protected void StartFlashing()
