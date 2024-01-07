@@ -43,6 +43,8 @@ public class DamageManager : MonoBehaviour
 
     public static DamageDataEvent m_DamageInstanceEvent = new DamageDataEvent();
 
+    private readonly float kDamageNumberRandomRadius = 0.25f;
+
     private void Awake()
     {
         m_Instance = this;
@@ -65,7 +67,7 @@ public class DamageManager : MonoBehaviour
         {
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
-            damageNumber.transform.position = pos;
+            damageNumber.transform.position = pos + new Vector2(Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius), Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius));
             damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(data.damageType);
             damageNumber.GetComponent<FloatingDamage>().m_Damage = data.amount;
             data.didKill = damageOutput == DamageOutput.wasKilled;

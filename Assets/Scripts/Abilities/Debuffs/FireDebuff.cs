@@ -22,6 +22,7 @@ public class FireDebuff : Debuff
 
         // Add fire particle effect to enemy inflicted with this debuff
         m_FireEffect = Instantiate(m_FireParticlePrefab);
+        m_FireEffect.transform.localScale = new Vector3(m_FireEffect.transform.localScale.x * transform.localScale.x, m_FireEffect.transform.localScale.y * transform.localScale.y);
 
         // Add light to enemy
         m_Light = gameObject.AddComponent<Light2D>();
