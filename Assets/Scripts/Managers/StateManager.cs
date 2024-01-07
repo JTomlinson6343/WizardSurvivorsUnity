@@ -8,7 +8,7 @@ public enum State
     NONE,
     PLAYING,
     PAUSED,
-    ON_BOSS,
+    BOSS,
     GAME_OVER
 }
 

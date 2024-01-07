@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     [SerializeField] PlayerBounds m_CameraBounds;
     [SerializeField] PlayerBounds m_WorldBounds;
+    [SerializeField] PlayerBounds m_BossArenaBounds;
 
     private void Awake()
     {
@@ -43,6 +44,12 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     private void Update()
     {
+        if (StateManager.GetCurrentState() == State.BOSS)
+        {
+            BossArena();
+            return;
+        }
+
         // Bind camera to camera bounds
         if (Player.m_Instance.transform.position.x > m_CameraBounds.left && Player.m_Instance.transform.position.x < m_CameraBounds.right)
             m_Camera.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z);
@@ -62,6 +69,24 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
         if (Player.m_Instance.transform.position.y > m_WorldBounds.top)
             Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_WorldBounds.top, Player.m_Instance.transform.position.z);
+    }
+
+    private void BossArena()
+    {
+        m_Camera.transform.position = new Vector3(0, 0, m_Camera.transform.position.z);
+
+        // Bind player to world bounds
+        if (Player.m_Instance.transform.position.x < m_BossArenaBounds.left)
+            Player.m_Instance.transform.position = new Vector3(m_BossArenaBounds.left, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.x > m_BossArenaBounds.right)
+            Player.m_Instance.transform.position = new Vector3(m_BossArenaBounds.right, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.y < m_BossArenaBounds.bottom)
+            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_BossArenaBounds.bottom, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.y > m_BossArenaBounds.top)
+            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_BossArenaBounds.top, Player.m_Instance.transform.position.z);
     }
 
     public void SaveSkillPoints(int points)
