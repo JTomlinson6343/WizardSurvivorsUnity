@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
 
         StartCoroutine(EndEnemyCooldown(enemy));
 
-        enemy.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * m_AbilitySource.GetTotalStats().knockback;
+        enemy.GetComponent<Actor>().KnockbackRoutine(m_AbilitySource.GetTotalStats().knockback);
         DamageEnemy(enemy);
 
         if (m_AbilitySource.GetTotalStats().infinitePierce) return;

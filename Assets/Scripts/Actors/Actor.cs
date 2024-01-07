@@ -89,6 +89,11 @@ public class Actor : MonoBehaviour
             targetVelocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
     }
 
+    virtual public void KnockbackRoutine(float knockbackMagnitude)
+    {
+        GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * knockbackMagnitude;
+    }
+
     virtual protected void StartFlashing()
     {
         GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
