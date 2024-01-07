@@ -46,7 +46,9 @@ public class FireDebuff : Debuff
     override protected void Update()
     {
         base.Update();
-        m_FireEffect.transform.position = transform.position;
+        if (!GetComponent<Actor>().m_DebuffPlacement) return;
+
+        m_FireEffect.transform.position = GetComponent<Actor>().m_DebuffPlacement.transform.position;
     }
 
     private void OnDestroy()

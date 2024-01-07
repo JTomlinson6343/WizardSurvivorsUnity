@@ -79,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -139,6 +139,7 @@ Transform:
   m_Children:
   - {fileID: 4807051098039868445}
   - {fileID: 3553507624216139753}
+  - {fileID: 3278516105425941278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_Health: 10000
   m_KnockbackResist: 1
   m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
+  m_DebuffPlacement: {fileID: 8335548373994432881}
   m_HealthModifier: 1
   m_SpawnProbability: 0
   m_XPAwarded: 1
@@ -240,6 +242,38 @@ MonoBehaviour:
   m_ContactDamage: 1
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 436168181258737274}
+  m_MeleeRadius: 0
+--- !u!1 &8335548373994432881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3278516105425941278}
+  m_Layer: 0
+  m_Name: DebuffPlacement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3278516105425941278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335548373994432881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: 2.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4263016877876653559}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5175918681040630696
 PrefabInstance:
   m_ObjectHideFlags: 0
