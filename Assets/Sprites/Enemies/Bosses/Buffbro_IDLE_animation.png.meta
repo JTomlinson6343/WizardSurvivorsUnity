@@ -113,12 +113,12 @@ TextureImporter:
       name: Buffbro_IDLE_animation_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 53
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: Buffbro_IDLE_animation_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 64
         y: 0
-        width: 53
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Buffbro_IDLE_animation_2
       rect:
         serializedVersion: 2
-        x: 134
+        x: 128
         y: 0
-        width: 53
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: Buffbro_IDLE_animation_3
       rect:
         serializedVersion: 2
-        x: 198
+        x: 192
         y: 0
-        width: 53
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Buffbro_IDLE_animation_4
       rect:
         serializedVersion: 2
-        x: 262
+        x: 256
         y: 0
-        width: 53
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
