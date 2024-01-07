@@ -24,6 +24,8 @@ public class Actor : MonoBehaviour
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
 
+    public float m_KnockbackResist;
+
     private DamageStats m_BaseResistance;
     private DamageStats m_BonusResistance;
 
@@ -89,8 +91,10 @@ public class Actor : MonoBehaviour
             targetVelocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
     }
 
+    // Called whenever this actor is knocked back
     virtual public void KnockbackRoutine(float knockbackMagnitude)
     {
+        knockbackMagnitude = Mathf.Clamp01(1 - m_KnockbackResist) * knockbackMagnitude;
         GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity.normalized * knockbackMagnitude;
     }
 
