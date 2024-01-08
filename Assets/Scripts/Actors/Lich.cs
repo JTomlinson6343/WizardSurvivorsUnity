@@ -9,6 +9,9 @@ public class Lich : Enemy
     [SerializeField] float m_ProjectileLifetime;
     [SerializeField] float m_ProjectileDamage;
     [SerializeField] float m_ProjectileKnockback;
+    [SerializeField] float m_ProjectileCooldown;
+
+    private bool m_ProjectileOnCooldown;
 
     [SerializeField] GameObject m_Staff;
     [SerializeField] GameObject m_ProjectilePrefab;
@@ -41,6 +44,8 @@ public class Lich : Enemy
         }
         else
         {
+            if (m_ProjectileOnCooldown)  return; 
+
             //Ranged attack
             ProjectileManager.m_Instance.EnemyShot(m_Staff.transform.position,
                 GameplayManager.GetDirectionToGameObject(m_Staff.transform.position, Player.m_Instance.gameObject),
@@ -51,8 +56,13 @@ public class Lich : Enemy
                 m_ProjectileKnockback,
                 gameObject,
                 DamageType.Dark);
+            m_ProjectileOnCooldown = true;
+            Invoke(nameof(EndProjectileCooldown), m_ProjectileCooldown);
         }
     }
 
-
+    private void EndProjectileCooldown()
+    {
+        m_ProjectileOnCooldown = false;
+    }
 }

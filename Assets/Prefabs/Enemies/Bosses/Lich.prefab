@@ -174,7 +174,7 @@ Transform:
   - {fileID: 3278516105425941278}
   - {fileID: 1631540265473164908}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4918430836151260397
 Rigidbody2D:
@@ -231,10 +231,11 @@ MonoBehaviour:
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 436168181258737274}
   m_MeleeRadius: 3.25
-  m_ProjectileSpeed: 2
-  m_ProjectileLifetime: 5
-  m_ProjectileDamage: 2
+  m_ProjectileSpeed: 4
+  m_ProjectileLifetime: 8
+  m_ProjectileDamage: 20
   m_ProjectileKnockback: 8
+  m_ProjectileCooldown: 0.2
   m_Staff: {fileID: 4702823776869340235}
   m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
 --- !u!70 &2558855753744608550
