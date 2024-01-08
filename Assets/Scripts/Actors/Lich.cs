@@ -29,6 +29,17 @@ public class Lich : Enemy
 
         if (StateManager.GetCurrentState() != State.BOSS) return;
 
+        SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+
+        if (Player.m_Instance.transform.position.x < transform.position.x)
+        {
+            sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x) * -1f, sprite.transform.localScale.y);
+        }
+        else
+        {
+            sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x), sprite.transform.localScale.y);
+        }
+
         Brain();
     }
 
