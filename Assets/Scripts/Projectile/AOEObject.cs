@@ -6,11 +6,11 @@ public class AOEObject : Projectile
 {
     protected override void OnTargetHit(GameObject enemy)
     {
-        if (m_HitEnemies.Contains(enemy)) return;
+        if (m_HitTargets.Contains(enemy)) return;
 
-        m_HitEnemies.Add(enemy);
+        m_HitTargets.Add(enemy);
 
-        StartCoroutine(EndEnemyCooldown(enemy));
+        StartCoroutine(EndTargetCooldown(enemy));
 
         DamageTarget(enemy);
     }

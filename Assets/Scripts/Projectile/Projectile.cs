@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public Ability m_AbilitySource;
     protected int m_PierceCount;
 
-    protected List<GameObject> m_HitEnemies = new List<GameObject>();
+    protected List<GameObject> m_HitTargets = new List<GameObject>();
 
     virtual public void Init(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
     {
@@ -36,11 +36,11 @@ public class Projectile : MonoBehaviour
 
     virtual protected void OnTargetHit(GameObject target)
     {
-        if (m_HitEnemies.Contains(target)) return;
+        if (m_HitTargets.Contains(target)) return;
 
-        m_HitEnemies.Add(target);
+        m_HitTargets.Add(target);
 
-        StartCoroutine(EndEnemyCooldown(target));
+        StartCoroutine(EndTargetCooldown(target));
 
         target.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_AbilitySource.GetTotalStats().knockback);
         DamageTarget(target);
@@ -56,11 +56,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    protected IEnumerator EndEnemyCooldown(GameObject enemy)
+    protected IEnumerator EndTargetCooldown(GameObject enemy)
     {
         yield return new WaitForSeconds(0.1f);
 
-        m_HitEnemies.Remove(enemy);
+        m_HitTargets.Remove(enemy);
     }
 
     virtual protected void DamageTarget(GameObject target)

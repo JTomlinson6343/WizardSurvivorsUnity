@@ -239,7 +239,7 @@ MonoBehaviour:
   m_TeleportCooldown: 5
   m_TeleportChancePerFrame: 0.01
   m_TeleportRadius: 1
-  m_StompCooldown: 0
+  m_StompCooldown: 3
   m_Staff: {fileID: 4702823776869340235}
   m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
   m_QuakePrefab: {fileID: 7460146828828791165, guid: 2d413f089f226cb49a879295588482f4, type: 3}

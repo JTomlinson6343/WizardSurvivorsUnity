@@ -6,10 +6,10 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyProjectile : Projectile
 {
     public bool m_InfinitePierce;
-    private float m_Damage;
-    private float m_Knockback;
-    private GameObject m_User;
-    private DamageType m_DamageType;
+    protected float m_Damage;
+    protected float m_Knockback;
+    protected GameObject m_User;
+    protected DamageType m_DamageType;
     public void Init(Vector2 pos, Vector2 dir, float speed, float lifetime, float damage, float knockback, GameObject user, DamageType damageType)
     {
         m_Damage = damage;

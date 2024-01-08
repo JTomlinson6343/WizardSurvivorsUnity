@@ -62,7 +62,19 @@ public class Lich : Enemy
 
         if (distToPlayer < m_MeleeRadius)
         {
+            if (m_StompOnCooldown) return;
             // Stomp attack
+            m_StompOnCooldown = true;
+            Invoke(nameof(EndStompCooldown), m_StompCooldown);
+
+            GameObject quake = Instantiate(m_QuakePrefab);
+            quake.GetComponent<EnemyAOE>().Init(
+                transform.position,
+                m_ProjectileDamage,
+                8f,
+                1.2f,
+                gameObject,
+                DamageType.Physical);
         }
         else
         {
