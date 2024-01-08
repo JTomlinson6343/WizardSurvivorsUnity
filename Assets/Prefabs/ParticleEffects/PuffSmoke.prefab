@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4943764654047648760}
   - component: {fileID: 622539286960925246}
   - component: {fileID: 5138408068174339493}
+  - component: {fileID: 5552495851358759897}
   m_Layer: 0
   m_Name: PuffSmoke
   m_TagString: Untagged
@@ -106,3 +107,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5552495851358759897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362491013042287582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f609ac54f37f4a24480e7da479dbb560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Lifetime: 0.25

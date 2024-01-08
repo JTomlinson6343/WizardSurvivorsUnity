@@ -153,6 +153,8 @@ public class Ability : MonoBehaviour
 
     virtual public void UpdateTotalStats()
     {
+        if (!AbilityManager.m_Instance) return;
+
         // Update total stats. Bonus stats are applied as a percentage of the base damage
         m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
         m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
