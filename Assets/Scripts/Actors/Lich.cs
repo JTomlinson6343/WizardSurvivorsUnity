@@ -34,7 +34,8 @@ public class Lich : Enemy
         if (Input.GetKeyDown(KeyCode.B))
         {
             StateManager.ChangeState(State.BOSS);
-            Player.m_Instance.transform.position = Vector3.zero;
+            PlayerManager.m_Instance.OnStartBossFight();
+            //Player.m_Instance.transform.position = Vector3.zero;
         }
 
         if (StateManager.GetCurrentState() != State.BOSS) return;
@@ -71,7 +72,7 @@ public class Lich : Enemy
             quake.GetComponent<EnemyAOE>().Init(
                 transform.position,
                 m_ProjectileDamage,
-                8f,
+                2f,
                 1.2f,
                 gameObject,
                 DamageType.Physical);

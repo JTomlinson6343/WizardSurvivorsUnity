@@ -53,6 +53,11 @@ public class EnemyProjectile : Projectile
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Player") && collision.isTrigger)
         {
             OnTargetHit(collision.gameObject);

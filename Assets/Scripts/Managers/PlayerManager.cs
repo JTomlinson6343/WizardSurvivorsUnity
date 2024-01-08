@@ -73,8 +73,6 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     private void BossArena()
     {
-        m_Camera.transform.position = new Vector3(0, 0, m_Camera.transform.position.z);
-
         // Bind player to world bounds
         if (Player.m_Instance.transform.position.x < m_BossArenaBounds.left)
             Player.m_Instance.transform.position = new Vector3(m_BossArenaBounds.left, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
@@ -94,5 +92,15 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
         m_SkillTreeRef.m_TotalSkillPoints += points;
         m_SkillTreeRef.m_CurrentSkillPoints += points;
         SaveManager.SaveToFile();
+    }
+
+    public void OnStartBossFight()
+    {
+        m_Camera.transform.position = new Vector3(Player.m_Instance.GetPosition().x, Player.m_Instance.GetPosition().y, m_Camera.transform.position.z);
+
+        m_BossArenaBounds.top    = Player.m_Instance.GetPosition().y + m_BossArenaBounds.top;      // +
+        m_BossArenaBounds.right  = Player.m_Instance.GetPosition().x + m_BossArenaBounds.right;    // +
+        m_BossArenaBounds.bottom = Player.m_Instance.GetPosition().y + m_BossArenaBounds.bottom;   // -
+        m_BossArenaBounds.left   = Player.m_Instance.GetPosition().x + m_BossArenaBounds.left  ;   // -
     }
 }

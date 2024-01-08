@@ -10,10 +10,10 @@ public static class GameplayManager
     // This class is full of helper functions that involve physics or just general maths calculations
     public static List<GameObject> GetAllEnemiesInRange(Vector2 pos, float radius)
     {
-        if (EnemySpawner.m_Instance == null) return null;
+        if (EnemyManager.m_Instance == null) return null;
 
         // Get all enemies
-        Enemy[] enemies = EnemySpawner.m_Instance.GetComponentsInChildren<Enemy>();
+        Enemy[] enemies = EnemyManager.m_Instance.GetComponentsInChildren<Enemy>();
 
         List<GameObject> outEnemies = new List<GameObject>();
         foreach (Enemy enemy in enemies)
@@ -33,7 +33,7 @@ public static class GameplayManager
 
     public static GameObject GetClosestEnemyInRange(Vector2 pos, float radius)
     {
-        if (EnemySpawner.m_Instance == null) return null;
+        if (EnemyManager.m_Instance == null) return null;
 
         float minDist = Mathf.Infinity;
         GameObject closestEnemy = null;
@@ -54,7 +54,7 @@ public static class GameplayManager
 
     public static GameObject GetFurthestEnemyInRange(Vector2 pos, float radius)
     {
-        if (EnemySpawner.m_Instance == null) return null;
+        if (EnemyManager.m_Instance == null) return null;
 
         float maxDist = 0;
         GameObject furthestEnemy = null;

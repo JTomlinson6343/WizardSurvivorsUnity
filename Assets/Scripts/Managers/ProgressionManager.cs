@@ -174,7 +174,7 @@ public class ProgressionManager : MonoBehaviour
     {
         StateManager.ChangeState(State.GAME_OVER);
 
-        EnemySpawner.m_Instance.PurgeEnemies();
+        EnemyManager.m_Instance.PurgeEnemies();
 
         // Save skill points to file
         PlayerManager.m_Instance.SaveSkillPoints(m_SkillPointsGained);
@@ -192,6 +192,13 @@ public class ProgressionManager : MonoBehaviour
         }
 
         m_GameOverScreen.SetActive(true);
+    }
+
+    private void SpawnBoss()
+    {
+        StateManager.ChangeState(State.BOSS);
+        PlayerManager.m_Instance.OnStartBossFight();
+        EnemyManager.m_Instance.SpawnBoss();
     }
 
     public void Quit()

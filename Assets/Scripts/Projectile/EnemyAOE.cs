@@ -20,7 +20,7 @@ public class EnemyAOE : EnemyProjectile
     {
         if (enemy.GetComponent<Player>().m_IsInvincible) return;
 
-        enemy.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_Knockback);
+        enemy.GetComponent<Actor>().KnockbackRoutine(GameplayManager.GetDirectionToGameObject(transform.position, enemy), m_Knockback);
         DamageTarget(enemy);
     }
 

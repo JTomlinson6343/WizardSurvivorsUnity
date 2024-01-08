@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 [System.Serializable]
 struct Curve
@@ -14,12 +13,13 @@ struct Curve
     }
 }
 
-public class EnemySpawner : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
-    public static EnemySpawner m_Instance;
+    public static EnemyManager m_Instance;
 
     private GameObject m_PlayerReference;
     [SerializeField] private GameObject[] m_EnemyPrefabs;
+    [SerializeField] private GameObject[] m_BossPrefabs;
     private float m_TotalSpawnProbability;
 
     private float m_NextSpawn = 0.0f;
@@ -144,6 +144,13 @@ public class EnemySpawner : MonoBehaviour
 
         m_EnemyCount++;
         m_EnemiesSpawnedThisWave++;
+    }
+
+    public void SpawnBoss()
+    {
+        PurgeEnemies();
+        GameObject boss = Instantiate(m_BossPrefabs[0]);
+        boss.transform.position = Player.m_Instance.transform.position + new Vector3(0f, 5f);
     }
 
     private void GracePeriod()
