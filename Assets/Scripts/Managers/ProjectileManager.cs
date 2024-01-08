@@ -62,6 +62,19 @@ public class ProjectileManager : MonoBehaviour
         return Shoot(pos, dir, speed, ability, lifetime, m_BulletPrefab);
     }
 
+    public GameObject EnemyShot(Vector2 pos, Vector2 dir, float speed, float lifetime, GameObject bulletPrefab, float damage, float knockback, GameObject user, DamageType damageType)
+    {
+        if (!bulletPrefab.GetComponent<EnemyProjectile>()) return null;
+
+        // Create bullet from prefab
+        GameObject bullet = Instantiate(bulletPrefab);
+
+        bullet.transform.SetParent(transform);
+        bullet.GetComponent<EnemyProjectile>().Init(pos, dir, speed, lifetime, damage, knockback, user, damageType);
+
+        return bullet;
+    }
+
     public GameObject ShootAOESpawningProjectile(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime, GameObject aoe, float aoeLifetime, GameObject bulletPrefab)
     {
         GameObject bullet = Shoot(pos, dir, speed, ability, lifetime, bulletPrefab);

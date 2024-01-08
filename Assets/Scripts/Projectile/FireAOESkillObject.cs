@@ -9,7 +9,7 @@ public class FireAOESkillObject : AOEObject
     [HideInInspector] public Skill m_SkillSource;
     [HideInInspector] public FireDebuffSkill m_FireDebuffSkillRef;
 
-    override protected void DamageEnemy(GameObject enemy)
+    override protected void DamageTarget(GameObject enemy)
     {
         DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject, enemy);
         data.amount = m_Damage * enemy.GetComponent<Enemy>().m_MaxHealth;

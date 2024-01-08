@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AOEObject : Projectile
 {
-    protected override void OnEnemyHit(GameObject enemy)
+    protected override void OnTargetHit(GameObject enemy)
     {
         if (m_HitEnemies.Contains(enemy)) return;
 
@@ -12,10 +12,10 @@ public class AOEObject : Projectile
 
         StartCoroutine(EndEnemyCooldown(enemy));
 
-        DamageEnemy(enemy);
+        DamageTarget(enemy);
     }
 
-    protected override void DamageEnemy(GameObject enemy)
+    protected override void DamageTarget(GameObject enemy)
     {
         DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject, enemy);
         data.amount = m_AbilitySource.GetTotalStats().damage;

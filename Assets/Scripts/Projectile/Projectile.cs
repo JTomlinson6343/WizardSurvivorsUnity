@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour
 
         // Rotate projectile in direction of travel
         GameplayManager.PointInDirection(dir, gameObject);
-        //transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
 
         m_PierceCount = m_AbilitySource.GetTotalStats().pierceAmount;
     }
@@ -35,16 +34,16 @@ public class Projectile : MonoBehaviour
         Invoke(nameof(DestroySelf), lifetime);
     }
 
-    virtual protected void OnEnemyHit(GameObject enemy)
+    virtual protected void OnTargetHit(GameObject target)
     {
-        if (m_HitEnemies.Contains(enemy)) return;
+        if (m_HitEnemies.Contains(target)) return;
 
-        m_HitEnemies.Add(enemy);
+        m_HitEnemies.Add(target);
 
-        StartCoroutine(EndEnemyCooldown(enemy));
+        StartCoroutine(EndEnemyCooldown(target));
 
-        enemy.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_AbilitySource.GetTotalStats().knockback);
-        DamageEnemy(enemy);
+        target.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_AbilitySource.GetTotalStats().knockback);
+        DamageTarget(target);
 
         if (m_AbilitySource.GetTotalStats().infinitePierce) return;
         if (m_AbilitySource.GetTotalStats().neverPierce) DestroySelf();
@@ -64,12 +63,12 @@ public class Projectile : MonoBehaviour
         m_HitEnemies.Remove(enemy);
     }
 
-    virtual protected void DamageEnemy(GameObject enemy)
+    virtual protected void DamageTarget(GameObject target)
     {
-        DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject,enemy);
+        DamageInstanceData data = new DamageInstanceData(Player.m_Instance.gameObject, target);
         data.amount = m_AbilitySource.GetTotalStats().damage;
         data.damageType = m_AbilitySource.m_Data.damageType;
-        data.target = enemy;
+        data.target = target;
         data.abilitySource = m_AbilitySource;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
@@ -83,7 +82,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
         {
-            OnEnemyHit(collision.gameObject);
+            OnTargetHit(collision.gameObject);
         }
     }
 }
