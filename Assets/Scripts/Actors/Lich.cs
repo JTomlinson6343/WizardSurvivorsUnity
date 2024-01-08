@@ -64,17 +64,9 @@ public class Lich : Enemy
         {
             if (m_StompOnCooldown) return;
             // Stomp attack
+            animator.Play("Magic", -1, 0f);
+            Invoke(nameof(Stomp), 1f);
             m_StompOnCooldown = true;
-            Invoke(nameof(EndStompCooldown), m_StompCooldown);
-
-            GameObject quake = Instantiate(m_QuakePrefab);
-            quake.GetComponent<EnemyAOE>().Init(
-                transform.position,
-                m_ProjectileDamage,
-                2f,
-                1.2f,
-                gameObject,
-                DamageType.Physical);
         }
         else
         {
@@ -103,6 +95,20 @@ public class Lich : Enemy
 
         Invoke(nameof(EndProjectileCooldown), m_ProjectileCooldown);
         GetComponentInChildren<Animator>().Play("MagicDown", -1, 0f);
+    }
+
+    private void Stomp()
+    {
+        Invoke(nameof(EndStompCooldown), m_StompCooldown);
+
+        GameObject quake = Instantiate(m_QuakePrefab);
+        quake.GetComponent<EnemyAOE>().Init(
+            transform.position,
+            m_ProjectileDamage,
+            2f,
+            1.2f,
+            gameObject,
+            DamageType.Physical);
     }
 
     private void TeleportCheck()
