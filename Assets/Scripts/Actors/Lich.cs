@@ -11,10 +11,20 @@ public class Lich : Enemy
     [SerializeField] float m_ProjectileKnockback;
     [SerializeField] float m_ProjectileCooldown;
 
+    [SerializeField] float m_TeleportCooldown;
+    [SerializeField] float m_TeleportChancePerFrame;
+    [SerializeField] float m_TeleportRadius; // Distance from the player the teleport pos can be
+
+    [SerializeField] float m_StompCooldown;
+
     private bool m_ProjectileOnCooldown;
+    private bool m_TeleportOnCooldown;
+    private bool m_StompOnCooldown;
 
     [SerializeField] GameObject m_Staff;
     [SerializeField] GameObject m_ProjectilePrefab;
+    [SerializeField] GameObject m_QuakePrefab;
+    [SerializeField] GameObject m_SmokePrefab;
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, m_MeleeRadius);
@@ -56,6 +66,8 @@ public class Lich : Enemy
         }
         else
         {
+            TeleportCheck();
+
             if (m_ProjectileOnCooldown) return;
 
             //Ranged attack
@@ -79,11 +91,51 @@ public class Lich : Enemy
 
         Invoke(nameof(EndProjectileCooldown), m_ProjectileCooldown);
         GetComponentInChildren<Animator>().Play("MagicDown", -1, 0f);
+    }
 
+    private void TeleportCheck()
+    {
+        if (m_TeleportOnCooldown) return;
+
+        if (Random.Range(0f, 1f) > m_TeleportChancePerFrame) return;
+
+        print("Teleported");
+        Teleport();
+    }
+
+    private void Teleport()
+    {
+        m_TeleportOnCooldown = true;
+        Invoke(nameof(EndTeleportCooldown), m_TeleportCooldown);
+
+        SpawnSmoke();
+        Invoke(nameof(Reappear), 2f);
+        transform.position = Player.m_Instance.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_TeleportRadius;
+        gameObject.SetActive(false);
+    }
+
+    private void SpawnSmoke()
+    {
+        GameObject smoke = Instantiate(m_SmokePrefab);
+        smoke.transform.position = m_DebuffPlacement.transform.position;
+    }
+
+    private void Reappear()
+    {
+        SpawnSmoke();
+        gameObject.SetActive(true);
     }
 
     private void EndProjectileCooldown()
     {
         m_ProjectileOnCooldown = false;
+    }
+    private void EndTeleportCooldown()
+    {
+        m_TeleportOnCooldown = false;
+    }
+    private void EndStompCooldown()
+    {
+        m_StompOnCooldown = false;
     }
 }
