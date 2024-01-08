@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     private void Update()
     {
-        if (StateManager.GetCurrentState() == State.BOSS)
+        if (StateManager.GetCurrentState() == State.BOSS || StateManager.GetPreviousState() == State.BOSS)
         {
             BossArena();
             return;
