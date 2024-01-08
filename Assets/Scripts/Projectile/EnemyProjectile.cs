@@ -31,6 +31,8 @@ public class EnemyProjectile : Projectile
 
     protected override void OnTargetHit(GameObject target)
     {
+        if (target.GetComponent<Player>().m_IsInvincible) return;
+
         target.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_Knockback);
         DamageTarget(target);
 
@@ -45,6 +47,7 @@ public class EnemyProjectile : Projectile
         data.amount = m_Damage;
         data.damageType = m_DamageType;
         data.target = target;
+        data.doDamageNumbers = false;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
 
