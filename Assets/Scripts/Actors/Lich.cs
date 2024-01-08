@@ -14,6 +14,7 @@ public class Lich : Enemy
     [SerializeField] float m_TeleportCooldown;
     [SerializeField] float m_TeleportChancePerFrame;
     [SerializeField] float m_TeleportRadius; // Distance from the player the teleport pos can be
+    [SerializeField] float m_TeleportVanishDuration;
 
     [SerializeField] float m_StompCooldown;
 
@@ -33,9 +34,7 @@ public class Lich : Enemy
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            StateManager.ChangeState(State.BOSS);
-            PlayerManager.m_Instance.OnStartBossFight();
-            //Player.m_Instance.transform.position = Vector3.zero;
+            ProgressionManager.m_Instance.SpawnBoss();
         }
 
         if (StateManager.GetCurrentState() != State.BOSS) return;
@@ -119,10 +118,11 @@ public class Lich : Enemy
     private void Teleport()
     {
         m_TeleportOnCooldown = true;
+        m_ProjectileOnCooldown = true;
         Invoke(nameof(EndTeleportCooldown), m_TeleportCooldown);
 
         SpawnSmoke();
-        Invoke(nameof(Reappear), 2f);
+        Invoke(nameof(Reappear), m_TeleportVanishDuration);
         transform.position = Player.m_Instance.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_TeleportRadius;
         gameObject.SetActive(false);
     }
@@ -136,6 +136,7 @@ public class Lich : Enemy
     private void Reappear()
     {
         SpawnSmoke();
+        m_ProjectileOnCooldown = false;
         gameObject.SetActive(true);
     }
 

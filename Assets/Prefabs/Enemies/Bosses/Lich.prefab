@@ -230,15 +230,16 @@ MonoBehaviour:
   m_ContactDamage: 1
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 436168181258737274}
-  m_MeleeRadius: 3.25
+  m_MeleeRadius: 4.2
   m_ProjectileSpeed: 4
   m_ProjectileLifetime: 8
   m_ProjectileDamage: 20
-  m_ProjectileKnockback: 8
-  m_ProjectileCooldown: 1
+  m_ProjectileKnockback: 1
+  m_ProjectileCooldown: 3
   m_TeleportCooldown: 5
   m_TeleportChancePerFrame: 0.01
-  m_TeleportRadius: 1
+  m_TeleportRadius: 3
+  m_TeleportVanishDuration: 2
   m_StompCooldown: 3
   m_Staff: {fileID: 4702823776869340235}
   m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}

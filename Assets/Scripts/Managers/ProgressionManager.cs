@@ -194,7 +194,7 @@ public class ProgressionManager : MonoBehaviour
         m_GameOverScreen.SetActive(true);
     }
 
-    private void SpawnBoss()
+    public void SpawnBoss()
     {
         StateManager.ChangeState(State.BOSS);
         PlayerManager.m_Instance.OnStartBossFight();
