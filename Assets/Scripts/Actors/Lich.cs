@@ -34,6 +34,7 @@ public class Lich : Enemy
 
     private void Brain()
     {
+        Animator animator = GetComponentInChildren<Animator>();
         if (Player.m_Instance == null) return;
 
         float distToPlayer = Vector2.Distance(Player.m_Instance.transform.position, transform.position);
@@ -44,21 +45,30 @@ public class Lich : Enemy
         }
         else
         {
-            if (m_ProjectileOnCooldown)  return; 
+            if (m_ProjectileOnCooldown) return;
 
             //Ranged attack
-            ProjectileManager.m_Instance.EnemyShot(m_Staff.transform.position,
-                GameplayManager.GetDirectionToGameObject(m_Staff.transform.position, Player.m_Instance.gameObject),
-                m_ProjectileSpeed,
-                m_ProjectileLifetime,
-                m_ProjectilePrefab,
-                m_ProjectileDamage,
-                m_ProjectileKnockback,
-                gameObject,
-                DamageType.Dark);
+            animator.Play("Magic", -1, 0f);
+            Invoke(nameof(Shoot), 0.5f);
             m_ProjectileOnCooldown = true;
-            Invoke(nameof(EndProjectileCooldown), m_ProjectileCooldown);
         }
+    }
+
+    private void Shoot()
+    {
+        ProjectileManager.m_Instance.EnemyShot(m_Staff.transform.position,
+            GameplayManager.GetDirectionToGameObject(m_Staff.transform.position, Player.m_Instance.gameObject),
+            m_ProjectileSpeed,
+            m_ProjectileLifetime,
+            m_ProjectilePrefab,
+            m_ProjectileDamage,
+            m_ProjectileKnockback,
+            gameObject,
+            DamageType.Dark);
+
+        Invoke(nameof(EndProjectileCooldown), m_ProjectileCooldown);
+        GetComponentInChildren<Animator>().Play("MagicDown", -1, 0f);
+
     }
 
     private void EndProjectileCooldown()
