@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-struct PlayerBounds
+public struct PlayerBounds
 {
     public float top;
     public float bottom;
     public float left;
     public float right;
+
+    public bool IsInBounds(Vector2 pos)
+    {
+        return pos.x > left && pos.x < right && pos.y > bottom && pos.y < top;
+    }
 }
 
 public class PlayerManager : MonoBehaviour // Manager that controls the player in-game
 {
     public static PlayerManager m_Instance;
+
     public static GameObject m_Character;
     public static SkillTree m_SkillTreeRef;
     public GameObject m_Camera;
 
     [SerializeField] PlayerBounds m_CameraBounds;
     [SerializeField] PlayerBounds m_WorldBounds;
-    [SerializeField] PlayerBounds m_BossArenaBounds;
+    public PlayerBounds m_BossArenaBounds;
 
     private void Awake()
     {

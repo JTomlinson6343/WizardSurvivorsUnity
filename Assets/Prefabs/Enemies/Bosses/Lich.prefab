@@ -270,7 +270,7 @@ MonoBehaviour:
   m_ProjectileCooldown: 3
   m_TeleportCooldown: 5
   m_TeleportChancePerFrame: 0.01
-  m_TeleportRadius: 4
+  m_TeleportRadius: 3.5
   m_TeleportVanishDuration: 2
   m_StompCooldown: 3
   m_StompDamage: 20

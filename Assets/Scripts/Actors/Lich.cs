@@ -66,7 +66,7 @@ public class Lich : Enemy
 
         if (distToPlayer < m_MeleeRadius)
         {
-            PlayMethodAfterAnimation("Stomp", 1.4f, nameof(Stomp), ref m_StompOnCooldown);
+            PlayMethodAfterAnimation("Stomp", 1.45f, nameof(Stomp), ref m_StompOnCooldown);
         }
         else
         {
@@ -146,7 +146,16 @@ public class Lich : Enemy
 
         SpawnSmoke();
         Invoke(nameof(Reappear), m_TeleportVanishDuration);
-        transform.position = Player.m_Instance.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_TeleportRadius;
+        Vector2 newPos;
+        while (true)
+        {
+            newPos = Player.m_Instance.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_TeleportRadius;
+
+            if (PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(newPos)) break;
+        }
+
+        transform.position = newPos;
+
         gameObject.SetActive(false);
 
         m_IsMidAnimation = true;
