@@ -25,6 +25,7 @@ public class Lich : Enemy
     private bool m_IsMidAnimation;
 
     [SerializeField] GameObject m_Staff;
+    [SerializeField] GameObject m_QuakePos;
     [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] GameObject m_QuakePrefab;
     [SerializeField] GameObject m_SmokePrefab;
@@ -58,12 +59,13 @@ public class Lich : Enemy
     private void Brain()
     {
         if (Player.m_Instance == null) return;
+        if (m_IsMidAnimation) return;
 
         float distToPlayer = Vector2.Distance(Player.m_Instance.transform.position, transform.position);
 
         if (distToPlayer < m_MeleeRadius)
         {
-            PlayMethodAfterAnimation("Stomp", 2f, nameof(Stomp), ref m_StompOnCooldown);
+            PlayMethodAfterAnimation("Stomp", 1.1f, nameof(Stomp), ref m_StompOnCooldown);
         }
         else
         {
@@ -82,6 +84,7 @@ public class Lich : Enemy
         if (cooldownCheck) return;
 
         animator.Play(animation, -1, 0f);
+        m_IsMidAnimation = true;
         Invoke(methodOnPlay, delay);
         cooldownCheck = true;
     }
@@ -98,22 +101,29 @@ public class Lich : Enemy
             gameObject,
             DamageType.Dark);
 
+        AudioManager.m_Instance.PlaySound(15);
+
         Invoke(nameof(EndProjectileCooldown), m_ProjectileCooldown);
         GetComponentInChildren<Animator>().Play("MagicDown", -1, 0f);
+        m_IsMidAnimation = false;
     }
 
     private void Stomp()
     {
-        Invoke(nameof(EndStompCooldown), m_StompCooldown);
-
         GameObject quake = Instantiate(m_QuakePrefab);
         quake.GetComponent<EnemyAOE>().Init(
-            transform.position,
+            m_QuakePos.transform.position,
             m_ProjectileDamage,
             2f,
             1.2f,
             gameObject,
-            DamageType.Physical);
+            DamageType.Physical);;
+
+        AudioManager.m_Instance.PlaySound(14);
+
+        Invoke(nameof(EndStompCooldown), m_StompCooldown);
+        GetComponentInChildren<Animator>().Play("AfterStomp", -1, 0f);
+        m_IsMidAnimation = false;
     }
 
     private void TeleportCheck()
@@ -130,25 +140,31 @@ public class Lich : Enemy
     {
         m_TeleportOnCooldown = true;
         m_ProjectileOnCooldown = true;
+        m_StompOnCooldown = true;
         Invoke(nameof(EndTeleportCooldown), m_TeleportCooldown);
 
         SpawnSmoke();
         Invoke(nameof(Reappear), m_TeleportVanishDuration);
         transform.position = Player.m_Instance.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_TeleportRadius;
         gameObject.SetActive(false);
+
+        m_IsMidAnimation = true;
     }
 
     private void SpawnSmoke()
     {
         GameObject smoke = Instantiate(m_SmokePrefab);
         smoke.transform.position = m_DebuffPlacement.transform.position;
+        AudioManager.m_Instance.PlaySound(16);
     }
 
     private void Reappear()
     {
         SpawnSmoke();
         m_ProjectileOnCooldown = false;
+        m_StompOnCooldown = false;
         gameObject.SetActive(true);
+        m_IsMidAnimation = false;
     }
 
     private void EndProjectileCooldown()

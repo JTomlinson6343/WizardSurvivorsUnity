@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 3278516105425941278}
   - {fileID: 1631540265473164908}
+  - {fileID: 7270092368590923282}
   m_Father: {fileID: 4263016877876653559}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -2020019679
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1218925845, guid: a58e5b41fb4d2c6429df63541cc2241a, type: 3}
+  m_Sprite: {fileID: -284638236, guid: 89a6a95ba87434f4795b33406e18d068, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,6 +109,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4290298288988512554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7270092368590923282}
+  m_Layer: 0
+  m_Name: QuakePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7270092368590923282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290298288988512554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.32, y: -0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4807051098039868445}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4702823776869340235
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +274,7 @@ MonoBehaviour:
   m_TeleportVanishDuration: 2
   m_StompCooldown: 3
   m_Staff: {fileID: 4702823776869340235}
+  m_QuakePos: {fileID: 4290298288988512554}
   m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
   m_QuakePrefab: {fileID: 7460146828828791165, guid: 2d413f089f226cb49a879295588482f4, type: 3}
   m_SmokePrefab: {fileID: 1454696810923960271, guid: b4f47a06326d8b042bfd5d9963af2780, type: 3}
