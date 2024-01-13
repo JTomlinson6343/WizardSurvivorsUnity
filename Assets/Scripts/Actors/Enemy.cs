@@ -85,7 +85,7 @@ public class Enemy : Actor
             DamageInstanceData data = new(gameObject, otherObject);
             data.amount = enemy.m_ContactDamage;
             data.damageType = DamageType.Physical;
-            data.doDamageNumbers = false;
+            data.doDamageNumbers = true;
             Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
             DamageManager.m_Instance.DamageInstance(data, transform.position);

@@ -17,6 +17,7 @@ public class Lich : Enemy
     [SerializeField] float m_TeleportVanishDuration;
 
     [SerializeField] float m_StompCooldown;
+    [SerializeField] float m_StompDamage;
 
     private bool m_ProjectileOnCooldown;
     private bool m_TeleportOnCooldown;
@@ -65,7 +66,7 @@ public class Lich : Enemy
 
         if (distToPlayer < m_MeleeRadius)
         {
-            PlayMethodAfterAnimation("Stomp", 1.1f, nameof(Stomp), ref m_StompOnCooldown);
+            PlayMethodAfterAnimation("Stomp", 1.4f, nameof(Stomp), ref m_StompOnCooldown);
         }
         else
         {
@@ -113,7 +114,7 @@ public class Lich : Enemy
         GameObject quake = Instantiate(m_QuakePrefab);
         quake.GetComponent<EnemyAOE>().Init(
             m_QuakePos.transform.position,
-            m_ProjectileDamage,
+            m_StompDamage,
             2f,
             1.2f,
             gameObject,

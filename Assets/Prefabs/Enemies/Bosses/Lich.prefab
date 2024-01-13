@@ -247,8 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cae9c6490d8fa4f95064d0782218d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 10000
-  m_Health: 10000
+  m_MaxHealth: 1500
+  m_Health: 1500
   m_KnockbackResist: 1
   m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
   m_DebuffPlacement: {fileID: 8335548373994432881}
@@ -259,20 +259,21 @@ MonoBehaviour:
   m_MinChampSkillPoints: 0
   m_MaxChampSkillPoints: 0
   m_Speed: 1
-  m_ContactDamage: 1
+  m_ContactDamage: 20
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 436168181258737274}
   m_MeleeRadius: 4.2
   m_ProjectileSpeed: 4
   m_ProjectileLifetime: 8
-  m_ProjectileDamage: 20
+  m_ProjectileDamage: 50
   m_ProjectileKnockback: 1
   m_ProjectileCooldown: 3
   m_TeleportCooldown: 5
   m_TeleportChancePerFrame: 0.01
-  m_TeleportRadius: 3
+  m_TeleportRadius: 4
   m_TeleportVanishDuration: 2
   m_StompCooldown: 3
+  m_StompDamage: 20
   m_Staff: {fileID: 4702823776869340235}
   m_QuakePos: {fileID: 4290298288988512554}
   m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}

@@ -47,7 +47,7 @@ public class EnemyProjectile : Projectile
         data.amount = m_Damage;
         data.damageType = m_DamageType;
         data.target = target;
-        data.doDamageNumbers = false;
+        data.doDamageNumbers = true;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
 
