@@ -74,6 +74,7 @@ public class Lich : Enemy
         }
     }
 
+    // Method called after 'delay' seconds and only if it is off cooldown
     private void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay, ref bool cooldownCheck)
     {
         Animator animator = GetComponentInChildren<Animator>();
