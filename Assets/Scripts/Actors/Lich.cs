@@ -22,6 +22,8 @@ public class Lich : Enemy
     private bool m_TeleportOnCooldown;
     private bool m_StompOnCooldown;
 
+    private bool m_IsMidAnimation;
+
     [SerializeField] GameObject m_Staff;
     [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] GameObject m_QuakePrefab;
@@ -55,30 +57,32 @@ public class Lich : Enemy
 
     private void Brain()
     {
-        Animator animator = GetComponentInChildren<Animator>();
         if (Player.m_Instance == null) return;
 
         float distToPlayer = Vector2.Distance(Player.m_Instance.transform.position, transform.position);
 
         if (distToPlayer < m_MeleeRadius)
         {
-            if (m_StompOnCooldown) return;
-            // Stomp attack
-            animator.Play("Magic", -1, 0f);
-            Invoke(nameof(Stomp), 1f);
-            m_StompOnCooldown = true;
+            PlayMethodAfterAnimation("Stomp", 2f, nameof(Stomp), ref m_StompOnCooldown);
         }
         else
         {
             TeleportCheck();
 
-            if (m_ProjectileOnCooldown) return;
-
             //Ranged attack
-            animator.Play("Magic", -1, 0f);
-            Invoke(nameof(Shoot), 0.5f);
-            m_ProjectileOnCooldown = true;
+            PlayMethodAfterAnimation("Magic", 0.5f, nameof(Shoot), ref m_ProjectileOnCooldown);
         }
+    }
+
+    private void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay, ref bool cooldownCheck)
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+
+        if (cooldownCheck) return;
+
+        animator.Play(animation, -1, 0f);
+        Invoke(methodOnPlay, delay);
+        cooldownCheck = true;
     }
 
     private void Shoot()
