@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea5ed9c67360634bab3b3deb10fcc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_XPBar: {fileID: 6079202607342478634}
+  m_XPBar: {fileID: 3819094023129270108}
   m_BossHealthBar: {fileID: 8966732224890248698}
   m_BossNameLabel: {fileID: 8030643530146064144}
   m_Hud: {fileID: 7418925485568979471}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 2900659270627183074}
   - component: {fileID: 960127167201154111}
   - component: {fileID: 7448674640325381230}
-  - component: {fileID: 6079202607342478634}
+  - component: {fileID: 3819094023129270108}
   m_Layer: 5
   m_Name: XPBar
   m_TagString: Untagged
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6079202607342478634
+--- !u!114 &3819094023129270108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3888923953111413407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61fbe4a804e17314a923ed6132724c5c, type: 3}
+  m_Script: {fileID: 11500000, guid: a8aa293112bf7e04db89af330752039f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseScale: {x: 1, y: 1}

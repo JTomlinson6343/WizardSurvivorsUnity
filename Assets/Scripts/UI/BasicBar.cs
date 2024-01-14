@@ -11,7 +11,7 @@ public class BasicBar : MonoBehaviour
 
     public Actor m_Actor;
 
-    private void Update()
+    virtual protected void Update()
     {
         UpdateHealthBar();
     }
