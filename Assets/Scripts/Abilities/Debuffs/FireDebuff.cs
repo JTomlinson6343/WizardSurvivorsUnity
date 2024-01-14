@@ -60,6 +60,8 @@ public class FireDebuff : Debuff
 
     private void OnDisable()
     {
+        if (!m_FireEffect) return;
+
         m_FireEffect.SetActive(false);
     }
 }

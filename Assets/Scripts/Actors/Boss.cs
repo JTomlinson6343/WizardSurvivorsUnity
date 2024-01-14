@@ -13,5 +13,7 @@ public class Boss : Enemy
     {
         base.OnDeath();
         ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, Random.Range(m_MinSkillPoints, m_MaxSkillPoints + 1));
+        ProgressionManager.m_Instance.RemoveBossBar();
+        StateManager.ChangeState(State.PLAYING);
     }
 }
