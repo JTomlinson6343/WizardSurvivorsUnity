@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 4918430836151260397}
   - component: {fileID: 6864563779063590246}
   - component: {fileID: 2558855753744608550}
-  - component: {fileID: 3926971791755956846}
   m_Layer: 0
   m_Name: Lich
   m_TagString: Enemy
@@ -265,14 +264,15 @@ MonoBehaviour:
   m_MaxSkillPoints: 10
   m_MinSkillPoints: 30
   m_MeleeRadius: 4.2
-  m_ProjectileSpeed: 4
+  m_ProjectileSpeed: 6
   m_ProjectileLifetime: 8
   m_ProjectileDamage: 50
   m_ProjectileKnockback: 1
-  m_ProjectileCooldown: 3
+  m_ProjectileCooldown: 2
   m_TeleportCooldown: 5
-  m_TeleportChancePerFrame: 0.01
-  m_TeleportRadius: 3.5
+  m_TeleportChancePerFrame: 0.005
+  m_MinTeleportRadius: 3
+  m_MaxTeleportRadius: 5
   m_TeleportVanishDuration: 2
   m_StompCooldown: 3
   m_StompDamage: 20
@@ -314,43 +314,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: 1.4}
-  m_Size: {x: 1.64, y: 3.08}
-  m_Direction: 0
---- !u!70 &3926971791755956846
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4782787995318582076}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.18, y: 1.81}
-  m_Size: {x: 0.74, y: 1.48}
+  m_Offset: {x: -0.093580365, y: 1.4000001}
+  m_Size: {x: 1.7442796, y: 3.08}
   m_Direction: 0
 --- !u!1 &8335548373994432881
 GameObject:

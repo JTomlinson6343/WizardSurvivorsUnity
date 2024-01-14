@@ -13,7 +13,8 @@ public class Lich : Boss
 
     [SerializeField] float m_TeleportCooldown;
     [SerializeField] float m_TeleportChancePerFrame;
-    [SerializeField] float m_TeleportRadius; // Distance from the player the teleport pos can be
+    [SerializeField] float m_MinTeleportRadius; // Min distance from the player the teleport pos can be
+    [SerializeField] float m_MaxTeleportRadius; // Max distance from the player the teleport pos can be
     [SerializeField] float m_TeleportVanishDuration;
 
     [SerializeField] float m_StompCooldown;
@@ -67,10 +68,12 @@ public class Lich : Boss
 
         if (distToPlayer < m_MeleeRadius)
         {
+            // If enemy is in range of player, use stomp attack
             PlayMethodAfterAnimation("Stomp", 1.45f, nameof(Stomp), ref m_StompOnCooldown);
         }
         else
         {
+            // If player is out of melee range, try and teleport.
             TeleportCheck();
 
             //Ranged attack
@@ -85,8 +88,11 @@ public class Lich : Boss
 
         if (cooldownCheck) return;
 
+        // Play the animation
         animator.Play(animation, -1, 0f);
+        // Set status to being mid-animation
         m_IsMidAnimation = true;
+        // Call the method after the delay
         Invoke(methodOnPlay, delay);
         cooldownCheck = true;
     }
@@ -147,15 +153,6 @@ public class Lich : Boss
 
         SpawnSmoke();
         Invoke(nameof(Reappear), m_TeleportVanishDuration);
-        Vector2 newPos;
-        while (true)
-        {
-            newPos = Player.m_Instance.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_TeleportRadius;
-
-            if (PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(newPos)) break;
-        }
-
-        transform.position = newPos;
 
         gameObject.SetActive(false);
 
@@ -171,9 +168,21 @@ public class Lich : Boss
 
     private void Reappear()
     {
-        SpawnSmoke();
         m_ProjectileOnCooldown = false;
         m_StompOnCooldown = false;
+
+        Vector2 newPos;
+        while (true)
+        {
+            newPos = Player.m_Instance.transform.position
+                + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_MinTeleportRadius
+                + new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * (m_MaxTeleportRadius - m_MinTeleportRadius);
+
+            if (PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(newPos)) break;
+        }
+
+        transform.position = newPos;
+        SpawnSmoke();
         gameObject.SetActive(true);
         m_IsMidAnimation = false;
     }
