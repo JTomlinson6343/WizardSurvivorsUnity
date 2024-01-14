@@ -145,10 +145,7 @@ public class EnemyManager : MonoBehaviour
             }
             randomValue -= enemy.m_SpawnProbability;
         }
-        GameObject newEnemy = Instantiate(enemyToSpawn);
-        newEnemy.transform.position = GetSpawnPosition();
-        newEnemy.transform.SetParent(transform, false);
-        newEnemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * newEnemy.GetComponent<Enemy>().m_HealthModifier;
+        GameObject newEnemy = CreateNewEnemy(enemyToSpawn);
 
         return newEnemy;
     }
