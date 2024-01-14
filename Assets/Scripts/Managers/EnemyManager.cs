@@ -151,6 +151,7 @@ public class EnemyManager : MonoBehaviour
         PurgeEnemies();
         GameObject boss = Instantiate(m_BossPrefabs[0]);
         boss.transform.position = Player.m_Instance.transform.position + new Vector3(0f, 5f);
+        boss.transform.SetParent(transform);
 
         return boss.GetComponent<Boss>();
     }

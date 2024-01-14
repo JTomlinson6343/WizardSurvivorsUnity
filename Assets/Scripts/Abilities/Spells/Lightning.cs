@@ -11,8 +11,12 @@ public class Lightning : Spell
     {
         base.OnCast();
         // If there is an enemy in range
-        if (!GameplayManager.GetFurthestEnemyInRange(Player.m_Instance.GetStaffTransform().position, kBaseRange * m_TotalStats.AOE)) return;
-        
+        if (!GameplayManager.GetFurthestEnemyInRange(Player.m_Instance.GetStaffTransform().position, kBaseRange * m_TotalStats.AOE))
+        {
+            ResetCooldown(kCooldownAfterReset);
+            return;
+        }
+
         GameObject newLightning = Instantiate(m_LightningPrefab);
 
         newLightning.transform.SetParent(Player.m_Instance.transform);

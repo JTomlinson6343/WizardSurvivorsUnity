@@ -100,6 +100,7 @@ public class Ability : MonoBehaviour
     private List<GameObject> m_HitEnemies = new List<GameObject>();
 
     protected readonly float kDefaultAutofireRange = 6f;
+    protected readonly float kCooldownAfterReset = 2f;
 
     //Getters//
     public AbilityStats GetBonusStats() { return m_BonusStats; }
@@ -142,6 +143,19 @@ public class Ability : MonoBehaviour
     {
         // No OnMouseInput behaviour defined. Defaulting to normal ability cast
         OnCast();
+    }
+
+    protected void ResetCooldown(float newCooldown)
+    {
+        CancelInvoke(nameof(OnCast));
+        if (m_TotalStats.cooldown < 0)
+        {
+            OnCast();
+        }
+        else
+        {
+            InvokeRepeating(nameof(OnCast), newCooldown, m_TotalStats.cooldown);
+        }
     }
 
     #region Stats
