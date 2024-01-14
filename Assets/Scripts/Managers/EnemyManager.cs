@@ -116,6 +116,18 @@ public class EnemyManager : MonoBehaviour
 
         m_NextSpawn = now + m_SpawnCooldown;
 
+        GameObject newEnemy = CreateNewEnemy();
+
+        if (Random.Range(0f, 1f) < kChampionChance * ProgressionManager.m_Instance.m_WaveCounter)
+            newEnemy.GetComponent<Enemy>().MakeChampion();
+
+        m_EnemyCount++;
+        m_EnemiesSpawnedThisWave++;
+    }
+
+    // Returns the stats of a new enemy based on current wave with random prefab
+    public GameObject CreateNewEnemy()
+    {
         GameObject enemyToSpawn = null;
 
         // Generate a random number between 0 and the total probability
@@ -133,17 +145,23 @@ public class EnemyManager : MonoBehaviour
             }
             randomValue -= enemy.m_SpawnProbability;
         }
-        
         GameObject newEnemy = Instantiate(enemyToSpawn);
         newEnemy.transform.position = GetSpawnPosition();
         newEnemy.transform.SetParent(transform, false);
         newEnemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * newEnemy.GetComponent<Enemy>().m_HealthModifier;
 
-        if (Random.Range(0f, 1f) < kChampionChance * ProgressionManager.m_Instance.m_WaveCounter)
-            newEnemy.GetComponent<Enemy>().MakeChampion();
+        return newEnemy;
+    }
 
-        m_EnemyCount++;
-        m_EnemiesSpawnedThisWave++;
+    // Returns the stats of a new enemy based on current wave with given prefab
+    public GameObject CreateNewEnemy(GameObject enemyPrefab)
+    {
+        GameObject newEnemy = Instantiate(enemyPrefab);
+        newEnemy.transform.position = GetSpawnPosition();
+        newEnemy.transform.SetParent(transform, false);
+        newEnemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * newEnemy.GetComponent<Enemy>().m_HealthModifier;
+
+        return newEnemy;
     }
 
     public Boss SpawnBoss()

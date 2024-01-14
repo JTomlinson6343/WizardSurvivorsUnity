@@ -25,7 +25,7 @@ public class Enemy : Actor
     private readonly float m_kKnockback = 0.25f;
     private readonly float m_kBaseMoveSpeed = 2.2f;
 
-    private Rigidbody2D m_RigidBody;
+    private Rigidbody2D rb;
     private Animator m_Animator;
 
     [SerializeField] GameObject m_HealthbarPrefab;
@@ -33,7 +33,7 @@ public class Enemy : Actor
     private void Awake()
     {
         m_Animator = GetComponentInChildren<Animator>();
-        m_RigidBody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     override public void Start()
@@ -46,21 +46,25 @@ public class Enemy : Actor
     {
         if (StateManager.GetCurrentState() != State.PLAYING)
         {
-            m_RigidBody.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
             return;
         }
+        FollowPlayer();
+    }
 
+    protected void FollowPlayer()
+    {
         Vector3 currentPos = gameObject.transform.position;
         if (Player.m_Instance != null)
         {
             Vector3 playerPos = Player.m_Instance.transform.position;
             Vector3 moveDir = (playerPos - currentPos).normalized;
             Vector3 targetVelocity = moveDir * m_kBaseMoveSpeed * m_Speed;
-            Vector3 currentVelocity = m_RigidBody.velocity;
+            Vector3 currentVelocity = rb.velocity;
 
             currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
 
-            m_RigidBody.velocity = currentVelocity;
+            rb.velocity = currentVelocity;
 
             SetAnimState(targetVelocity);
         }

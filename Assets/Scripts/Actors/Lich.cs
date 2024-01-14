@@ -19,12 +19,12 @@ public class Lich : Boss
 
     [SerializeField] float m_StompCooldown;
     [SerializeField] float m_StompDamage;
+    [SerializeField] int   m_EnemiesSpawned;
+    [SerializeField] float m_EnemySpawnRadius;
 
     private bool m_ProjectileOnCooldown;
     private bool m_TeleportOnCooldown;
     private bool m_StompOnCooldown;
-
-    private bool m_IsMidAnimation;
 
     [SerializeField] GameObject m_Staff;
     [SerializeField] GameObject m_QuakePos;
@@ -32,6 +32,7 @@ public class Lich : Boss
     [SerializeField] GameObject m_QuakePrefab;
     [SerializeField] GameObject m_SmokePrefab;
     [SerializeField] GameObject m_DeathParticlesPrefab;
+    [SerializeField] GameObject m_SpawnedEnemyPrefab;
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, m_MeleeRadius);
@@ -81,22 +82,6 @@ public class Lich : Boss
         }
     }
 
-    // Method called after 'delay' seconds and only if it is off cooldown
-    private void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay, ref bool cooldownCheck)
-    {
-        Animator animator = GetComponentInChildren<Animator>();
-
-        if (cooldownCheck) return;
-
-        // Play the animation
-        animator.Play(animation, -1, 0f);
-        // Set status to being mid-animation
-        m_IsMidAnimation = true;
-        // Call the method after the delay
-        Invoke(methodOnPlay, delay);
-        cooldownCheck = true;
-    }
-
     private void Shoot()
     {
         ProjectileManager.m_Instance.EnemyShot(m_Staff.transform.position,
@@ -132,6 +117,14 @@ public class Lich : Boss
         Invoke(nameof(EndStompCooldown), m_StompCooldown);
         GetComponentInChildren<Animator>().Play("AfterStomp", -1, 0f);
         m_IsMidAnimation = false;
+
+
+        for (int i = 0; i < m_EnemiesSpawned; i++)
+        {
+            GameObject spawnedEnemy = EnemyManager.m_Instance.CreateNewEnemy(m_SpawnedEnemyPrefab);
+            spawnedEnemy.transform.position = m_QuakePos.transform.position + GameplayManager.GetRandomDirectionV3() * m_EnemySpawnRadius;
+            spawnedEnemy.GetComponent<Skeleton>().CrawlFromGround();
+        }
     }
 
     private void TeleportCheck()
@@ -174,9 +167,7 @@ public class Lich : Boss
         Vector2 newPos;
         while (true)
         {
-            newPos = Player.m_Instance.transform.position
-                + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_MinTeleportRadius
-                + new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f)) * (m_MaxTeleportRadius - m_MinTeleportRadius);
+            newPos = Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_MinTeleportRadius;
 
             if (PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(newPos)) break;
         }

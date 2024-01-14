@@ -35,6 +35,8 @@ public class Actor : MonoBehaviour
 
     public GameObject m_DebuffPlacement;
 
+    protected bool m_IsMidAnimation;
+
     public virtual void Start()
     {
         m_DefaultMaterial = GetComponentInChildren<SpriteRenderer>().material;
@@ -115,5 +117,32 @@ public class Actor : MonoBehaviour
     virtual protected void OnDeath()
     {
         Destroy(gameObject);
+    }
+
+    // Method called after 'delay' seconds and only if it is off cooldown
+    protected void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay, ref bool cooldownCheck)
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+
+        if (cooldownCheck) return;
+
+        // Play the animation
+        animator.Play(animation, -1, 0f);
+        // Set status to being mid-animation
+        m_IsMidAnimation = true;
+        // Call the method after the delay
+        Invoke(methodOnPlay, delay);
+        cooldownCheck = true;
+    }
+    protected void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay)
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+
+        // Play the animation
+        animator.Play(animation, -1, 0f);
+        // Set status to being mid-animation
+        m_IsMidAnimation = true;
+        // Call the method after the delay
+        Invoke(methodOnPlay, delay);
     }
 }

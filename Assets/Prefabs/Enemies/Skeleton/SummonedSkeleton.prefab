@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &713015223848966299
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263016877876653559, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782787995318582076, guid: 41affc13d066f11498b357961699e749, type: 3}
+      propertyPath: m_Name
+      value: SummonedSkeleton
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7644056101305145373, guid: 41affc13d066f11498b357961699e749, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4782787995318582076, guid: 41affc13d066f11498b357961699e749, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8340632842504487954}
+  m_SourcePrefab: {fileID: 100100000, guid: 41affc13d066f11498b357961699e749, type: 3}
+--- !u!1 &4740134190917343153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5200942333771206442, guid: 41affc13d066f11498b357961699e749, type: 3}
+  m_PrefabInstance: {fileID: 713015223848966299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5456889157576156071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4782787995318582076, guid: 41affc13d066f11498b357961699e749, type: 3}
+  m_PrefabInstance: {fileID: 713015223848966299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8340632842504487954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456889157576156071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a17b62c18bc1a4ea88e278bc97c9fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxHealth: 100
+  m_Health: 100
+  m_KnockbackResist: 0
+  m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
+  m_DebuffPlacement: {fileID: 4740134190917343153}
+  m_HealthModifier: 0.5
+  m_SpawnProbability: 0
+  m_XPAwarded: 0
+  m_SkillPointDropChance: 0
+  m_MinChampSkillPoints: 0
+  m_MaxChampSkillPoints: 0
+  m_Speed: 1
+  m_ContactDamage: 25
+  m_KnockbackModifier: 0
+  m_HealthbarPrefab: {fileID: 0}

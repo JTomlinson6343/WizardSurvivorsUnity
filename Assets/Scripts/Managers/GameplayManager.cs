@@ -107,4 +107,13 @@ public static class GameplayManager
                 return num.ToString();
         }
     }
+
+    public static Vector2 GetRandomDirectionV2()
+    {
+        return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+    }
+    public static Vector3 GetRandomDirectionV3()
+    {
+        return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+    }
 }
