@@ -12,7 +12,10 @@ public class ProgressionManager : MonoBehaviour
     public static ProgressionManager m_Instance;
 
     //UI
-    BasicBar xpBar;
+    [SerializeField] BasicBar m_XPBar;
+
+    [SerializeField] BasicBar m_BossHealthBar;
+    [SerializeField] TextMeshProUGUI m_BossNameLabel;
 
     [SerializeField] GameObject m_Hud;
 
@@ -52,11 +55,9 @@ public class ProgressionManager : MonoBehaviour
 
     private void Start()
     {
-        xpBar = GetComponentInChildren<BasicBar>();
-
         CalculateNextLevelXP();
 
-        xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
+        m_XPBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
     }
 
     private void Update()
@@ -128,7 +129,7 @@ public class ProgressionManager : MonoBehaviour
             OnLevelUp();
         }
 
-        xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
+        m_XPBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
         return false;
     }
 
@@ -198,7 +199,17 @@ public class ProgressionManager : MonoBehaviour
     {
         StateManager.ChangeState(State.BOSS);
         PlayerManager.m_Instance.OnStartBossFight();
-        EnemyManager.m_Instance.SpawnBoss();
+        Boss boss = EnemyManager.m_Instance.SpawnBoss();
+
+        m_BossHealthBar.m_Actor = boss;
+        m_BossHealthBar.transform.parent.gameObject.SetActive(true);
+
+        m_BossNameLabel.text = boss.m_BossName;
+    }
+
+    public void RemoveBossBar()
+    {
+        m_BossHealthBar.transform.parent.gameObject.SetActive(false);
     }
 
     public void Quit()

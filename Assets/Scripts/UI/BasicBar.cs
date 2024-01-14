@@ -18,8 +18,11 @@ public class BasicBar : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        if (!gameObject.GetComponentInParent<Actor>()) return;
-        if (!m_Actor) return;
+        if (!m_Actor)
+        {
+            UpdateSize(0f);
+            return;
+        }
 
         BasicBar bar = gameObject.GetComponentInChildren<BasicBar>();
 

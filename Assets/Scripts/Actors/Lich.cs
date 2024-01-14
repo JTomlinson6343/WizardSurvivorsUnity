@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lich : Enemy
+public class Lich : Boss
 {
     [SerializeField] float m_MeleeRadius;
     [SerializeField] float m_ProjectileSpeed;

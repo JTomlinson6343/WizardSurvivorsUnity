@@ -67,6 +67,7 @@ public class Actor : MonoBehaviour
         if (m_Health <= 0)
         {
             // If this has no hp left, destroy it
+            m_Health = 0;
             OnDeath();
             return DamageOutput.wasKilled;
         }

@@ -146,11 +146,13 @@ public class EnemyManager : MonoBehaviour
         m_EnemiesSpawnedThisWave++;
     }
 
-    public void SpawnBoss()
+    public Boss SpawnBoss()
     {
         PurgeEnemies();
         GameObject boss = Instantiate(m_BossPrefabs[0]);
         boss.transform.position = Player.m_Instance.transform.position + new Vector3(0f, 5f);
+
+        return boss.GetComponent<Boss>();
     }
 
     private void GracePeriod()
