@@ -176,7 +176,7 @@ public class Lich : Boss
         {
             newPos = Player.m_Instance.transform.position
                 + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_MinTeleportRadius
-                + new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * (m_MaxTeleportRadius - m_MinTeleportRadius);
+                + new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f)) * (m_MaxTeleportRadius - m_MinTeleportRadius);
 
             if (PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(newPos)) break;
         }

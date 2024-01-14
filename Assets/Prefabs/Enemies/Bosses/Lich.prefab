@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cae9c6490d8fa4f95064d0782218d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 1500
-  m_Health: 1500
+  m_MaxHealth: 1750
+  m_Health: 1750
   m_KnockbackResist: 1
   m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
   m_DebuffPlacement: {fileID: 8335548373994432881}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_TeleportCooldown: 5
   m_TeleportChancePerFrame: 0.005
   m_MinTeleportRadius: 3
-  m_MaxTeleportRadius: 5
+  m_MaxTeleportRadius: 6
   m_TeleportVanishDuration: 2
   m_StompCooldown: 3
   m_StompDamage: 20

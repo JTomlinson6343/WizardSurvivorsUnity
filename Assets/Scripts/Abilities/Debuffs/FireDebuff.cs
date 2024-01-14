@@ -48,12 +48,18 @@ public class FireDebuff : Debuff
     {
         base.Update();
         if (!GetComponent<Actor>().m_DebuffPlacement) return;
-
+      
+        m_FireEffect.SetActive(true);
         m_FireEffect.transform.position = GetComponent<Actor>().m_DebuffPlacement.transform.position;
     }
 
     private void OnDestroy()
     {
         EndDebuff();
+    }
+
+    private void OnDisable()
+    {
+        m_FireEffect.SetActive(false);
     }
 }

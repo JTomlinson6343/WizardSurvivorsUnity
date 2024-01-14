@@ -103,7 +103,7 @@ public class ProgressionManager : MonoBehaviour
             Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
             if (!rb) return;
 
-            float modifier = 1f + amount / 10f;
+            float modifier = 1f + amount / 100f;
 
             // Fire pickup in a random direction
             rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier),
