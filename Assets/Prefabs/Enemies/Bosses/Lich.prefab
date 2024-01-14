@@ -260,7 +260,7 @@ MonoBehaviour:
   m_ContactDamage: 20
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 0}
-  m_BossName: Lich
+  m_BossName: Vorkath, Deathlord of the Crypt
   m_MaxSkillPoints: 10
   m_MinSkillPoints: 30
   m_MeleeRadius: 4.2
