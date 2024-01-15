@@ -260,6 +260,7 @@ MonoBehaviour:
   m_ContactDamage: 20
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 0}
+  m_DeathParticlesPrefab: {fileID: 7872876998205242724, guid: c543e21daec357742b64e6b1c28ffe72, type: 3}
   m_BossName: Vorkath, Deathlord of the Crypt
   m_MaxSkillPoints: 10
   m_MinSkillPoints: 30
@@ -277,13 +278,12 @@ MonoBehaviour:
   m_StompCooldown: 3
   m_StompDamage: 20
   m_EnemiesSpawned: 2
-  m_EnemySpawnRadius: 2.5
+  m_EnemySpawnRadius: 2.25
   m_Staff: {fileID: 4702823776869340235}
   m_QuakePos: {fileID: 4290298288988512554}
   m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
   m_QuakePrefab: {fileID: 7460146828828791165, guid: 2d413f089f226cb49a879295588482f4, type: 3}
   m_SmokePrefab: {fileID: 1454696810923960271, guid: b4f47a06326d8b042bfd5d9963af2780, type: 3}
-  m_DeathParticlesPrefab: {fileID: 7872876998205242724, guid: c543e21daec357742b64e6b1c28ffe72, type: 3}
   m_SpawnedEnemyPrefab: {fileID: 5456889157576156071, guid: e9a5b442d6c10b64e87a1823d8a2adc0, type: 3}
 --- !u!70 &2558855753744608550
 CapsuleCollider2D:

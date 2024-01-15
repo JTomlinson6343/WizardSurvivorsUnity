@@ -36,6 +36,21 @@ public class Lich : Boss
     {
         Gizmos.DrawWireSphere(transform.position, m_MeleeRadius);
     }
+
+    public override void Enraged(int bossNumber)
+    {
+        m_MaxHealth *= bossNumber;
+        m_StompDamage *= 1f + bossNumber * 0.1f;
+        m_ProjectileDamage *= 1f + bossNumber * 0.1f;
+        m_EnemiesSpawned += bossNumber;
+        m_ProjectileCooldown *= 1f/bossNumber;
+        m_ProjectileSpeed *= 1f + bossNumber * 0.05f;
+
+        m_BossName = "Enraged " + m_BossName;
+
+        GetComponentInChildren<SpriteRenderer>().color = Color.gray;
+    }
+
     public override void Update()
     {
         if (StateManager.GetCurrentState() != State.BOSS) return;

@@ -207,6 +207,10 @@ public class ProgressionManager : MonoBehaviour
         PlayerManager.m_Instance.OnStartBossFight();
         Boss boss = EnemyManager.m_Instance.SpawnBoss();
 
+        if (m_WaveCounter >= 10)
+        {
+            boss.Enraged(m_WaveCounter/5);
+        }
         // Play boss music
         AudioManager.m_Instance.PlayMusic(17, 0.2f);
 
