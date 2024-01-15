@@ -89,7 +89,7 @@ public class Debuff : MonoBehaviour
     // Update is called once per frame
     virtual protected void Update()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
+        if (StateManager.GetCurrentState() != State.PLAYING && StateManager.GetCurrentState() != State.BOSS) { return; }
         TickRoutine();
     }
 
@@ -118,12 +118,23 @@ public class Debuff : MonoBehaviour
     // Called once per tick of the debuff
     virtual protected void OnTick()
     {
+        Vector2 pos = Vector2.zero;
+        if (GetComponent<Actor>().m_DebuffPlacement)
+        {
+            pos = GetComponent<Actor>().m_DebuffPlacement.transform.position;
+        }
+        else
+        {
+            pos = transform.position;
+        }
+        pos += new Vector2(0.5f, 1f);
+
         DamageInstanceData data = new DamageInstanceData(m_Source,gameObject);
         data.amount = m_Damage*m_StackAmount;
         data.damageType = m_DamageType;
         data.isDoT = true;
         data.doDamageNumbers = true;
         data.doSoundEffect = false;
-        DamageManager.m_Instance.DamageInstance(data,transform.position);
+        DamageManager.m_Instance.DamageInstance(data, pos);
     }
 }

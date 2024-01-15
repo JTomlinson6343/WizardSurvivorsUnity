@@ -574,7 +574,7 @@ MonoBehaviour:
     maxLevel: 1
   m_FireParticlePrefab: {fileID: 1695107528181939108, guid: 62ebe611e871de54c81899026eb0d82a, type: 3}
   m_LightPrefab: {fileID: 2441900490676211127, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
-  m_Damage: 0.03
+  m_Damage: 10
   m_DamageType: 0
 --- !u!1 &8975141264384055795
 GameObject:

@@ -121,7 +121,7 @@ public class ChunkManager : MonoBehaviour
     {
         // Calculate the base view distance based on your desired logic
         // For example, you can use the scale of your chunks or a fixed value
-        return 10f;
+        return 11f;
     }
 
     private class TileInstanceData

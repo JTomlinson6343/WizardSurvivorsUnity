@@ -17,9 +17,9 @@ public class ParentLightningBolt : LightningBolt
         InitLengthModifier();
         Zap();
     }
-    protected override void OnEnemyHit(GameObject enemy)
+    protected override void OnTargetHit(GameObject enemy)
     {
-        base.OnEnemyHit(enemy);
+        base.OnTargetHit(enemy);
         LightningJump(enemy);
     }
     protected override void LightningJump(GameObject enemy)

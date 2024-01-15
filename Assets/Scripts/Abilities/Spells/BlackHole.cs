@@ -20,7 +20,11 @@ public class BlackHole : Firebolt
     {
         GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), kDefaultAutofireRange);
 
-        if (!closestEnemy) return;
+        if (!closestEnemy)
+        {
+            ResetCooldown(kCooldownAfterReset);
+            return;
+        }
 
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
             GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetCentrePos(), closestEnemy),

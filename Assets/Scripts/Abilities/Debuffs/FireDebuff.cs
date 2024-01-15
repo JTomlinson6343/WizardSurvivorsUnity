@@ -22,6 +22,7 @@ public class FireDebuff : Debuff
 
         // Add fire particle effect to enemy inflicted with this debuff
         m_FireEffect = Instantiate(m_FireParticlePrefab);
+        m_FireEffect.transform.localScale = new Vector3(m_FireEffect.transform.localScale.x * transform.localScale.x, m_FireEffect.transform.localScale.y * transform.localScale.y);
 
         // Add light to enemy
         m_Light = gameObject.AddComponent<Light2D>();
@@ -46,11 +47,21 @@ public class FireDebuff : Debuff
     override protected void Update()
     {
         base.Update();
-        m_FireEffect.transform.position = transform.position;
+        if (!GetComponent<Actor>().m_DebuffPlacement) return;
+      
+        m_FireEffect.SetActive(true);
+        m_FireEffect.transform.position = GetComponent<Actor>().m_DebuffPlacement.transform.position;
     }
 
     private void OnDestroy()
     {
         EndDebuff();
+    }
+
+    private void OnDisable()
+    {
+        if (!m_FireEffect) return;
+
+        m_FireEffect.SetActive(false);
     }
 }

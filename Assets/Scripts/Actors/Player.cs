@@ -47,6 +47,8 @@ public struct PlayerStats
 
 public class Player : Actor
 {
+    private readonly float m_kKnockback = 0.25f;
+
     [SerializeField] GameObject staffPos;
     [SerializeField] GameObject centrePos;
 
@@ -88,7 +90,8 @@ public class Player : Actor
 
     public override void Update()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
+        if (StateManager.GetCurrentState() != State.PLAYING &&
+            StateManager.GetCurrentState() != State.BOSS) { return; }
 
         base.Update();
 
@@ -207,6 +210,12 @@ public class Player : Actor
         m_BonusStats += stats;
         //In Start() or wherever
         StartCoroutine(RemoveTempStats(stats, duration));
+    }
+
+    public override void KnockbackRoutine(Vector2 dir, float knockbackMagnitude)
+    {
+        knockbackMagnitude = Mathf.Clamp01(1f - m_KnockbackResist) * knockbackMagnitude;
+        GetComponent<Rigidbody2D>().AddForce(dir.normalized * knockbackMagnitude * m_kKnockback);
     }
 
     private IEnumerator RemoveTempStats(PlayerStats stats, float duration)

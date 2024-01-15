@@ -51,13 +51,13 @@ public class LightningBolt : AOEObject
             );
     }
 
-    protected override void OnEnemyHit(GameObject enemy)
+    protected override void OnTargetHit(GameObject enemy)
     {
         if (m_AbilitySource.DamageOnCooldownCheck(enemy)) return;
 
         m_AbilitySource.StartDamageCooldown(enemy);
 
-        base.OnEnemyHit(enemy);
+        base.OnTargetHit(enemy);
     }
 
     // Function for when the lightning jumps to another target.

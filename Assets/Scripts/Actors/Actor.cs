@@ -24,12 +24,18 @@ public class Actor : MonoBehaviour
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
 
+    public float m_KnockbackResist;
+
     private DamageStats m_BaseResistance;
     private DamageStats m_BonusResistance;
 
     private Material m_DefaultMaterial;
     public Material m_WhiteFlashMaterial;
     private float m_FlashTime = 0.1f;
+
+    public GameObject m_DebuffPlacement;
+
+    protected bool m_IsMidAnimation;
 
     public virtual void Start()
     {
@@ -63,6 +69,7 @@ public class Actor : MonoBehaviour
         if (m_Health <= 0)
         {
             // If this has no hp left, destroy it
+            m_Health = 0;
             OnDeath();
             return DamageOutput.wasKilled;
         }
@@ -89,6 +96,13 @@ public class Actor : MonoBehaviour
             targetVelocity.x > 0 ? Mathf.Abs(transform.localScale.x) : -Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
     }
 
+    // Called whenever this actor is knocked back
+    virtual public void KnockbackRoutine(Vector2 dir, float knockbackMagnitude)
+    {
+        knockbackMagnitude = Mathf.Clamp01(1f - m_KnockbackResist) * knockbackMagnitude;
+        GetComponent<Rigidbody2D>().velocity += dir.normalized * knockbackMagnitude;
+    }
+
     virtual protected void StartFlashing()
     {
         GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
@@ -103,5 +117,32 @@ public class Actor : MonoBehaviour
     virtual protected void OnDeath()
     {
         Destroy(gameObject);
+    }
+
+    // Method called after 'delay' seconds and only if it is off cooldown
+    protected void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay, ref bool cooldownCheck)
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+
+        if (cooldownCheck) return;
+
+        // Play the animation
+        animator.Play(animation, -1, 0f);
+        // Set status to being mid-animation
+        m_IsMidAnimation = true;
+        // Call the method after the delay
+        Invoke(methodOnPlay, delay);
+        cooldownCheck = true;
+    }
+    protected void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay)
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+
+        // Play the animation
+        animator.Play(animation, -1, 0f);
+        // Set status to being mid-animation
+        m_IsMidAnimation = true;
+        // Call the method after the delay
+        Invoke(methodOnPlay, delay);
     }
 }

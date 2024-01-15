@@ -100,6 +100,7 @@ public class Ability : MonoBehaviour
     private List<GameObject> m_HitEnemies = new List<GameObject>();
 
     protected readonly float kDefaultAutofireRange = 6f;
+    protected readonly float kCooldownAfterReset = 2f;
 
     //Getters//
     public AbilityStats GetBonusStats() { return m_BonusStats; }
@@ -137,11 +138,25 @@ public class Ability : MonoBehaviour
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
     }
 
+
     // Override this to add behaviour to take in the mouse position
     virtual public void OnMouseInput(Vector2 aimDirection)
     {
         // No OnMouseInput behaviour defined. Defaulting to normal ability cast
         OnCast();
+    }
+
+    protected void ResetCooldown(float newCooldown)
+    {
+        CancelInvoke(nameof(OnCast));
+        if (m_TotalStats.cooldown < 0)
+        {
+            OnCast();
+        }
+        else
+        {
+            InvokeRepeating(nameof(OnCast), newCooldown, m_TotalStats.cooldown);
+        }
     }
 
     #region Stats
@@ -153,6 +168,8 @@ public class Ability : MonoBehaviour
 
     virtual public void UpdateTotalStats()
     {
+        if (!AbilityManager.m_Instance) return;
+
         // Update total stats. Bonus stats are applied as a percentage of the base damage
         m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
         m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;

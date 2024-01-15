@@ -8,7 +8,7 @@ public enum State
     NONE,
     PLAYING,
     PAUSED,
-    ON_BOSS,
+    BOSS,
     GAME_OVER
 }
 
@@ -16,7 +16,7 @@ public static class StateManager
 {
     private static State m_CurrentState = State.NONE;
 
-    private static State m_PreviousState = State.NONE;
+    private static State m_PreviousState = State.NONE; // State before game was paused
 
     public static void ChangeState(State state)
     {
@@ -26,6 +26,10 @@ public static class StateManager
     public static State GetCurrentState()
     {
         return m_CurrentState;
+    }
+    public static State GetPreviousState()
+    {
+        return m_PreviousState;
     }
 
     public static void TogglePause(bool toggle)

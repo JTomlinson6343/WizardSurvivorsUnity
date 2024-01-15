@@ -12,7 +12,10 @@ public class ProgressionManager : MonoBehaviour
     public static ProgressionManager m_Instance;
 
     //UI
-    BasicBar xpBar;
+    [SerializeField] BasicBar m_XPBar;
+
+    [SerializeField] BasicBar m_BossHealthBar;
+    [SerializeField] TextMeshProUGUI m_BossNameLabel;
 
     [SerializeField] GameObject m_Hud;
 
@@ -27,6 +30,8 @@ public class ProgressionManager : MonoBehaviour
     int m_Score = 0;
     int m_Level = 1;
     [HideInInspector] public int m_WaveCounter = 0;
+
+    private readonly float kBossGracePeriodTime = 3f;
 
     //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
@@ -52,11 +57,9 @@ public class ProgressionManager : MonoBehaviour
 
     private void Start()
     {
-        xpBar = GetComponentInChildren<BasicBar>();
-
         CalculateNextLevelXP();
 
-        xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
+        m_XPBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
     }
 
     private void Update()
@@ -102,8 +105,11 @@ public class ProgressionManager : MonoBehaviour
             Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
             if (!rb) return;
 
+            float modifier = 1f + amount / 100f;
+
             // Fire pickup in a random direction
-            rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed), Random.Range(-kPickupMoveSpeed, kPickupMoveSpeed));
+            rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier),
+                Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier));
         }
     }
 
@@ -128,7 +134,7 @@ public class ProgressionManager : MonoBehaviour
             OnLevelUp();
         }
 
-        xpBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
+        m_XPBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
         return false;
     }
 
@@ -174,7 +180,7 @@ public class ProgressionManager : MonoBehaviour
     {
         StateManager.ChangeState(State.GAME_OVER);
 
-        EnemySpawner.m_Instance.PurgeEnemies();
+        EnemyManager.m_Instance.PurgeEnemies();
 
         // Save skill points to file
         PlayerManager.m_Instance.SaveSkillPoints(m_SkillPointsGained);
@@ -192,6 +198,49 @@ public class ProgressionManager : MonoBehaviour
         }
 
         m_GameOverScreen.SetActive(true);
+    }
+
+    public void SpawnBoss()
+    {
+        StateManager.ChangeState(State.BOSS);
+        // Lock camera to boss arena
+        PlayerManager.m_Instance.OnStartBossFight();
+        Boss boss = EnemyManager.m_Instance.SpawnBoss();
+
+        if (m_WaveCounter >= 10)
+        {
+            boss.Enraged(m_WaveCounter/5);
+        }
+        // Play boss music
+        AudioManager.m_Instance.PlayMusic(17, 0.2f);
+
+        // Init the boss health bar
+        m_BossHealthBar.m_Actor = boss;
+        m_BossHealthBar.transform.parent.gameObject.SetActive(true);
+
+        // Display the boss' name
+        m_BossNameLabel.text = boss.m_BossName;
+    }
+
+    public void OnBossFightEnd()
+    {
+        // Hide boss healthbar and name plate
+        m_BossHealthBar.transform.parent.gameObject.SetActive(false);
+
+        // Play victory sound
+        AudioManager.m_Instance.PlaySound(18);
+
+        AudioManager.m_Instance.PlayMusic(3);
+
+        Invoke(nameof(AfterBossFightDelay), kBossGracePeriodTime);
+    }
+
+    private void AfterBossFightDelay()
+    {
+        StateManager.ChangeState(State.PLAYING);
+
+        // Spawn a new wave after a delay
+        EnemyManager.m_Instance.GracePeriod();
     }
 
     public void Quit()

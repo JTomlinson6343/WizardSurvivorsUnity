@@ -273,8 +273,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0.64}
-  m_Size: {x: 0.69776666, y: 1.37}
+  m_Offset: {x: -0.00999999, y: 0.30388325}
+  m_Size: {x: 0.69776666, y: 0.69776666}
   m_Direction: 0
 --- !u!114 &2687768136547122572
 MonoBehaviour:
@@ -290,7 +290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 200
   m_Health: 999
+  m_KnockbackResist: 0
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
+  m_DebuffPlacement: {fileID: 0}
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
   m_BaseStats:

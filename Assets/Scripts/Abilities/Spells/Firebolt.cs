@@ -5,6 +5,7 @@ using UnityEngine;
 public class Firebolt : Spell
 {
     [SerializeField] protected float m_ProjectileLifetime;
+
     public override void OnMouseInput(Vector2 aimDirection)
     {
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
@@ -21,7 +22,10 @@ public class Firebolt : Spell
         Vector2 closestEnemyPos = (Vector2)GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), kDefaultAutofireRange).transform.position;
 
         if (closestEnemyPos == Vector2.negativeInfinity)
+        {
+            ResetCooldown(kCooldownAfterReset);
             return;
+        }
 
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
             closestEnemyPos,

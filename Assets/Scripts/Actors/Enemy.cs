@@ -25,15 +25,17 @@ public class Enemy : Actor
     private readonly float m_kKnockback = 0.25f;
     private readonly float m_kBaseMoveSpeed = 2.2f;
 
-    private Rigidbody2D m_RigidBody;
+    private Rigidbody2D rb;
     private Animator m_Animator;
 
     [SerializeField] GameObject m_HealthbarPrefab;
 
+    [SerializeField] GameObject m_DeathParticlesPrefab;
+
     private void Awake()
     {
         m_Animator = GetComponentInChildren<Animator>();
-        m_RigidBody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     override public void Start()
@@ -46,21 +48,25 @@ public class Enemy : Actor
     {
         if (StateManager.GetCurrentState() != State.PLAYING)
         {
-            m_RigidBody.velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
             return;
         }
+        FollowPlayer();
+    }
 
+    protected void FollowPlayer()
+    {
         Vector3 currentPos = gameObject.transform.position;
         if (Player.m_Instance != null)
         {
             Vector3 playerPos = Player.m_Instance.transform.position;
             Vector3 moveDir = (playerPos - currentPos).normalized;
             Vector3 targetVelocity = moveDir * m_kBaseMoveSpeed * m_Speed;
-            Vector3 currentVelocity = m_RigidBody.velocity;
+            Vector3 currentVelocity = rb.velocity;
 
             currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
 
-            m_RigidBody.velocity = currentVelocity;
+            rb.velocity = currentVelocity;
 
             SetAnimState(targetVelocity);
         }
@@ -85,7 +91,7 @@ public class Enemy : Actor
             DamageInstanceData data = new(gameObject, otherObject);
             data.amount = enemy.m_ContactDamage;
             data.damageType = DamageType.Physical;
-            data.doDamageNumbers = false;
+            data.doDamageNumbers = true;
             Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
             DamageManager.m_Instance.DamageInstance(data, transform.position);
@@ -133,18 +139,30 @@ public class Enemy : Actor
         ProgressionManager.m_Instance.SpawnXP(transform.position, m_XPAwarded);
         ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
-        EnemySpawner.m_Instance.IncrementEnemiesKilled();
+        EnemyManager.m_Instance.IncrementEnemiesKilled();
     }
 
     private void NormalDeath()
     {
         RollForSkillPoint();
+        if (!m_DeathParticlesPrefab) return;
+
+        GameObject smoke = Instantiate(m_DeathParticlesPrefab);
+        smoke.transform.position = transform.position;
     }
 
     private void ChampionDeath()
     {
         ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, Random.Range(m_MinChampSkillPoints, m_MaxChampSkillPoints+1));
         ProgressionManager.m_Instance.IncrementChampionKills();
+
+        if (!m_DeathParticlesPrefab) return;
+
+        GameObject smoke = Instantiate(m_DeathParticlesPrefab);
+        smoke.transform.localScale *= kChampSizeMod;
+        ParticleSystem.MainModule main = smoke.GetComponent<ParticleSystem>().main;
+        main.startColor = kChampColour;
+        smoke.transform.position = transform.position;
     }
 
     public void MakeChampion()

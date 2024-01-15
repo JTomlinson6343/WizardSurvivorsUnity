@@ -3,23 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-struct PlayerBounds
+public struct PlayerBounds
 {
     public float top;
     public float bottom;
     public float left;
     public float right;
+
+    public bool IsInBounds(Vector2 pos)
+    {
+        return pos.x > left && pos.x < right && pos.y > bottom && pos.y < top;
+    }
 }
 
 public class PlayerManager : MonoBehaviour // Manager that controls the player in-game
 {
     public static PlayerManager m_Instance;
+
     public static GameObject m_Character;
     public static SkillTree m_SkillTreeRef;
     public GameObject m_Camera;
+    [SerializeField] float m_CameraSpeed;
 
     [SerializeField] PlayerBounds m_CameraBounds;
     [SerializeField] PlayerBounds m_WorldBounds;
+    public PlayerBounds m_BossArenaBounds;
 
     private void Awake()
     {
@@ -43,12 +51,22 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     private void Update()
     {
+
+        if (StateManager.GetCurrentState() == State.BOSS ||
+            (StateManager.GetPreviousState() == State.BOSS && (StateManager.GetPreviousState() == State.PAUSED || StateManager.GetPreviousState() == State.GAME_OVER)))
+        {
+            BossArena();
+            return;
+        }
+
         // Bind camera to camera bounds
         if (Player.m_Instance.transform.position.x > m_CameraBounds.left && Player.m_Instance.transform.position.x < m_CameraBounds.right)
-            m_Camera.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z);
+            m_Camera.transform.position = Vector3.MoveTowards(m_Camera.transform.position,
+                new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z), Time.deltaTime * m_CameraSpeed);
 
         if (Player.m_Instance.transform.position.y > m_CameraBounds.bottom && Player.m_Instance.transform.position.y < m_CameraBounds.top)
-            m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z);
+            m_Camera.transform.position = Vector3.MoveTowards(m_Camera.transform.position,
+                new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z), Time.deltaTime * m_CameraSpeed);
 
         // Bind player to world bounds
         if (Player.m_Instance.transform.position.x < m_WorldBounds.left)
@@ -64,10 +82,34 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
             Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_WorldBounds.top, Player.m_Instance.transform.position.z);
     }
 
+    private void BossArena()
+    {
+        // Bind player to world bounds
+        if (Player.m_Instance.transform.position.x < m_BossArenaBounds.left)
+            Player.m_Instance.transform.position = new Vector3(m_BossArenaBounds.left, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.x > m_BossArenaBounds.right)
+            Player.m_Instance.transform.position = new Vector3(m_BossArenaBounds.right, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.y < m_BossArenaBounds.bottom)
+            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_BossArenaBounds.bottom, Player.m_Instance.transform.position.z);
+
+        if (Player.m_Instance.transform.position.y > m_BossArenaBounds.top)
+            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_BossArenaBounds.top, Player.m_Instance.transform.position.z);
+    }
+
     public void SaveSkillPoints(int points)
     {
         m_SkillTreeRef.m_TotalSkillPoints += points;
         m_SkillTreeRef.m_CurrentSkillPoints += points;
         SaveManager.SaveToFile();
+    }
+
+    public void OnStartBossFight()
+    {
+        m_BossArenaBounds.top    = Player.m_Instance.GetPosition().y + m_BossArenaBounds.top;      // +
+        m_BossArenaBounds.right  = Player.m_Instance.GetPosition().x + m_BossArenaBounds.right;    // +
+        m_BossArenaBounds.bottom = Player.m_Instance.GetPosition().y + m_BossArenaBounds.bottom;   // -
+        m_BossArenaBounds.left   = Player.m_Instance.GetPosition().x + m_BossArenaBounds.left  ;   // -
     }
 }
