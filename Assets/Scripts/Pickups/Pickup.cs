@@ -5,10 +5,11 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private readonly float kDeceleration = 0.1f;
-    private readonly float kPullDist = 1.5f;
-    private readonly float kPullSpeed = 0.1f;
+    private readonly float kPullDist = 2f;
+    private readonly float kPullSpeed = 4f;
 
     private bool m_FinishedDropping = false;
+    private bool m_StartedAttracting = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Player")) return;
@@ -48,12 +49,13 @@ public class Pickup : MonoBehaviour
     {
         // If player is not in range, return
         float distToPlayer = Vector2.Distance(transform.position, Player.m_Instance.GetPosition());
-        if (distToPlayer > kPullDist && GetComponent<Rigidbody2D>().velocity.magnitude > 0f) {
+        if (distToPlayer > kPullDist && !m_StartedAttracting) {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
         }
 
-        GetComponent<Rigidbody2D>().velocity += GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * kPullSpeed;
+        m_StartedAttracting = true;
+        GetComponent<Rigidbody2D>().velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * kPullSpeed;
     }
 
     void DestroySelf()
