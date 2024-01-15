@@ -267,7 +267,7 @@ MonoBehaviour:
   m_ContactDamage: 25
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 4744852511909570002, guid: 8428296ae52269e4999616608d4f9e7d, type: 3}
-  m_SmokePrefab: {fileID: 952142628175020018, guid: 1a90de6803cfaf24f93f70df9bb00030, type: 3}
+  m_DeathParticlesPrefab: {fileID: 952142628175020018, guid: 1a90de6803cfaf24f93f70df9bb00030, type: 3}
 --- !u!1 &5200942333771206442
 GameObject:
   m_ObjectHideFlags: 0

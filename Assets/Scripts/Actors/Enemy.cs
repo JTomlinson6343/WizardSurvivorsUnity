@@ -140,23 +140,29 @@ public class Enemy : Actor
         ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemyManager.m_Instance.IncrementEnemiesKilled();
+    }
 
-
+    private void NormalDeath()
+    {
+        RollForSkillPoint();
         if (!m_DeathParticlesPrefab) return;
 
         GameObject smoke = Instantiate(m_DeathParticlesPrefab);
         smoke.transform.position = transform.position;
     }
 
-    private void NormalDeath()
-    {
-        RollForSkillPoint();
-    }
-
     private void ChampionDeath()
     {
         ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, Random.Range(m_MinChampSkillPoints, m_MaxChampSkillPoints+1));
         ProgressionManager.m_Instance.IncrementChampionKills();
+
+        if (!m_DeathParticlesPrefab) return;
+
+        GameObject smoke = Instantiate(m_DeathParticlesPrefab);
+        smoke.transform.localScale *= kChampSizeMod;
+        ParticleSystem.MainModule main = smoke.GetComponent<ParticleSystem>().main;
+        main.startColor = kChampColour;
+        smoke.transform.position = transform.position;
     }
 
     public void MakeChampion()

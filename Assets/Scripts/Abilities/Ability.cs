@@ -138,6 +138,7 @@ public class Ability : MonoBehaviour
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
     }
 
+
     // Override this to add behaviour to take in the mouse position
     virtual public void OnMouseInput(Vector2 aimDirection)
     {
