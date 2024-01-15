@@ -57,6 +57,7 @@ public class Lich : Boss
 
         SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
 
+        // Turn to face player
         if (Player.m_Instance.transform.position.x < transform.position.x)
         {
             sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x) * -1f, sprite.transform.localScale.y);

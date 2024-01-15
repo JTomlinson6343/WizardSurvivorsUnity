@@ -61,12 +61,10 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
         // Bind camera to camera bounds
         if (Player.m_Instance.transform.position.x > m_CameraBounds.left && Player.m_Instance.transform.position.x < m_CameraBounds.right)
-            //m_Camera.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z);
             m_Camera.transform.position = Vector3.MoveTowards(m_Camera.transform.position,
                 new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z), Time.deltaTime * m_CameraSpeed);
 
         if (Player.m_Instance.transform.position.y > m_CameraBounds.bottom && Player.m_Instance.transform.position.y < m_CameraBounds.top)
-            //m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z);
             m_Camera.transform.position = Vector3.MoveTowards(m_Camera.transform.position,
                 new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z), Time.deltaTime * m_CameraSpeed);
 
