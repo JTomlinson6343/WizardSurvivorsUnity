@@ -31,6 +31,8 @@ public class ProgressionManager : MonoBehaviour
     int m_Level = 1;
     [HideInInspector] public int m_WaveCounter = 0;
 
+    private readonly float kBossGracePeriodTime = 5f;
+
     //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
     [SerializeField] GameObject m_SkillPointOrbPrefab;
@@ -201,18 +203,36 @@ public class ProgressionManager : MonoBehaviour
     public void SpawnBoss()
     {
         StateManager.ChangeState(State.BOSS);
+        // Lock camera to boss arena
         PlayerManager.m_Instance.OnStartBossFight();
         Boss boss = EnemyManager.m_Instance.SpawnBoss();
 
+        // Play boss music
+        AudioManager.m_Instance.PlayMusic(17, 0.2f);
+
+        // Init the boss health bar
         m_BossHealthBar.m_Actor = boss;
         m_BossHealthBar.transform.parent.gameObject.SetActive(true);
 
+        // Display the boss' name
         m_BossNameLabel.text = boss.m_BossName;
     }
 
-    public void RemoveBossBar()
+    public void OnBossFightEnd()
     {
+        StateManager.ChangeState(State.PLAYING);
+
+        // Spawn a new wave after a delay
+        EnemyManager.m_Instance.GracePeriod(kBossGracePeriodTime);
+
+        // Hide boss healthbar and name plate
         m_BossHealthBar.transform.parent.gameObject.SetActive(false);
+
+        // Play victory sound
+        AudioManager.m_Instance.PlaySound(18);
+
+        // Play regular music again
+        AudioManager.m_Instance.PlayMusic(3);
     }
 
     public void Quit()
