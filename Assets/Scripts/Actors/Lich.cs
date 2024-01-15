@@ -31,7 +31,6 @@ public class Lich : Boss
     [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] GameObject m_QuakePrefab;
     [SerializeField] GameObject m_SmokePrefab;
-    [SerializeField] GameObject m_DeathParticlesPrefab;
     [SerializeField] GameObject m_SpawnedEnemyPrefab;
     private void OnDrawGizmos()
     {
@@ -184,12 +183,5 @@ public class Lich : Boss
     private void EndStompCooldown()
     {
         m_StompOnCooldown = false;
-    }
-    protected override void OnDeath()
-    {
-        base.OnDeath();
-        GameObject deathParticles = Instantiate(m_DeathParticlesPrefab);
-
-        deathParticles.transform.position = m_DebuffPlacement.transform.position;
     }
 }
