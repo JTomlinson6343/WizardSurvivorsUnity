@@ -112,7 +112,7 @@ MonoBehaviour:
   m_AOEObject: {fileID: 3052370167837948753, guid: 7fa5786f9cbd20442b17108559df7306, type: 3}
   m_Lifetime: 0.15
   m_Scale: 5
-  m_Damage: 0.4
+  m_Damage: 50
 --- !u!1 &2552562239275552613
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
     level: 0
     maxLevel: 0
   m_StatBuffs:
-    speed: 0.1
+    speed: 0.05
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
     maxLevel: 1
   m_FireParticlePrefab: {fileID: 1695107528181939108, guid: 62ebe611e871de54c81899026eb0d82a, type: 3}
   m_LightPrefab: {fileID: 2441900490676211127, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
-  m_Damage: 10
+  m_Damage: 5
   m_DamageType: 0
 --- !u!1 &8975141264384055795
 GameObject:
