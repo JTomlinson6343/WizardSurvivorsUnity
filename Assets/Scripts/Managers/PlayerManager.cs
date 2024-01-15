@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     public static GameObject m_Character;
     public static SkillTree m_SkillTreeRef;
     public GameObject m_Camera;
+    [SerializeField] float m_CameraSpeed;
 
     [SerializeField] PlayerBounds m_CameraBounds;
     [SerializeField] PlayerBounds m_WorldBounds;
@@ -50,7 +51,9 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     private void Update()
     {
-        if (StateManager.GetCurrentState() == State.BOSS || StateManager.GetPreviousState() == State.BOSS)
+
+        if (StateManager.GetCurrentState() == State.BOSS ||
+            (StateManager.GetPreviousState() == State.BOSS && (StateManager.GetPreviousState() == State.PAUSED || StateManager.GetPreviousState() == State.GAME_OVER)))
         {
             BossArena();
             return;
@@ -58,10 +61,14 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
         // Bind camera to camera bounds
         if (Player.m_Instance.transform.position.x > m_CameraBounds.left && Player.m_Instance.transform.position.x < m_CameraBounds.right)
-            m_Camera.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z);
+            //m_Camera.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z);
+            m_Camera.transform.position = Vector3.MoveTowards(m_Camera.transform.position,
+                new Vector3(Player.m_Instance.transform.position.x, m_Camera.transform.position.y, m_Camera.transform.position.z), Time.deltaTime * m_CameraSpeed);
 
         if (Player.m_Instance.transform.position.y > m_CameraBounds.bottom && Player.m_Instance.transform.position.y < m_CameraBounds.top)
-            m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z);
+            //m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z);
+            m_Camera.transform.position = Vector3.MoveTowards(m_Camera.transform.position,
+                new Vector3(m_Camera.transform.position.x, Player.m_Instance.transform.position.y, m_Camera.transform.position.z), Time.deltaTime * m_CameraSpeed);
 
         // Bind player to world bounds
         if (Player.m_Instance.transform.position.x < m_WorldBounds.left)
@@ -102,8 +109,6 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     public void OnStartBossFight()
     {
-        m_Camera.transform.position = new Vector3(Player.m_Instance.GetPosition().x, Player.m_Instance.GetPosition().y, m_Camera.transform.position.z);
-
         m_BossArenaBounds.top    = Player.m_Instance.GetPosition().y + m_BossArenaBounds.top;      // +
         m_BossArenaBounds.right  = Player.m_Instance.GetPosition().x + m_BossArenaBounds.right;    // +
         m_BossArenaBounds.bottom = Player.m_Instance.GetPosition().y + m_BossArenaBounds.bottom;   // -
