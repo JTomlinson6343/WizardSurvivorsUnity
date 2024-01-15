@@ -102,3 +102,4 @@ MonoBehaviour:
   m_ContactDamage: 25
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 0}
+  m_SmokePrefab: {fileID: 952142628175020018, guid: 1a90de6803cfaf24f93f70df9bb00030, type: 3}

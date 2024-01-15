@@ -72,6 +72,8 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.SpawnBoss();
+
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
 
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
@@ -165,18 +167,25 @@ public class EnemyManager : MonoBehaviour
     {
         PurgeEnemies();
         GameObject boss = Instantiate(m_BossPrefabs[0]);
-        boss.transform.position = Player.m_Instance.transform.position + new Vector3(0f, 5f);
+        boss.transform.position = Player.m_Instance.transform.position + new Vector3(0f, 3f);
         boss.transform.SetParent(transform);
 
         return boss.GetComponent<Boss>();
     }
 
-    private void GracePeriod()
+    public void GracePeriod()
     {
         // Reset values
         m_EnemiesKilledThisWave = 0;
         m_EnemiesSpawnedThisWave = 0;
         Invoke(nameof(StartNewWave), kGracePeriodTime);
+    }
+    public void GracePeriod(float time)
+    {
+        // Reset values
+        m_EnemiesKilledThisWave = 0;
+        m_EnemiesSpawnedThisWave = 0;
+        Invoke(nameof(StartNewWave), time);
     }
 
     private void StartNewWave()
@@ -185,6 +194,13 @@ public class EnemyManager : MonoBehaviour
 
         ProgressionManager.m_Instance.m_WaveCounter++;
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
+
+        if (ProgressionManager.m_Instance.m_WaveCounter%5 == 0)
+        {
+            ProgressionManager.m_Instance.SpawnBoss();
+            print("Boss wave started.");
+            return;
+        }
 
         print("Wave " + ProgressionManager.m_Instance.m_WaveCounter.ToString() + " started. " + m_SpawnLimit.ToString() + " enemies spawning.");
 

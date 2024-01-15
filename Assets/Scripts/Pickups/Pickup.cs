@@ -21,6 +21,10 @@ public class Pickup : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void Awake()
+    {
+        Invoke(nameof(DestroySelf), 10f);
+    }
     private void Update()
     {
         if (m_FinishedDropping)
@@ -44,11 +48,16 @@ public class Pickup : MonoBehaviour
     {
         // If player is not in range, return
         float distToPlayer = Vector2.Distance(transform.position, Player.m_Instance.GetPosition());
-        if (distToPlayer > kPullDist) {
+        if (distToPlayer > kPullDist && GetComponent<Rigidbody2D>().velocity.magnitude > 0f) {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
         }
 
         GetComponent<Rigidbody2D>().velocity += GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * kPullSpeed;
+    }
+
+    void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }

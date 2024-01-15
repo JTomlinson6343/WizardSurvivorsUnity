@@ -39,11 +39,6 @@ public class Lich : Boss
     }
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            ProgressionManager.m_Instance.SpawnBoss();
-        }
-
         if (StateManager.GetCurrentState() != State.BOSS) return;
 
         SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();

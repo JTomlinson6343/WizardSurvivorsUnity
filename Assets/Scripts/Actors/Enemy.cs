@@ -30,6 +30,8 @@ public class Enemy : Actor
 
     [SerializeField] GameObject m_HealthbarPrefab;
 
+    [SerializeField] GameObject m_DeathParticlesPrefab;
+
     private void Awake()
     {
         m_Animator = GetComponentInChildren<Animator>();
@@ -138,6 +140,12 @@ public class Enemy : Actor
         ProgressionManager.m_Instance.AddScore(m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemyManager.m_Instance.IncrementEnemiesKilled();
+
+
+        if (!m_DeathParticlesPrefab) return;
+
+        GameObject smoke = Instantiate(m_DeathParticlesPrefab);
+        smoke.transform.position = transform.position;
     }
 
     private void NormalDeath()

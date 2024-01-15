@@ -264,7 +264,7 @@ MonoBehaviour:
   m_MaxSkillPoints: 10
   m_MinSkillPoints: 30
   m_MeleeRadius: 4.2
-  m_ProjectileSpeed: 6
+  m_ProjectileSpeed: 5
   m_ProjectileLifetime: 8
   m_ProjectileDamage: 50
   m_ProjectileKnockback: 1
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_StompCooldown: 3
   m_StompDamage: 20
   m_EnemiesSpawned: 2
-  m_EnemySpawnRadius: 3
+  m_EnemySpawnRadius: 2.5
   m_Staff: {fileID: 4702823776869340235}
   m_QuakePos: {fileID: 4290298288988512554}
   m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
