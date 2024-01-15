@@ -40,6 +40,8 @@ public class EnemyManager : MonoBehaviour
 
     private Vector3 GetSpawnPosition()
     {
+        if (!Player.m_Instance) return Vector3.negativeInfinity;
+
         Vector2 playerPos = Player.m_Instance.transform.position;
 
         Vector2 spawnPos = playerPos + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_SpawnRadius;

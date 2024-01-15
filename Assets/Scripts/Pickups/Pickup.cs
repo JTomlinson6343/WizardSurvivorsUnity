@@ -5,8 +5,9 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private readonly float kDeceleration = 0.1f;
-    private readonly float kPullDist = 2f;
+    private readonly float kPullDist = 3f;
     private readonly float kPullSpeed = 4f;
+    private readonly float kLifetime = 60f;
 
     private bool m_FinishedDropping = false;
     private bool m_StartedAttracting = false;
@@ -24,7 +25,7 @@ public class Pickup : MonoBehaviour
 
     private void Awake()
     {
-        Invoke(nameof(DestroySelf), 10f);
+        Invoke(nameof(DestroySelf), kLifetime);
     }
     private void Update()
     {
