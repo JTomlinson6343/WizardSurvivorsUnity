@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 public class ProgressionManager : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class ProgressionManager : MonoBehaviour
     private int m_ChampionsKilled = 0;
     private int m_SkillPointsGained = 0;
     private int m_XPGained = 0;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(Vector3.zero, m_XPSpawnRadius);
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -137,7 +143,8 @@ public class ProgressionManager : MonoBehaviour
 
         if (now < m_NextXPSpawn) return;
 
-        SpawnXP(Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius, 1);
+        GameObject pickup = Instantiate(m_XPOrbPrefab);
+        pickup.transform.position = Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius;
 
         m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f);
     }

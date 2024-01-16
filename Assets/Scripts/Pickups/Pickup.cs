@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private readonly float kDeceleration = 0.1f;
-    private readonly float kPullDist = 3f;
+    private readonly float kPullDist = 2f;
     private readonly float kPullSpeed = 4f;
     private readonly float kLifetime = 60f;
 

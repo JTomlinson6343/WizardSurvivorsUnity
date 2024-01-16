@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour
 
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
-    [SerializeField] private float m_SpawnRadius = 30.0f;
+    public float m_SpawnRadius = 30.0f;
 
     private int m_EnemyCount;
     private int m_EnemiesKilledThisWave;
@@ -108,6 +108,12 @@ public class EnemyManager : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+    }
+
+    public void OnRespawn()
+    {
+        m_EnemyCount--;
+        m_EnemiesSpawnedThisWave--;
     }
 
     private void SpawnEnemy()
