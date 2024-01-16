@@ -11,6 +11,7 @@ public class Pickup : MonoBehaviour
 
     private bool m_FinishedDropping = false;
     private bool m_StartedAttracting = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Player")) return;
@@ -50,7 +51,7 @@ public class Pickup : MonoBehaviour
     {
         // If player is not in range, return
         float distToPlayer = Vector2.Distance(transform.position, Player.m_Instance.GetPosition());
-        if (distToPlayer > kPullDist && !m_StartedAttracting) {
+        if (distToPlayer > kPullDist && !m_StartedAttracting && StateManager.GetCurrentState() != State.BOSS) {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
         }

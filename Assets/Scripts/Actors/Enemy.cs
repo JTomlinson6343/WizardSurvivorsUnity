@@ -160,8 +160,6 @@ public class Enemy : Actor
 
         GameObject smoke = Instantiate(m_DeathParticlesPrefab);
         smoke.transform.localScale *= kChampSizeMod;
-        ParticleSystem.MainModule main = smoke.GetComponent<ParticleSystem>().main;
-        main.startColor = kChampColour;
         smoke.transform.position = transform.position;
     }
 

@@ -76,8 +76,6 @@ public class EnemyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.SpawnBoss();
 
-        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
-
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
         {
             GracePeriod();
@@ -114,6 +112,8 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING)  return;
+
         float now = Time.realtimeSinceStartup;
 
         if (now < m_NextSpawn) return;
