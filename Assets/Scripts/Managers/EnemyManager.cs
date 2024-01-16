@@ -34,7 +34,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_HealthCurve;
 
-    readonly float kHealthConstant = 10f;
     readonly float kGracePeriodTime = 2f;
     readonly float kChampionChance = 0.01f;
 
@@ -217,6 +216,6 @@ public class EnemyManager : MonoBehaviour
 
     private float GetEnemyHPForWave()
     {
-        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100) * kHealthConstant;
+        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100);
     }
 }
