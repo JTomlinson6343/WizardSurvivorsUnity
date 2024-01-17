@@ -51,6 +51,7 @@ public class Enemy : Actor
             rb.velocity = Vector3.zero;
             return;
         }
+        RespawnCheck();
         FollowPlayer();
     }
 
@@ -72,6 +73,15 @@ public class Enemy : Actor
         }
     }
 
+    private void RespawnCheck()
+    {
+        if (!Player.m_Instance) return;
+
+        if (Vector2.Distance(Player.m_Instance.transform.position, transform.position) < EnemyManager.m_Instance.m_SpawnRadius) return;
+
+        EnemyManager.m_Instance.OnRespawn();
+        Destroy(gameObject);
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         GameObject otherObject = collision.gameObject;
@@ -160,8 +170,6 @@ public class Enemy : Actor
 
         GameObject smoke = Instantiate(m_DeathParticlesPrefab);
         smoke.transform.localScale *= kChampSizeMod;
-        ParticleSystem.MainModule main = smoke.GetComponent<ParticleSystem>().main;
-        main.startColor = kChampColour;
         smoke.transform.position = transform.position;
     }
 

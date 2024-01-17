@@ -7,7 +7,7 @@ public class FireAOE : CooldownSkill
     [SerializeField] GameObject m_AOEObject;
     [SerializeField] float m_Lifetime;
     [SerializeField] float m_Scale;
-    [SerializeField] float m_Damage; // percent max hp
+    [SerializeField] float m_Damage;
 
     override public void Init(SkillData data)
     {

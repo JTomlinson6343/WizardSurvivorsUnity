@@ -24,7 +24,8 @@ public class EnemyManager : MonoBehaviour
 
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
-    [SerializeField] private float m_SpawnRadius = 30.0f;
+    [SerializeField] private float m_WaveTimer = 1.0f; // Time before a new wave starts prematurely
+    public float m_SpawnRadius = 30.0f;
 
     private int m_EnemyCount;
     private int m_EnemiesKilledThisWave;
@@ -34,12 +35,13 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_HealthCurve;
 
-    readonly float kHealthConstant = 10f;
     readonly float kGracePeriodTime = 2f;
     readonly float kChampionChance = 0.01f;
 
     private Vector3 GetSpawnPosition()
     {
+        if (!Player.m_Instance) return Vector3.negativeInfinity;
+
         Vector2 playerPos = Player.m_Instance.transform.position;
 
         Vector2 spawnPos = playerPos + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * m_SpawnRadius;
@@ -73,8 +75,6 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.SpawnBoss();
-
-        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
 
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
         {
@@ -110,8 +110,16 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void OnRespawn()
+    {
+        m_EnemyCount--;
+        m_EnemiesSpawnedThisWave--;
+    }
+
     private void SpawnEnemy()
     {
+        if (StateManager.GetCurrentState() != State.PLAYING)  return;
+
         float now = Time.realtimeSinceStartup;
 
         if (now < m_NextSpawn) return;
@@ -175,10 +183,7 @@ public class EnemyManager : MonoBehaviour
 
     public void GracePeriod()
     {
-        // Reset values
-        m_EnemiesKilledThisWave = 0;
-        m_EnemiesSpawnedThisWave = 0;
-        Invoke(nameof(StartNewWave), kGracePeriodTime);
+        GracePeriod(kGracePeriodTime);
     }
     public void GracePeriod(float time)
     {
@@ -194,8 +199,9 @@ public class EnemyManager : MonoBehaviour
 
         ProgressionManager.m_Instance.m_WaveCounter++;
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
+        CancelInvoke(nameof(GracePeriod));
 
-        if (ProgressionManager.m_Instance.m_WaveCounter%5 == 0)
+        if (IsBossWave(ProgressionManager.m_Instance.m_WaveCounter))
         {
             ProgressionManager.m_Instance.SpawnBoss();
             print("Boss wave started.");
@@ -205,10 +211,17 @@ public class EnemyManager : MonoBehaviour
         print("Wave " + ProgressionManager.m_Instance.m_WaveCounter.ToString() + " started. " + m_SpawnLimit.ToString() + " enemies spawning.");
 
         print("Enemy HP this wave: " + GetEnemyHPForWave().ToString());
+
+        Invoke(nameof(GracePeriod), m_WaveTimer);
+    }
+
+    private bool IsBossWave(int wave)
+    {
+        return wave % 5 == 0;
     }
 
     private float GetEnemyHPForWave()
     {
-        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100) * kHealthConstant;
+        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100);
     }
 }

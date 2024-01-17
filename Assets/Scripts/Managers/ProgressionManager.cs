@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 public class ProgressionManager : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class ProgressionManager : MonoBehaviour
     //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
     [SerializeField] GameObject m_SkillPointOrbPrefab;
+
+    [SerializeField] float m_XPSpawnRadius;
+    private float m_NextXPSpawn;
+    [SerializeField] Curve m_SpawnCooldown;
+
     readonly float kPickupMoveSpeed = 15f;
 
     int m_CurrentXP = 0;
@@ -48,6 +54,11 @@ public class ProgressionManager : MonoBehaviour
     private int m_ChampionsKilled = 0;
     private int m_SkillPointsGained = 0;
     private int m_XPGained = 0;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(Vector3.zero, m_XPSpawnRadius);
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -69,6 +80,8 @@ public class ProgressionManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
             AddSkillPoints(1);
+
+        SpawnXPRandomly();
     }
 
     public void ToggleHUD(bool toggle)
@@ -121,6 +134,20 @@ public class ProgressionManager : MonoBehaviour
     {
         SpawnPickup(m_SkillPointOrbPrefab, pos, amount);
     }
+
+    private void SpawnXPRandomly()
+    {
+        if (StateManager.GetCurrentState() != State.PLAYING) return;
+
+        float now = Time.realtimeSinceStartup;
+
+        if (now < m_NextXPSpawn) return;
+
+        GameObject pickup = Instantiate(m_XPOrbPrefab);
+        pickup.transform.position = Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius;
+
+        m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f);
+    }
     #endregion
 
     public bool AddXP(int xp)
@@ -171,6 +198,8 @@ public class ProgressionManager : MonoBehaviour
         // Set next level xp
         m_NextLevelXP = (Mathf.RoundToInt(m_LevelCurve.Evaluate(m_Level-1, 10)));
         print(m_NextLevelXP.ToString() + " XP to level" + (m_Level+1).ToString());
+
+        print("XP spawn rate: " + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f).ToString());
     }
 
     public void IncrementEnemyKills() { m_EnemiesKilled++; }

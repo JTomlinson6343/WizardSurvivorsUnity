@@ -27,6 +27,8 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     [SerializeField] PlayerBounds m_CameraBounds;
     [SerializeField] PlayerBounds m_WorldBounds;
+
+    public PlayerBounds m_InitialBossArenaBounds;
     public PlayerBounds m_BossArenaBounds;
 
     private void Awake()
@@ -107,9 +109,9 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     public void OnStartBossFight()
     {
-        m_BossArenaBounds.top    = Player.m_Instance.GetPosition().y + m_BossArenaBounds.top;      // +
-        m_BossArenaBounds.right  = Player.m_Instance.GetPosition().x + m_BossArenaBounds.right;    // +
-        m_BossArenaBounds.bottom = Player.m_Instance.GetPosition().y + m_BossArenaBounds.bottom;   // -
-        m_BossArenaBounds.left   = Player.m_Instance.GetPosition().x + m_BossArenaBounds.left  ;   // -
+        m_BossArenaBounds.top    = Player.m_Instance.GetPosition().y + m_InitialBossArenaBounds.top;      // +
+        m_BossArenaBounds.right  = Player.m_Instance.GetPosition().x + m_InitialBossArenaBounds.right;    // +
+        m_BossArenaBounds.bottom = Player.m_Instance.GetPosition().y + m_InitialBossArenaBounds.bottom;   // -
+        m_BossArenaBounds.left   = Player.m_Instance.GetPosition().x + m_InitialBossArenaBounds.left  ;   // -
     }
 }
