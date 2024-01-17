@@ -24,6 +24,7 @@ public class EnemyManager : MonoBehaviour
 
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
+    [SerializeField] private float m_WaveTimer = 1.0f; // Time before a new wave starts prematurely
     public float m_SpawnRadius = 30.0f;
 
     private int m_EnemyCount;
@@ -182,10 +183,7 @@ public class EnemyManager : MonoBehaviour
 
     public void GracePeriod()
     {
-        // Reset values
-        m_EnemiesKilledThisWave = 0;
-        m_EnemiesSpawnedThisWave = 0;
-        Invoke(nameof(StartNewWave), kGracePeriodTime);
+        GracePeriod(kGracePeriodTime);
     }
     public void GracePeriod(float time)
     {
@@ -201,8 +199,9 @@ public class EnemyManager : MonoBehaviour
 
         ProgressionManager.m_Instance.m_WaveCounter++;
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
+        CancelInvoke(nameof(GracePeriod));
 
-        if (ProgressionManager.m_Instance.m_WaveCounter%5 == 0)
+        if (IsBossWave(ProgressionManager.m_Instance.m_WaveCounter))
         {
             ProgressionManager.m_Instance.SpawnBoss();
             print("Boss wave started.");
@@ -212,6 +211,13 @@ public class EnemyManager : MonoBehaviour
         print("Wave " + ProgressionManager.m_Instance.m_WaveCounter.ToString() + " started. " + m_SpawnLimit.ToString() + " enemies spawning.");
 
         print("Enemy HP this wave: " + GetEnemyHPForWave().ToString());
+
+        Invoke(nameof(GracePeriod), m_WaveTimer);
+    }
+
+    private bool IsBossWave(int wave)
+    {
+        return wave % 5 == 0;
     }
 
     private float GetEnemyHPForWave()
