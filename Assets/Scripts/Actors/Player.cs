@@ -90,8 +90,7 @@ public class Player : Actor
 
     public override void Update()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING &&
-            StateManager.GetCurrentState() != State.BOSS) { return; }
+        if (StateManager.GetCurrentState() == State.PAUSED) { return; }
 
         base.Update();
 

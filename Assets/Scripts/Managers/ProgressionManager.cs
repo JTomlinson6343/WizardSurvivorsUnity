@@ -32,7 +32,7 @@ public class ProgressionManager : MonoBehaviour
     int m_Level = 1;
     [HideInInspector] public int m_WaveCounter = 0;
 
-    private readonly float kBossGracePeriodTime = 3f;
+    private readonly float kBossGracePeriodTime = 6f;
 
     //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
@@ -78,9 +78,6 @@ public class ProgressionManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
             OnLevelUp();
 
-        if (Input.GetKeyDown(KeyCode.P))
-            AddSkillPoints(1);
-
         SpawnXPRandomly();
     }
 
@@ -113,8 +110,7 @@ public class ProgressionManager : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            GameObject pickup = Instantiate(pickupPrefab);
-            pickup.transform.position = pos;
+            GameObject pickup = SpawnPickup(pickupPrefab, pos);
             Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
             if (!rb) return;
 
@@ -124,6 +120,15 @@ public class ProgressionManager : MonoBehaviour
             rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier),
                 Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier));
         }
+    }
+
+    public GameObject SpawnPickup(GameObject pickupPrefab, Vector2 pos)
+    {
+        GameObject pickup = Instantiate(pickupPrefab);
+        pickup.transform.position = pos;
+        pickup.transform.SetParent(transform);
+
+        return gameObject;
     }
 
     public void SpawnXP(Vector2 pos, int amount)
@@ -143,8 +148,7 @@ public class ProgressionManager : MonoBehaviour
 
         if (now < m_NextXPSpawn) return;
 
-        GameObject pickup = Instantiate(m_XPOrbPrefab);
-        pickup.transform.position = Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius;
+        GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius);
 
         m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f);
     }
@@ -229,6 +233,27 @@ public class ProgressionManager : MonoBehaviour
         m_GameOverScreen.SetActive(true);
     }
 
+    public void PreBoss()
+    {
+        StateManager.ChangeState(State.PRE_BOSS);
+        // Suck all xp
+        SuckUpXP();
+        // Alert player that the boss is coming
+        // Kill all the enemies
+        EnemyManager.m_Instance.PurgeEnemies();
+
+        Invoke(nameof(SpawnBoss), kBossGracePeriodTime);
+    }
+
+    private void SuckUpXP()
+    {
+        foreach (Pickup xp in GetComponentsInChildren<Pickup>())
+        {
+            xp.m_StartedAttracting = true;
+            xp.m_PullSpeed *= 2f;
+        }
+    }
+
     public void SpawnBoss()
     {
         StateManager.ChangeState(State.BOSS);
@@ -238,6 +263,7 @@ public class ProgressionManager : MonoBehaviour
 
         if (m_WaveCounter >= 10)
         {
+            // Make the boss enraged
             boss.Enraged(m_WaveCounter/5);
         }
         // Play boss music
@@ -261,10 +287,10 @@ public class ProgressionManager : MonoBehaviour
 
         AudioManager.m_Instance.PlayMusic(3);
 
-        Invoke(nameof(AfterBossFightDelay), kBossGracePeriodTime);
+        Invoke(nameof(BossFightEndDelay), kBossGracePeriodTime);
     }
 
-    private void AfterBossFightDelay()
+    private void BossFightEndDelay()
     {
         StateManager.ChangeState(State.PLAYING);
 

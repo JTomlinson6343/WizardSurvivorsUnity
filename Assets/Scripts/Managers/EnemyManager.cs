@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 [System.Serializable]
@@ -76,6 +78,8 @@ public class EnemyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.SpawnBoss();
 
+        if (Input.GetKeyDown(KeyCode.P)) StartNewWave();
+
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
         {
             GracePeriod();
@@ -104,10 +108,17 @@ public class EnemyManager : MonoBehaviour
 
     public void PurgeEnemies()
     {
+        StartCoroutine(KillEnemies());
+    }
+
+    private IEnumerator KillEnemies()
+    {
         foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
         {
-            enemy.gameObject.SetActive(false);
+            new WaitForSeconds(Time.deltaTime);
+            Destroy(enemy.gameObject);
         }
+        yield return null;
     }
 
     public void OnRespawn()
@@ -173,7 +184,6 @@ public class EnemyManager : MonoBehaviour
 
     public Boss SpawnBoss()
     {
-        PurgeEnemies();
         GameObject boss = Instantiate(m_BossPrefabs[0]);
         boss.transform.position = Player.m_Instance.transform.position + new Vector3(0f, 3f);
         boss.transform.SetParent(transform);
@@ -203,7 +213,7 @@ public class EnemyManager : MonoBehaviour
 
         if (IsBossWave(ProgressionManager.m_Instance.m_WaveCounter))
         {
-            ProgressionManager.m_Instance.SpawnBoss();
+            ProgressionManager.m_Instance.PreBoss();
             print("Boss wave started.");
             return;
         }
