@@ -6,11 +6,13 @@ public class Pickup : MonoBehaviour
 {
     private readonly float kDeceleration = 0.1f;
     private readonly float kPullDist = 2f;
-    private readonly float kPullSpeed = 4f;
+    private readonly float kPullBaseSpeed = 4f;
     private readonly float kLifetime = 60f;
 
+    public float m_PullSpeed;
+
     private bool m_FinishedDropping = false;
-    private bool m_StartedAttracting = false;
+    public bool  m_StartedAttracting = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,6 +29,8 @@ public class Pickup : MonoBehaviour
     private void Awake()
     {
         Invoke(nameof(DestroySelf), kLifetime);
+
+        m_PullSpeed = kPullBaseSpeed;
     }
     private void Update()
     {
@@ -51,13 +55,14 @@ public class Pickup : MonoBehaviour
     {
         // If player is not in range, return
         float distToPlayer = Vector2.Distance(transform.position, Player.m_Instance.GetPosition());
-        if (distToPlayer > kPullDist && !m_StartedAttracting && StateManager.GetCurrentState() != State.BOSS) {
+        if (distToPlayer > kPullDist && !m_StartedAttracting)
+        {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
         }
 
         m_StartedAttracting = true;
-        GetComponent<Rigidbody2D>().velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * kPullSpeed;
+        GetComponent<Rigidbody2D>().velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * m_PullSpeed;
     }
 
     void DestroySelf()
