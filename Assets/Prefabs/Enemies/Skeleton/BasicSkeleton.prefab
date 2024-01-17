@@ -262,7 +262,7 @@ MonoBehaviour:
   m_XPAwarded: 2
   m_SkillPointDropChance: 0.1
   m_MinChampSkillPoints: 1
-  m_MaxChampSkillPoints: 3
+  m_MaxChampSkillPoints: 2
   m_Speed: 1
   m_ContactDamage: 25
   m_KnockbackModifier: 0
