@@ -128,7 +128,7 @@ public class ProgressionManager : MonoBehaviour
         pickup.transform.position = pos;
         pickup.transform.SetParent(transform);
 
-        return gameObject;
+        return pickup;
     }
 
     public void SpawnXP(Vector2 pos, int amount)
