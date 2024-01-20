@@ -59,11 +59,6 @@ public class AudioManager : MonoBehaviour
         m_MusicSource.Play();
     }
 
-    public void PlayMusicDelayed(float delay)
-    {
-        m_MusicSource.PlayScheduled(delay);
-    }
-
     AudioSource GetFreeAudioSource()
     {
         foreach(AudioSource source in m_AudioSources)

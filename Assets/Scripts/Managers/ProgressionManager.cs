@@ -238,13 +238,10 @@ public class ProgressionManager : MonoBehaviour
         StateManager.ChangeState(State.PRE_BOSS);
         // Suck all xp
         SuckUpXP();
-
         // Alert player that the boss is coming
         // Kill all the enemies
         EnemyManager.m_Instance.PurgeEnemies();
 
-        // Play boss music
-        AudioManager.m_Instance.PlayMusicDelayed(kBossGracePeriodTime);
         Invoke(nameof(SpawnBoss), kBossGracePeriodTime);
     }
 
@@ -269,6 +266,9 @@ public class ProgressionManager : MonoBehaviour
             // Make the boss enraged
             boss.Enraged(m_WaveCounter/5);
         }
+        // Play boss music
+        AudioManager.m_Instance.PlayMusic(17, 0.2f);
+
         // Init the boss health bar
         m_BossHealthBar.m_Actor = boss;
         m_BossHealthBar.transform.parent.gameObject.SetActive(true);
