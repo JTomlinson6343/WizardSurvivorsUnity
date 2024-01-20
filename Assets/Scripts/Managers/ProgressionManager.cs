@@ -285,7 +285,7 @@ public class ProgressionManager : MonoBehaviour
         // Play victory sound
         AudioManager.m_Instance.PlaySound(18);
 
-        AudioManager.m_Instance.PlayMusic(3);
+        AudioManager.m_Instance.PlayMusic(3,1f);
 
         Invoke(nameof(BossFightEndDelay), kBossGracePeriodTime);
     }
