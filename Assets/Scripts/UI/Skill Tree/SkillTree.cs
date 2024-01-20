@@ -43,7 +43,7 @@ public class SkillTree : MonoBehaviour
 
     private void UpdateSkillPointsLabel()
     {
-        m_SkillPointsLabel.text = "SP: " + m_CurrentSkillPoints.ToString() + "/" + m_TotalSkillPoints.ToString();
+        m_SkillPointsLabel.text = ": " + m_CurrentSkillPoints.ToString() + "/" + m_TotalSkillPoints.ToString();
     }
 
     private int GetCurrentLevelCost()
