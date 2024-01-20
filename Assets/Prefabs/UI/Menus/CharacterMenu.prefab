@@ -387,8 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NameLabel: {fileID: 9052233710539609222}
   m_InfoLabel: {fileID: 8711716377945167243}
-  m_Buttons: {fileID: 0}
   m_MainMenuRef: {fileID: 0}
+  m_DefaultCharIcon: {fileID: 6931310180832408527}
 --- !u!1 &2424751185252111872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,3 +1681,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
   m_PrefabInstance: {fileID: 7844908113877775593}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6931310180832408527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+  m_PrefabInstance: {fileID: 7844908113877775593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884193415cae57746b77d4c2de002736, type: 3}
+  m_Name: Fire Mage
+  m_EditorClassIdentifier: 
