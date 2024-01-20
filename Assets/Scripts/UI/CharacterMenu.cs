@@ -21,11 +21,14 @@ public class CharacterMenu : MonoBehaviour
     private GameObject m_CurrentCharacter;
     private SkillTree  m_CurrentCharacterSkillTree;
 
+    [SerializeField] CharacterIcon m_DefaultCharIcon;
     static CharacterIcon m_CurrentCharIcon;
 
     private void Awake()
     {
         m_Instance = this;
+
+        m_CurrentCharIcon = m_DefaultCharIcon;
     }
 
     private void Start()

@@ -76,7 +76,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.SpawnBoss();
+        if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.PreBoss();
 
         if (Input.GetKeyDown(KeyCode.P)) StartNewWave();
 

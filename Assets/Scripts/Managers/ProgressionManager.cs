@@ -128,7 +128,7 @@ public class ProgressionManager : MonoBehaviour
         pickup.transform.position = pos;
         pickup.transform.SetParent(transform);
 
-        return gameObject;
+        return pickup;
     }
 
     public void SpawnXP(Vector2 pos, int amount)
@@ -285,7 +285,7 @@ public class ProgressionManager : MonoBehaviour
         // Play victory sound
         AudioManager.m_Instance.PlaySound(18);
 
-        AudioManager.m_Instance.PlayMusic(3);
+        AudioManager.m_Instance.PlayMusic(3,1f);
 
         Invoke(nameof(BossFightEndDelay), kBossGracePeriodTime);
     }
