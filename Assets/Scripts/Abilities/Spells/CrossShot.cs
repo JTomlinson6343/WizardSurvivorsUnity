@@ -7,6 +7,8 @@ public class CrossShot : Spell
     [SerializeField] float m_Lifetime;
     public override void OnCast()
     {
+        if (StateManager.GetCurrentState() == State.PAUSED || StateManager.GetCurrentState() == State.GAME_OVER)  return; 
+
         base.OnCast();
 
         ProjectileManager.m_Instance.MultiShot(

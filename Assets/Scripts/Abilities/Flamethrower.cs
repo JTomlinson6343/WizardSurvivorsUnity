@@ -19,7 +19,7 @@ public class Flamethrower : Ability
     }
     private void Update()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING && StateManager.GetCurrentState() != State.BOSS) { return; }
+        if (StateManager.GetCurrentState() == State.PAUSED || StateManager.GetCurrentState() == State.GAME_OVER) { return; }
 
         if (!m_Enabled) return;
 

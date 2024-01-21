@@ -230,6 +230,8 @@ public class ProgressionManager : MonoBehaviour
         }
 
         m_GameOverScreen.SetActive(true);
+
+        Time.timeScale = 0;
     }
 
     public void PreBoss()
