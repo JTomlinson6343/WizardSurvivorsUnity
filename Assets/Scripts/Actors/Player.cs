@@ -137,7 +137,7 @@ public class Player : Actor
     {
         Vector3 currentVelocity = m_RigidBody.velocity;
 
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized;
+        Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
 
         Vector3 targetVelocity = moveDir * GetComponent<Player>().GetStats().speed;
 
