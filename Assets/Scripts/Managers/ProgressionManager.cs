@@ -74,8 +74,12 @@ public class ProgressionManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-            OnLevelUp();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (StateManager.GetCurrentState() == State.PAUSED) StateManager.TogglePause(false);
+
+            else StateManager.TogglePause(true);
+        }
 
         SpawnXPRandomly();
     }
