@@ -98,16 +98,36 @@ public class Player : Actor
 
         if (Input.GetMouseButton(0))
         {
-            float now = Time.realtimeSinceStartup;
-
-            if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
-            {
-                m_ActiveAbility.OnMouseInput(GetAimDirection().normalized);
-                m_LastShot = now;
-            }
+            ShootMouse();
         }
+        //if (Input.GetAxis("4") > 0.25f || Input.GetAxis("5") > 0.25f)
+        //{
+        //    ShootJoystick();
+        //}
         UpdateStats();
     }
+
+    private void ShootMouse()
+    {
+        float now = Time.realtimeSinceStartup;
+
+        if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
+        {
+            m_ActiveAbility.OnMouseInput(GetAimDirection().normalized);
+            m_LastShot = now;
+        }
+    }
+    private void ShootJoystick()
+    {
+        float now = Time.realtimeSinceStartup;
+
+        if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
+        {
+            m_ActiveAbility.OnMouseInput(new Vector2(Input.GetAxis("5"), Input.GetAxis("4")).normalized);
+            m_LastShot = now;
+        }
+    }
+
     private void MovementRoutine()
     {
         Vector3 currentVelocity = m_RigidBody.velocity;

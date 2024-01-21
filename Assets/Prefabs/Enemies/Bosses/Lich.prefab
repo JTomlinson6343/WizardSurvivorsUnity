@@ -252,7 +252,7 @@ MonoBehaviour:
   m_DebuffPlacement: {fileID: 8335548373994432881}
   m_HealthModifier: 1
   m_SpawnProbability: 0
-  m_XPAwarded: 50
+  m_XPAwarded: 100
   m_SkillPointDropChance: 0
   m_MinChampSkillPoints: 0
   m_MaxChampSkillPoints: 0
