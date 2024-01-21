@@ -66,6 +66,7 @@ public class SaveManager
         {
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
+            File.Create(m_Path);
             return;
         }
 
