@@ -23,15 +23,15 @@ public class FireDebuff : Debuff
         m_FireEffect = Instantiate(m_FireParticlePrefab);
         m_FireEffect.transform.localScale = new Vector3(m_FireEffect.transform.localScale.x * transform.localScale.x, m_FireEffect.transform.localScale.y * transform.localScale.y);
 
-        // Add light to enemy
-        m_Light = gameObject.AddComponent<Light2D>();
-        m_Light.intensity = 5;
-        m_Light.color = m_LightPrefab.color;
-        m_Light.pointLightInnerRadius = m_LightPrefab.pointLightInnerRadius;
-        m_Light.pointLightOuterRadius = m_LightPrefab.pointLightOuterRadius;
-        m_Light.pointLightOuterAngle = m_LightPrefab.pointLightOuterAngle;
-        m_Light.pointLightInnerAngle = m_LightPrefab.pointLightInnerAngle;
-        m_Light.falloffIntensity = m_LightPrefab.falloffIntensity;
+        //// Add light to enemy
+        //m_Light = gameObject.AddComponent<Light2D>();
+        //m_Light.intensity = 5;
+        //m_Light.color = m_LightPrefab.color;
+        //m_Light.pointLightInnerRadius = m_LightPrefab.pointLightInnerRadius;
+        //m_Light.pointLightOuterRadius = m_LightPrefab.pointLightOuterRadius;
+        //m_Light.pointLightOuterAngle = m_LightPrefab.pointLightOuterAngle;
+        //m_Light.pointLightInnerAngle = m_LightPrefab.pointLightInnerAngle;
+        //m_Light.falloffIntensity = m_LightPrefab.falloffIntensity;
 
         AudioManager.m_Instance.PlaySound(8);
     }
