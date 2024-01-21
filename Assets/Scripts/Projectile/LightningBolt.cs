@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Playables;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class LightningBolt : AOEObject
 {

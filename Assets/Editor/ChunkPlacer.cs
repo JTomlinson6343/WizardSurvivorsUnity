@@ -28,7 +28,7 @@ public class ChunkPlacer : EditorWindow
         EditorGUI.BeginDisabledGroup(chunkPrefabs == null || chunkPrefabs.Count == 0);
         if (GUILayout.Button("Place Chunks"))
         {
-            PlaceChunks();
+            //PlaceChunks();
         }
         EditorGUI.EndDisabledGroup();
     }
