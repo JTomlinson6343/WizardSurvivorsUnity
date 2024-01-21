@@ -49,9 +49,9 @@ public class Player : Actor
 {
     private readonly float m_kKnockback = 0.25f;
 
-    [SerializeField] GameObject staffPos;
-    [SerializeField] GameObject centrePos;
-    [SerializeField] GameObject healthBar;
+    [SerializeField] GameObject m_StaffPos;
+    [SerializeField] GameObject m_CentrePos;
+    [SerializeField] GameObject m_HealthBar;
 
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
@@ -65,6 +65,8 @@ public class Player : Actor
 
     public float m_IFramesTime;
     public bool m_IsInvincible;
+
+    [SerializeField] float m_HealSpeed;
 
     Vector3 staffStartPos;
 
@@ -80,7 +82,7 @@ public class Player : Actor
     {
         m_Instance = this;
         m_RigidBody = GetComponent<Rigidbody2D>();
-        staffStartPos = staffPos.transform.localPosition;
+        staffStartPos = m_StaffPos.transform.localPosition;
     }
 
     override public void Start()
@@ -92,6 +94,8 @@ public class Player : Actor
     public override void Update()
     {
         if (StateManager.GetCurrentState() == State.PAUSED) { return; }
+
+        if (Input.GetKeyDown(KeyCode.H)) Heal(25f);
 
         base.Update();
 
@@ -154,14 +158,14 @@ public class Player : Actor
         {
             sprite.flipX = false;
             spriteMask.flipX = false;
-            staffPos.transform.localPosition = staffStartPos;
+            m_StaffPos.transform.localPosition = staffStartPos;
         }
         // If player is moving left, face left
         else if (targetVelocity.x < 0)
         {
             sprite.flipX = true;
             spriteMask.flipX = true;
-            staffPos.transform.localPosition = staffStartPos * new Vector2(-1, 1);
+            m_StaffPos.transform.localPosition = staffStartPos * new Vector2(-1, 1);
         }
 
         if (targetVelocity.magnitude > 0)
@@ -213,13 +217,12 @@ public class Player : Actor
         GetComponentInChildren<Renderer>().enabled = false;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         ProgressionManager.m_Instance.GameOver();
-        Destroy(healthBar);
+        Destroy(m_HealthBar);
     }
     #region Stats Functions
     public void UpdateStats()
     {
         m_TotalStats = m_BaseStats + m_BonusStats;
-        UpdateHealth();
     }
     public void AddBonusStats(PlayerStats stats)
     {
@@ -262,21 +265,36 @@ public class Player : Actor
     {
         return m_TotalStats;
     }
-    public void UpdateHealth()
+
+    public void IncreaseMaxHealth(float amount)
     {
-        float ratio = GetHealthAsRatio();
-        m_MaxHealth = m_TotalStats.maxHealth;
-        m_Health = m_MaxHealth * ratio;
+        m_MaxHealth += amount;
+        m_Health += amount;
+    }
+    public void Heal(float amount)
+    {
+        StartCoroutine(HealAnim(amount,0.65f));
+    }
+
+    private IEnumerator HealAnim(float amount, float healSpeed)
+    {
+        for (int i = 0; i < Mathf.RoundToInt(amount/healSpeed); i++)
+        {
+            m_Health += healSpeed;
+            new WaitForSeconds(Time.deltaTime);
+            yield return null;
+        }
+        yield return null;
     }
 
     public Transform GetStaffTransform()
     {
-        return staffPos.transform;
+        return m_StaffPos.transform;
     }
     
     public Vector3 GetCentrePos()
     {
-        return centrePos.transform.position;
+        return m_CentrePos.transform.position;
     }
     #endregion
 }
