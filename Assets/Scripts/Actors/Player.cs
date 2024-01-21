@@ -273,7 +273,7 @@ public class Player : Actor
     }
     public void Heal(float amount)
     {
-        StartCoroutine(HealAnim(amount,0.65f));
+        StartCoroutine(HealAnim(amount,m_HealSpeed));
     }
 
     private IEnumerator HealAnim(float amount, float healSpeed)
