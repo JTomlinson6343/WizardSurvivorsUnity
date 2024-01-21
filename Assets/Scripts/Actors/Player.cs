@@ -71,7 +71,7 @@ public class Player : Actor
     Vector3 staffStartPos;
 
     private Rigidbody2D m_RigidBody;
-    private float m_Acceleration = 50.0f;
+    private float m_Acceleration = 25.0f;
 
     [SerializeField] private Animator m_Animator;
 
