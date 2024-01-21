@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
@@ -174,7 +175,7 @@ public class AbilityManager : MonoBehaviour
         {
             AbilityWasSelected(m_Icons[3]);
         }
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetButtonDown("SelectAbility")) {
             if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null)
             {
                 // Check if icon is displayed and then enable the ability displayed

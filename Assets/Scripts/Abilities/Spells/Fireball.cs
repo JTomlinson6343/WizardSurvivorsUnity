@@ -10,7 +10,7 @@ public class Fireball : Firebolt
     public override void OnMouseInput(Vector2 aimDirection)
     {
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
-            Player.m_Instance.GetAimDirection().normalized,
+            Player.m_Instance.GetMouseAimDirection().normalized,
             m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
 
         AudioManager.m_Instance.PlaySound(4);

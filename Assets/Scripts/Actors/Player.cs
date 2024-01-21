@@ -105,10 +105,10 @@ public class Player : Actor
         {
             ShootMouse();
         }
-        //if (Input.GetAxis("4") > 0.25f || Input.GetAxis("5") > 0.25f)
-        //{
-        //    ShootJoystick();
-        //}
+        if (Mathf.Abs(Input.GetAxis("Mouse X")) > 0.1f || Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.1f)
+        {
+            ShootJoystick();
+        }
         UpdateStats();
     }
 
@@ -118,7 +118,7 @@ public class Player : Actor
 
         if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
         {
-            m_ActiveAbility.OnMouseInput(GetAimDirection().normalized);
+            m_ActiveAbility.OnMouseInput(GetMouseAimDirection().normalized);
             m_LastShot = now;
         }
     }
@@ -128,7 +128,7 @@ public class Player : Actor
 
         if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
         {
-            m_ActiveAbility.OnMouseInput(new Vector2(Input.GetAxis("5"), Input.GetAxis("4")).normalized);
+            m_ActiveAbility.OnMouseInput(GetControllerAimDirection());
             m_LastShot = now;
         }
     }
@@ -256,9 +256,14 @@ public class Player : Actor
         return transform.position;
     }
 
-    public Vector2 GetAimDirection()
+    public Vector2 GetMouseAimDirection()
     {
         return (PlayerManager.m_Instance.m_Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
+    }
+
+    public Vector2 GetControllerAimDirection()
+    {
+        return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")).normalized;
     }
 
     public PlayerStats GetStats()

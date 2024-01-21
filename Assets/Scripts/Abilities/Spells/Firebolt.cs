@@ -9,7 +9,7 @@ public class Firebolt : Spell
     public override void OnMouseInput(Vector2 aimDirection)
     {
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
-            Player.m_Instance.GetAimDirection().normalized,
+            aimDirection,
             m_TotalStats.speed, this, m_ProjectileLifetime);
 
         AudioManager.m_Instance.PlaySound(4);
