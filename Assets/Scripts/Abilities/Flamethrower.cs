@@ -7,8 +7,8 @@ public class Flamethrower : Ability
     [SerializeField] GameObject m_FlamethrowerObject;
     [HideInInspector] public Firebolt m_FireballRef;
 
-    private bool m_Lockout;
-    private float m_LockoutTime = 0.25f;
+    private float m_LastCast;
+    private float m_LockoutTime = 0.5f;
 
     override public void Start()
     {
@@ -27,15 +27,17 @@ public class Flamethrower : Ability
         Vector2 vec = Player.m_Instance.GetAimDirection().normalized;
         if (Input.GetMouseButton(0))
         {
-            if (!m_Lockout)
+            float now = Time.realtimeSinceStartup;
+
+            if (now - m_LastCast > m_LockoutTime)
+            {
                 m_FlamethrowerObject.SetActive(true);
-            else
-                Invoke(nameof(EndLockout), m_LockoutTime);
+                m_LastCast = now;
+            }
         }
         else
         {
             m_FlamethrowerObject.SetActive(false);
-            m_Lockout = true;
         }
         m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg - 90);
     }
@@ -43,10 +45,5 @@ public class Flamethrower : Ability
     public void Enable()
     {
         m_Enabled = true;
-    }
-
-    private void EndLockout()
-    {
-        m_Lockout = false;
     }
 }
