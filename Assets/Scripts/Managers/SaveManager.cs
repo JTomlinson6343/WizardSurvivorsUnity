@@ -20,7 +20,7 @@ public struct SkillTreeData
 
 public class SaveManager
 {
-    static readonly string m_Path = Application.dataPath + "/Saves/save.json";
+    static readonly string m_Path = Application.persistentDataPath + "/save.json";
 
     static SkillTree[] m_SkillTrees;
     static SaveData m_SaveData;
