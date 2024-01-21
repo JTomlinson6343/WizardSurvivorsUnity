@@ -51,6 +51,7 @@ public class Player : Actor
 
     [SerializeField] GameObject staffPos;
     [SerializeField] GameObject centrePos;
+    [SerializeField] GameObject healthBar;
 
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
@@ -212,6 +213,7 @@ public class Player : Actor
         GetComponentInChildren<Renderer>().enabled = false;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         ProgressionManager.m_Instance.GameOver();
+        Destroy(healthBar);
     }
     #region Stats Functions
     public void UpdateStats()

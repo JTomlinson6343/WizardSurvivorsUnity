@@ -295,6 +295,7 @@ MonoBehaviour:
   m_DebuffPlacement: {fileID: 0}
   staffPos: {fileID: 8211081490223675830}
   centrePos: {fileID: 151483411280086891}
+  healthBar: {fileID: 2880136227170841822}
   m_BaseStats:
     speed: 2.4
     shotSpeed: 10
@@ -869,6 +870,11 @@ PrefabInstance:
 --- !u!224 &1199435650769270093 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6229566499917816928, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
+  m_PrefabInstance: {fileID: 5104440844397367597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2880136227170841822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7002764564321052147, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
   m_PrefabInstance: {fileID: 5104440844397367597}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6897854691180005294
