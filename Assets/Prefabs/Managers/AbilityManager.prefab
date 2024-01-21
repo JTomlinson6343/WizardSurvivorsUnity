@@ -278,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level up! Select an ability with the arrow keys
+  m_text: Level up! Tap a direction to select an ability
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 267a96dcc53efa343a9082f265b3fc6c, type: 2}
   m_sharedMaterial: {fileID: -7445862686191582219, guid: 267a96dcc53efa343a9082f265b3fc6c, type: 2}
@@ -824,8 +824,8 @@ MonoBehaviour:
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
   m_InstructionsLabel: {fileID: 8013665831323494006}
-  m_SpellInstructions: Level up! Pick a spell to learn with the arrow keys
-  m_ItemInstructions: Level up! Pick an item with the arrow keys
+  m_SpellInstructions: Level up! Level up! Tap a direction to select a spell
+  m_ItemInstructions: Level up! Tap a direction to select an item
 --- !u!1 &2471490994338420301
 GameObject:
   m_ObjectHideFlags: 0
