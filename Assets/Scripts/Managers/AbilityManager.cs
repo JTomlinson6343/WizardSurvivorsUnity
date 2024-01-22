@@ -139,6 +139,8 @@ public class AbilityManager : MonoBehaviour
         ProgressionManager.m_Instance.ToggleHUD(true);
 
         StateManager.TogglePause(false);
+
+        DeHighlightAbilityIcons();
     }
 
     bool CheckAlreadyDisplayed(Ability ability, Ability[] displayedAbilities)
@@ -190,12 +192,22 @@ public class AbilityManager : MonoBehaviour
         if (!icon.image.enabled) return;
 
         m_HighlightedIcon = icon;
+        DeHighlightAbilityIcons();
+        icon.GetComponent<Image>().color = Color.yellow;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
         m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
         if (icon.displayedAbility.GetLevel() >= 1)
         {
             m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
             m_DescriptionLabel.text += "\n\nNext level:\n" + icon.displayedAbility.m_Data.levelUpInfo;
+        }
+    }
+
+    private void DeHighlightAbilityIcons()
+    {
+        foreach (AbilityIcon otherIcon in m_Icons)
+        {
+            otherIcon.GetComponent<Image>().color = Color.white;
         }
     }
 
