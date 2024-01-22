@@ -283,6 +283,11 @@ public class Player : Actor
         StartCoroutine(HealAnim(amount,m_HealSpeed));
     }
 
+    public void PercentHeal(float percent)
+    {
+        Heal(percent * m_MaxHealth);
+    }
+
     private IEnumerator HealAnim(float amount, float healSpeed)
     {
         for (int i = 0; i < Mathf.RoundToInt(amount/healSpeed); i++)

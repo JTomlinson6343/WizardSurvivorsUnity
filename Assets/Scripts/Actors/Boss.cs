@@ -9,6 +9,8 @@ public abstract class Boss : Enemy
     [SerializeField] int m_MaxSkillPoints;
     [SerializeField] int m_MinSkillPoints;
 
+    private readonly float m_PercentHealthHealOnKill = 0.25f;
+
     // Modify the boss' stats based on when the boss is fought. 1 = first time a boss is fought
     abstract public void Enraged(int bossNumber);
 
@@ -18,5 +20,7 @@ public abstract class Boss : Enemy
         ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, Random.Range(m_MinSkillPoints, m_MaxSkillPoints + 1));
 
         ProgressionManager.m_Instance.OnBossFightEnd();
+
+        Player.m_Instance.PercentHeal(m_PercentHealthHealOnKill);
     }
 }
