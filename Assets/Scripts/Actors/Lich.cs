@@ -42,7 +42,7 @@ public class Lich : Boss
         m_MaxHealth *= bossNumber;
         m_StompDamage *= 1f + bossNumber * 0.1f;
         m_ProjectileDamage *= 1f + bossNumber * 0.1f;
-        m_EnemiesSpawned += bossNumber;
+        m_EnemiesSpawned += bossNumber - 1;
         m_ProjectileCooldown *= 1f/bossNumber;
         m_ProjectileSpeed *= 1f + bossNumber * 0.05f;
 

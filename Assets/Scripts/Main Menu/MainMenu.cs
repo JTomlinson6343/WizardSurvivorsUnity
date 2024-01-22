@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_CharMenuRef.gameObject.SetActive(true);
+        Time.timeScale = 1.0f;
     }
 
     public void Options()

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
 
 public class ProgressionManager : MonoBehaviour
 {
@@ -75,8 +74,12 @@ public class ProgressionManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-            OnLevelUp();
+        if (Input.GetButtonDown("Pause"))
+        {
+            if (StateManager.GetCurrentState() == State.PAUSED) StateManager.TogglePause(false);
+
+            else StateManager.TogglePause(true);
+        }
 
         SpawnXPRandomly();
     }
@@ -231,6 +234,8 @@ public class ProgressionManager : MonoBehaviour
         }
 
         m_GameOverScreen.SetActive(true);
+
+        Time.timeScale = 0;
     }
 
     public void PreBoss()

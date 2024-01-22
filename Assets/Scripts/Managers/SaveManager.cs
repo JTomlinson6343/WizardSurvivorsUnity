@@ -3,7 +3,6 @@ using System.Xml;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using TreeEditor;
 
 [System.Serializable]
 public struct SaveData
@@ -21,7 +20,7 @@ public struct SkillTreeData
 
 public class SaveManager
 {
-    static readonly string m_Path = Application.dataPath + "/Saves/save.json";
+    static readonly string m_Path = Application.persistentDataPath + "/save.json";
 
     static SkillTree[] m_SkillTrees;
     static SaveData m_SaveData;
@@ -67,6 +66,7 @@ public class SaveManager
         {
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
+            File.Create(m_Path);
             return;
         }
 

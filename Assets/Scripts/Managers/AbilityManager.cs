@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Playables;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
@@ -159,23 +159,23 @@ public class AbilityManager : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PAUSED) return;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetAxis("Vertical") > 0f || Input.GetKeyDown(KeyCode.UpArrow))
         {
             AbilityWasSelected(m_Icons[0]);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetAxis("Vertical") < 0f || Input.GetKeyDown(KeyCode.DownArrow))
         {
             AbilityWasSelected(m_Icons[1]);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetAxis("Horizontal") < 0f || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AbilityWasSelected(m_Icons[2]);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetAxis("Horizontal") > 0f || Input.GetKeyDown(KeyCode.RightArrow))
         {
             AbilityWasSelected(m_Icons[3]);
         }
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetButtonDown("Submit")) {
             if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null)
             {
                 // Check if icon is displayed and then enable the ability displayed

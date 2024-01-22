@@ -252,7 +252,7 @@ MonoBehaviour:
   m_DebuffPlacement: {fileID: 8335548373994432881}
   m_HealthModifier: 1
   m_SpawnProbability: 0
-  m_XPAwarded: 50
+  m_XPAwarded: 100
   m_SkillPointDropChance: 0
   m_MinChampSkillPoints: 0
   m_MaxChampSkillPoints: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_HealthbarPrefab: {fileID: 0}
   m_DeathParticlesPrefab: {fileID: 7872876998205242724, guid: c543e21daec357742b64e6b1c28ffe72, type: 3}
   m_BossName: Vorkath, Deathlord of the Crypt
-  m_MaxSkillPoints: 15
-  m_MinSkillPoints: 5
+  m_MaxSkillPoints: 10
+  m_MinSkillPoints: 3
   m_MeleeRadius: 4.2
   m_ProjectileSpeed: 5
   m_ProjectileLifetime: 8

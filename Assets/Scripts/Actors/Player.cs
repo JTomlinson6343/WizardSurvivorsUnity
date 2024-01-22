@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 
 [System.Serializable]
 public struct PlayerStats
@@ -49,8 +50,9 @@ public class Player : Actor
 {
     private readonly float m_kKnockback = 0.25f;
 
-    [SerializeField] GameObject staffPos;
-    [SerializeField] GameObject centrePos;
+    [SerializeField] GameObject m_StaffPos;
+    [SerializeField] GameObject m_CentrePos;
+    [SerializeField] GameObject m_HealthBar;
 
     public static Player m_Instance;
     [SerializeField] PlayerStats m_BaseStats;
@@ -65,10 +67,12 @@ public class Player : Actor
     public float m_IFramesTime;
     public bool m_IsInvincible;
 
+    [SerializeField] float m_HealSpeed;
+
     Vector3 staffStartPos;
 
     private Rigidbody2D m_RigidBody;
-    private float m_Acceleration = 50.0f;
+    private float m_Acceleration = 25.0f;
 
     [SerializeField] private Animator m_Animator;
 
@@ -79,7 +83,7 @@ public class Player : Actor
     {
         m_Instance = this;
         m_RigidBody = GetComponent<Rigidbody2D>();
-        staffStartPos = staffPos.transform.localPosition;
+        staffStartPos = m_StaffPos.transform.localPosition;
     }
 
     override public void Start()
@@ -92,27 +96,51 @@ public class Player : Actor
     {
         if (StateManager.GetCurrentState() == State.PAUSED) { return; }
 
+        if (Input.GetKeyDown(KeyCode.H)) Heal(25f);
+
         base.Update();
 
         MovementRoutine();
 
         if (Input.GetMouseButton(0))
         {
-            float now = Time.realtimeSinceStartup;
-
-            if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
-            {
-                m_ActiveAbility.OnMouseInput(GetAimDirection().normalized);
-                m_LastShot = now;
-            }
+            ShootMouse();
+        }
+        if (Mathf.Abs(Input.GetAxis("Mouse X")) > 0.1f || Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.1f)
+        {
+            ShootJoystick();
         }
         UpdateStats();
     }
+
+    private void ShootMouse()
+    {
+        float now = Time.realtimeSinceStartup;
+
+        if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
+        {
+            m_ActiveAbility.OnMouseInput(GetMouseAimDirection().normalized);
+            m_LastShot = now;
+        }
+    }
+    private void ShootJoystick()
+    {
+        float now = Time.realtimeSinceStartup;
+
+        if (now - m_LastShot > m_ActiveAbility.GetTotalStats().cooldown)
+        {
+            m_ActiveAbility.OnMouseInput(GetControllerAimDirection());
+            m_LastShot = now;
+        }
+    }
+
     private void MovementRoutine()
     {
         Vector3 currentVelocity = m_RigidBody.velocity;
 
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (moveDir.magnitude > 1f) moveDir.Normalize();
 
         Vector3 targetVelocity = moveDir * GetComponent<Player>().GetStats().speed;
 
@@ -126,21 +154,17 @@ public class Player : Actor
 
     void SetAnimState(Vector3 targetVelocity)
     {
-        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
-
-        // If player is moving right, face right
-        if (targetVelocity.x > 0)
+        if (Mathf.Abs(GetControllerAimDirection().x) > 0.1f)
         {
-            sprite.flipX = false;
-            spriteMask.flipX = false;
-            staffPos.transform.localPosition = staffStartPos;
+            FaceDirection(GetControllerAimDirection());
         }
-        // If player is moving left, face left
-        else if (targetVelocity.x < 0)
+        else if (Mathf.Abs(GetMouseAimDirection().x) > 0.1f && Input.GetMouseButton(0))
         {
-            sprite.flipX = true;
-            spriteMask.flipX = true;
-            staffPos.transform.localPosition = staffStartPos * new Vector2(-1, 1);
+            FaceDirection(GetMouseAimDirection());
+        }
+        else
+        {
+            FaceDirection(targetVelocity);
         }
 
         if (targetVelocity.magnitude > 0)
@@ -160,6 +184,25 @@ public class Player : Actor
 
             m_AnimatorMask.SetBool("Moving", false);
             m_AnimatorMask.SetBool("Idle", true); // Disable the idle state
+        }
+    }
+
+    private void FaceDirection(Vector2 dir)
+    {
+        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
+        // If player is moving right, face right
+        if (dir.x > 0)
+        {
+            sprite.flipX = false;
+            spriteMask.flipX = false;
+            m_StaffPos.transform.localPosition = staffStartPos;
+        }
+        // If player is moving left, face left
+        else if (dir.x < 0)
+        {
+            sprite.flipX = true;
+            spriteMask.flipX = true;
+            m_StaffPos.transform.localPosition = staffStartPos * new Vector2(-1, 1);
         }
     }
 
@@ -192,12 +235,12 @@ public class Player : Actor
         GetComponentInChildren<Renderer>().enabled = false;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         ProgressionManager.m_Instance.GameOver();
+        Destroy(m_HealthBar);
     }
     #region Stats Functions
     public void UpdateStats()
     {
         m_TotalStats = m_BaseStats + m_BonusStats;
-        UpdateHealth();
     }
     public void AddBonusStats(PlayerStats stats)
     {
@@ -231,30 +274,55 @@ public class Player : Actor
         return transform.position;
     }
 
-    public Vector2 GetAimDirection()
+    public Vector2 GetMouseAimDirection()
     {
         return (PlayerManager.m_Instance.m_Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GetStaffTransform().position).normalized;
+    }
+
+    public Vector2 GetControllerAimDirection()
+    {
+        return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")).normalized;
     }
 
     public PlayerStats GetStats()
     {
         return m_TotalStats;
     }
-    public void UpdateHealth()
+
+    public void IncreaseMaxHealth(float amount)
     {
-        float ratio = GetHealthAsRatio();
-        m_MaxHealth = m_TotalStats.maxHealth;
-        m_Health = m_MaxHealth * ratio;
+        m_MaxHealth += amount;
+        m_Health += amount;
+    }
+    public void Heal(float amount)
+    {
+        StartCoroutine(HealAnim(amount,m_HealSpeed));
+    }
+
+    public void PercentHeal(float percent)
+    {
+        Heal(percent * m_MaxHealth);
+    }
+
+    private IEnumerator HealAnim(float amount, float healSpeed)
+    {
+        for (int i = 0; i < Mathf.RoundToInt(amount/healSpeed); i++)
+        {
+            m_Health += healSpeed;
+            new WaitForSeconds(Time.deltaTime);
+            yield return null;
+        }
+        yield return null;
     }
 
     public Transform GetStaffTransform()
     {
-        return staffPos.transform;
+        return m_StaffPos.transform;
     }
     
     public Vector3 GetCentrePos()
     {
-        return centrePos.transform.position;
+        return m_CentrePos.transform.position;
     }
     #endregion
 }

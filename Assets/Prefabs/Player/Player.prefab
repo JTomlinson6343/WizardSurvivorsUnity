@@ -292,17 +292,19 @@ MonoBehaviour:
   m_Health: 999
   m_KnockbackResist: 0
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
-  m_DebuffPlacement: {fileID: 0}
-  staffPos: {fileID: 8211081490223675830}
-  centrePos: {fileID: 151483411280086891}
+  m_DebuffPlacement: {fileID: 151483411280086891}
+  m_StaffPos: {fileID: 8211081490223675830}
+  m_CentrePos: {fileID: 151483411280086891}
+  m_HealthBar: {fileID: 2880136227170841822}
   m_BaseStats:
-    speed: 2.4
+    speed: 2.9
     shotSpeed: 10
     maxHealth: 200
     healthRegen: 0
   m_ActiveAbility: {fileID: 8201127561021254593}
   m_IFramesTime: 1
   m_IsInvincible: 0
+  m_HealSpeed: 0.65
   m_Animator: {fileID: 3585064873875077332}
   m_AnimatorMask: {fileID: 3793565455578594936}
   spriteMask: {fileID: 5685897533416626910}
@@ -869,6 +871,11 @@ PrefabInstance:
 --- !u!224 &1199435650769270093 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6229566499917816928, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
+  m_PrefabInstance: {fileID: 5104440844397367597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2880136227170841822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7002764564321052147, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
   m_PrefabInstance: {fileID: 5104440844397367597}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6897854691180005294
