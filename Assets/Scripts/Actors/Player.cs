@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 
 [System.Serializable]
 public struct PlayerStats
@@ -153,21 +154,17 @@ public class Player : Actor
 
     void SetAnimState(Vector3 targetVelocity)
     {
-        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
-
-        // If player is moving right, face right
-        if (targetVelocity.x > 0)
+        if (Mathf.Abs(GetControllerAimDirection().x) > 0.1f)
         {
-            sprite.flipX = false;
-            spriteMask.flipX = false;
-            m_StaffPos.transform.localPosition = staffStartPos;
+            FaceDirection(GetControllerAimDirection());
         }
-        // If player is moving left, face left
-        else if (targetVelocity.x < 0)
+        else if (Mathf.Abs(GetMouseAimDirection().x) > 0.1f && Input.GetMouseButton(0))
         {
-            sprite.flipX = true;
-            spriteMask.flipX = true;
-            m_StaffPos.transform.localPosition = staffStartPos * new Vector2(-1, 1);
+            FaceDirection(GetMouseAimDirection());
+        }
+        else
+        {
+            FaceDirection(targetVelocity);
         }
 
         if (targetVelocity.magnitude > 0)
@@ -187,6 +184,25 @@ public class Player : Actor
 
             m_AnimatorMask.SetBool("Moving", false);
             m_AnimatorMask.SetBool("Idle", true); // Disable the idle state
+        }
+    }
+
+    private void FaceDirection(Vector2 dir)
+    {
+        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
+        // If player is moving right, face right
+        if (dir.x > 0)
+        {
+            sprite.flipX = false;
+            spriteMask.flipX = false;
+            m_StaffPos.transform.localPosition = staffStartPos;
+        }
+        // If player is moving left, face left
+        else if (dir.x < 0)
+        {
+            sprite.flipX = true;
+            spriteMask.flipX = true;
+            m_StaffPos.transform.localPosition = staffStartPos * new Vector2(-1, 1);
         }
     }
 
