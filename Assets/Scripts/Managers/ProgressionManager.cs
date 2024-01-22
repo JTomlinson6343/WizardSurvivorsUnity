@@ -74,7 +74,7 @@ public class ProgressionManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause"))
         {
             if (StateManager.GetCurrentState() == State.PAUSED) StateManager.TogglePause(false);
 
