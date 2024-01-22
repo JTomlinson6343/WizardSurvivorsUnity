@@ -104,6 +104,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.24290323
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25278455
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0013698936
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.022221886
+      objectReference: {fileID: 0}
     - target: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Name
       value: LichProjectile
