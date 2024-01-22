@@ -159,19 +159,19 @@ public class AbilityManager : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PAUSED) return;
 
-        if (Input.GetAxis("Vertical") > 0f || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetAxis("Vertical") > 0f || Input.GetKeyDown(KeyCode.UpArrow))
         {
             AbilityWasSelected(m_Icons[0]);
         }
-        else if (Input.GetAxis("Vertical") < 0f || Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetAxis("Vertical") < 0f || Input.GetKeyDown(KeyCode.DownArrow))
         {
             AbilityWasSelected(m_Icons[1]);
         }
-        else if (Input.GetAxis("Horizontal") < 0f || Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetAxis("Horizontal") < 0f || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AbilityWasSelected(m_Icons[2]);
         }
-        else if (Input.GetAxis("Horizontal") > 0f || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetAxis("Horizontal") > 0f || Input.GetKeyDown(KeyCode.RightArrow))
         {
             AbilityWasSelected(m_Icons[3]);
         }
