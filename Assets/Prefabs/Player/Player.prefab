@@ -297,7 +297,7 @@ MonoBehaviour:
   m_CentrePos: {fileID: 151483411280086891}
   m_HealthBar: {fileID: 2880136227170841822}
   m_BaseStats:
-    speed: 3
+    speed: 2.4
     shotSpeed: 10
     maxHealth: 200
     healthRegen: 0
