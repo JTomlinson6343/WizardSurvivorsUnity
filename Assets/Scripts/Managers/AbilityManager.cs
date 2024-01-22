@@ -159,23 +159,23 @@ public class AbilityManager : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PAUSED) return;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetAxis("Vertical") > 0f || Input.GetKeyDown(KeyCode.W))
         {
             AbilityWasSelected(m_Icons[0]);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetAxis("Vertical") < 0f || Input.GetKeyDown(KeyCode.S))
         {
             AbilityWasSelected(m_Icons[1]);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetAxis("Horizontal") < 0f || Input.GetKeyDown(KeyCode.A))
         {
             AbilityWasSelected(m_Icons[2]);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetAxis("Horizontal") > 0f || Input.GetKeyDown(KeyCode.D))
         {
             AbilityWasSelected(m_Icons[3]);
         }
-        if (Input.GetButtonDown("SelectAbility")) {
+        if (Input.GetButtonDown("Submit")) {
             if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null)
             {
                 // Check if icon is displayed and then enable the ability displayed
