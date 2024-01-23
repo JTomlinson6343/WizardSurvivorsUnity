@@ -124,6 +124,7 @@ public class Ability : MonoBehaviour
             }
             else
             {
+                StartAutoCasting();
             }
         }
         LevelUp();
