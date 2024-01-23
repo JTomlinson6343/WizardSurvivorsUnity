@@ -1005,17 +1005,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 617353685537923436, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754636661465701424, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160
-      objectReference: {fileID: 0}
     - target: {fileID: 3285808856858108849, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548374801903261086, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
+      propertyPath: m_text
+      value: 'Current: 1456'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548374801903261086, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
+      propertyPath: m_lineSpacing
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4967155538454184754, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_text
@@ -1065,13 +1065,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7405669823302653677, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7405669823302653677, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7658772710299271930, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7720486367799982564, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Cost: 20'
       objectReference: {fileID: 0}
     - target: {fileID: 7762850377071330625, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_Name
@@ -1080,14 +1088,6 @@ PrefabInstance:
     - target: {fileID: 7762850377071330625, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884348776125990548, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 110.2451
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884348776125990548, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 80.122536
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
