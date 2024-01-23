@@ -546,7 +546,7 @@ MonoBehaviour:
     description: 
     levelUpInfo: 
     icon: {fileID: 0}
-  m_DefaultAutofireRange: 4.5
+  m_DefaultAutofireRange: 4.25
   m_FlamethrowerObject: {fileID: 475971777736552130}
   m_FireballRef: {fileID: 0}
 --- !u!1 &2205560206458252644
