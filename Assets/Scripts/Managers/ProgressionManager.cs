@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -18,6 +19,7 @@ public class ProgressionManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_BossNameLabel;
 
     [SerializeField] GameObject m_Hud;
+    [SerializeField] GameObject m_PauseMenu;
 
     [SerializeField] GameObject m_WaveLabel;
     [SerializeField] GameObject m_ScoreLabel;
@@ -43,10 +45,16 @@ public class ProgressionManager : MonoBehaviour
 
     readonly float kPickupMoveSpeed = 15f;
 
+    //XP
     int m_CurrentXP = 0;
     int m_NextLevelXP;
 
     [SerializeField] Curve m_LevelCurve;
+
+    //Options
+
+    public static float m_MusicVolume = 1f;
+    public static float m_SoundVolume = 1f;
 
     //Data
     private int m_EnemiesKilled = 0;
@@ -79,7 +87,7 @@ public class ProgressionManager : MonoBehaviour
         TogglePauseMenu();
     }
 
-    private void TogglePauseMenu()
+    public void TogglePauseMenu()
     {
         if (StateManager.GetCurrentState() == State.UPGRADING || StateManager.GetCurrentState() == State.GAME_OVER) return;
 
@@ -90,6 +98,22 @@ public class ProgressionManager : MonoBehaviour
             else
                 StateManager.TogglePause(true);
         }
+
+        // Show pause menu if in paused state
+        m_PauseMenu.SetActive(StateManager.GetCurrentState() == State.PAUSED);
+    }
+
+    public void OnAutoFireValueChanged(bool value)
+    {
+        Player.m_Instance.ToggleAutoFire(value);
+    }
+    public void OnMusicVolumeValueChanged(float value)
+    {
+        m_MusicVolume = value;
+    }
+    public void OnSoundVolumeValueChanged(float value)
+    {
+        m_SoundVolume = value;
     }
 
     public void ToggleHUD(bool toggle)
@@ -223,6 +247,10 @@ public class ProgressionManager : MonoBehaviour
     public void GameOver()
     {
         StateManager.ChangeState(State.GAME_OVER);
+
+        m_PauseMenu.SetActive(false);
+        m_Hud.SetActive(false);
+        m_BossHealthBar.gameObject.SetActive(false);
 
         EnemyManager.m_Instance.PurgeEnemies();
 

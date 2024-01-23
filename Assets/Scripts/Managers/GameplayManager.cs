@@ -74,6 +74,8 @@ public static class GameplayManager
 
     public static Vector2 GetDirectionToGameObject(Vector2 pos, GameObject gameObject)
     {
+        if (!gameObject) return Vector2.negativeInfinity;
+
         return ((Vector2)gameObject.transform.position - pos).normalized;
     }
 

@@ -18,7 +18,7 @@ public class BlackHole : Firebolt
 
     public override void OnCast()
     {
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), kDefaultAutofireRange);
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
 
         if (!closestEnemy)
         {

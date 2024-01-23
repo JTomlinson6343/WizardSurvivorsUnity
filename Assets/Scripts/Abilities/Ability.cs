@@ -98,7 +98,7 @@ public class Ability : MonoBehaviour
 
     private List<GameObject> m_HitEnemies = new List<GameObject>();
 
-    protected readonly float kDefaultAutofireRange = 6f;
+    public float m_DefaultAutofireRange = 10f;
     protected readonly float kCooldownAfterReset = 2f;
 
     //Getters//
@@ -117,18 +117,28 @@ public class Ability : MonoBehaviour
         {
             Debug.Log(m_Data.name + " was enabled.");
             m_Enabled = true;
-            CancelInvoke(nameof(OnCast));
+            StopAutoCasting();
             if (m_TotalStats.cooldown < 0)
             {
                 OnCast();
             }
             else
             {
-                InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
             }
         }
         LevelUp();
         Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
+    }
+
+    public void StartAutoCasting()
+    {
+        InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
+
+    }
+
+    public void StopAutoCasting()
+    {
+        CancelInvoke(nameof(OnCast));
     }
 
     // Called every time the cooldown ends
@@ -147,14 +157,14 @@ public class Ability : MonoBehaviour
 
     protected void ResetCooldown(float newCooldown)
     {
-        CancelInvoke(nameof(OnCast));
+        StopAutoCasting();
         if (m_TotalStats.cooldown < 0)
         {
             OnCast();
         }
         else
         {
-            InvokeRepeating(nameof(OnCast), newCooldown, m_TotalStats.cooldown);
+            StartAutoCasting();
         }
     }
 

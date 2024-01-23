@@ -22,11 +22,16 @@ public class Flamethrower : Ability
         if (StateManager.IsGameplayStopped()) { return; }
 
         if (!m_Enabled) return;
+
+        if (Player.m_AutoFire)
+        {
+            AutoCast();
+            return;
+        }
         if (!(MouseInput() || ControllerInput()))
         {
             m_FlamethrowerObject.SetActive(false);
         }
-        
     }
 
     private bool MouseInput()
@@ -47,6 +52,28 @@ public class Flamethrower : Ability
         m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(vec.y, vec.x) * Mathf.Rad2Deg - 90);
 
         return true;
+    }
+
+    private void AutoCast()
+    {
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
+
+        if (!closestEnemy)
+        {
+            m_FlamethrowerObject.SetActive(false);
+            return;
+        }
+        Vector2 dir = GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetStaffTransform().position, closestEnemy);
+
+        float now = Time.realtimeSinceStartup;
+
+        if (now - m_LastCast > m_LockoutTime)
+        {
+            m_FlamethrowerObject.SetActive(true);
+            m_LastCast = now;
+        }
+
+        m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
     }
 
     private bool ControllerInput()
