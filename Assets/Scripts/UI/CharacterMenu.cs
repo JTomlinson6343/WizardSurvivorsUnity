@@ -33,15 +33,9 @@ public class CharacterMenu : MonoBehaviour
 
     private void Start()
     {
-        m_SkillTreeRefs = new SkillTree[GetComponentsInChildren<CharacterIcon>().Length];
 
-        for (int i = 0; i < GetComponentsInChildren<CharacterIcon>().Length; i++)
-        {
-            m_SkillTreeRefs[i] = GetComponentsInChildren<CharacterIcon>()[i].m_SkillTree;
-        }
 
-        SaveManager.PopulateSkillTreesArray(m_SkillTreeRefs);
-        SaveManager.LoadFromFile();
+        //SaveManager.LoadFromFile();
     }
 
     private void Update()
@@ -75,6 +69,18 @@ public class CharacterMenu : MonoBehaviour
         gameObject.SetActive(false);
 
         m_CurrentCharacterSkillTree.gameObject.SetActive(true);
+    }
+
+    public SkillTree[] GetSkillTreeRefs()
+    {
+        m_SkillTreeRefs = new SkillTree[GetComponentsInChildren<CharacterIcon>().Length];
+
+        for (int i = 0; i < GetComponentsInChildren<CharacterIcon>().Length; i++)
+        {
+            m_SkillTreeRefs[i] = GetComponentsInChildren<CharacterIcon>()[i].m_SkillTree;
+        }
+
+        return m_SkillTreeRefs;
     }
 
     // Pass character information into player manager and load main scene

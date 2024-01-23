@@ -89,7 +89,10 @@ public class ProgressionManager : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             if (StateManager.GetCurrentState() == State.PAUSED)
+            {
+                SaveManager.SaveToFile();
                 StateManager.TogglePause(false);
+            }
             else
                 StateManager.TogglePause(true);
         }

@@ -10,5 +10,6 @@ public class OptionsMenu : PauseMenu
     {
         gameObject.SetActive(false);
         m_MainMenuRef.gameObject.SetActive(true);
+        SaveManager.SaveToFile();
     }
 }
