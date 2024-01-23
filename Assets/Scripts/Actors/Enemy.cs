@@ -46,7 +46,7 @@ public class Enemy : Actor
     // Update is called once per frame
     override public void Update()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING)
+        if (StateManager.IsGameplayStopped())
         {
             rb.velocity = Vector3.zero;
             return;

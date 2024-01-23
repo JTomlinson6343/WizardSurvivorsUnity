@@ -74,14 +74,22 @@ public class ProgressionManager : MonoBehaviour
 
     private void Update()
     {
+        SpawnXPRandomly();
+
+        TogglePauseMenu();
+    }
+
+    private void TogglePauseMenu()
+    {
+        if (StateManager.GetCurrentState() == State.UPGRADING || StateManager.GetCurrentState() == State.GAME_OVER) return;
+
         if (Input.GetButtonDown("Pause"))
         {
-            if (StateManager.GetCurrentState() == State.PAUSED) StateManager.TogglePause(false);
-
-            else StateManager.TogglePause(true);
+            if (StateManager.GetCurrentState() == State.PAUSED)
+                StateManager.TogglePause(false);
+            else
+                StateManager.TogglePause(true);
         }
-
-        SpawnXPRandomly();
     }
 
     public void ToggleHUD(bool toggle)

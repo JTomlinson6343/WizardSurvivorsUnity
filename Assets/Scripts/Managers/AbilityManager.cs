@@ -127,7 +127,7 @@ public class AbilityManager : MonoBehaviour
             count++;
         }
         ProgressionManager.m_Instance.ToggleHUD(false);
-        StateManager.TogglePause(true);
+        StateManager.ToggleUpgrading(true);
     }
 
     void HideAbilityOptions()
@@ -138,7 +138,7 @@ public class AbilityManager : MonoBehaviour
 
         ProgressionManager.m_Instance.ToggleHUD(true);
 
-        StateManager.TogglePause(false);
+        StateManager.ToggleUpgrading(false);
 
         DeHighlightAbilityIcons();
     }
@@ -159,21 +159,21 @@ public class AbilityManager : MonoBehaviour
 
     void HandleInput()
     {
-        if (StateManager.GetCurrentState() != State.PAUSED) return;
+        if (StateManager.GetCurrentState() != State.UPGRADING) return;
 
-        if (Input.GetAxis("Vertical") > 0f || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetAxis("VerticalDPAD") > 0f || Input.GetKeyDown(KeyCode.UpArrow))
         {
             AbilityWasSelected(m_Icons[0]);
         }
-        else if (Input.GetAxis("Vertical") < 0f || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetAxis("VerticalDPAD") < 0f || Input.GetKeyDown(KeyCode.DownArrow))
         {
             AbilityWasSelected(m_Icons[1]);
         }
-        else if (Input.GetAxis("Horizontal") < 0f || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetAxis("HorizontalDPAD") < 0f || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AbilityWasSelected(m_Icons[2]);
         }
-        else if (Input.GetAxis("Horizontal") > 0f || Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetAxis("HorizontalDPAD") > 0f || Input.GetKeyDown(KeyCode.RightArrow))
         {
             AbilityWasSelected(m_Icons[3]);
         }

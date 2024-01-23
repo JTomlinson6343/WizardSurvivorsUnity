@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     {
 
         if (StateManager.GetCurrentState() == State.BOSS ||
-            (StateManager.GetPreviousState() == State.BOSS && (StateManager.GetPreviousState() == State.PAUSED || StateManager.GetPreviousState() == State.GAME_OVER)))
+            (StateManager.GetPreviousState() == State.BOSS && (StateManager.GetPreviousState() == State.UPGRADING || StateManager.GetPreviousState() == State.GAME_OVER)))
         {
             BossArena();
             return;

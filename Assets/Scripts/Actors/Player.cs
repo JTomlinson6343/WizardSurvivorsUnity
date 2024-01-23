@@ -94,7 +94,7 @@ public class Player : Actor
 
     public override void Update()
     {
-        if (StateManager.GetCurrentState() == State.PAUSED) { return; }
+        if (StateManager.IsGameplayStopped()) { return; }
 
         if (Input.GetKeyDown(KeyCode.H)) Heal(25f);
 
@@ -154,17 +154,15 @@ public class Player : Actor
 
     void SetAnimState(Vector3 targetVelocity)
     {
+        FaceDirection(targetVelocity);
+
         if (Mathf.Abs(GetControllerAimDirection().x) > 0.1f)
         {
             FaceDirection(GetControllerAimDirection());
         }
-        else if (Mathf.Abs(GetMouseAimDirection().x) > 0.1f && Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(0) && Mathf.Abs(GetMouseAimDirection().x) > 0.05f)
         {
             FaceDirection(GetMouseAimDirection());
-        }
-        else
-        {
-            FaceDirection(targetVelocity);
         }
 
         if (targetVelocity.magnitude > 0)

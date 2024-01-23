@@ -19,7 +19,7 @@ public class Flamethrower : Ability
     }
     private void Update()
     {
-        if (StateManager.GetCurrentState() == State.PAUSED || StateManager.GetCurrentState() == State.GAME_OVER) { return; }
+        if (StateManager.IsGameplayStopped()) { return; }
 
         if (!m_Enabled) return;
         if (!(MouseInput() || ControllerInput()))
