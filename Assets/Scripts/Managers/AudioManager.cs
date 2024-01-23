@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using static Unity.VisualScripting.Member;
 
 public class AudioManager : MonoBehaviour
@@ -11,6 +12,10 @@ public class AudioManager : MonoBehaviour
 
     AudioSource[] m_AudioSources = new AudioSource[512];
     AudioSource m_MusicSource;
+    float m_CurrentMusicVolume = 1f;
+
+    public static float m_MusicVolume = 1f;
+    public static float m_SoundVolume = 1f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,6 +39,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(int soundID)
     {
         AudioSource source = GetFreeAudioSource();
+        source.volume = m_SoundVolume;
         source.clip = m_AudioClips[soundID];
         source.Play();
     }
@@ -41,21 +47,28 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(int soundID, float volume)
     {
         AudioSource source = GetFreeAudioSource();
-        source.volume = volume;
+        source.volume = volume * m_SoundVolume;
         source.clip = m_AudioClips[soundID];
         source.Play();
     }
 
     public void PlayMusic(int soundID)
     {
+        m_MusicSource.volume = m_MusicVolume;
         m_MusicSource.clip = m_AudioClips[soundID];
         m_MusicSource.Play();
     }
     public void PlayMusic(int soundID, float volume)
     {
+        m_MusicSource.volume = volume * m_MusicVolume;
+        m_CurrentMusicVolume = volume;
         m_MusicSource.clip = m_AudioClips[soundID];
-        m_MusicSource.volume = volume;
         m_MusicSource.Play();
+    }
+
+    public void UpdateMusicVolume()
+    {
+        m_MusicSource.volume = m_CurrentMusicVolume * m_MusicVolume;
     }
 
     AudioSource GetFreeAudioSource()

@@ -51,11 +51,6 @@ public class ProgressionManager : MonoBehaviour
 
     [SerializeField] Curve m_LevelCurve;
 
-    //Options
-
-    public static float m_MusicVolume = 1f;
-    public static float m_SoundVolume = 1f;
-
     //Data
     private int m_EnemiesKilled = 0;
     private int m_ChampionsKilled = 0;
@@ -109,11 +104,14 @@ public class ProgressionManager : MonoBehaviour
     }
     public void OnMusicVolumeValueChanged(float value)
     {
-        m_MusicVolume = value;
+        print(value);
+        AudioManager.m_MusicVolume = value;
+        AudioManager.m_Instance.UpdateMusicVolume();
     }
     public void OnSoundVolumeValueChanged(float value)
     {
-        m_SoundVolume = value;
+        print(value);
+        AudioManager.m_SoundVolume = value;
     }
 
     public void ToggleHUD(bool toggle)
