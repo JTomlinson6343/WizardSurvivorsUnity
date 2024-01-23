@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] Scrollbar m_SoundSlider;
     [SerializeField] Toggle m_AutoFireToggle;
 
-    private void Start()
+    private void Awake()
     {
         InitPauseMenu();
     }

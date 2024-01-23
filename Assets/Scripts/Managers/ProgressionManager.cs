@@ -94,7 +94,10 @@ public class ProgressionManager : MonoBehaviour
                 StateManager.TogglePause(false);
             }
             else
+            {
+                m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
                 StateManager.TogglePause(true);
+            }
         }
 
         // Show pause menu if in paused state
