@@ -94,6 +94,4 @@ public class CharacterMenu : MonoBehaviour
         gameObject.SetActive(false);
         m_MainMenuRef.gameObject.SetActive(true);
     }
-
-
 }

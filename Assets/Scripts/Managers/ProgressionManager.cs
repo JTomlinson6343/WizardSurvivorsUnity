@@ -79,10 +79,10 @@ public class ProgressionManager : MonoBehaviour
     {
         SpawnXPRandomly();
 
-        TogglePauseMenu();
+        PauseMenuInput();
     }
 
-    public void TogglePauseMenu()
+    public void PauseMenuInput()
     {
         if (StateManager.GetCurrentState() == State.UPGRADING || StateManager.GetCurrentState() == State.GAME_OVER) return;
 
@@ -96,22 +96,6 @@ public class ProgressionManager : MonoBehaviour
 
         // Show pause menu if in paused state
         m_PauseMenu.SetActive(StateManager.GetCurrentState() == State.PAUSED);
-    }
-
-    public void OnAutoFireValueChanged(bool value)
-    {
-        Player.m_Instance.ToggleAutoFire(value);
-    }
-    public void OnMusicVolumeValueChanged(float value)
-    {
-        print(value);
-        AudioManager.m_MusicVolume = value;
-        AudioManager.m_Instance.UpdateMusicVolume();
-    }
-    public void OnSoundVolumeValueChanged(float value)
-    {
-        print(value);
-        AudioManager.m_SoundVolume = value;
     }
 
     public void ToggleHUD(bool toggle)
