@@ -8,8 +8,9 @@ struct Curve
     public AnimationCurve curve;
     public float min;
     public float max;
+    public float alpha;
 
-    public float Evaluate(float x, float alpha)
+    public float Evaluate(float x)
     {
         return min + (max-min) * curve.Evaluate(x/alpha);
     }
@@ -205,7 +206,7 @@ public class EnemyManager : MonoBehaviour
 
     private void StartNewWave()
     {
-        m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter, 10));
+        m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter));
 
         ProgressionManager.m_Instance.m_WaveCounter++;
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
@@ -232,6 +233,6 @@ public class EnemyManager : MonoBehaviour
 
     private float GetEnemyHPForWave()
     {
-        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1, 100);
+        return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1);
     }
 }

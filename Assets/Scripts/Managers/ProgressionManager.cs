@@ -153,7 +153,7 @@ public class ProgressionManager : MonoBehaviour
 
         GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius);
 
-        m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f);
+        m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter);
     }
     #endregion
 
@@ -203,10 +203,10 @@ public class ProgressionManager : MonoBehaviour
     private void CalculateNextLevelXP()
     {
         // Set next level xp
-        m_NextLevelXP = (Mathf.RoundToInt(m_LevelCurve.Evaluate(m_Level-1, 10)));
+        m_NextLevelXP = (Mathf.RoundToInt(m_LevelCurve.Evaluate(m_Level-1)));
         print(m_NextLevelXP.ToString() + " XP to level" + (m_Level+1).ToString());
 
-        print("XP spawn rate: " + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f).ToString());
+        print("XP spawn rate: " + m_SpawnCooldown.Evaluate(m_WaveCounter).ToString());
     }
 
     public void IncrementEnemyKills() { m_EnemiesKilled++; }
