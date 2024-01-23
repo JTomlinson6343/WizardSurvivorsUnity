@@ -39,7 +39,10 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(int soundID)
     {
         AudioSource source = GetFreeAudioSource();
-        source.volume = m_SoundVolume;
+
+        if (source.volume != m_SoundVolume)
+            source.volume = m_SoundVolume;
+
         source.clip = m_AudioClips[soundID];
         source.Play();
     }
