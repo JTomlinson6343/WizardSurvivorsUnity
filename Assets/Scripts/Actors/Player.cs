@@ -60,6 +60,7 @@ public class Player : Actor
     PlayerStats m_TotalStats;
 
     public Ability m_ActiveAbility;
+    public static bool m_AutoFire = false;
 
     private float m_LastHit = 0.0f;
     float m_LastShot = 0;
@@ -94,13 +95,22 @@ public class Player : Actor
 
     public override void Update()
     {
-        if (StateManager.GetCurrentState() == State.PAUSED) { return; }
+        if (StateManager.IsGameplayStopped()) { return; }
 
         if (Input.GetKeyDown(KeyCode.H)) Heal(25f);
 
         base.Update();
 
         MovementRoutine();
+
+        HandleShootInput();
+
+        UpdateStats();
+    }
+
+    private void HandleShootInput()
+    {
+        if (m_AutoFire) return;
 
         if (Input.GetMouseButton(0))
         {
@@ -110,7 +120,20 @@ public class Player : Actor
         {
             ShootJoystick();
         }
-        UpdateStats();
+    }
+
+    public void ToggleAutoFire(bool value)
+    {
+        m_AutoFire = value;
+
+        if (value)
+        {
+            m_ActiveAbility.StartAutoCasting();
+        }
+        else
+        {
+            m_ActiveAbility.StopAutoCasting();
+        }
     }
 
     private void ShootMouse()
@@ -154,18 +177,7 @@ public class Player : Actor
 
     void SetAnimState(Vector3 targetVelocity)
     {
-        if (Mathf.Abs(GetControllerAimDirection().x) > 0.1f)
-        {
-            FaceDirection(GetControllerAimDirection());
-        }
-        else if (Mathf.Abs(GetMouseAimDirection().x) > 0.1f && Input.GetMouseButton(0))
-        {
-            FaceDirection(GetMouseAimDirection());
-        }
-        else
-        {
-            FaceDirection(targetVelocity);
-        }
+        FacingRoutine(targetVelocity);
 
         if (targetVelocity.magnitude > 0)
         {
@@ -184,6 +196,32 @@ public class Player : Actor
 
             m_AnimatorMask.SetBool("Moving", false);
             m_AnimatorMask.SetBool("Idle", true); // Disable the idle state
+        }
+    }
+
+    private void FacingRoutine(Vector3 targetVelocity)
+    {
+        FaceDirection(targetVelocity);
+
+        if (m_AutoFire)
+        {
+            GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(GetCentrePos(), m_ActiveAbility.m_DefaultAutofireRange);
+            if (closestEnemy)
+            {
+                Vector2 dir = GameplayManager.GetDirectionToGameObject(GetStaffTransform().position, closestEnemy);
+
+                if (Mathf.Abs(dir.x) > 0.05f) FaceDirection(dir);
+            }
+            return;
+        }
+
+        if (Mathf.Abs(GetControllerAimDirection().x) > 0.1f)
+        {
+            FaceDirection(GetControllerAimDirection());
+        }
+        else if (Input.GetMouseButton(0) && Mathf.Abs(GetMouseAimDirection().x) > 0.05f)
+        {
+            FaceDirection(GetMouseAimDirection());
         }
     }
 

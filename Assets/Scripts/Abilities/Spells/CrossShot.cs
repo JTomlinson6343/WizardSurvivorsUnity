@@ -7,7 +7,7 @@ public class CrossShot : Spell
     [SerializeField] float m_Lifetime;
     public override void OnCast()
     {
-        if (StateManager.GetCurrentState() == State.PAUSED || StateManager.GetCurrentState() == State.GAME_OVER)  return; 
+        if (StateManager.IsGameplayStopped()) { return; }
 
         base.OnCast();
 

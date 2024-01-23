@@ -7,6 +7,7 @@ public enum State
 {
     NONE,
     PLAYING,
+    UPGRADING,
     PAUSED,
     PRE_BOSS,
     BOSS,
@@ -33,6 +34,23 @@ public static class StateManager
         return m_PreviousState;
     }
 
+    public static void ToggleUpgrading(bool toggle)
+    {
+        if (toggle)
+        {
+            if (m_CurrentState != State.UPGRADING)
+                m_PreviousState = m_CurrentState;
+
+            Time.timeScale = 0;
+            ChangeState(State.UPGRADING);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            ChangeState(m_PreviousState);
+        }
+    }
+
     public static void TogglePause(bool toggle)
     {
         if (toggle)
@@ -48,5 +66,10 @@ public static class StateManager
             Time.timeScale = 1;
             ChangeState(m_PreviousState);
         }
+    }
+
+    public static bool IsGameplayStopped()
+    {
+        return m_CurrentState == State.UPGRADING || m_CurrentState == State.PAUSED || m_CurrentState == State.GAME_OVER;
     }
 }

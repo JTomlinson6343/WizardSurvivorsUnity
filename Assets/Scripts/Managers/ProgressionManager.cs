@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -18,6 +19,7 @@ public class ProgressionManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_BossNameLabel;
 
     [SerializeField] GameObject m_Hud;
+    [SerializeField] GameObject m_PauseMenu;
 
     [SerializeField] GameObject m_WaveLabel;
     [SerializeField] GameObject m_ScoreLabel;
@@ -43,6 +45,7 @@ public class ProgressionManager : MonoBehaviour
 
     readonly float kPickupMoveSpeed = 15f;
 
+    //XP
     int m_CurrentXP = 0;
     int m_NextLevelXP;
 
@@ -74,14 +77,41 @@ public class ProgressionManager : MonoBehaviour
 
     private void Update()
     {
+        SpawnXPRandomly();
+
+        TogglePauseMenu();
+    }
+
+    public void TogglePauseMenu()
+    {
+        if (StateManager.GetCurrentState() == State.UPGRADING || StateManager.GetCurrentState() == State.GAME_OVER) return;
+
         if (Input.GetButtonDown("Pause"))
         {
-            if (StateManager.GetCurrentState() == State.PAUSED) StateManager.TogglePause(false);
-
-            else StateManager.TogglePause(true);
+            if (StateManager.GetCurrentState() == State.PAUSED)
+                StateManager.TogglePause(false);
+            else
+                StateManager.TogglePause(true);
         }
 
-        SpawnXPRandomly();
+        // Show pause menu if in paused state
+        m_PauseMenu.SetActive(StateManager.GetCurrentState() == State.PAUSED);
+    }
+
+    public void OnAutoFireValueChanged(bool value)
+    {
+        Player.m_Instance.ToggleAutoFire(value);
+    }
+    public void OnMusicVolumeValueChanged(float value)
+    {
+        print(value);
+        AudioManager.m_MusicVolume = value;
+        AudioManager.m_Instance.UpdateMusicVolume();
+    }
+    public void OnSoundVolumeValueChanged(float value)
+    {
+        print(value);
+        AudioManager.m_SoundVolume = value;
     }
 
     public void ToggleHUD(bool toggle)
@@ -153,7 +183,7 @@ public class ProgressionManager : MonoBehaviour
 
         GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius);
 
-        m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f);
+        m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter);
     }
     #endregion
 
@@ -203,10 +233,10 @@ public class ProgressionManager : MonoBehaviour
     private void CalculateNextLevelXP()
     {
         // Set next level xp
-        m_NextLevelXP = (Mathf.RoundToInt(m_LevelCurve.Evaluate(m_Level-1, 10)));
+        m_NextLevelXP = (Mathf.RoundToInt(m_LevelCurve.Evaluate(m_Level-1)));
         print(m_NextLevelXP.ToString() + " XP to level" + (m_Level+1).ToString());
 
-        print("XP spawn rate: " + m_SpawnCooldown.Evaluate(m_WaveCounter, 100f).ToString());
+        print("XP spawn rate: " + m_SpawnCooldown.Evaluate(m_WaveCounter).ToString());
     }
 
     public void IncrementEnemyKills() { m_EnemiesKilled++; }
@@ -215,6 +245,10 @@ public class ProgressionManager : MonoBehaviour
     public void GameOver()
     {
         StateManager.ChangeState(State.GAME_OVER);
+
+        m_PauseMenu.SetActive(false);
+        m_Hud.SetActive(false);
+        m_BossHealthBar.gameObject.SetActive(false);
 
         EnemyManager.m_Instance.PurgeEnemies();
 

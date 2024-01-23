@@ -19,16 +19,18 @@ public class Firebolt : Spell
     {
         base.OnCast();
 
-        Vector2 closestEnemyPos = (Vector2)GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), kDefaultAutofireRange).transform.position;
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
 
-        if (closestEnemyPos == Vector2.negativeInfinity)
+        if (!closestEnemy)
         {
             ResetCooldown(kCooldownAfterReset);
             return;
         }
 
+        Vector2 dir = GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetStaffTransform().position, closestEnemy);
+
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
-            closestEnemyPos,
+            dir,
             m_TotalStats.speed, this, m_ProjectileLifetime);
 
         AudioManager.m_Instance.PlaySound(4);
