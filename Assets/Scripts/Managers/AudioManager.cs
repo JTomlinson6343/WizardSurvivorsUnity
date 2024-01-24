@@ -33,6 +33,8 @@ public class AudioManager : MonoBehaviour
         m_MusicSource = musicSourceComponent;
         m_MusicSource.loop = true;
 
+        UpdateMusicVolume();
+
         PlayMusic(3);
     }
 

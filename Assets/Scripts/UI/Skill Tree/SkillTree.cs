@@ -43,7 +43,7 @@ public class SkillTree : MonoBehaviour
 
     private void UpdateSkillPointsLabel()
     {
-        m_SkillPointsLabel.text = ": " + m_CurrentSkillPoints.ToString() + "/" + m_TotalSkillPoints.ToString();
+        m_SkillPointsLabel.text = "Current: " + m_CurrentSkillPoints.ToString();
     }
 
     private int GetCurrentLevelCost()
@@ -181,8 +181,6 @@ public class SkillTree : MonoBehaviour
     // Enable certain skills in skill manager in the main game depending on which skills are enabled on the menu
     public void PassEnabledSkillsToManager()
     {
-        SaveManager.SaveToFile();
-
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
         SkillManager.m_Instance.ResetSkillsAdded();

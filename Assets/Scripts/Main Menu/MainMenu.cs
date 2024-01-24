@@ -5,18 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] CharacterMenu m_CharMenuRef;
+    [SerializeField] GameObject m_CharMenuRef;
+    [SerializeField] GameObject m_OptionsMenuRef;
 
+    private void Start()
+    {
+        SaveManager.LoadFromFile(m_CharMenuRef.GetComponent<CharacterMenu>().GetSkillTreeRefs());
+    }
     public void StartGame()
     {
         gameObject.SetActive(false);
-        m_CharMenuRef.gameObject.SetActive(true);
+        m_CharMenuRef.SetActive(true);
         Time.timeScale = 1.0f;
     }
 
     public void Options()
     {
-        Debug.Log("This will open Options");
+        gameObject.SetActive(false);
+        m_OptionsMenuRef.SetActive(true);
     }
 
     public void QuitButton()

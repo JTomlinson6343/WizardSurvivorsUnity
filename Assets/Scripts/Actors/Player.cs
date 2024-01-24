@@ -91,6 +91,7 @@ public class Player : Actor
     {
         base.Start();
         UpdateStats();
+        ToggleAutoFire();
     }
 
     public override void Update()
@@ -122,11 +123,9 @@ public class Player : Actor
         }
     }
 
-    public void ToggleAutoFire(bool value)
+    public void ToggleAutoFire()
     {
-        m_AutoFire = value;
-
-        if (value)
+        if (m_AutoFire)
         {
             m_ActiveAbility.StartAutoCasting();
         }

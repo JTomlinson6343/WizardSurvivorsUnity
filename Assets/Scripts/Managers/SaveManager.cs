@@ -3,19 +3,30 @@ using System.Xml;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using System.Xml.Linq;
 
 [System.Serializable]
 public struct SaveData
 {
     public SkillTreeData[] skillTrees;
+
+    public OptionsData options;
 }
 
 [System.Serializable]
 public struct SkillTreeData
 {
     public int[] skills;
-    public int totalPoints;
-    public int currentPoints;
+    public int   totalPoints;
+    public int   currentPoints;
+}
+
+[System.Serializable]
+public struct OptionsData
+{
+    public float musicVolume;
+    public float soundVolume;
+    public bool  autoFire;
 }
 
 public class SaveManager
@@ -25,11 +36,23 @@ public class SaveManager
     static SkillTree[] m_SkillTrees;
     static SaveData m_SaveData;
 
-    public static void PopulateSkillTreesArray(SkillTree[] trees)
+    private static void PopulateSkillTreesArray(SkillTree[] trees)
     {
         m_SkillTrees = trees;
     }
     public static void SaveToFile() // Called every time skill menu is closed
+    {
+        SaveSkills();
+
+        SaveOptions();
+
+        // Save data as JSON
+        string json = JsonUtility.ToJson(m_SaveData, true);
+        File.WriteAllText(m_Path, json);
+        Debug.Log(json);
+    }
+
+    private static void SaveSkills()
     {
         // Save all current skills to json
         // Save all skill points to json
@@ -52,12 +75,15 @@ public class SaveManager
                 m_SaveData.skillTrees[i].skills[j] = skills[j].m_Data.level;
             }
         }
-        // Save data as JSON
-        string json = JsonUtility.ToJson(m_SaveData, true);
-        File.WriteAllText(m_Path, json);
-        Debug.Log(json);
     }
-    public static void LoadFromFile() // Called on game start
+    private static void SaveOptions()
+    {
+        m_SaveData.options = new OptionsData();
+        m_SaveData.options.musicVolume = AudioManager.m_MusicVolume;
+        m_SaveData.options.soundVolume = AudioManager.m_SoundVolume;
+        m_SaveData.options.autoFire    = Player.m_AutoFire;
+    }
+    public static void LoadFromFile(SkillTree[] skillTrees) // Called on game start
     {
         // Load json
         // Set values in json to files in skill tree class
@@ -74,6 +100,14 @@ public class SaveManager
         string json = File.ReadAllText(m_Path);
         m_SaveData = JsonUtility.FromJson<SaveData>(json);
 
+        PopulateSkillTreesArray(skillTrees);
+
+        LoadSkills();
+        LoadOptions();
+    }
+
+    private static void LoadSkills()
+    {
         for (int i = 0; i < m_SaveData.skillTrees.Length; i++)
         {
             // De-serialise data from save data into skill tree data
@@ -91,6 +125,13 @@ public class SaveManager
 
             tree.PassEnabledSkillsToManager();
         }
+    }
+
+    private static void LoadOptions()
+    {
+        AudioManager.m_MusicVolume = m_SaveData.options.musicVolume;
+        AudioManager.m_SoundVolume = m_SaveData.options.soundVolume;
+        Player.m_AutoFire          = m_SaveData.options.autoFire;
     }
 
     // Adds skill points to the specified tree. Called at the end of a run
