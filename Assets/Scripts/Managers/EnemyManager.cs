@@ -12,7 +12,7 @@ struct Curve
 
     public float Evaluate(float x)
     {
-        return min + (max-min) * curve.Evaluate(x/alpha);
+        return min + (max-min) * curve.Evaluate(x * alpha);
     }
 }
 
@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(m_PlayerReference.transform.position, m_SpawnRadius);
+        Gizmos.DrawWireSphere(Player.m_Instance.transform.position, m_SpawnRadius);
     }
 
     public void IncrementEnemiesKilled()

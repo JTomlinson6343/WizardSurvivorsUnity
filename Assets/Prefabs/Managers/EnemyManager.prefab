@@ -80,7 +80,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     min: 20
     max: 300
-    alpha: 10
+    alpha: 0.1
   m_HealthCurve:
     curve:
       serializedVersion: 2
@@ -108,4 +108,4 @@ MonoBehaviour:
       m_RotationOrder: 4
     min: 100
     max: 1000
-    alpha: 20
+    alpha: 0.03

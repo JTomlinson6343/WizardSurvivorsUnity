@@ -381,7 +381,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     min: 0.1
     max: 3
-    alpha: 100
+    alpha: 0.01
   m_LevelCurve:
     curve:
       serializedVersion: 2
@@ -409,7 +409,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     min: 10
     max: 450
-    alpha: 10
+    alpha: 0.08
 --- !u!1 &3888923953111413407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3816146507781356428, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4100940549894893696, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1615,15 +1619,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6087377556029526142, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6087377556029526142, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6087377556029526142, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7126298705019941408, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_text
@@ -1659,15 +1663,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7555402201202361822, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7555402201202361822, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7555402201202361822, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7779814999026200305, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_SizeDelta.x
