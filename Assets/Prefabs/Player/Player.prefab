@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -559,6 +560,7 @@ MonoBehaviour:
     description: 
     levelUpInfo: 
     icon: {fileID: 0}
+  m_DefaultAutofireRange: 10
 --- !u!1 &8211081490223675830
 GameObject:
   m_ObjectHideFlags: 0
