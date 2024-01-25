@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -59,9 +60,8 @@ MonoBehaviour:
   m_Data:
     name: Incantation of Reach
     damageType: 6
-    description: '+20% Zone Size
-
-      +5 Max Health'
+    description: Increase size of zone effects and increase max health by a small
+      amount
     levelUpInfo: '+20% Zone Size
 
       +5 Max Health'
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_PlayerStatBuffs:
     speed: 0
     shotSpeed: 0
-    maxHealth: 5
+    maxHealth: 0
     healthRegen: 0
 --- !u!1 &1258795364781033673
 GameObject:
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -143,7 +144,7 @@ MonoBehaviour:
     name: Firebolt
     damageType: 0
     description: Fires a fireball at the closest enemy
-    levelUpInfo: +20% damage
+    levelUpInfo: 
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
   m_ProjectileLifetime: 2
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 3.5
     duration: 0.1
@@ -210,7 +212,7 @@ MonoBehaviour:
 
       (5s
       cooldown)'
-    levelUpInfo: +20% damage
+    levelUpInfo: 
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 6
   m_ProjectileLifetime: 2
@@ -396,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -413,7 +416,7 @@ MonoBehaviour:
     description: 'Fires four fireballs diagonally
 
       (2s cooldown)'
-    levelUpInfo: +20% damage
+    levelUpInfo: 
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
   m_Lifetime: 2
@@ -463,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 4
     duration: -1
@@ -478,7 +482,7 @@ MonoBehaviour:
     name: Blizzard
     damageType: 1
     description: Spawns a blizzard that deals damage to enemies in the area.
-    levelUpInfo: +20% damage
+    levelUpInfo: 
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
   m_Fog: {fileID: 7281175807753145478}
@@ -530,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -730,6 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -744,9 +750,7 @@ MonoBehaviour:
   m_Data:
     name: Etherweave Gloves
     damageType: 6
-    description: '+20% knockback
-
-      +10% ability damage'
+    description: Increase knockback of spells and damage
     levelUpInfo: '+20% knockback
 
       +10% ability damage'
@@ -879,6 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 3
     duration: 3
@@ -897,7 +902,7 @@ MonoBehaviour:
       enemies in its area.
 
       (10s cooldown)'
-    levelUpInfo: +20% damage
+    levelUpInfo: 
     icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
   m_DefaultAutofireRange: 6
   m_ProjectileLifetime: 2
@@ -1297,6 +1302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1311,8 +1317,8 @@ MonoBehaviour:
   m_Data:
     name: Ironwood Staff
     damageType: 6
-    description: Spells pierce +1 additional enemy
-    levelUpInfo: +1 additional enemy
+    description: Projectile spells pierce enemies
+    levelUpInfo: Pierce +1 additional enemy
     icon: {fileID: -1743662996, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -1413,6 +1419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 2.5
     duration: 0
@@ -1428,7 +1435,7 @@ MonoBehaviour:
     name: Orbiting Stars
     damageType: 4
     description: Spawn two stars that orbit the player and deal damage
-    levelUpInfo: +20% damage
+    levelUpInfo: 
     icon: {fileID: 2107994407, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
   m_Radius: 0
@@ -1730,6 +1737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1744,9 +1752,7 @@ MonoBehaviour:
   m_Data:
     name: Celestial Hourglass
     damageType: 0
-    description: '-10% spell cooldowns
-
-      +1 move speed'
+    description: Reduce spell cooldowns and increase movement speed
     levelUpInfo: '-10% spell cooldowns
 
       +1 move speed'
@@ -1764,7 +1770,7 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0.1
+    speed: 0
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
@@ -1813,6 +1819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1827,9 +1834,7 @@ MonoBehaviour:
   m_Data:
     name: Tome of Incantations
     damageType: 6
-    description: '+5% ability damage
-
-      -5% spell cooldowns'
+    description: Increase ability damage and reduce cooldowns
     levelUpInfo: '+5% ability damage
 
       -5% spell cooldowns'
@@ -1896,6 +1901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 0
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1910,9 +1916,7 @@ MonoBehaviour:
   m_Data:
     name: Elixir of vitality
     damageType: 0
-    description: '+20 max health
-
-      +60 health'
+    description: Increase max health and heal the player for triple the amount
     levelUpInfo: '+20 max health
 
       +60 health'
@@ -1932,7 +1936,7 @@ MonoBehaviour:
   m_PlayerStatBuffs:
     speed: 0
     shotSpeed: 0
-    maxHealth: 20
+    maxHealth: 0
     healthRegen: 0
 --- !u!1 &8590091372280641179
 GameObject:
@@ -1979,6 +1983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 1
     duration: 0

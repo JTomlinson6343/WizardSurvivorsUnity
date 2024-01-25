@@ -90,6 +90,8 @@ public class Ability : MonoBehaviour
 
     [HideInInspector] public bool m_isMaxed;      // If an ability is max level, it won't show up in the ability selection
 
+    public bool m_IsSpell;
+
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
     protected AbilityStats m_AbilityStatsBuffs;

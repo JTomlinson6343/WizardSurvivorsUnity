@@ -196,7 +196,7 @@ public class AbilityManager : MonoBehaviour
         icon.GetComponent<Image>().color = Color.yellow;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
         m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
-        if (icon.displayedAbility.GetLevel() >= 1)
+        if (!icon.displayedAbility.m_IsSpell)
         {
             m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
             m_DescriptionLabel.text += "\n\nNext level:\n" + icon.displayedAbility.m_Data.levelUpInfo;
