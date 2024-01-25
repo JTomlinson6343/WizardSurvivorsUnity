@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class SkillIcon : MonoBehaviour
     public int[] m_Cost;
 
     public SkillData m_Data;
+
+    [SerializeField] TextMeshProUGUI m_LevelIndicator;
 
     // List of skills that unlock this skill
     [SerializeField] protected SkillIcon[] m_Prerequisites;
@@ -72,12 +75,26 @@ public class SkillIcon : MonoBehaviour
     public void Unlock()
     {
         m_Unlocked = true;
-        GetComponent<Image>().color = m_Color;
+        ColourIn(m_Color);
+    }
+
+    private void ColourIn(Color color)
+    {
+        GetComponent<Image>().color = color;
+
+        m_LevelIndicator.color = color;
+    }
+
+    public void LevelUp()
+    {
+        m_Data.level++;
+        m_LevelIndicator.text = m_Data.level.ToString() + "/" + m_Data.maxLevel.ToString();
     }
 
     public void Lock()
     {
         m_Unlocked = false;
+        m_LevelIndicator.text = "0/" + m_Data.maxLevel.ToString(); ;
     }
 
     // Displays skills as light or dark based on if theyre able to be unlocked
@@ -86,8 +103,8 @@ public class SkillIcon : MonoBehaviour
         if (m_Unlocked) return;
 
         if (CheckPrerequisites())
-            GetComponent<Image>().color = Color.white;
+            ColourIn(Color.white);
         else
-            GetComponent<Image>().color = Color.gray;
+            ColourIn(Color.gray);
     }
 }

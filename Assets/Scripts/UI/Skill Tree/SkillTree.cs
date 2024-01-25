@@ -132,7 +132,7 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkill.Unlock();
         m_CurrentSkillPoints -= GetCurrentLevelCost();
         UpdateSkillPointsLabel();
-        m_CurrentSkill.m_Data.level++;
+        m_CurrentSkill.LevelUp();
         // Ability unlock animation goes here
 
         SetHighlightedSkill(m_CurrentSkill);
@@ -181,6 +181,8 @@ public class SkillTree : MonoBehaviour
     // Enable certain skills in skill manager in the main game depending on which skills are enabled on the menu
     public void PassEnabledSkillsToManager()
     {
+        SaveManager.SaveToFile();
+
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
         SkillManager.m_Instance.ResetSkillsAdded();
