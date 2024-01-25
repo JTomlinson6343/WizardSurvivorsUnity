@@ -45,6 +45,7 @@ public class SkillIcon : MonoBehaviour
 
         Unlock();
         m_Data.level = level;
+        SetLevelIndicator();
     }
 
     public bool CheckPrerequisites()
@@ -88,13 +89,17 @@ public class SkillIcon : MonoBehaviour
     public void LevelUp()
     {
         m_Data.level++;
-        m_LevelIndicator.text = m_Data.level.ToString() + "/" + m_Data.maxLevel.ToString();
     }
 
     public void Lock()
     {
         m_Unlocked = false;
-        m_LevelIndicator.text = "0/" + m_Data.maxLevel.ToString(); ;
+    }
+
+    public void SetLevelIndicator()
+    {
+        m_LevelIndicator.text = m_Data.level.ToString() + "/" + m_Data.maxLevel.ToString();
+
     }
 
     // Displays skills as light or dark based on if theyre able to be unlocked
@@ -106,5 +111,7 @@ public class SkillIcon : MonoBehaviour
             ColourIn(Color.white);
         else
             ColourIn(Color.gray);
+
+        SetLevelIndicator();
     }
 }

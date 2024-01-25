@@ -123,7 +123,7 @@ public class SkillTree : MonoBehaviour
         {
             m_UnlockButton.interactable = false;
             m_CantUnlockLabel.text = m_PrereqMsg;
-            m_CostLabel.text = "";
+            m_CostLabel.text = "Cost: " + m_CurrentSkill.m_Cost[0].ToString();
         }
     }
 
@@ -133,6 +133,8 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkillPoints -= GetCurrentLevelCost();
         UpdateSkillPointsLabel();
         m_CurrentSkill.LevelUp();
+        m_CurrentSkill.SetLevelIndicator();
+
         // Ability unlock animation goes here
 
         SetHighlightedSkill(m_CurrentSkill);
