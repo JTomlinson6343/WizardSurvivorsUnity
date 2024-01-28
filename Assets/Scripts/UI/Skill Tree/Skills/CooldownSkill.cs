@@ -14,14 +14,19 @@ public class CooldownSkill : Skill
     {
         base.Init(data);
 
-        //m_HUDSkillIconRef.Init(data);
+    }
+
+    public void InitHUDSkillIcon(HUDSkillIcon skillIcon)
+    {
+        m_HUDSkillIconRef = skillIcon;
+        m_HUDSkillIconRef.Init(m_Data);
     }
 
     protected void StartCooldown()
     {
         m_OnCooldown = true;
         Invoke(nameof(EndCooldown), m_Cooldown);
-        //m_HUDSkillIconRef.StartCooldown(m_Cooldown);
+        m_HUDSkillIconRef.StartCooldown(m_Cooldown);
     }
 
     private void EndCooldown()
