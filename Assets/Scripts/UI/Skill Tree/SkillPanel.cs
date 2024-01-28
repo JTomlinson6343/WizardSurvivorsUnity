@@ -49,6 +49,8 @@ public class SkillPanel : MonoBehaviour
 
         foreach (CooldownSkill skill in SkillManager.m_Instance.GetCooldownSkills())
         {
+            if (PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id).m_Data.level < 1) continue;
+
             GameObject skillIcon = Instantiate(m_SkillIconPrefab);
 
             HUDSkillIcon icon = skillIcon.GetComponent<HUDSkillIcon>();
