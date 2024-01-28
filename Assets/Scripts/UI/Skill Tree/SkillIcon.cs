@@ -9,6 +9,7 @@ public class SkillIcon : MonoBehaviour
     public bool m_Unlocked;
 
     public Color m_Color;
+    public Color m_CurrentColor;
 
     public string m_SkillName;
 
@@ -81,9 +82,13 @@ public class SkillIcon : MonoBehaviour
 
     private void ColourIn(Color color)
     {
-        GetComponent<Image>().color = color;
+        foreach (var item in GetComponentsInChildren<Image>())
+        {
+            item.color = color;
+        }
 
         m_LevelIndicator.color = color;
+        m_CurrentColor = color;
     }
 
     public void LevelUp()
@@ -99,7 +104,6 @@ public class SkillIcon : MonoBehaviour
     public void SetLevelIndicator()
     {
         m_LevelIndicator.text = m_Data.level.ToString() + "/" + m_Data.maxLevel.ToString();
-
     }
 
     // Displays skills as light or dark based on if theyre able to be unlocked

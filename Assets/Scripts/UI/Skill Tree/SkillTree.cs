@@ -11,6 +11,8 @@ public class SkillTree : MonoBehaviour
 {
     private SkillIcon m_CurrentSkill;
 
+    public Color m_CharacterColour;
+
     public int m_TotalSkillPoints;
     private int m_SkillPointCap;
     public int m_CurrentSkillPoints;
@@ -39,6 +41,25 @@ public class SkillTree : MonoBehaviour
 
         UpdateSkillPointsLabel();
         GreyOrWhitePass();
+        ColourAllIcons();
+    }
+
+    private void ColourAllIcons()
+    {
+        foreach (SkillIcon icon in GetComponentsInChildren<SkillIcon>())
+        {
+            icon.m_Color = m_CharacterColour;
+        }
+    }
+
+    public SkillIcon GetSkillIconWithID(SkillID id)
+    {
+        foreach (SkillIcon icon in GetComponentsInChildren<SkillIcon>())
+        {
+            if (icon.m_Data.id == id) return icon;
+        }
+
+        return null;
     }
 
     private void UpdateSkillPointsLabel()
