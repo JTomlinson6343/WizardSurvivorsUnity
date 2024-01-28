@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,13 @@ public class HUDSkillIcon : MonoBehaviour
 {
     private SkillData m_Data;
 
-    private Color m_Color; 
+    private Color m_Color;
+
+    private readonly float kCooldownAnimationInterval = 0.5f;
+
+    [SerializeField] TextMeshProUGUI m_SecondsIndicator;
+
+    private float m_TimeLeft;
 
     public void Init(SkillData data)
     {
@@ -41,16 +48,25 @@ public class HUDSkillIcon : MonoBehaviour
         image.color = Color.black;
         float alpha = 0f;
 
+        m_TimeLeft = cooldown;
+
         while (true)
         {
-            if (image.color == m_Color) break;
+            if (image.color == Color.white) break;
 
             alpha += 1f / cooldown;
 
-            image.color = Color.Lerp(Color.grey, m_Color, alpha * 0.2f);
+            image.color = Color.Lerp(Color.black, Color.white, alpha * kCooldownAnimationInterval);
 
-            yield return new WaitForSeconds(0.2f);
+            m_TimeLeft -= kCooldownAnimationInterval;
+
+            if (m_TimeLeft > 0) m_SecondsIndicator.text = ((int)m_TimeLeft).ToString();
+            else m_SecondsIndicator.text = "";
+
+            yield return new WaitForSeconds(kCooldownAnimationInterval);
         }
+
+        image.color = m_Color;
 
         yield return null;
     }
