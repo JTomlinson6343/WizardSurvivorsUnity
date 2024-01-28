@@ -23,7 +23,6 @@ public struct SkillData
     public SkillID id;
     public int level;
     public int maxLevel;
-    public Color color;
 }
 
 public class Skill : MonoBehaviour

@@ -13,7 +13,6 @@ public class CooldownSkill : Skill
     public override void Init(SkillData data)
     {
         base.Init(data);
-
     }
 
     public void InitHUDSkillIcon(HUDSkillIcon skillIcon)

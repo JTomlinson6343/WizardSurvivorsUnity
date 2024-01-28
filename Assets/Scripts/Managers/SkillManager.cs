@@ -30,6 +30,7 @@ public class SkillManager : MonoBehaviour
         m_Skills.Add(skillID);
     }
 
+    // Called when the game starts and decides which skills are enabled
     private void ActivateSkills()
     {
         if (GetSkills().Length == 0) return;

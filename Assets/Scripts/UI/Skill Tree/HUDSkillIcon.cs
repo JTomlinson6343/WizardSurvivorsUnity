@@ -7,11 +7,20 @@ public class HUDSkillIcon : MonoBehaviour
 {
     private SkillData m_Data;
 
-    private float m_StartScale = 1f;
+    private Color m_Color; 
 
     public void Init(SkillData data)
     {
         m_Data = data;
+        m_Color = PlayerManager.m_SkillTreeRef.m_CharacterColour;
+
+        Image image = GetComponent<Image>();
+
+        image.color = m_Color;
+
+        if (!PlayerManager.m_SkillTreeRef.GetSkillIconWithID(m_Data.id)) return;
+
+        image.sprite = PlayerManager.m_SkillTreeRef.GetSkillIconWithID(m_Data.id).GetComponent<Image>().sprite;
     }
 
     private void Update()
@@ -34,11 +43,11 @@ public class HUDSkillIcon : MonoBehaviour
 
         while (true)
         {
-            if (image.color == Color.white) break;
+            if (image.color == m_Color) break;
 
             alpha += 1f / cooldown;
 
-            image.color = Color.Lerp(Color.black, m_Data.color, alpha * 0.2f);
+            image.color = Color.Lerp(Color.grey, m_Color, alpha * 0.2f);
 
             yield return new WaitForSeconds(0.2f);
         }
