@@ -45,18 +45,23 @@ public class HUDSkillIcon : MonoBehaviour
         {
             if (image.color == Color.white) break;
 
+            // Increment alpha for the lerp
             alpha += 1f / cooldown;
 
+            // Lerp between black and white
             image.color = Color.Lerp(Color.black, Color.white, alpha * kCooldownAnimationInterval);
 
+            // Decrease time over time
             timeLeft -= kCooldownAnimationInterval;
 
+            // Display time left on icon
             if (timeLeft > 0) m_SecondsIndicator.text = ((int)timeLeft).ToString();
             else m_SecondsIndicator.text = "";
 
             yield return new WaitForSeconds(kCooldownAnimationInterval);
         }
 
+        // Set colour to the character's colour
         image.color = m_Color;
 
         yield return null;

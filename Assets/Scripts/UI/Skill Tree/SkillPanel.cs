@@ -51,6 +51,8 @@ public class SkillPanel : MonoBehaviour
         {
             if (PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id).m_Data.level < 1) continue;
 
+            // Init hud skill icon and pass its reference to the cooldown skill
+
             GameObject skillIcon = Instantiate(m_SkillIconPrefab);
 
             HUDSkillIcon icon = skillIcon.GetComponent<HUDSkillIcon>();
