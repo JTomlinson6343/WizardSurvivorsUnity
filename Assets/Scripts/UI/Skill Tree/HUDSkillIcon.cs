@@ -14,8 +14,6 @@ public class HUDSkillIcon : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_SecondsIndicator;
 
-    private float m_TimeLeft;
-
     public void Init(SkillData data)
     {
         m_Data = data;
@@ -30,13 +28,6 @@ public class HUDSkillIcon : MonoBehaviour
         image.sprite = PlayerManager.m_SkillTreeRef.GetSkillIconWithID(m_Data.id).GetComponent<Image>().sprite;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            StartCooldown(10f);
-        }
-    }
     public void StartCooldown(float cooldown)
     {
         StartCoroutine(StartCooldownAnim(cooldown));
@@ -48,7 +39,7 @@ public class HUDSkillIcon : MonoBehaviour
         image.color = Color.black;
         float alpha = 0f;
 
-        m_TimeLeft = cooldown;
+        float timeLeft = cooldown;
 
         while (true)
         {
@@ -58,9 +49,9 @@ public class HUDSkillIcon : MonoBehaviour
 
             image.color = Color.Lerp(Color.black, Color.white, alpha * kCooldownAnimationInterval);
 
-            m_TimeLeft -= kCooldownAnimationInterval;
+            timeLeft -= kCooldownAnimationInterval;
 
-            if (m_TimeLeft > 0) m_SecondsIndicator.text = ((int)m_TimeLeft).ToString();
+            if (timeLeft > 0) m_SecondsIndicator.text = ((int)timeLeft).ToString();
             else m_SecondsIndicator.text = "";
 
             yield return new WaitForSeconds(kCooldownAnimationInterval);
