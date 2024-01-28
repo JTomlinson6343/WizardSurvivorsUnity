@@ -31,11 +31,9 @@ public class SkillManager : MonoBehaviour
 
     private void ActivateSkills()
     {
-        Skill[] skills = GetComponentsInChildren<Skill>();
-        if (skills == null)
-            return;
+        if (GetSkills().Length == 0) return;
 
-        foreach(Skill skill in skills)
+        foreach (Skill skill in GetSkills())
         {
             foreach(SkillData skillData in m_Skills)
             {
@@ -49,5 +47,22 @@ public class SkillManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public Skill[] GetSkills()
+    {
+        Skill[] skills = GetComponentsInChildren<Skill>();
+
+        if (skills == null) return null;
+
+        else return skills;
+    }
+    public CooldownSkill[] GetCooldownSkills()
+    {
+        CooldownSkill[] skills = GetComponentsInChildren<CooldownSkill>();
+
+        if (skills == null) return null;
+
+        else return skills;
     }
 }
