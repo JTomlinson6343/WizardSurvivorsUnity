@@ -57,11 +57,6 @@ public class ProgressionManager : MonoBehaviour
     private int m_SkillPointsGained = 0;
     private int m_XPGained = 0;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(Vector3.zero, m_XPSpawnRadius);
-    }
-
     // Start is called before the first frame update
     void Awake()
     {

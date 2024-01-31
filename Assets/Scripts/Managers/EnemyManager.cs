@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(Player.m_Instance.transform.position, m_SpawnRadius);
+        //Gizmos.DrawWireSphere(Player.m_Instance.transform.position, m_SpawnRadius);
     }
 
     public void IncrementEnemiesKilled()
