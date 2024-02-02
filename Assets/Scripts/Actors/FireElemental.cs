@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FireElemental : Summon
 {
-
     [SerializeField] GameObject m_FlamethrowerObject;
 
     private void Start()

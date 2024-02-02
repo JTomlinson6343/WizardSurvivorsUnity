@@ -11,6 +11,7 @@ public enum DebuffType
     Blaze,
     Blizzard,
     Flamethrower,
+    FireElementalFlames,
     BlackHole
 }
 
