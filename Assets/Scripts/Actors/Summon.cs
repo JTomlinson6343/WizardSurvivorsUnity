@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Summon : MonoBehaviour
+public abstract class Summon : MonoBehaviour
 {
     [SerializeField] float m_MoveSpeed;
     [SerializeField] float m_LeashRange;
@@ -11,23 +11,10 @@ public class Summon : MonoBehaviour
     float m_LastLeashCheck;
     bool m_TravellingToPlayer;
 
-    [SerializeField] float m_ProjectileLifetime;
-    [SerializeField] float m_ProjectileCooldown;
-    bool  m_IsProjectileOnCooldown;
-
     public Ability m_AbilitySource;
-
-    [SerializeField] GameObject m_FlamethrowerObject;
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(Vector2.zero, m_LeashRange);
-    }
-
-    private void Start()
-    {
-        m_FlamethrowerObject.GetComponentInChildren<DebuffAOE>().m_AbilitySource = m_AbilitySource;
-
     }
 
     private void Update()
@@ -39,26 +26,23 @@ public class Summon : MonoBehaviour
     {
         if (!m_TravellingToPlayer)
         {
-            if (GameplayManager.GetClosestEnemyInRange(transform.position, 4.25f))
+            if (GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange))
             {
-                //Attack();
-                ShootFlames();
+                Attack();
             }
-            else if (!m_IsProjectileOnCooldown)
+            else
             {
-                DisableFlames();
                 GoToEnemy();
             }
         }
 
         if (IsOutOfRangeTooLong())
         {
-            DisableFlames();
             StartCoroutine(GoToPlayer());
         }
     }
 
-    IEnumerator GoToPlayer()
+    virtual protected IEnumerator GoToPlayer()
     {
         m_TravellingToPlayer = true;
         while (true)
@@ -75,9 +59,9 @@ public class Summon : MonoBehaviour
         yield return false;
     }
 
-    private void GoToEnemy()
+    virtual protected void GoToEnemy()
     {
-        GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, 4.25f * m_PursueEnemyRangeModifier);
+        GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange * m_PursueEnemyRangeModifier);
 
         if (!enemy) return;
 
@@ -109,54 +93,28 @@ public class Summon : MonoBehaviour
         return true;
     }
 
-    private void Attack()
-    {
-        if (m_IsProjectileOnCooldown) return;
+    protected abstract void Attack();
+    //private void Attack()
+    //{
+    //    if (m_IsProjectileOnCooldown) return;
 
-        GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.GetTotalStats().AOE);
-        if (!enemy)
-        {
-            print("Enemy null");
-            return;
-        }
-        print("enemy not null");
+    //    GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.GetTotalStats().AOE);
+    //    if (!enemy)
+    //    {
+    //        print("Enemy null");
+    //        return;
+    //    }
+    //    print("enemy not null");
 
-        ProjectileManager.m_Instance.Shoot(
-            transform.position,
-            GameplayManager.GetDirectionToGameObject(transform.position, enemy),
-            m_AbilitySource.GetTotalStats().speed,
-            m_AbilitySource,
-            m_ProjectileLifetime
-            );
+    //    ProjectileManager.m_Instance.Shoot(
+    //        transform.position,
+    //        GameplayManager.GetDirectionToGameObject(transform.position, enemy),
+    //        m_AbilitySource.GetTotalStats().speed,
+    //        m_AbilitySource,
+    //        m_ProjectileLifetime
+    //        );
 
-        m_IsProjectileOnCooldown = true;
-        Invoke(nameof(EndShotCooldown), m_ProjectileCooldown);
-    }
-
-    private void ShootFlames()
-    {
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(transform.position, 4.25f);
-
-        if (!closestEnemy)
-        {
-            DisableFlames();
-            return;
-        }
-
-        m_FlamethrowerObject.SetActive(true);
-
-        Vector2 dir = GameplayManager.GetDirectionToGameObject(transform.position, closestEnemy);
-
-        m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
-    }
-
-    private void DisableFlames()
-    {
-        m_FlamethrowerObject.SetActive(false);
-    }
-
-    void EndShotCooldown()
-    {
-        m_IsProjectileOnCooldown = false;
-    }
+    //    m_IsProjectileOnCooldown = true;
+    //    Invoke(nameof(EndShotCooldown), m_ProjectileCooldown);
+    //}
 }
