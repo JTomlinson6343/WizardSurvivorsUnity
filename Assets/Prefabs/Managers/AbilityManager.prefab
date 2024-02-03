@@ -1717,7 +1717,7 @@ MonoBehaviour:
     description: Summon a fire elemental to fight for you
     levelUpInfo: 
     icon: {fileID: 1134494256, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
-  m_DefaultAutofireRange: 4.25
+  m_DefaultAutofireRange: 2.5
   m_FireElementalPrefab: {fileID: 5812882791923075411, guid: e2895ac9165284d4a93992a41219093d, type: 3}
   m_SmokePrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
 --- !u!1 &7440536522704983382
@@ -2290,6 +2290,10 @@ PrefabInstance:
     - target: {fileID: 3854598476368457782, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
       propertyPath: m_Name
       value: Flamethrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541251879013909355, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
+      propertyPath: m_AbilitySource
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4378427699547489064, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}

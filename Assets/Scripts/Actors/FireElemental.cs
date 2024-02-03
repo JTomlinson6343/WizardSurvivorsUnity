@@ -13,7 +13,7 @@ public class FireElemental : Summon
 
     protected override void Attack()
     {
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(transform.position, 4.25f);
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange);
 
         if (!closestEnemy)
         {
