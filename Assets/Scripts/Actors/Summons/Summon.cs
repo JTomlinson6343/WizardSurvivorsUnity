@@ -94,27 +94,4 @@ public abstract class Summon : MonoBehaviour
     }
 
     protected abstract void Attack();
-    //private void Attack()
-    //{
-    //    if (m_IsProjectileOnCooldown) return;
-
-    //    GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.GetTotalStats().AOE);
-    //    if (!enemy)
-    //    {
-    //        print("Enemy null");
-    //        return;
-    //    }
-    //    print("enemy not null");
-
-    //    ProjectileManager.m_Instance.Shoot(
-    //        transform.position,
-    //        GameplayManager.GetDirectionToGameObject(transform.position, enemy),
-    //        m_AbilitySource.GetTotalStats().speed,
-    //        m_AbilitySource,
-    //        m_ProjectileLifetime
-    //        );
-
-    //    m_IsProjectileOnCooldown = true;
-    //    Invoke(nameof(EndShotCooldown), m_ProjectileCooldown);
-    //}
 }
