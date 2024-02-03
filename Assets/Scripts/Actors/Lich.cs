@@ -32,10 +32,6 @@ public class Lich : Boss
     [SerializeField] GameObject m_QuakePrefab;
     [SerializeField] GameObject m_SmokePrefab;
     [SerializeField] GameObject m_SpawnedEnemyPrefab;
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, m_MeleeRadius);
-    }
 
     public override void Enraged(int bossNumber)
     {

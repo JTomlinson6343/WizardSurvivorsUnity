@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 
-public class EnemyAOE : EnemyProjectile
+public class EnemyAOE : NPCProjectile
 {
     public virtual void Init(Vector2 pos, float damage, float knockback, float lifetime, GameObject user, DamageType damageType)
     {

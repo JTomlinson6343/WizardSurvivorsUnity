@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.Rendering.Universal;
 
 public enum SpawnPoint
 {
@@ -62,13 +56,13 @@ public class ProjectileManager : MonoBehaviour
 
     public GameObject EnemyShot(Vector2 pos, Vector2 dir, float speed, float lifetime, GameObject bulletPrefab, float damage, float knockback, GameObject user, DamageType damageType)
     {
-        if (!bulletPrefab.GetComponent<EnemyProjectile>()) return null;
+        if (!bulletPrefab.GetComponent<NPCProjectile>()) return null;
 
         // Create bullet from prefab
         GameObject bullet = Instantiate(bulletPrefab);
 
         bullet.transform.SetParent(transform);
-        bullet.GetComponent<EnemyProjectile>().Init(pos, dir, speed, lifetime, damage, knockback, user, damageType);
+        bullet.GetComponent<NPCProjectile>().Init(pos, dir, speed, lifetime, damage, knockback, user, damageType);
 
         return bullet;
     }
