@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class IceElemental : Summon
 {
+    [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] float m_ProjectileLifetime;
     [SerializeField] float m_ProjectileCooldown;
     bool m_IsProjectileOnCooldown;
@@ -35,8 +36,11 @@ public class IceElemental : Summon
                 GameplayManager.GetDirectionToGameObject(transform.position, target),
                 m_AbilitySource.GetTotalStats().speed,
                 m_AbilitySource,
-                m_ProjectileLifetime
+                m_ProjectileLifetime,
+                m_ProjectilePrefab
                 );
+
+            AudioManager.m_Instance.PlaySound(19,0.4f);
             yield return new WaitForSeconds(m_ShotDelay);
         }
     }

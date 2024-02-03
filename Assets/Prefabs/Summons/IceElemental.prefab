@@ -102,6 +102,7 @@ MonoBehaviour:
   m_PursueEnemyRangeModifier: 1.5
   m_LeashCheckDelay: 3
   m_AbilitySource: {fileID: 0}
+  m_ProjectilePrefab: {fileID: 6069486459419601506, guid: f1ffd5f0579c6e8409df2fd90b20a171, type: 3}
   m_ProjectileLifetime: 1.5
   m_ProjectileCooldown: 3
   m_ShotsInBurst: 3
