@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IceElemental : Summon
@@ -27,7 +28,7 @@ public class IceElemental : Summon
     {
         for (int i = 0; i < m_ShotsInBurst; i++)
         {
-            if (!target) yield return null;
+            if (!target) yield break;
 
             ProjectileManager.m_Instance.Shoot(
                 transform.position,
