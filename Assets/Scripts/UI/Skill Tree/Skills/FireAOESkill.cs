@@ -30,6 +30,6 @@ public class FireAOE : CooldownSkill
         FireAOESkillObject fireSkillAoe = aoe.GetComponent<FireAOESkillObject>();
         fireSkillAoe.Init(damageInstance.target.transform.position, m_Damage, m_Scale, m_Lifetime);
         
-        AudioManager.m_Instance.PlaySound(2);
+        AudioManager.m_Instance.PlaySound(11);
     }
 }
