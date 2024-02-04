@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Cooldown: 15
   m_HUDSkillIconRef: {fileID: 0}
   m_AOEObject: {fileID: 3052370167837948753, guid: 7fa5786f9cbd20442b17108559df7306, type: 3}
-  m_Lifetime: 0.5
+  m_Lifetime: 0.75
   m_Scale: 4
   m_Damage: 50
 --- !u!1 &2552562239275552613
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Cooldown: 7
   m_HUDSkillIconRef: {fileID: 0}
   m_BonusSpeed:
-    speed: 1
+    speed: 0.8
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0

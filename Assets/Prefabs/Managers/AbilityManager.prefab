@@ -196,7 +196,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_BaseStats:
     AOE: 4.5
-    duration: 0.5
+    duration: 0.75
     damage: 35
     speed: 5
     cooldown: 5
