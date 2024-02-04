@@ -45,6 +45,11 @@ public class Projectile : MonoBehaviour
         target.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_AbilitySource.GetTotalStats().knockback);
         DamageTarget(target);
 
+        PierceRoutine();
+    }
+
+    virtual protected void PierceRoutine()
+    {
         if (m_AbilitySource.GetTotalStats().infinitePierce) return;
         if (m_AbilitySource.GetTotalStats().neverPierce) DestroySelf();
 

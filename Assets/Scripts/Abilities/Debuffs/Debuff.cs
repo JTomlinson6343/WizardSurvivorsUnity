@@ -12,7 +12,8 @@ public enum DebuffType
     Blizzard,
     Flamethrower,
     FireElementalFlames,
-    BlackHole
+    BlackHole,
+    Frozen
 }
 
 public class Debuff : MonoBehaviour
@@ -92,6 +93,7 @@ public class Debuff : MonoBehaviour
     {
         if (StateManager.GetCurrentState() != State.PLAYING && StateManager.GetCurrentState() != State.BOSS) { return; }
         TickRoutine();
+        DebuffBehaviour();
     }
 
     public DebuffType GetDebuffType()
@@ -99,7 +101,7 @@ public class Debuff : MonoBehaviour
         return m_DebuffType;
     }
 
-    void TickRoutine()
+    virtual protected void TickRoutine()
     {
         float now = Time.realtimeSinceStartup;
 
@@ -138,4 +140,6 @@ public class Debuff : MonoBehaviour
         data.doSoundEffect = false;
         DamageManager.m_Instance.DamageInstance(data, pos);
     }
+
+    virtual protected void DebuffBehaviour() { }
 }
