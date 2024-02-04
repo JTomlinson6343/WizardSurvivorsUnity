@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Cooldown: 7
   m_HUDSkillIconRef: {fileID: 0}
   m_BonusSpeed:
-    speed: 0.5
+    speed: 1
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
