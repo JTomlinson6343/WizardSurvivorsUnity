@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class FreezeSpell : Spell
 {
     [SerializeField] float m_Range;
     [SerializeField] GameObject m_IcePrefab;
+    [SerializeField] float m_LineDuration;
 
     public override void OnCast()
     {
@@ -23,7 +25,25 @@ public class FreezeSpell : Spell
 
         ice.GetComponent<AOEObject>().Init(enemy.transform.position, this, GetTotalStats().duration);
 
+        DisplayLine(enemy.transform.position);
+
         AudioManager.m_Instance.PlaySound(20);
+    }
+
+    void DisplayLine(Vector2 enemyPos)
+    {
+        LineRenderer line = GetComponent<LineRenderer>();
+
+        line.SetPosition(0, Player.m_Instance.GetStaffTransform().position);
+        line.SetPosition(1, enemyPos);
+        line.enabled = true;
+
+        Invoke(nameof(RemoveLine), m_LineDuration);
+    }
+
+    void RemoveLine()
+    {
+        GetComponent<LineRenderer>().enabled = false;
     }
 
     private GameObject GetRandomEnemy()
