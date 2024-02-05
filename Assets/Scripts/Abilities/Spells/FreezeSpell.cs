@@ -10,14 +10,20 @@ public class FreezeSpell : Spell
     public override void OnCast()
     {
         base.OnCast();
-
+        
         GameObject enemy = GetRandomEnemy();
 
-        if (!enemy) return;
+        if (!enemy)
+        {
+            ResetCooldown(kCooldownAfterReset);
+            return;
+        }
 
         GameObject ice = Instantiate(m_IcePrefab);
 
         ice.GetComponent<AOEObject>().Init(enemy.transform.position, this, GetTotalStats().duration);
+
+        AudioManager.m_Instance.PlaySound(20);
     }
 
     private GameObject GetRandomEnemy()

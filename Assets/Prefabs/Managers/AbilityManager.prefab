@@ -1404,7 +1404,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
-  m_Range: 10
+  m_Range: 7
   m_IcePrefab: {fileID: 7679647542523129580, guid: 25d27ec6b983d024eadf16c3478d5c3d, type: 3}
 --- !u!1 &4169492790890296772
 GameObject:
