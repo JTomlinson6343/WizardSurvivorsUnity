@@ -5,6 +5,8 @@ using UnityEngine;
 public class IceAOEObject : AOEObject
 {
     bool m_AlreadySpawned;
+
+    readonly float kMeltTime = 0.25f;
     protected override void OnTargetHit(GameObject enemy)
     {
         if (m_AlreadySpawned) return;
@@ -28,6 +30,20 @@ public class IceAOEObject : AOEObject
     {
         base.Init(pos, ability, lifetime);
         StartCoroutine(StopDamaging());
+    }
+
+    protected override void DestroySelf()
+    {
+        GetComponentInChildren<Animator>().Play("Melt", -1, 0f);
+
+        StartCoroutine(Melt());
+    }
+
+    IEnumerator Melt()
+    {
+        yield return new WaitForSeconds(kMeltTime);
+
+        Destroy(gameObject);
     }
 
     IEnumerator StopDamaging()
