@@ -548,7 +548,8 @@ MonoBehaviour:
   m_Data:
     name: Poison Mist
     damageType: 3
-    description: 
+    description: Fire a poison bolt that creates a posion cloud that damages nearby
+      enemies
     levelUpInfo: 
     icon: {fileID: 244486248, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 8
