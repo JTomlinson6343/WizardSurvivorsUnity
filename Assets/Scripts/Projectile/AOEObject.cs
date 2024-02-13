@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AOEObject : Projectile
 {
+    readonly float kLifetimeToAOERatio = 4.4f;
+
     protected override void OnTargetHit(GameObject enemy)
     {
         if (m_HitTargets.Contains(enemy)) return;
@@ -31,6 +33,19 @@ public class AOEObject : Projectile
         transform.localScale = new Vector2(ability.GetTotalStats().AOE, ability.GetTotalStats().AOE);
         StartLifetimeTimer(lifetime);
         transform.position = pos;
+    }
+
+    public void SetParticles()
+    {
+        ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
+
+        if (particles.Length <= 0) return;
+
+        foreach (ParticleSystem particle in particles)
+        {
+            ParticleSystem.MainModule main = particle.main;
+            main.startLifetimeMultiplier = m_AbilitySource.GetTotalStats().AOE / kLifetimeToAOERatio;
+        }
     }
 
     public void Init(GameObject parent, Vector2 pos, Ability ability, float lifetime)

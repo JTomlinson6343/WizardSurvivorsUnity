@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
-  m_IsSpell: 0
+  m_IsSpell: 1
   m_BaseStats:
     AOE: 4
     duration: 5
@@ -544,15 +544,15 @@ MonoBehaviour:
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
-    neverPierce: 0
+    neverPierce: 1
   m_Data:
     name: Poison Mist
     damageType: 3
     description: 
     levelUpInfo: 
     icon: {fileID: 244486248, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
-  m_DefaultAutofireRange: 10
-  m_ProjectileLifetime: 3
+  m_DefaultAutofireRange: 8
+  m_ProjectileLifetime: 0.75
   m_ProjectilePrefab: {fileID: 5326285300019030449, guid: 5d89be2b958f215468841cbf73851e6b, type: 3}
   m_AOEPrefab: {fileID: 2792270806764247480, guid: 1864c8052dd3564418172ff5068f434a, type: 3}
 --- !u!1 &2161477861579764211
