@@ -54,6 +54,19 @@ public abstract class Summon : MonoBehaviour
 
         m_AttackLockout = false;
     }
+    protected void FaceGameObject(Vector2 objectPos)
+    {
+        if (objectPos.x > transform.position.x)
+        {
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x) * -1f, transform.localScale.y);
+        }
+        else
+        {
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        }
+        ParticleSystem particles = GetComponentInChildren<ParticleSystem>();
+        particles.transform.localScale = new Vector3(Mathf.Abs(particles.transform.localScale.x) * transform.localScale.x, particles.transform.localScale.y, particles.transform.localScale.z);
+    }
 
     private void ToggleWalkAnim(bool toggle)
     {
@@ -76,6 +89,7 @@ public abstract class Summon : MonoBehaviour
                 break;
             }
             transform.position = Vector2.MoveTowards(transform.position, Player.m_Instance.transform.position, m_MoveSpeed * Time.deltaTime);
+            FaceGameObject(Player.m_Instance.transform.position);
 
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -90,6 +104,7 @@ public abstract class Summon : MonoBehaviour
         ToggleWalkAnim(true);
 
         transform.position = Vector2.MoveTowards(transform.position, enemy.transform.position, m_MoveSpeed * Time.deltaTime);
+        FaceGameObject(enemy.transform.position);
     }
 
     private bool IsOutOfRange()
