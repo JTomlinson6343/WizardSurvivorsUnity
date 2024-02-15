@@ -11,6 +11,9 @@ public abstract class Summon : MonoBehaviour
     float m_LastLeashCheck;
     bool m_TravellingToPlayer;
 
+    bool m_AttackLockout;
+    [SerializeField] float m_AttackLockoutTime;
+
     public Ability m_AbilitySource;
     private void OnDrawGizmos()
     {
@@ -26,7 +29,7 @@ public abstract class Summon : MonoBehaviour
     {
         if (!m_TravellingToPlayer)
         {
-            if (GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange))
+            if (GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange) && !m_AttackLockout)
             {
                 ToggleWalkAnim(false);
                 Attack();
@@ -41,6 +44,15 @@ public abstract class Summon : MonoBehaviour
         {
             StartCoroutine(GoToPlayer());
         }
+    }
+
+    protected IEnumerator AttackLockout()
+    {
+        m_AttackLockout = true;
+
+        yield return new WaitForSeconds(m_AttackLockoutTime);
+
+        m_AttackLockout = false;
     }
 
     private void ToggleWalkAnim(bool toggle)

@@ -41,9 +41,15 @@ public class FireElemental : Summon
         {
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
-    }
+        ParticleSystem particles = GetComponentInChildren<ParticleSystem>();
+        particles.transform.localScale = new Vector3(transform.localScale.x, particles.transform.localScale.y, particles.transform.localScale.z);
+    } 
     private void DisableFlames()
     {
+        if (m_FlamethrowerObject.activeSelf)
+        {
+            StartCoroutine(AttackLockout());
+        }
         m_FlamethrowerObject.SetActive(false);
     }
     protected override IEnumerator GoToPlayer()
