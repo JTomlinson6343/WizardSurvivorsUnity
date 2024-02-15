@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -763469825
-  m_SortingLayer: -5
-  m_SortingOrder: 1
+  m_SortingLayerID: -2020019679
+  m_SortingLayer: -4
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.80784315}
   m_FlipX: 0
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 498563275797427344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: -0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4554701893957394657}
@@ -155,9 +155,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -763469825
-  m_SortingLayer: -5
-  m_SortingOrder: 1
+  m_SortingLayerID: -2020019679
+  m_SortingLayer: -4
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.08612315, g: 0.036222856, b: 0.20754719, a: 0.30588236}
   m_FlipX: 0
@@ -264,6 +264,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2437246685070073245}
     m_Modifications:
+    - target: {fileID: 3180492387125744242, guid: aa99ef36b43e64642a465cd5a4c699f3, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3180492387125744242, guid: aa99ef36b43e64642a465cd5a4c699f3, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
