@@ -65,6 +65,9 @@ public abstract class Summon : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
         ParticleSystem particles = GetComponentInChildren<ParticleSystem>();
+
+        if (!particles) return;
+
         particles.transform.localScale = new Vector3(Mathf.Abs(particles.transform.localScale.x) * transform.localScale.x, particles.transform.localScale.y, particles.transform.localScale.z);
     }
 
