@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AOESpawningProtectileSpell : Firebolt
+{
+    [SerializeField] GameObject m_ProjectilePrefab;
+    [SerializeField] GameObject m_AOEPrefab;
+
+    public override void OnMouseInput(Vector2 aimDirection)
+    {
+        ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
+            Player.m_Instance.GetMouseAimDirection().normalized,
+            m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
+
+        PlaySound();
+    }
+
+    public override void OnCast()
+    {
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
+
+        if (!closestEnemy)
+        {
+            ResetCooldown(kCooldownAfterReset);
+            return;
+        }
+
+        ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
+            GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetCentrePos(), closestEnemy),
+            m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
+
+        PlaySound();
+    }
+
+    virtual protected void PlaySound()
+    {
+        AudioManager.m_Instance.PlaySound(4);
+    }
+}
