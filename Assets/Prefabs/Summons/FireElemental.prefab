@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1299634326775250907}
   - component: {fileID: 5656031452325428307}
   - component: {fileID: 3248492977222432152}
+  - component: {fileID: 9139113083983277375}
   m_Layer: 0
   m_Name: FireElemental
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -2020019679
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 20ee7bab2432714468d7a97398a4ba80, type: 3}
+  m_Sprite: {fileID: -1963214961, guid: e2b393229b44fda4fba64ed22a2e759d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,6 +105,27 @@ MonoBehaviour:
   m_LeashCheckDelay: 3
   m_AbilitySource: {fileID: 0}
   m_FlamethrowerObject: {fileID: 2519298654211086978}
+--- !u!95 &9139113083983277375
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812882791923075411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f23e27478e0474d4dad8916bfd7283c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1695623004109351604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1991876124172702781, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.343
       objectReference: {fileID: 0}
     - target: {fileID: 1991876124172702781, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.103
       objectReference: {fileID: 0}
     - target: {fileID: 1991876124172702781, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
       propertyPath: m_LocalPosition.z

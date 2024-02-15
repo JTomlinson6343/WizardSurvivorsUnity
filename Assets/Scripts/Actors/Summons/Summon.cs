@@ -28,6 +28,7 @@ public abstract class Summon : MonoBehaviour
         {
             if (GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange))
             {
+                ToggleWalkAnim(false);
                 Attack();
             }
             else
@@ -42,9 +43,19 @@ public abstract class Summon : MonoBehaviour
         }
     }
 
+    private void ToggleWalkAnim(bool toggle)
+    {
+        Animator animator = GetComponent<Animator>();
+        if (!animator) return;
+
+        animator.SetBool("Idle", !toggle);
+        animator.SetBool("Walk", toggle);
+    }
+
     virtual protected IEnumerator GoToPlayer()
     {
         m_TravellingToPlayer = true;
+        ToggleWalkAnim(true);
         while (true)
         {
             if (!IsOutOfRange())
@@ -64,6 +75,7 @@ public abstract class Summon : MonoBehaviour
         GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange * m_PursueEnemyRangeModifier);
 
         if (!enemy) return;
+        ToggleWalkAnim(true);
 
         transform.position = Vector2.MoveTowards(transform.position, enemy.transform.position, m_MoveSpeed * Time.deltaTime);
     }
