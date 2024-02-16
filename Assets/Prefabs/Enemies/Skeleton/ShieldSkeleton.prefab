@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7644056101305145373, guid: 41affc13d066f11498b357961699e749, type: 3}
       propertyPath: m_XPAwarded
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7644056101305145373, guid: 41affc13d066f11498b357961699e749, type: 3}
       propertyPath: m_SmokePrefab

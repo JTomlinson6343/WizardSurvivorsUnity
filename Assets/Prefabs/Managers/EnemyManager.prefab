@@ -78,8 +78,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 20
-    max: 300
+    min: 40
+    max: 1000
     alpha: 0.1
   m_HealthCurve:
     curve:
@@ -106,6 +106,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 100
+    min: 50
     max: 1000
     alpha: 0.03
