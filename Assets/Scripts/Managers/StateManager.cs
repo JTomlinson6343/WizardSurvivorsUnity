@@ -34,6 +34,11 @@ public static class StateManager
         return m_PreviousState;
     }
 
+    public static void SetPreviousState(State state)
+    {
+        m_PreviousState = state;
+    }
+
     public static void ToggleUpgrading(bool toggle)
     {
         if (toggle)

@@ -316,10 +316,15 @@ public class ProgressionManager : MonoBehaviour
 
     private void BossFightEndDelay()
     {
-        StateManager.ChangeState(State.PLAYING);
-
         // Spawn a new wave after a delay
         EnemyManager.m_Instance.GracePeriod();
+
+        if (StateManager.IsGameplayStopped())
+        {
+            StateManager.SetPreviousState(State.PLAYING);
+            return;
+        }
+        StateManager.ChangeState(State.PLAYING);
     }
 
     public void Quit()
