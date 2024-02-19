@@ -148,8 +148,6 @@ public class EnemyManager : MonoBehaviour
 
         m_EnemyCount++;
         m_EnemiesSpawnedThisWave++;
-
-        ProgressionManager.m_Instance.UpdateWaveLabel(m_EnemyCount);
     }
 
     // Returns the stats of a new enemy based on current wave with random prefab
