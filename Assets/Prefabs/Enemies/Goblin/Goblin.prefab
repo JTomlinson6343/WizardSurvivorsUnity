@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -202,7 +202,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04125135, y: -0.3906199}
+  m_Offset: {x: 0.04125135, y: 0.59}
   m_Size: {x: 0.9425146, y: 0.9425146}
   m_Direction: 1
 --- !u!70 &3599725834311313513
@@ -237,7 +237,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.048731327, y: -0.26712114}
+  m_Offset: {x: 0.048731327, y: 0.73}
   m_Size: {x: 0.7591419, y: 1.2139539}
   m_Direction: 0
 --- !u!114 &2675014441509356768
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 100
   m_Health: 100
-  m_KnockbackResist: 0
+  m_KnockbackResist: 1
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 5200942333771206442}
   m_HealthModifier: 1
@@ -263,11 +263,17 @@ MonoBehaviour:
   m_SkillPointDropChance: 0.02
   m_MinChampSkillPoints: 1
   m_MaxChampSkillPoints: 2
-  m_Speed: 1
-  m_ContactDamage: 1
-  m_KnockbackModifier: 1
-  m_HealthbarPrefab: {fileID: 0}
-  m_DeathParticlesPrefab: {fileID: 0}
+  m_Speed: 0.8
+  m_ContactDamage: 15
+  m_KnockbackModifier: 1.1
+  m_HealthbarPrefab: {fileID: 4744852511909570002, guid: 8428296ae52269e4999616608d4f9e7d, type: 3}
+  m_DeathParticlesPrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
+  m_DontStopRange: 5
+  m_StopChancePerFrame: 0.01
+  m_StopDuration: 3
+  m_DashSpeedModifier: 2
+  m_CamoAlphaValue: 0.2
+  m_VanishDuration: 1
 --- !u!1 &5200942333771206442
 GameObject:
   m_ObjectHideFlags: 0
