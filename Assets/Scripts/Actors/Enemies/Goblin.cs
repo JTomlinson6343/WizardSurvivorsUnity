@@ -70,7 +70,7 @@ public class Goblin : Enemy
         yield return new WaitForSeconds(m_StopDuration);
 
         m_Speed *= m_DashSpeedModifier;
-        m_Animator.speed *= m_DashSpeedModifier;
+        m_Animator.speed *= m_DashSpeedModifier * 0.85f;
 
         m_Stopped = false;
         m_Dashing = true;
