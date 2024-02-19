@@ -163,7 +163,7 @@ public class EnemyManager : MonoBehaviour
         {
             Enemy enemy = enemyPrefab.GetComponent<Enemy>();
 
-            if (randomValue < enemy.m_SpawnProbability)
+            if (randomValue < enemy.m_SpawnProbability && ProgressionManager.m_Instance.m_WaveCounter >= enemy.m_MinWave)
             {
                 enemyToSpawn = enemyPrefab;
                 break;

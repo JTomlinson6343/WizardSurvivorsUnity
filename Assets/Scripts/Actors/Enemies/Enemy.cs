@@ -6,6 +6,7 @@ public class Enemy : Actor
 {
     public float m_HealthModifier;
     public float m_SpawnProbability; // The ratio of how common this spawns compared to other enemies
+    public float m_MinWave; // Minimum wave number that enemy can spawn on
 
     [SerializeField] protected int m_XPAwarded;
     [SerializeField] float m_SkillPointDropChance;

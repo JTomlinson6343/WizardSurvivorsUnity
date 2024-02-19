@@ -257,15 +257,16 @@ MonoBehaviour:
   m_KnockbackResist: 1
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 5200942333771206442}
-  m_HealthModifier: 1
+  m_HealthModifier: 1.3
   m_SpawnProbability: 0.2
+  m_MinWave: 0
   m_XPAwarded: 3
   m_SkillPointDropChance: 0.02
   m_MinChampSkillPoints: 1
   m_MaxChampSkillPoints: 2
   m_Speed: 0.8
   m_ContactDamage: 15
-  m_KnockbackModifier: 1.1
+  m_KnockbackModifier: 1
   m_HealthbarPrefab: {fileID: 4744852511909570002, guid: 8428296ae52269e4999616608d4f9e7d, type: 3}
   m_DeathParticlesPrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
   m_DontStopRange: 5
