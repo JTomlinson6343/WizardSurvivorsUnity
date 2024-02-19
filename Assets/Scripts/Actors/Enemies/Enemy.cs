@@ -6,6 +6,7 @@ public class Enemy : Actor
 {
     public float m_HealthModifier;
     public float m_SpawnProbability; // The ratio of how common this spawns compared to other enemies
+    public float m_MinWave; // Minimum wave number that enemy can spawn on
 
     [SerializeField] protected int m_XPAwarded;
     [SerializeField] float m_SkillPointDropChance;
@@ -18,15 +19,15 @@ public class Enemy : Actor
     private readonly float kChampHealthMod = 3f;
     private readonly Color kChampColour = new Color(1, 0.3f, 0);
 
-    [SerializeField] float m_Speed;
+    [SerializeField] protected float m_Speed;
     [SerializeField] float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;
     private readonly float m_kBaseMoveSpeed = 2.2f;
 
-    private Rigidbody2D rb;
-    private Animator m_Animator;
+    protected Rigidbody2D rb;
+    protected Animator m_Animator;
 
     [SerializeField] GameObject m_HealthbarPrefab;
 
@@ -73,7 +74,7 @@ public class Enemy : Actor
         }
     }
 
-    private void RespawnCheck()
+    protected void RespawnCheck()
     {
         if (!Player.m_Instance) return;
 

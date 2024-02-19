@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -2020019679
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 713669850, guid: 38aab7961e77bc24d98b7defd74c1e17, type: 3}
+  m_Sprite: {fileID: -2019315304, guid: db9fc3c4a0c32a44abcd9dc98876d754, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 2038784846212273813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d2ebd192161590347bec3662ab1e098e, type: 2}
+  m_Controller: {fileID: 9100000, guid: bbb8638d511751b4d83ac3b9e4dcb331, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -118,9 +118,9 @@ GameObject:
   - component: {fileID: 4918430836151260397}
   - component: {fileID: 1324143088530707475}
   - component: {fileID: 3599725834311313513}
-  - component: {fileID: 7644056101305145373}
+  - component: {fileID: 2675014441509356768}
   m_Layer: 0
-  m_Name: BasicSkeleton
+  m_Name: Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -202,8 +202,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025545156, y: 0.2711438}
-  m_Size: {x: 0.8303358, y: 0.8303358}
+  m_Offset: {x: 0.04125135, y: 0.59}
+  m_Size: {x: 0.9425146, y: 0.9425146}
   m_Direction: 1
 --- !u!70 &3599725834311313513
 CapsuleCollider2D:
@@ -237,10 +237,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01956898, y: 0.41034544}
-  m_Size: {x: 0.629032, y: 1.106277}
+  m_Offset: {x: 0.048731327, y: 0.73}
+  m_Size: {x: 0.7591419, y: 1.2139539}
   m_Direction: 0
---- !u!114 &7644056101305145373
+--- !u!114 &2675014441509356768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,26 +249,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 4782787995318582076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d092601c8ced62439ad5e279e344f50, type: 3}
+  m_Script: {fileID: 11500000, guid: df853b04d86fb9146b44f344d8457337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 20
-  m_Health: 19
-  m_KnockbackResist: 0
+  m_MaxHealth: 100
+  m_Health: 100
+  m_KnockbackResist: 1
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 5200942333771206442}
-  m_HealthModifier: 0.9
-  m_SpawnProbability: 1
-  m_MinWave: 1
-  m_XPAwarded: 1
+  m_HealthModifier: 1.3
+  m_SpawnProbability: 0.2
+  m_MinWave: 6
+  m_XPAwarded: 3
   m_SkillPointDropChance: 0.02
   m_MinChampSkillPoints: 1
   m_MaxChampSkillPoints: 2
-  m_Speed: 1
-  m_ContactDamage: 25
-  m_KnockbackModifier: 0
+  m_Speed: 0.8
+  m_ContactDamage: 15
+  m_KnockbackModifier: 1
   m_HealthbarPrefab: {fileID: 4744852511909570002, guid: 8428296ae52269e4999616608d4f9e7d, type: 3}
-  m_DeathParticlesPrefab: {fileID: 952142628175020018, guid: 1a90de6803cfaf24f93f70df9bb00030, type: 3}
+  m_DeathParticlesPrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
+  m_DontStopRange: 6.5
+  m_StopChancePerFrame: 0.01
+  m_StopDuration: 3
+  m_DashSpeedModifier: 2
+  m_CamoAlphaValue: 0.25
+  m_VanishDuration: 1
 --- !u!1 &5200942333771206442
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5200942333771206442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.312, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.761, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
