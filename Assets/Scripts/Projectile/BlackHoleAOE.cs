@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -8,11 +9,19 @@ public class BlackHoleAOE : DebuffAOE
     readonly float kParticlesToAOERatio = 0.5f;
     [SerializeField] float m_SuckSpeed;
 
+    private List<GameObject> m_AffectedEnemies = new List<GameObject>();
+    private readonly int kAffectedEnemiesLimit = 30;
+
     protected override void OnTriggerStay2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Enemy")) return;
 
         base.OnTriggerStay2D(collision);
+
+        if (m_AffectedEnemies.Count >= kAffectedEnemiesLimit && !m_AffectedEnemies.Contains(collision.gameObject)) return;
+
+        if (!m_AffectedEnemies.Contains(collision.gameObject))
+            m_AffectedEnemies.Add(collision.gameObject);
 
         // Pull all enemies in range into the centre
         Vector3 towardsCentre = (transform.position - collision.transform.position).normalized;
@@ -29,5 +38,14 @@ public class BlackHoleAOE : DebuffAOE
 
         ShapeModule shape = particles.shape;
         shape.radius = m_AbilitySource.GetTotalStats().AOE * kParticlesToAOERatio;
+    }
+
+    override public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Enemy")) return;
+
+        base.OnTriggerExit2D (collision);
+
+
     }
 }
