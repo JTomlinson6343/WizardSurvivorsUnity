@@ -124,7 +124,6 @@ public class Lich : Boss
         GetComponentInChildren<Animator>().Play("AfterStomp", -1, 0f);
         m_IsMidAnimation = false;
 
-
         for (int i = 0; i < m_EnemiesSpawned; i++)
         {
             GameObject spawnedEnemy = EnemyManager.m_Instance.CreateNewEnemy(m_SpawnedEnemyPrefab);

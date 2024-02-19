@@ -114,4 +114,28 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
         m_BossArenaBounds.bottom = Player.m_Instance.GetPosition().y + m_InitialBossArenaBounds.bottom;   // -
         m_BossArenaBounds.left   = Player.m_Instance.GetPosition().x + m_InitialBossArenaBounds.left  ;   // -
     }
+
+    public void StartShake(float duration, float magnitude)
+    {
+        StartCoroutine(Shake(duration, magnitude));
+
+    }
+    private IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPos = m_Camera.transform.localPosition;
+
+        float elapsed = 0f;
+         
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            float x = (Random.Range(-1f,1f) / 1f) * magnitude;
+            float y = (Random.Range(-1f, 1f) / 1f) * magnitude;
+
+            m_Camera.transform.localPosition += new Vector3(x, y);
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
