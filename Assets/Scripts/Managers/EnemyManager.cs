@@ -38,6 +38,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_HealthCurve;
 
+    readonly int   kEnemyHardLimit = 100;
     readonly float kGracePeriodTime = 2f;
     readonly float kChampionChance = 0.01f;
 
@@ -80,6 +81,8 @@ public class EnemyManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.PreBoss();
 
         if (Input.GetKeyDown(KeyCode.P)) StartNewWave();
+
+        if (m_EnemyCount >= kEnemyHardLimit) return;
 
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
         {
