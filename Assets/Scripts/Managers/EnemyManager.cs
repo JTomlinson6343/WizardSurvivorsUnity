@@ -66,13 +66,6 @@ public class EnemyManager : MonoBehaviour
     void Awake()
     {
         m_Instance = this;
-
-        // Calculate the total spawn probability
-        foreach (GameObject enemyPrefab in m_EnemyPrefabs)
-        {
-            Enemy enemy = enemyPrefab.GetComponent<Enemy>();
-            m_TotalSpawnProbability += enemy.m_SpawnProbability;
-        }
     }
 
     // Update is called once per frame
@@ -98,6 +91,20 @@ public class EnemyManager : MonoBehaviour
     {
         Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(Player.m_Instance.transform.position, m_SpawnRadius);
+    }
+
+    private float CalculateSpawnProbability()
+    {
+        float totalProbability = 0f;
+        // Calculate the total spawn probability
+        foreach (GameObject enemyPrefab in m_EnemyPrefabs)
+        {
+            Enemy enemy = enemyPrefab.GetComponent<Enemy>();
+
+            if (ProgressionManager.m_Instance.m_WaveCounter >= enemy.m_MinWave)
+                totalProbability += enemy.m_SpawnProbability;
+        }
+        return totalProbability;
     }
 
     public void IncrementEnemiesKilled()
@@ -209,6 +216,8 @@ public class EnemyManager : MonoBehaviour
 
     private void StartNewWave()
     {
+        m_TotalSpawnProbability = CalculateSpawnProbability();
+
         m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter));
 
         ProgressionManager.m_Instance.m_WaveCounter++;
