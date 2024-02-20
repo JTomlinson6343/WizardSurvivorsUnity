@@ -128,6 +128,8 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
          
         while (elapsed < duration)
         {
+            if (StateManager.GetCurrentState() == State.GAME_OVER) break;
+
             elapsed += Time.deltaTime;
 
             float x = (Random.Range(-1f,1f) / 1f) * magnitude;
@@ -137,5 +139,6 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
             yield return new WaitForEndOfFrame();
         }
+        yield return null;
     }
 }
