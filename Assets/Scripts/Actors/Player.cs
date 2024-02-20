@@ -254,7 +254,7 @@ public class Player : Actor
             return DamageOutput.invalidHit;
         }
 
-        PlayerManager.m_Instance.StartShake(0.15f, 0.3f);
+        PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
 
         return OnDamage(amount);
     }
