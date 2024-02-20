@@ -56,7 +56,10 @@ public class DamageManager : MonoBehaviour
     public DamageOutput DamageInstance(DamageInstanceData data, Vector2 pos)
     {
         if (data.doSoundEffect)
-            AudioManager.m_Instance.PlaySound(0);
+        {
+            if (data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(21);
+            else AudioManager.m_Instance.PlaySound(0);
+        }
 
         Actor actorComponent = data.target.GetComponent<Actor>();
         DamageOutput damageOutput = 0;
