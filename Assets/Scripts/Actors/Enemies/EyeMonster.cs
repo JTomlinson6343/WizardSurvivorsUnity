@@ -5,7 +5,7 @@ using UnityEngine;
 public class EyeMonster : Enemy
 {
     [SerializeField] float m_ShootCooldown;
-    private bool m_CanShoot;
+    private bool m_ShootOnCooldown;
     [SerializeField] float m_ShootRange;
     [SerializeField] GameObject m_ShootPos;
     [SerializeField] float m_ProjectileSpeed;
@@ -18,13 +18,15 @@ public class EyeMonster : Enemy
     {
         base.Update();
 
-        if (m_CanShoot && Vector2.Distance(transform.position, Player.m_Instance.transform.position) < m_ShootRange)
+        if (!m_ShootOnCooldown && Vector2.Distance(transform.position, Player.m_Instance.transform.position) <= m_ShootRange)
             Shoot();
     }
 
     private void Shoot()
     {
         Vector2 dir = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject);
+
+        AudioManager.m_Instance.PlaySound(15);
 
         ProjectileManager.m_Instance.EnemyShot(m_ShootPos.transform.position,
             dir,
@@ -36,12 +38,13 @@ public class EyeMonster : Enemy
             gameObject,
             DamageType.Dark);
 
-        StartShootCooldown();
+        StartCoroutine(StartShootCooldown());
     }
 
     private IEnumerator StartShootCooldown()
     {
+        m_ShootOnCooldown = true;
         yield return new WaitForSeconds(m_ShootCooldown);
-        m_CanShoot = true;
+        m_ShootOnCooldown = false;
     }
 }

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2020019679
   m_SortingLayer: -4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -527839001, guid: 51ab9e2a1df893a488c631ca19402136, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 5200942333771206442}
   m_HealthModifier: 0.75
-  m_SpawnProbability: 1
+  m_SpawnProbability: 3
   m_MinWave: 0
   m_XPAwarded: 2
   m_SkillPointDropChance: 0.01
@@ -234,13 +234,13 @@ MonoBehaviour:
   m_KnockbackModifier: 0
   m_HealthbarPrefab: {fileID: 4744852511909570002, guid: 8428296ae52269e4999616608d4f9e7d, type: 3}
   m_DeathParticlesPrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
-  m_ShootCooldown: 2
-  m_ShootRange: 5
+  m_ShootCooldown: 1
+  m_ShootRange: 6
   m_ShootPos: {fileID: 8387740487132268100}
-  m_ProjectileSpeed: 2
+  m_ProjectileSpeed: 3
   m_ProjectileDamage: 5
-  m_ProjectileLifetime: 1
-  m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
+  m_ProjectileLifetime: 2.5
+  m_ProjectilePrefab: {fileID: 3954526607045973295, guid: f2fed39442e18d54f95464d075a19b2f, type: 3}
 --- !u!1 &5200942333771206442
 GameObject:
   m_ObjectHideFlags: 0
