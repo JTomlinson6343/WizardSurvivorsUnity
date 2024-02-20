@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 4782787995318582076, guid: 24e4e6de6fb8c03499135c9a7ee31d83, type: 3}
   - {fileID: 856843315328563944, guid: 6be8b29c9c590a54db9c6b10f1fa11e1, type: 3}
   - {fileID: 4782787995318582076, guid: 34e791b29a3c12e45bb6b2b748ae3362, type: 3}
+  - {fileID: 7985817876640661879, guid: 0ccd4de7dc0e01c43bb1be6e804f74e8, type: 3}
   m_BossPrefabs:
   - {fileID: 4782787995318582076, guid: ca6d371efbf397840883c5b212c080ba, type: 3}
   m_SpawnCooldown: 0.15

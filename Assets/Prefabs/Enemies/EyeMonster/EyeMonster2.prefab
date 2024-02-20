@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6437084434295630651, guid: 34e791b29a3c12e45bb6b2b748ae3362, type: 3}
       propertyPath: m_ShootCooldown
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6437084434295630651, guid: 34e791b29a3c12e45bb6b2b748ae3362, type: 3}
       propertyPath: m_HealthModifier
@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_ProjectileDamage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6437084434295630651, guid: 34e791b29a3c12e45bb6b2b748ae3362, type: 3}
+      propertyPath: m_ProjectilePrefab
+      value: 
+      objectReference: {fileID: 4917026384042433363, guid: 8bd1807510d9013468c294e4efea9e0b, type: 3}
     - target: {fileID: 6437084434295630651, guid: 34e791b29a3c12e45bb6b2b748ae3362, type: 3}
       propertyPath: m_SpawnProbability
       value: 0.4
