@@ -261,7 +261,7 @@ MonoBehaviour:
   m_SpawnProbability: 1
   m_MinWave: 1
   m_XPAwarded: 1
-  m_SkillPointDropChance: 0.02
+  m_SkillPointDropChance: 0.01
   m_MinChampSkillPoints: 1
   m_MaxChampSkillPoints: 2
   m_Speed: 1
