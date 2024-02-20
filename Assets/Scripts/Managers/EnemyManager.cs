@@ -216,12 +216,13 @@ public class EnemyManager : MonoBehaviour
 
     private void StartNewWave()
     {
-        m_TotalSpawnProbability = CalculateSpawnProbability();
-
         m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter));
 
         ProgressionManager.m_Instance.m_WaveCounter++;
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
+
+        m_TotalSpawnProbability = CalculateSpawnProbability();
+
         CancelInvoke(nameof(GracePeriod));
 
         if (IsBossWave(ProgressionManager.m_Instance.m_WaveCounter))
