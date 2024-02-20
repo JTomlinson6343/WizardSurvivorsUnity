@@ -35,6 +35,8 @@ public class EyeMonster : Enemy
             0f,
             gameObject,
             DamageType.Dark);
+
+        StartShootCooldown();
     }
 
     private IEnumerator StartShootCooldown()
