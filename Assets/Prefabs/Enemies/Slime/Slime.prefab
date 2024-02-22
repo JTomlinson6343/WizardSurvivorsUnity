@@ -231,8 +231,8 @@ MonoBehaviour:
   m_KnockbackResist: 0.6
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 5200942333771206442}
-  m_HealthModifier: 3
-  m_SpawnProbability: 3
+  m_HealthModifier: 2
+  m_SpawnProbability: 0.3
   m_MinWave: 0
   m_XPAwarded: 1
   m_SkillPointDropChance: 0.01

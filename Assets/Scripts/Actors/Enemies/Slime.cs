@@ -37,6 +37,15 @@ public class Slime : Enemy
     {
         if (m_SplitAmount > 0) Split();
 
+        AudioManager.m_Instance.PlaySound(12);
+
+        m_Animator.Play("Death");
+
+        Invoke(nameof(DelayedDeath), 0.2f);
+    }
+
+    void DelayedDeath()
+    {
         base.OnDeath();
     }
 }
