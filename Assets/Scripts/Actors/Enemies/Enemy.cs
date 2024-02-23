@@ -20,7 +20,7 @@ public class Enemy : Actor
     private readonly Color kChampColour = new Color(1, 0.3f, 0);
 
     [SerializeField] protected float m_Speed;
-    [SerializeField] float m_ContactDamage;
+    [SerializeField] protected float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;

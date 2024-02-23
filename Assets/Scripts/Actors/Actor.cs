@@ -36,6 +36,7 @@ public class Actor : MonoBehaviour
     public GameObject m_DebuffPlacement;
 
     protected bool m_IsMidAnimation;
+    bool m_IsDead;
 
     public virtual void Start()
     {
@@ -62,6 +63,7 @@ public class Actor : MonoBehaviour
     // Called when a valid hit is registered
     virtual public DamageOutput OnDamage(float amount)
     {
+        if (m_IsDead) return DamageOutput.invalidHit;
         StartFlashing();
 
         m_Health -= amount;
@@ -71,6 +73,7 @@ public class Actor : MonoBehaviour
             // If this has no hp left, destroy it
             m_Health = 0;
             OnDeath();
+            m_IsDead = true;
             return DamageOutput.wasKilled;
         }
 

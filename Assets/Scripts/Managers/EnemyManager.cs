@@ -42,6 +42,8 @@ public class EnemyManager : MonoBehaviour
     readonly float kGracePeriodTime = 2f;
     readonly float kChampionChance = 0.01f;
 
+    [SerializeField] GameObject m_SlimePrefab;
+
     private Vector3 GetSpawnPosition()
     {
         if (!Player.m_Instance) return Vector3.negativeInfinity;
@@ -191,6 +193,11 @@ public class EnemyManager : MonoBehaviour
         newEnemy.GetComponent<Enemy>().m_MaxHealth = GetEnemyHPForWave() * newEnemy.GetComponent<Enemy>().m_HealthModifier;
 
         return newEnemy;
+    }
+
+    public GameObject SpawnBabySlime()
+    {
+        return Instantiate(m_SlimePrefab);
     }
 
     public Boss SpawnBoss()
