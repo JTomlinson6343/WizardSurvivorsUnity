@@ -19,6 +19,7 @@ public enum SkillID
     LightningDamageBuff,
     LightningAftershock,
     LightningStun,
+    LightningStunCDR,
     LightningCharge,
     LightningStrike,
     LightningDoubleCast
