@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class SkillIcon : MonoBehaviour
@@ -26,6 +27,9 @@ public class SkillIcon : MonoBehaviour
 
     // List of skills that unlock this skill
     [SerializeField] protected SkillIcon[] m_Prerequisites;
+
+    [SerializeField] Image[] m_PrevLines;
+    [SerializeField] Image[] m_NextLines;
 
     private SkillTree m_SkillTreeRef;
     private Button m_ButtonRef;
@@ -107,15 +111,42 @@ public class SkillIcon : MonoBehaviour
     }
 
     // Displays skills as light or dark based on if theyre able to be unlocked
-    public void GreyOrWhite()
+    public void ColorCheck()
     {
+        LineColorCheck();
         if (m_Unlocked) return;
 
         if (CheckPrerequisites())
             ColourIn(Color.white);
         else
             ColourIn(Color.gray);
-
         SetLevelIndicator();
+    }
+
+    void LineColorCheck()
+    {
+        foreach (Image line in m_NextLines)
+        {
+            line.color = Color.gray;
+        }
+
+        if (!m_Unlocked) return;
+
+        foreach (Image line in m_NextLines)
+        {
+            line.color = Color.white;
+        }
+
+        for (int i = 0; i < m_PrevLines.Length; i++)
+        {
+            for (int j = 0; j < m_Prerequisites.Length; j++)
+            {
+                for (int k = 0; k < m_Prerequisites[j].m_NextLines.Length; k++)
+                {
+                    if (m_PrevLines[i] == m_Prerequisites[j].m_NextLines[k] && m_Prerequisites[j].m_Unlocked)
+                        m_PrevLines[i].color = m_Color;
+                }
+            }
+        }
     }
 }

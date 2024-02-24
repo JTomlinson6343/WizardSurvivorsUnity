@@ -40,7 +40,7 @@ public class SkillTree : MonoBehaviour
         m_BackButton.onClick.AddListener(OnBackPressed);
 
         UpdateSkillPointsLabel();
-        GreyOrWhitePass();
+        ColorCheckPass();
         ColourAllIcons();
     }
 
@@ -101,8 +101,12 @@ public class SkillTree : MonoBehaviour
         if (m_CurrentSkill.m_Data.level > m_CurrentSkill.m_Description.Length - 1)
             m_DescriptionLabel.text = m_CurrentSkill.m_Description.Last();
         else
-            m_DescriptionLabel.text = m_CurrentSkill.m_Description[m_CurrentSkill.m_Data.level];
-
+        {
+            if (m_CurrentSkill.m_Data.level - 1 < 0)
+                m_DescriptionLabel.text = m_CurrentSkill.m_Description[0];
+            else
+                m_DescriptionLabel.text = m_CurrentSkill.m_Description[m_CurrentSkill.m_Data.level-1];
+        }
         m_OnLevelUpLabel.text = GetCurrentOnLevelUpMessage();
         m_CostLabel.text = "Cost: " + GetCurrentLevelCost().ToString();
 
@@ -159,7 +163,7 @@ public class SkillTree : MonoBehaviour
         // Ability unlock animation goes here
 
         SetHighlightedSkill(m_CurrentSkill);
-        GreyOrWhitePass();
+        ColorCheckPass();
     }
 
     void OnRespecPressed()
@@ -179,17 +183,17 @@ public class SkillTree : MonoBehaviour
         // Reset the skill tree visuals
         UpdateSkillPointsLabel();
         SetHighlightedSkill(null);
-        GreyOrWhitePass();
+        ColorCheckPass();
     }
 
     // Called every time an an ability is unlocked or reset.
-    void GreyOrWhitePass()
+    void ColorCheckPass()
     {
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
         foreach (SkillIcon skill in skills)
         {
-            skill.GreyOrWhite();
+            skill.ColorCheck();
         }
     }
 
