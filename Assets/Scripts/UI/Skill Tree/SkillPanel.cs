@@ -45,10 +45,12 @@ public class SkillPanel : MonoBehaviour
 
     private bool InitHUDSkills()
     {
-        if (SkillManager.m_Instance.GetCooldownSkills().Length == 0) return false;
+        if (SkillManager.m_Instance.GetCooldownSkills() == null) return false;
 
         foreach (CooldownSkill skill in SkillManager.m_Instance.GetCooldownSkills())
         {
+            if (!PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id)) return false;
+
             if (PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id).m_Data.level < 1) continue;
 
             // Init hud skill icon and pass its reference to the cooldown skill

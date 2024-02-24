@@ -10,7 +10,17 @@ public class AbilityBuffSkill : Skill
     public override void Init(SkillData data)
     {
         base.Init(data);
+
         for (int i = 0; i < data.level; i++)
+        {
+            if (!m_Ability)
+            {
+                AbilityManager.m_Instance.AddAbilityStatBuffs(m_StatBuffs);
+                continue;
+            }
+
             m_Ability.AddBonusStats(m_StatBuffs);
+        }
+
     }
 }

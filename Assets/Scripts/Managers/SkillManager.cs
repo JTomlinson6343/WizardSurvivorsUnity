@@ -12,7 +12,8 @@ public class SkillManager : MonoBehaviour
     private void Awake()
     {
         m_Instance = this;
-        SkillPanel.m_Instance.Init();
+        if (SkillPanel.m_Instance)
+            SkillPanel.m_Instance.Init();
     }
 
     private void Start()

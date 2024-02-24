@@ -1537,8 +1537,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Character
-      value: 
-      objectReference: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTree
       value: 
@@ -1708,8 +1708,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Character
-      value: 
-      objectReference: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTree
       value: 
