@@ -13,7 +13,8 @@ public enum DebuffType
     Flamethrower,
     FireElementalFlames,
     BlackHole,
-    Frozen
+    Frozen,
+    Paralysed
 }
 
 public class Debuff : MonoBehaviour
