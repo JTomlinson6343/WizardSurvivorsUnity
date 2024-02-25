@@ -187,10 +187,11 @@ public class Ability : MonoBehaviour
         m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
     }
 
-    public void AddTempStats(AbilityStats stats)
+    public void AddTempStats(AbilityStats stats, float duration)
     {
         m_BonusStats += stats;
         UpdateTotalStats();
+        StartCoroutine(RemoveTempStats(stats, duration));
     }
 
     private IEnumerator RemoveTempStats(AbilityStats stats, float duration)

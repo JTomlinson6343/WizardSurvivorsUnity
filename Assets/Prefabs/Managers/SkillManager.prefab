@@ -113,7 +113,7 @@ MonoBehaviour:
     duration: 0
     damage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.04
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -636,6 +636,8 @@ Transform:
   - {fileID: 9086892832181350795}
   - {fileID: 8445716074319104496}
   - {fileID: 2255475142519058275}
+  - {fileID: 6182566851423306430}
+  - {fileID: 3517643979240830284}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -789,8 +791,6 @@ MonoBehaviour:
   m_Radius: 2
   m_RadiusIncrease: 1.5
   m_SparksVFX: {fileID: 3485410154440569457, guid: 46bf493c4b546954ab742ef55848e517, type: 3}
-  m_LinePrefab: {fileID: 1334009107476647589, guid: 9a6e81a3778471f4f87d22158168592a, type: 3}
-  m_LineDuration: 0.2
 --- !u!1 &8186284041277370337
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +843,100 @@ MonoBehaviour:
   m_LightPrefab: {fileID: 2441900490676211127, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
   m_Damage: 5
   m_DamageType: 0
+--- !u!1 &8385840606852709741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3517643979240830284}
+  m_Layer: 0
+  m_Name: LightningDoubleCast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3517643979240830284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385840606852709741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8758763048182439489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6182566851423306430}
+  - component: {fileID: 3612443659579352882}
+  m_Layer: 0
+  m_Name: LightningStunCDR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6182566851423306430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8758763048182439489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3612443659579352882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8758763048182439489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbeb75226cc29e459b1a1f6218438e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 14
+    level: 1
+    maxLevel: 2
+  m_Cooldown: 20
+  m_HUDSkillIconRef: {fileID: 0}
+  m_BonusStats:
+    AOE: 0
+    duration: 0
+    damage: 0
+    speed: 0
+    cooldown: -0.15
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Duration: 5
+  m_DurationUpgradeModifier: 1.5
 --- !u!1 &8975141264384055795
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9219015484848714404}
-  - component: {fileID: 7796931706896040592}
+  - component: {fileID: 236003017906665257}
   m_Layer: 0
   m_Name: FireSpeed
   m_TagString: Untagged
@@ -875,7 +969,7 @@ Transform:
   m_Father: {fileID: 3722616304487041102}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7796931706896040592
+--- !u!114 &236003017906665257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -884,7 +978,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8975141264384055795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cbeb75226cc29e459b1a1f6218438e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 01fb5f63598689b43b89fdddb80d4947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
@@ -894,7 +988,7 @@ MonoBehaviour:
   m_Cooldown: 7
   m_HUDSkillIconRef: {fileID: 0}
   m_BonusSpeed:
-    speed: 0.8
+    speed: 0.1
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0

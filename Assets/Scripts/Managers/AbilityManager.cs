@@ -272,7 +272,20 @@ public class AbilityManager : MonoBehaviour
         {
             // Add bonus stats to abilities with same damage type
             if (ability.m_Data.damageType == type || type == DamageType.None)
-                ability.AddTempStats(stats);
+                ability.AddTempStats(stats, duration);
+        }
+        UpdateAllAbilityStats();
+    }
+
+    public void AddTempAbilityStatBuffs(AbilityStats stats, float duration)
+    {
+        Ability[] abilities = GetComponentsInChildren<Ability>();
+
+        // Update ability stats
+        foreach (Ability ability in abilities)
+        {
+            // Add bonus stats to abilities
+            ability.AddTempStats(stats, duration);
         }
         UpdateAllAbilityStats();
     }

@@ -1454,7 +1454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Data.id
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_PrevLine
@@ -1779,11 +1779,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Cost.Array.data[0]
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Cost.Array.data[1]
-      value: 45
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Cost.Array.data[2]
@@ -1827,13 +1827,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
-      value: Killing an enemy stunned by Paralysis reduces spell cooldowns by 10%
-        for 2 seconds
+      value: Killing an enemy stunned by Paralysis reduces spell cooldowns by 15%
+        for 5 seconds
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[1]
-      value: Killing an enemy stunned by Paralysis reduces spell cooldowns by 10%
-        for 3 seconds
+      value: Killing an enemy stunned by Paralysis reduces spell cooldowns by 15%
+        for 10 seconds
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
@@ -1845,7 +1845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[0]
-      value: +1 second
+      value: +5s duration
       objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x

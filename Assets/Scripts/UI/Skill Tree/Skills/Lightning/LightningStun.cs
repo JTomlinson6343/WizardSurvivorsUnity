@@ -46,6 +46,7 @@ public class LightningStun : CooldownSkill
     {
         FrozenDebuff stunDebuff = enemy.AddComponent<FrozenDebuff>();
         stunDebuff.Init(m_Duration, 0, DamageType.None, gameObject, false, 1, DebuffType.Paralysed);
+        AudioManager.m_Instance.PlaySound(23,0.5f);
     }
 
     void StunEnemiesInRange(GameObject centreEnemy, float radius)
