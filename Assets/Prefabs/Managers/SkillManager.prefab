@@ -509,6 +509,91 @@ MonoBehaviour:
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
+--- !u!1 &5988118848108651720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8445716074319104496}
+  - component: {fileID: 3826517014972541968}
+  - component: {fileID: 3332385166936443128}
+  m_Layer: 0
+  m_Name: Aftershock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8445716074319104496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988118848108651720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3826517014972541968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988118848108651720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0e591b35d54cd4b891fd603dfe9135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 12
+    level: 0
+    maxLevel: 0
+  m_Cooldown: 5
+  m_HUDSkillIconRef: {fileID: 0}
+  m_Lifetime: 0.2
+  m_LightningBoltPrefab: {fileID: 5106067701834446676, guid: 01c88d37db1c12843bf69f8fe2addc82, type: 3}
+--- !u!114 &3332385166936443128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988118848108651720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829e3ea99a867fb40b8cc22bd48c0bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_IsSpell: 0
+  m_BaseStats:
+    AOE: 2
+    duration: 0
+    damage: 15
+    speed: 0
+    cooldown: 0
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: 
+    damageType: 2
+    description: 
+    levelUpInfo: 
+    icon: {fileID: 0}
+  m_DefaultAutofireRange: 10
 --- !u!1 &6529186928086989564
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +634,7 @@ Transform:
   - {fileID: 145443347349664950}
   - {fileID: 4481560067210504943}
   - {fileID: 9086892832181350795}
+  - {fileID: 8445716074319104496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

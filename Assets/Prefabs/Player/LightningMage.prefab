@@ -1,5 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8106207288104181392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8485568040132499759}
+  - component: {fileID: 410632013198016731}
+  m_Layer: 0
+  m_Name: Electricbolt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8485568040132499759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106207288104181392}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2158924791912615600}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410632013198016731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106207288104181392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb896f140784e81438ab7914a54a78a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 40
+    speed: 10
+    cooldown: 1
+    amount: 0
+    knockback: 4
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: Firebolt
+    damageType: 2
+    description: Fires a fireball at the closest enemy
+    levelUpInfo: 
+    icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+  m_DefaultAutofireRange: 10
+  m_ProjectileLifetime: 2
 --- !u!1001 &185755310912546227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52,6 +117,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2687768136547122572, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_ActiveAbility
+      value: 
+      objectReference: {fileID: 410632013198016731}
     - target: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_Name
       value: LightningMage
@@ -70,6 +139,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2262467071431011075, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8485568040132499759}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+--- !u!4 &2158924791912615600 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2262467071431011075, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+  m_PrefabInstance: {fileID: 185755310912546227}
+  m_PrefabAsset: {fileID: 0}

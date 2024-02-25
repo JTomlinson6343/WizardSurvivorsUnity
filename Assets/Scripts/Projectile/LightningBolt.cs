@@ -62,7 +62,7 @@ public class LightningBolt : AOEObject
     protected virtual void LightningJump(GameObject enemy)
     {
         // If the lightning has already jumped the max number of times, return
-        if (m_ParentLightning.m_JumpCount >= m_ParentLightning.kJumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
+        if (m_ParentLightning.m_JumpCount >= m_ParentLightning.m_JumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
         // If there are no other enemies in range, return
         if (GameplayManager.GetAllEnemiesInRange(transform.position, Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE).Count <= 1) return;
 
