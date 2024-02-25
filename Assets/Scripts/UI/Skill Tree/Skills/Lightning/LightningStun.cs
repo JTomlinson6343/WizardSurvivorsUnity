@@ -10,8 +10,7 @@ public class LightningStun : CooldownSkill
     [SerializeField] float m_Radius;
     [SerializeField] float m_RadiusIncrease;
 
-    [SerializeField] GameObject m_LinePrefab;
-    [SerializeField] float m_LineDuration;
+    [SerializeField] GameObject m_SparksVFX;
 
     override public void Init(SkillData data)
     {
@@ -59,8 +58,9 @@ public class LightningStun : CooldownSkill
         {
             Vector2 enemyPos = enemy.GetComponent<Enemy>().m_DebuffPlacement.transform.position;
 
-            GameObject line = Instantiate(m_LinePrefab);
-            line.GetComponent<LineCreator>().Init(centreEnemyPos, enemyPos, m_LineDuration,Color.white,Color.blue);
+            GameObject sparksVFX = Instantiate(m_SparksVFX);
+            sparksVFX.transform.position = enemyPos;
+
             StunEnemy(enemy);
         }
     }

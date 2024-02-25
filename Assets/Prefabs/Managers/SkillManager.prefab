@@ -788,6 +788,7 @@ MonoBehaviour:
   m_Duration: 3
   m_Radius: 2
   m_RadiusIncrease: 1.5
+  m_SparksVFX: {fileID: 3485410154440569457, guid: 46bf493c4b546954ab742ef55848e517, type: 3}
   m_LinePrefab: {fileID: 1334009107476647589, guid: 9a6e81a3778471f4f87d22158168592a, type: 3}
   m_LineDuration: 0.2
 --- !u!1 &8186284041277370337
