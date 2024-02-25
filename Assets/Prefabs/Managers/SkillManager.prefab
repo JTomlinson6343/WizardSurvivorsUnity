@@ -577,7 +577,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_BaseStats:
-    AOE: 2
+    AOE: 1
     duration: 0
     damage: 15
     speed: 0

@@ -122,8 +122,6 @@ public class SaveManager
             {
                 tree.GetComponentsInChildren<SkillIcon>()[j].InitFromFile(skillData[j]);
             }
-
-            tree.PassEnabledSkillsToManager();
         }
     }
 

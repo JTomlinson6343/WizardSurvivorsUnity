@@ -21,7 +21,9 @@ public class LightningAftershock : CooldownSkill
         if (!damageInstance.user.CompareTag("Player")) return;
         if (damageInstance.damageType != DamageType.Lightning) return;
         if (!damageInstance.didKill) return;
-        if (GameplayManager.GetAllEnemiesInRange(damageInstance.target.transform.position, Lightning.kBaseRange * GetComponent<Ability>().GetTotalStats().AOE).Count < 1) return;
+        if (GameplayManager.GetAllEnemiesInRange(
+            damageInstance.target.transform.position,
+            Lightning.kBaseRange * GetComponent<Ability>().GetTotalStats().AOE).Count <= 1) return;
 
         GameObject bolt = Instantiate(m_LightningBoltPrefab);
         bolt.GetComponent<ParentLightningBolt>().Init(damageInstance.target.transform.position, GetComponent<Ability>(), m_Lifetime);

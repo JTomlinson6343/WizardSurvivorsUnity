@@ -225,6 +225,5 @@ public class SkillTree : MonoBehaviour
     void OnCloseSkillTreeMenu()
     {
         SaveManager.SaveToFile();
-        PassEnabledSkillsToManager();
     }
 }

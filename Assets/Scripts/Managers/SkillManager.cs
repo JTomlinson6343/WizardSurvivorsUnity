@@ -40,7 +40,7 @@ public class SkillManager : MonoBehaviour
         {
             foreach(SkillData skillData in m_Skills)
             {
-                if (skill.m_Data.id == skillData.id)
+                if (skill.m_Data.id == skillData.id && PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id))
                 {
                     skill.Init(skillData);
                 }
