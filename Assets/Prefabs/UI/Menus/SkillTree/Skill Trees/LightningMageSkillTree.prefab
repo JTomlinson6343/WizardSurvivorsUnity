@@ -2363,7 +2363,7 @@ PrefabInstance:
     - target: {fileID: 4646585010986615600, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1365313391, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+      objectReference: {fileID: -1160514776, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
       value: LightningSpellCDR
