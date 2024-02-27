@@ -125,7 +125,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
          
         while (elapsed < duration)
         {
-            if (StateManager.IsGameplayStopped()) continue;
+            if (StateManager.IsGameplayStopped()) break;
 
             elapsed += Time.deltaTime;
 
