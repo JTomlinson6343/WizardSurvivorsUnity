@@ -120,6 +120,66 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Ability: {fileID: 0}
+--- !u!1 &2228840155423396777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6190086973731180611}
+  - component: {fileID: 3743777559308743190}
+  m_Layer: 0
+  m_Name: LightningCooldownReduction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6190086973731180611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228840155423396777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3743777559308743190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228840155423396777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f9298887464248ac1f1ca2eb91a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 16
+    level: 0
+    maxLevel: 1
+  m_StatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0
+    speed: 0
+    cooldown: -0.15
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_DamageType: 2
 --- !u!1 &2535485973356852505
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -638,6 +699,7 @@ Transform:
   - {fileID: 2255475142519058275}
   - {fileID: 6182566851423306430}
   - {fileID: 3517643979240830284}
+  - {fileID: 6190086973731180611}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -852,6 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3517643979240830284}
+  - component: {fileID: 7218253620476924050}
   m_Layer: 0
   m_Name: LightningDoubleCast
   m_TagString: Untagged
@@ -874,6 +937,22 @@ Transform:
   m_Father: {fileID: 3722616304487041102}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7218253620476924050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385840606852709741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031192feff4feab48914f698398cfbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 17
+    level: 0
+    maxLevel: 0
 --- !u!1 &8758763048182439489
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     id: 14
-    level: 1
+    level: 0
     maxLevel: 2
   m_Cooldown: 20
   m_HUDSkillIconRef: {fileID: 0}
@@ -937,6 +1016,7 @@ MonoBehaviour:
     neverPierce: 0
   m_Duration: 5
   m_DurationUpgradeModifier: 1.5
+  m_Sparks: {fileID: 3485410154440569457, guid: 46bf493c4b546954ab742ef55848e517, type: 3}
 --- !u!1 &8975141264384055795
 GameObject:
   m_ObjectHideFlags: 0
