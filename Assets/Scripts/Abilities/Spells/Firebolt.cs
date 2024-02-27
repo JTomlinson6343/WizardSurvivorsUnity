@@ -19,7 +19,7 @@ public class Firebolt : Spell
     {
         base.OnCast();
 
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetStaffTransform().position, m_DefaultAutofireRange);
 
         if (!closestEnemy)
         {

@@ -18,7 +18,7 @@ public class AOESpawningProtectileSpell : Firebolt
 
     public override void OnCast()
     {
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
+        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetStaffTransform().position, m_DefaultAutofireRange);
 
         if (!closestEnemy)
         {

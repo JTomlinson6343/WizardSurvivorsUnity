@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -83,6 +84,73 @@ MonoBehaviour:
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
+--- !u!1 &838540608608956209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004064767481076761}
+  - component: {fileID: 3192883310403966307}
+  m_Layer: 0
+  m_Name: LightningCone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004064767481076761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838540608608956209}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3192883310403966307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838540608608956209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dac1955fd94d724981c61ebbe262da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_CastAmount: 1
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 45
+    speed: 0
+    cooldown: 3
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: LightningCone
+    damageType: 2
+    description: 
+    levelUpInfo: 
+    icon: {fileID: 0}
+  m_DefaultAutofireRange: 4.25
+  m_LightningCone: {fileID: 6689438443112598672, guid: 88df434cefc5a0d45a9a31cf20ec6921, type: 3}
+  m_Lifetime: 0.2
 --- !u!1 &1258795364781033673
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -194,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 4.5
     duration: 0.75
@@ -399,6 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -467,6 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 4
     duration: -1
@@ -534,6 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 4
     duration: 5
@@ -603,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -804,6 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -910,6 +985,7 @@ MonoBehaviour:
   m_InstructionsLabel: {fileID: 8013665831323494006}
   m_SpellInstructions: Level up! Level up! Tap a direction to select a spell
   m_ItemInstructions: Level up! Tap a direction to select an item
+  m_LightningDoubleCastOn: 0
 --- !u!1 &2471490994338420301
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +1032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 3
     duration: 3
@@ -1375,6 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1456,6 +1534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 5
@@ -1664,6 +1743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 2.5
     duration: 0
@@ -1943,6 +2023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2009,6 +2090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2069,6 +2151,7 @@ Transform:
   - {fileID: 8539184454971773378}
   - {fileID: 1350365592647465899}
   - {fileID: 5902090598870088726}
+  - {fileID: 2004064767481076761}
   m_Father: {fileID: 108723972155499655}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2118,6 +2201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2200,6 +2284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2282,6 +2367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 0
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2364,6 +2450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isMaxed: 0
   m_IsSpell: 1
+  m_CastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 0
