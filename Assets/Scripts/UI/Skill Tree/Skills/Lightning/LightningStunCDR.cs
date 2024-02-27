@@ -11,6 +11,8 @@ public class LightningStunCDR : CooldownSkill
     [SerializeField] float m_Duration;
     [SerializeField] float m_DurationUpgradeModifier;
 
+    [SerializeField] GameObject m_Sparks;
+
     override public void Init(SkillData data)
     {
         base.Init(data);
@@ -30,6 +32,12 @@ public class LightningStunCDR : CooldownSkill
         StartCooldown();
 
         AbilityManager.m_Instance.AddTempAbilityStatBuffs(m_BonusStats, m_Duration);
+
+        GameObject sparksVFX = Instantiate(m_Sparks);
+        sparksVFX.transform.SetParent(Player.m_Instance.transform);
+        sparksVFX.transform.position = Player.m_Instance.m_DebuffPlacement.transform.position;
+        sparksVFX.GetComponent<DestroyAfterAnimation>().m_Lifetime = m_Duration;
+
         m_Active = true;
         Invoke(nameof(ResetActiveFlag), m_Duration);
 

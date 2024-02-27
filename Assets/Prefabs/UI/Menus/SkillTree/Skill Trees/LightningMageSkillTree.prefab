@@ -2257,8 +2257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
-      value: Lightning randomly strikes an enemy in range, dealing huge damage to
-        all nearby enemies
+      value: Reduce the cooldown of lightning spells by 15%
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[1]
@@ -2367,7 +2366,7 @@ PrefabInstance:
       objectReference: {fileID: 1365313391, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
-      value: LightningStrike
+      value: LightningSpellCDR
       objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_IsActive

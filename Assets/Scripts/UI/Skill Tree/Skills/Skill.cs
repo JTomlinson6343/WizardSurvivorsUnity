@@ -21,7 +21,7 @@ public enum SkillID
     LightningStun,
     LightningStunCDR,
     LightningCharge,
-    LightningStrike,
+    LightningSpellCDR,
     LightningDoubleCast
 }
 

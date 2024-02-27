@@ -46,6 +46,11 @@ public class LightningStun : CooldownSkill
     {
         FrozenDebuff stunDebuff = enemy.AddComponent<FrozenDebuff>();
         stunDebuff.Init(m_Duration, 0, DamageType.None, gameObject, false, 1, DebuffType.Paralysed);
+        GameObject sparksVFX = Instantiate(m_SparksVFX);
+
+        Vector2 enemyPos = enemy.GetComponent<Enemy>().m_DebuffPlacement.transform.position;
+
+        sparksVFX.transform.position = enemyPos;
         AudioManager.m_Instance.PlaySound(23,0.5f);
     }
 
@@ -53,15 +58,10 @@ public class LightningStun : CooldownSkill
     {
         Vector2 centreEnemyPos = centreEnemy.GetComponent<Enemy>().m_DebuffPlacement.transform.position;
 
-        List<GameObject> enemies = GameplayManager.GetAllEnemiesInRange(centreEnemy.transform.position, radius);
+        List<GameObject> enemies = GameplayManager.GetAllEnemiesInRange(centreEnemyPos, radius);
 
         foreach (GameObject enemy in enemies)
         {
-            Vector2 enemyPos = enemy.GetComponent<Enemy>().m_DebuffPlacement.transform.position;
-
-            GameObject sparksVFX = Instantiate(m_SparksVFX);
-            sparksVFX.transform.position = enemyPos;
-
             StunEnemy(enemy);
         }
     }
