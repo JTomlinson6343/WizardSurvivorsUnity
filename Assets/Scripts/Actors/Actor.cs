@@ -123,6 +123,27 @@ public class Actor : MonoBehaviour
         Destroy(gameObject);
     }
 
+    virtual public void ToggleStunned(bool enabled)
+    {
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+
+        if (!rb) return;
+
+        // Disable animator if stunned, enable if not stunned
+        GetComponentInChildren<Animator>().enabled = !enabled;
+
+        if (enabled)
+        {
+            // Freeze movement
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            // Unfreeze movement
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
     // Method called after 'delay' seconds and only if it is off cooldown
     protected void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay, ref bool cooldownCheck)
     {

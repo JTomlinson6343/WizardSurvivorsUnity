@@ -11,17 +11,9 @@ public class IceAOEObject : AOEObject
     {
         if (m_AlreadySpawned) return;
 
-        FrozenDebuff frozenDebuff = enemy.AddComponent<FrozenDebuff>();
+        Debuff debuff = new Debuff(DebuffType.Frozen, DamageType.Frost, 0f, 1, m_AbilitySource.GetTotalStats().duration, Player.m_Instance.gameObject);
 
-        frozenDebuff.Init(
-            m_AbilitySource.GetTotalStats().duration,
-            1f,
-            DamageType.Frost,
-            gameObject,
-            false,
-            1,
-            DebuffType.Frozen
-            );
+        DebuffManager.m_Instance.AddDebuff(enemy.GetComponent<Actor>(), debuff);
 
         DamageTarget(enemy);
     }

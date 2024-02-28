@@ -40,6 +40,7 @@ public class Debuff
 
     public virtual void OnTick(Actor actor)
     {
+        if (m_Damage <= 0) return;
         DamageActor(actor);
     }
 

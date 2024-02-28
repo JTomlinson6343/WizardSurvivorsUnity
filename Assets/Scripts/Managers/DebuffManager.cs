@@ -28,6 +28,8 @@ public class DebuffManager : MonoBehaviour
 
     public void AddDebuff(Actor actor, Debuff debuffData)
     {
+        if (!actor) return;
+
         if (GetDebuffIfPresent(actor, debuffData.kType) != null)
             return;
 
@@ -36,7 +38,10 @@ public class DebuffManager : MonoBehaviour
             case DebuffType.Blaze:
                 StartCoroutine(FireDebuffRoutine(actor, debuffData));
                 break;
-
+            case DebuffType.Frozen:
+            case DebuffType.Paralysed:
+                StartCoroutine(FrozenDebuffRoutine(actor, debuffData));
+                break;
             default:
                 StartCoroutine(DebuffRoutine(actor, debuffData));
                 Debug.Log("Debuff with no type started");
@@ -69,8 +74,20 @@ public class DebuffManager : MonoBehaviour
         Destroy(flames);
     }
 
+    IEnumerator FrozenDebuffRoutine(Actor actor, Debuff debuffData)
+    {
+        actor.ToggleStunned(true);
+
+        yield return DebuffRoutine(actor, debuffData);
+
+        actor.ToggleStunned(false);
+    }
+
     public static Debuff GetDebuffIfPresent(Actor actor, DebuffType type)
     {
+        if (!actor) return null;
+        if (actor.m_Debuffs == null) return null;
+
         foreach (Debuff debuff in actor.m_Debuffs)
         {
             if (debuff.kType == type)
