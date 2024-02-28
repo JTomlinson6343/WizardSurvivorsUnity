@@ -2,9 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DebuffType
+{
+    None,
+    Blaze,
+    Blizzard,
+    Flamethrower,
+    FireElementalFlames,
+    BlackHole,
+    Frozen,
+    Paralysed
+}
+
 public class DebuffManager : MonoBehaviour
 {
     public static DebuffManager m_Instance;
+
+    public GameObject m_FireParticlePrefab;
+
 
     private void Awake()
     {
@@ -13,16 +28,20 @@ public class DebuffManager : MonoBehaviour
 
     public void AddDebuff(Actor actor, Debuff debuffData)
     {
-        if (IsDebuffPresent(actor, debuffData))
+        if (GetDebuffIfPresent(actor, debuffData.kType) != null)
             return;
 
-        StartCoroutine(DebuffRoutine(actor, debuffData));
-    }
+        switch (debuffData.kType)
+        {
+            case DebuffType.Blaze:
+                StartCoroutine(FireDebuffRoutine(actor, debuffData));
+                break;
 
-    public void AddFireDebuff(Actor actor, Debuff debuffData)
-    {
-        AddDebuff(actor,debuffData);
-
+            default:
+                StartCoroutine(DebuffRoutine(actor, debuffData));
+                Debug.Log("Debuff with no type started");
+                break;
+        }
     }
 
     IEnumerator DebuffRoutine(Actor actor, Debuff debuffData)
@@ -39,18 +58,37 @@ public class DebuffManager : MonoBehaviour
         actor.m_Debuffs.Remove(debuffData);
     }
 
-    private bool IsDebuffPresent(Actor actor, Debuff debuffData)
+    IEnumerator FireDebuffRoutine(Actor actor, Debuff debuffData)
+    {
+        GameObject flames = Instantiate(m_FireParticlePrefab);
+        flames.transform.SetParent(actor.transform);
+        flames.transform.position = actor.m_DebuffPlacement.transform.position;
+
+        yield return DebuffRoutine(actor,debuffData);
+
+        Destroy(flames);
+    }
+
+    public static Debuff GetDebuffIfPresent(Actor actor, DebuffType type)
     {
         foreach (Debuff debuff in actor.m_Debuffs)
         {
-            if (debuff.kType == debuffData.kType)
+            if (debuff.kType == type)
             {
-                debuff.RefreshTimer();
-                return true;
+                return debuff;
             }
         }
-
-        return false;
+        return null;
     }
 
+    public bool RefreshCheck(Actor actor, Debuff debuffData)
+    {
+        Debuff presentDebuff = GetDebuffIfPresent(actor, debuffData.kType);
+        if (presentDebuff != null)
+        {
+            presentDebuff.RefreshTimer();
+            return true;
+        }
+        return false;
+    }
 }

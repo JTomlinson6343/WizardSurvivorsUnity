@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1692413120861428949
 MonoBehaviour:
@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006925048fcd854489ab1f3711a0d03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FireParticlePrefab: {fileID: 1695107528181939108, guid: 62ebe611e871de54c81899026eb0d82a, type: 3}

@@ -5,18 +5,6 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum DebuffType
-{
-    None,
-    Blaze,
-    Blizzard,
-    Flamethrower,
-    FireElementalFlames,
-    BlackHole,
-    Frozen,
-    Paralysed
-}
-
 public class Debuff_old : MonoBehaviour
 {
     public float m_Duration;
