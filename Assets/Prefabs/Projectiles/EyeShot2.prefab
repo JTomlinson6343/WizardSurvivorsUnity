@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1823308710590038645, guid: f2fed39442e18d54f95464d075a19b2f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.052369833
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823308710590038645, guid: f2fed39442e18d54f95464d075a19b2f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823308710590038645, guid: f2fed39442e18d54f95464d075a19b2f, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3954526607045973295, guid: f2fed39442e18d54f95464d075a19b2f, type: 3}
       propertyPath: m_Name
       value: EyeShot2

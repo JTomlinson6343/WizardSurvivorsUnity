@@ -84,6 +84,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoisonBolt
       objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20283651
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5855194254980486322, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
     m_RemovedGameObjects: []

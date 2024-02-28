@@ -148,7 +148,7 @@ MonoBehaviour:
     description: 
     levelUpInfo: 
     icon: {fileID: 0}
-  m_DefaultAutofireRange: 3.25
+  m_DefaultAutofireRange: 6.5
   m_LightningCone: {fileID: 6689438443112598672, guid: 88df434cefc5a0d45a9a31cf20ec6921, type: 3}
   m_Lifetime: 0.2
 --- !u!1 &1258795364781033673
