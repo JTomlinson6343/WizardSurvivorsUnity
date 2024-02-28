@@ -252,9 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
-  m_Type: 4
-  m_DoPercentHealth: 0
-  m_MaxStacks: 1
+  m_HitboxDelay: 0.25
   m_SuckSpeed: 5
 --- !u!1001 &7269111129569916973
 PrefabInstance:

@@ -25,7 +25,6 @@ public class DamageInstanceData
     public GameObject target;
     public Ability abilitySource;
     public Skill skillSource;
-    public Debuff debuff;
     public float amount = 0;
     public bool didCrit = false;
     public bool didKill = false;

@@ -73,7 +73,7 @@ public class Player : Actor
     Vector3 staffStartPos;
 
     private Rigidbody2D m_RigidBody;
-    private float m_Acceleration = 25.0f;
+    private float m_Acceleration = 0.5f;
 
     [SerializeField] private Animator m_Animator;
 
@@ -170,7 +170,7 @@ public class Player : Actor
         Vector3 targetVelocity = moveDir * GetComponent<Player>().GetStats().speed;
 
         //currentVelocity = targetVelocity;
-        currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * m_Acceleration;
+        currentVelocity += (targetVelocity - currentVelocity) * m_Acceleration;
 
         m_RigidBody.velocity = currentVelocity;
 

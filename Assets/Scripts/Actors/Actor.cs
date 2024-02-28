@@ -34,6 +34,7 @@ public class Actor : MonoBehaviour
     private float m_FlashTime = 0.1f;
 
     public GameObject m_DebuffPlacement;
+    public List<Debuff> m_Debuffs = new List<Debuff>();
 
     protected bool m_IsMidAnimation;
     bool m_IsDead;
@@ -120,6 +121,27 @@ public class Actor : MonoBehaviour
     virtual protected void OnDeath()
     {
         Destroy(gameObject);
+    }
+
+    virtual public void ToggleStunned(bool enabled)
+    {
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+
+        if (!rb) return;
+
+        // Disable animator if stunned, enable if not stunned
+        GetComponentInChildren<Animator>().enabled = !enabled;
+
+        if (enabled)
+        {
+            // Freeze movement
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            // Unfreeze movement
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     // Method called after 'delay' seconds and only if it is off cooldown

@@ -1,146 +1,83 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using Unity.VisualScripting;
+﻿using System.Collections;
 using UnityEngine;
 
-public enum DebuffType
+public class Debuff
 {
-    None,
-    Blaze,
-    Blizzard,
-    Flamethrower,
-    FireElementalFlames,
-    BlackHole,
-    Frozen,
-    Paralysed
-}
+    // Consts
+    public readonly float kTickRate = 0.25f; // Ticks are every 0.25s
+    private readonly float kMaxStacks;
+    private readonly float kDuration;
 
-public class Debuff : MonoBehaviour
-{
-    public float m_Duration;
-    private float m_TickInterval = 0.25f;
-    public float m_Damage;
-    public DamageType m_DamageType;
     protected GameObject m_Source;
     public Ability m_AbilitySource;
-    public DebuffType m_DebuffType;
+
+    public DebuffType kType { get; }
+    public DamageType m_DamageType { get; }
+
+    private float m_Damage;
+    public float m_TimeLeft;
     protected int m_StackAmount = 1;
 
-    float m_LastTick;
-
-    public static bool IsDebuffPresent(GameObject gameObject, DebuffType debuffType)
+    public Debuff(DebuffType type, DamageType damageType, float damage, float maxStacks, float duration, GameObject source)
     {
-        // Check if a debuff with the same type is already present
-        foreach (Debuff debuff in gameObject.GetComponents<Debuff>())
-        {
-            if (debuff.m_DebuffType == debuffType) return true;
-        }
-        return false;
-    }
-
-    public virtual void Init(float debuffTime, float damage, DamageType damageType, GameObject source, bool percentHealth, int maxStacks, DebuffType debuffType)
-    {
-        m_Damage = damage;
-        m_DebuffType = debuffType;
-
-        // Check that the debuff isn't already on the gameObject. If it is, refresh it.
-        foreach (Debuff debuff in GetComponents<Debuff>())
-        {
-            // If debuff type is same as this debuff type
-            if (debuff.m_DebuffType == m_DebuffType && debuff != this)
-            {
-                // Refresh debuff time
-                debuff.RefreshDebuffTimer(debuffTime);
-                debuff.IncrementStackAmount(maxStacks);
-
-                EndDebuff();
-            }
-        }
-
-        if (percentHealth)
-            m_Damage *= GetComponent<Actor>().m_MaxHealth;
-
-        m_Duration = debuffTime;
+        kDuration = duration;
+        kMaxStacks = maxStacks;
+        kType = type;
+        
         m_DamageType = damageType;
+        m_Damage = damage;
+        m_TimeLeft = duration;
         m_Source = source;
+
+        m_StackAmount = 1;
     }
 
-    // Start is called before the first frame update
-    public virtual void Start()
+    public Debuff(DebuffType type, DamageType damageType, float damage, float maxStacks, float duration, GameObject source, Ability abilitySource)
+        : this(type, damageType, damage, maxStacks, duration, source)
     {
-        if(m_Duration > 0)
-        {
-            Invoke(nameof(EndDebuff), m_Duration);
-        }
+        m_AbilitySource = abilitySource;
     }
 
-    public void RefreshDebuffTimer(float newTime)
+    public virtual void OnTick(Actor actor)
     {
-        CancelInvoke();
-        m_Duration = newTime;
-        Invoke(nameof(EndDebuff), m_Duration);
+        if (m_Damage <= 0) return;
+        DamageActor(actor);
     }
 
-    public void IncrementStackAmount(int maxStacks)
+    private void DamageActor(Actor actor)
     {
-        if (m_StackAmount < maxStacks)
-            m_StackAmount++;
-    }
-
-    // Update is called once per frame
-    virtual protected void Update()
-    {
-        if (StateManager.GetCurrentState() != State.PLAYING && StateManager.GetCurrentState() != State.BOSS) { return; }
-        TickRoutine();
-        DebuffBehaviour();
-    }
-
-    public DebuffType GetDebuffType()
-    {
-        return m_DebuffType;
-    }
-
-    virtual protected void TickRoutine()
-    {
-        float now = Time.realtimeSinceStartup;
-
-        if (now - m_LastTick < m_TickInterval)
-        {
-            return;
-        }
-        OnTick();
-        m_LastTick = now;
-    }
-
-    protected virtual void EndDebuff()
-    {
-        Destroy(this);
-    }
-
-    // Called once per tick of the debuff
-    virtual protected void OnTick()
-    {
+        // Set position of the damage numbers
         Vector2 pos = Vector2.zero;
-        if (GetComponent<Actor>().m_DebuffPlacement)
+        if (actor.m_DebuffPlacement)
         {
-            pos = GetComponent<Actor>().m_DebuffPlacement.transform.position;
+            pos = actor.m_DebuffPlacement.transform.position;
         }
         else
         {
-            pos = transform.position;
+            pos = actor.transform.position;
         }
         pos += new Vector2(0.5f, 1f);
 
-        DamageInstanceData data = new DamageInstanceData(m_Source,gameObject);
-        data.amount = m_Damage*m_StackAmount;
+        // Create damage instance event
+        DamageInstanceData data = new DamageInstanceData(m_Source, actor.gameObject);
+        data.amount = m_Damage * m_StackAmount;
         data.damageType = m_DamageType;
         data.isDoT = true;
         data.doDamageNumbers = true;
         data.doSoundEffect = false;
         DamageManager.m_Instance.DamageInstance(data, pos);
+
     }
 
-    virtual protected void DebuffBehaviour() { }
+    public void RefreshTimer()
+    {
+        // Increment stack if possible
+        if (m_StackAmount < kMaxStacks)
+        {
+            m_StackAmount++;
+        }
+
+        // Refresh timer
+        m_TimeLeft = m_Damage;
+    }
 }

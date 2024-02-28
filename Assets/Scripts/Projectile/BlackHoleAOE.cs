@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
-public class BlackHoleAOE : DebuffAOE
+public class BlackHoleAOE : ConstantDamageAOE
 {
     readonly float kPullSpeedConst = 0.01f;
     readonly float kHitboxShinkAmount = 0.3f;
@@ -38,14 +38,5 @@ public class BlackHoleAOE : DebuffAOE
 
         ShapeModule shape = particles.shape;
         shape.radius = m_AbilitySource.GetTotalStats().AOE * kParticlesToAOERatio;
-    }
-
-    override public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Enemy")) return;
-
-        base.OnTriggerExit2D (collision);
-
-
     }
 }
