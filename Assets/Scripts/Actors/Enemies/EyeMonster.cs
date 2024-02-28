@@ -14,11 +14,13 @@ public class EyeMonster : Enemy
 
     [SerializeField] GameObject m_ProjectilePrefab;
 
+    bool m_Stunned;
+
     public override void Update()
     {
         base.Update();
 
-        if (!m_ShootOnCooldown && Vector2.Distance(transform.position, Player.m_Instance.transform.position) <= m_ShootRange)
+        if (!m_Stunned && !m_ShootOnCooldown && Vector2.Distance(transform.position, Player.m_Instance.transform.position) <= m_ShootRange)
             Shoot();
     }
 
@@ -46,5 +48,12 @@ public class EyeMonster : Enemy
         m_ShootOnCooldown = true;
         yield return new WaitForSeconds(m_ShootCooldown);
         m_ShootOnCooldown = false;
+    }
+
+    public override void ToggleStunned(bool enabled)
+    {
+        base.ToggleStunned(enabled);
+
+        m_Stunned = enabled;
     }
 }
