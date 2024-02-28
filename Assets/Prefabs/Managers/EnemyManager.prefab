@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 4782787995318582076, guid: 9be176070d5270e44b396b4f8d9a6f56, type: 3}
   m_BossPrefabs:
   - {fileID: 4782787995318582076, guid: ca6d371efbf397840883c5b212c080ba, type: 3}
-  m_SpawnCooldown: 0
+  m_SpawnCooldown: 0.3
   m_WaveTimer: 60
   m_SpawnRadius: 15
   m_SpawnCurve:
@@ -83,7 +83,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 1000
+    min: 40
     max: 1000
     alpha: 0.1
   m_HealthCurve:
