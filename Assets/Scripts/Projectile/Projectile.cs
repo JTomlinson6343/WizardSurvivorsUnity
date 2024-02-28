@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     public Ability m_AbilitySource;
     protected int m_PierceCount;
 
+    protected float m_HitboxDelay = 0.1f;
+
     protected List<GameObject> m_HitTargets = new List<GameObject>();
 
     virtual public void Init(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
@@ -63,7 +65,7 @@ public class Projectile : MonoBehaviour
 
     protected IEnumerator EndTargetCooldown(GameObject enemy)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(m_HitboxDelay);
 
         m_HitTargets.Remove(enemy);
     }

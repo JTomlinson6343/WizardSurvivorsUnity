@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 7496638190251206696}
   - component: {fileID: 7166003447989865710}
   - component: {fileID: 4746508959885924093}
-  - component: {fileID: 7541251879013909355}
+  - component: {fileID: 2589820841098056360}
   m_Layer: 0
   m_Name: FlamethowerHitbox
   m_TagString: Untagged
@@ -391,7 +391,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7541251879013909355
+--- !u!114 &2589820841098056360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,13 +400,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8549380336161259966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24514deb312fd9d4db041f0628c8cb0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a5562187a5e72845bdc269a47f574ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
-  m_Type: 3
+  m_HitboxDelay: 0.25
+  m_Type: 0
   m_DoPercentHealth: 0
-  m_MaxStacks: 1
+  m_MaxStacks: 0
 --- !u!1001 &4692464581369581337
 PrefabInstance:
   m_ObjectHideFlags: 0

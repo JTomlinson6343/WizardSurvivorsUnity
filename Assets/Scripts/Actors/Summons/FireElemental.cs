@@ -9,7 +9,7 @@ public class FireElemental : Summon
 
     private void Start()
     {
-        m_FlamethrowerObject.GetComponentInChildren<DebuffAOE>().m_AbilitySource = m_AbilitySource;
+        m_FlamethrowerObject.GetComponentInChildren<ConstantDamageAOE>().m_AbilitySource = m_AbilitySource;
     }
 
     protected override void Attack()
