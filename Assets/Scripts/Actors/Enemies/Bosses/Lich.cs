@@ -134,6 +134,7 @@ public class Lich : Boss
 
     private void TeleportCheck()
     {
+        if (m_Stunned) return;
         if (m_TeleportOnCooldown) return;
 
         if (Random.Range(0f, 1f) > m_TeleportChancePerFrame) return;
@@ -195,4 +196,6 @@ public class Lich : Boss
     {
         m_StompOnCooldown = false;
     }
+
+    public override void ToggleStunned(bool enabled) { }
 }

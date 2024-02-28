@@ -80,6 +80,8 @@ public class DebuffManager : MonoBehaviour
 
         yield return DebuffRoutine(actor, debuffData);
 
+        if (!actor) yield break;
+
         actor.ToggleStunned(false);
     }
 

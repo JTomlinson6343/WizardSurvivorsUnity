@@ -14,8 +14,6 @@ public class EyeMonster : Enemy
 
     [SerializeField] GameObject m_ProjectilePrefab;
 
-    bool m_Stunned;
-
     public override void Update()
     {
         base.Update();
@@ -48,12 +46,5 @@ public class EyeMonster : Enemy
         m_ShootOnCooldown = true;
         yield return new WaitForSeconds(m_ShootCooldown);
         m_ShootOnCooldown = false;
-    }
-
-    public override void ToggleStunned(bool enabled)
-    {
-        base.ToggleStunned(enabled);
-
-        m_Stunned = enabled;
     }
 }

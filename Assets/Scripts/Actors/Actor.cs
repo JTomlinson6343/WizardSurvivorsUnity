@@ -38,6 +38,7 @@ public class Actor : MonoBehaviour
 
     protected bool m_IsMidAnimation;
     bool m_IsDead;
+    protected bool m_Stunned;
 
     public virtual void Start()
     {
@@ -125,6 +126,8 @@ public class Actor : MonoBehaviour
 
     virtual public void ToggleStunned(bool enabled)
     {
+        m_Stunned = enabled;
+
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
 
         if (!rb) return;
