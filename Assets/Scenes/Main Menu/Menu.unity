@@ -52789,7 +52789,7 @@ PrefabInstance:
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_Character
       value: 
-      objectReference: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      objectReference: {fileID: 3150333768604526943, guid: 37fd856cc5b85df43b1c084b31af0e13, type: 3}
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTree
       value: 
