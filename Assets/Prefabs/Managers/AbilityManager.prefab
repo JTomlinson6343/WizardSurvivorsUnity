@@ -134,7 +134,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 35
+    damage: 55
     speed: 0
     cooldown: 3
     amount: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: LightningCone
+    name: Cone of Lightning
     damageType: 2
     description: 
     levelUpInfo: 

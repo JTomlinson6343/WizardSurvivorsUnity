@@ -1537,7 +1537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Character
-      value: 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTree
@@ -1621,11 +1621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -115
       objectReference: {fileID: 0}
     - target: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1654,7 +1654,7 @@ PrefabInstance:
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 740431455, guid: 966866a55fe047647b5e80872d88c320, type: 3}
+      objectReference: {fileID: 858001479, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -1665,11 +1665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.g
-      value: 0.24684858
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1708,7 +1708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Character
-      value: 0
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTree
@@ -1792,11 +1792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -115
       objectReference: {fileID: 0}
     - target: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1825,18 +1825,18 @@ PrefabInstance:
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 740431455, guid: 966866a55fe047647b5e80872d88c320, type: 3}
+      objectReference: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.g
-      value: 0.40945297
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.r
