@@ -25,6 +25,7 @@ public class LightningStun : CooldownSkill
         if (damageInstance.damageType != DamageType.Lightning) return;
 
         StartCooldown();
+        AudioManager.m_Instance.PlaySound(23, 0.5f);
 
         switch (m_Data.level)
         {
@@ -51,7 +52,6 @@ public class LightningStun : CooldownSkill
         Vector2 enemyPos = enemy.GetComponent<Enemy>().m_DebuffPlacement.transform.position;
 
         sparksVFX.transform.position = enemyPos;
-        AudioManager.m_Instance.PlaySound(23,0.5f);
     }
 
     void StunEnemiesInRange(GameObject centreEnemy, float radius)
