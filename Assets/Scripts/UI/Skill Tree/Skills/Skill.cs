@@ -14,7 +14,15 @@ public enum SkillID
     FireFlamethrower,
     FireboltAttackSpeed,
     FireboltDamageBuff,
-    FirePassiveSpeed
+    FirePassiveSpeed,
+    LightningCDR,
+    LightningDamageBuff,
+    LightningAftershock,
+    LightningStun,
+    LightningStunCDR,
+    LightningConeUpgrade,
+    LightningSpellCDR,
+    LightningDoubleCast
 }
 
 [System.Serializable]

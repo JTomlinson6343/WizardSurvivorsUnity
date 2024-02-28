@@ -12,7 +12,7 @@ public class XPPickup : Pickup
         ProgressionManager.m_Instance.AddXP(1);
         if (Time.time - m_LastSoundTime > kSoundEffectCooldown)
         {
-            AudioManager.m_Instance.PlaySound(1);
+            AudioManager.m_Instance.PlaySound(1, 0.5f);
             m_LastSoundTime = Time.time;
         }
         base.OnPickup();

@@ -53,7 +53,6 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     private void Update()
     {
-
         if (StateManager.GetCurrentState() == State.BOSS ||
             (StateManager.GetPreviousState() == State.BOSS && (StateManager.GetPreviousState() == State.UPGRADING || StateManager.GetPreviousState() == State.GAME_OVER)))
         {
@@ -122,13 +121,11 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     }
     private IEnumerator Shake(float duration, float magnitude)
     {
-        Vector3 originalPos = m_Camera.transform.localPosition;
-
         float elapsed = 0f;
          
         while (elapsed < duration)
         {
-            if (StateManager.GetCurrentState() == State.GAME_OVER) break;
+            if (StateManager.IsGameplayStopped()) break;
 
             elapsed += Time.deltaTime;
 

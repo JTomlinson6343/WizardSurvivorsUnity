@@ -130,7 +130,7 @@ public class Player : Actor
     {
         if (m_AutoFire)
         {
-            m_ActiveAbility.StartAutoCasting();
+            m_ActiveAbility.StartAutoCasting(0);
         }
         else
         {

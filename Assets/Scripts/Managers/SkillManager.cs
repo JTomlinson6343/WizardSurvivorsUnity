@@ -12,7 +12,8 @@ public class SkillManager : MonoBehaviour
     private void Awake()
     {
         m_Instance = this;
-        SkillPanel.m_Instance.Init();
+        if (SkillPanel.m_Instance)
+            SkillPanel.m_Instance.Init();
     }
 
     private void Start()
@@ -39,7 +40,7 @@ public class SkillManager : MonoBehaviour
         {
             foreach(SkillData skillData in m_Skills)
             {
-                if (skill.m_Data.id == skillData.id)
+                if (skill.m_Data.id == skillData.id && PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id))
                 {
                     skill.Init(skillData);
                 }

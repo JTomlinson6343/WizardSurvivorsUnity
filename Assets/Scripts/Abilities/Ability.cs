@@ -92,6 +92,9 @@ public class Ability : MonoBehaviour
 
     public bool m_IsSpell;
 
+    public int     m_CastAmount = 1;
+    readonly float kMultiCastDelay = 0.3f;
+
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
     protected AbilityStats m_AbilityStatsBuffs;
@@ -102,6 +105,7 @@ public class Ability : MonoBehaviour
 
     public float m_DefaultAutofireRange = 10f;
     protected readonly float kCooldownAfterReset = 2f;
+    protected float kMinCooldownModifier = 0.1f;
 
     //Getters//
     public AbilityStats GetBonusStats() { return m_BonusStats; }
@@ -119,29 +123,56 @@ public class Ability : MonoBehaviour
         {
             Debug.Log(m_Data.name + " was enabled.");
             m_Enabled = true;
-            StopAutoCasting();
-            if (m_TotalStats.cooldown < 0)
-            {
-                OnCast();
-            }
-            else
-            {
-                StartAutoCasting();
-            }
+            ResetCooldown(0);
         }
         LevelUp();
         Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
-    public void StartAutoCasting()
+    public void StartAutoCasting(float newCooldown)
     {
-        InvokeRepeating(nameof(OnCast), 0, m_TotalStats.cooldown);
-
+        InvokeRepeating(nameof(SingleOrMultipleCast), newCooldown, m_TotalStats.cooldown);
     }
 
     public void StopAutoCasting()
     {
-        CancelInvoke(nameof(OnCast));
+        CancelInvoke(nameof(SingleOrMultipleCast));
+    }
+
+    protected void ResetCooldown(float newCooldown)
+    {
+        StopAutoCasting();
+        if (m_TotalStats.cooldown < 0)
+        {
+
+            SingleOrMultipleCast();
+        }
+        else
+        {
+            StartAutoCasting(newCooldown);
+        }
+    }
+
+    private void SingleOrMultipleCast()
+    {
+        if (m_CastAmount > 1)
+        {
+            StartCoroutine(MultiCast());
+        }
+        else
+        {
+            OnCast();
+        }
+    }
+
+    private IEnumerator MultiCast()
+    {
+        for (int i = 0; i < m_CastAmount; i++)
+        {
+            OnCast();
+
+            yield return new WaitForSeconds(kMultiCastDelay);
+        }
     }
 
     // Called every time the cooldown ends
@@ -150,25 +181,11 @@ public class Ability : MonoBehaviour
         if (StateManager.GetCurrentState() != State.PLAYING) { return; }
     }
 
-
     // Override this to add behaviour to take in the mouse position
     virtual public void OnMouseInput(Vector2 aimDirection)
     {
         // No OnMouseInput behaviour defined. Defaulting to normal ability cast
         OnCast();
-    }
-
-    protected void ResetCooldown(float newCooldown)
-    {
-        StopAutoCasting();
-        if (m_TotalStats.cooldown < 0)
-        {
-            OnCast();
-        }
-        else
-        {
-            StartAutoCasting();
-        }
     }
 
     #region Stats
@@ -184,13 +201,17 @@ public class Ability : MonoBehaviour
 
         // Update total stats. Bonus stats are applied as a percentage of the base damage
         m_TotalStats = m_BaseStats + m_BonusStats*m_BaseStats + AbilityManager.m_Instance.GetAbilityStatBuffs()*m_BaseStats;
+        if (m_TotalStats.cooldown <= 0)
+            m_TotalStats.cooldown = m_BaseStats.cooldown * kMinCooldownModifier;
+
         m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
     }
 
-    public void AddTempStats(AbilityStats stats)
+    public void AddTempStats(AbilityStats stats, float duration)
     {
         m_BonusStats += stats;
         UpdateTotalStats();
+        StartCoroutine(RemoveTempStats(stats, duration));
     }
 
     private IEnumerator RemoveTempStats(AbilityStats stats, float duration)
@@ -234,5 +255,10 @@ public class Ability : MonoBehaviour
         if (m_HitEnemies.Contains(enemy)) return true;
 
         return false;
+    }
+
+    public bool IsEnabled()
+    {
+        return m_Enabled;
     }
 }

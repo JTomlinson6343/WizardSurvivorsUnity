@@ -29,6 +29,8 @@ public class AbilityManager : MonoBehaviour
 
     bool m_AbilityChoicesShown;
 
+    public bool m_LightningDoubleCastOn;
+
     private void Awake()
     {
         m_Instance = this;
@@ -235,6 +237,8 @@ public class AbilityManager : MonoBehaviour
         {
             ability.UpdateTotalStats();
         }
+
+        if (m_LightningDoubleCastOn) UpdateDoubleCastedSpell();
     }
 
     public AbilityStats GetAbilityStatBuffs()
@@ -272,8 +276,49 @@ public class AbilityManager : MonoBehaviour
         {
             // Add bonus stats to abilities with same damage type
             if (ability.m_Data.damageType == type || type == DamageType.None)
-                ability.AddTempStats(stats);
+                ability.AddTempStats(stats, duration);
         }
         UpdateAllAbilityStats();
+    }
+
+    public void AddTempAbilityStatBuffs(AbilityStats stats, float duration)
+    {
+        Ability[] abilities = GetComponentsInChildren<Ability>();
+
+        // Update ability stats
+        foreach (Ability ability in abilities)
+        {
+            // Add bonus stats to abilities
+            ability.AddTempStats(stats, duration);
+        }
+        UpdateAllAbilityStats();
+    }
+
+    public Spell[] GetAllSpells()
+    {
+        return GetComponentsInChildren<Spell>();
+    }
+
+    public Spell GetHighestCooldownSpell()
+    {
+        Spell highestSpell = GetAllSpells()[0];
+
+        foreach (Spell spell in GetAllSpells())
+        {
+            if (!spell.IsEnabled()) continue;
+            if (spell.GetTotalStats().cooldown > highestSpell.GetTotalStats().cooldown) highestSpell = spell;
+        }
+
+        return highestSpell;
+    }
+
+    private void UpdateDoubleCastedSpell()
+    {
+        foreach (Spell spell in GetComponentsInChildren<Spell>())
+        {
+            spell.m_CastAmount = 1;
+        }
+
+        GetHighestCooldownSpell().m_CastAmount = 2;
     }
 }
