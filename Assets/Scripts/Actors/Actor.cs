@@ -34,6 +34,7 @@ public class Actor : MonoBehaviour
     private float m_FlashTime = 0.1f;
 
     public GameObject m_DebuffPlacement;
+    public List<Debuff> m_Debuffs = new List<Debuff>();
 
     protected bool m_IsMidAnimation;
     bool m_IsDead;

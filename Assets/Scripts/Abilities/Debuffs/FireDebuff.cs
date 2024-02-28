@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using System.Reflection;
 
-public class FireDebuff : Debuff
+public class FireDebuff : Debuff_old
 {
     public GameObject m_FireParticlePrefab;
     public Light2D m_LightPrefab;

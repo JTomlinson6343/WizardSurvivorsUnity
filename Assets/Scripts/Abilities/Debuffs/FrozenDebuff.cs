@@ -5,7 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class FrozenDebuff : Debuff
+public class FrozenDebuff : Debuff_old
 {
     protected override void DebuffBehaviour()
     {

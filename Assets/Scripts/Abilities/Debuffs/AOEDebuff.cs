@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
-public class AOEDebuff : Debuff // Debuff applied when something is in the AOE
+public class AOEDebuff : Debuff_old // Debuff applied when something is in the AOE
 {
     override protected void OnTick()
     {

@@ -11,7 +11,7 @@ public class DebuffAOE : AOEObject
     protected virtual void OnTriggerStay2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Enemy")) return;
-        if (Debuff.IsDebuffPresent(collision.gameObject, m_Type)) return;
+        if (Debuff_old.IsDebuffPresent(collision.gameObject, m_Type)) return;
 
         // If enemy is in the zone and doesnt yet have the debuff, add debuff 
         AOEDebuff aoeDebuff = collision.gameObject.AddComponent<AOEDebuff>();
