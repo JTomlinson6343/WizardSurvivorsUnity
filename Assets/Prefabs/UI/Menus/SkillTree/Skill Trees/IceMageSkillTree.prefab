@@ -477,6 +477,22 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Parting Snowstorm
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.maxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -497,6 +513,11 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: Killing an enemy with ice damage summons an icy blizzard at their location,
+        dealing damage to nearby enemies
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
       value: 
       objectReference: {fileID: 8854367018202340756}
@@ -504,6 +525,10 @@ PrefabInstance:
       propertyPath: m_Prerequisites.Array.data[1]
       value: 
       objectReference: {fileID: 5862826773195981416}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -627,6 +652,22 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Rime
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.maxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -647,9 +688,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: Killing an enemy slowed by Frostbite will spread frostbite to all nearby
+        enemies
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
       value: 
       objectReference: {fileID: 301646648871577636}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -784,13 +834,33 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Arctic Reach
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.data[0]
       value: 
       objectReference: {fileID: 5943747294447431661}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: +10% zone size
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[1]
+      value: +20% zone size
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.data[0]
+      value: +10% zone size
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -925,6 +995,22 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Frosty Familiar
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.maxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -945,9 +1031,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: Summon an ice elemental to fight for you
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
       value: 
       objectReference: {fileID: 3261343032659562745}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1082,11 +1176,23 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Frostbite
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_PrevLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -1106,6 +1212,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: Dealing ice damage slows enemies by 10% for 1 second
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[1]
+      value: Dealing ice damage slows enemies by 20% for 1 second
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
       value: 
       objectReference: {fileID: 2355055812840822194}
@@ -1113,6 +1227,10 @@ PrefabInstance:
       propertyPath: m_Prerequisites.Array.data[1]
       value: 
       objectReference: {fileID: 8844599157717837197}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.data[0]
+      value: +10% slow amount
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1247,13 +1365,61 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Glacial Power
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.maxLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[1]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[2]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.data[0]
       value: 
       objectReference: {fileID: 4008252143643078151}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: +4% ice damage
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[1]
+      value: +8% ice damage
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[2]
+      value: +12% ice damage
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.data[0]
+      value: +4% ice damage
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.data[1]
+      value: +4% ice damage
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1548,13 +1714,57 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Ice Barrier
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Data.maxLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Cost.Array.data[2]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.data[0]
       value: 
       objectReference: {fileID: 6789039183623301046}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: -2% damage taken
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[1]
+      value: -4% damage taken
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[2]
+      value: -6% damage taken
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.data[0]
+      value: -6% damage taken
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1689,12 +1899,20 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_SkillName
+      value: Chill
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_PrevLines.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_NextLines.Array.data[0]
@@ -1709,9 +1927,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[0]
+      value: Dealing ice damage has a 2% chance to freeze enemies for 2 seconds
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[1]
+      value: Dealing ice damage has a 4% chance to freeze enemies for 2 seconds
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
       value: 
       objectReference: {fileID: 940106647009663993}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnLevelUpDescription.Array.data[0]
+      value: +2% chance
+      objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

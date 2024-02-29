@@ -10,6 +10,7 @@ public struct DamageStats
     public float m_LightningResist;
     public float m_PoisonResist;
     public float m_PhysicalResist;
+    public float m_All;
 }
 
 public enum DamageOutput

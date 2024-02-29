@@ -82,7 +82,10 @@ public class SkillTree : MonoBehaviour
         if (m_CurrentSkill.m_Cost.Length <= m_CurrentSkill.m_Data.level || m_CurrentSkill.m_Data.level == 0)
             return "";
         else
-            return "Next level: " + m_CurrentSkill.m_OnLevelUpDescription[m_CurrentSkill.m_Data.level-1];
+            if (m_CurrentSkill.m_OnLevelUpDescription.Length < m_CurrentSkill.m_Data.level - 1)
+                return "Next level: " + m_CurrentSkill.m_OnLevelUpDescription.Last();
+            else 
+                return "Next level: " + m_CurrentSkill.m_OnLevelUpDescription[m_CurrentSkill.m_Data.level-1];
     }
 
     public void SetHighlightedSkill(SkillIcon skill)
