@@ -230,20 +230,11 @@ public class Player : Actor
     private void FaceDirection(Vector2 dir)
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
-        // If player is moving right, face right
-        if (dir.x > 0)
-        {
-            sprite.flipX = false;
-            spriteMask.flipX = false;
-            m_StaffPos.transform.localPosition = staffStartPos;
-        }
-        // If player is moving left, face left
-        else if (dir.x < 0)
-        {
-            sprite.flipX = true;
-            spriteMask.flipX = true;
-            m_StaffPos.transform.localPosition = staffStartPos * new Vector2(-1, 1);
-        }
+
+        // If velocity > 0, don't flip. if it is less than, flip
+        float faceDir = dir.x > 0 ? 1f : -1f;
+
+        sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x) * faceDir, sprite.transform.localScale.y);
     }
 
     // If actor has i-frames, return false. Else, return true
