@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4277215404916861540, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 4277215404916861540, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
       propertyPath: m_LocalPosition.z
@@ -128,6 +128,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5831496453883848775, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.03137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332134642139255983, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332134642139255983, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7393008292068779161, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
       propertyPath: m_Name
       value: BlizzardParticleEffect
@@ -152,11 +164,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 179911701543109831, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_Radius
-      value: 1.0434618
+      value: 1.0219386
       objectReference: {fileID: 0}
     - target: {fileID: 179911701543109831, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_Offset.y
-      value: 0.42508388
+      value: 0.40356064
       objectReference: {fileID: 0}
     - target: {fileID: 534245749071217156, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_Color.a
