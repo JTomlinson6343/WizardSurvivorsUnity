@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_ActiveFramesDuration: 0.1
 --- !u!60 &1630819234970889734
 PolygonCollider2D:
   m_ObjectHideFlags: 0

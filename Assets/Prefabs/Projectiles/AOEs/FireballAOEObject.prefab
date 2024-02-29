@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3875120082025783638, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
+      propertyPath: m_ActiveFramesDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6689438443112598672, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_Name
       value: FireballAOEObject

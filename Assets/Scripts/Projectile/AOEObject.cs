@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class AOEObject : Projectile
 {
+    [SerializeField] float m_ActiveFramesDuration;
+
     readonly float kLifetimeToAOERatio = 4.4f;
+
+    float m_TimeSpawned;
+
+    private void Awake()
+    {
+        m_TimeSpawned = Time.realtimeSinceStartup;
+    }
 
     protected override void OnTargetHit(GameObject enemy)
     {
+        if (m_ActiveFramesDuration > 0f && Time.realtimeSinceStartup - m_TimeSpawned > m_ActiveFramesDuration) return;
+
         if (m_HitTargets.Contains(enemy)) return;
 
         m_HitTargets.Add(enemy);

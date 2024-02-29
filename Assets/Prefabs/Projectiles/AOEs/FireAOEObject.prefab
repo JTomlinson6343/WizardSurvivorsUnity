@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_ActiveFramesDuration: 0.1
   m_Damage: 0.2
   m_SkillSource: {fileID: 0}
   m_FireDebuffSkillRef: {fileID: 0}
