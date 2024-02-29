@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.837
       objectReference: {fileID: 0}
+    - target: {fileID: 2687768136547122572, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_ActiveAbility
+      value: 
+      objectReference: {fileID: 2384958396799595247}
     - target: {fileID: 3149948031472934145, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_Name
       value: IceMage
@@ -84,8 +88,23 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1299336938, guid: b59492deb20c9c841b93534c7cd7034b, type: 3}
+    - target: {fileID: 8586813334062294181, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_BulletPrefab
+      value: 
+      objectReference: {fileID: 2787149867258741970, guid: ac646f8cf2e170849abd8c893b742d08, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+--- !u!114 &2384958396799595247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8586813334062294181, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+  m_PrefabInstance: {fileID: 6211429519816775242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb896f140784e81438ab7914a54a78a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
