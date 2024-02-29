@@ -136,7 +136,7 @@ MonoBehaviour:
     duration: 0
     damage: 55
     speed: 0
-    cooldown: 2
+    cooldown: 1.5
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -559,7 +559,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
-  m_Fog: {fileID: 7281175807753145478}
+  m_Fog: {fileID: 0}
   m_Snow: {fileID: 6251831300220787743}
   m_BlizzardPrefab: {fileID: 6689438443112598672, guid: 1ff7dae28a3955f4791c85436356a2f7, type: 3}
 --- !u!1 &2048881655503188187
@@ -2529,7 +2529,7 @@ MonoBehaviour:
     duration: 0
     damage: 10
     speed: 2.5
-    cooldown: 1.5
+    cooldown: 2
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -2699,11 +2699,6 @@ Transform:
 --- !u!1 &6251831300220787743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7393008292068779161, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
-  m_PrefabInstance: {fileID: 3484601587707607174}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7281175807753145478 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6147453621041214464, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
   m_PrefabInstance: {fileID: 3484601587707607174}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3739312787326574324
