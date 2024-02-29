@@ -122,7 +122,9 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     private IEnumerator Shake(float duration, float magnitude)
     {
         float elapsed = 0f;
-         
+
+        Vector3 originalPos = m_Camera.transform.localPosition;
+
         while (elapsed < duration)
         {
             if (StateManager.IsGameplayStopped()) break;
@@ -136,6 +138,14 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
             yield return new WaitForEndOfFrame();
         }
+
+        while (m_Camera.transform.localPosition != originalPos)
+        {
+            m_Camera.transform.localPosition = Vector3.MoveTowards(m_Camera.transform.localPosition, originalPos, Time.deltaTime * m_CameraSpeed);
+
+            yield return new WaitForEndOfFrame();
+        }
+
         yield return null;
     }
 }

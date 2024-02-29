@@ -101,6 +101,10 @@ PrefabInstance:
       value: 0.28613955
       objectReference: {fileID: 0}
     - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1
       objectReference: {fileID: 0}
@@ -115,6 +119,18 @@ PrefabInstance:
     - target: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Name
       value: IceShard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9646299
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4198113
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
