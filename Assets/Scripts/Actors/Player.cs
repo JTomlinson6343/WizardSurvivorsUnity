@@ -342,7 +342,7 @@ public class Player : Actor
         for (int i = 0; i < Mathf.RoundToInt(amount/healSpeed); i++)
         {
             m_Health += healSpeed;
-            new WaitForSeconds(Time.deltaTime);
+            new WaitForEndOfFrame();
             yield return null;
         }
         yield return null;

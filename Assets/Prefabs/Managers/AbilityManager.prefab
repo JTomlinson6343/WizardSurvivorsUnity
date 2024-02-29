@@ -2402,7 +2402,7 @@ MonoBehaviour:
   m_PlayerStatBuffs:
     speed: 0
     shotSpeed: 0
-    maxHealth: 0
+    maxHealth: 20
     healthRegen: 0
 --- !u!1 &8590091372280641179
 GameObject:
