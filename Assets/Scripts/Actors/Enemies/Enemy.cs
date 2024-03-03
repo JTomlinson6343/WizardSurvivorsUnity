@@ -9,10 +9,7 @@ public class Enemy : Actor
     public float m_MinWave; // Minimum wave number that enemy can spawn on
 
     [SerializeField] protected int m_XPAwarded;
-    [SerializeField] float m_SkillPointDropChance;
 
-    [SerializeField] int m_MinChampSkillPoints;
-    [SerializeField] int m_MaxChampSkillPoints;
     private bool m_IsChampion = false;
     private readonly float kChampSizeMod = 2f;
     private readonly int kChampXPMod = 2;
@@ -25,6 +22,10 @@ public class Enemy : Actor
 
     private readonly float m_kKnockback = 0.25f;
     private readonly float m_kBaseMoveSpeed = 2.2f;
+
+    protected readonly float kSkillPointDropChance = 0.03f;
+    private readonly int     m_MinChampSkillPoints = 2;
+    private readonly int     m_MaxChampSkillPoints = 4;
 
     protected Rigidbody2D rb;
     protected Animator m_Animator;
@@ -137,7 +138,7 @@ public class Enemy : Actor
 
     private void RollForSkillPoint()
     {
-        if (Random.Range(0f, 1f) > m_SkillPointDropChance) return;
+        if (Random.Range(0f, 1f) > kSkillPointDropChance) return;
 
         ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, 1);
     }
