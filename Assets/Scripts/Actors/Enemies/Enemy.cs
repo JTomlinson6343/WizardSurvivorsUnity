@@ -156,9 +156,14 @@ public class Enemy : Actor
         EnemyManager.m_Instance.IncrementEnemiesKilled();
     }
 
-    private void NormalDeath()
+    virtual protected void NormalDeath()
     {
         RollForSkillPoint();
+        DeathParticlesRoutine();
+    }
+
+    protected void DeathParticlesRoutine()
+    {
         if (!m_DeathParticlesPrefab) return;
 
         GameObject smoke = Instantiate(m_DeathParticlesPrefab);
