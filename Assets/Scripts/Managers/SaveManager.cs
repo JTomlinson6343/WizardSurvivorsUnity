@@ -22,10 +22,10 @@ public struct SkillTreeData
 }
 
 [System.Serializable]
-public struct OptionsData
+public class OptionsData
 {
-    public float musicVolume;
-    public float soundVolume;
+    public float musicVolume = 1f;
+    public float soundVolume = 1f;
     public bool  autoFire;
 }
 
