@@ -30,7 +30,7 @@ public class DebuffManager : MonoBehaviour
     {
         if (!actor) return;
 
-        if (GetDebuffIfPresent(actor, debuffData.kType) != null)
+        if (RefreshCheck(actor, debuffData))
             return;
 
         switch (debuffData.kType)
@@ -100,7 +100,7 @@ public class DebuffManager : MonoBehaviour
         return null;
     }
 
-    public bool RefreshCheck(Actor actor, Debuff debuffData)
+    public bool RefreshCheck(Actor actor, Debuff debuffData) // Return true if debuff already present and gets refreshed
     {
         Debuff presentDebuff = GetDebuffIfPresent(actor, debuffData.kType);
         if (presentDebuff != null)

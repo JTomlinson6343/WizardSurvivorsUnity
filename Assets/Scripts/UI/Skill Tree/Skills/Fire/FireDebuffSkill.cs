@@ -25,27 +25,20 @@ public class FireDebuffSkill : Skill
         ApplyFireDebuff(damageInstance.user,damageInstance.target);
     }
 
-    //public void ApplyFireDebuff(GameObject user, GameObject target)
-    //{
-    //    FireDebuff debuff = target.AddComponent<FireDebuff>();
-    //    debuff.m_FireParticlePrefab = m_FireParticlePrefab;
-    //    debuff.m_LightPrefab = m_LightPrefab;
-    //    switch (m_Data.level)
-    //    {
-    //        case 1:
-    //            debuff.Init(5, m_Damage, m_DamageType, user, false, 1, DebuffType.Blaze);
-    //            break;
-    //        case 2:
-    //            debuff.Init(5, m_Damage, m_DamageType, user, false, 3, DebuffType.Blaze);
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
-
     public void ApplyFireDebuff(GameObject user, GameObject target)
     {
-        Debuff debuff = new Debuff(DebuffType.Blaze, m_DamageType, m_Damage, 1, 5, user);
+        Debuff debuff;
+        switch (m_Data.level)
+        {
+            case 1:
+                debuff = new Debuff(DebuffType.Blaze, m_DamageType, m_Damage, 1, 5, user);
+                break;
+            case 2:
+                debuff = new Debuff(DebuffType.Blaze, m_DamageType, m_Damage, 3, 5, user);
+                break;
+            default:
+                return;
+        }
 
         DebuffManager.m_Instance.AddDebuff(target.GetComponent<Actor>(), debuff);
     }
