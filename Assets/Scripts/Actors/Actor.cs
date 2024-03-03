@@ -1,17 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-public struct DamageStats
-{
-    public float m_FireResist;
-    public float m_FrostResist;
-    public float m_LightningResist;
-    public float m_PoisonResist;
-    public float m_PhysicalResist;
-    public float m_All;
-}
 
 public enum DamageOutput
 {
@@ -27,8 +18,7 @@ public class Actor : MonoBehaviour
 
     public float m_KnockbackResist;
 
-    private DamageStats m_BaseResistance;
-    private DamageStats m_BonusResistance;
+    public float m_DamageResistance;
 
     private Material m_DefaultMaterial;
     public Material m_WhiteFlashMaterial;

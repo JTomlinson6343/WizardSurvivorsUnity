@@ -914,7 +914,6 @@ MonoBehaviour:
   m_Radius: 2
   m_RadiusIncrease: 1.5
   m_SparksVFX: {fileID: 3485410154440569457, guid: 46bf493c4b546954ab742ef55848e517, type: 3}
-  m_IsUpgraded: 0
 --- !u!1 &8186284041277370337
 GameObject:
   m_ObjectHideFlags: 0

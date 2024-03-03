@@ -56,14 +56,18 @@ public class DamageManager : MonoBehaviour
     {
         if (data.doSoundEffect)
         {
+            // Play damage sound effect
             if (data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(21);
             else AudioManager.m_Instance.PlaySound(0);
         }
 
         Actor actorComponent = data.target.GetComponent<Actor>();
-        DamageOutput damageOutput = 0;
 
-        damageOutput = actorComponent.TakeDamage(data.amount);
+        float damageDealt = data.amount * (1f - actorComponent.m_DamageResistance);
+
+        if (damageDealt <= 0f) { damageDealt = 1f; }
+
+        DamageOutput damageOutput = actorComponent.TakeDamage(damageDealt);
 
         if (damageOutput >= DamageOutput.invalidHit && data.doDamageNumbers)
         {
@@ -71,7 +75,7 @@ public class DamageManager : MonoBehaviour
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
             damageNumber.transform.position = pos + new Vector2(Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius), Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius));
             damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(data.damageType);
-            damageNumber.GetComponent<FloatingDamage>().m_Damage = data.amount;
+            damageNumber.GetComponent<FloatingDamage>().m_Damage = damageDealt;
             data.didKill = damageOutput == DamageOutput.wasKilled;
             m_DamageInstanceEvent.Invoke(data);
         }
