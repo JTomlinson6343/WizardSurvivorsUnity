@@ -8,6 +8,7 @@ public enum DebuffType
     None,
     Blaze,
     Frozen,
+    FrozenSkill,
     Paralysed,
     Frostbite
 }
@@ -16,8 +17,9 @@ public class DebuffManager : MonoBehaviour
 {
     public static DebuffManager m_Instance;
 
-    public GameObject m_FireParticlePrefab;
-    public GameObject m_SnowflakeParticlePrefab;
+    [SerializeField] GameObject m_FireParticlePrefab;
+    [SerializeField] GameObject m_SnowflakeParticlePrefab;
+    [SerializeField] GameObject m_IceCrystalPrefab;
 
     private void Awake()
     {
@@ -39,6 +41,9 @@ public class DebuffManager : MonoBehaviour
             case DebuffType.Frozen:
             case DebuffType.Paralysed:
                 StartCoroutine(FrozenDebuffRoutine(actor, debuffData));
+                break;
+            case DebuffType.FrozenSkill:
+                StartCoroutine(FrozenSkillDebuffRoutine(actor, debuffData));
                 break;
             case DebuffType.Frostbite:
                 StartCoroutine(FrostbiteDebuffRoutine(actor, debuffData));
@@ -90,6 +95,16 @@ public class DebuffManager : MonoBehaviour
         if (!actor) yield break;
 
         actor.ToggleStunned(false);
+    }
+
+    IEnumerator FrozenSkillDebuffRoutine(Actor actor, Debuff debuffData)
+    {
+        GameObject ice = Instantiate(m_IceCrystalPrefab);
+        ice.transform.position = actor.transform.position + new Vector3(0f,0.5f);
+
+        yield return FrozenDebuffRoutine(actor, debuffData);
+
+        Destroy(ice);
     }
 
     IEnumerator FrostbiteDebuffRoutine(Actor actor, Debuff debuffData)

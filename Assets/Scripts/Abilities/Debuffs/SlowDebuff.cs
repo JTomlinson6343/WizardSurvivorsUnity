@@ -20,6 +20,7 @@ public class SlowDebuff : Debuff
 
         // Reduce speed
         actor.GetComponent<Enemy>().m_Speed *= (1f - m_SlowAmount);
+        actor.GetComponentInChildren<Animator>().speed *= (1f - m_SlowAmount);
     }
 
     public override void OnEnd(Actor actor)
@@ -28,5 +29,6 @@ public class SlowDebuff : Debuff
 
         // Increase speed back to normal
         actor.GetComponent<Enemy>().m_Speed /= (1f - m_SlowAmount);
+        actor.GetComponentInChildren<Animator>().speed /= (1f - m_SlowAmount);
     }
 }
