@@ -42,6 +42,7 @@ public class Debuff
 
     public virtual void OnTick(Actor actor)
     {
+        m_TimeLeft -= kTickRate;
         if (m_Damage <= 0) return;
         DamageActor(actor);
     }
@@ -81,6 +82,6 @@ public class Debuff
         }
 
         // Refresh timer
-        m_TimeLeft = m_Damage;
+        m_TimeLeft = kDuration;
     }
 }

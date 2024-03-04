@@ -5,7 +5,6 @@ public class SlowDebuff : Debuff
 {
     public float m_SlowAmount;
 
-    private Color m_OldColour;
     public SlowDebuff(DebuffType type, DamageType damageType, float damage, float maxStacks, float duration, GameObject source, float slowAmount)
         : base(type, damageType, damage, maxStacks, duration, source)
     {
@@ -19,12 +18,8 @@ public class SlowDebuff : Debuff
     {
         base.OnApply(actor);
 
-        m_OldColour = actor.GetComponentInChildren<SpriteRenderer>().color;
-
         // Reduce speed
         actor.GetComponent<Enemy>().m_Speed *= (1f - m_SlowAmount);
-
-        actor.GetComponentInChildren<SpriteRenderer>().color = Color.cyan * m_OldColour;
     }
 
     public override void OnEnd(Actor actor)
@@ -33,7 +28,5 @@ public class SlowDebuff : Debuff
 
         // Increase speed back to normal
         actor.GetComponent<Enemy>().m_Speed /= (1f - m_SlowAmount);
-
-        actor.GetComponentInChildren<SpriteRenderer>().color = m_OldColour;
     }
 }

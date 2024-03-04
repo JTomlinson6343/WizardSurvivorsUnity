@@ -17,6 +17,7 @@ public class DebuffManager : MonoBehaviour
     public static DebuffManager m_Instance;
 
     public GameObject m_FireParticlePrefab;
+    public GameObject m_SnowflakeParticlePrefab;
 
     private void Awake()
     {
@@ -62,11 +63,9 @@ public class DebuffManager : MonoBehaviour
             yield return new WaitForSeconds(debuffData.kTickRate);
         }
 
-        if (actor)
-        {
-            debuffData.OnEnd(actor);
-            actor.m_Debuffs.Remove(debuffData);
-        }
+        debuffData.OnEnd(actor);
+        actor.m_Debuffs.Remove(debuffData);
+        
     }
 
     IEnumerator FireDebuffRoutine(Actor actor, Debuff debuffData)
@@ -93,7 +92,13 @@ public class DebuffManager : MonoBehaviour
 
     IEnumerator FrostbiteDebuffRoutine(Actor actor, Debuff debuffData)
     {
+        GameObject snowflakes = Instantiate(m_SnowflakeParticlePrefab);
+        snowflakes.transform.SetParent(actor.transform);
+        snowflakes.transform.position = actor.transform.position;
+
         yield return DebuffRoutine(actor, debuffData);
+
+        Destroy(snowflakes);
     }
 
     public static Debuff GetDebuffIfPresent(Actor actor, DebuffType type)

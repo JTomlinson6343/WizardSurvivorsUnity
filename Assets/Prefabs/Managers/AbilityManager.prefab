@@ -559,7 +559,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
-  m_Fog: {fileID: 0}
+  m_Fog: {fileID: 8845529031597215064, guid: f75819a02f3587343a741fa7731c02b7, type: 3}
   m_Snow: {fileID: 6251831300220787743}
   m_BlizzardPrefab: {fileID: 6689438443112598672, guid: 1ff7dae28a3955f4791c85436356a2f7, type: 3}
 --- !u!1 &2048881655503188187

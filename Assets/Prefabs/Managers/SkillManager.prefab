@@ -504,8 +504,8 @@ MonoBehaviour:
     id: 21
     level: 0
     maxLevel: 0
-  m_BaseSlow: 0.05
-  m_UpgradedSlow: 0.1
+  m_BaseSlow: 0.2
+  m_UpgradedSlow: 0.4
 --- !u!1 &4963950462257010715
 GameObject:
   m_ObjectHideFlags: 0
