@@ -116,6 +116,11 @@ public class Ability : MonoBehaviour
         UpdateTotalStats();
     }
 
+    private void Awake()
+    {
+        UpdateTotalStats();
+    }
+
     // Called when the ability is chosen on the ability menu
     virtual public void OnChosen()
     {
