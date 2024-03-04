@@ -63,9 +63,11 @@ public class DebuffManager : MonoBehaviour
             yield return new WaitForSeconds(debuffData.kTickRate);
         }
 
-        debuffData.OnEnd(actor);
-        actor.m_Debuffs.Remove(debuffData);
-        
+        if (actor)
+        {
+            debuffData.OnEnd(actor);
+            actor.m_Debuffs.Remove(debuffData);
+        }
     }
 
     IEnumerator FireDebuffRoutine(Actor actor, Debuff debuffData)

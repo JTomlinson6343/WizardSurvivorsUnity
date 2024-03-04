@@ -1,13 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireSpread : CooldownSkill
+public class SlowSpreadSkill : CooldownSkill
 {
     [SerializeField] float m_Radius;
-    [SerializeField] FireDebuffSkill m_FireDebuffSkillRef;
+    [SerializeField] IceSlowSkill m_IceSlowSkillRef;
     [SerializeField] GameObject m_LineCreator;
-
     override public void Init(SkillData data)
     {
         base.Init(data);
@@ -18,7 +17,7 @@ public class FireSpread : CooldownSkill
     {
         if (m_OnCooldown) return;
         if (!damageInstance.user.CompareTag("Player")) return;
-        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(),DebuffType.Blaze) == null) return;
+        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), DebuffType.Frostbite) == null) return;
         if (!damageInstance.didKill) return;
 
         List<GameObject> enemies = GameplayManager.GetAllEnemiesInRange(damageInstance.target.transform.position, m_Radius);
@@ -33,11 +32,11 @@ public class FireSpread : CooldownSkill
                 damageInstance.target.GetComponent<Actor>().m_DebuffPlacement.transform.position,
                 enemy.transform.position,
                 0.1f,
-                Color.red,
-                Color.yellow
+                Color.white,
+                Color.cyan
                 );
 
-            m_FireDebuffSkillRef.ApplyFireDebuff(damageInstance.user, enemy);
+            m_IceSlowSkillRef.ApplySlowDebuff(damageInstance.user, enemy);
         }
     }
 }
