@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_ActiveFramesDuration: 0
 --- !u!1 &3522049082295480449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5401328510151665065, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
@@ -127,7 +128,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
