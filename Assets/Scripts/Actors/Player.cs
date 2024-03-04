@@ -62,7 +62,6 @@ public class Player : Actor
     public Ability m_ActiveAbility;
     public static bool m_AutoFire = false;
 
-    private float m_LastHit = 0.0f;
     float m_LastShot = 0;
 
     public float m_IFramesTime;
