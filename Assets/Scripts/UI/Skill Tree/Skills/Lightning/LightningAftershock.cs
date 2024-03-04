@@ -5,7 +5,6 @@ using UnityEngine;
 public class LightningAftershock : CooldownSkill
 {
     [SerializeField] float m_Lifetime;
-    private Ability m_Ability;
     [SerializeField] GameObject m_LightningBoltPrefab;
 
     override public void Init(SkillData data)

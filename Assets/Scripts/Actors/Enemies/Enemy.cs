@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Actor
@@ -16,7 +17,7 @@ public class Enemy : Actor
     private readonly float kChampHealthMod = 3f;
     private readonly Color kChampColour = new Color(1, 0.3f, 0);
 
-    [SerializeField] public float m_Speed;
+    public float m_Speed;
     [SerializeField] protected float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
 
@@ -88,29 +89,22 @@ public class Enemy : Actor
     {
         GameObject otherObject = collision.gameObject;
 
-        Vector2 objectPos = otherObject.transform.position;
-        Vector2 currentPos = gameObject.transform.position;
+        if (m_Stunned) return;
+        if (!otherObject.GetComponent<Player>()) return;
+        if (otherObject.GetComponent<Player>().m_IsInvincible) return;
 
-        Vector2 moveDir = (objectPos - currentPos).normalized;
+        Enemy enemy = GetComponent<Enemy>();
+        DamageInstanceData data = new(gameObject, otherObject);
+        data.amount = enemy.m_ContactDamage;
+        data.damageType = DamageType.Physical;
+        data.doDamageNumbers = true;
+        Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
-        //Vector3 currentVelocity = m_RigidBody.velocity;
+        DamageManager.m_Instance.DamageInstance(data, transform.position);
 
-        //currentVelocity -= moveDir * 1.0f;
-
-        if (otherObject.GetComponent<Player>() && !otherObject.GetComponent<Player>().m_IsInvincible)
-        {
-            Enemy enemy = GetComponent<Enemy>();
-            DamageInstanceData data = new(gameObject, otherObject);
-            data.amount = enemy.m_ContactDamage;
-            data.damageType = DamageType.Physical;
-            data.doDamageNumbers = true;
-            Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
-
-            DamageManager.m_Instance.DamageInstance(data, transform.position);
-
-            // Knock player back
-            playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
-        }
+        // Knock player back
+        playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
+        
     }
 
     void SetAnimState(Vector3 targetVelocity)
