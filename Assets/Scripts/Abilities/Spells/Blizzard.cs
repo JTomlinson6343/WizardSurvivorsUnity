@@ -33,7 +33,7 @@ public class Blizzard : Spell
 
         m_AOEObject.transform.localScale = new Vector2(m_TotalStats.AOE, m_TotalStats.AOE);
         ParticleSystem.MainModule fogMain = m_Fog.GetComponent<ParticleSystem>().main;
-        fogMain.startLifetimeMultiplier = m_TotalStats.AOE;
+        fogMain.startLifetimeMultiplier = m_TotalStats.AOE / 2.2f;
         ParticleSystem.MainModule snowMain = m_Snow.GetComponent<ParticleSystem>().main;
         snowMain.startLifetimeMultiplier = m_TotalStats.AOE / 3f;
     }

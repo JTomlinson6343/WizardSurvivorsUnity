@@ -559,7 +559,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
-  m_Fog: {fileID: 8845529031597215064, guid: f75819a02f3587343a741fa7731c02b7, type: 3}
+  m_Fog: {fileID: 601712490526155476}
   m_Snow: {fileID: 6251831300220787743}
   m_BlizzardPrefab: {fileID: 6689438443112598672, guid: 1ff7dae28a3955f4791c85436356a2f7, type: 3}
 --- !u!1 &2048881655503188187
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseStats:
-    AOE: 0
+    AOE: 1
     duration: 0
     damage: 10
     speed: 2.5
@@ -2691,6 +2691,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+--- !u!1 &601712490526155476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4035925642106690130, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+  m_PrefabInstance: {fileID: 3484601587707607174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &792758953082032866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277215404916861540, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}

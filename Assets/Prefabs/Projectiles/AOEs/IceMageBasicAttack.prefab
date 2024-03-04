@@ -149,9 +149,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+--- !u!1 &3865322957121053051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4035925642106690130, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+  m_PrefabInstance: {fileID: 983506815783549737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3962506329550082381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4277215404916861540, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
+  m_PrefabInstance: {fileID: 983506815783549737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7727934947124764592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7393008292068779161, guid: 6bfc550351c8e854eb9a92005bdc3a45, type: 3}
   m_PrefabInstance: {fileID: 983506815783549737}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8824903370388899906
@@ -296,4 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_ActiveFramesDuration: 0
   m_SlowSpeedModifier: 0.3
+  m_Fog: {fileID: 3865322957121053051}
+  m_Snow: {fileID: 7727934947124764592}
