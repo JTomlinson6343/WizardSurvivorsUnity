@@ -145,9 +145,10 @@ MonoBehaviour:
   m_Data:
     name: Cone of Lightning
     damageType: 2
-    description: 
+    description: Discharge lightning in front of you, dealing damage to everything
+      in a cone
     levelUpInfo: 
-    icon: {fileID: 0}
+    icon: {fileID: 728791675, guid: 0c2cd92b9b413564d861780642df665b, type: 3}
   m_DefaultAutofireRange: 6.5
   m_LightningCone: {fileID: 6689438443112598672, guid: 88df434cefc5a0d45a9a31cf20ec6921, type: 3}
   m_Lifetime: 0.2
@@ -214,7 +215,7 @@ MonoBehaviour:
     damageType: 0
     description: Fires a fireball at the closest enemy
     levelUpInfo: 
-    icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 1790627582, guid: 107aa088fb90a2f4ea4490340e85e227, type: 3}
   m_DefaultAutofireRange: 10
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
@@ -2488,7 +2489,7 @@ GameObject:
   - component: {fileID: 1663213935169272059}
   - component: {fileID: 6413531703800385566}
   m_Layer: 0
-  m_Name: IceBasicAttack
+  m_Name: IceStorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2522,7 +2523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isMaxed: 0
-  m_IsSpell: 0
+  m_IsSpell: 1
   m_CastAmount: 1
   m_BaseStats:
     AOE: 1
@@ -2536,12 +2537,13 @@ MonoBehaviour:
     infinitePierce: 1
     neverPierce: 0
   m_Data:
-    name: 
+    name: Ice Storm
     damageType: 1
-    description: 
+    description: Launch an icy storm at the nearest enemy that deals damage to all
+      nearby enemies
     levelUpInfo: 
-    icon: {fileID: 0}
-  m_DefaultAutofireRange: 10
+    icon: {fileID: 21300000, guid: b3ef222e5fd517342bed99b585ee3c59, type: 3}
+  m_DefaultAutofireRange: 8
   m_ProjectileLifetime: 3
   m_BulletPrefab: {fileID: 2787149867258741970, guid: ac646f8cf2e170849abd8c893b742d08, type: 3}
 --- !u!1 &9143691106947824035
