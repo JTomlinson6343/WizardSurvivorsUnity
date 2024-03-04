@@ -116,8 +116,6 @@ public class Enemy : Actor
 
         sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x) * faceDir, sprite.transform.localScale.y);
 
-        if (!(m_Animator.GetBool("Moving") && m_Animator.GetBool("Idle"))) return;
-
         if (targetVelocity.magnitude > 0)
         {
             // Object is moving
