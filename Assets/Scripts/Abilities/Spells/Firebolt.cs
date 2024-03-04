@@ -5,12 +5,13 @@ using UnityEngine;
 public class Firebolt : Spell
 {
     [SerializeField] protected float m_ProjectileLifetime;
+    [SerializeField] protected GameObject m_BulletPrefab;
 
     public override void OnMouseInput(Vector2 aimDirection)
     {
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
             aimDirection,
-            m_TotalStats.speed, this, m_ProjectileLifetime);
+            m_TotalStats.speed, this, m_ProjectileLifetime, m_BulletPrefab);
 
         AudioManager.m_Instance.PlaySound(4);
     }

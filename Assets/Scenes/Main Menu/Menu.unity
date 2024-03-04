@@ -186,6 +186,7 @@ Transform:
   m_Children:
   - {fileID: 392566256}
   - {fileID: 1416561097}
+  - {fileID: 1225650446}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52786,6 +52787,10 @@ PrefabInstance:
       propertyPath: m_SkillTree
       value: 
       objectReference: {fileID: 1416561098}
+    - target: {fileID: 6151632097755728452, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1225650447}
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_Character
       value: 
@@ -53454,6 +53459,22 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!4 &1225650446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+  m_PrefabInstance: {fileID: 1814642078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225650447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2563516355548538394, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+  m_PrefabInstance: {fileID: 1814642078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237330525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1629681967590083628, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
@@ -53907,6 +53928,75 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &1814642078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 146286815}
+    m_Modifications:
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563516355548538394, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_CharacterColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762798856558134100, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_Name
+      value: IceMageSkillTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762798856558134100, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
 --- !u!1 &1869391770
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,10 +11,10 @@ public class Debuff
     protected GameObject m_Source;
     public Ability m_AbilitySource;
 
-    public DebuffType kType { get; }
+    public DebuffType m_Type { get; }
     public DamageType m_DamageType { get; }
 
-    private float m_Damage;
+    public float m_Damage;
     public float m_TimeLeft;
     protected int m_StackAmount = 1;
 
@@ -22,7 +22,7 @@ public class Debuff
     {
         kDuration = duration;
         kMaxStacks = maxStacks;
-        kType = type;
+        m_Type = type;
         
         m_DamageType = damageType;
         m_Damage = damage;
@@ -38,11 +38,16 @@ public class Debuff
         m_AbilitySource = abilitySource;
     }
 
+    public virtual void OnApply(Actor actor) { }
+
     public virtual void OnTick(Actor actor)
     {
+        m_TimeLeft -= kTickRate;
         if (m_Damage <= 0) return;
         DamageActor(actor);
     }
+
+    public virtual void OnEnd(Actor actor) { }
 
     private void DamageActor(Actor actor)
     {
@@ -66,7 +71,6 @@ public class Debuff
         data.doDamageNumbers = true;
         data.doSoundEffect = false;
         DamageManager.m_Instance.DamageInstance(data, pos);
-
     }
 
     public void RefreshTimer()
@@ -78,6 +82,6 @@ public class Debuff
         }
 
         // Refresh timer
-        m_TimeLeft = m_Damage;
+        m_TimeLeft = kDuration;
     }
 }

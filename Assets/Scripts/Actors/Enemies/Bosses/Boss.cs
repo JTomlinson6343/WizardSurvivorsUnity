@@ -17,10 +17,16 @@ public abstract class Boss : Enemy
     protected override void OnDeath()
     {
         base.OnDeath();
+
         ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, Random.Range(m_MinSkillPoints, m_MaxSkillPoints + 1));
 
         ProgressionManager.m_Instance.OnBossFightEnd();
 
         Player.m_Instance.PercentHeal(m_PercentHealthHealOnKill);
+    }
+
+    protected override void NormalDeath()
+    {
+        DeathParticlesRoutine();
     }
 }

@@ -5,7 +5,6 @@ using static UnityEngine.ParticleSystem;
 public class BlackHoleAOE : ConstantDamageAOE
 {
     readonly float kPullSpeedConst = 0.01f;
-    readonly float kHitboxShinkAmount = 0.3f;
     readonly float kParticlesToAOERatio = 0.5f;
     [SerializeField] float m_SuckSpeed;
 

@@ -62,7 +62,6 @@ public class Player : Actor
     public Ability m_ActiveAbility;
     public static bool m_AutoFire = false;
 
-    private float m_LastHit = 0.0f;
     float m_LastShot = 0;
 
     public float m_IFramesTime;
@@ -130,7 +129,7 @@ public class Player : Actor
     {
         if (m_AutoFire)
         {
-            m_ActiveAbility.StartAutoCasting(0);
+            m_ActiveAbility.StartAutoCasting(m_ActiveAbility.GetTotalStats().cooldown);
         }
         else
         {
@@ -342,7 +341,7 @@ public class Player : Actor
         for (int i = 0; i < Mathf.RoundToInt(amount/healSpeed); i++)
         {
             m_Health += healSpeed;
-            new WaitForSeconds(Time.deltaTime);
+            new WaitForEndOfFrame();
             yield return null;
         }
         yield return null;

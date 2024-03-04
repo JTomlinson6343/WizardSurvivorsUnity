@@ -22,7 +22,15 @@ public enum SkillID
     LightningStunCDR,
     LightningConeUpgrade,
     LightningSpellCDR,
-    LightningDoubleCast
+    LightningDoubleCast,
+    IceResistance,
+    IceAOE,
+    IceDamage,
+    IceSlow,
+    IceSlowSpread,
+    IceFreezeChance,
+    IceElementalSkill,
+    IceBlizzardSkill
 }
 
 [System.Serializable]

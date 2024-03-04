@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
-  m_HitboxDelay: 0.25
+  m_ActiveFramesDuration: 0
 --- !u!1 &3522049082295480449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5401328510151665065, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
@@ -128,7 +128,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -1387,8 +1387,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 0.039215688}
-        key1: {r: 1, g: 1, b: 1, a: 0.019607844}
+        key0: {r: 1, g: 1, b: 1, a: 0.019607844}
+        key1: {r: 1, g: 1, b: 1, a: 0.007843138}
         key2: {r: 0.5660378, g: 0.050729785, b: 0.050729785, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1403,8 +1403,8 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
-        atime1: 59560
+        atime0: 386
+        atime1: 59945
         atime2: 65535
         atime3: 65535
         atime4: 0

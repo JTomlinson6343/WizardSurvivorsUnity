@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Actor
@@ -9,22 +10,23 @@ public class Enemy : Actor
     public float m_MinWave; // Minimum wave number that enemy can spawn on
 
     [SerializeField] protected int m_XPAwarded;
-    [SerializeField] float m_SkillPointDropChance;
 
-    [SerializeField] int m_MinChampSkillPoints;
-    [SerializeField] int m_MaxChampSkillPoints;
     private bool m_IsChampion = false;
     private readonly float kChampSizeMod = 2f;
     private readonly int kChampXPMod = 2;
     private readonly float kChampHealthMod = 3f;
     private readonly Color kChampColour = new Color(1, 0.3f, 0);
 
-    [SerializeField] protected float m_Speed;
+    public float m_Speed;
     [SerializeField] protected float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;
     private readonly float m_kBaseMoveSpeed = 2.2f;
+
+    protected readonly float kSkillPointDropChance = 0.03f;
+    private readonly int     m_MinChampSkillPoints = 2;
+    private readonly int     m_MaxChampSkillPoints = 4;
 
     protected Rigidbody2D rb;
     protected Animator m_Animator;
@@ -87,29 +89,22 @@ public class Enemy : Actor
     {
         GameObject otherObject = collision.gameObject;
 
-        Vector2 objectPos = otherObject.transform.position;
-        Vector2 currentPos = gameObject.transform.position;
+        if (m_Stunned) return;
+        if (!otherObject.GetComponent<Player>()) return;
+        if (otherObject.GetComponent<Player>().m_IsInvincible) return;
 
-        Vector2 moveDir = (objectPos - currentPos).normalized;
+        Enemy enemy = GetComponent<Enemy>();
+        DamageInstanceData data = new(gameObject, otherObject);
+        data.amount = enemy.m_ContactDamage;
+        data.damageType = DamageType.Physical;
+        data.doDamageNumbers = true;
+        Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
 
-        //Vector3 currentVelocity = m_RigidBody.velocity;
+        DamageManager.m_Instance.DamageInstance(data, transform.position);
 
-        //currentVelocity -= moveDir * 1.0f;
-
-        if (otherObject.GetComponent<Player>() && !otherObject.GetComponent<Player>().m_IsInvincible)
-        {
-            Enemy enemy = GetComponent<Enemy>();
-            DamageInstanceData data = new(gameObject, otherObject);
-            data.amount = enemy.m_ContactDamage;
-            data.damageType = DamageType.Physical;
-            data.doDamageNumbers = true;
-            Rigidbody2D playerBody = otherObject.GetComponent<Rigidbody2D>();
-
-            DamageManager.m_Instance.DamageInstance(data, transform.position);
-
-            // Knock player back
-            playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
-        }
+        // Knock player back
+        playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
+        
     }
 
     void SetAnimState(Vector3 targetVelocity)
@@ -137,7 +132,7 @@ public class Enemy : Actor
 
     private void RollForSkillPoint()
     {
-        if (Random.Range(0f, 1f) > m_SkillPointDropChance) return;
+        if (Random.Range(0f, 1f) > kSkillPointDropChance) return;
 
         ProgressionManager.m_Instance.SpawnSkillPoint(transform.position, 1);
     }
@@ -155,9 +150,14 @@ public class Enemy : Actor
         EnemyManager.m_Instance.IncrementEnemiesKilled();
     }
 
-    private void NormalDeath()
+    virtual protected void NormalDeath()
     {
         RollForSkillPoint();
+        DeathParticlesRoutine();
+    }
+
+    protected void DeathParticlesRoutine()
+    {
         if (!m_DeathParticlesPrefab) return;
 
         GameObject smoke = Instantiate(m_DeathParticlesPrefab);

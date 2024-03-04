@@ -6,6 +6,8 @@ public class FireSpread : CooldownSkill
 {
     [SerializeField] float m_Radius;
     [SerializeField] FireDebuffSkill m_FireDebuffSkillRef;
+    [SerializeField] GameObject m_LineCreator;
+
     override public void Init(SkillData data)
     {
         base.Init(data);
@@ -26,6 +28,15 @@ public class FireSpread : CooldownSkill
 
         foreach (GameObject enemy in enemies)
         {
+            GameObject line = Instantiate(m_LineCreator);
+            line.GetComponent<LineCreator>().Init(
+                damageInstance.target.GetComponent<Actor>().m_DebuffPlacement.transform.position,
+                enemy.transform.position,
+                0.1f,
+                Color.red,
+                Color.yellow
+                );
+
             m_FireDebuffSkillRef.ApplyFireDebuff(damageInstance.user, enemy);
         }
     }

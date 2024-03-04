@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum DebuffType
 {
     None,
     Blaze,
-    Blizzard,
-    Flamethrower,
-    FireElementalFlames,
-    BlackHole,
     Frozen,
-    Paralysed
+    FrozenSkill,
+    Paralysed,
+    Frostbite
 }
 
 public class DebuffManager : MonoBehaviour
 {
     public static DebuffManager m_Instance;
 
-    public GameObject m_FireParticlePrefab;
-
+    [SerializeField] GameObject m_FireParticlePrefab;
+    [SerializeField] GameObject m_SnowflakeParticlePrefab;
+    [SerializeField] GameObject m_IceCrystalPrefab;
 
     private void Awake()
     {
@@ -30,10 +30,10 @@ public class DebuffManager : MonoBehaviour
     {
         if (!actor) return;
 
-        if (GetDebuffIfPresent(actor, debuffData.kType) != null)
+        if (RefreshCheck(actor, debuffData))
             return;
 
-        switch (debuffData.kType)
+        switch (debuffData.m_Type)
         {
             case DebuffType.Blaze:
                 StartCoroutine(FireDebuffRoutine(actor, debuffData));
@@ -41,6 +41,12 @@ public class DebuffManager : MonoBehaviour
             case DebuffType.Frozen:
             case DebuffType.Paralysed:
                 StartCoroutine(FrozenDebuffRoutine(actor, debuffData));
+                break;
+            case DebuffType.FrozenSkill:
+                StartCoroutine(FrozenSkillDebuffRoutine(actor, debuffData));
+                break;
+            case DebuffType.Frostbite:
+                StartCoroutine(FrostbiteDebuffRoutine(actor, debuffData));
                 break;
             default:
                 StartCoroutine(DebuffRoutine(actor, debuffData));
@@ -53,6 +59,8 @@ public class DebuffManager : MonoBehaviour
     {
         actor.m_Debuffs.Add(debuffData);
 
+        debuffData.OnApply(actor);
+
         while (debuffData.m_TimeLeft > 0 && actor)
         {
             debuffData.OnTick(actor);
@@ -60,7 +68,11 @@ public class DebuffManager : MonoBehaviour
             yield return new WaitForSeconds(debuffData.kTickRate);
         }
 
-        actor.m_Debuffs.Remove(debuffData);
+        if (actor)
+        {
+            debuffData.OnEnd(actor);
+            actor.m_Debuffs.Remove(debuffData);
+        }
     }
 
     IEnumerator FireDebuffRoutine(Actor actor, Debuff debuffData)
@@ -85,6 +97,27 @@ public class DebuffManager : MonoBehaviour
         actor.ToggleStunned(false);
     }
 
+    IEnumerator FrozenSkillDebuffRoutine(Actor actor, Debuff debuffData)
+    {
+        GameObject ice = Instantiate(m_IceCrystalPrefab);
+        ice.transform.position = actor.transform.position + new Vector3(0f,0.5f);
+
+        yield return FrozenDebuffRoutine(actor, debuffData);
+
+        Destroy(ice);
+    }
+
+    IEnumerator FrostbiteDebuffRoutine(Actor actor, Debuff debuffData)
+    {
+        GameObject snowflakes = Instantiate(m_SnowflakeParticlePrefab);
+        snowflakes.transform.SetParent(actor.transform);
+        snowflakes.transform.position = actor.transform.position;
+
+        yield return DebuffRoutine(actor, debuffData);
+
+        Destroy(snowflakes);
+    }
+
     public static Debuff GetDebuffIfPresent(Actor actor, DebuffType type)
     {
         if (!actor) return null;
@@ -92,7 +125,7 @@ public class DebuffManager : MonoBehaviour
 
         foreach (Debuff debuff in actor.m_Debuffs)
         {
-            if (debuff.kType == type)
+            if (debuff.m_Type == type)
             {
                 return debuff;
             }
@@ -100,9 +133,9 @@ public class DebuffManager : MonoBehaviour
         return null;
     }
 
-    public bool RefreshCheck(Actor actor, Debuff debuffData)
+    public bool RefreshCheck(Actor actor, Debuff debuffData) // Return true if debuff already present and gets refreshed
     {
-        Debuff presentDebuff = GetDebuffIfPresent(actor, debuffData.kType);
+        Debuff presentDebuff = GetDebuffIfPresent(actor, debuffData.m_Type);
         if (presentDebuff != null)
         {
             presentDebuff.RefreshTimer();

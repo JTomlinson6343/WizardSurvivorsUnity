@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireAOE : CooldownSkill
+public class FireAOESkill : CooldownSkill
 {
     [SerializeField] GameObject m_AOEObject;
     [SerializeField] float m_Lifetime;

@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FireParticlePrefab: {fileID: 1695107528181939108, guid: 62ebe611e871de54c81899026eb0d82a, type: 3}
+  m_SnowflakeParticlePrefab: {fileID: 5889665544570237019, guid: 9bb2bc077e3e92043b96a2943bb2eb42, type: 3}
+  m_IceCrystalPrefab: {fileID: 7087294762631391768, guid: 4d830cc11c04601479329e7e7f94a1c2, type: 3}
