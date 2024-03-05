@@ -12,6 +12,7 @@ public class IceElemental : Summon
 
     [SerializeField] int m_ShotsInBurst;
     [SerializeField] float m_ShotDelay;
+    [SerializeField] GameObject m_Staff;
     override protected void Attack()
     {
         if (m_IsProjectileOnCooldown) return;
@@ -32,7 +33,7 @@ public class IceElemental : Summon
             if (!target) yield break;
 
             ProjectileManager.m_Instance.Shoot(
-                transform.position,
+                m_Staff.transform.position,
                 GameplayManager.GetDirectionToGameObject(transform.position, target),
                 m_AbilitySource.GetTotalStats().speed,
                 m_AbilitySource,

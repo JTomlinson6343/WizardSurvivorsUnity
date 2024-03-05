@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1299634326775250907}
   - component: {fileID: 5656031452325428307}
   - component: {fileID: 3356851488209126828}
+  - component: {fileID: 289085464427225786}
   m_Layer: 0
   m_Name: IceElemental
   m_TagString: Untagged
@@ -25,13 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5812882791923075411}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2174794780751145780}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5656031452325428307
 SpriteRenderer:
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -2020019679
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e21b39bdf849ea445a6b04a74605a4a9, type: 3}
+  m_Sprite: {fileID: -1429963340, guid: fc5ba03e62d5b1a4fb50b09f9662c3bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,9 +103,63 @@ MonoBehaviour:
   m_LeashRange: 3.5
   m_PursueEnemyRangeModifier: 1.5
   m_LeashCheckDelay: 3
+  m_AttackLockoutTime: 0
   m_AbilitySource: {fileID: 0}
   m_ProjectilePrefab: {fileID: 6069486459419601506, guid: f1ffd5f0579c6e8409df2fd90b20a171, type: 3}
   m_ProjectileLifetime: 1.5
   m_ProjectileCooldown: 3
   m_ShotsInBurst: 3
   m_ShotDelay: 0.2
+  m_Staff: {fileID: 6776834585439473485}
+--- !u!95 &289085464427225786
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812882791923075411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3bfc2139c2076241adbb2e73f23daa0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6776834585439473485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2174794780751145780}
+  m_Layer: 0
+  m_Name: StaffPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2174794780751145780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6776834585439473485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.34, y: 0.908, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1299634326775250907}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
