@@ -22,7 +22,49 @@ public static class StateManager
 
     public static void ChangeState(State state)
     {
+        if (state == m_CurrentState) return;
+
+        switch (m_CurrentState)
+        {
+            // If state is changed outside the pause menu, just change the previous state
+            case State.PAUSED:
+                m_PreviousState = state;
+                break;
+            case State.UPGRADING:
+                m_PreviousState = state;
+                break;
+            case State.GAME_OVER:
+                m_PreviousState = state;
+                break;
+            // Otherwise switch the state to the new state
+            default:
+                m_PreviousState = m_CurrentState;
+                m_CurrentState = state;
+                break;
+        }
+
+        switch (state)
+        {
+            case State.PAUSED:
+            case State.UPGRADING:
+            case State.GAME_OVER:
+                Pause();
+                break;
+            default:
+                break;
+        }
+        PrintState();
+    }
+
+    public static void ForceChangeState(State state)
+    {
         m_CurrentState = state;
+        PrintState();
+    }
+
+    private static void PrintState()
+    {
+        Debug.Log("Current State: " + GetCurrentState().ToString() + "\nPrevious State: " + GetPreviousState().ToString());
     }
 
     public static State GetCurrentState()
@@ -34,44 +76,58 @@ public static class StateManager
         return m_PreviousState;
     }
 
-    public static void SetPreviousState(State state)
+    private static void Pause()
     {
-        m_PreviousState = state;
+        Time.timeScale = 0;
     }
 
-    public static void ToggleUpgrading(bool toggle)
+    public static void UnPause()
     {
-        if (toggle)
-        {
-            if (m_CurrentState != State.UPGRADING)
-                m_PreviousState = m_CurrentState;
+        Time.timeScale = 1;
 
-            Time.timeScale = 0;
-            ChangeState(State.UPGRADING);
-        }
-        else
-        {
-            Time.timeScale = 1;
-            ChangeState(m_PreviousState);
-        }
+        (m_PreviousState, m_CurrentState) = (m_CurrentState, m_PreviousState);
+
+        PrintState();
     }
 
-    public static void TogglePause(bool toggle)
-    {
-        if (toggle)
-        {
-            if (m_CurrentState != State.PAUSED)
-                m_PreviousState = m_CurrentState;
+    //public static void SetPreviousState(State state)
+    //{
+    //    m_PreviousState = state;
+    //}
 
-            Time.timeScale = 0;
-            ChangeState(State.PAUSED);
-        }
-        else
-        {
-            Time.timeScale = 1;
-            ChangeState(m_PreviousState);
-        }
-    }
+    //public static void ToggleUpgrading(bool toggle)
+    //{
+    //    if (toggle)
+    //    {
+    //        if (m_CurrentState != State.UPGRADING)
+    //            m_PreviousState = m_CurrentState;
+
+    //        Time.timeScale = 0;
+    //        ChangeState(State.UPGRADING);
+    //    }
+    //    else
+    //    {
+    //        Time.timeScale = 1;
+    //        ChangeState(m_PreviousState);
+    //    }
+    //}
+
+    //public static void TogglePause(bool toggle)
+    //{
+    //    if (toggle)
+    //    {
+    //        if (m_CurrentState != State.PAUSED)
+    //            m_PreviousState = m_CurrentState;
+
+    //        Time.timeScale = 0;
+    //        ChangeState(State.PAUSED);
+    //    }
+    //    else
+    //    {
+    //        Time.timeScale = 1;
+    //        ChangeState(m_PreviousState);
+    //    }
+    //}
 
     public static bool IsGameplayStopped()
     {

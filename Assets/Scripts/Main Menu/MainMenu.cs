@@ -8,10 +8,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject m_CharMenuRef;
     [SerializeField] GameObject m_OptionsMenuRef;
 
+    [SerializeField] GameObject[] m_Buttons;
+
     private void Start()
     {
         SaveManager.LoadFromFile(m_CharMenuRef.GetComponent<CharacterMenu>().GetSkillTreeRefs());
     }
+
+    private void Update()
+    {
+
+    }
+
     public void StartGame()
     {
         gameObject.SetActive(false);

@@ -58,6 +58,11 @@ public class AbilityManager : MonoBehaviour
         {
             HandleInput();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            StateManager.ChangeState(State.BOSS);
+            PlayerManager.m_Instance.OnStartBossFight();
+        }
     }
 
     // Displays 4 spells for the player to choose
@@ -129,7 +134,7 @@ public class AbilityManager : MonoBehaviour
             count++;
         }
         ProgressionManager.m_Instance.ToggleHUD(false);
-        StateManager.ToggleUpgrading(true);
+        StateManager.ChangeState(State.UPGRADING);
     }
 
     void HideAbilityOptions()
@@ -140,7 +145,7 @@ public class AbilityManager : MonoBehaviour
 
         ProgressionManager.m_Instance.ToggleHUD(true);
 
-        StateManager.ToggleUpgrading(false);
+        StateManager.UnPause();
 
         DeHighlightAbilityIcons();
     }
