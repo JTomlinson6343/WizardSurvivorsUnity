@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -13,15 +14,18 @@ public class Navigator : MonoBehaviour
     }
 
     [SerializeField] Selectable[] m_Selectables;
+    [SerializeField] Button m_BackButton;
 
     [SerializeField] NavDirection m_Direction = NavDirection.Horizontal;
 
     [SerializeField] bool m_LabelSelectEnabled;
+    [SerializeField] bool m_HighlightTextEnabled;
 
     [SerializeField] TextMeshProUGUI[] m_Labels;
 
     int m_SelectedButtonPos;
     bool m_AxisInUse;
+    bool m_ScrollbarOnCooldown;
 
     // Use this for initialization
     void Start()
@@ -52,6 +56,11 @@ public class Navigator : MonoBehaviour
 
             if (toggle) HandleToggleInput(toggle);
         }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (m_BackButton) m_BackButton.onClick.Invoke();
+        }
+
         Scrollbar scrollbar = m_Selectables[m_SelectedButtonPos].GetComponent<Scrollbar>();
 
         if (scrollbar) HandleScrollbarInput(scrollbar);
@@ -100,21 +109,36 @@ public class Navigator : MonoBehaviour
 
         foreach (Selectable selectable in m_Selectables)
         {
+            if (selectable.GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
+            {
+                selectable.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+                continue;
+            }
+
             selectable.GetComponent<Image>().color = Color.white;
+        }
+
+        if (m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
+        {
+            m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+            return;
         }
         m_Selectables[m_SelectedButtonPos].GetComponent<Image>().color = Color.yellow;
     }
 
     private void HandleScrollbarInput(Scrollbar scrollbar)
     {
+        if (m_ScrollbarOnCooldown) return;
+
         if (Input.GetAxis("HorizontalDPAD") < 0f)
         {
-            scrollbar.value -= 0.05f;
+            scrollbar.value -= 0.1f;
         }
         if (Input.GetAxis("HorizontalDPAD") > 0f)
         {
-            scrollbar.value += 0.05f;
+            scrollbar.value += 0.1f;
         }
+        StartCoroutine(ScrollbarCooldown());
     }
 
     private void HandleToggleInput(Toggle toggle)
@@ -145,5 +169,14 @@ public class Navigator : MonoBehaviour
             m_SelectedButtonPos = m_Selectables.Length - 1;
             return;
         }
+    }
+
+    IEnumerator ScrollbarCooldown()
+    {
+        m_ScrollbarOnCooldown = true;
+
+        yield return new WaitForSeconds(0.02f);
+
+        m_ScrollbarOnCooldown = false;
     }
 }
