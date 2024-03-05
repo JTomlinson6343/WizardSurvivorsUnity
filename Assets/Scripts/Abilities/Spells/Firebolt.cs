@@ -32,7 +32,7 @@ public class Firebolt : Spell
 
         ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
             dir,
-            m_TotalStats.speed, this, m_ProjectileLifetime);
+            m_TotalStats.speed, this, m_ProjectileLifetime, m_BulletPrefab);
 
         AudioManager.m_Instance.PlaySound(4);
     }
