@@ -189,7 +189,7 @@ public class AbilityManager : MonoBehaviour
     }
 
     // Called whenever an ability is highlighted
-    void AbilityWasSelected(AbilityIcon icon)
+    public void AbilityWasSelected(AbilityIcon icon)
     {
         if (!icon.image.enabled) return;
 
