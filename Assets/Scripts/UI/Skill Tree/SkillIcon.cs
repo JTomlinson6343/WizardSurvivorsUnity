@@ -73,7 +73,7 @@ public class SkillIcon : MonoBehaviour
         return m_Data.level >= m_Data.maxLevel;
     }
 
-    private void OnClick()
+    public void OnClick()
     {
         m_SkillTreeRef.SetHighlightedSkill(this);
     }
