@@ -58,11 +58,6 @@ public class AbilityManager : MonoBehaviour
         {
             HandleInput();
         }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            StateManager.ChangeState(State.BOSS);
-            PlayerManager.m_Instance.OnStartBossFight();
-        }
     }
 
     // Displays 4 spells for the player to choose
