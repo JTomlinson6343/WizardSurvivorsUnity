@@ -28,14 +28,7 @@ public class CharacterMenu : MonoBehaviour
     {
         m_Instance = this;
 
-        m_CurrentCharIcon = m_DefaultCharIcon;
-    }
-
-    private void Start()
-    {
-
-
-        //SaveManager.LoadFromFile();
+        //m_CurrentCharIcon = m_DefaultCharIcon;
     }
 
     private void Update()
@@ -49,22 +42,11 @@ public class CharacterMenu : MonoBehaviour
         if (charIcon == null)
             return;
 
-        HighlightSelectedIcon(charIcon);
-
         m_NameLabel.text = charIcon.m_CharName;
         m_InfoLabel.text = charIcon.m_Description;
 
         m_CurrentCharacterSkillTree = charIcon.m_SkillTree;
         m_CurrentCharacter = charIcon.m_Character;
-    }
-
-    private void HighlightSelectedIcon(CharacterIcon charIcon)
-    {
-        foreach (CharacterIcon icon in GetComponentsInChildren<CharacterIcon>())
-        {
-            icon.GetComponent<Image>().color = Color.white;
-        }
-        charIcon.GetComponent<Image>().color = Color.yellow;
     }
 
     public void SetCurrentIcon(CharacterIcon charIcon)

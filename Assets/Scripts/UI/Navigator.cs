@@ -25,7 +25,9 @@ public class Navigator : MonoBehaviour
 
     int m_SelectedButtonPos;
     bool m_AxisInUse;
-    bool m_ScrollbarOnCooldown;
+
+    float m_LastScrollbar;
+    readonly float m_ScrollbarDelay = 0.02f;
 
     // Use this for initialization
     void Start()
@@ -128,7 +130,11 @@ public class Navigator : MonoBehaviour
 
     private void HandleScrollbarInput(Scrollbar scrollbar)
     {
-        if (m_ScrollbarOnCooldown) return;
+        float now = Time.realtimeSinceStartup;
+
+        if (now - m_LastScrollbar < m_ScrollbarDelay) return;
+
+        m_LastScrollbar = now;
 
         if (Input.GetAxis("HorizontalDPAD") < 0f)
         {
@@ -138,7 +144,6 @@ public class Navigator : MonoBehaviour
         {
             scrollbar.value += 0.1f;
         }
-        StartCoroutine(ScrollbarCooldown());
     }
 
     private void HandleToggleInput(Toggle toggle)
@@ -169,14 +174,5 @@ public class Navigator : MonoBehaviour
             m_SelectedButtonPos = m_Selectables.Length - 1;
             return;
         }
-    }
-
-    IEnumerator ScrollbarCooldown()
-    {
-        m_ScrollbarOnCooldown = true;
-
-        yield return new WaitForSeconds(0.02f);
-
-        m_ScrollbarOnCooldown = false;
     }
 }
