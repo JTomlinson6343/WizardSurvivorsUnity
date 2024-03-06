@@ -104,7 +104,6 @@ public class Enemy : Actor
 
         // Knock player back
         playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
-        
     }
 
     void SetAnimState(Vector3 targetVelocity)

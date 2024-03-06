@@ -29,6 +29,10 @@ PrefabInstance:
       value: EyeShot
       objectReference: {fileID: 0}
     - target: {fileID: 4732243450977920728, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732243450977920728, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
