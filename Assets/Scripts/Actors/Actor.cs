@@ -29,7 +29,7 @@ public class Actor : MonoBehaviour
 
     protected bool m_IsMidAnimation;
     bool m_IsDead;
-    protected bool m_Stunned;
+    public bool m_Stunned;
 
     public virtual void Start()
     {

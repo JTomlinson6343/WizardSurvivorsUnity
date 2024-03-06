@@ -26,6 +26,15 @@ public class BlackHoleAOE : ConstantDamageAOE
         Vector3 towardsCentre = (transform.position - collision.transform.position).normalized;
 
         collision.gameObject.transform.position += towardsCentre * kPullSpeedConst * m_SuckSpeed;
+
+        collision.GetComponent<Actor>().m_Stunned = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Enemy")) return;
+
+        collision.GetComponent<Actor>().m_Stunned = false;
     }
 
     public override void Init(Vector2 pos, Ability ability, float lifetime)
