@@ -53,7 +53,11 @@ public class Projectile : MonoBehaviour
     virtual protected void PierceRoutine()
     {
         if (m_AbilitySource.GetTotalStats().infinitePierce) return;
-        if (m_AbilitySource.GetTotalStats().neverPierce) DestroySelf();
+        if (m_AbilitySource.GetTotalStats().neverPierce)
+        {
+            DestroySelf();
+            return;
+        }
 
         if (m_PierceCount > 0)
             m_PierceCount--;

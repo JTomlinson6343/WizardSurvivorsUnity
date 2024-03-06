@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class AOESpawningProtectileSpell : Firebolt
 {
-    [SerializeField] GameObject m_ProjectilePrefab;
     [SerializeField] GameObject m_AOEPrefab;
 
     public override void OnMouseInput(Vector2 aimDirection)
     {
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
             Player.m_Instance.GetMouseAimDirection().normalized,
-            m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
+            m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_BulletPrefab);
 
         PlaySound();
     }
@@ -28,7 +27,7 @@ public class AOESpawningProtectileSpell : Firebolt
 
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
             GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetCentrePos(), closestEnemy),
-            m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_ProjectilePrefab);
+            m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_BulletPrefab);
 
         PlaySound();
     }

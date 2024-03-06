@@ -86,12 +86,12 @@ public class ProgressionManager : MonoBehaviour
             if (StateManager.GetCurrentState() == State.PAUSED)
             {
                 SaveManager.SaveToFile();
-                StateManager.TogglePause(false);
+                StateManager.UnPause();
             }
             else
             {
                 m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
-                StateManager.TogglePause(true);
+                StateManager.ChangeState(State.PAUSED);
             }
         }
 
@@ -229,7 +229,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void GameOver()
     {
-        StateManager.ChangeState(State.GAME_OVER);
+        StateManager.ForceChangeState(State.GAME_OVER);
 
         m_PauseMenu.SetActive(false);
         m_Hud.SetActive(false);
@@ -319,11 +319,6 @@ public class ProgressionManager : MonoBehaviour
         // Spawn a new wave after a delay
         EnemyManager.m_Instance.GracePeriod();
 
-        if (StateManager.IsGameplayStopped())
-        {
-            StateManager.SetPreviousState(State.PLAYING);
-            return;
-        }
         StateManager.ChangeState(State.PLAYING);
     }
 

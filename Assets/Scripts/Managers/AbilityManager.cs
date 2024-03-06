@@ -129,7 +129,7 @@ public class AbilityManager : MonoBehaviour
             count++;
         }
         ProgressionManager.m_Instance.ToggleHUD(false);
-        StateManager.ToggleUpgrading(true);
+        StateManager.ChangeState(State.UPGRADING);
     }
 
     void HideAbilityOptions()
@@ -140,7 +140,7 @@ public class AbilityManager : MonoBehaviour
 
         ProgressionManager.m_Instance.ToggleHUD(true);
 
-        StateManager.ToggleUpgrading(false);
+        StateManager.UnPause();
 
         DeHighlightAbilityIcons();
     }
@@ -189,7 +189,7 @@ public class AbilityManager : MonoBehaviour
     }
 
     // Called whenever an ability is highlighted
-    void AbilityWasSelected(AbilityIcon icon)
+    public void AbilityWasSelected(AbilityIcon icon)
     {
         if (!icon.image.enabled) return;
 

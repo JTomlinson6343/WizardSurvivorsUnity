@@ -31,13 +31,6 @@ public class CharacterMenu : MonoBehaviour
         m_CurrentCharIcon = m_DefaultCharIcon;
     }
 
-    private void Start()
-    {
-
-
-        //SaveManager.LoadFromFile();
-    }
-
     private void Update()
     {
         UpdateInfo(m_CurrentCharIcon);
@@ -92,7 +85,7 @@ public class CharacterMenu : MonoBehaviour
         PlayerManager.m_Character = m_CurrentCharacter;
         PlayerManager.m_SkillTreeRef = m_CurrentCharacterSkillTree;
         PlayerManager.m_SkillTreeRef.PassEnabledSkillsToManager();
-        StateManager.ChangeState(State.PLAYING);
+        StateManager.ForceChangeState(State.PLAYING);
         SceneManager.LoadScene("Main Scene");
     }
 
