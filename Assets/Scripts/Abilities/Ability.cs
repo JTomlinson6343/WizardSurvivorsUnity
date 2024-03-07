@@ -101,10 +101,12 @@ public class Ability : MonoBehaviour
     protected AbilityStats m_TotalStats;  // Total combined stats combining base stats, bonus stats and ability stats from buff abilities
     public AbilityData     m_Data;        // Info about the ability to display on upgrade screen
 
+    public float m_CooldownRemaining;
+
     private List<GameObject> m_HitEnemies = new List<GameObject>();
 
     public float m_DefaultAutofireRange = 10f;
-    protected readonly float kCooldownAfterReset = 2f;
+    protected readonly float kCooldownAfterReset = 1f;
     protected float kMinCooldownModifier = 0.1f;
 
     //Getters//
@@ -128,46 +130,37 @@ public class Ability : MonoBehaviour
         {
             Debug.Log(m_Data.name + " was enabled.");
             m_Enabled = true;
-            ResetCooldown(0);
+            CastSpell();
+            StartCoroutine(CooldownRoutine());
         }
         LevelUp();
         Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
-    public void StartAutoCasting(float newCooldown)
+    private IEnumerator CooldownRoutine()
     {
-        InvokeRepeating(nameof(SingleOrMultipleCast), newCooldown, m_TotalStats.cooldown);
-    }
+        if (m_TotalStats.cooldown < 0f) yield break;
 
-    public void StopAutoCasting()
-    {
-        CancelInvoke(nameof(SingleOrMultipleCast));
-    }
-
-    protected void ResetCooldown(float newCooldown)
-    {
-        StopAutoCasting();
-        if (m_TotalStats.cooldown < 0)
+        while (true) // Repeating
         {
-
-            SingleOrMultipleCast();
-        }
-        else
-        {
-            StartAutoCasting(newCooldown);
+            while (m_CooldownRemaining > 0f) // Count down cooldown
+            {
+                m_CooldownRemaining -= Time.deltaTime;
+                yield return new WaitForSeconds(Time.deltaTime);
+            }
+            CastSpell();
         }
     }
 
-    private void SingleOrMultipleCast()
+    private void CastSpell()
     {
-        if (m_CastAmount > 1)
-        {
-            StartCoroutine(MultiCast());
-        }
-        else
-        {
-            OnCast();
-        }
+        m_CooldownRemaining = m_TotalStats.cooldown;
+        StartCoroutine(MultiCast());
+    }
+
+    protected void SetRemainingCooldown(float newCooldown)
+    {
+        m_CooldownRemaining = newCooldown;
     }
 
     private IEnumerator MultiCast()
@@ -177,6 +170,19 @@ public class Ability : MonoBehaviour
             OnCast();
 
             yield return new WaitForSeconds(kMultiCastDelay);
+        }
+    }
+
+    public void ToggleAutofire(bool on)
+    {
+        if (on)
+        {
+            StartCoroutine(CooldownRoutine());
+            SetRemainingCooldown(m_TotalStats.cooldown);
+        }
+        else
+        {
+            StopCoroutine(CooldownRoutine());
         }
     }
 

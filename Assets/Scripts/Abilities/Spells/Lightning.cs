@@ -13,7 +13,7 @@ public class Lightning : Spell
         // If there is an enemy in range
         if (!GameplayManager.GetFurthestEnemyInRange(Player.m_Instance.GetStaffTransform().position, kBaseRange * m_TotalStats.AOE))
         {
-            ResetCooldown(kCooldownAfterReset);
+            SetRemainingCooldown(kCooldownAfterReset);
             return;
         }
 

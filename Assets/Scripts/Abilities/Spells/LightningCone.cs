@@ -15,7 +15,7 @@ public class LightningCone : Spell
 
         if (!closestEnemy)
         {
-            ResetCooldown(kCooldownAfterReset);
+            SetRemainingCooldown(kCooldownAfterReset);
             return;
         }
 

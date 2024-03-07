@@ -17,7 +17,7 @@ public class FreezeSpell : Spell
 
         if (!enemy)
         {
-            ResetCooldown(kCooldownAfterReset);
+            SetRemainingCooldown(kCooldownAfterReset);
             return;
         }
 

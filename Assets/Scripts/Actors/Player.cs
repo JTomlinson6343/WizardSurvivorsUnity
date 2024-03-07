@@ -127,14 +127,7 @@ public class Player : Actor
 
     public void ToggleAutoFire()
     {
-        if (m_AutoFire)
-        {
-            m_ActiveAbility.StartAutoCasting(m_ActiveAbility.GetTotalStats().cooldown);
-        }
-        else
-        {
-            m_ActiveAbility.StopAutoCasting();
-        }
+        m_ActiveAbility.ToggleAutofire(m_AutoFire);
     }
 
     private void ShootMouse()

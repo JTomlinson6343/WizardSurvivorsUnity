@@ -113,10 +113,6 @@ public class EnemyManager : MonoBehaviour
     {
         m_EnemiesKilledThisWave++;
         m_EnemyCount--;
-
-        print("this wave kills: " + m_EnemiesKilledThisWave.ToString() +
-            "   total wave spawns: " + m_SpawnLimit.ToString() +
-            "   enemy count" + m_EnemyCount.ToString());
     }
 
     public void PurgeEnemies()

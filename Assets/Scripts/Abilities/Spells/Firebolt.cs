@@ -24,7 +24,7 @@ public class Firebolt : Spell
 
         if (!closestEnemy)
         {
-            ResetCooldown(kCooldownAfterReset);
+            SetRemainingCooldown(kCooldownAfterReset);
             return;
         }
 

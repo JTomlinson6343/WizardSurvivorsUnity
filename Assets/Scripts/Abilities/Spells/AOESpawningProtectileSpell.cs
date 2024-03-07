@@ -21,7 +21,7 @@ public class AOESpawningProtectileSpell : Firebolt
 
         if (!closestEnemy)
         {
-            ResetCooldown(kCooldownAfterReset);
+            SetRemainingCooldown(kCooldownAfterReset);
             return;
         }
 
