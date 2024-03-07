@@ -14,6 +14,10 @@ public struct PlayerBounds
     {
         return pos.x > left && pos.x < right && pos.y > bottom && pos.y < top;
     }
+    public bool IsInBounds(Vector2 pos, float modifier)
+    {
+        return pos.x > modifier * left && pos.x < modifier * right && pos.y > modifier * bottom && pos.y < modifier * top;
+    }
 }
 
 public class PlayerManager : MonoBehaviour // Manager that controls the player in-game
