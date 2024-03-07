@@ -10,7 +10,12 @@ public class Spell : Ability
         Offensive,
         Defensive,
         Summon,
-        Stun
+        Stun,
+        AOE,
+        Piercing,
+        DOT,
+        Debuff,
+        Buff
     }
 
     [SerializeField] SpellTag[] m_SpellTags;

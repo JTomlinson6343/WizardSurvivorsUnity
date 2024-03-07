@@ -306,6 +306,7 @@ public class AbilityManager : MonoBehaviour
         foreach (Spell spell in GetAllSpells())
         {
             if (!spell.IsEnabled()) continue;
+            if (!spell.HasTag(Spell.SpellTag.Offensive)) continue;
             if (spell.GetTotalStats().cooldown > highestSpell.GetTotalStats().cooldown) highestSpell = spell;
         }
 
