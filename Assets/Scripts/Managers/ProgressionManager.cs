@@ -79,11 +79,11 @@ public class ProgressionManager : MonoBehaviour
 
     public void PauseMenuInput()
     {
-        if (StateManager.GetCurrentState() == State.UPGRADING || StateManager.GetCurrentState() == State.GAME_OVER) return;
+        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING || StateManager.GetCurrentState() == StateManager.State.GAME_OVER) return;
 
         if (Input.GetButtonDown("Pause"))
         {
-            if (StateManager.GetCurrentState() == State.PAUSED)
+            if (StateManager.GetCurrentState() == StateManager.State.PAUSED)
             {
                 SaveManager.SaveToFile();
                 StateManager.UnPause();
@@ -91,12 +91,12 @@ public class ProgressionManager : MonoBehaviour
             else
             {
                 m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
-                StateManager.ChangeState(State.PAUSED);
+                StateManager.ChangeState(StateManager.State.PAUSED);
             }
         }
 
         // Show pause menu if in paused state
-        m_PauseMenu.SetActive(StateManager.GetCurrentState() == State.PAUSED);
+        m_PauseMenu.SetActive(StateManager.GetCurrentState() == StateManager.State.PAUSED);
     }
 
     public void ToggleHUD(bool toggle)
@@ -160,7 +160,7 @@ public class ProgressionManager : MonoBehaviour
 
     private void SpawnXPRandomly()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING) return;
+        if (StateManager.GetCurrentState() != StateManager.State.PLAYING) return;
 
         float now = Time.realtimeSinceStartup;
 
@@ -229,7 +229,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void GameOver()
     {
-        StateManager.ForceChangeState(State.GAME_OVER);
+        StateManager.ForceChangeState(StateManager.State.GAME_OVER);
 
         m_PauseMenu.SetActive(false);
         m_Hud.SetActive(false);
@@ -259,7 +259,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void PreBoss()
     {
-        StateManager.ChangeState(State.PRE_BOSS);
+        StateManager.ChangeState(StateManager.State.PRE_BOSS);
         // Suck all xp
         SuckUpXP();
         // Alert player that the boss is coming
@@ -280,7 +280,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void SpawnBoss()
     {
-        StateManager.ChangeState(State.BOSS);
+        StateManager.ChangeState(StateManager.State.BOSS);
         // Lock camera to boss arena
         PlayerManager.m_Instance.OnStartBossFight();
         Boss boss = EnemyManager.m_Instance.SpawnBoss();
@@ -319,7 +319,7 @@ public class ProgressionManager : MonoBehaviour
         // Spawn a new wave after a delay
         EnemyManager.m_Instance.GracePeriod();
 
-        StateManager.ChangeState(State.PLAYING);
+        StateManager.ChangeState(StateManager.State.PLAYING);
     }
 
     public void Quit()

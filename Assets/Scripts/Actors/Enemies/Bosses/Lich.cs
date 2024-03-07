@@ -49,7 +49,7 @@ public class Lich : Boss
 
     public override void Update()
     {
-        if (StateManager.GetCurrentState() != State.BOSS) return;
+        if (StateManager.GetCurrentState() != StateManager.State.BOSS) return;
 
         SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
 

@@ -28,7 +28,7 @@ public class SpinningProjectile : Projectile
     // Update is called once per frame
     void Update()
     {
-        if (StateManager.GetCurrentState() == State.UPGRADING) return;
+        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING) return;
         // Increment the angle
         angle += m_Speed * Time.deltaTime * Mathf.Deg2Rad;
 

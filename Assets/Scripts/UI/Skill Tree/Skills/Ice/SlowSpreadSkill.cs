@@ -17,7 +17,7 @@ public class SlowSpreadSkill : CooldownSkill
     {
         if (m_OnCooldown) return;
         if (!damageInstance.user.CompareTag("Player")) return;
-        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), DebuffType.Frostbite) == null) return;
+        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), Debuff.DebuffType.Frostbite) == null) return;
         if (!damageInstance.didKill) return;
 
         List<GameObject> enemies = GameplayManager.GetAllEnemiesInRange(damageInstance.target.transform.position, m_Radius);

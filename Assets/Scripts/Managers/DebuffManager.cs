@@ -3,16 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum DebuffType
-{
-    None,
-    Blaze,
-    Frozen,
-    FrozenSkill,
-    Paralysed,
-    Frostbite
-}
-
 public class DebuffManager : MonoBehaviour
 {
     public static DebuffManager m_Instance;
@@ -35,17 +25,17 @@ public class DebuffManager : MonoBehaviour
 
         switch (debuffData.m_Type)
         {
-            case DebuffType.Blaze:
+            case Debuff.DebuffType.Blaze:
                 StartCoroutine(FireDebuffRoutine(actor, debuffData));
                 break;
-            case DebuffType.Frozen:
-            case DebuffType.Paralysed:
+            case Debuff.DebuffType.Frozen:
+            case Debuff.DebuffType.Paralysed:
                 StartCoroutine(FrozenDebuffRoutine(actor, debuffData));
                 break;
-            case DebuffType.FrozenSkill:
+            case Debuff.DebuffType.FrozenSkill:
                 StartCoroutine(FrozenSkillDebuffRoutine(actor, debuffData));
                 break;
-            case DebuffType.Frostbite:
+            case Debuff.DebuffType.Frostbite:
                 StartCoroutine(FrostbiteDebuffRoutine(actor, debuffData));
                 break;
             default:
@@ -118,7 +108,7 @@ public class DebuffManager : MonoBehaviour
         Destroy(snowflakes);
     }
 
-    public static Debuff GetDebuffIfPresent(Actor actor, DebuffType type)
+    public static Debuff GetDebuffIfPresent(Actor actor, Debuff.DebuffType type)
     {
         if (!actor) return null;
         if (actor.m_Debuffs == null) return null;

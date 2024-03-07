@@ -6,7 +6,7 @@ public class SummonedSkeleton : Skeleton
 {
     override public void Update()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING && StateManager.GetCurrentState() != State.BOSS)
+        if (StateManager.GetCurrentState() != StateManager.State.PLAYING && StateManager.GetCurrentState() != StateManager.State.BOSS)
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             return;

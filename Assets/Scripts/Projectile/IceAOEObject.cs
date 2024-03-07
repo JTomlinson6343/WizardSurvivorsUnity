@@ -11,7 +11,7 @@ public class IceAOEObject : AOEObject
     {
         if (m_AlreadySpawned) return;
 
-        Debuff debuff = new Debuff(DebuffType.Frozen, DamageType.Frost, 0f, 1, m_AbilitySource.GetTotalStats().duration, Player.m_Instance.gameObject);
+        Debuff debuff = new Debuff(Debuff.DebuffType.Frozen, DamageType.Frost, 0f, 1, m_AbilitySource.GetTotalStats().duration, Player.m_Instance.gameObject);
 
         DebuffManager.m_Instance.AddDebuff(enemy.GetComponent<Actor>(), debuff);
 

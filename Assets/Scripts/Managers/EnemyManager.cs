@@ -142,7 +142,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING)  return;
+        if (StateManager.GetCurrentState() != StateManager.State.PLAYING)  return;
 
         float now = Time.realtimeSinceStartup;
 

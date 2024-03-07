@@ -23,7 +23,7 @@ public class LightningStunCDR : CooldownSkill
     {
         if (m_OnCooldown) return;
         if (!damageInstance.user.CompareTag("Player")) return;
-        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), DebuffType.Paralysed) == null) return;
+        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), Debuff.DebuffType.Paralysed) == null) return;
         if (!damageInstance.didKill) return;
 
         if (m_Data.level == 2) m_Duration *= m_DurationUpgradeModifier;

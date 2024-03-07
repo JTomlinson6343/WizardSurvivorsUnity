@@ -1,11 +1,5 @@
 using UnityEngine;
 
-public enum SpawnPoint
-{
-    Player,
-    Staff
-}
-
 public class ProjectileManager : MonoBehaviour
 {
     public static ProjectileManager m_Instance;
@@ -19,20 +13,6 @@ public class ProjectileManager : MonoBehaviour
     void Awake()
     {
         m_Instance = this;
-    }
-
-    // Function used to spawn bullets at a pre-defined point
-    private Vector2 GetSpawnPoint(SpawnPoint spawnPoint)
-    {
-        switch (spawnPoint)
-        {
-            case SpawnPoint.Player:
-                return Player.m_Instance.GetPosition();
-            case SpawnPoint.Staff:
-                return Player.m_Instance.GetStaffTransform().position;
-            default:
-                return Vector2.zero;
-        }
     }
 
     #region Projectiles

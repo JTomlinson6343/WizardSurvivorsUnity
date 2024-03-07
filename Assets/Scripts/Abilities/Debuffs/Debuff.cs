@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class Debuff
 {
+    public enum DebuffType
+    {
+        None,
+        Blaze,
+        Frozen,
+        FrozenSkill,
+        Paralysed,
+        Frostbite
+    }
+
     // Consts
     public readonly float kTickRate = 0.25f; // Ticks are every 0.25s
     private readonly float kMaxStacks;

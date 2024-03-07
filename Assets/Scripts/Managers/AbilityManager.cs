@@ -129,7 +129,7 @@ public class AbilityManager : MonoBehaviour
             count++;
         }
         ProgressionManager.m_Instance.ToggleHUD(false);
-        StateManager.ChangeState(State.UPGRADING);
+        StateManager.ChangeState(StateManager.State.UPGRADING);
     }
 
     void HideAbilityOptions()
@@ -161,7 +161,7 @@ public class AbilityManager : MonoBehaviour
 
     void HandleInput()
     {
-        if (StateManager.GetCurrentState() != State.UPGRADING) return;
+        if (StateManager.GetCurrentState() != StateManager.State.UPGRADING) return;
 
         if (Input.GetAxis("VerticalDPAD") > 0f || Input.GetKeyDown(KeyCode.UpArrow))
         {

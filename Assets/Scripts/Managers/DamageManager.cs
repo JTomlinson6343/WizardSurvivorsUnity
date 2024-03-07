@@ -52,7 +52,7 @@ public class DamageManager : MonoBehaviour
     // Whenever damage is dealt, is goes via the damage manager with all the relevant data passed into it via 'data'.
     // This data then determines what happens such as the colour of the damage numbers, sound effect played etc.
     // This information is then passed to a damage instance event which some skills listen for to check if their conditions are met.
-    public DamageOutput DamageInstance(DamageInstanceData data, Vector2 pos)
+    public Actor.DamageOutput DamageInstance(DamageInstanceData data, Vector2 pos)
     {
         if (data.doSoundEffect)
         {
@@ -67,16 +67,16 @@ public class DamageManager : MonoBehaviour
 
         if (damageDealt <= 0f) { damageDealt = 1f; }
 
-        DamageOutput damageOutput = actorComponent.TakeDamage(damageDealt);
+        Actor.DamageOutput damageOutput = actorComponent.TakeDamage(damageDealt);
 
-        if (damageOutput >= DamageOutput.invalidHit && data.doDamageNumbers)
+        if (damageOutput >= Actor.DamageOutput.invalidHit && data.doDamageNumbers)
         {
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
             damageNumber.transform.position = pos + new Vector2(Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius), Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius));
             damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(data.damageType);
             damageNumber.GetComponent<FloatingDamage>().m_Damage = damageDealt;
-            data.didKill = damageOutput == DamageOutput.wasKilled;
+            data.didKill = damageOutput == Actor.DamageOutput.wasKilled;
             m_DamageInstanceEvent.Invoke(data);
         }
         return damageOutput;

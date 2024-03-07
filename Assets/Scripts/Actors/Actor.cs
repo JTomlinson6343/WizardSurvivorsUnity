@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum DamageOutput
-{
-    validHit = 0,
-    wasKilled = 1,
-    invalidHit = -1
-}
-
 public class Actor : MonoBehaviour
 {
+    public enum DamageOutput
+    {
+        validHit = 0,
+        wasKilled = 1,
+        invalidHit = -1
+    }
+
     public float m_MaxHealth = 100.0f;
     public float m_Health = 100.0f;
 

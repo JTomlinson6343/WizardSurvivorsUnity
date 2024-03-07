@@ -45,7 +45,7 @@ public class LightningStun : CooldownSkill
 
     void StunEnemy(GameObject enemy)
     {
-        Debuff debuff = new Debuff(DebuffType.Paralysed, DamageType.Lightning, 0f, 1, m_Duration, Player.m_Instance.gameObject);
+        Debuff debuff = new Debuff(Debuff.DebuffType.Paralysed, DamageType.Lightning, 0f, 1, m_Duration, Player.m_Instance.gameObject);
 
         DebuffManager.m_Instance.AddDebuff(enemy.GetComponent<Actor>(), debuff);
 

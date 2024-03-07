@@ -183,7 +183,7 @@ public class Ability : MonoBehaviour
     // Called every time the cooldown ends
     virtual public void OnCast()
     {
-        if (StateManager.GetCurrentState() != State.PLAYING) { return; }
+        if (StateManager.GetCurrentState() != StateManager.State.PLAYING) { return; }
     }
 
     // Override this to add behaviour to take in the mouse position

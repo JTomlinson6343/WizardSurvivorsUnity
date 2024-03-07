@@ -27,10 +27,10 @@ public class IceSlowSkill : Skill
         switch (m_Data.level)
         {
             case 1:
-                debuff = new SlowDebuff(DebuffType.Frostbite, DamageType.None, 0f, 1, 1f, user, m_BaseSlow);
+                debuff = new SlowDebuff(Debuff.DebuffType.Frostbite, DamageType.None, 0f, 1, 1f, user, m_BaseSlow);
                 break;
             case 2:
-                debuff = new SlowDebuff(DebuffType.Frostbite, DamageType.None, 0f, 3, 1f, user, m_UpgradedSlow);
+                debuff = new SlowDebuff(Debuff.DebuffType.Frostbite, DamageType.None, 0f, 3, 1f, user, m_UpgradedSlow);
                 break;
             default:
                 return;

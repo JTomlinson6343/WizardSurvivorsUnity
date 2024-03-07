@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum State
-{
-    NONE,
-    PLAYING,
-    UPGRADING,
-    PAUSED,
-    PRE_BOSS,
-    BOSS,
-    GAME_OVER
-}
-
 public static class StateManager
 {
+    public enum State
+    {
+        NONE,
+        PLAYING,
+        UPGRADING,
+        PAUSED,
+        PRE_BOSS,
+        BOSS,
+        GAME_OVER
+    }
+
     private static State m_CurrentState = State.NONE;
 
     private static State m_PreviousState = State.NONE; // State before game was paused

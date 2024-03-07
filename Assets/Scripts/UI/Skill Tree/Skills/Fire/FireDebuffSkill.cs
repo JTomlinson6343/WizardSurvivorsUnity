@@ -31,10 +31,10 @@ public class FireDebuffSkill : Skill
         switch (m_Data.level)
         {
             case 1:
-                debuff = new Debuff(DebuffType.Blaze, m_DamageType, m_Damage, 1, 5, user);
+                debuff = new Debuff(Debuff.DebuffType.Blaze, m_DamageType, m_Damage, 1, 5, user);
                 break;
             case 2:
-                debuff = new Debuff(DebuffType.Blaze, m_DamageType, m_Damage, 3, 5, user);
+                debuff = new Debuff(Debuff.DebuffType.Blaze, m_DamageType, m_Damage, 3, 5, user);
                 break;
             default:
                 return;

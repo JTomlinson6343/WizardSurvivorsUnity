@@ -19,7 +19,7 @@ public class IceFreezeChance : Skill
     public void OnDamageInstance(DamageInstanceData damageInstance)
     {
         if (!damageInstance.user.CompareTag("Player")) return;
-        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), DebuffType.FrozenSkill) != null) return;
+        if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), Debuff.DebuffType.FrozenSkill) != null) return;
         if (damageInstance.damageType != DamageType.Frost) return;
 
         TryFreeze(damageInstance.user, damageInstance.target);
@@ -43,7 +43,7 @@ public class IceFreezeChance : Skill
 
         if (Random.Range(0f, 1f) > chance) return;
         
-        Debuff debuff = new Debuff(DebuffType.FrozenSkill, DamageType.None, 0f, 1, m_Duration, user);
+        Debuff debuff = new Debuff(Debuff.DebuffType.FrozenSkill, DamageType.None, 0f, 1, m_Duration, user);
 
         DebuffManager.m_Instance.AddDebuff(target.GetComponent<Actor>(), debuff);
 
