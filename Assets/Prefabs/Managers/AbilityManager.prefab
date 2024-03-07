@@ -150,6 +150,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 728791675, guid: 0c2cd92b9b413564d861780642df665b, type: 3}
   m_DefaultAutofireRange: 6.5
+  m_SpellTags: 0000000005000000
   m_LightningCone: {fileID: 6689438443112598672, guid: 88df434cefc5a0d45a9a31cf20ec6921, type: 3}
   m_Lifetime: 0.2
 --- !u!1 &1258795364781033673
@@ -217,6 +218,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 1790627582, guid: 107aa088fb90a2f4ea4490340e85e227, type: 3}
   m_DefaultAutofireRange: 10
+  m_SpellTags: 00000000
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
 --- !u!1 &1320370673017010591
@@ -287,6 +289,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
+  m_SpellTags: 0000000004000000
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 7034863490182940137, guid: 8f3e941ee978a4a4985657ee68e52396, type: 3}
   m_AOEPrefab: {fileID: 6942711934382557578, guid: 146d44ef169bcd64392eaba1b5ff097e, type: 3}
@@ -491,6 +494,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
+  m_SpellTags: 00000000
   m_Lifetime: 2
 --- !u!1 &1764913179728977767
 GameObject:
@@ -558,6 +562,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
+  m_SpellTags: 000000000400000006000000
   m_Fog: {fileID: 601712490526155476}
   m_Snow: {fileID: 6251831300220787743}
   m_BlizzardPrefab: {fileID: 6689438443112598672, guid: 1ff7dae28a3955f4791c85436356a2f7, type: 3}
@@ -627,6 +632,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 244486248, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 8
+  m_SpellTags: 000000000400000006000000
   m_ProjectileLifetime: 0.75
   m_BulletPrefab: {fileID: 5326285300019030449, guid: 5d89be2b958f215468841cbf73851e6b, type: 3}
   m_AOEPrefab: {fileID: 2792270806764247480, guid: 1864c8052dd3564418172ff5068f434a, type: 3}
@@ -1054,6 +1060,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
   m_DefaultAutofireRange: 6
+  m_SpellTags: 00000000030000000400000006000000
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 7256483112163839321, guid: 9d79a94f1e46cbc46b9fb096645fc54a, type: 3}
   m_AOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
@@ -1550,6 +1557,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
+  m_SpellTags: 000000000300000004000000
   m_Range: 7
   m_IcePrefab: {fileID: 7679647542523129580, guid: 25d27ec6b983d024eadf16c3478d5c3d, type: 3}
   m_LineDuration: 0.15
@@ -1759,6 +1767,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 2107994407, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
+  m_SpellTags: 0000000005000000
   m_Radius: 0
 --- !u!1 &5325821446040161954
 GameObject:
@@ -2037,6 +2046,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: -1429963340, guid: fc5ba03e62d5b1a4fb50b09f9662c3bc, type: 3}
   m_DefaultAutofireRange: 8
+  m_SpellTags: 0000000002000000
   m_SummonPrefab: {fileID: 5812882791923075411, guid: c8129cac05604a949ab5ee11cb179605, type: 3}
   m_SmokePrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
 --- !u!1 &6971340183586912971
@@ -2104,6 +2114,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 1134494256, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 2.5
+  m_SpellTags: 0000000002000000
   m_SummonPrefab: {fileID: 5812882791923075411, guid: e2895ac9165284d4a93992a41219093d, type: 3}
   m_SmokePrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
 --- !u!1 &7440536522704983382
@@ -2116,7 +2127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3553034378635206584}
   m_Layer: 0
-  m_Name: Passives
+  m_Name: Spells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2467,6 +2478,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 858001479, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
   m_DefaultAutofireRange: 10
+  m_SpellTags: 0000000005000000
   m_LightningPrefab: {fileID: 5106067701834446676, guid: 01c88d37db1c12843bf69f8fe2addc82, type: 3}
 --- !u!1 &8619315044923377127
 GameObject:
@@ -2534,6 +2546,7 @@ MonoBehaviour:
     levelUpInfo: 
     icon: {fileID: 21300000, guid: b3ef222e5fd517342bed99b585ee3c59, type: 3}
   m_DefaultAutofireRange: 8
+  m_SpellTags: 000000000400000006000000
   m_ProjectileLifetime: 3
   m_BulletPrefab: {fileID: 2787149867258741970, guid: ac646f8cf2e170849abd8c893b742d08, type: 3}
 --- !u!1 &9143691106947824035
