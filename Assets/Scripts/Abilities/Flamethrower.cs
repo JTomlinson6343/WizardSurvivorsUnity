@@ -14,7 +14,6 @@ public class Flamethrower : Ability
     {
         base.Start();
 
-        m_FlamethrowerObject.transform.SetParent(Player.m_Instance.GetStaffTransform(), false);
         m_FlamethrowerObject.GetComponentInChildren<ConstantDamageAOE>().m_AbilitySource = this;
     }
     private void Update()
@@ -32,6 +31,8 @@ public class Flamethrower : Ability
         {
             m_FlamethrowerObject.SetActive(false);
         }
+
+        transform.position = Player.m_Instance.GetStaffTransform().position;
     }
 
     private bool MouseInput()

@@ -26,7 +26,7 @@ public class Cursor : MonoBehaviour
     {
         Vector3 moveDir = new Vector2(Input.GetAxis("HorizontalDPAD"), Input.GetAxis("VerticalDPAD"));
 
-        transform.position += moveDir * m_Speed;
+        GetComponent<Rigidbody2D>().velocity = moveDir.normalized * m_Speed;
     }
 
     private void HandleButtonInput()

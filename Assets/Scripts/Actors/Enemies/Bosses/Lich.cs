@@ -170,15 +170,15 @@ public class Lich : Boss
         m_ProjectileOnCooldown = false;
         m_StompOnCooldown = false;
 
-        Vector2 newPos;
+        Vector3 newPos;
         while (true)
         {
             newPos = Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_MinTeleportRadius;
-
+            
             if (PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(newPos)) break;
         }
 
-        transform.position = newPos;
+        transform.position = newPos + transform.position - m_DebuffPlacement.transform.position ;
         SpawnSmoke();
         gameObject.SetActive(true);
         m_IsMidAnimation = false;
