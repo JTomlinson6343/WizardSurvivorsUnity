@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 40e9ab7d03193164b82e62ba37e63593
+guid: 89a6a95ba87434f4795b33406e18d068
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,11 +106,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_0
+      name: Buffbro_SLAM2_animation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee9b90ad6c218574fa6e97bb35e2adb5
-      internalID: -708550688
+      spriteID: 6ba81d049dc5737479c89914db6f3521
+      internalID: 1363139073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_1
+      name: Buffbro_SLAM2_animation_1
       rect:
         serializedVersion: 2
         x: 128
@@ -145,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edbbd1296d98fe344ab5658e8d93bac8
-      internalID: -681977412
+      spriteID: 5f9b4f23b648de74aa1609e9eb0813a3
+      internalID: -563461722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_2
+      name: Buffbro_SLAM2_animation_2
       rect:
         serializedVersion: 2
         x: 256
@@ -166,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b33fcb48c5b270469a262f2f9b07df5
-      internalID: -271101591
+      spriteID: 8cf17fd1078dd7447a6ed59e2e17ae93
+      internalID: 139063601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_3
+      name: Buffbro_SLAM2_animation_3
       rect:
         serializedVersion: 2
         x: 384
@@ -187,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e761878c50fcc9545a3a0e7d4a4f3358
-      internalID: -1233853410
+      spriteID: 371a101647243dd4eb03c701315f6222
+      internalID: 1920753718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_4
+      name: Buffbro_SLAM2_animation_4
       rect:
         serializedVersion: 2
         x: 512
@@ -208,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 131c78a6ee57e1a4b92c95e16e7005a7
-      internalID: 1465026074
+      spriteID: ee23956ef05389e4c90f1eb8c284241e
+      internalID: 285822505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_5
+      name: Buffbro_SLAM2_animation_5
       rect:
         serializedVersion: 2
         x: 640
@@ -229,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd82bec499c46b148b21e7fe23e1953c
-      internalID: -398789300
+      spriteID: bc4468e0b74b81b478765330db132dcf
+      internalID: -1221557382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_6
+      name: Buffbro_SLAM2_animation_6
       rect:
         serializedVersion: 2
         x: 768
@@ -250,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a2641c7d9538e640ad07f0e06bb09b1
-      internalID: 1248424348
+      spriteID: 5901984183b0c0f48be8ab838c5b7bac
+      internalID: 1056043777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_7
+      name: Buffbro_SLAM2_animation_7
       rect:
         serializedVersion: 2
         x: 896
@@ -271,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea44ff187d19f8a458e218711031f5d8
-      internalID: -659723159
+      spriteID: 6e657d2d3aeb8c2468efbca65b631612
+      internalID: 1936532438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_8
+      name: Buffbro_SLAM2_animation_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -292,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ace337d559a34fd4da33157d735417e8
-      internalID: -668030663
+      spriteID: d4f7564bb1d4a4a448480a812181c9fc
+      internalID: -284638236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_IDLE_animation_9
+      name: Buffbro_SLAM2_animation_9
       rect:
         serializedVersion: 2
         x: 1152
@@ -313,50 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30ea4a0bbca89994aa58b1c91e5f857a
-      internalID: -909565889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Buffbro_IDLE_animation_10
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c858c82185ca77d4ba66dbbbbeb525f1
-      internalID: -1837499080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Buffbro_IDLE_animation_11
-      rect:
-        serializedVersion: 2
-        x: 1408
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bcb0763fcbd0974ab883aa2294f2fc2
-      internalID: -716553656
+      spriteID: 9f658a67ba6f2794fb58239a11ed4879
+      internalID: -1443554972
       vertices: []
       indices: 
       edges: []
@@ -372,18 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Buffbro_IDLE_animation_0: -708550688
-      Buffbro_IDLE_animation_1: -681977412
-      Buffbro_IDLE_animation_10: -1837499080
-      Buffbro_IDLE_animation_11: -716553656
-      Buffbro_IDLE_animation_2: -271101591
-      Buffbro_IDLE_animation_3: -1233853410
-      Buffbro_IDLE_animation_4: 1465026074
-      Buffbro_IDLE_animation_5: -398789300
-      Buffbro_IDLE_animation_6: 1248424348
-      Buffbro_IDLE_animation_7: -659723159
-      Buffbro_IDLE_animation_8: -668030663
-      Buffbro_IDLE_animation_9: -909565889
+      Buffbro_SLAM2_animation_0: 1363139073
+      Buffbro_SLAM2_animation_1: -563461722
+      Buffbro_SLAM2_animation_2: 139063601
+      Buffbro_SLAM2_animation_3: 1920753718
+      Buffbro_SLAM2_animation_4: 285822505
+      Buffbro_SLAM2_animation_5: -1221557382
+      Buffbro_SLAM2_animation_6: 1056043777
+      Buffbro_SLAM2_animation_7: 1936532438
+      Buffbro_SLAM2_animation_8: -284638236
+      Buffbro_SLAM2_animation_9: -1443554972
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
