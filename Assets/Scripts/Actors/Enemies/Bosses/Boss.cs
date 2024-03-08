@@ -9,7 +9,7 @@ public abstract class Boss : Enemy
     [SerializeField] int m_MaxSkillPoints;
     [SerializeField] int m_MinSkillPoints;
 
-    private readonly float m_PercentHealthHealOnKill = 0.25f;
+    private readonly float m_PercentHealthHealOnKill = 0.5f;
 
     // Modify the boss' stats based on when the boss is fought. 1 = first time a boss is fought
     abstract public void Enraged(int bossNumber);
