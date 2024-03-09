@@ -6,8 +6,9 @@ public abstract class Boss : Enemy
 {
     public string m_BossName;
 
-    [SerializeField] int m_MaxSkillPoints;
     [SerializeField] int m_MinSkillPoints;
+
+    [SerializeField] int m_MaxSkillPoints;
 
     private readonly float m_PercentHealthHealOnKill = 0.5f;
 
