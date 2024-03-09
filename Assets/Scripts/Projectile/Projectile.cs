@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
 
         m_HitTargets.Add(target);
 
-        StartCoroutine(EndTargetCooldown(target));
+        ProjectileManager.m_Instance.EndTargetCooldown(target, m_HitboxDelay, m_HitTargets);
 
         target.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_AbilitySource.GetTotalStats().knockback);
         DamageTarget(target);
@@ -65,13 +65,6 @@ public class Projectile : MonoBehaviour
         {
             DestroySelf();
         }
-    }
-
-    protected IEnumerator EndTargetCooldown(GameObject enemy)
-    {
-        yield return new WaitForSeconds(m_HitboxDelay);
-
-        m_HitTargets.Remove(enemy);
     }
 
     virtual protected void DamageTarget(GameObject target)

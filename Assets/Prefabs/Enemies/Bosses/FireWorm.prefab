@@ -274,6 +274,7 @@ MonoBehaviour:
   m_ProjectileDamage: 10
   m_ProjectileKnockback: 0
   m_ProjectileCooldown: 1
+  m_MinShootRange: 4
   m_Burrowed: 0
   m_BurrowChance: 0.1
   m_BurrowCooldown: 5

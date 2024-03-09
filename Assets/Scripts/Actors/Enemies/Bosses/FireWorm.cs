@@ -13,7 +13,7 @@ public class FireWorm : Boss
     [SerializeField] float m_ProjectileKnockback;
     [SerializeField] float m_ProjectileCooldown;
 
-    [SerializeField] float m_MinShootRange;
+    [SerializeField] float m_MinShootRange; // Min range the worm needs to be to shoot the player
 
     [SerializeField] bool m_Burrowed;
     [SerializeField] float m_BurrowChance;
@@ -43,10 +43,10 @@ public class FireWorm : Boss
 
         float distToPlayer = Vector2.Distance(Player.m_Instance.transform.position, transform.position);
 
-        if (!m_BurrowOnCooldown) BurrowCheck();
-
         if (!m_Burrowed)
         {
+            if (!m_BurrowOnCooldown) BurrowCheck();
+
             if (distToPlayer < m_MinShootRange)
             {
                 rb.velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * -m_Speed;
@@ -56,7 +56,6 @@ public class FireWorm : Boss
                 rb.velocity = Vector2.zero;
                 if (!m_ProjectileOnCooldown) StartCoroutine(Shoot());
             }
-
         }
     }
 
