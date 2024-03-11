@@ -49,22 +49,42 @@ public class FireWorm : Boss
 
             if (distToPlayer < m_MinShootRange)
             {
-                rb.velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * -m_Speed;
+                MoveAwayRoutine();
+                if (!m_IsMidAnimation)
+                {
+                    GetComponentInChildren<Animator>().Play("Moving");
+                    FaceForward(rb.velocity);
+                }
             }
             else
             {
                 rb.velocity = Vector2.zero;
                 if (!m_ProjectileOnCooldown) StartCoroutine(Shoot());
+                if (!m_IsMidAnimation)
+                {
+                    GetComponentInChildren<Animator>().Play("Idle");
+                    FaceForward(Player.m_Instance.transform.position - transform.position);
+                }
             }
         }
     }
 
-    private void BurrowCheck() // Try and burrow if the rng value is correct
+    private void MoveAwayRoutine()
     {
-        if (Random.Range(0f, 1f) <= m_BurrowChance)
+        if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position))
         {
             StartCoroutine(Burrow());
         }
+
+        rb.velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * -m_Speed;
+    }
+
+    private void BurrowCheck() // Try and burrow if the rng value is correct
+    {
+        //if (Random.Range(0f, 1f) <= m_BurrowChance)
+        //{
+        //    StartCoroutine(Burrow());
+        //}
     }
 
     private IEnumerator Burrow()
@@ -99,8 +119,15 @@ public class FireWorm : Boss
     {
         m_ProjectileOnCooldown = true;
 
+        m_IsMidAnimation = true;
+
+        GetComponentInChildren<Animator>().Play("Attack", -1, 0f);
+
+        yield return new WaitForSeconds(0.45f);
+
+        m_IsMidAnimation = false;
         ProjectileManager.m_Instance.EnemyShot(m_Mouth.transform.position,
-            GameplayManager.GetDirectionToGameObject(m_Mouth.transform.position, Player.m_Instance.gameObject),
+        GameplayManager.GetDirectionToGameObject(m_Mouth.transform.position, Player.m_Instance.gameObject),
             m_ProjectileSpeed,
             m_ProjectileLifetime,
             m_ProjectilePrefab,
@@ -110,9 +137,6 @@ public class FireWorm : Boss
             DamageType.Fire);
 
         AudioManager.m_Instance.PlaySound(15);
-
-        GetComponentInChildren<Animator>().Play("Attack", -1, 0f);
-        m_IsMidAnimation = false;
 
         yield return new WaitForSeconds(m_ProjectileCooldown);
 

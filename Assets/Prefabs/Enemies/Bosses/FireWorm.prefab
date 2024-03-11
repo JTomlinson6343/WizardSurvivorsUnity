@@ -268,7 +268,7 @@ MonoBehaviour:
   m_MinSkillPoints: 5
   m_MaxSkillPoints: 15
   m_Mouth: {fileID: 3717615607151904432}
-  m_ProjectilePrefab: {fileID: 3494039878907918504, guid: 1faec0d14cb5b2a41974a3bae7444d6d, type: 3}
+  m_ProjectilePrefab: {fileID: 5848786722145493493, guid: 3bbf155e7cf781e42a2099c48df507bf, type: 3}
   m_ProjectileSpeed: 5
   m_ProjectileLifetime: 2
   m_ProjectileDamage: 10

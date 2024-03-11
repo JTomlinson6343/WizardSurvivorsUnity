@@ -108,12 +108,7 @@ public class Enemy : Actor
 
     void SetAnimState(Vector3 targetVelocity)
     {
-        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
-
-        // If velocity > 0, don't flip. if it is less than, flip
-        float faceDir = targetVelocity.x > 0 ? 1f : -1f;
-
-        sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x) * faceDir, sprite.transform.localScale.y);
+        FaceForward(targetVelocity);
 
         if (targetVelocity.magnitude > 0)
         {
@@ -127,6 +122,16 @@ public class Enemy : Actor
             m_Animator.SetBool("Moving", false); // Disable the moving state
             m_Animator.SetBool("Idle", true);
         }
+    }
+
+    protected void FaceForward(Vector3 targetVelocity)
+    {
+        SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
+
+        // If velocity > 0, don't flip. if it is less than, flip
+        float faceDir = targetVelocity.x > 0 ? 1f : -1f;
+
+        sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x) * faceDir, sprite.transform.localScale.y);
     }
 
     private void RollForSkillPoint()
