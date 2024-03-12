@@ -182,7 +182,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4782787995318582076}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -278,8 +278,10 @@ MonoBehaviour:
   m_Burrowed: 0
   m_BurrowChance: 0.1
   m_BurrowCooldown: 5
+  m_BurrowedSpeed: 12
   m_MinBurrowDuration: 10
   m_MaxBurrowDuration: 15
+  m_ChargeDelay: 1
 --- !u!1 &8335548373994432881
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,8 +18,11 @@ public class FireWorm : Boss
     [SerializeField] bool m_Burrowed;
     [SerializeField] float m_BurrowChance;
     [SerializeField] float m_BurrowCooldown;
+    [SerializeField] float m_BurrowedSpeed;
     [SerializeField] float m_MinBurrowDuration;
     [SerializeField] float m_MaxBurrowDuration;
+    [SerializeField] float m_ChargeDelay;
+    bool m_Charging;
 
     private bool m_ProjectileOnCooldown;
     private bool m_BurrowOnCooldown;
@@ -81,38 +84,73 @@ public class FireWorm : Boss
 
     private void BurrowCheck() // Try and burrow if the rng value is correct
     {
-        //if (Random.Range(0f, 1f) <= m_BurrowChance)
-        //{
-        //    StartCoroutine(Burrow());
-        //}
+        if (Random.Range(0f, 1f) <= m_BurrowChance)
+        {
+            StartCoroutine(Burrow());
+        }
     }
 
     private IEnumerator Burrow()
     {
-        m_Burrowed = true;
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        ToggleBurrow(true);
 
         float duration = Random.Range(m_MinBurrowDuration, m_MaxBurrowDuration);
         float timeLeft = duration;
 
         GetComponentInChildren<SpriteRenderer>().color = Color.green;
 
+        yield return Charge();
+
         while (timeLeft > 0f)
         {
-            rb.velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * m_Speed;
+            if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position, 0.8f) && !m_Charging)
+            {
+                yield return Charge();
+            }
 
             timeLeft -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
 
-        m_Burrowed = false;
+        ToggleBurrow(false);
         m_BurrowOnCooldown = true;
         GetComponentInChildren<SpriteRenderer>().color = Color.white;
 
         yield return new WaitForSeconds(m_BurrowCooldown);
 
         m_BurrowOnCooldown = false;
+    }
+
+    private IEnumerator Charge()
+    {
+        m_Charging = true;
+
+        Vector3 playerPos = Player.m_Instance.transform.position;
+
+        rb.velocity = Vector2.zero;
+
+        yield return new WaitForSeconds(m_ChargeDelay);
+
+        m_Charging = false;
+
+        rb.velocity = (playerPos - transform.position).normalized * m_BurrowedSpeed;
+    }
+
+    private void ToggleBurrow(bool on)
+    {
+        m_Burrowed = on;
+        if (on)
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        else
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    private Vector2 PickRandomDirection()
+    {
+        float x = Random.Range(-1f, 1f);
+        float y = Random.Range(-1f, 1f);
+
+        return new Vector2(x, y).normalized;
     }
 
     private IEnumerator Shoot()
