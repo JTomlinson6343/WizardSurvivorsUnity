@@ -177,8 +177,8 @@ public class Ability : MonoBehaviour
     {
         if (on)
         {
-            StartCoroutine(CooldownRoutine());
             SetRemainingCooldown(m_TotalStats.cooldown);
+            StartCoroutine(CooldownRoutine());
         }
         else
         {
