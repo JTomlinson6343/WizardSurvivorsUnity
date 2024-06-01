@@ -109,6 +109,8 @@ public class Ability : MonoBehaviour
     protected readonly float kCooldownAfterReset = 1f;
     protected float kMinCooldownModifier = 0.1f;
 
+    private Coroutine m_CooldownRoutineRef = null;
+
     //Getters//
     public AbilityStats GetBonusStats() { return m_BonusStats; }
     public AbilityStats GetTotalStats() { return m_TotalStats; }
@@ -178,11 +180,11 @@ public class Ability : MonoBehaviour
         if (on)
         {
             SetRemainingCooldown(m_TotalStats.cooldown);
-            StartCoroutine(CooldownRoutine());
+            m_CooldownRoutineRef = StartCoroutine(CooldownRoutine());
         }
         else
         {
-            StopCoroutine(CooldownRoutine());
+            if (m_CooldownRoutineRef != null) StopCoroutine(m_CooldownRoutineRef);
         }
     }
 
