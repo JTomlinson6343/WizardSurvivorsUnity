@@ -284,6 +284,7 @@ public class ProgressionManager : MonoBehaviour
         // Lock camera to boss arena
         PlayerManager.m_Instance.OnStartBossFight();
         Boss boss = EnemyManager.m_Instance.SpawnBoss();
+        boss.BossFightInit();
 
         if (m_WaveCounter >= 10)
         {
@@ -318,6 +319,8 @@ public class ProgressionManager : MonoBehaviour
     {
         // Spawn a new wave after a delay
         EnemyManager.m_Instance.GracePeriod();
+
+        PlayerManager.m_Instance.m_ActorsToBind = null;
 
         StateManager.ChangeState(StateManager.State.PLAYING);
     }

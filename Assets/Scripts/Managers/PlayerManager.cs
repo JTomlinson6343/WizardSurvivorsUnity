@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 {
     public static PlayerManager m_Instance;
 
+    public Actor[] m_ActorsToBind;
+
     public static GameObject m_Character;
     public static SkillTree m_SkillTreeRef;
     public GameObject m_Camera;
@@ -60,7 +62,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
         if (StateManager.GetCurrentState() == StateManager.State.BOSS ||
             (StateManager.GetPreviousState() == StateManager.State.BOSS && (StateManager.GetPreviousState() == StateManager.State.UPGRADING || StateManager.GetPreviousState() == StateManager.State.GAME_OVER)))
         {
-            BossArena();
+            BindActorsToBossArena();
             return;
         }
 
@@ -87,20 +89,33 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
             Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_WorldBounds.top, Player.m_Instance.transform.position.z);
     }
 
-    private void BossArena()
+    private void BindActorsToBossArena()
     {
-        // Bind player to world bounds
-        if (Player.m_Instance.transform.position.x < m_BossArenaBounds.left)
-            Player.m_Instance.transform.position = new Vector3(m_BossArenaBounds.left, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+        if (m_ActorsToBind.Length <= 0)
+        {
+            BossArena(Player.m_Instance);
+            return;
+        }
+        foreach (Actor actor in m_ActorsToBind)
+        {
+            BossArena(actor);
+        }
+    }
 
-        if (Player.m_Instance.transform.position.x > m_BossArenaBounds.right)
-            Player.m_Instance.transform.position = new Vector3(m_BossArenaBounds.right, Player.m_Instance.transform.position.y, Player.m_Instance.transform.position.z);
+    private void BossArena(Actor actor)
+    {
+        // Bind actor to world bounds
+        if (actor.transform.position.x < m_BossArenaBounds.left)
+            actor.transform.position = new Vector3(m_BossArenaBounds.left, actor.transform.position.y, actor.transform.position.z);
 
-        if (Player.m_Instance.transform.position.y < m_BossArenaBounds.bottom)
-            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_BossArenaBounds.bottom, Player.m_Instance.transform.position.z);
+        if (actor.transform.position.x > m_BossArenaBounds.right)
+            actor.transform.position = new Vector3(m_BossArenaBounds.right, actor.transform.position.y, actor.transform.position.z);
 
-        if (Player.m_Instance.transform.position.y > m_BossArenaBounds.top)
-            Player.m_Instance.transform.position = new Vector3(Player.m_Instance.transform.position.x, m_BossArenaBounds.top, Player.m_Instance.transform.position.z);
+        if (actor.transform.position.y < m_BossArenaBounds.bottom)
+            actor.transform.position = new Vector3(actor.transform.position.x, m_BossArenaBounds.bottom, actor.transform.position.z);
+
+        if (actor.transform.position.y > m_BossArenaBounds.top)
+            actor.transform.position = new Vector3(actor.transform.position.x, m_BossArenaBounds.top, actor.transform.position.z);
     }
 
     public void SaveSkillPoints(int points)

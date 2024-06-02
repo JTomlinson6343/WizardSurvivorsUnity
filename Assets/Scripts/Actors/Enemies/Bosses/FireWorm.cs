@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class FireWorm : Boss
 {
-    [SerializeField] GameObject m_Mouth;
-
     [SerializeField] GameObject m_ProjectilePrefab;
+
+    [SerializeField] GameObject m_Mouth;
+    private GameObject m_DirtParticles;
+
     [SerializeField] float m_ProjectileSpeed;
     [SerializeField] float m_ProjectileLifetime;
     [SerializeField] float m_ProjectileDamage;
@@ -22,6 +24,7 @@ public class FireWorm : Boss
     [SerializeField] float m_MinBurrowDuration;
     [SerializeField] float m_MaxBurrowDuration;
     [SerializeField] float m_ChargeDelay;
+    [SerializeField] float m_ChargeDuration;
     bool m_Charging;
 
     private bool m_ProjectileOnCooldown;
@@ -30,6 +33,14 @@ public class FireWorm : Boss
     public override void Enraged(int bossNumber)
     {
         throw new System.NotImplementedException();
+    }
+
+    public override void BossFightInit() { }
+
+    public override void Start()
+    {
+        base.Start();
+        m_DirtParticles = GetComponentInChildren<ParticleSystem>().gameObject;
     }
 
     public override void Update()
@@ -97,52 +108,65 @@ public class FireWorm : Boss
         float duration = Random.Range(m_MinBurrowDuration, m_MaxBurrowDuration);
         float timeLeft = duration;
 
-        GetComponentInChildren<SpriteRenderer>().color = Color.green;
-
+        // Charge at the player after a delay
         yield return Charge();
 
-        //while (timeLeft > 0f)
-        //{
-        //    if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position, 0.8f) && !m_Charging)
-        //    {
-        //        yield return Charge();
-        //    }
+        while (timeLeft > 0f)
+        {
+            // 
+            if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position, 0.8f) && !m_Charging)
+            {
+                yield return Charge();
+            }
 
-        //    timeLeft -= Time.deltaTime;
-        //    yield return new WaitForEndOfFrame();
-        //}
+            timeLeft -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
 
         ToggleBurrow(false);
+        rb.velocity = Vector2.zero;
         m_BurrowOnCooldown = true;
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
 
         yield return new WaitForSeconds(m_BurrowCooldown);
 
         m_BurrowOnCooldown = false;
     }
 
+
     private IEnumerator Charge()
     {
-        m_Charging = true;
-
         Vector3 playerPos = Player.m_Instance.transform.position;
 
         rb.velocity = Vector2.zero;
 
         yield return new WaitForSeconds(m_ChargeDelay);
 
-        m_Charging = false;
+        m_Charging = true;
 
         rb.velocity = (playerPos - transform.position).normalized * m_BurrowedSpeed;
+
+        m_IsMidAnimation = true;
+
+        StartCoroutine(Utils.DelayedCall(m_ChargeDuration, () =>
+        {
+            m_IsMidAnimation = false;
+            m_Charging = false;
+        }));
     }
 
     private void ToggleBurrow(bool on)
     {
         m_Burrowed = on;
+        GetComponentInChildren<SpriteRenderer>().enabled = !on;
+        m_DirtParticles.SetActive(on);
         if (on)
+        {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        }
         else
+        {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 
     private Vector2 PickRandomDirection()
