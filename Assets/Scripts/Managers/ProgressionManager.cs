@@ -166,7 +166,7 @@ public class ProgressionManager : MonoBehaviour
 
         if (now < m_NextXPSpawn) return;
 
-        GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius);
+        GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + Utils.GetRandomDirectionV3() * m_XPSpawnRadius);
 
         m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter);
     }

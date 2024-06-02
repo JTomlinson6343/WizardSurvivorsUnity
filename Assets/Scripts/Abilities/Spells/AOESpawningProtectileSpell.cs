@@ -17,7 +17,7 @@ public class AOESpawningProtectileSpell : Firebolt
 
     public override void OnCast()
     {
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetStaffTransform().position, m_DefaultAutofireRange);
+        GameObject closestEnemy = Utils.GetClosestEnemyInRange(Player.m_Instance.GetStaffTransform().position, m_DefaultAutofireRange);
 
         if (!closestEnemy)
         {
@@ -26,7 +26,7 @@ public class AOESpawningProtectileSpell : Firebolt
         }
 
         ProjectileManager.m_Instance.ShootAOESpawningProjectile(Player.m_Instance.GetStaffTransform().position,
-            GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetCentrePos(), closestEnemy),
+            Utils.GetDirectionToGameObject(Player.m_Instance.GetCentrePos(), closestEnemy),
             m_TotalStats.speed, this, m_ProjectileLifetime, m_AOEPrefab, m_TotalStats.duration, m_BulletPrefab);
 
         PlaySound();

@@ -21,7 +21,7 @@ public class FireSpread : CooldownSkill
         if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), Debuff.DebuffType.Blaze) == null) return;
         if (!damageInstance.didKill) return;
 
-        List<GameObject> enemies = GameplayManager.GetAllEnemiesInRange(damageInstance.target.transform.position, m_Radius);
+        List<GameObject> enemies = Utils.GetAllEnemiesInRange(damageInstance.target.transform.position, m_Radius);
 
         if (enemies.Count > 1)
             StartCooldown();

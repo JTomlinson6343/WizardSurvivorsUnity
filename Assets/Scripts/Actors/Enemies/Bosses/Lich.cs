@@ -91,7 +91,7 @@ public class Lich : Boss
     private void Shoot()
     {
         ProjectileManager.m_Instance.EnemyShot(m_Staff.transform.position,
-            GameplayManager.GetDirectionToGameObject(m_Staff.transform.position, Player.m_Instance.gameObject),
+            Utils.GetDirectionToGameObject(m_Staff.transform.position, Player.m_Instance.gameObject),
             m_ProjectileSpeed,
             m_ProjectileLifetime,
             m_ProjectilePrefab,
@@ -127,7 +127,7 @@ public class Lich : Boss
         for (int i = 0; i < m_EnemiesSpawned; i++)
         {
             GameObject spawnedEnemy = EnemyManager.m_Instance.CreateNewEnemy(m_SpawnedEnemyPrefab);
-            spawnedEnemy.transform.position = m_QuakePos.transform.position + GameplayManager.GetRandomDirectionV3() * m_EnemySpawnRadius;
+            spawnedEnemy.transform.position = m_QuakePos.transform.position + Utils.GetRandomDirectionV3() * m_EnemySpawnRadius;
             spawnedEnemy.GetComponent<Skeleton>().CrawlFromGround();
         }
     }
@@ -173,7 +173,7 @@ public class Lich : Boss
         Vector3 newPos;
         while (true)
         {
-            newPos = Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_MinTeleportRadius;
+            newPos = Player.m_Instance.transform.position + Utils.GetRandomDirectionV3() * m_MinTeleportRadius;
             
             if (PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(newPos)) break;
         }

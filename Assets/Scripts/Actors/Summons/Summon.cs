@@ -29,7 +29,7 @@ public abstract class Summon : MonoBehaviour
     {
         if (!m_TravellingToPlayer)
         {
-            if (GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange) && !m_AttackLockout)
+            if (Utils.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange) && !m_AttackLockout)
             {
                 ToggleWalkAnim(false);
                 Attack();
@@ -101,7 +101,7 @@ public abstract class Summon : MonoBehaviour
 
     virtual protected void GoToEnemy()
     {
-        GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange * m_PursueEnemyRangeModifier);
+        GameObject enemy = Utils.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange * m_PursueEnemyRangeModifier);
 
         if (!enemy) return;
         ToggleWalkAnim(true);

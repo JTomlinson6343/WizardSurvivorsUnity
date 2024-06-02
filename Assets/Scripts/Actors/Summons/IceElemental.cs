@@ -17,7 +17,7 @@ public class IceElemental : Summon
     {
         if (m_IsProjectileOnCooldown) return;
 
-        GameObject enemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange);
+        GameObject enemy = Utils.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange);
         if (!enemy) return;
 
         StartCoroutine(MultiShotBurst(enemy));
@@ -34,7 +34,7 @@ public class IceElemental : Summon
 
             ProjectileManager.m_Instance.Shoot(
                 m_Staff.transform.position,
-                GameplayManager.GetDirectionToGameObject(transform.position, target),
+                Utils.GetDirectionToGameObject(transform.position, target),
                 m_AbilitySource.GetTotalStats().speed,
                 m_AbilitySource,
                 m_ProjectileLifetime,

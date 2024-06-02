@@ -62,7 +62,7 @@ public class Pickup : MonoBehaviour
         }
 
         m_StartedAttracting = true;
-        GetComponent<Rigidbody2D>().velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * m_PullSpeed;
+        GetComponent<Rigidbody2D>().velocity = Utils.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * m_PullSpeed;
     }
 
     void DestroySelf()

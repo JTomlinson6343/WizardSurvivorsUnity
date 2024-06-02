@@ -79,21 +79,21 @@ public class FireWorm : Boss
             StartCoroutine(Burrow());
         }
 
-        rb.velocity = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * -m_Speed;
+        rb.velocity = Utils.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * -m_Speed;
     }
 
     private void BurrowCheck() // Try and burrow if the rng value is correct
     {
         if (Random.Range(0f, 1f) <= m_BurrowChance)
         {
+            ToggleBurrow(true);
             StartCoroutine(Burrow());
         }
     }
 
     private IEnumerator Burrow()
     {
-        ToggleBurrow(true);
-
+        Debug.Log("burrowed!");
         float duration = Random.Range(m_MinBurrowDuration, m_MaxBurrowDuration);
         float timeLeft = duration;
 
@@ -101,16 +101,16 @@ public class FireWorm : Boss
 
         yield return Charge();
 
-        while (timeLeft > 0f)
-        {
-            if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position, 0.8f) && !m_Charging)
-            {
-                yield return Charge();
-            }
+        //while (timeLeft > 0f)
+        //{
+        //    if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position, 0.8f) && !m_Charging)
+        //    {
+        //        yield return Charge();
+        //    }
 
-            timeLeft -= Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
+        //    timeLeft -= Time.deltaTime;
+        //    yield return new WaitForEndOfFrame();
+        //}
 
         ToggleBurrow(false);
         m_BurrowOnCooldown = true;
@@ -163,9 +163,8 @@ public class FireWorm : Boss
 
         yield return new WaitForSeconds(0.45f);
 
-        m_IsMidAnimation = false;
         ProjectileManager.m_Instance.EnemyShot(m_Mouth.transform.position,
-        GameplayManager.GetDirectionToGameObject(m_Mouth.transform.position, Player.m_Instance.gameObject),
+        Utils.GetDirectionToGameObject(m_Mouth.transform.position, Player.m_Instance.gameObject),
             m_ProjectileSpeed,
             m_ProjectileLifetime,
             m_ProjectilePrefab,
@@ -175,6 +174,11 @@ public class FireWorm : Boss
             DamageType.Fire);
 
         AudioManager.m_Instance.PlaySound(15);
+
+        StartCoroutine(Utils.DelayedCall(0.1f, () =>
+        {
+            m_IsMidAnimation = false;
+        }));
 
         yield return new WaitForSeconds(m_ProjectileCooldown);
 

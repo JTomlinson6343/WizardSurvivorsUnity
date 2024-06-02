@@ -26,7 +26,7 @@ public class NPCProjectile : Projectile
         rb.velocity = dir * speed;
 
         // Rotate projectile in direction of travel
-        GameplayManager.PointInDirection(dir, gameObject);
+        Utils.PointInDirection(dir, gameObject);
     }
 
     protected override void OnTargetHit(GameObject target)

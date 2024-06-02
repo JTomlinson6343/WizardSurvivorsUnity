@@ -20,7 +20,7 @@ public class LightningAftershock : CooldownSkill
         if (!damageInstance.user.CompareTag("Player")) return;
         if (damageInstance.damageType != DamageType.Lightning) return;
         if (!damageInstance.didKill) return;
-        if (GameplayManager.GetAllEnemiesInRange(
+        if (Utils.GetAllEnemiesInRange(
             damageInstance.target.transform.position,
             Lightning.kBaseRange * GetComponent<Ability>().GetTotalStats().AOE).Count <= 1) return;
 

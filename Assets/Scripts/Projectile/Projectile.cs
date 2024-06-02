@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         rb.velocity = dir * speed;
 
         // Rotate projectile in direction of travel
-        GameplayManager.PointInDirection(dir, gameObject);
+        Utils.PointInDirection(dir, gameObject);
 
         m_PierceCount = m_AbilitySource.GetTotalStats().pierceAmount;
     }

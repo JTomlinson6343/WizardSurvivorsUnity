@@ -27,7 +27,7 @@ public class ParentLightningBolt : LightningBolt
         // If the lightning has already jumped the max number of times, return
         if (m_JumpCount >= m_JumpLimit + m_AbilitySource.GetTotalStats().pierceAmount) return;
         // If there are no other enemies in range, return
-        if (GameplayManager.GetAllEnemiesInRange(transform.position, Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE).Count <= 1) return;
+        if (Utils.GetAllEnemiesInRange(transform.position, Lightning.kBaseRange * m_AbilitySource.GetTotalStats().AOE).Count <= 1) return;
 
         GameObject newLightning = Instantiate(m_LightningPrefab);
         newLightning.GetComponent<LightningBolt>().Init(enemy.transform.position, m_AbilitySource, this);
