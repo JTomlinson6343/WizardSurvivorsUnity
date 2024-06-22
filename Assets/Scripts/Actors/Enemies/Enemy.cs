@@ -124,7 +124,7 @@ public class Enemy : Actor
         }
     }
 
-    protected void FaceForward(Vector3 targetVelocity)
+    virtual protected void FaceForward(Vector3 targetVelocity)
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 

@@ -43,7 +43,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038784846212273813}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 4263016877876653559}
   - component: {fileID: 4918430836151260397}
   - component: {fileID: 2558855753744608550}
+  - component: {fileID: 386073978094529393}
   - component: {fileID: 6392428532674583130}
   m_Layer: 0
   m_Name: FireWorm
@@ -237,6 +238,41 @@ CapsuleCollider2D:
   m_Offset: {x: 0.9683845, y: 0.99258614}
   m_Size: {x: 2.8469546, y: 2.8469546}
   m_Direction: 1
+--- !u!58 &386073978094529393
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782787995318582076}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.38}
+  serializedVersion: 2
+  m_Radius: 0.45
 --- !u!114 &6392428532674583130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,8 +304,11 @@ MonoBehaviour:
   m_BossName: '[FIRE WORM NAME]'
   m_MinSkillPoints: 5
   m_MaxSkillPoints: 15
-  m_Mouth: {fileID: 3717615607151904432}
   m_ProjectilePrefab: {fileID: 5848786722145493493, guid: 3bbf155e7cf781e42a2099c48df507bf, type: 3}
+  m_FireDropPrefab: {fileID: 7131446472268351482, guid: 9e99f00b9c2af594aa1390bf88390ae6, type: 3}
+  m_Mouth: {fileID: 3717615607151904432}
+  m_NormalCollider: {fileID: 2558855753744608550}
+  m_BurrowedCollider: {fileID: 386073978094529393}
   m_ProjectileSpeed: 5
   m_ProjectileLifetime: 2
   m_ProjectileDamage: 10
@@ -279,10 +318,11 @@ MonoBehaviour:
   m_Burrowed: 0
   m_BurrowChance: 0.1
   m_BurrowCooldown: 5
-  m_BurrowedSpeed: 12
-  m_MinBurrowDuration: 10
-  m_MaxBurrowDuration: 15
-  m_ChargeDelay: 1
+  m_BurrowedSpeed: 8
+  m_DropFireCooldown: 0.05
+  m_MinBurrowDuration: 4
+  m_MaxBurrowDuration: 8
+  m_ChargeDelay: 0.5
   m_ChargeDuration: 1
 --- !u!1 &8335548373994432881
 GameObject:
@@ -494,6 +534,10 @@ PrefabInstance:
     - target: {fileID: 7819643953392803466, guid: 8d39fd34df25b4f48ab01e390d4ba0a5, type: 3}
       propertyPath: m_Name
       value: Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819643953392803466, guid: 8d39fd34df25b4f48ab01e390d4ba0a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

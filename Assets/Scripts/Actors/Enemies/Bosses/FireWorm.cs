@@ -5,9 +5,12 @@ using UnityEngine;
 public class FireWorm : Boss
 {
     [SerializeField] GameObject m_ProjectilePrefab;
+    [SerializeField] GameObject m_FireDropPrefab;
 
     [SerializeField] GameObject m_Mouth;
     private GameObject m_DirtParticles;
+    [SerializeField] CapsuleCollider2D m_NormalCollider;
+    [SerializeField] CircleCollider2D m_BurrowedCollider;
 
     [SerializeField] float m_ProjectileSpeed;
     [SerializeField] float m_ProjectileLifetime;
@@ -21,6 +24,7 @@ public class FireWorm : Boss
     [SerializeField] float m_BurrowChance;
     [SerializeField] float m_BurrowCooldown;
     [SerializeField] float m_BurrowedSpeed;
+    [SerializeField] float m_DropFireCooldown;
     [SerializeField] float m_MinBurrowDuration;
     [SerializeField] float m_MaxBurrowDuration;
     [SerializeField] float m_ChargeDelay;
@@ -35,12 +39,20 @@ public class FireWorm : Boss
         throw new System.NotImplementedException();
     }
 
-    public override void BossFightInit() { }
+    public override void BossFightInit(){}
 
     public override void Start()
     {
         base.Start();
         m_DirtParticles = GetComponentInChildren<ParticleSystem>().gameObject;
+
+        ToggleBurrow(false);
+        m_BurrowOnCooldown = true;
+
+        StartCoroutine(Utils.DelayedCall(3f, () =>
+        {
+            m_BurrowOnCooldown = false;
+        }));
     }
 
     public override void Update()
@@ -55,30 +67,16 @@ public class FireWorm : Boss
         if (Player.m_Instance == null) return;
         if (m_IsMidAnimation) return;
 
-        float distToPlayer = Vector2.Distance(Player.m_Instance.transform.position, transform.position);
-
         if (!m_Burrowed)
         {
             if (!m_BurrowOnCooldown) BurrowCheck();
-
-            if (distToPlayer < m_MinShootRange)
-            {
-                MoveAwayRoutine();
-                if (!m_IsMidAnimation)
-                {
-                    GetComponentInChildren<Animator>().Play("Moving");
-                    FaceForward(rb.velocity);
-                }
-            }
+            
+            rb.velocity = Vector2.zero;
+            if (!m_ProjectileOnCooldown) StartCoroutine(Shoot());
             else
             {
-                rb.velocity = Vector2.zero;
-                if (!m_ProjectileOnCooldown) StartCoroutine(Shoot());
-                if (!m_IsMidAnimation)
-                {
-                    GetComponentInChildren<Animator>().Play("Idle");
-                    FaceForward(Player.m_Instance.transform.position - transform.position);
-                }
+                GetComponentInChildren<Animator>().Play("Idle");
+                FaceForward(Player.m_Instance.transform.position - transform.position);
             }
         }
     }
@@ -104,7 +102,6 @@ public class FireWorm : Boss
 
     private IEnumerator Burrow()
     {
-        Debug.Log("burrowed!");
         float duration = Random.Range(m_MinBurrowDuration, m_MaxBurrowDuration);
         float timeLeft = duration;
 
@@ -113,8 +110,7 @@ public class FireWorm : Boss
 
         while (timeLeft > 0f)
         {
-            // 
-            if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position, 0.8f) && !m_Charging)
+            if (!m_Charging)
             {
                 yield return Charge();
             }
@@ -132,6 +128,23 @@ public class FireWorm : Boss
         m_BurrowOnCooldown = false;
     }
 
+    private IEnumerator DropFire()
+    {
+        while (m_Burrowed)
+        {
+            if (m_Charging)
+            {
+                SpawnFireDrop();
+            }
+            yield return new WaitForSeconds(m_DropFireCooldown);
+        }
+    }
+
+    void SpawnFireDrop()
+    {
+        GameObject fire = Instantiate(m_FireDropPrefab);
+        fire.GetComponent<EnemyAOE>().Init(transform.position, m_ProjectileDamage, 0, 5, gameObject, DamageType.Fire);
+    }
 
     private IEnumerator Charge()
     {
@@ -139,9 +152,12 @@ public class FireWorm : Boss
 
         rb.velocity = Vector2.zero;
 
+        SpawnFireDrop();
+
         yield return new WaitForSeconds(m_ChargeDelay);
 
         m_Charging = true;
+        Debug.Log("charging!");
 
         rb.velocity = (playerPos - transform.position).normalized * m_BurrowedSpeed;
 
@@ -151,6 +167,7 @@ public class FireWorm : Boss
         {
             m_IsMidAnimation = false;
             m_Charging = false;
+            Debug.Log("stopped charging");
         }));
     }
 
@@ -158,14 +175,21 @@ public class FireWorm : Boss
     {
         m_Burrowed = on;
         GetComponentInChildren<SpriteRenderer>().enabled = !on;
+        m_NormalCollider.enabled = !on;
+        m_BurrowedCollider.enabled = on;
         m_DirtParticles.SetActive(on);
+
         if (on)
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+            StartCoroutine(DropFire());
+            Debug.Log("burrowed!");
         }
         else
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            StopCoroutine(DropFire());
+            Debug.Log("unburrowed");
         }
     }
 
@@ -207,6 +231,14 @@ public class FireWorm : Boss
         yield return new WaitForSeconds(m_ProjectileCooldown);
 
         m_ProjectileOnCooldown = false;
+    }
+
+    protected override void FaceForward(Vector3 targetVelocity)
+    {
+        // If velocity > 0, don't flip. if it is less than, flip
+        float faceDir = targetVelocity.x > 0 ? 1f : -1f;
+
+        transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x) * faceDir, transform.localScale.y);
     }
 
     protected override void OnTriggerStay2D(Collider2D collision)
