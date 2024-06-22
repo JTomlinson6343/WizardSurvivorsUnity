@@ -18,8 +18,6 @@ public class FireWorm : Boss
     [SerializeField] float m_ProjectileKnockback;
     [SerializeField] float m_ProjectileCooldown;
 
-    [SerializeField] float m_MinShootRange; // Min range the worm needs to be to shoot the player
-
     [SerializeField] bool m_Burrowed;
     [SerializeField] float m_BurrowChance;
     [SerializeField] float m_BurrowCooldown;
