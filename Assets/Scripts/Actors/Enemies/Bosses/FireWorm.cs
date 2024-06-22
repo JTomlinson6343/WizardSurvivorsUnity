@@ -37,8 +37,6 @@ public class FireWorm : Boss
         throw new System.NotImplementedException();
     }
 
-    public override void BossFightInit(){}
-
     public override void Start()
     {
         base.Start();
@@ -77,17 +75,12 @@ public class FireWorm : Boss
                 FaceForward(Player.m_Instance.transform.position - transform.position);
             }
         }
-    }
-
-    private void MoveAwayRoutine()
-    {
-        if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(m_Mouth.transform.position))
+        else
         {
-            StartCoroutine(Burrow());
+            if (!PlayerManager.m_Instance.m_BossArenaBounds.IsInBounds(transform.position, 0.2f)) rb.velocity = rb.velocity;
         }
-
-        rb.velocity = Utils.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject) * -m_Speed;
     }
+
 
     private void BurrowCheck() // Try and burrow if the rng value is correct
     {
@@ -110,6 +103,7 @@ public class FireWorm : Boss
         {
             if (!m_Charging)
             {
+
                 yield return Charge();
             }
 
