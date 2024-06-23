@@ -5,9 +5,6 @@ using UnityEngine.Rendering.Universal;
 
 public class FireDebuffSkill : Skill
 {
-    public GameObject m_FireParticlePrefab;
-    public Light2D m_LightPrefab;
-
     public float m_Damage;
     public DamageType m_DamageType;
     public override void Init(SkillData data)

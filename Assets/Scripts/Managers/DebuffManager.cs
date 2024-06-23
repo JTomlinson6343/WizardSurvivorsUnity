@@ -68,8 +68,10 @@ public class DebuffManager : MonoBehaviour
     IEnumerator FireDebuffRoutine(Actor actor, Debuff debuffData)
     {
         GameObject flames = Instantiate(m_FireParticlePrefab);
+        Vector2 initScale = flames.transform.localScale;
         flames.transform.SetParent(actor.transform);
         flames.transform.position = actor.m_DebuffPlacement.transform.position;
+        flames.transform.localScale = initScale;
 
         yield return DebuffRoutine(actor,debuffData);
 
