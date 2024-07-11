@@ -307,7 +307,7 @@ MonoBehaviour:
   m_KnockbackModifier: 1
   m_HealthbarPrefab: {fileID: 0}
   m_DeathParticlesPrefab: {fileID: 0}
-  m_BossName: Great Embergorger of the Infernal Wastes
+  m_BossName: Great Cinderworm of the Infernal Wastes
   m_MinSkillPoints: 5
   m_MaxSkillPoints: 15
   m_ProjectilePrefab: {fileID: 5848786722145493493, guid: 3bbf155e7cf781e42a2099c48df507bf, type: 3}
