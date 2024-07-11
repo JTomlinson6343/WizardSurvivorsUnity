@@ -174,4 +174,15 @@ public class Actor : MonoBehaviour
         // Call the method after the delay
         Invoke(methodOnPlay, delay);
     }
+    protected void PlayMethodAfterAnimation(string animation, float delay, Action method)
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+
+        // Play the animation
+        animator.Play(animation, -1, 0f);
+        // Set status to being mid-animation
+        m_IsMidAnimation = true;
+        // Call the method after the delay
+        StartCoroutine(Utils.DelayedCall(delay, method));
+    }
 }

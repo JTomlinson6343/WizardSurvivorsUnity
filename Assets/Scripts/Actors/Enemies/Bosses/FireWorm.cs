@@ -18,6 +18,8 @@ public class FireWorm : Boss
     [SerializeField] float m_ProjectileKnockback;
     [SerializeField] float m_ProjectileCooldown;
 
+    [SerializeField] float m_FireDropDamage;
+
     [SerializeField] bool m_Burrowed;
     [SerializeField] float m_BurrowChance;
     [SerializeField] float m_BurrowCooldown;
@@ -85,8 +87,13 @@ public class FireWorm : Boss
     {
         if (Random.Range(0f, 1f) <= m_BurrowChance)
         {
-            ToggleBurrow(true);
-            StartCoroutine(Burrow());
+            PlayMethodAfterAnimation("Burrow", 0.15f, () => {
+                Animator animator = GetComponentInChildren<Animator>();
+
+                animator.Play("Idle", -1, 0f);
+                ToggleBurrow(true);
+                StartCoroutine(Burrow());
+            });
         }
     }
 
@@ -134,7 +141,7 @@ public class FireWorm : Boss
     void SpawnFireDrop()
     {
         GameObject fire = Instantiate(m_FireDropPrefab);
-        fire.GetComponent<EnemyAOE>().Init(transform.position, m_ProjectileDamage, 0, 5, gameObject, DamageType.Fire);
+        fire.GetComponent<EnemyAOE>().Init(transform.position, m_FireDropDamage, 0, 5, gameObject, DamageType.Fire);
     }
 
     private IEnumerator Charge()

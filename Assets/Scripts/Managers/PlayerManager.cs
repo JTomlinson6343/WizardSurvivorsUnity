@@ -104,6 +104,8 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     private void BossArena(Actor actor)
     {
+        if (!actor) return;
+
         // Bind actor to world bounds
         if (actor.transform.position.x < m_BossArenaBounds.left)
             actor.transform.position = new Vector3(m_BossArenaBounds.left, actor.transform.position.y, actor.transform.position.z);

@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8375378e50214b81a24ef8aa748e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 20000
-  m_Health: 20000
+  m_MaxHealth: 2000
+  m_Health: 2000
   m_KnockbackResist: 1
   m_DamageResistance: 0
   m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
@@ -301,9 +301,9 @@ MonoBehaviour:
   m_HealthModifier: 0
   m_SpawnProbability: 0
   m_MinWave: 0
-  m_XPAwarded: 0
+  m_XPAwarded: 100
   m_Speed: 1
-  m_ContactDamage: 15
+  m_ContactDamage: 25
   m_KnockbackModifier: 1
   m_HealthbarPrefab: {fileID: 0}
   m_DeathParticlesPrefab: {fileID: 0}
@@ -317,9 +317,10 @@ MonoBehaviour:
   m_BurrowedCollider: {fileID: 386073978094529393}
   m_ProjectileSpeed: 5
   m_ProjectileLifetime: 2
-  m_ProjectileDamage: 10
+  m_ProjectileDamage: 30
   m_ProjectileKnockback: 0
   m_ProjectileCooldown: 1
+  m_FireDropDamage: 15
   m_Burrowed: 0
   m_BurrowChance: 0.1
   m_BurrowCooldown: 5
