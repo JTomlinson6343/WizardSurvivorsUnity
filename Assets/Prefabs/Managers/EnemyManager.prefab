@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 4782787995318582076, guid: 9be176070d5270e44b396b4f8d9a6f56, type: 3}
   m_BossPrefabs:
   - {fileID: 4782787995318582076, guid: 5c46fe11d484eaa499c810f793fe9330, type: 3}
+  - {fileID: 4782787995318582076, guid: ca6d371efbf397840883c5b212c080ba, type: 3}
   m_SpawnCooldown: 0.2
   m_WaveTimer: 60
   m_SpawnRadius: 15

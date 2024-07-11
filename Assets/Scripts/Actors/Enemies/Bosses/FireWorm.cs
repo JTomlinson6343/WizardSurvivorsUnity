@@ -36,7 +36,14 @@ public class FireWorm : Boss
 
     public override void Enraged(int bossNumber)
     {
-        throw new System.NotImplementedException();
+        m_MaxHealth *= bossNumber;
+        m_ProjectileCooldown *= 1f / bossNumber;
+        m_BurrowedSpeed *= 1f + bossNumber * 0.05f;
+        m_MinBurrowDuration *= 1f + bossNumber * 0.15f;
+        m_MaxBurrowDuration *= 1f + bossNumber * 0.15f;
+        m_ChargeDelay *= 1f - bossNumber * 0.1f;
+
+        m_BossName = "Enraged " + m_BossName;
     }
 
     public override void Start()
