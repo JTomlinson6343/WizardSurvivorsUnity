@@ -81,7 +81,6 @@ public class FireWorm : Boss
         }
     }
 
-
     private void BurrowCheck() // Try and burrow if the rng value is correct
     {
         if (Random.Range(0f, 1f) <= m_BurrowChance)
@@ -170,17 +169,20 @@ public class FireWorm : Boss
         m_NormalCollider.enabled = !on;
         m_BurrowedCollider.enabled = on;
         m_DirtParticles.SetActive(on);
+        m_DebuffPlacement.SetActive(!on);
 
         if (on)
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             StartCoroutine(DropFire());
+            m_DebuffImmune = true;
             Debug.Log("burrowed!");
         }
         else
         {
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             StopCoroutine(DropFire());
+            m_DebuffImmune = false;
             Debug.Log("unburrowed");
         }
     }

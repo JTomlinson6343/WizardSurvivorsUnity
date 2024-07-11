@@ -20,6 +20,16 @@ public class DebuffManager : MonoBehaviour
     {
         if (!actor) return;
 
+        if (actor.m_DebuffImmune) return;
+
+        if (actor.m_DebuffImmunities.Length > 0)
+        {
+            foreach (Debuff.DebuffType type in actor.m_DebuffImmunities)
+            {
+                if (type == debuffData.m_Type) return;
+            }
+        }
+
         if (RefreshCheck(actor, debuffData))
             return;
 
@@ -69,8 +79,8 @@ public class DebuffManager : MonoBehaviour
     {
         GameObject flames = Instantiate(m_FireParticlePrefab);
         Vector2 initScale = flames.transform.localScale;
-        flames.transform.SetParent(actor.transform);
-        flames.transform.position = actor.m_DebuffPlacement.transform.position;
+        flames.transform.SetParent(actor.m_DebuffPlacement.transform, false);
+        //flames.transform.position = actor.m_DebuffPlacement.transform.position;
         flames.transform.localScale = initScale;
 
         yield return DebuffRoutine(actor,debuffData);

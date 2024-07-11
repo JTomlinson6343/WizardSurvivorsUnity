@@ -26,6 +26,8 @@ public class Actor : MonoBehaviour
 
     public GameObject m_DebuffPlacement;
     public List<Debuff> m_Debuffs = new List<Debuff>();
+    public Debuff.DebuffType[] m_DebuffImmunities;
+    public bool m_DebuffImmune = false;
 
     protected bool m_IsMidAnimation;
     bool m_IsDead;
@@ -135,6 +137,14 @@ public class Actor : MonoBehaviour
         {
             // Unfreeze movement
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
+    public void ClearDebuffs()
+    {
+        foreach (Debuff debuff in m_Debuffs)
+        {
+            debuff.EndEarly();
         }
     }
 
