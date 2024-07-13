@@ -199,10 +199,10 @@ public class Player : Actor
 
         if (m_AutoFire)
         {
-            GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(GetCentrePos(), m_ActiveAbility.m_DefaultAutofireRange);
+            GameObject closestEnemy = Utils.GetClosestEnemyInRange(GetCentrePos(), m_ActiveAbility.m_DefaultAutofireRange);
             if (closestEnemy)
             {
-                Vector2 dir = GameplayManager.GetDirectionToGameObject(GetStaffTransform().position, closestEnemy);
+                Vector2 dir = Utils.GetDirectionToGameObject(GetStaffTransform().position, closestEnemy);
 
                 if (Mathf.Abs(dir.x) > 0.05f) FaceDirection(dir);
             }

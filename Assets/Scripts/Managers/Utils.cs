@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+using Random = UnityEngine.Random;
 
-public static class GameplayManager
+public static class Utils
 {
     // This class is full of helper functions that involve physics or just general maths calculations
     public static List<GameObject> GetAllEnemiesInRange(Vector2 pos, float radius)
@@ -116,5 +117,12 @@ public static class GameplayManager
     public static Vector3 GetRandomDirectionV3()
     {
         return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+    }
+
+    public static IEnumerator DelayedCall(float delay, Action action)
+    {
+        yield return new WaitForSeconds(delay);
+
+        action();
     }
 }

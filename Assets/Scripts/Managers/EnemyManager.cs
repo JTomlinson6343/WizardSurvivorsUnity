@@ -73,7 +73,11 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B)) ProgressionManager.m_Instance.PreBoss();
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            CancelInvoke(nameof(GracePeriod));
+            ProgressionManager.m_Instance.PreBoss();
+        }
 
         if (Input.GetKeyDown(KeyCode.P)) StartNewWave();
 
@@ -198,11 +202,16 @@ public class EnemyManager : MonoBehaviour
 
     public Boss SpawnBoss()
     {
-        GameObject boss = Instantiate(m_BossPrefabs[0]);
+        GameObject boss = Instantiate(ChooseRandomBoss());
         boss.transform.position = Player.m_Instance.transform.position + new Vector3(0f, 3f);
         boss.transform.SetParent(transform);
 
         return boss.GetComponent<Boss>();
+    }
+
+    private GameObject ChooseRandomBoss()
+    {
+        return m_BossPrefabs[Random.Range(0, m_BossPrefabs.Length)];
     }
 
     public void GracePeriod()

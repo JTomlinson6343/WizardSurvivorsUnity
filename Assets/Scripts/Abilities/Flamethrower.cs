@@ -57,14 +57,14 @@ public class Flamethrower : Ability
 
     private void AutoCast()
     {
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
+        GameObject closestEnemy = Utils.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
 
         if (!closestEnemy)
         {
             m_FlamethrowerObject.SetActive(false);
             return;
         }
-        Vector2 dir = GameplayManager.GetDirectionToGameObject(Player.m_Instance.GetStaffTransform().position, closestEnemy);
+        Vector2 dir = Utils.GetDirectionToGameObject(Player.m_Instance.GetStaffTransform().position, closestEnemy);
 
         float now = Time.realtimeSinceStartup;
 

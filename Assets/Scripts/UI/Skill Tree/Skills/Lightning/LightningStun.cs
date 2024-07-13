@@ -60,7 +60,7 @@ public class LightningStun : CooldownSkill
     {
         Vector2 centreEnemyPos = centreEnemy.GetComponent<Enemy>().m_DebuffPlacement.transform.position;
 
-        List<GameObject> enemies = GameplayManager.GetAllEnemiesInRange(centreEnemyPos, radius);
+        List<GameObject> enemies = Utils.GetAllEnemiesInRange(centreEnemyPos, radius);
 
         foreach (GameObject enemy in enemies)
         {

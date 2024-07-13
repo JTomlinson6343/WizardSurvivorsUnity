@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a58e5b41fb4d2c6429df63541cc2241a
+guid: 1a813691840c2844f956ac832edd17bb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 11.25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,106 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Buffbro_MAGIC_animation_0
+      name: Death_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac985619e0e8bc48ba4396b29e246ab
-      internalID: -488443646
+      spriteID: fcb9473b7b5ad224080ffbca10838739
+      internalID: 640302677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_MAGIC_animation_1
+      name: Death_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 90
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2062afe4da6f0074294e4dd672524bc9
-      internalID: -253275870
+      spriteID: 5c38dc3599f44d54e88b6624d311d9b5
+      internalID: 700281603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_MAGIC_animation_2
+      name: Death_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 180
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5712ebe099ff9740b5bc434144cb7b7
-      internalID: -495381344
+      spriteID: cc9b03907bd63cc488b38e3d4270e7b9
+      internalID: 851425823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_MAGIC_animation_3
+      name: Death_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 270
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e96173114c5f38428469eff42f59fa8
-      internalID: -530731810
+      spriteID: 58e994dfacea5f84390f23f3bd5a99a2
+      internalID: -1898908233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_MAGIC_animation_4
+      name: Death_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 360
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e51cfa0b9bb87f4196c7eb8fb21fda5
-      internalID: 1218925845
+      spriteID: 5179ecbf7a2a936489082e313126b373
+      internalID: -681500419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_5
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8c0063bc9e8134b86539ad84a443d9
+      internalID: 1524220794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_6
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575922d95157def41b587dd1cd873db1
+      internalID: -1146179011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_7
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4deadb89ca8001b43935faa1c1a00885
+      internalID: 113264003
       vertices: []
       indices: 
       edges: []
@@ -225,11 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Buffbro_MAGIC_animation_0: -488443646
-      Buffbro_MAGIC_animation_1: -253275870
-      Buffbro_MAGIC_animation_2: -495381344
-      Buffbro_MAGIC_animation_3: -530731810
-      Buffbro_MAGIC_animation_4: 1218925845
+      Death_0: 640302677
+      Death_1: 700281603
+      Death_2: 851425823
+      Death_3: -1898908233
+      Death_4: -681500419
+      Death_5: 1524220794
+      Death_6: -1146179011
+      Death_7: 113264003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

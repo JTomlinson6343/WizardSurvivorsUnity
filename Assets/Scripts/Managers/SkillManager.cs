@@ -11,15 +11,21 @@ public class SkillManager : MonoBehaviour
 
     private void Awake()
     {
-        m_Instance = this;
+        SingletonCheck();
         if (SkillPanel.m_Instance)
             SkillPanel.m_Instance.Init();
     }
 
     private void Start()
     {
-        m_Instance = this;
+        SingletonCheck();
         ActivateSkills();
+    }
+
+    private void SingletonCheck()
+    {
+        if (m_Instance != null) Destroy(this);
+        else m_Instance = this;
     }
 
     public void ResetSkillsAdded()

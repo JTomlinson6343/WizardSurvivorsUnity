@@ -26,6 +26,8 @@ public class Actor : MonoBehaviour
 
     public GameObject m_DebuffPlacement;
     public List<Debuff> m_Debuffs = new List<Debuff>();
+    public Debuff.DebuffType[] m_DebuffImmunities;
+    public bool m_DebuffImmune = false;
 
     protected bool m_IsMidAnimation;
     bool m_IsDead;
@@ -138,6 +140,14 @@ public class Actor : MonoBehaviour
         }
     }
 
+    public void ClearDebuffs()
+    {
+        foreach (Debuff debuff in m_Debuffs)
+        {
+            debuff.EndEarly();
+        }
+    }
+
     // Method called after 'delay' seconds and only if it is off cooldown
     protected void PlayMethodAfterAnimation(string animation, float delay, string methodOnPlay, ref bool cooldownCheck)
     {
@@ -163,5 +173,16 @@ public class Actor : MonoBehaviour
         m_IsMidAnimation = true;
         // Call the method after the delay
         Invoke(methodOnPlay, delay);
+    }
+    protected void PlayMethodAfterAnimation(string animation, float delay, Action method)
+    {
+        Animator animator = GetComponentInChildren<Animator>();
+
+        // Play the animation
+        animator.Play(animation, -1, 0f);
+        // Set status to being mid-animation
+        m_IsMidAnimation = true;
+        // Call the method after the delay
+        StartCoroutine(Utils.DelayedCall(delay, method));
     }
 }

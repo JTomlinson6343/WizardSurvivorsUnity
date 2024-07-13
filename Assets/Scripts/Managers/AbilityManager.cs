@@ -200,7 +200,7 @@ public class AbilityManager : MonoBehaviour
         m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
         if (!icon.displayedAbility.m_IsSpell)
         {
-            m_NameLabel.text += " " + GameplayManager.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
+            m_NameLabel.text += " " + Utils.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
             m_DescriptionLabel.text += "\n\nNext level:\n" + icon.displayedAbility.m_Data.levelUpInfo;
         }
     }

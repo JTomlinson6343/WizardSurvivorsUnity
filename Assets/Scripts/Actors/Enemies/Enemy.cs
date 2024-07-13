@@ -30,6 +30,7 @@ public class Enemy : Actor
 
     protected Rigidbody2D rb;
     protected Animator m_Animator;
+    protected Animator m_AnimatorMask;
 
     [SerializeField] GameObject m_HealthbarPrefab;
 
@@ -37,13 +38,17 @@ public class Enemy : Actor
 
     private void Awake()
     {
-        m_Animator = GetComponentInChildren<Animator>();
+        Animator[] animators = GetComponentsInChildren<Animator>();
+        m_Animator = animators[0];
+        if (animators.Length>1) m_AnimatorMask = GetComponentsInChildren<Animator>()[1];
         rb = GetComponent<Rigidbody2D>();
     }
 
     override public void Start()
     {
         base.Start();
+        m_Animator?.SetBool("Moving", true);
+        m_AnimatorMask?.SetBool("Moving", true);
     }
 
     // Update is called once per frame
@@ -85,7 +90,7 @@ public class Enemy : Actor
         EnemyManager.m_Instance.OnRespawn();
         Destroy(gameObject);
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    protected virtual void OnTriggerStay2D(Collider2D collision)
     {
         GameObject otherObject = collision.gameObject;
 
@@ -108,25 +113,17 @@ public class Enemy : Actor
 
     void SetAnimState(Vector3 targetVelocity)
     {
+        FaceForward(targetVelocity);
+    }
+
+    virtual protected void FaceForward(Vector3 targetVelocity)
+    {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
         // If velocity > 0, don't flip. if it is less than, flip
         float faceDir = targetVelocity.x > 0 ? 1f : -1f;
 
         sprite.transform.localScale = new Vector2(Mathf.Abs(sprite.transform.localScale.x) * faceDir, sprite.transform.localScale.y);
-
-        if (targetVelocity.magnitude > 0)
-        {
-            // Object is moving
-            m_Animator.SetBool("Moving", true);
-            m_Animator.SetBool("Idle", false); // Disable the idle state
-        }
-        else
-        {
-            // Object is not moving
-            m_Animator.SetBool("Moving", false); // Disable the moving state
-            m_Animator.SetBool("Idle", true);
-        }
     }
 
     private void RollForSkillPoint()

@@ -14,7 +14,7 @@ public class FireElemental : Summon
 
     protected override void Attack()
     {
-        GameObject closestEnemy = GameplayManager.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange);
+        GameObject closestEnemy = Utils.GetClosestEnemyInRange(transform.position, m_AbilitySource.m_DefaultAutofireRange);
 
         if (!closestEnemy)
         {
@@ -24,7 +24,7 @@ public class FireElemental : Summon
 
         m_FlamethrowerObject.SetActive(true);
 
-        Vector2 dir = GameplayManager.GetDirectionToGameObject(transform.position, closestEnemy);
+        Vector2 dir = Utils.GetDirectionToGameObject(transform.position, closestEnemy);
 
         FaceGameObject(closestEnemy.transform.position);
 

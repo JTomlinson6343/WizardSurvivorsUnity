@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 89a6a95ba87434f4795b33406e18d068
+guid: 29c460c854aaa9c4fb385073c57142df
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 11.25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,211 +110,337 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_0
+      name: Attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ba81d049dc5737479c89914db6f3521
-      internalID: 1363139073
+      spriteID: 81e3bdd5cfaed464cb8dc356610c7e3b
+      internalID: 1396270014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_1
+      name: Attack_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 90
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f9b4f23b648de74aa1609e9eb0813a3
-      internalID: -563461722
+      spriteID: bab434a0dc5f8844281dfd1cbcb0ba76
+      internalID: 1002796371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_2
+      name: Attack_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 180
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cf17fd1078dd7447a6ed59e2e17ae93
-      internalID: 139063601
+      spriteID: c4a7ea295c6b8594cbd683119046fba4
+      internalID: 2033300908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_3
+      name: Attack_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 270
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 371a101647243dd4eb03c701315f6222
-      internalID: 1920753718
+      spriteID: 9a7415c4eed418e44855684ee8c82feb
+      internalID: 1991633265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_4
+      name: Attack_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 360
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee23956ef05389e4c90f1eb8c284241e
-      internalID: 285822505
+      spriteID: 403fa12d5501b3b4da5e257f40b2e60d
+      internalID: 1550504132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_5
+      name: Attack_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 450
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc4468e0b74b81b478765330db132dcf
-      internalID: -1221557382
+      spriteID: 81d4fe018a056bb4ea46c51a30229a83
+      internalID: -97356571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_6
+      name: Attack_6
       rect:
         serializedVersion: 2
-        x: 768
+        x: 540
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5901984183b0c0f48be8ab838c5b7bac
-      internalID: 1056043777
+      spriteID: bd7a1c03a19b61644929d579b1f950fb
+      internalID: -334166454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_7
+      name: Attack_7
       rect:
         serializedVersion: 2
-        x: 896
+        x: 630
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e657d2d3aeb8c2468efbca65b631612
-      internalID: 1936532438
+      spriteID: 1888916807f2846419e347f044a22412
+      internalID: -348521492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_8
+      name: Attack_8
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 720
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4f7564bb1d4a4a448480a812181c9fc
-      internalID: -284638236
+      spriteID: 5e5e685cbd54d95448cae9e2f94def02
+      internalID: 216222497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Buffbro_SLAM2_animation_9
+      name: Attack_9
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 810
         y: 0
-        width: 128
-        height: 128
+        width: 90
+        height: 90
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.38}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f658a67ba6f2794fb58239a11ed4879
-      internalID: -1443554972
+      spriteID: 1f3861f69b004f348a34b8d2cc61fcba
+      internalID: 1007712288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2914ed9659e2d418bf979874e816ab
+      internalID: -1837324730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_11
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02813fe1c95e7f479b370428ec82250
+      internalID: -1452915525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca47a31f5bf0ef4395b9c2031d89afa
+      internalID: 289654362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148c96d9c71a8bd4081c4c07814b47be
+      internalID: 479882817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40578a70bb8768843b05b0ef16c42cb0
+      internalID: 2077757905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_15
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 90
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c9de66e9d358b499f709f925f6ad23
+      internalID: -1522097238
       vertices: []
       indices: 
       edges: []
@@ -330,16 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Buffbro_SLAM2_animation_0: 1363139073
-      Buffbro_SLAM2_animation_1: -563461722
-      Buffbro_SLAM2_animation_2: 139063601
-      Buffbro_SLAM2_animation_3: 1920753718
-      Buffbro_SLAM2_animation_4: 285822505
-      Buffbro_SLAM2_animation_5: -1221557382
-      Buffbro_SLAM2_animation_6: 1056043777
-      Buffbro_SLAM2_animation_7: 1936532438
-      Buffbro_SLAM2_animation_8: -284638236
-      Buffbro_SLAM2_animation_9: -1443554972
+      Attack_0: 1396270014
+      Attack_1: 1002796371
+      Attack_10: -1837324730
+      Attack_11: -1452915525
+      Attack_12: 289654362
+      Attack_13: 479882817
+      Attack_14: 2077757905
+      Attack_15: -1522097238
+      Attack_2: 2033300908
+      Attack_3: 1991633265
+      Attack_4: 1550504132
+      Attack_5: -97356571
+      Attack_6: -334166454
+      Attack_7: -348521492
+      Attack_8: 216222497
+      Attack_9: 1007712288
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -94,4 +94,9 @@ public class Debuff
         // Refresh timer
         m_TimeLeft = kDuration;
     }
+
+    public void EndEarly()
+    {
+        m_TimeLeft = 0;
+    }
 }

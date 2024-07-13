@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class AOEObject : Projectile
 {
@@ -20,10 +21,9 @@ public class AOEObject : Projectile
         if (m_ActiveFramesDuration > 0f && Time.realtimeSinceStartup - m_TimeSpawned > m_ActiveFramesDuration) return;
 
         if (m_HitTargets.Contains(enemy)) return;
-
         m_HitTargets.Add(enemy);
 
-        StartCoroutine(EndTargetCooldown(enemy));
+        ProjectileManager.m_Instance.EndTargetCooldown(enemy, m_HitboxDelay, m_HitTargets);
 
         DamageTarget(enemy);
     }

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour
@@ -104,4 +106,16 @@ public class ProjectileManager : MonoBehaviour
         return bullets;
     }
     #endregion
+
+    public void EndTargetCooldown(GameObject enemy, float hitboxDelay, List<GameObject> hitTargets)
+    {
+        StartCoroutine(TargetCooldownRoutine(enemy, hitboxDelay, hitTargets));
+    }
+
+    private IEnumerator TargetCooldownRoutine(GameObject enemy, float hitboxDelay, List<GameObject> hitTargets)
+    {
+        yield return new WaitForSeconds(hitboxDelay);
+
+        hitTargets.Remove(enemy);
+    }
 }

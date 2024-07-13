@@ -24,7 +24,7 @@ public class EyeMonster : Enemy
 
     private void Shoot()
     {
-        Vector2 dir = GameplayManager.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject);
+        Vector2 dir = Utils.GetDirectionToGameObject(transform.position, Player.m_Instance.gameObject);
 
         AudioManager.m_Instance.PlaySound(22, 0.5f);
 

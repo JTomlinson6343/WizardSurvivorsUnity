@@ -166,7 +166,7 @@ public class ProgressionManager : MonoBehaviour
 
         if (now < m_NextXPSpawn) return;
 
-        GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + GameplayManager.GetRandomDirectionV3() * m_XPSpawnRadius);
+        GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + Utils.GetRandomDirectionV3() * m_XPSpawnRadius);
 
         m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter);
     }
@@ -284,6 +284,7 @@ public class ProgressionManager : MonoBehaviour
         // Lock camera to boss arena
         PlayerManager.m_Instance.OnStartBossFight();
         Boss boss = EnemyManager.m_Instance.SpawnBoss();
+        boss.BossFightInit();
 
         if (m_WaveCounter >= 10)
         {
@@ -318,6 +319,8 @@ public class ProgressionManager : MonoBehaviour
     {
         // Spawn a new wave after a delay
         EnemyManager.m_Instance.GracePeriod();
+
+        PlayerManager.m_Instance.m_ActorsToBind = null;
 
         StateManager.ChangeState(StateManager.State.PLAYING);
     }

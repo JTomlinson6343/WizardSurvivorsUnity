@@ -6,13 +6,19 @@ public abstract class Boss : Enemy
 {
     public string m_BossName;
 
-    [SerializeField] int m_MaxSkillPoints;
     [SerializeField] int m_MinSkillPoints;
 
-    private readonly float m_PercentHealthHealOnKill = 0.25f;
+    [SerializeField] int m_MaxSkillPoints;
+
+    private readonly float m_PercentHealthHealOnKill = 0.5f;
 
     // Modify the boss' stats based on when the boss is fought. 1 = first time a boss is fought
     abstract public void Enraged(int bossNumber);
+
+    public virtual void BossFightInit()
+    {
+        PlayerManager.m_Instance.m_ActorsToBind = new Actor[] { Player.m_Instance, this };
+    }
 
     protected override void OnDeath()
     {
