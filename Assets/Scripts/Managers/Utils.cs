@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public static class Utils
 {
+    public static Transform selected_target;
+    private static Vector3 selected_target_init_scale;
+    private static Vector3 selected_target_max_scale;
+
     // This class is full of helper functions that involve physics or just general maths calculations
     public static List<GameObject> GetAllEnemiesInRange(Vector2 pos, float radius)
     {
@@ -124,5 +129,47 @@ public static class Utils
         yield return new WaitForSeconds(delay);
 
         action();
+    }
+
+    public static void SetSelectedAnimTarget(Transform newTarget)
+    {
+        if (newTarget == selected_target) return;
+        if (selected_target) selected_target.localScale = selected_target_init_scale;
+
+        selected_target_init_scale = newTarget.localScale;
+        selected_target_max_scale = selected_target_init_scale * 1.2f;
+        selected_target = newTarget;
+    }
+
+    public static IEnumerator SelectedAnim()
+    {
+        const float duration = 1f;
+
+        while (true)
+        {
+            if (!selected_target)
+            {
+                yield return new WaitForEndOfFrame();
+                continue;
+            }
+
+            float timer = 0;
+
+            while (timer < duration)
+            {
+
+                if (timer < duration / 2)
+                {
+                    selected_target.localScale = Vector3.Lerp(selected_target_init_scale, selected_target_max_scale, timer / duration);
+                }
+                else
+                {
+                    selected_target.localScale = Vector3.Lerp(selected_target_max_scale, selected_target_init_scale, timer / duration);
+                }
+
+                timer += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 }

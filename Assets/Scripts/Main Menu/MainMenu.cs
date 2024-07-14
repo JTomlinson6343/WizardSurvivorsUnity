@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_CharMenuRef.SetActive(true);
+        m_CharMenuRef.GetComponent<Navigator>().Start();
         Time.timeScale = 1.0f;
     }
 
@@ -27,6 +28,7 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_OptionsMenuRef.SetActive(true);
+        m_OptionsMenuRef.GetComponent<Navigator>().Start();
     }
 
     public void QuitButton()
