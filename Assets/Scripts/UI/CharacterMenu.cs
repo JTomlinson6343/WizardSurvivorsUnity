@@ -52,6 +52,11 @@ public class CharacterMenu : MonoBehaviour
     public void SetCurrentIcon(CharacterIcon charIcon)
     {
         m_CurrentCharIcon = charIcon;
+        foreach (CharacterIcon icon in GetComponentsInChildren<CharacterIcon>())
+        {
+            icon.GetComponent<Image>().color = Color.white;
+        }
+        charIcon.GetComponent<Image>().color = Color.yellow;
     }
 
     public void LoadSkillTree()
@@ -93,5 +98,6 @@ public class CharacterMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_MainMenuRef.gameObject.SetActive(true);
+        m_MainMenuRef.GetComponent<Navigator>().Start();
     }
 }

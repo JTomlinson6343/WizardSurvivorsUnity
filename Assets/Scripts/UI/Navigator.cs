@@ -11,11 +11,17 @@ public class Navigator : MonoBehaviour
         Horizontal,
         Vertical
     }
+    private enum Type
+    {
+        Options,
+        Character
+    }
 
     [SerializeField] Selectable[] m_Selectables;
     [SerializeField] Button m_BackButton;
 
     [SerializeField] NavDirection m_Direction = NavDirection.Horizontal;
+    [SerializeField] Type m_Type = Type.Character;
 
     [SerializeField] bool m_LabelSelectEnabled;
     [SerializeField] bool m_HighlightTextEnabled;
@@ -29,9 +35,10 @@ public class Navigator : MonoBehaviour
     readonly float m_ScrollbarDelay = 0.02f;
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         m_SelectedButtonPos = 0;
+        if (m_Type == Type.Character) Utils.SetSelectedAnimTarget(m_Selectables[0].transform);
     }
 
     // Update is called once per frame
@@ -44,7 +51,6 @@ public class Navigator : MonoBehaviour
     protected void HandleInput()
     {
         ColourSelectedButton();
-
         HandleSelectionInput();
 
         if (Input.GetButtonDown("Submit"))
@@ -108,23 +114,23 @@ public class Navigator : MonoBehaviour
             return;
         }
 
-        foreach (Selectable selectable in m_Selectables)
-        {
-            if (selectable.GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
-            {
-                selectable.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
-                continue;
-            }
+        //foreach (Selectable selectable in m_Selectables)
+        //{
+        //    if (selectable.GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
+        //    {
+        //        selectable.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+        //        continue;
+        //    }
 
-            selectable.GetComponent<Image>().color = Color.white;
-        }
+        //    selectable.GetComponent<Image>().color = Color.white;
+        //}
 
-        if (m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
-        {
-            m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
-            return;
-        }
-        m_Selectables[m_SelectedButtonPos].GetComponent<Image>().color = Color.yellow;
+        //if (m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
+        //{
+        //    m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+        //    return;
+        //}
+        //m_Selectables[m_SelectedButtonPos].GetComponent<Image>().color = Color.yellow;
     }
 
     private void HandleScrollbarInput(Scrollbar scrollbar)
@@ -166,12 +172,12 @@ public class Navigator : MonoBehaviour
         if (m_SelectedButtonPos <= 0)
         {
             m_SelectedButtonPos = 0;
-            return;
         }
-        if (m_SelectedButtonPos > m_Selectables.Length - 1)
+        else if (m_SelectedButtonPos > m_Selectables.Length - 1)
         {
             m_SelectedButtonPos = m_Selectables.Length - 1;
-            return;
         }
+
+        if (m_Type == Type.Character) Utils.SetSelectedAnimTarget(m_Selectables[m_SelectedButtonPos].transform);
     }
 }

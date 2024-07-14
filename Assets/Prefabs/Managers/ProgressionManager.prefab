@@ -1512,6 +1512,7 @@ MonoBehaviour:
   - {fileID: 486505741715487481}
   m_BackButton: {fileID: 0}
   m_Direction: 1
+  m_Type: 1
   m_LabelSelectEnabled: 0
   m_HighlightTextEnabled: 1
   m_Labels: []
@@ -1961,6 +1962,7 @@ MonoBehaviour:
   - {fileID: 1009957403152652139}
   m_BackButton: {fileID: 0}
   m_Direction: 1
+  m_Type: 0
   m_LabelSelectEnabled: 1
   m_HighlightTextEnabled: 0
   m_Labels:

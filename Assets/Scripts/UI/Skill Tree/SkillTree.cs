@@ -206,6 +206,8 @@ public class SkillTree : MonoBehaviour
         OnCloseSkillTreeMenu();
         gameObject.SetActive(false);
         CharacterMenu.m_Instance.gameObject.SetActive(true);
+        CharacterMenu.m_Instance.gameObject.GetComponent<Navigator>().Start();
+
     }
 
     // Enable certain skills in skill manager in the main game depending on which skills are enabled on the menu
