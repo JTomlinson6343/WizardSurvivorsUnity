@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7058065622783415722}
   - component: {fileID: 1292176084662105432}
   m_Layer: 0
-  m_Name: Cooldown_4
+  m_Name: Goggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,17 +147,21 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Leather Goggles
     damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
+    description: Reduce spell cooldowns and increase size of zone effects in exchange
+      for speed
     levelUpInfo: '-10% spell cooldowns
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +8% zone effect size
+
+      -1 move
+      speed'
+    icon: {fileID: -772767292, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
-    AOE: 0
+    AOE: 0.08
     duration: 0
     damage: 0
     summonDamage: 0
@@ -169,7 +173,7 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
+    speed: -0.05
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
@@ -1607,6 +1611,11 @@ MonoBehaviour:
   - {fileID: 8730308040721381745}
   - {fileID: 4534873248877913365}
   - {fileID: 1866523184639576387}
+  - {fileID: 3017779064278989724}
+  - {fileID: 782559920627139027}
+  - {fileID: 3967916068626531825}
+  - {fileID: 4232931549642658120}
+  - {fileID: 1292176084662105432}
   m_AbilityCanvas: {fileID: 3061035875882456239}
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
@@ -1688,6 +1697,98 @@ MonoBehaviour:
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 7256483112163839321, guid: 9d79a94f1e46cbc46b9fb096645fc54a, type: 3}
   m_AOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
+--- !u!1 &2530550909787924200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3741995977190705250}
+  - component: {fileID: 4232931549642658120}
+  m_Layer: 0
+  m_Name: GoldSkull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3741995977190705250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530550909787924200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9001687665959845470}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4232931549642658120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530550909787924200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_IsSpell: 0
+  m_CastAmount: 1
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 0
+    summonDamage: 0
+    speed: 0
+    cooldown: 10
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: Solarium Skull
+    damageType: 0
+    description: Increase health and reduce spell cooldowns in exchange for lower
+      speed
+    levelUpInfo: '+10 max health
+
+      +30 health
+
+      -5% spell cooldowns
+
+      -1
+      speed'
+    icon: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+  m_CooldownRemaining: 0
+  m_DefaultAutofireRange: 10
+  m_AbilityStatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0
+    summonDamage: 0
+    speed: 0
+    cooldown: -0.05
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_PlayerStatBuffs:
+    speed: -0.05
+    shotSpeed: 0
+    maxHealth: 10
+    healthRegen: 0
 --- !u!1 &2609037136667923742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,7 +2836,7 @@ GameObject:
   - component: {fileID: 2803362217475551504}
   - component: {fileID: 782559920627139027}
   m_Layer: 0
-  m_Name: Cooldown_2
+  m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2784,22 +2885,22 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Eclipse Caverns Bat
     damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    description: Increase damage of summon spells, sacrificing your speed in return
+    levelUpInfo: '+5% Summon damage
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      -1 move speed'
+    icon: {fileID: 824492668, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
     damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: -0.1
+    summonDamage: 0.05
+    speed: -0.05
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -2934,6 +3035,7 @@ Transform:
   - {fileID: 3396052011924668356}
   - {fileID: 2803362217475551504}
   - {fileID: 3442439142518557435}
+  - {fileID: 3741995977190705250}
   - {fileID: 7058065622783415722}
   - {fileID: 3825869901759037254}
   - {fileID: 6336378298409992346}
@@ -3863,7 +3965,7 @@ GameObject:
   - component: {fileID: 3442439142518557435}
   - component: {fileID: 3967916068626531825}
   m_Layer: 0
-  m_Name: Cooldown_3
+  m_Name: SilverSkull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3912,29 +4014,31 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Lunarium Skull
     damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    description: Increase spell damage and speed in exchange for longer spell cooldowns
+    levelUpInfo: '+5% spell damage
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +1 speed
+
+      +2% spelll cooldowns'
+    icon: {fileID: -989054158, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.05
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0.02
     amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
+    speed: 0.05
     shotSpeed: 0
     maxHealth: 0
     healthRegen: 0
@@ -4436,7 +4540,7 @@ MonoBehaviour:
     name: Tome of Incantations
     damageType: 6
     description: Increase ability damage and reduce cooldowns
-    levelUpInfo: '+5% ability damage
+    levelUpInfo: '+5% spell damage
 
       -5% spell cooldowns'
     icon: {fileID: 2089560657, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -4522,9 +4626,9 @@ MonoBehaviour:
     name: Elixir of vitality
     damageType: 0
     description: Increase max health and heal the player for triple the amount
-    levelUpInfo: '+20 max health
+    levelUpInfo: '+30 max health
 
-      +60 health'
+      +90 health'
     icon: {fileID: -2124382934, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4543,7 +4647,7 @@ MonoBehaviour:
   m_PlayerStatBuffs:
     speed: 0
     shotSpeed: 0
-    maxHealth: 20
+    maxHealth: 40
     healthRegen: 0
 --- !u!1 &7993745291029406952
 GameObject:
@@ -5082,7 +5186,7 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Black Cat
+    name: Gloomveil Woods Cat
     damageType: 0
     description: Increase damage of summon spells, sacrificing your own damage and
       speed in return
@@ -5098,7 +5202,7 @@ MonoBehaviour:
     AOE: 0
     duration: 0
     damage: -0.05
-    summonDamage: 0.1
+    summonDamage: 0.15
     speed: 0
     cooldown: 0
     amount: 0
