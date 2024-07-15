@@ -133,7 +133,10 @@ public class SkillTree : MonoBehaviour
     void CheckSelectedSkill()
     {
         if (m_CurrentSkill == null)
+        {
+            m_UnlockButton.interactable = false;
             return;
+        }
 
         // Unlock button won't work unless it passes these checks
         if (m_CurrentSkill.IsMaxed())
@@ -187,6 +190,7 @@ public class SkillTree : MonoBehaviour
         UpdateSkillPointsLabel();
         SetHighlightedSkill(null);
         ColorCheckPass();
+        GetComponent<Navigator2D>().Start();
     }
 
     // Called every time an an ability is unlocked or reset.

@@ -52896,6 +52896,22 @@ PrefabInstance:
       propertyPath: m_SkillTree
       value: 
       objectReference: {fileID: 1225650447}
+    - target: {fileID: 6581562635727869752, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581562635727869752, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581562635727869752, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581562635727869752, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 22.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_Character
       value: 

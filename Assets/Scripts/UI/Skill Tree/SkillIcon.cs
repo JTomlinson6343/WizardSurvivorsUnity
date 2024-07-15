@@ -40,7 +40,7 @@ public class SkillIcon : MonoBehaviour
         m_ButtonRef = GetComponent<Button>();
         if (m_ButtonRef != null)
         {
-            m_ButtonRef.onClick.AddListener(OnClick);
+            //m_ButtonRef.onClick.AddListener(OnClick);
         }
     }
 
@@ -75,6 +75,21 @@ public class SkillIcon : MonoBehaviour
 
     public void OnClick()
     {
+        if (!m_SkillTreeRef)
+        {
+            StartCoroutine(WaitForSkillTreeInit());
+        }
+        else
+        {
+            m_SkillTreeRef.SetHighlightedSkill(this);
+        }
+    }
+    IEnumerator WaitForSkillTreeInit()
+    {
+        while (!m_SkillTreeRef)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         m_SkillTreeRef.SetHighlightedSkill(this);
     }
 
