@@ -18,7 +18,7 @@ public class Navigator : MonoBehaviour
     }
 
     [SerializeField] Selectable[] m_Selectables;
-    [SerializeField] Button m_BackButton;
+    [SerializeField] protected Button m_BackButton;
 
     [SerializeField] NavDirection m_Direction = NavDirection.Horizontal;
     [SerializeField] Type m_Type = Type.Character;
@@ -29,13 +29,13 @@ public class Navigator : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] m_Labels;
 
     int m_SelectedButtonPos;
-    bool m_AxisInUse;
+    protected bool m_AxisInUse;
 
     float m_LastScrollbar;
     readonly float m_ScrollbarDelay = 0.02f;
 
     // Use this for initialization
-    public void Start()
+    public virtual void Start()
     {
         m_SelectedButtonPos = 0;
         if (m_Type == Type.Character) Utils.SetSelectedAnimTarget(m_Selectables[0].transform);
@@ -48,7 +48,7 @@ public class Navigator : MonoBehaviour
             HandleInput();
     }
 
-    protected void HandleInput()
+    protected virtual void HandleInput()
     {
         ColourSelectedButton();
         HandleSelectionInput();
@@ -73,7 +73,7 @@ public class Navigator : MonoBehaviour
         if (scrollbar) HandleScrollbarInput(scrollbar);
     }
 
-    private void HandleSelectionInput()
+    protected virtual void HandleSelectionInput()
     {
         string axis;
 
