@@ -67,6 +67,7 @@ public class CharacterMenu : MonoBehaviour
         gameObject.SetActive(false);
 
         m_CurrentCharacterSkillTree.gameObject.SetActive(true);
+        m_CurrentCharacterSkillTree.GetComponent<Navigator2D>().Start();
     }
 
     public SkillTree[] GetSkillTreeRefs()
