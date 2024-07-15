@@ -66,7 +66,7 @@ MonoBehaviour:
     levelUpInfo: '+20% Zone Size
 
       +5 Max Health'
-    icon: {fileID: 1805444670, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 708844268, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -290,7 +290,7 @@ MonoBehaviour:
       (5s
       cooldown)'
     levelUpInfo: 
-    icon: {fileID: 496581607, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 724091785, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000004000000
@@ -496,7 +496,7 @@ MonoBehaviour:
 
       (2s cooldown)'
     levelUpInfo: 
-    icon: {fileID: 255040073, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: -963958886, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 00000000
@@ -565,7 +565,7 @@ MonoBehaviour:
     damageType: 1
     description: Spawns a blizzard that deals damage to enemies in the area.
     levelUpInfo: 
-    icon: {fileID: -718985467, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 647586242, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 000000000400000006000000
@@ -636,7 +636,7 @@ MonoBehaviour:
     description: Fire a poison bolt that creates a posion cloud that damages nearby
       enemies
     levelUpInfo: 
-    icon: {fileID: 244486248, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 1248430177, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
   m_SpellTags: 000000000400000006000000
@@ -911,7 +911,7 @@ MonoBehaviour:
     levelUpInfo: '+20% knockback
 
       +10% ability damage'
-    icon: {fileID: -1837857369, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: -1899836446, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -1067,7 +1067,7 @@ MonoBehaviour:
 
       (10s cooldown)'
     levelUpInfo: 
-    icon: {fileID: -1522357006, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+    icon: {fileID: -585419613, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 6
   m_SpellTags: 00000000030000000400000006000000
@@ -1483,7 +1483,7 @@ MonoBehaviour:
     damageType: 6
     description: Projectile spells pierce enemies
     levelUpInfo: Pierce +1 additional enemy
-    icon: {fileID: -1743662996, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: -1783879092, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -1566,7 +1566,7 @@ MonoBehaviour:
     damageType: 1
     description: Deal damage to an enemy and all surrounding enemies and freeze them
     levelUpInfo: 
-    icon: {fileID: -1640239186, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: -1068023403, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 000000000300000004000000
@@ -1777,7 +1777,7 @@ MonoBehaviour:
     damageType: 4
     description: Spawn two stars that orbit the player and deal damage
     levelUpInfo: 
-    icon: {fileID: 2107994407, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: -1650322923, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000005000000
@@ -2126,7 +2126,7 @@ MonoBehaviour:
     damageType: 0
     description: Summon a fire elemental to fight for you
     levelUpInfo: 
-    icon: {fileID: 1134494256, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 1192320957, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 2.5
   m_SpellTags: 0000000002000000
@@ -2242,7 +2242,7 @@ MonoBehaviour:
     levelUpInfo: '-10% spell cooldowns
 
       +1 move speed'
-    icon: {fileID: 789409541, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -2326,7 +2326,7 @@ MonoBehaviour:
     levelUpInfo: '+5% ability damage
 
       -5% spell cooldowns'
-    icon: {fileID: 1803759905, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 2089560657, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -2410,7 +2410,7 @@ MonoBehaviour:
     levelUpInfo: '+20 max health
 
       +60 health'
-    icon: {fileID: 576402560, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: -2124382934, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -2494,7 +2494,7 @@ MonoBehaviour:
       to other enemies. \n(5s cooldown)\n\nZone size increases range.\nPierce increases
       number of jumps."
     levelUpInfo: 
-    icon: {fileID: 858001479, guid: 2d3ab7fcf4d104447b1de2b7d6f895c8, type: 3}
+    icon: {fileID: 1613330624, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000005000000
