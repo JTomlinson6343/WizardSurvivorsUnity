@@ -2015,6 +2015,9 @@ MonoBehaviour:
   m_LabelSelectEnabled: 0
   m_HighlightTextEnabled: 0
   m_Labels: []
+  m_2DSelectables: []
+  m_UnlockButton: {fileID: 2382391296056949527}
+  m_RespecButton: {fileID: 7554867220127377238}
 --- !u!1 &8543907085436718427
 GameObject:
   m_ObjectHideFlags: 0

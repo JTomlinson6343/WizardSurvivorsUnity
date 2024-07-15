@@ -12,6 +12,8 @@ public class Navigator2D : Navigator
 
     [SerializeField] Selectable2DArray[] m_2DSelectables;
     Vector2 m_SelectedButtonPos;
+    [SerializeField] Button m_UnlockButton;
+    [SerializeField] Button m_RespecButton;
 
     public override void Start()
     {
@@ -25,9 +27,8 @@ public class Navigator2D : Navigator
 
         if (Input.GetButtonDown("Submit"))
         {
-            Button button = GetSelectableFromXY(m_SelectedButtonPos).GetComponent<Button>();
-
-            if (button) button.onClick.Invoke();
+            if (m_UnlockButton && m_UnlockButton.interactable && m_UnlockButton.isActiveAndEnabled) 
+                m_UnlockButton.onClick.Invoke();
         }
         if (Input.GetButtonDown("Cancel"))
         {
@@ -88,6 +89,9 @@ public class Navigator2D : Navigator
         }
 
         Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPos).transform);
+        Button button = GetSelectableFromXY(m_SelectedButtonPos).GetComponent<Button>();
+
+        if (button) button.onClick.Invoke();
     }
 
     Selectable GetSelectableFromXY(int x, int y)
