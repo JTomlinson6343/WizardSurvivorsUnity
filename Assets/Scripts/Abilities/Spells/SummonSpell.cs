@@ -21,4 +21,13 @@ public class SummonSpell : Spell
 
         summon.GetComponent<Summon>().m_AbilitySource = this;
     }
+
+    public override void UpdateTotalStats()
+    {
+        if (!AbilityManager.m_Instance) return;
+
+        base.UpdateTotalStats();
+
+        m_TotalStats.damage += m_BonusStats.summonDamage * m_BaseStats.damage;
+    }
 }

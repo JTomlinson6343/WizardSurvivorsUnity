@@ -27,6 +27,7 @@ public struct AbilityStats
         stats.AOE = left.AOE + right.AOE;
         stats.duration = left.duration + right.duration;
         stats.damage = left.damage + right.damage;
+        stats.summonDamage = left.summonDamage + right.summonDamage;
         stats.speed = left.speed + right.speed;
         stats.cooldown = left.cooldown + right.cooldown;
         stats.amount = left.amount + right.amount;
@@ -42,6 +43,7 @@ public struct AbilityStats
         AbilityStats stats;
         stats.AOE = left.AOE - right.AOE;
         stats.duration = left.duration - right.duration;
+        stats.summonDamage = left.summonDamage - right.summonDamage;
         stats.damage = left.damage - right.damage;
         stats.speed = left.speed - right.speed;
         stats.cooldown = left.cooldown - right.cooldown;
@@ -59,6 +61,7 @@ public struct AbilityStats
         stats.AOE = left.AOE * right.AOE;
         stats.duration = left.duration * right.duration;
         stats.damage = left.damage * right.damage;
+        stats.summonDamage = left.summonDamage * right.summonDamage;
         stats.speed = left.speed * right.speed;
         stats.cooldown = left.cooldown * right.cooldown;
         stats.amount = left.amount * right.amount;
@@ -73,6 +76,7 @@ public struct AbilityStats
     public float AOE;           // Modifier of radius
     public float duration;      // Duration in seconds
     public float damage; // Percentage of player damage dealt by the ability
+    public float summonDamage;
     public float speed;         // Speed of projectile/animation of the ability
     public float cooldown;      // Cooldown in seconds of the ability
     public int   amount;        // Amount of projectiles fired by the ability
