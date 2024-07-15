@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -147,7 +148,7 @@ public static class Utils
 
         while (true)
         {
-            if (!selected_target)
+            if (!selected_target || Gamepad.current == null)
             {
                 yield return new WaitForEndOfFrame();
                 continue;

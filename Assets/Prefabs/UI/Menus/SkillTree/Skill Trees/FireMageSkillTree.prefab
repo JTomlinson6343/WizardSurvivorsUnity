@@ -875,6 +875,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2105067691, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+    - target: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
       value: FireDamageBuff
@@ -1115,6 +1119,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -162943815, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+    - target: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
       value: FireSpeed
@@ -1599,6 +1607,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1308620230, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+    - target: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
       value: FireboltAttackSpeed
@@ -2284,6 +2296,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2145708052, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+    - target: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
       value: FireDebuff
@@ -3010,6 +3026,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -162943815, guid: a7a8424ad2ef34b449c6d317cbd18a17, type: 3}
+    - target: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6307877255442194112, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Name
       value: FirePassiveSpeed

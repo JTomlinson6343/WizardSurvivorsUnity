@@ -190,6 +190,7 @@ public class SkillTree : MonoBehaviour
         UpdateSkillPointsLabel();
         SetHighlightedSkill(null);
         ColorCheckPass();
+        GetComponent<Navigator2D>().Start();
     }
 
     // Called every time an an ability is unlocked or reset.

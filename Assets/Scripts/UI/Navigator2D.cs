@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Navigator2D : Navigator
 {
+    const string unlockStr = "Unlock!";
+    const string respecStr = "Respec";
+
     [System.Serializable]
     private struct Selectable2DArray{
         public Selectable[] row;
@@ -19,10 +24,22 @@ public class Navigator2D : Navigator
     {
         m_SelectedButtonPos = Vector2.zero;
         Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPos).transform);
+        GetSelectableFromXY(m_SelectedButtonPos).GetComponent<Button>().onClick.Invoke();
     }
 
     protected override void HandleInput()
     {
+        if (Gamepad.current != null)
+        {
+            m_UnlockButton.GetComponentInChildren<TextMeshProUGUI>().text = "(A) "+ unlockStr;
+            m_RespecButton.GetComponentInChildren<TextMeshProUGUI>().text = "(Y) "+ respecStr;
+        }
+        else
+        {
+            m_UnlockButton.GetComponentInChildren<TextMeshProUGUI>().text = unlockStr;
+            m_RespecButton.GetComponentInChildren<TextMeshProUGUI>().text = respecStr;
+        }
+
         HandleSelectionInput();
 
         if (Input.GetButtonDown("Submit"))
@@ -33,6 +50,10 @@ public class Navigator2D : Navigator
         if (Input.GetButtonDown("Cancel"))
         {
             if (m_BackButton) m_BackButton.onClick.Invoke();
+        }
+        if (Input.GetButtonDown("Respec"))
+        {
+            if (m_RespecButton) m_RespecButton.onClick.Invoke();
         }
     }
 
