@@ -143,7 +143,7 @@ public class Ability : MonoBehaviour
         Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
-    private IEnumerator CooldownRoutine()
+    protected virtual IEnumerator CooldownRoutine()
     {
         if (m_TotalStats.cooldown < 0f) yield break;
 
@@ -179,7 +179,7 @@ public class Ability : MonoBehaviour
         }
     }
 
-    public void ToggleAutofire(bool on)
+    public virtual void ToggleAutofire(bool on)
     {
         if (on)
         {

@@ -55,6 +55,11 @@ public class Flamethrower : Ability
         return true;
     }
 
+    public override void ToggleAutofire(bool on)
+    {
+        
+    }
+
     private void AutoCast()
     {
         GameObject closestEnemy = Utils.GetClosestEnemyInRange(Player.m_Instance.GetCentrePos(), m_DefaultAutofireRange);
