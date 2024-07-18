@@ -148,7 +148,7 @@ public static class Utils
 
         while (true)
         {
-            if (!selected_target || Gamepad.current == null)
+            if (!selected_target)
             {
                 yield return new WaitForEndOfFrame();
                 continue;

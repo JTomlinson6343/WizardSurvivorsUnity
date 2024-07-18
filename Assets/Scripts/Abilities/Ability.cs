@@ -108,12 +108,11 @@ public class Ability : MonoBehaviour
     public float m_CooldownRemaining;
 
     private List<GameObject> m_HitEnemies = new List<GameObject>();
+    private List<Coroutine> m_CooldownCoroutines = new List<Coroutine>();
 
     public float m_DefaultAutofireRange = 10f;
     protected readonly float kCooldownAfterReset = 1f;
     protected float kMinCooldownModifier = 0.1f;
-
-    private Coroutine m_CooldownRoutineRef = null;
 
     //Getters//
     public AbilityStats GetBonusStats() { return m_BonusStats; }
@@ -143,7 +142,7 @@ public class Ability : MonoBehaviour
         Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
-    private IEnumerator CooldownRoutine()
+    protected virtual IEnumerator CooldownRoutine()
     {
         if (m_TotalStats.cooldown < 0f) yield break;
 
@@ -179,16 +178,22 @@ public class Ability : MonoBehaviour
         }
     }
 
-    public void ToggleAutofire(bool on)
+    public virtual void ToggleAutofire(bool on)
     {
         if (on)
         {
             SetRemainingCooldown(m_TotalStats.cooldown);
-            m_CooldownRoutineRef = StartCoroutine(CooldownRoutine());
+            m_CooldownCoroutines.Add(StartCoroutine(CooldownRoutine()));
         }
         else
         {
-            if (m_CooldownRoutineRef != null) StopCoroutine(m_CooldownRoutineRef);
+            int count = 0;
+            while (m_CooldownCoroutines.Count > 0 && count < 1000)
+            {
+                StopCoroutine(m_CooldownCoroutines[count]);
+                count++;
+            }
+            m_CooldownCoroutines.Clear();
         }
     }
 

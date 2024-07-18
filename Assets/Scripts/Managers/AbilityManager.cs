@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
@@ -197,11 +196,13 @@ public class AbilityManager : MonoBehaviour
         DeHighlightAbilityIcons();
         icon.GetComponent<Image>().color = Color.yellow;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
-        m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
-        if (!icon.displayedAbility.m_IsSpell)
+        if (icon.displayedAbility.m_IsSpell) m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
+        else
         {
             m_NameLabel.text += " " + Utils.IntToRomanNumeral(icon.displayedAbility.GetLevel() + 1);
-            m_DescriptionLabel.text += "\n\nNext level:\n" + icon.displayedAbility.m_Data.levelUpInfo;
+            m_DescriptionLabel.text = "";
+            if (icon.displayedAbility.GetLevel() > 0) m_DescriptionLabel.text = "Next level:\n";
+            m_DescriptionLabel.text += icon.displayedAbility.m_Data.levelUpInfo;
         }
     }
 

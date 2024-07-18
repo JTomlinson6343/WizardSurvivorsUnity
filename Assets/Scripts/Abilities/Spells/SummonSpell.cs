@@ -28,6 +28,6 @@ public class SummonSpell : Spell
 
         base.UpdateTotalStats();
 
-        m_TotalStats.damage += m_BonusStats.summonDamage * m_BaseStats.damage;
+        m_TotalStats.damage += m_BonusStats.summonDamage * m_BaseStats.damage + AbilityManager.m_Instance.GetAbilityStatBuffs().summonDamage * m_BaseStats.damage;
     }
 }
