@@ -28,7 +28,7 @@ public class CharacterMenu : MonoBehaviour
     {
         m_Instance = this;
 
-        m_CurrentCharIcon = m_DefaultCharIcon;
+        SetCurrentIcon(m_DefaultCharIcon);
     }
 
     private void Update()
