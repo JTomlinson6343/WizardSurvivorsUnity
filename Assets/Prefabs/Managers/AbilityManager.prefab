@@ -64,9 +64,9 @@ MonoBehaviour:
     damageType: 6
     description: Increase size of zone effects and increase max health by a small
       amount
-    levelUpInfo: '+20% Zone Size
+    levelUpInfo: '+20% Zone Spell Size
 
-      +5 Max Health'
+'
     icon: {fileID: 708844268, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -84,9 +84,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &566947808422590544
 GameObject:
@@ -175,9 +176,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: -0.05
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &838540608608956209
 GameObject:
@@ -261,7 +263,7 @@ GameObject:
   - component: {fileID: 4353749280744245192}
   - component: {fileID: 628992939066521697}
   m_Layer: 0
-  m_Name: Cooldown_9
+  m_Name: GreenGeode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,32 +312,35 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Emerald Geode
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+5% zone spell size
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      -2% cooldown
+
+      +5% knockback'
+    icon: {fileID: -400035921, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
-    AOE: 0
+    AOE: 0.05
     duration: 0
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.02
     amount: 0
-    knockback: 0
+    knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &1227409609430638189
 GameObject:
@@ -348,7 +353,7 @@ GameObject:
   - component: {fileID: 3551033787563728449}
   - component: {fileID: 3597712576150352928}
   m_Layer: 0
-  m_Name: Cooldown_23
+  m_Name: YellowJar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,13 +402,13 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Emberfly Jar
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '-5% spell cooldowns
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +15% summon damage'
+    icon: {fileID: 3923688012977941667, guid: 1d5f6f6db0c46da4888de6b13bc689f0, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -412,7 +417,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.05
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -420,9 +425,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &1258795364781033673
 GameObject:
@@ -505,7 +511,7 @@ GameObject:
   - component: {fileID: 5322144353623412383}
   - component: {fileID: 2052068605943975013}
   m_Layer: 0
-  m_Name: Cooldown_13
+  m_Name: GoldRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292142079074784689}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -554,22 +560,22 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Gold Ring
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+1 armor
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +5% spell damage'
+    icon: {fileID: -354774665735971119, guid: 1d5f6f6db0c46da4888de6b13bc689f0, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.05
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -577,9 +583,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 1
   m_HealModifier: 3
 --- !u!1 &1320370673017010591
 GameObject:
@@ -800,7 +807,7 @@ GameObject:
   - component: {fileID: 6336378298409992346}
   - component: {fileID: 8811564726494625494}
   m_Layer: 0
-  m_Name: Cooldown_6
+  m_Name: VoodooDoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,22 +856,28 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Cursed Voodoo Doll
     damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    description: Increase summon damage but increase spell cooldowns, reduce spell
+      damage and reduce max health
+    levelUpInfo: '+66% summon damage
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +6% spell cooldowns
+
+      -6% spell
+      damage
+
+      -66 max health'
+    icon: {fileID: -422744207, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
-    summonDamage: 0
+    damage: -0.06
+    summonDamage: 0.66
     speed: 0
-    cooldown: -0.1
+    cooldown: 0.06
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -872,9 +885,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
+    maxHealth: -0.06
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &1630798436203245395
 GameObject:
@@ -1030,7 +1044,7 @@ GameObject:
   - component: {fileID: 4228546614517036830}
   - component: {fileID: 6214370140330785643}
   m_Layer: 0
-  m_Name: Cooldown_16
+  m_Name: Brooch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,13 +1093,13 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Stormcrest Royal Brooch
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+1 speed
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +25% increased invincibility time'
+    icon: {fileID: 869148269, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -1094,17 +1108,18 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
+    speed: 0.05
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0.25
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &2048881655503188187
 GameObject:
@@ -1447,7 +1462,7 @@ MonoBehaviour:
     description: Increase knockback of spells and damage
     levelUpInfo: '+20% knockback
 
-      +10% ability damage'
+      +10% spell damage'
     icon: {fileID: -1899836446, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -1465,9 +1480,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &2255787100577531300
 GameObject:
@@ -1480,7 +1496,7 @@ GameObject:
   - component: {fileID: 7250183482384666822}
   - component: {fileID: 2414543102162298777}
   m_Layer: 0
-  m_Name: Cooldown_17
+  m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1529,13 +1545,13 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Cake
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+30 max health
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      Restore 60 health'
+    icon: {fileID: -1119882579, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -1544,7 +1560,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -1552,10 +1568,11 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
+    maxHealth: 30
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
+  m_HealModifier: 2
 --- !u!1 &2428647305684531859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,6 +1642,26 @@ MonoBehaviour:
   - {fileID: 3967916068626531825}
   - {fileID: 4232931549642658120}
   - {fileID: 1292176084662105432}
+  - {fileID: 3433444518275570607}
+  - {fileID: 1292176084662105432}
+  - {fileID: 8811564726494625494}
+  - {fileID: 77667913367367520}
+  - {fileID: 2564938857725870322}
+  - {fileID: 628992939066521697}
+  - {fileID: 7190779795334023838}
+  - {fileID: 5155861339041067581}
+  - {fileID: 8973773367404805441}
+  - {fileID: 2052068605943975013}
+  - {fileID: 7031679241650952208}
+  - {fileID: 5978057484224647519}
+  - {fileID: 6214370140330785643}
+  - {fileID: 2414543102162298777}
+  - {fileID: 2995802142358144550}
+  - {fileID: 8260563652035288463}
+  - {fileID: 1447730357319795490}
+  - {fileID: 422599979807475769}
+  - {fileID: 5614360329423494240}
+  - {fileID: 3597712576150352928}
   m_AbilityCanvas: {fileID: 3061035875882456239}
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
@@ -1772,7 +1809,7 @@ MonoBehaviour:
       speed
     levelUpInfo: '+10 max health
 
-      +30 health
+      Restore 30 health
 
       -5% spell cooldowns
 
@@ -1795,9 +1832,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: -0.05
-    shotSpeed: 0
     maxHealth: 10
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &2609037136667923742
 GameObject:
@@ -1810,7 +1848,7 @@ GameObject:
   - component: {fileID: 2301183102838422232}
   - component: {fileID: 8260563652035288463}
   m_Layer: 0
-  m_Name: Cooldown_19
+  m_Name: Ribbon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1859,13 +1897,13 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Embersilk Ribbon
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '-8% spell cooldowns
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +15% item pickup range'
+    icon: {fileID: -47419999, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -1874,7 +1912,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.08
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -1882,9 +1920,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0.15
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &2641654662920326398
 GameObject:
@@ -1949,12 +1988,10 @@ MonoBehaviour:
     name: Whispersilk Witchcap
     damageType: 0
     description: Increase health and spell damage
-    levelUpInfo: '+15 max health
-
-      +15 health
+    levelUpInfo: '+1 armor
 
       +5% Spell damage'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+    icon: {fileID: -1798245941, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -1971,9 +2008,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 15
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 1
   m_HealModifier: 1
 --- !u!1 &2773975333500883567
 GameObject:
@@ -2321,93 +2359,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &3349984776869401336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2274796818155378120}
-  - component: {fileID: 1739402471144872762}
-  m_Layer: 0
-  m_Name: Cooldown_28
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2274796818155378120
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3349984776869401336}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9001687665959845470}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1739402471144872762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3349984776869401336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isMaxed: 0
-  m_IsSpell: 0
-  m_CastAmount: 1
-  m_BaseStats:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: 10
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_Data:
-    name: Celestial Hourglass
-    damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
-
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-  m_CooldownRemaining: 0
-  m_DefaultAutofireRange: 10
-  m_AbilityStatBuffs:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: -0.1
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
 --- !u!1 &3440518475695790614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,7 +2422,7 @@ MonoBehaviour:
     name: Ironwood Staff
     damageType: 6
     description: Projectile spells pierce enemies
-    levelUpInfo: Pierce +1 additional enemy
+    levelUpInfo: Projectile spells pierce +1 additional enemy
     icon: {fileID: -1783879092, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2489,9 +2440,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &3629034726197246350
 GameObject:
@@ -2504,7 +2456,7 @@ GameObject:
   - component: {fileID: 1838928345058639643}
   - component: {fileID: 7190779795334023838}
   m_Layer: 0
-  m_Name: Cooldown_10
+  m_Name: PurpleGeode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2553,119 +2505,38 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Tanzanite Geode
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '-5% cooldown
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +2% spell damage
+
+      -1 speed
+
+      +5%
+      knockback'
+    icon: {fileID: 1002653379, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.02
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0.05
     amount: 0
-    knockback: 0
+    knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
+    speed: -0.05
     maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
---- !u!1 &3712130264885506149
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2225016597585910510}
-  - component: {fileID: 2050276633175845199}
-  m_Layer: 0
-  m_Name: Cooldown_27
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2225016597585910510
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712130264885506149}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9001687665959845470}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2050276633175845199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712130264885506149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isMaxed: 0
-  m_IsSpell: 0
-  m_CastAmount: 1
-  m_BaseStats:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: 10
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_Data:
-    name: Celestial Hourglass
-    damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
-
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-  m_CooldownRemaining: 0
-  m_DefaultAutofireRange: 10
-  m_AbilityStatBuffs:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: -0.1
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &4042848638709823151
 GameObject:
@@ -2906,7 +2777,7 @@ MonoBehaviour:
     name: Eclipse Caverns Bat
     damageType: 0
     description: Increase damage of summon spells, sacrificing your speed in return
-    levelUpInfo: '+15% Summon damage
+    levelUpInfo: '+25% Summon damage
 
       -1 move speed'
     icon: {fileID: 824492668, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -2916,8 +2787,8 @@ MonoBehaviour:
     AOE: 0
     duration: 0
     damage: 0
-    summonDamage: 0.05
-    speed: -0.05
+    summonDamage: 0.25
+    speed: 0
     cooldown: 0
     amount: 0
     knockback: 0
@@ -2925,10 +2796,11 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
+    speed: -0.05
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &4165066947834918072
 GameObject:
@@ -2941,7 +2813,7 @@ GameObject:
   - component: {fileID: 5421597258973197775}
   - component: {fileID: 2564938857725870322}
   m_Layer: 0
-  m_Name: Cooldown_8
+  m_Name: Bandage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2990,13 +2862,13 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Old Bandage
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+15 max health
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      Restore 30 health'
+    icon: {fileID: -50417994, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -3013,10 +2885,11 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
+  m_HealModifier: 2
 --- !u!1 &4169492790890296772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,11 +2949,6 @@ Transform:
   - {fileID: 4415290611442156743}
   - {fileID: 5771605420733682807}
   - {fileID: 3551033787563728449}
-  - {fileID: 6374690464249853146}
-  - {fileID: 6756232845715069091}
-  - {fileID: 5275567423424040820}
-  - {fileID: 2225016597585910510}
-  - {fileID: 2274796818155378120}
   m_Father: {fileID: 108723972155499655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4211534305118276055
@@ -3163,7 +3031,7 @@ GameObject:
   - component: {fileID: 5485085431805000223}
   - component: {fileID: 7031679241650952208}
   m_Layer: 0
-  m_Name: Cooldown_14
+  m_Name: GreenFan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3212,32 +3080,35 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Green Ithildorian Fan
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+10% zone spell size
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      -4% spell cooldown
+
+      +5% knockback'
+    icon: {fileID: -1333174561, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
-    AOE: 0
+    AOE: 0.1
     duration: 0
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.04
     amount: 0
-    knockback: 0
+    knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &4603609835953884527
 GameObject:
@@ -3250,7 +3121,7 @@ GameObject:
   - component: {fileID: 5463177505349738228}
   - component: {fileID: 5978057484224647519}
   m_Layer: 0
-  m_Name: Cooldown_15
+  m_Name: RedFan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3299,22 +3170,22 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Red Ithildorian Fan
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+10% spell damage
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +5% zone effect size'
+    icon: {fileID: -905934401, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
-    AOE: 0
+    AOE: 0.05
     duration: 0
-    damage: 0
+    damage: 0.1
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -3322,9 +3193,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &4706630566524022209
 GameObject:
@@ -3337,7 +3209,7 @@ GameObject:
   - component: {fileID: 5771605420733682807}
   - component: {fileID: 5614360329423494240}
   m_Layer: 0
-  m_Name: Cooldown_22
+  m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3386,13 +3258,13 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Orb of the Oracle
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+15% invincibility time
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +15% pickup range'
+    icon: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -3401,7 +3273,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -3409,96 +3281,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
---- !u!1 &5220081147621509945
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6756232845715069091}
-  - component: {fileID: 7475922948161628098}
-  m_Layer: 0
-  m_Name: Cooldown_25
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6756232845715069091
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5220081147621509945}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9001687665959845470}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7475922948161628098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5220081147621509945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isMaxed: 0
-  m_IsSpell: 0
-  m_CastAmount: 1
-  m_BaseStats:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: 10
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_Data:
-    name: Celestial Hourglass
-    damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
-
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-  m_CooldownRemaining: 0
-  m_DefaultAutofireRange: 10
-  m_AbilityStatBuffs:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: -0.1
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
+    pullDist: 0.15
+    iFramesMod: 0.15
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &5325821446040161954
 GameObject:
@@ -3535,7 +3321,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 200, y: 30.6019}
+  m_SizeDelta: {x: 300, y: 30.6019}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8583386550346372168
 CanvasRenderer:
@@ -3634,93 +3420,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &5645661460809605472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5275567423424040820}
-  - component: {fileID: 5788540535969664505}
-  m_Layer: 0
-  m_Name: Cooldown_26
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5275567423424040820
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5645661460809605472}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9001687665959845470}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5788540535969664505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5645661460809605472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isMaxed: 0
-  m_IsSpell: 0
-  m_CastAmount: 1
-  m_BaseStats:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: 10
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_Data:
-    name: Celestial Hourglass
-    damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
-
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-  m_CooldownRemaining: 0
-  m_DefaultAutofireRange: 10
-  m_AbilityStatBuffs:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: -0.1
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
 --- !u!1 &5748326685589970206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3732,7 +3431,7 @@ GameObject:
   - component: {fileID: 4415290611442156743}
   - component: {fileID: 422599979807475769}
   m_Layer: 0
-  m_Name: Cooldown_21
+  m_Name: Cloak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3781,13 +3480,13 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Moonweave Cloak
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+1 armor
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +20% invincibility time'
+    icon: {fileID: -1162172179, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -3796,7 +3495,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -3804,9 +3503,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0.2
+    armor: 1
   m_HealModifier: 3
 --- !u!1 &5869730168406150600
 GameObject:
@@ -3819,7 +3519,7 @@ GameObject:
   - component: {fileID: 1996698118128998752}
   - component: {fileID: 8973773367404805441}
   m_Layer: 0
-  m_Name: Cooldown_12
+  m_Name: MagRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3868,13 +3568,15 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Magnetic Ring
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+1 armor
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      -5% spell cooldowns
+
+      +10% pickup range'
+    icon: {fileID: 1831217539, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -3883,7 +3585,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.05
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -3891,96 +3593,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
---- !u!1 &6007356174391811893
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6374690464249853146}
-  - component: {fileID: 4793000543236858315}
-  m_Layer: 0
-  m_Name: Cooldown_24
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6374690464249853146
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6007356174391811893}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9001687665959845470}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4793000543236858315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6007356174391811893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isMaxed: 0
-  m_IsSpell: 0
-  m_CastAmount: 1
-  m_BaseStats:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: 10
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_Data:
-    name: Celestial Hourglass
-    damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
-
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-  m_CooldownRemaining: 0
-  m_DefaultAutofireRange: 10
-  m_AbilityStatBuffs:
-    AOE: 0
-    duration: 0
-    damage: 0
-    summonDamage: 0
-    speed: 0
-    cooldown: -0.1
-    amount: 0
-    knockback: 0
-    pierceAmount: 0
-    infinitePierce: 0
-    neverPierce: 0
-  m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
+    pullDist: 0.1
+    iFramesMod: 0
+    armor: 1
   m_HealModifier: 3
 --- !u!1 &6166844062498131960
 GameObject:
@@ -4049,7 +3665,7 @@ MonoBehaviour:
 
       +1 speed
 
-      +5% spelll cooldowns'
+      +5% spell cooldowns'
     icon: {fileID: -989054158, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4067,9 +3683,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0.05
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &6440927995132169176
 GameObject:
@@ -4300,7 +3917,7 @@ GameObject:
   - component: {fileID: 3377457147091174086}
   - component: {fileID: 5155861339041067581}
   m_Layer: 0
-  m_Name: Cooldown_11
+  m_Name: SweetRoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4349,13 +3966,15 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Sweetened Roll
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+20 max health
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      Restore 40 health
+
+      +1 speed'
+    icon: {fileID: 824609226, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -4364,18 +3983,19 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
-  m_HealModifier: 3
+    speed: 0.05
+    maxHealth: 20
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
+  m_HealModifier: 2
 --- !u!1 &7440536522704983382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,9 +4124,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0.05
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &7813613701837229948
 GameObject:
@@ -4591,9 +4212,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &7944674399469636646
 GameObject:
@@ -4660,7 +4282,7 @@ MonoBehaviour:
     description: Increase max health and heal the player for triple the amount
     levelUpInfo: '+30 max health
 
-      +90 health'
+      Restore 90 health'
     icon: {fileID: -2124382934, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4678,9 +4300,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
     maxHealth: 40
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &7993745291029406952
 GameObject:
@@ -4693,7 +4316,7 @@ GameObject:
   - component: {fileID: 1156836790696304758}
   - component: {fileID: 77667913367367520}
   m_Layer: 0
-  m_Name: Cooldown_7
+  m_Name: OldTome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4742,22 +4365,24 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Philosopher's Tome
     damageType: 0
-    description: Reduce spell cooldowns and increase movement speed
+    description: 'Increase damage and '
     levelUpInfo: '-10% spell cooldowns
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      +1 move speed
+
+      -20 max health'
+    icon: {fileID: -431026227, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.1
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.04
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -4765,9 +4390,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
+    maxHealth: -10
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &8590091372280641179
 GameObject:
@@ -4922,7 +4548,7 @@ GameObject:
   - component: {fileID: 2242426008754352989}
   - component: {fileID: 2995802142358144550}
   m_Layer: 0
-  m_Name: Cooldown_18
+  m_Name: Pie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4971,22 +4597,24 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Elderfruit Pie
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+25 max health
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      Restore 75 health
+
+      +5% zone spell size'
+    icon: {fileID: -434661629, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
-    AOE: 0
+    AOE: 0.05
     duration: 0
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -4994,9 +4622,10 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    shotSpeed: 0
-    maxHealth: 0
-    healthRegen: 0
+    maxHealth: 25
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &9142634550947042189
 GameObject:
@@ -5009,7 +4638,7 @@ GameObject:
   - component: {fileID: 1169813926180597377}
   - component: {fileID: 1447730357319795490}
   m_Layer: 0
-  m_Name: Cooldown_20
+  m_Name: Necklace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5058,13 +4687,16 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Celestial Hourglass
+    name: Dragontooth Necklace
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '+1 speed
 
-      +1 move speed'
-    icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      -8% spell cooldowns
+
+      Projectile spells pierce
+      +1 additional enemy'
+    icon: {fileID: 1831038322, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -5073,17 +4705,18 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.08
     amount: 0
     knockback: 0
-    pierceAmount: 0
+    pierceAmount: 1
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
-    shotSpeed: 0
+    speed: 0.05
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &9143691106947824035
 GameObject:
@@ -5230,7 +4863,7 @@ MonoBehaviour:
 
       -5% Damage
 
-      -1 move speed'
+      +1 move speed'
     icon: {fileID: -477654465, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -5247,10 +4880,11 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: -0.05
-    shotSpeed: 0
+    speed: 0.05
     maxHealth: 0
-    healthRegen: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
   m_HealModifier: 3
 --- !u!1001 &3484601587707607174
 PrefabInstance:

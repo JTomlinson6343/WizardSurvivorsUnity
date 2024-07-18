@@ -55,7 +55,7 @@ public class Pickup : MonoBehaviour
     {
         // If player is not in range, return
         float distToPlayer = Vector2.Distance(transform.position, Player.m_Instance.GetPosition());
-        if (distToPlayer > kPullDist && !m_StartedAttracting)
+        if (distToPlayer > kPullDist * (1f+Player.m_Instance.GetStats().pullDist) && !m_StartedAttracting)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;

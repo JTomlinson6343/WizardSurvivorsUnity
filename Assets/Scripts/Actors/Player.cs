@@ -13,9 +13,10 @@ public struct PlayerStats
     {
         PlayerStats newstats;
         newstats.speed = left.speed + right.speed;
-        newstats.shotSpeed = left.shotSpeed + right.shotSpeed;
         newstats.maxHealth = left.maxHealth + right.maxHealth;
-        newstats.healthRegen = left.healthRegen + right.healthRegen;
+        newstats.pullDist = left.pullDist + right.pullDist;
+        newstats.iFramesMod = left.iFramesMod + right.iFramesMod;
+        newstats.armor = left.armor + right.armor;
         return newstats;
     }
     // Overload + operator to allow two PlayerStats structs together
@@ -23,25 +24,27 @@ public struct PlayerStats
     {
         PlayerStats newstats;
         newstats.speed = left.speed - right.speed;
-        newstats.shotSpeed = left.shotSpeed - right.shotSpeed;
         newstats.maxHealth = left.maxHealth - right.maxHealth;
-        newstats.healthRegen = left.healthRegen - right.healthRegen;
+        newstats.pullDist = left.pullDist - right.pullDist;
+        newstats.iFramesMod = left.iFramesMod - right.iFramesMod;
+        newstats.armor = left.armor - right.armor;
         return newstats;
     }
-
     public static PlayerStats operator *(PlayerStats left, PlayerStats right)
     {
         PlayerStats newstats;
         newstats.speed = left.speed * right.speed;
-        newstats.shotSpeed = left.shotSpeed * right.shotSpeed;
         newstats.maxHealth = left.maxHealth * right.maxHealth;
-        newstats.healthRegen = left.healthRegen * right.healthRegen;
+        newstats.pullDist = left.pullDist * right.pullDist;
+        newstats.iFramesMod = left.iFramesMod * right.iFramesMod;
+        newstats.armor = left.armor * right.armor;
         return newstats;
     }
     public float speed;
-    public float shotSpeed;
     public float maxHealth;
-    public float healthRegen;
+    public float pullDist;
+    public float iFramesMod;
+    public float armor;
 
     public static PlayerStats Zero = new PlayerStats();
 }
@@ -239,6 +242,7 @@ public class Player : Actor
 
         PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
 
+        amount -= m_TotalStats.armor;
         return OnDamage(amount);
     }
 
@@ -246,7 +250,7 @@ public class Player : Actor
     {
         m_IsInvincible = true;
         GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
-        Invoke(nameof(EndFlashing), m_IFramesTime);
+        Invoke(nameof(EndFlashing), m_IFramesTime * (1f + m_TotalStats.iFramesMod));
     }
 
     protected override void EndFlashing ()
@@ -317,7 +321,8 @@ public class Player : Actor
     public void IncreaseMaxHealth(float amount)
     {
         m_MaxHealth += amount;
-        m_Health += amount;
+        if (m_Health > m_MaxHealth) m_Health = m_MaxHealth;
+        else m_Health += amount;
     }
     public void Heal(float amount)
     {
