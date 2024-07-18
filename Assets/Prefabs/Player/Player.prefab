@@ -777,6 +777,10 @@ PrefabInstance:
       propertyPath: m_Actor
       value: 
       objectReference: {fileID: 2687768136547122572}
+    - target: {fileID: 1286880397000306946, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
+      propertyPath: m_Border
+      value: 
+      objectReference: {fileID: 4678699126919970736}
     - target: {fileID: 6229566499917816928, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -882,6 +886,11 @@ RectTransform:
 --- !u!1 &2880136227170841822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7002764564321052147, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
+  m_PrefabInstance: {fileID: 5104440844397367597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4678699126919970736 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 448259854284517021, guid: 6d10d4e935c3bb94ea02e517d53a3b10, type: 3}
   m_PrefabInstance: {fileID: 5104440844397367597}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6897854691180005294

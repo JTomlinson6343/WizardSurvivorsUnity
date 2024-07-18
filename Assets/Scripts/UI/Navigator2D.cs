@@ -109,7 +109,6 @@ public class Navigator2D : Navigator
             m_SelectedButtonPos.x = m_2DSelectables[(int)m_SelectedButtonPos.y].row.Length - 1;
         }
 
-        Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPos).transform);
         Button button = GetSelectableFromXY(m_SelectedButtonPos).GetComponent<Button>();
 
         if (button) button.onClick.Invoke();

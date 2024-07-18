@@ -82,6 +82,7 @@ public class SkillIcon : MonoBehaviour
         else
         {
             m_SkillTreeRef.SetHighlightedSkill(this);
+            Utils.SetSelectedAnimTarget(transform);
         }
     }
     IEnumerator WaitForSkillTreeInit()

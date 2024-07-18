@@ -38,7 +38,7 @@ public class Navigator : MonoBehaviour
     public virtual void Start()
     {
         m_SelectedButtonPos = 0;
-        if (m_Type == Type.Character) Utils.SetSelectedAnimTarget(m_Selectables[0].transform);
+        if (m_Type == Type.Character && Gamepad.current != null) Utils.SetSelectedAnimTarget(m_Selectables[0].transform);
     }
 
     // Update is called once per frame
