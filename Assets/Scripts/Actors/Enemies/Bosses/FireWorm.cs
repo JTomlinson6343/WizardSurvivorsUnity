@@ -163,6 +163,7 @@ public class FireWorm : Boss
 
         m_Charging = true;
         Debug.Log("charging!");
+        AudioManager.m_Instance.PlaySound(9);
 
         rb.velocity = (playerPos - transform.position).normalized * m_BurrowedSpeed;
 
@@ -191,6 +192,7 @@ public class FireWorm : Boss
             StartCoroutine(DropFire());
             m_DebuffImmune = true;
             Debug.Log("burrowed!");
+            AudioManager.m_Instance.PlaySound(16);
         }
         else
         {
@@ -229,7 +231,7 @@ public class FireWorm : Boss
             gameObject,
             DamageType.Fire);
 
-        AudioManager.m_Instance.PlaySound(15);
+        AudioManager.m_Instance.PlaySound(4);
 
         StartCoroutine(Utils.DelayedCall(0.1f, () =>
         {

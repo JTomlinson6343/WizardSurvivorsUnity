@@ -238,6 +238,7 @@ public class EnemyManager : MonoBehaviour
         m_SpawnCooldown = Mathf.Clamp((m_SpawnCooldown - 0.01f),0.05f,1f);
 
         CancelInvoke(nameof(GracePeriod));
+        CancelInvoke(nameof(StartNewWave));
 
         if (IsBossWave(ProgressionManager.m_Instance.m_WaveCounter))
         {
