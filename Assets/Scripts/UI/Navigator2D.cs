@@ -16,15 +16,15 @@ public class Navigator2D : Navigator
     }
 
     [SerializeField] Selectable2DArray[] m_2DSelectables;
-    Vector2 m_SelectedButtonPos;
+    Vector2 m_SelectedButtonPosV2;
     [SerializeField] Button m_UnlockButton;
     [SerializeField] Button m_RespecButton;
 
     public override void Start()
     {
-        m_SelectedButtonPos = Vector2.zero;
-        Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPos).transform);
-        GetSelectableFromXY(m_SelectedButtonPos).GetComponent<Button>().onClick.Invoke();
+        m_SelectedButtonPosV2 = Vector2.zero;
+        Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPosV2).transform);
+        GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>().onClick.Invoke();
     }
 
     protected override void HandleInput()
@@ -89,27 +89,27 @@ public class Navigator2D : Navigator
     // Change in x or y
     private void ChangeButtonChoice(int x, int y)
     {
-        m_SelectedButtonPos.x += x;
-        m_SelectedButtonPos.y += y;
+        m_SelectedButtonPosV2.x += x;
+        m_SelectedButtonPosV2.y += y;
 
-        if (m_SelectedButtonPos.x <= 0)
+        if (m_SelectedButtonPosV2.x <= 0)
         {
-            m_SelectedButtonPos.x = 0;
+            m_SelectedButtonPosV2.x = 0;
         }
-        if (m_SelectedButtonPos.y <= 0)
+        if (m_SelectedButtonPosV2.y <= 0)
         {
-            m_SelectedButtonPos.y = 0;
+            m_SelectedButtonPosV2.y = 0;
         }
-        if (m_SelectedButtonPos.y > m_2DSelectables.Length - 1)
+        if (m_SelectedButtonPosV2.y > m_2DSelectables.Length - 1)
         {
-            m_SelectedButtonPos.y = m_2DSelectables.Length - 1;
+            m_SelectedButtonPosV2.y = m_2DSelectables.Length - 1;
         }
-        if (m_SelectedButtonPos.x > m_2DSelectables[(int)m_SelectedButtonPos.y].row.Length - 1)
+        if (m_SelectedButtonPosV2.x > m_2DSelectables[(int)m_SelectedButtonPosV2.y].row.Length - 1)
         {
-            m_SelectedButtonPos.x = m_2DSelectables[(int)m_SelectedButtonPos.y].row.Length - 1;
+            m_SelectedButtonPosV2.x = m_2DSelectables[(int)m_SelectedButtonPosV2.y].row.Length - 1;
         }
 
-        Button button = GetSelectableFromXY(m_SelectedButtonPos).GetComponent<Button>();
+        Button button = GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>();
 
         if (button) button.onClick.Invoke();
     }
