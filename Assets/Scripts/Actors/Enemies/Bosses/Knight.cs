@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Knight : Boss
@@ -27,6 +28,10 @@ public class Knight : Boss
     float m_RunningStateTimer = 0; // Amount of time that has been spent in running state
     [SerializeField] float m_RunningStateMaxTime; // Max time before changing state out of running state
 
+    [SerializeField] float m_JumpDelay;
+    [SerializeField] float m_JumpSpeed;
+    [SerializeField] float m_JumpDuration;
+
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -39,6 +44,11 @@ public class Knight : Boss
     public override void Enraged(int bossNumber)
     {
         throw new System.NotImplementedException();
+    }
+
+    public override void BossFightInit()
+    {
+        PlayerManager.m_Instance.m_ActorsToBind = new Actor[] { Player.m_Instance };
     }
 
     override protected void Awake()
@@ -92,9 +102,16 @@ public class Knight : Boss
         {
             case State.Idle:
                 ToggleDamageImmune(false);
+                m_Animator.Play("Idle");
                 rb.velocity = Vector2.zero;
                 if (m_NoSwordHitsTime >= m_NoSwordHitsMaxTimer || m_RunningStateTimer >= m_RunningStateMaxTime) SetState(State.Jumping);
-                else SetState(State.Running);
+                else
+                {
+                    StartCoroutine(Utils.DelayedCall(m_JumpDelay, () =>
+                    {
+                        SetState(State.Jumping);
+                    }));
+                }
                 return;
             case State.Running:
                 m_Animator.Play("Walk");
@@ -111,11 +128,13 @@ public class Knight : Boss
                 rb.velocity = Vector2.zero;
                 return;
             case State.InAir:
+                break;
             case State.Jumping:
                 m_Animator.Play("Jump");
+                ToggleDamageImmune(true);
                 m_RunningStateTimer = 0;
                 m_NoSwordHitsMaxTimer = 0;
-                ToggleDamageImmune(true);
+                StartCoroutine(MidAir());
                 return;
             case State.Falling:
                 m_Animator.Play("Fall");
@@ -135,6 +154,12 @@ public class Knight : Boss
 
             DamageManager.m_Instance.DamageInstance(data, player.transform.position);
         }
+    }
+
+    IEnumerator MidAir()
+    {
+        rb.velocity = new Vector2(0f, m_JumpSpeed);
+        yield return new WaitForSeconds(m_JumpDuration);
     }
 
     private void Land()

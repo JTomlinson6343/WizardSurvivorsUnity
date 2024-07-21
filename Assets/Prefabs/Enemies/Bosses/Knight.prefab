@@ -72,6 +72,11 @@ MonoBehaviour:
   m_Sword: {fileID: 3829804385803052212}
   m_SwordRadius: 1.8
   m_SwordDamage: 65
+  m_NoSwordHitsMaxTimer: 5
+  m_RunningStateMaxTime: 10
+  m_JumpDelay: 1
+  m_JumpSpeed: 10
+  m_JumpDuration: 2
 --- !u!50 &5276009217686193574
 Rigidbody2D:
   serializedVersion: 4
