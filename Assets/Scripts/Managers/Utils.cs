@@ -24,6 +24,8 @@ public static class Utils
         List<GameObject> outEnemies = new List<GameObject>();
         foreach (Enemy enemy in enemies)
         {
+            if (!enemy.m_Targetable) continue;
+
             // Get distance between passed in pos and enemy pos
             float distance = Vector2.Distance(pos, enemy.transform.position);
             if (distance < radius)

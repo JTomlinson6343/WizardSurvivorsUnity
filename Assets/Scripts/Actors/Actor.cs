@@ -28,6 +28,7 @@ public class Actor : MonoBehaviour
     public List<Debuff> m_Debuffs = new List<Debuff>();
     public Debuff.DebuffType[] m_DebuffImmunities;
     public bool m_DebuffImmune = false;
+    public bool m_Targetable = true;
 
     protected bool m_IsMidAnimation;
     bool m_IsDead;

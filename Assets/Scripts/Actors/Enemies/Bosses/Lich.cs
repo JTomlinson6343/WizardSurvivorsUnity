@@ -43,7 +43,6 @@ public class Lich : Boss
         m_ProjectileSpeed *= 1f + bossNumber * 0.05f;
 
         m_BossName = "Enraged " + m_BossName;
-
         GetComponentInChildren<SpriteRenderer>().color = Color.gray;
     }
 

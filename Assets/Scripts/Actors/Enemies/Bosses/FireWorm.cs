@@ -44,6 +44,7 @@ public class FireWorm : Boss
         m_ChargeDelay *= 1f - bossNumber * 0.1f;
 
         m_BossName = "Enraged " + m_BossName;
+        GetComponentInChildren<SpriteRenderer>().color = Color.gray;
     }
 
     public override void Start()
@@ -201,14 +202,6 @@ public class FireWorm : Boss
             m_DebuffImmune = false;
             Debug.Log("unburrowed");
         }
-    }
-
-    private Vector2 PickRandomDirection()
-    {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(-1f, 1f);
-
-        return new Vector2(x, y).normalized;
     }
 
     private IEnumerator Shoot()

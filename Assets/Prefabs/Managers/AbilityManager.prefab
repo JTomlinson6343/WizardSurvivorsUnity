@@ -408,7 +408,7 @@ MonoBehaviour:
     levelUpInfo: '-5% spell cooldowns
 
       +15% summon damage'
-    icon: {fileID: 3923688012977941667, guid: 1d5f6f6db0c46da4888de6b13bc689f0, type: 3}
+    icon: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -566,7 +566,7 @@ MonoBehaviour:
     levelUpInfo: '+1 armor
 
       +5% spell damage'
-    icon: {fileID: -354774665735971119, guid: 1d5f6f6db0c46da4888de6b13bc689f0, type: 3}
+    icon: {fileID: 1297763807, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -940,10 +940,10 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 100
+    damage: 50
     summonDamage: 0
     speed: 10
-    cooldown: 2
+    cooldown: 1
     amount: 4
     knockback: 4
     pierceAmount: 0
@@ -3830,7 +3830,7 @@ MonoBehaviour:
     damageType: 1
     description: Summon an ice elemental to fight for you
     levelUpInfo: 
-    icon: {fileID: -1429963340, guid: fc5ba03e62d5b1a4fb50b09f9662c3bc, type: 3}
+    icon: {fileID: 21300000, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
   m_SpellTags: 0000000002000000
@@ -3900,7 +3900,7 @@ MonoBehaviour:
     damageType: 0
     description: Summon a fire elemental to fight for you
     levelUpInfo: 
-    icon: {fileID: 1192320957, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+    icon: {fileID: 1950701590, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 2.5
   m_SpellTags: 0000000002000000

@@ -36,7 +36,7 @@ public class Enemy : Actor
 
     [SerializeField] GameObject m_DeathParticlesPrefab;
 
-    private void Awake()
+    virtual protected void Awake()
     {
         Animator[] animators = GetComponentsInChildren<Animator>();
         m_Animator = animators[0];
@@ -92,6 +92,7 @@ public class Enemy : Actor
     }
     protected virtual void OnTriggerStay2D(Collider2D collision)
     {
+        if (m_ContactDamage <= 0f) return;
         GameObject otherObject = collision.gameObject;
 
         if (m_Stunned) return;

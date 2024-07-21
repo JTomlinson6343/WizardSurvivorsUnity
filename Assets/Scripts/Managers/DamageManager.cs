@@ -54,13 +54,6 @@ public class DamageManager : MonoBehaviour
     // This information is then passed to a damage instance event which some skills listen for to check if their conditions are met.
     public Actor.DamageOutput DamageInstance(DamageInstanceData data, Vector2 pos)
     {
-        if (data.doSoundEffect)
-        {
-            // Play damage sound effect
-            if (data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(21);
-            else AudioManager.m_Instance.PlaySound(0);
-        }
-
         Actor actorComponent = data.target.GetComponent<Actor>();
 
         float damageDealt = data.amount * (1f - actorComponent.m_DamageResistance);
@@ -69,7 +62,15 @@ public class DamageManager : MonoBehaviour
 
         Actor.DamageOutput damageOutput = actorComponent.TakeDamage(damageDealt);
 
-        if (damageOutput >= Actor.DamageOutput.invalidHit && data.doDamageNumbers)
+        if (damageOutput == Actor.DamageOutput.invalidHit) return damageOutput;
+
+        if (data.doSoundEffect)
+        {
+            // Play damage sound effect
+            if (data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(21);
+            else AudioManager.m_Instance.PlaySound(0);
+        }
+        if (data.doDamageNumbers)
         {
             // Spawn damage numbers
             GameObject damageNumber = Instantiate(m_DamageNumberPrefab);

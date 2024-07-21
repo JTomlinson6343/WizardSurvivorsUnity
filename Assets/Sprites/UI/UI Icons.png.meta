@@ -1180,6 +1180,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI Icons_51
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6de723c641eee1b4da2780985b002087
+      internalID: 1950701590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1238,6 +1259,7 @@ TextureImporter:
       UI Icons_49: -434661629
       UI Icons_5: 1669355154
       UI Icons_50: -585419613
+      UI Icons_51: 1950701590
       UI Icons_6: -1899836446
       UI Icons_7: 1613330624
       UI Icons_8: -1068023403
