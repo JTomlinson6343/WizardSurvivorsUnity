@@ -203,14 +203,6 @@ public class FireWorm : Boss
         }
     }
 
-    private Vector2 PickRandomDirection()
-    {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(-1f, 1f);
-
-        return new Vector2(x, y).normalized;
-    }
-
     private IEnumerator Shoot()
     {
         m_ProjectileOnCooldown = true;

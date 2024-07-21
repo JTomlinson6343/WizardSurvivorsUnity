@@ -37,6 +37,30 @@ public static class Utils
         return outEnemies;
     }
 
+    public static List<GameObject> GetAllTargetableEnemiesInRange(Vector2 pos, float radius)
+    {
+        if (EnemyManager.m_Instance == null) return null;
+
+        // Get all enemies
+        Enemy[] enemies = EnemyManager.m_Instance.GetComponentsInChildren<Enemy>();
+
+        List<GameObject> outEnemies = new List<GameObject>();
+        foreach (Enemy enemy in enemies)
+        {
+            if (!enemy.m_Targetable) continue;
+            // Get distance between passed in pos and enemy pos
+            float distance = Vector2.Distance(pos, enemy.transform.position);
+            if (distance < radius)
+            {
+                // If enemy is in range, add it to outEnemies list
+                outEnemies.Add(enemy.gameObject);
+            }
+        }
+
+        // Output enemies which are in range
+        return outEnemies;
+    }
+
     public static GameObject GetClosestEnemyInRange(Vector2 pos, float radius)
     {
         if (EnemyManager.m_Instance == null) return null;

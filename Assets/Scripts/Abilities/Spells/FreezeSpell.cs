@@ -48,7 +48,7 @@ public class FreezeSpell : Spell
 
     private GameObject GetRandomEnemy()
     {
-        List<GameObject> enemies = Utils.GetAllEnemiesInRange(Player.m_Instance.transform.position, m_Range);
+        List<GameObject> enemies = Utils.GetAllTargetableEnemiesInRange(Player.m_Instance.transform.position, m_Range);
 
         if (enemies.Count <= 0) return null;
 
