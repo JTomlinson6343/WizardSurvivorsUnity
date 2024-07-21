@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066822953429771482}
+  - component: {fileID: 8092347585982174538}
+  - component: {fileID: 5276009217686193574}
+  - component: {fileID: 1906512895104790762}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -32,6 +35,105 @@ Transform:
   - {fileID: 3126120698984000682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8092347585982174538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383119644722088283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e73eccd41db1a40a7a1f87778afdd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxHealth: 1500
+  m_Health: 1500
+  m_KnockbackResist: 0
+  m_DamageResistance: 0
+  m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
+  m_DebuffPlacement: {fileID: 6766566669394949135}
+  m_DebuffImmunities: 
+  m_DebuffImmune: 0
+  m_Stunned: 0
+  m_HealthModifier: 1
+  m_SpawnProbability: 0
+  m_MinWave: 0
+  m_XPAwarded: 100
+  m_Speed: 4
+  m_ContactDamage: 0
+  m_KnockbackModifier: 1
+  m_HealthbarPrefab: {fileID: 0}
+  m_DeathParticlesPrefab: {fileID: 1454696810923960271, guid: b4f47a06326d8b042bfd5d9963af2780, type: 3}
+  m_BossName: Knight :)
+  m_MinSkillPoints: 5
+  m_MaxSkillPoints: 15
+  m_MeleeRadius: 1.5
+  m_Sword: {fileID: 3829804385803052212}
+  m_SwordRadius: 1.8
+  m_SwordDamage: 65
+--- !u!50 &5276009217686193574
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383119644722088283}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 19cb4d1d2c8dedb438e47d9755fbbd71, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!70 &1906512895104790762
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383119644722088283}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10922238, y: 0.056104064}
+  m_Size: {x: 0.91702956, y: 1.7093251}
+  m_Direction: 0
 --- !u!1 &6766566669394949135
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +159,7 @@ Transform:
   m_GameObject: {fileID: 6766566669394949135}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12666671, y: 1.1133333, z: 0}
+  m_LocalPosition: {x: 0.41, y: 0.19, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,11 +192,12 @@ Transform:
   m_GameObject: {fileID: 6943792906551992782}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.24, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3257083481856513777}
+  - {fileID: 3829804385803052212}
   m_Father: {fileID: 2066822953429771482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8200595990776473532
@@ -138,7 +241,7 @@ SpriteRenderer:
   m_SortingLayerID: -2020019679
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 37165551, guid: 7d46fa816d1983648a383592b27773e5, type: 3}
+  m_Sprite: {fileID: 89122129, guid: cdee13629a303f740aac84175826df68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,3 +273,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &8548316386526627696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3829804385803052212}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3829804385803052212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548316386526627696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3126120698984000682}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
