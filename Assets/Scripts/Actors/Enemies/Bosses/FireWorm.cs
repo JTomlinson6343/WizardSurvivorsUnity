@@ -44,6 +44,7 @@ public class FireWorm : Boss
         m_ChargeDelay *= 1f - bossNumber * 0.1f;
 
         m_BossName = "Enraged " + m_BossName;
+        GetComponentInChildren<SpriteRenderer>().color = Color.gray;
     }
 
     public override void Start()

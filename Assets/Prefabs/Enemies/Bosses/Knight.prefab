@@ -67,16 +67,16 @@ MonoBehaviour:
   m_KnockbackModifier: 1
   m_HealthbarPrefab: {fileID: 0}
   m_DeathParticlesPrefab: {fileID: 1454696810923960271, guid: b4f47a06326d8b042bfd5d9963af2780, type: 3}
-  m_BossName: Knight :)
+  m_BossName: Blackthorn Knight
   m_MinSkillPoints: 5
   m_MaxSkillPoints: 15
   m_ShadowTransform: {fileID: 8107222477037234720}
   m_MeleeRadius: 1.5
   m_Sword: {fileID: 3829804385803052212}
   m_SwordRadius: 1.8
-  m_SwordDamage: 65
-  m_NoSwordHitsMaxTime: 5
-  m_RunningStateMaxTime: 15
+  m_SwordDamage: 45
+  m_NoSwordHitsMaxTime: 8
+  m_RunningStateMaxTime: 16
   m_JumpDelay: 1
   m_JumpSpeed: 10
   m_JumpDuration: 2
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_SpearPrefab: {fileID: 6270093376227045094, guid: 115789e367ada0d43930d10179d6969c, type: 3}
   m_ProjectileSpeed: 6
   m_ProjectileLifetime: 8
-  m_ProjectileDamage: 1
+  m_ProjectileDamage: 25
   m_ProjectileKnockback: 1
   m_ProjectileCooldown: 0.75
 --- !u!50 &5276009217686193574

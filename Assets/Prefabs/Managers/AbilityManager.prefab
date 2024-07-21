@@ -408,7 +408,7 @@ MonoBehaviour:
     levelUpInfo: '-5% spell cooldowns
 
       +15% summon damage'
-    icon: {fileID: 3923688012977941667, guid: 1d5f6f6db0c46da4888de6b13bc689f0, type: 3}
+    icon: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
@@ -566,7 +566,7 @@ MonoBehaviour:
     levelUpInfo: '+1 armor
 
       +5% spell damage'
-    icon: {fileID: -354774665735971119, guid: 1d5f6f6db0c46da4888de6b13bc689f0, type: 3}
+    icon: {fileID: 1297763807, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:

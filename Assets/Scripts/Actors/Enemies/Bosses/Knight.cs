@@ -54,12 +54,24 @@ public class Knight : Boss
 
     public override void Enraged(int bossNumber)
     {
-        throw new System.NotImplementedException();
+        m_MidAirDuration *= 1f + bossNumber * 0.2f;
+        m_SwordDamage *= 1f + bossNumber * 0.1f;
+        m_ProjectileDamage *= 1f + bossNumber * 0.1f;
+        m_ProjectileCooldown *= 1f / bossNumber;
+        m_ProjectileSpeed *= 1f + bossNumber * 0.05f;
+
+        m_BossName = "Enraged " + m_BossName;
+
+        GetComponentInChildren<SpriteRenderer>().color = Color.gray;
     }
 
     public override void BossFightInit()
     {
         PlayerManager.m_Instance.m_ActorsToBind = new Actor[] { Player.m_Instance };
+
+        float offset = 13.5f;
+        if (Mathf.Round(Time.realtimeSinceStartup) % 2 == 0) offset *= -1;
+        transform.position = Player.m_Instance.transform.position + new Vector3(offset, 0f);
     }
 
     override protected void Awake()
@@ -90,6 +102,11 @@ public class Knight : Boss
                 FaceForward(dirToPlayer);
                 m_RunningStateTimer += Time.deltaTime;
                 m_NoSwordHitsTimer += Time.deltaTime;
+                if (!(m_NoSwordHitsTimer < m_NoSwordHitsMaxTime && m_RunningStateTimer < m_RunningStateMaxTime))
+                {
+                    SetState(State.Idle);
+                    return;
+                }
                 if (Vector2.Distance(Player.m_Instance.transform.position, transform.position) < m_MeleeRadius) SetState(State.Attacking);
                 else
                 {
@@ -171,8 +188,6 @@ public class Knight : Boss
 
     IEnumerator MidAir()
     {
-        PlayerBounds bounds = PlayerManager.m_Instance.m_BossArenaBounds;
-
         Transform animTransform = m_Animator.transform;
 
         Vector2 initShadowScale = m_ShadowTransform.localScale;
@@ -180,7 +195,7 @@ public class Knight : Boss
         Vector3 upMovement = m_JumpSpeed * Time.deltaTime * new Vector2(0, 1f);
         float shadowShrinkAmount = 1f - 2f * Time.deltaTime;
 
-        while (bounds.IsInBounds(animTransform.position, 1.5f))
+        while (animTransform.position.y < PlayerManager.m_Instance.m_BossArenaBounds.top + 2f)
         {
             animTransform.position += upMovement;
             m_ShadowTransform.localScale = new Vector2(m_ShadowTransform.localScale.x * shadowShrinkAmount, m_ShadowTransform.localScale.y * shadowShrinkAmount);
@@ -198,7 +213,7 @@ public class Knight : Boss
 
         while (elapsed < m_MidAirDuration)
         {
-            Vector2 startPos = new Vector2(Random.Range(bounds.left, bounds.right), bounds.top + 0.5f);
+            Vector2 startPos = new Vector2(Random.Range(PlayerManager.m_Instance.m_BossArenaBounds.left, PlayerManager.m_Instance.m_BossArenaBounds.right), PlayerManager.m_Instance.m_BossArenaBounds.top + 0.5f);
             ProjectileManager.m_Instance.EnemyShot(
                 startPos,
                 Utils.GetDirectionToGameObject(startPos, Player.m_Instance.gameObject),
@@ -232,6 +247,8 @@ public class Knight : Boss
             yield return new WaitForEndOfFrame();
         }
 
+        m_ShadowTransform.localScale = initShadowScale;
+
         SetState(State.Idle);
     }
 
@@ -246,8 +263,8 @@ public class Knight : Boss
     // Called whenever this actor is knocked back
     override public void KnockbackRoutine(Vector2 dir, float knockbackMagnitude)
     {
-        m_Speed = m_InitSpeed * 0.3f;
-        StartCoroutine(Utils.DelayedCall(0.2f, ()=>
+        m_Speed = m_InitSpeed * 0.2f;
+        StartCoroutine(Utils.DelayedCall(0.5f, ()=>
         {
             m_Speed = m_InitSpeed;
         }));
