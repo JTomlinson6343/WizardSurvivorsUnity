@@ -12,6 +12,7 @@ public class Knight : Boss
         Jumping,
         InAir,
         Falling,
+        Dead
     }
 
     State m_State;
@@ -168,6 +169,10 @@ public class Knight : Boss
             case State.Falling:
                 m_Animator.Play("Fall");
                 return;
+            case State.Dead:
+                m_Animator.Play("Death");
+                rb.velocity = Vector2.zero;
+                return;
         }
     }
 
@@ -182,7 +187,7 @@ public class Knight : Boss
             data.damageType = DamageType.Physical;
             data.doDamageNumbers = true;
 
-            DamageManager.m_Instance.DamageInstance(data, player.transform.position);
+            if (DamageManager.m_Instance.DamageInstance(data, player.transform.position) != DamageOutput.invalidHit) AudioManager.m_Instance.PlaySound(26);
         }
     }
 
@@ -214,6 +219,7 @@ public class Knight : Boss
         while (elapsed < m_MidAirDuration)
         {
             Vector2 startPos = new Vector2(Random.Range(PlayerManager.m_Instance.m_BossArenaBounds.left, PlayerManager.m_Instance.m_BossArenaBounds.right), PlayerManager.m_Instance.m_BossArenaBounds.top + 0.5f);
+            AudioManager.m_Instance.PlaySound(25);
             ProjectileManager.m_Instance.EnemyShot(
                 startPos,
                 Utils.GetDirectionToGameObject(startPos, Player.m_Instance.gameObject),
@@ -274,5 +280,14 @@ public class Knight : Boss
     {
         GetComponentInChildren<Collider2D>().enabled = !on;
         m_Targetable = !on;
+    }
+
+    protected override void OnDeath()
+    {
+        SetState(State.Dead);
+        StartCoroutine(Utils.DelayedCall(2f, () =>
+        {
+            base.OnDeath();
+        }));
     }
 }
