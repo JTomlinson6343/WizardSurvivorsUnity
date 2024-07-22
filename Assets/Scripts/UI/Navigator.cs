@@ -114,23 +114,20 @@ public class Navigator : MonoBehaviour
             return;
         }
 
-        //foreach (Selectable selectable in m_Selectables)
-        //{
-        //    if (selectable.GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
-        //    {
-        //        selectable.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
-        //        continue;
-        //    }
+        foreach (Selectable selectable in m_Selectables)
+        {
+            if (selectable.GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
+            {
+                selectable.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+                continue;
+            }
+        }
 
-        //    selectable.GetComponent<Image>().color = Color.white;
-        //}
-
-        //if (m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
-        //{
-        //    m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
-        //    return;
-        //}
-        //m_Selectables[m_SelectedButtonPos].GetComponent<Image>().color = Color.yellow;
+        if (m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>() && m_HighlightTextEnabled)
+        {
+            m_Selectables[m_SelectedButtonPos].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+            return;
+        }
     }
 
     private void HandleScrollbarInput(Scrollbar scrollbar)

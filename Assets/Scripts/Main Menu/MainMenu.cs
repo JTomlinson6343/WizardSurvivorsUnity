@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour
         SaveManager.LoadFromFile(m_CharMenuRef.GetComponent<CharacterMenu>().GetSkillTreeRefs());
     }
 
+    private void Awake()
+    {
+        GetComponent<Navigator>().Start();
+    }
+
     public void StartGame()
     {
         gameObject.SetActive(false);

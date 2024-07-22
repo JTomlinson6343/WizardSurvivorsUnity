@@ -1512,7 +1512,7 @@ MonoBehaviour:
   - {fileID: 486505741715487481}
   m_BackButton: {fileID: 0}
   m_Direction: 1
-  m_Type: 1
+  m_Type: 0
   m_LabelSelectEnabled: 0
   m_HighlightTextEnabled: 1
   m_Labels: []
