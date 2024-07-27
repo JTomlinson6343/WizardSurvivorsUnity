@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         m_CharMenuRef.SetActive(true);
+        m_CharMenuRef.GetComponent<CharacterMenu>().Awake();
         m_CharMenuRef.GetComponent<Navigator>().Start();
         Time.timeScale = 1.0f;
     }

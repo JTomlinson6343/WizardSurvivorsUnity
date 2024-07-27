@@ -240,6 +240,9 @@ public class AbilityManager : MonoBehaviour
         }
 
         if (m_LightningDoubleCastOn) UpdateDoubleCastedSpell();
+
+        UnlockManager.m_TrackedStats.totalCooldown = GetAbilityStatBuffs().cooldown;
+        UnlockManager.CheckUnlockConditions();
     }
 
     public AbilityStats GetAbilityStatBuffs()

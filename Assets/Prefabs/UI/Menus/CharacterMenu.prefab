@@ -386,6 +386,8 @@ MonoBehaviour:
   m_InfoLabel: {fileID: 8711716377945167243}
   m_MainMenuRef: {fileID: 0}
   m_DefaultCharIcon: {fileID: 6931310180832408527}
+  m_IceMageIcon: {fileID: 6151632097755728452}
+  m_LightningMageIcon: {fileID: 3169254749420906455}
 --- !u!1 &2424751185252111872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +1700,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
   m_PrefabInstance: {fileID: 2816218544958611697}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3169254749420906455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+  m_PrefabInstance: {fileID: 2816218544958611697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884193415cae57746b77d4c2de002736, type: 3}
+  m_Name: Fire Mage
+  m_EditorClassIdentifier: 
 --- !u!1001 &6462875968541085026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1893,6 +1906,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+--- !u!114 &6151632097755728452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+  m_PrefabInstance: {fileID: 6462875968541085026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884193415cae57746b77d4c2de002736, type: 3}
+  m_Name: Fire Mage
+  m_EditorClassIdentifier: 
 --- !u!224 &9059021381213392815 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}

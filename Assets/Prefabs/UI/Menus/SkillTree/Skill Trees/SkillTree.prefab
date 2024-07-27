@@ -964,7 +964,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7596072199337849284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8939779801319940111}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: OnRespecPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6110021893586430393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3080053238852201318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8939779801319940111}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: OnBackPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6171433270623881672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1440,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7847382101749876414}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8939779801319940111}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: OnUnlockPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6798570292226931468
 GameObject:
   m_ObjectHideFlags: 0

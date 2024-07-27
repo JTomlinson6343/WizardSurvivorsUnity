@@ -24,11 +24,15 @@ public class CharacterMenu : MonoBehaviour
     [SerializeField] CharacterIcon m_DefaultCharIcon;
     static CharacterIcon m_CurrentCharIcon;
 
-    private void Awake()
+    [SerializeField] CharacterIcon m_IceMageIcon;
+    [SerializeField] CharacterIcon m_LightningMageIcon;
+
+    public void Awake()
     {
         m_Instance = this;
 
         SetCurrentIcon(m_DefaultCharIcon);
+        CheckUnlocks();
     }
 
     private void Update()
@@ -100,5 +104,11 @@ public class CharacterMenu : MonoBehaviour
         gameObject.SetActive(false);
         m_MainMenuRef.gameObject.SetActive(true);
         m_MainMenuRef.GetComponent<Navigator>().Start();
+    }
+
+    void CheckUnlocks()
+    {
+        m_IceMageIcon.SetUnlockState(!UnlockManager.m_Unlockables.iceMage);
+        m_LightningMageIcon.SetUnlockState(!UnlockManager.m_Unlockables.lightningMage);
     }
 }
