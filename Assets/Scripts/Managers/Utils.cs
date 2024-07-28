@@ -175,4 +175,27 @@ public static class Utils
             }
         }
     }
+
+    public static IEnumerator PulseAnim(Transform target, float duration)
+    {
+        Vector3 minScale = target.localScale;
+        Vector3 maxScale = target.localScale * 1.2f;
+
+        float timer = 0;
+
+        while (timer < duration)
+        {
+            if (timer < duration / 2)
+            {
+                target.localScale = Vector3.Lerp(minScale, maxScale, timer / duration);
+            }
+            else
+            {
+                target.localScale = Vector3.Lerp(maxScale, minScale, timer / duration);
+            }
+
+            timer += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
