@@ -206,7 +206,7 @@ public class ProgressionManager : MonoBehaviour
 
         UpdateLevelLabel();
 
-        if (m_Level == 2)
+        if (m_Level == 2 || m_Level == 3)
         {
             AbilityManager.m_Instance.ChoosePassiveAbility();
             return;
