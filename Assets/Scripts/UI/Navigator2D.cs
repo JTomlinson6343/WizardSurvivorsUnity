@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class Navigator2D : Navigator
 {
-    const string unlockStr = "Unlock!";
-    const string respecStr = "Respec";
-
     [System.Serializable]
     private struct Selectable2DArray{
         public Selectable[] row;
@@ -29,15 +26,31 @@ public class Navigator2D : Navigator
 
     protected override void HandleInput()
     {
+        TextMeshProUGUI unlockText = m_UnlockButton.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI respecText = m_RespecButton.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI backText = m_BackButton.GetComponentInChildren<TextMeshProUGUI>();
+
         if (Gamepad.current != null)
         {
-            m_UnlockButton.GetComponentInChildren<TextMeshProUGUI>().text = "(A) "+ unlockStr;
-            m_RespecButton.GetComponentInChildren<TextMeshProUGUI>().text = "(Y) "+ respecStr;
+            unlockText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+            respecText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+            backText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+
+            foreach (Image button in m_ControllerButtons)
+            {
+                button.enabled = true;
+            }
         }
         else
         {
-            m_UnlockButton.GetComponentInChildren<TextMeshProUGUI>().text = unlockStr;
-            m_RespecButton.GetComponentInChildren<TextMeshProUGUI>().text = respecStr;
+            unlockText.transform.position = Vector2.zero;
+            respecText.transform.position = Vector2.zero;
+            backText.transform.position = Vector2.zero;
+
+            foreach (Image button in m_ControllerButtons)
+            {
+                button.enabled = false;
+            }
         }
 
         HandleSelectionInput();

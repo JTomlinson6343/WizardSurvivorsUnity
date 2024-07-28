@@ -28,6 +28,8 @@ public class Navigator : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI[] m_Labels;
 
+    [SerializeField] protected Image[] m_ControllerButtons;
+
     int m_SelectedButtonPos;
     protected bool m_AxisInUse;
 
@@ -45,7 +47,25 @@ public class Navigator : MonoBehaviour
     private void Update()
     {
         if (Gamepad.current != null)
+        {
             HandleInput();
+            if (m_ControllerButtons.Length < 1) return;
+            foreach (Image button in m_ControllerButtons)
+            {
+                button.enabled = true;
+            }
+            m_BackButton.GetComponentInChildren<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+        }
+        else
+        {
+            if (m_ControllerButtons.Length < 1) return;
+
+            foreach (Image button in m_ControllerButtons)
+            {
+                button.enabled = false;
+            }
+            m_BackButton.GetComponentInChildren<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        }
     }
 
     protected virtual void HandleInput()
