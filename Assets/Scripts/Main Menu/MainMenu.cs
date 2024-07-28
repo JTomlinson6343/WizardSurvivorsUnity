@@ -14,17 +14,20 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         SaveManager.LoadFromFile(m_CharMenuRef.GetComponent<CharacterMenu>().GetSkillTreeRefs());
+        AudioManager.m_Instance.PlayMusic(27, 0.7f);
     }
 
     private void Awake()
     {
         GetComponent<Navigator>().Start();
+        Time.timeScale = 1.0f;
     }
 
     public void StartGame()
     {
         gameObject.SetActive(false);
         m_CharMenuRef.SetActive(true);
+        m_CharMenuRef.GetComponent<CharacterMenu>().Awake();
         m_CharMenuRef.GetComponent<Navigator>().Start();
         Time.timeScale = 1.0f;
     }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+
 public class CharacterIcon : MonoBehaviour
 {
     public bool m_Unlocked;
@@ -14,4 +16,17 @@ public class CharacterIcon : MonoBehaviour
     public GameObject m_Character;
 
     public SkillTree m_SkillTree;
+
+    public void SetUnlockState(bool locked)
+    {
+        m_Unlocked = !locked;
+        if (locked)
+        {
+            GetComponent<Image>().color = Color.grey;
+        }
+        else
+        {
+            GetComponent<Image>().color = Color.white;
+        }
+    }
 }

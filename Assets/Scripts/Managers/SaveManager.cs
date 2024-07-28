@@ -11,6 +11,10 @@ public struct SaveData
     public SkillTreeData[] skillTrees;
 
     public OptionsData options;
+
+    public TrackedStats stats;
+
+    public Unlockables unlockables;
 }
 
 [System.Serializable]
@@ -46,6 +50,8 @@ public class SaveManager
 
         SaveOptions();
 
+        SaveUnlocks();
+
         // Save data as JSON
         string json = JsonUtility.ToJson(m_SaveData, true);
         File.WriteAllText(m_Path, json);
@@ -57,7 +63,10 @@ public class SaveManager
         // Save all current skills to json
         // Save all skill points to json
 
-        if (m_SkillTrees == null) { return; }
+        if (m_SkillTrees == null || m_SkillTrees.Length == 0) {
+            LoadSkills();
+            return;
+        }
 
         m_SaveData.skillTrees = new SkillTreeData[m_SkillTrees.Length];
 
@@ -83,6 +92,12 @@ public class SaveManager
         m_SaveData.options.soundVolume = AudioManager.m_SoundVolume;
         m_SaveData.options.autoFire    = Player.m_AutoFire;
     }
+    private static void SaveUnlocks()
+    {
+        UnlockManager.CheckUnlockConditions();
+        m_SaveData.stats = UnlockManager.m_TrackedStats;
+        m_SaveData.unlockables = UnlockManager.m_Unlockables;
+    }
     public static void LoadFromFile(SkillTree[] skillTrees) // Called on game start
     {
         // Load json
@@ -104,6 +119,7 @@ public class SaveManager
 
         LoadSkills();
         LoadOptions();
+        LoadUnlocks();
     }
 
     private static void LoadSkills()
@@ -130,6 +146,12 @@ public class SaveManager
         AudioManager.m_MusicVolume = m_SaveData.options.musicVolume;
         AudioManager.m_SoundVolume = m_SaveData.options.soundVolume;
         Player.m_AutoFire          = m_SaveData.options.autoFire;
+    }
+
+    public static void LoadUnlocks()
+    {
+        UnlockManager.m_TrackedStats = m_SaveData.stats;
+        UnlockManager.m_Unlockables = m_SaveData.unlockables;
     }
 
     // Adds skill points to the specified tree. Called at the end of a run

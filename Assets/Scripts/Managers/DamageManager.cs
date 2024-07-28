@@ -80,6 +80,7 @@ public class DamageManager : MonoBehaviour
             data.didKill = damageOutput == Actor.DamageOutput.wasKilled;
             m_DamageInstanceEvent.Invoke(data);
         }
+        IncrementIceDamageDealt(data);
         return damageOutput;
     }
 
@@ -97,5 +98,14 @@ public class DamageManager : MonoBehaviour
             default:
                 return Color.white;
         }
+    }
+
+    private void IncrementIceDamageDealt(DamageInstanceData data)
+    {
+        if (data.damageType != DamageType.Frost) return;
+        if (data.target == Player.m_Instance.gameObject) return;
+
+        UnlockManager.m_TrackedStats.iceDamageDealt += data.amount;
+        UnlockManager.CheckUnlockConditions();
     }
 }

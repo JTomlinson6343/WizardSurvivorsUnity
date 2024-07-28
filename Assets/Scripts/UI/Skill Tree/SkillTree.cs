@@ -35,10 +35,6 @@ public class SkillTree : MonoBehaviour
 
     private void Start()
     {
-        m_UnlockButton.onClick.AddListener(OnUnlockPressed);
-        m_RespecButton.onClick.AddListener(OnRespecPressed);
-        m_BackButton.onClick.AddListener(OnBackPressed);
-
         UpdateSkillPointsLabel();
         ColorCheckPass();
         ColourAllIcons();
@@ -158,7 +154,7 @@ public class SkillTree : MonoBehaviour
         }
     }
 
-    void OnUnlockPressed()
+    public void OnUnlockPressed()
     {
         m_CurrentSkill.Unlock();
         m_CurrentSkillPoints -= GetCurrentLevelCost();
@@ -172,7 +168,7 @@ public class SkillTree : MonoBehaviour
         ColorCheckPass();
     }
 
-    void OnRespecPressed()
+    public void OnRespecPressed()
     {
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
@@ -205,7 +201,7 @@ public class SkillTree : MonoBehaviour
     }
 
     // Return to character menu
-    void OnBackPressed()
+    public void OnBackPressed()
     {
         OnCloseSkillTreeMenu();
         gameObject.SetActive(false);
