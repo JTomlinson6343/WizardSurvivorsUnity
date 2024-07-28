@@ -36,7 +36,7 @@ public struct UnlockCondition
 public class UnlockManager
 {
     public static UnlockCondition kIceMageCondition = new UnlockCondition(100000f, "To Unlock: Deal 100000 frost damage.");
-    public static UnlockCondition kLightningMageCondition = new UnlockCondition(-0.7f, "To Unlock: Reach a total of 70% spell cooldown reduction in a single run.");
+    public static UnlockCondition kLightningMageCondition = new UnlockCondition(-0.5f, "To Unlock: Reach a total of 50% spell cooldown reduction in a single run.");
 
     public static TrackedStats m_TrackedStats;
     public static Unlockables  m_Unlockables;
