@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioClip[] m_AudioClips;
 
-    AudioSource[] m_AudioSources = new AudioSource[512];
+    AudioSource[] m_AudioSources = new AudioSource[64];
     AudioSource m_MusicSource;
     float m_CurrentMusicVolume = 1f;
 
@@ -20,10 +20,7 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         m_Instance = this;
-    }
 
-    private void Start()
-    {
         for (int i = 0; i < m_AudioSources.Length; i++)
         {
             AudioSource sourceComponent = gameObject.AddComponent<AudioSource>();
@@ -34,8 +31,6 @@ public class AudioManager : MonoBehaviour
         m_MusicSource.loop = true;
 
         UpdateMusicVolume();
-
-        PlayMusic(3);
     }
 
     public void PlaySound(int soundID)

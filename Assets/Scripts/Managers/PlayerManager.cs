@@ -45,6 +45,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     private void Start()
     {
         SpawnPlayer();
+        AudioManager.m_Instance.PlayMusic(3);
     }
 
     private void SpawnPlayer()

@@ -13,6 +13,10 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_InfoLabel;
+    [SerializeField] TextMeshProUGUI m_UnlockConditionsLabel;
+
+    [SerializeField] Button m_StartButtonRef;
+    [SerializeField] Button m_SkillTreeButtonRef;
 
     [SerializeField] MainMenu m_MainMenuRef;
 
@@ -49,8 +53,30 @@ public class CharacterMenu : MonoBehaviour
         m_NameLabel.text = charIcon.m_CharName;
         m_InfoLabel.text = charIcon.m_Description;
 
-        m_CurrentCharacterSkillTree = charIcon.m_SkillTree;
-        m_CurrentCharacter = charIcon.m_Character;
+        if (charIcon.m_Unlocked)
+        {
+            m_CurrentCharacterSkillTree = charIcon.m_SkillTree;
+            m_CurrentCharacter = charIcon.m_Character;
+
+            m_SkillTreeButtonRef.interactable = true;
+            m_StartButtonRef.interactable = true;
+
+            m_UnlockConditionsLabel.text = "";
+        }
+        else
+        {
+            m_CurrentCharacterSkillTree = null;
+            m_CurrentCharacter = null;
+
+            m_SkillTreeButtonRef.interactable = false;
+            m_StartButtonRef.interactable = false;
+
+            string message = "";
+            if (charIcon == m_IceMageIcon) message = UnlockManager.kIceMageCondition.FormatConditionMessage(UnlockManager.m_TrackedStats.iceDamageDealt);
+            if (charIcon == m_LightningMageIcon) message = UnlockManager.kLightningMageCondition.message;
+
+            m_UnlockConditionsLabel.text = message;
+        }
     }
 
     public void SetCurrentIcon(CharacterIcon charIcon)
@@ -60,7 +86,11 @@ public class CharacterMenu : MonoBehaviour
         {
             icon.GetComponent<Image>().color = Color.white;
         }
+
+        CheckUnlocks();
+
         charIcon.GetComponent<Image>().color = Color.yellow;
+        if (!charIcon.m_Unlocked) charIcon.GetComponent<Image>().color *= Color.grey;
     }
 
     public void LoadSkillTree()

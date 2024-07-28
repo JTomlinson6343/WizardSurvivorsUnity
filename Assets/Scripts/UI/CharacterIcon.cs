@@ -19,7 +19,14 @@ public class CharacterIcon : MonoBehaviour
 
     public void SetUnlockState(bool locked)
     {
-        m_Unlocked = locked;
-        GetComponent<Button>().interactable = !locked;
+        m_Unlocked = !locked;
+        if (locked)
+        {
+            GetComponent<Image>().color = Color.grey;
+        }
+        else
+        {
+            GetComponent<Image>().color = Color.white;
+        }
     }
 }
