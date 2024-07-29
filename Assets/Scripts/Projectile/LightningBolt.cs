@@ -48,6 +48,27 @@ public class LightningBolt : AOEObject
             Vector2.Distance((Vector2)transform.position, enemyPos) * m_LengthModifier
             );
     }
+    public void Zap(float range)
+    {
+        range *= m_AbilitySource.GetTotalStats().AOE;
+
+        if (!Utils.GetFurthestEnemyInRange(transform.position, range))
+        {
+            DestroySelf();
+            return;
+        }
+
+        // Get position of furthest enemy in range
+        Vector2 enemyPos = (Vector2)Utils.GetFurthestEnemyInRange(transform.position, range).transform.position;
+
+        Utils.PointTowards(enemyPos, gameObject);
+
+        // Extend lightning bolt towards enemy position
+        GetComponent<SpriteRenderer>().size = new Vector2(
+            GetComponent<SpriteRenderer>().size.x,
+            Vector2.Distance((Vector2)transform.position, enemyPos) * m_LengthModifier
+            );
+    }
 
     protected override void OnTargetHit(GameObject enemy)
     {

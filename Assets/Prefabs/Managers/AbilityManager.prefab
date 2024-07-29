@@ -1121,6 +1121,77 @@ MonoBehaviour:
     iFramesMod: 0.25
     armor: 0
   m_HealModifier: 3
+--- !u!1 &1946000112424491716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5369853466325465948}
+  - component: {fileID: 1000011008400764615}
+  m_Layer: 0
+  m_Name: StaticOrb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5369853466325465948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946000112424491716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1000011008400764615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946000112424491716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb896f140784e81438ab7914a54a78a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_CastAmount: 1
+  m_BaseStats:
+    AOE: 1
+    duration: 0
+    damage: 10
+    summonDamage: 0
+    speed: 1
+    cooldown: 4
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 1
+    neverPierce: 0
+  m_Data:
+    name: Static Orb
+    damageType: 2
+    description: Hurl an orb of static energy that shocks nearby enemies. (3s cooldown)
+      (4s cooldown)
+    levelUpInfo: 
+    icon: {fileID: -689417973579617562, guid: 8ec8dad524bf42b46ae306abb4512b85, type: 3}
+  m_CooldownRemaining: 0
+  m_DefaultAutofireRange: 10
+  m_SpellTags: 00000000060000000400000005000000
+  m_ProjectileLifetime: 3
+  m_BulletPrefab: {fileID: 2787149867258741970, guid: 0e9e75daed7a2ae408193753737a1bea, type: 3}
 --- !u!1 &2048881655503188187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,7 +1255,7 @@ MonoBehaviour:
     name: Poison Mist
     damageType: 3
     description: Fire a poison bolt that creates a posion cloud that damages nearby
-      enemies
+      enemies (10s cooldown)
     levelUpInfo: 
     icon: {fileID: 1248430177, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -1630,6 +1701,7 @@ MonoBehaviour:
   - {fileID: 4296692162280912660}
   - {fileID: 8132589284174555859}
   - {fileID: 3942293275122592246}
+  - {fileID: 1000011008400764615}
   m_BuffAbilities:
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
@@ -2602,6 +2674,7 @@ MonoBehaviour:
     name: Freeze
     damageType: 1
     description: Deal damage to an enemy and all surrounding enemies and freeze them
+      (6s cooldown)
     levelUpInfo: 
     icon: {fileID: -1068023403, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -4039,6 +4112,7 @@ Transform:
   - {fileID: 5902090598870088726}
   - {fileID: 2004064767481076761}
   - {fileID: 1663213935169272059}
+  - {fileID: 5369853466325465948}
   m_Father: {fileID: 108723972155499655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7609364591772771841

@@ -17,6 +17,15 @@ public class ParentLightningBolt : LightningBolt
         InitLengthModifier();
         Zap();
     }
+
+    public void Init(Vector2 pos, Ability ability, float lifetime, float range)
+    {
+        m_AbilitySource = ability;
+        transform.position = pos;
+        StartLifetimeTimer(lifetime);
+        InitLengthModifier();
+        Zap(range);
+    }
     protected override void OnTargetHit(GameObject enemy)
     {
         base.OnTargetHit(enemy);
