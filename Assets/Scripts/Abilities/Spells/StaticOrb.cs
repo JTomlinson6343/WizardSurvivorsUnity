@@ -25,7 +25,6 @@ public class StaticOrb : ConstantDamageAOE
                 bolt.GetComponent<ParentLightningBolt>().Init(transform.position, m_AbilitySource, 0.2f, kBaseRange);
                 bolt.GetComponent<ParentLightningBolt>().m_JumpLimit = 0;
             }
-
             yield return new WaitForSeconds(interval);
         }
     }
