@@ -14,7 +14,7 @@ public class StaticOrb : ConstantDamageAOE
 
     IEnumerator ShockEnemies()
     {
-        const float interval = 0.4f;
+        const float interval = 0.6f;
 
         while (true)
         {

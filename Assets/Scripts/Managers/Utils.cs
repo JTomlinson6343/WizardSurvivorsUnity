@@ -13,6 +13,8 @@ public static class Utils
     private static Vector3 selected_target_init_scale;
     private static Vector3 selected_target_max_scale;
 
+    private static List<Transform> pulsed_targets = new List<Transform>();
+
     // This class is full of helper functions that involve physics or just general maths calculations
     public static List<GameObject> GetAllEnemiesInRange(Vector2 pos, float radius)
     {
@@ -181,6 +183,9 @@ public static class Utils
         Vector3 minScale = target.localScale;
         Vector3 maxScale = target.localScale * 1.2f;
 
+        if (pulsed_targets.Contains(target)) yield break;
+        pulsed_targets.Add(target);
+
         float timer = 0;
 
         while (timer < duration)
@@ -197,5 +202,6 @@ public static class Utils
             timer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        pulsed_targets.Remove(target);
     }
 }
