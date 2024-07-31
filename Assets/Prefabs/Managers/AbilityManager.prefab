@@ -1702,6 +1702,7 @@ MonoBehaviour:
   - {fileID: 8132589284174555859}
   - {fileID: 3942293275122592246}
   - {fileID: 1000011008400764615}
+  - {fileID: 8706248670278608367}
   m_BuffAbilities:
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
@@ -4113,6 +4114,7 @@ Transform:
   - {fileID: 2004064767481076761}
   - {fileID: 1663213935169272059}
   - {fileID: 5369853466325465948}
+  - {fileID: 6806180191049746346}
   m_Father: {fileID: 108723972155499655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7609364591772771841
@@ -4611,6 +4613,84 @@ MonoBehaviour:
   m_SpellTags: 000000000400000006000000
   m_ProjectileLifetime: 3
   m_BulletPrefab: {fileID: 2787149867258741970, guid: ac646f8cf2e170849abd8c893b742d08, type: 3}
+--- !u!1 &8653212588906527048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6806180191049746346}
+  - component: {fileID: 8706248670278608367}
+  m_Layer: 0
+  m_Name: DarkOrb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6806180191049746346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8653212588906527048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8706248670278608367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8653212588906527048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a434ac90254024e8268b7630e6b966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_CastAmount: 1
+  m_BaseStats:
+    AOE: 1
+    duration: 0
+    damage: 30
+    summonDamage: 0
+    speed: 4
+    cooldown: 2
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 1
+    neverPierce: 0
+  m_Data:
+    name: Vengeful Spirit
+    damageType: 5
+    description: 'Send a dark spirit to seek out an enemy in range. It then bounces
+      to other enemies. (2s cooldown)
+
+      
+
+      Zone size increases possible
+      bounce distance
+
+      Pierce increases number of bounces.'
+    levelUpInfo: 
+    icon: {fileID: 868776962, guid: 0cb039af0b76b434eb01594715635654, type: 3}
+  m_CooldownRemaining: 0
+  m_DefaultAutofireRange: 8
+  m_SpellTags: 00000000
+  m_ProjectileLifetime: 5
+  m_BulletPrefab: {fileID: 6270093376227045094, guid: 9043407a6433b80449c26f7138d2963a, type: 3}
 --- !u!1 &8684336262708932390
 GameObject:
   m_ObjectHideFlags: 0
