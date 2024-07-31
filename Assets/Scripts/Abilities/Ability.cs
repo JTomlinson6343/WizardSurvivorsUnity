@@ -97,6 +97,7 @@ public class Ability : MonoBehaviour
     public bool m_IsSpell;
 
     public int     m_CastAmount = 1;
+    public int     m_BaseCastAmount = 1;
     readonly float kMultiCastDelay = 0.3f;
 
     public AbilityStats    m_BaseStats;   // Base stats of the ability

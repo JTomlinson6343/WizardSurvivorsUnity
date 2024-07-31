@@ -321,9 +321,9 @@ public class AbilityManager : MonoBehaviour
     {
         foreach (Spell spell in GetComponentsInChildren<Spell>())
         {
-            spell.m_CastAmount = 1;
+            spell.m_CastAmount = spell.m_BaseCastAmount;
         }
 
-        GetHighestCooldownSpell().m_CastAmount = 2;
+        GetHighestCooldownSpell().m_CastAmount = GetHighestCooldownSpell().m_BaseCastAmount * 2;
     }
 }

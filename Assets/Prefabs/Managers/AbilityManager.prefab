@@ -47,6 +47,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -89,6 +90,80 @@ MonoBehaviour:
     iFramesMod: 0
     armor: 0
   m_HealModifier: 3
+--- !u!1 &240029671270704124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9161394284357566154}
+  - component: {fileID: 1423585425821646238}
+  m_Layer: 0
+  m_Name: Sunbeam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9161394284357566154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240029671270704124}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423585425821646238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240029671270704124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf646ad5ded55cb43a4a580d0c250ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_CastAmount: 1
+  m_BaseCastAmount: 3
+  m_BaseStats:
+    AOE: 1
+    duration: 1
+    damage: 35
+    summonDamage: 0
+    speed: 0
+    cooldown: 4
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: Sun Beam
+    damageType: 4
+    description: 'Call down the might of the sun to smite enemies 3 with holy light.
+
+      (4s
+      cooldown)'
+    levelUpInfo: 
+    icon: {fileID: 212032622, guid: 56deefa2e20c1aa40b67b6e25ae060bf, type: 3}
+  m_CooldownRemaining: 0
+  m_DefaultAutofireRange: 10
+  m_SpellTags: 0000000004000000
+  m_Range: 7
+  m_AOEPrefab: {fileID: 6689438443112598672, guid: 418d53cf17c2e074ea22111dba763fe5, type: 3}
 --- !u!1 &566947808422590544
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +211,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -228,6 +304,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -299,6 +376,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -389,6 +467,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -477,6 +556,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -547,6 +627,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -635,6 +716,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 4.5
     duration: 0.75
@@ -659,8 +741,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000004000000
-  m_ProjectileLifetime: 2
-  m_BulletPrefab: {fileID: 7034863490182940137, guid: 8f3e941ee978a4a4985657ee68e52396, type: 3}
+  m_ProjectileLifetime: 0
+  m_BulletPrefab: {fileID: 0}
   m_AOEPrefab: {fileID: 6942711934382557578, guid: 146d44ef169bcd64392eaba1b5ff097e, type: 3}
 --- !u!1 &1328896173505012888
 GameObject:
@@ -843,6 +925,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -937,6 +1020,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1009,6 +1093,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 4
     duration: -1
@@ -1080,6 +1165,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1168,6 +1254,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -1239,6 +1326,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 4
     duration: 5
@@ -1312,6 +1400,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1515,6 +1604,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1603,6 +1693,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1703,6 +1794,7 @@ MonoBehaviour:
   - {fileID: 3942293275122592246}
   - {fileID: 1000011008400764615}
   - {fileID: 8706248670278608367}
+  - {fileID: 1423585425821646238}
   m_BuffAbilities:
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
@@ -1789,6 +1881,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 3
     duration: 3
@@ -1813,8 +1906,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 6
   m_SpellTags: 00000000030000000400000006000000
-  m_ProjectileLifetime: 2
-  m_BulletPrefab: {fileID: 7256483112163839321, guid: 9d79a94f1e46cbc46b9fb096645fc54a, type: 3}
+  m_ProjectileLifetime: 0
+  m_BulletPrefab: {fileID: 0}
   m_AOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
 --- !u!1 &2530550909787924200
 GameObject:
@@ -1863,6 +1956,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1957,6 +2051,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2045,6 +2140,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2479,6 +2575,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2565,6 +2662,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2659,6 +2757,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 5
@@ -2835,6 +2934,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2923,6 +3023,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3072,6 +3173,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 2.5
     duration: 0
@@ -3141,6 +3243,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3231,6 +3334,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3319,6 +3423,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3541,6 +3646,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3629,6 +3735,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3719,6 +3826,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3887,6 +3995,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3957,6 +4066,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4027,6 +4137,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4115,6 +4226,7 @@ Transform:
   - {fileID: 1663213935169272059}
   - {fileID: 5369853466325465948}
   - {fileID: 6806180191049746346}
+  - {fileID: 9161394284357566154}
   m_Father: {fileID: 108723972155499655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7609364591772771841
@@ -4164,6 +4276,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4252,6 +4365,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4340,6 +4454,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4428,6 +4543,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4518,6 +4634,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -4589,6 +4706,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -4660,6 +4778,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 1
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -4678,10 +4797,10 @@ MonoBehaviour:
     description: 'Send a dark spirit to seek out an enemy in range. It then bounces
       to other enemies. (2s cooldown)
 
-      
 
-      Zone size increases possible
-      bounce distance
+
+      Zone size increases possible bounce
+      distance
 
       Pierce increases number of bounces.'
     levelUpInfo: 
@@ -4738,6 +4857,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4828,6 +4948,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4996,6 +5117,7 @@ MonoBehaviour:
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0
