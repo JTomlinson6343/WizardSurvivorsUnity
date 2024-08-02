@@ -152,6 +152,7 @@ public class SaveManager
     {
         UnlockManager.m_TrackedStats = m_SaveData.stats;
         UnlockManager.m_Unlockables = m_SaveData.unlockables;
+        UnlockManager.CheckUnlockConditions();
     }
 
     // Adds skill points to the specified tree. Called at the end of a run

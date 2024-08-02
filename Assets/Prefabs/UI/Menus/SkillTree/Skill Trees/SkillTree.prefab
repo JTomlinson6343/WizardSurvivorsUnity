@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 1.5, y: 0}
-  m_SizeDelta: {x: 108, y: 30}
+  m_AnchoredPosition: {x: 8.04, y: 0}
+  m_SizeDelta: {x: 121.4525, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2926996189721772722
 CanvasRenderer:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points: 1456'
+  m_text: 'Current: 999'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ccea4188e77bd3b4dacba37ccb9cb7ae, type: 2}
   m_sharedMaterial: {fileID: -3806399991812701954, guid: ccea4188e77bd3b4dacba37ccb9cb7ae, type: 2}
@@ -1265,7 +1265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -75.4, y: -8.5}
+  m_AnchoredPosition: {x: -71.2, y: -8.5}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6679591962414440744
@@ -1961,7 +1961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 113.5, y: 54.1}
+  m_AnchoredPosition: {x: 110.19, y: 54.1}
   m_SizeDelta: {x: 105.6144, y: 19.2761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2680683451066075070
@@ -2142,13 +2142,13 @@ MonoBehaviour:
   m_LabelSelectEnabled: 0
   m_HighlightTextEnabled: 0
   m_Labels: []
-  m_2DSelectables: []
-  m_UnlockButton: {fileID: 2382391296056949527}
-  m_RespecButton: {fileID: 7554867220127377238}
   m_ControllerButtons:
   - {fileID: 2891495675734866057}
   - {fileID: 7534062368177741574}
   - {fileID: 4568528605370951066}
+  m_2DSelectables: []
+  m_UnlockButton: {fileID: 2382391296056949527}
+  m_RespecButton: {fileID: 7554867220127377238}
 --- !u!1 &8089017486484068090
 GameObject:
   m_ObjectHideFlags: 0
