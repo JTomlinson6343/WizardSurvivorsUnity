@@ -34,4 +34,15 @@ public class Spell : Ability
         base.OnChosen();
         m_isMaxed = true;
     }
+    public override void UpdateTotalStats()
+    {
+        if (!AbilityManager.m_Instance) return;
+
+        base.UpdateTotalStats();
+
+        if (HasTag(SpellTag.Summon))
+        {
+            m_TotalStats.damage += m_BonusStats.summonDamage * m_BaseStats.damage + AbilityManager.m_Instance.GetAbilityStatBuffs().summonDamage * m_BaseStats.damage;
+        }
+    }
 }

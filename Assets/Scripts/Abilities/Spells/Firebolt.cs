@@ -22,7 +22,7 @@ public class Firebolt : Spell
 
         GameObject closestEnemy = Utils.GetClosestEnemyInRange(Player.m_Instance.GetStaffTransform().position, m_DefaultAutofireRange);
 
-        if (!closestEnemy)
+        if (!closestEnemy && m_DefaultAutofireRange >= 0)
         {
             SetRemainingCooldown(kCooldownAfterReset);
             return;

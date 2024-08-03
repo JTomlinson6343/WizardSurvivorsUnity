@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Intensity: 1.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 6f62473b3f05506ec92c12edc70d40f6
+  m_ApplyToSortingLayers: 3f05506e6f62473bff5f7ed2
   m_LightCookieSprite: {fileID: 21300000, guid: ab5d2fd4bb4fe464b8296ddc5c79a46b, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -88,8 +88,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: -0.015625, z: 0}
-    m_Extent: {x: 1.40625, y: 1.421875, z: 0}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 2, y: 2, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -114,7 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7911920693324532900}
   - component: {fileID: 179911701543109831}
-  - component: {fileID: 3875120082025783638}
+  - component: {fileID: 321282538847966365}
   m_Layer: 0
   m_Name: CurseGround
   m_TagString: Untagged
@@ -170,10 +170,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.004910469, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &3875120082025783638
+  m_Radius: 1.329834
+--- !u!114 &321282538847966365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6689438443112598672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f46b21b39ad905f4baf0f2b3c447134d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d402117b1f40c64b8defd0740467ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}

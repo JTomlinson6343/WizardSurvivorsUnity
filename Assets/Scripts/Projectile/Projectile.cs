@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
         transform.position = pos;
 
         Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
-        rb.velocity = dir * speed;
+        if (rb) rb.velocity = dir * speed;
 
         // Rotate projectile in direction of travel
         Utils.PointInDirection(dir, gameObject);
