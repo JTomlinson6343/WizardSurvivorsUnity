@@ -1,20 +1,23 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StaticOrb : ConstantDamageAOE
 {
     [SerializeField] GameObject m_LightningBoltPrefab;
-    readonly float kBaseRange = 3f;
+    readonly float kBaseRange = 4.5f;
 
     public override void Init(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
     {
         base.Init(pos, dir, speed, ability, lifetime);
         StartCoroutine(ShockEnemies());
+        Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
+        if (rb.velocity.x < 0) GetComponent<SpriteRenderer>().flipX = true;
     }
 
     IEnumerator ShockEnemies()
     {
-        const float interval = 0.6f;
+        const float interval = 0.4f;
 
         while (true)
         {

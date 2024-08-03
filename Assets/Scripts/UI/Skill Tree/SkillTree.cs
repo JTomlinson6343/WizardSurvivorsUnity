@@ -60,7 +60,7 @@ public class SkillTree : MonoBehaviour
 
     private void UpdateSkillPointsLabel()
     {
-        m_SkillPointsLabel.text = "Current: " + m_CurrentSkillPoints.ToString();
+        m_SkillPointsLabel.text = "Current: " + Mathf.Clamp(m_CurrentSkillPoints, 0, 999).ToString();
     }
 
     private int GetCurrentLevelCost()

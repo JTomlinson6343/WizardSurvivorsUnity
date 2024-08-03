@@ -57,7 +57,7 @@ MonoBehaviour:
   - {fileID: 4782787995318582076, guid: 5c46fe11d484eaa499c810f793fe9330, type: 3}
   - {fileID: 4782787995318582076, guid: ca6d371efbf397840883c5b212c080ba, type: 3}
   - {fileID: 383119644722088283, guid: 716440f747e78a84a82cfb1e142eb5a6, type: 3}
-  m_SpawnCooldown: 0.4
+  m_SpawnCooldown: 0.3
   m_WaveTimer: 60
   m_SpawnRadius: 15
   m_SpawnCurve:
@@ -102,6 +102,15 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.6753327
+        value: 0.47294745
+        inSlope: 2.1482692
+        outSlope: 2.1482692
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.12439128
+      - serializedVersion: 3
         time: 1
         value: 1
         inSlope: 2
@@ -113,7 +122,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 55
+    min: 40
     max: 1000
     alpha: 0.03
   m_SlimePrefab: {fileID: 4782787995318582076, guid: 9be176070d5270e44b396b4f8d9a6f56, type: 3}

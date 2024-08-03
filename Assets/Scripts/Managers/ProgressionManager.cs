@@ -111,7 +111,7 @@ public class ProgressionManager : MonoBehaviour
     }
     public void UpdateScoreLabel(int score)
     {
-        m_ScoreLabel.GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
+        m_ScoreLabel.GetComponent<TextMeshProUGUI>().text = "Gems: " + score.ToString();
         StartCoroutine(Utils.PulseAnim(m_ScoreLabel.transform, 0.25f));
     }
     public void UpdateLevelLabel()

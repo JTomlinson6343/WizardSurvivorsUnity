@@ -1260,7 +1260,7 @@ MonoBehaviour:
     duration: 0
     damage: 10
     summonDamage: 0
-    speed: 1
+    speed: 3
     cooldown: 4
     amount: 0
     knockback: 0
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000006000000040000000500000002000000
-  m_ProjectileLifetime: 3
+  m_ProjectileLifetime: 6
   m_BulletPrefab: {fileID: 2787149867258741970, guid: 0e9e75daed7a2ae408193753737a1bea, type: 3}
 --- !u!1 &2048881655503188187
 GameObject:
