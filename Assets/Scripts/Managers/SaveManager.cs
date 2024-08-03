@@ -54,6 +54,7 @@ public class SaveManager
 
         // Save data as JSON
         string json = JsonUtility.ToJson(m_SaveData, true);
+        if (json == null) return;
         File.WriteAllText(m_Path, json);
         Debug.Log(json);
     }
