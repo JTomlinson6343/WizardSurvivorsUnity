@@ -100,10 +100,10 @@ public class Player : Actor
     {
         if (StateManager.IsGameplayStopped()) { return; }
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Heal(25f);
-        }
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    Heal(25f);
+        //}
 
         base.Update();
 

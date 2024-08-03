@@ -73,13 +73,13 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            CancelInvoke(nameof(GracePeriod));
-            ProgressionManager.m_Instance.PreBoss();
-        }
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    CancelInvoke(nameof(GracePeriod));
+        //    ProgressionManager.m_Instance.PreBoss();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.P)) StartNewWave();
+        //if (Input.GetKeyDown(KeyCode.P)) StartNewWave();
 
         if (m_EnemyCount >= kEnemyHardLimit) return;
 

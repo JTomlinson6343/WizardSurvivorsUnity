@@ -35,7 +35,7 @@ public class OptionsData
 
 public class SaveManager
 {
-    static readonly string m_Path = Application.persistentDataPath + "/save.json";
+    static readonly string m_Path = Application.persistentDataPath + "/save_demo.json";
 
     static SkillTree[] m_SkillTrees;
     static SaveData m_SaveData;
@@ -113,6 +113,7 @@ public class SaveManager
 
         // Convert json into save data format
         string json = File.ReadAllText(m_Path);
+        if (json == "") return;
         m_SaveData = JsonUtility.FromJson<SaveData>(json);
 
         PopulateSkillTreesArray(skillTrees);
@@ -124,6 +125,7 @@ public class SaveManager
 
     private static void LoadSkills()
     {
+        if (m_SaveData.skillTrees == null) return;
         for (int i = 0; i < m_SaveData.skillTrees.Length; i++)
         {
             // De-serialise data from save data into skill tree data

@@ -741,8 +741,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000004000000
-  m_ProjectileLifetime: 0
-  m_BulletPrefab: {fileID: 0}
+  m_ProjectileLifetime: 2
+  m_BulletPrefab: {fileID: 7034863490182940137, guid: 8f3e941ee978a4a4985657ee68e52396, type: 3}
   m_AOEPrefab: {fileID: 6942711934382557578, guid: 146d44ef169bcd64392eaba1b5ff097e, type: 3}
 --- !u!1 &1328896173505012888
 GameObject:
@@ -1791,10 +1791,6 @@ MonoBehaviour:
   - {fileID: 9013186929154939079}
   - {fileID: 4296692162280912660}
   - {fileID: 8132589284174555859}
-  - {fileID: 3942293275122592246}
-  - {fileID: 1000011008400764615}
-  - {fileID: 8706248670278608367}
-  - {fileID: 1423585425821646238}
   m_BuffAbilities:
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
@@ -1811,22 +1807,6 @@ MonoBehaviour:
   - {fileID: 1292176084662105432}
   - {fileID: 8811564726494625494}
   - {fileID: 77667913367367520}
-  - {fileID: 2564938857725870322}
-  - {fileID: 628992939066521697}
-  - {fileID: 7190779795334023838}
-  - {fileID: 5155861339041067581}
-  - {fileID: 8973773367404805441}
-  - {fileID: 2052068605943975013}
-  - {fileID: 7031679241650952208}
-  - {fileID: 5978057484224647519}
-  - {fileID: 6214370140330785643}
-  - {fileID: 2414543102162298777}
-  - {fileID: 2995802142358144550}
-  - {fileID: 8260563652035288463}
-  - {fileID: 1447730357319795490}
-  - {fileID: 422599979807475769}
-  - {fileID: 5614360329423494240}
-  - {fileID: 3597712576150352928}
   m_AbilityCanvas: {fileID: 3061035875882456239}
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
@@ -1906,8 +1886,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 6
   m_SpellTags: 00000000030000000400000006000000
-  m_ProjectileLifetime: 0
-  m_BulletPrefab: {fileID: 0}
+  m_ProjectileLifetime: 2
+  m_BulletPrefab: {fileID: 7256483112163839321, guid: 9d79a94f1e46cbc46b9fb096645fc54a, type: 3}
   m_AOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
 --- !u!1 &2530550909787924200
 GameObject:
