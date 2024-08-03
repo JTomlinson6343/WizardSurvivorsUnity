@@ -15,6 +15,7 @@ public class CurseDebuff : SlowDebuff
 
     public override void OnEnd(Actor actor)
     {
+        base.OnEnd(actor);
         actor.GetComponent<Enemy>().m_DamageResistance += 0.3f;
     }
 }
