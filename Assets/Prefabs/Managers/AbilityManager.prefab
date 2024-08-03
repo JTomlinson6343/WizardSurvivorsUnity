@@ -4458,12 +4458,12 @@ MonoBehaviour:
   m_CastAmount: 1
   m_BaseCastAmount: 1
   m_BaseStats:
-    AOE: 1
+    AOE: 1.5
     duration: 0
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: 8
+    cooldown: 5
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -4473,7 +4473,7 @@ MonoBehaviour:
     name: Cursed Earth
     damageType: 5
     description: Curse the ground beneath you, slowing all enemies that pass over
-      it and reducing their defense. (8s cooldown)
+      it and reducing their defense. (5s cooldown)
     levelUpInfo: 
     icon: {fileID: 852994921, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
