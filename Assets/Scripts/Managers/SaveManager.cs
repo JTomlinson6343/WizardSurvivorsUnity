@@ -55,6 +55,9 @@ public class SaveManager
         // Save data as JSON
         string json = JsonUtility.ToJson(m_SaveData, true);
         if (json == null) return;
+
+        //File.Create(m_Path);
+
         File.WriteAllText(m_Path, json);
         Debug.Log(json);
     }
@@ -108,7 +111,7 @@ public class SaveManager
         {
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
-            File.Create(m_Path);
+            SaveToFile();
             return;
         }
 
