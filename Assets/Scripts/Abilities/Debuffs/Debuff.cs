@@ -10,7 +10,8 @@ public class Debuff
         Frozen,
         FrozenSkill,
         Paralysed,
-        Frostbite
+        Frostbite,
+        Curse
     }
 
     // Consts
