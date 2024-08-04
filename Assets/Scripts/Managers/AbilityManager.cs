@@ -45,14 +45,14 @@ public class AbilityManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            ShowAbilityOptions(m_PassiveAbilities);
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            ShowAbilityOptions(m_BuffAbilities);
-        }
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    ShowAbilityOptions(m_PassiveAbilities);
+        //}
+        //if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    ShowAbilityOptions(m_BuffAbilities);
+        //}
         if (m_AbilityChoicesShown)
         {
             HandleInput();
