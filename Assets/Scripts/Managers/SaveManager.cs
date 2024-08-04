@@ -54,6 +54,7 @@ public class SaveManager
 
         // Save data as JSON
         string json = JsonUtility.ToJson(m_SaveData, true);
+        if (json == null) return;
         File.WriteAllText(m_Path, json);
         Debug.Log(json);
     }
@@ -107,7 +108,7 @@ public class SaveManager
         {
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
-            File.Create(m_Path);
+            SaveToFile();
             return;
         }
 
@@ -124,6 +125,7 @@ public class SaveManager
 
     private static void LoadSkills()
     {
+        if (m_SaveData.skillTrees == null) return;
         for (int i = 0; i < m_SaveData.skillTrees.Length; i++)
         {
             // De-serialise data from save data into skill tree data
