@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
 {
+    const float kCooldownCap = -0.7f;
+
     public static AbilityManager m_Instance;
 
     [SerializeField] List<Ability> m_PassiveAbilities;
@@ -253,6 +255,7 @@ public class AbilityManager : MonoBehaviour
     public void AddAbilityStatBuffs(AbilityStats stats)
     {
         m_AbilityStatsBuffs += stats;
+        if (m_AbilityStatsBuffs.cooldown < kCooldownCap) m_AbilityStatsBuffs.cooldown = kCooldownCap;
         m_AbilityStatsBuffs.pierceAmount += stats.pierceAmount;
         UpdateAllAbilityStats();
     }
