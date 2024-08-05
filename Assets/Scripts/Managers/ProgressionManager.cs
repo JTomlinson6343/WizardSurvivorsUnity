@@ -211,7 +211,7 @@ public class ProgressionManager : MonoBehaviour
             AbilityManager.m_Instance.ChoosePassiveAbility();
             return;
         }
-        if (m_Level%5 == 0)
+        if (m_Level%6 == 0)
         {
             AbilityManager.m_Instance.ChoosePassiveAbility();
         }

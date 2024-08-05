@@ -256,7 +256,7 @@ public class EnemyManager : MonoBehaviour
 
     private bool IsBossWave(int wave)
     {
-        return wave % 5 == 0;
+        return wave % 4 == 0;
     }
 
     private float GetEnemyHPForWave()
