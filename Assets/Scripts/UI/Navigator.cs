@@ -52,9 +52,10 @@ public class Navigator : MonoBehaviour
             if (m_ControllerButtons.Length < 1) return;
             foreach (Image button in m_ControllerButtons)
             {
-                button.enabled = true;
+                button.gameObject.SetActive(true);
             }
-            m_BackButton.GetComponentInChildren<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+            if (m_BackButton)
+                m_BackButton.GetComponentInChildren<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
         }
         else
         {
@@ -62,9 +63,10 @@ public class Navigator : MonoBehaviour
 
             foreach (Image button in m_ControllerButtons)
             {
-                button.enabled = false;
+                button.gameObject.SetActive(false);
             }
-            m_BackButton.GetComponentInChildren<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+            if (m_BackButton)
+                m_BackButton.GetComponentInChildren<TextMeshProUGUI>().GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         }
     }
 

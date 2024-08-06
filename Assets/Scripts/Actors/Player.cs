@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using UnityEngine.U2D;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public struct PlayerStats
@@ -98,6 +95,7 @@ public class Player : Actor
 
     public override void Update()
     {
+        if (Gamepad.current != null) Cursor.visible = false;
         if (StateManager.IsGameplayStopped()) { return; }
 
         //if (Input.GetKeyDown(KeyCode.H))
