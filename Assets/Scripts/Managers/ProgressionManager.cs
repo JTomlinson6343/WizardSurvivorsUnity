@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ using UnityEngine.UIElements;
 public class ProgressionManager : MonoBehaviour
 {
     public static ProgressionManager m_Instance;
+
+    private static bool m_LastGamepadPluggedInState;
 
     //UI
     [SerializeField] BasicBar m_XPBar;
@@ -72,6 +75,15 @@ public class ProgressionManager : MonoBehaviour
 
     private void Update()
     {
+        if (m_LastGamepadPluggedInState && Gamepad.current == null) {
+            if (StateManager.GetCurrentState() != StateManager.State.PAUSED)
+            {
+                m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
+                StateManager.ChangeState(StateManager.State.PAUSED);
+            }
+        }
+        m_LastGamepadPluggedInState = Gamepad.current == null;
+
         SpawnXPRandomly();
 
         PauseMenuInput();
@@ -83,20 +95,25 @@ public class ProgressionManager : MonoBehaviour
 
         if (Input.GetButtonDown("Pause"))
         {
-            if (StateManager.GetCurrentState() == StateManager.State.PAUSED)
-            {
-                SaveManager.SaveToFile();
-                StateManager.UnPause();
-            }
-            else
-            {
-                m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
-                StateManager.ChangeState(StateManager.State.PAUSED);
-            }
+            Pause();
         }
 
         // Show pause menu if in paused state
         m_PauseMenu.SetActive(StateManager.GetCurrentState() == StateManager.State.PAUSED);
+    }
+
+    void Pause()
+    {
+        if (StateManager.GetCurrentState() == StateManager.State.PAUSED)
+        {
+            SaveManager.SaveToFile();
+            StateManager.UnPause();
+        }
+        else
+        {
+            m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
+            StateManager.ChangeState(StateManager.State.PAUSED);
+        }
     }
 
     public void ToggleHUD(bool toggle)
