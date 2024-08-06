@@ -52859,6 +52859,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 22.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6904154952756248001, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_Selectables.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTree
       value: 
@@ -54211,7 +54215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1832548357
 RectTransform:
   m_ObjectHideFlags: 0

@@ -95,7 +95,7 @@ public class Player : Actor
 
     public override void Update()
     {
-        if (Gamepad.current != null) Cursor.visible = false;
+        Cursor.visible = Gamepad.current == null;
         if (StateManager.IsGameplayStopped()) { return; }
 
         //if (Input.GetKeyDown(KeyCode.H))
