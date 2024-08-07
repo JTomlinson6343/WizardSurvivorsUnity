@@ -229,11 +229,11 @@ MonoBehaviour:
     damageType: 0
     description: Reduce spell cooldowns and increase size of zone effects in exchange
       for speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '-4% spell cooldowns
 
       +8% zone effect size
 
-      -1 move
+      -0.5 move
       speed'
     icon: {fileID: -772767292, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -244,14 +244,14 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.04
     amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: -0.05
+    speed: -0.025
     maxHealth: 0
     pullDist: 0
     iFramesMod: 0
@@ -484,9 +484,9 @@ MonoBehaviour:
     name: Emberfly Jar
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-5% spell cooldowns
+    levelUpInfo: '-2% spell cooldowns
 
-      +15% summon damage'
+      +30% summon damage'
     icon: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -644,9 +644,11 @@ MonoBehaviour:
     name: Gold Ring
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+1 armor
+    levelUpInfo: '+5% spell damage
 
-      +5% spell damage'
+      +5% knockback
+
+      -2% spell cooldowns'
     icon: {fileID: 1297763807, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -658,7 +660,7 @@ MonoBehaviour:
     speed: 0
     cooldown: 0
     amount: 0
-    knockback: 0
+    knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
@@ -667,7 +669,7 @@ MonoBehaviour:
     maxHealth: 0
     pullDist: 0
     iFramesMod: 0
-    armor: 1
+    armor: 0
   m_HealModifier: 3
 --- !u!1 &1320370673017010591
 GameObject:
@@ -968,7 +970,7 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: -0.06
+    maxHealth: -66
     pullDist: 0
     iFramesMod: 0
     armor: 0
@@ -1710,9 +1712,9 @@ MonoBehaviour:
     name: Cake
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+30 max health
+    levelUpInfo: '+15 max health
 
-      Restore 60 health'
+      Restore 45 health'
     icon: {fileID: -1119882579, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -1730,11 +1732,11 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: 30
+    maxHealth: 15
     pullDist: 0
     iFramesMod: 0
     armor: 0
-  m_HealModifier: 2
+  m_HealModifier: 3
 --- !u!1 &2428647305684531859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,14 +1977,14 @@ MonoBehaviour:
     damageType: 0
     description: Increase health and reduce spell cooldowns in exchange for lower
       speed
-    levelUpInfo: '+10 max health
+    levelUpInfo: '+5 max health
 
-      Restore 30 health
+      Restore 15 health
 
-      -5% spell cooldowns
+      +1 speed
 
-      -1
-      speed'
+      +5%
+      spell cooldowns'
     icon: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -1992,7 +1994,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.05
+    cooldown: 0.05
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -2000,7 +2002,7 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: -0.05
-    maxHealth: 10
+    maxHealth: 5
     pullDist: 0
     iFramesMod: 0
     armor: 0
@@ -2069,7 +2071,7 @@ MonoBehaviour:
     name: Embersilk Ribbon
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-8% spell cooldowns
+    levelUpInfo: '-5% spell cooldowns
 
       +15% item pickup range'
     icon: {fileID: -47419999, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -2081,7 +2083,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.08
+    cooldown: -0.05
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -2178,7 +2180,7 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: 15
+    maxHealth: 0
     pullDist: 0
     iFramesMod: 0
     armor: 1
@@ -2593,14 +2595,16 @@ MonoBehaviour:
     name: Ironwood Staff
     damageType: 6
     description: Projectile spells pierce enemies
-    levelUpInfo: Projectile spells pierce +1 additional enemy
+    levelUpInfo: 'Projectile spells pierce +1 additional enemy
+
+      +3% spell damage'
     icon: {fileID: -1783879092, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.05
     summonDamage: 0
     speed: 0
     cooldown: 0
@@ -2680,7 +2684,7 @@ MonoBehaviour:
     name: Tanzanite Geode
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-5% cooldown
+    levelUpInfo: '-4% cooldown
 
       +2% spell damage
 
@@ -2697,7 +2701,7 @@ MonoBehaviour:
     damage: 0.02
     summonDamage: 0
     speed: 0
-    cooldown: 0.05
+    cooldown: -0.04
     amount: 0
     knockback: 0.05
     pierceAmount: 0
@@ -3041,9 +3045,9 @@ MonoBehaviour:
     name: Old Bandage
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+15 max health
+    levelUpInfo: '+20 max health
 
-      Restore 30 health'
+      Restore 20 health'
     icon: {fileID: -50417994, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3053,7 +3057,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -3061,11 +3065,11 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: 0
+    maxHealth: 20
     pullDist: 0
     iFramesMod: 0
     armor: 0
-  m_HealModifier: 2
+  m_HealModifier: 1
 --- !u!1 &4169492790890296772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,14 +3447,17 @@ MonoBehaviour:
     description: Reduce spell cooldowns and increase movement speed
     levelUpInfo: '+15% invincibility time
 
-      +15% pickup range'
+      +15% pickup range
+
+      +4% spell
+      damage'
     icon: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.04
     summonDamage: 0
     speed: 0
     cooldown: 0
@@ -3755,7 +3762,7 @@ MonoBehaviour:
     description: Reduce spell cooldowns and increase movement speed
     levelUpInfo: '+1 armor
 
-      -5% spell cooldowns
+      -3% spell cooldowns
 
       +10% pickup range'
     icon: {fileID: 1831217539, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -3767,7 +3774,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.05
+    cooldown: -0.03
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -4155,9 +4162,9 @@ MonoBehaviour:
     name: Sweetened Roll
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+20 max health
+    levelUpInfo: '+15 max health
 
-      Restore 40 health
+      Restore 30 health
 
       +1 speed'
     icon: {fileID: 824609226, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -4177,7 +4184,7 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0.05
-    maxHealth: 20
+    maxHealth: 15
     pullDist: 0
     iFramesMod: 0
     armor: 0
@@ -4295,7 +4302,7 @@ MonoBehaviour:
     name: Celestial Hourglass
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '-5% spell cooldowns
 
       +1 move speed'
     icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -4307,7 +4314,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.1
+    cooldown: -0.05
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -4545,9 +4552,9 @@ MonoBehaviour:
     name: Elixir of vitality
     damageType: 0
     description: Increase max health and heal the player for triple the amount
-    levelUpInfo: '+30 max health
+    levelUpInfo: '+20 max health
 
-      Restore 90 health'
+      Restore 40 health'
     icon: {fileID: -2124382934, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4565,11 +4572,11 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: 40
+    maxHealth: 20
     pullDist: 0
     iFramesMod: 0
     armor: 0
-  m_HealModifier: 3
+  m_HealModifier: 2
 --- !u!1 &7993745291029406952
 GameObject:
   m_ObjectHideFlags: 0
@@ -4634,18 +4641,18 @@ MonoBehaviour:
     name: Philosopher's Tome
     damageType: 0
     description: 'Increase damage and '
-    levelUpInfo: '-10% spell cooldowns
+    levelUpInfo: '-4% spell cooldowns
 
       +1 move speed
 
-      -20 max health'
+      -10 max health'
     icon: {fileID: -431026227, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0.1
+    damage: 0
     summonDamage: 0
     speed: 0
     cooldown: -0.04
@@ -4948,9 +4955,9 @@ MonoBehaviour:
     name: Elderfruit Pie
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+25 max health
+    levelUpInfo: '+20 max health
 
-      Restore 75 health
+      Restore 40 health
 
       +5% zone spell size'
     icon: {fileID: -434661629, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -4970,11 +4977,11 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: 25
+    maxHealth: 20
     pullDist: 0
     iFramesMod: 0
     armor: 0
-  m_HealModifier: 3
+  m_HealModifier: 2
 --- !u!1 &9142634550947042189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,7 +5048,7 @@ MonoBehaviour:
     description: Reduce spell cooldowns and increase movement speed
     levelUpInfo: '+1 speed
 
-      -8% spell cooldowns
+      +5% spell damage
 
       Projectile spells pierce
       +1 additional enemy'
@@ -5051,10 +5058,10 @@ MonoBehaviour:
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
+    damage: 0.05
     summonDamage: 0
     speed: 0
-    cooldown: -0.08
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 1
