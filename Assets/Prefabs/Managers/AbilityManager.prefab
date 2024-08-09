@@ -560,10 +560,10 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 40
+    damage: 20
     summonDamage: 0
     speed: 5
-    cooldown: 1
+    cooldown: 0.5
     amount: 0
     knockback: 8
     pierceAmount: 0

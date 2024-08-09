@@ -82,7 +82,7 @@ public class ProgressionManager : MonoBehaviour
                 StateManager.ChangeState(StateManager.State.PAUSED);
             }
         }
-        m_LastGamepadPluggedInState = Gamepad.current == null;
+        m_LastGamepadPluggedInState = Gamepad.current != null;
 
         SpawnXPRandomly();
 
