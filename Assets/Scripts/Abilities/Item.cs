@@ -24,10 +24,10 @@ public class Item : Ability
     {
         if (!m_Enabled)
         {
-            Debug.Log(m_Data.name + " was enabled.");
+            //Debug.Log(m_Data.name + " was enabled.");
             m_Enabled = true;
         }
         LevelUp();
-        Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
+        //Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 }

@@ -36,6 +36,7 @@ public class EnemyManager : MonoBehaviour
     private int m_EnemiesSpawnedThisWave;
 
     [SerializeField] Curve m_SpawnCurve;
+    [SerializeField] Curve m_SpawnCooldownCurve;
     [SerializeField] Curve m_HealthCurve;
 
     readonly int   kEnemyHardLimit = 100;
@@ -148,7 +149,7 @@ public class EnemyManager : MonoBehaviour
 
         if (now < m_NextSpawn) return;
 
-        m_NextSpawn = now + m_SpawnCooldown;
+        m_NextSpawn = now + GetSpawnCooldown();
 
         GameObject newEnemy = CreateNewEnemy();
 
@@ -235,8 +236,6 @@ public class EnemyManager : MonoBehaviour
 
         m_TotalSpawnProbability = CalculateSpawnProbability();
 
-        m_SpawnCooldown = Mathf.Clamp((m_SpawnCooldown - 0.02f),0.05f,1f);
-
         CancelInvoke(nameof(GracePeriod));
         CancelInvoke(nameof(StartNewWave));
 
@@ -262,5 +261,11 @@ public class EnemyManager : MonoBehaviour
     private float GetEnemyHPForWave()
     {
         return m_HealthCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1);
+    }
+
+    private float GetSpawnCooldown()
+    {
+        Debug.Log(m_SpawnCooldownCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1));
+        return m_SpawnCooldownCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1);
     }
 }

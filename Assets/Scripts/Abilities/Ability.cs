@@ -134,13 +134,13 @@ public class Ability : MonoBehaviour
     {
         if (!m_Enabled)
         {
-            Debug.Log(m_Data.name + " was enabled.");
+            //Debug.Log(m_Data.name + " was enabled.");
             m_Enabled = true;
             CastSpell();
             StartCoroutine(CooldownRoutine());
         }
         LevelUp();
-        Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
+        //Debug.Log(m_Data.name + " is now level " + m_Level.ToString());
     }
 
     protected virtual IEnumerator CooldownRoutine()

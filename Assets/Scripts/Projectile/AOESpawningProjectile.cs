@@ -8,7 +8,7 @@ public class AOESpawningProjectile : Projectile
 
     override protected void DestroySelf()
     {
-        Debug.Log("DEATH");
+        //Debug.Log("DEATH");
 
         // Spawn the aoe upon death of the projectile
         SpawnAOE();

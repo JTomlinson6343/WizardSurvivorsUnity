@@ -387,27 +387,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0.5067602
-        outSlope: 0.5067602
-        tangentMode: 34
+        inSlope: 0.826713
+        outSlope: 0.826713
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.33333334
+        outWeight: 0.05135135
       - serializedVersion: 3
-        time: 0.9959717
-        value: 0.5047188
-        inSlope: 0.5067602
-        outSlope: 0.5067602
-        tangentMode: 34
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
+        inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 10
+    min: 20
     max: 350
-    alpha: 0.08
+    alpha: 0.05
 --- !u!1 &2759905647454420148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,7 +1668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2264888175915200481, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -31.6
+      value: -31.599976
       objectReference: {fileID: 0}
     - target: {fileID: 2264888175915200481, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchoredPosition.y
