@@ -11,6 +11,8 @@ public class CharacterMenu : MonoBehaviour
 {
     public static CharacterMenu m_Instance;
 
+    [SerializeField] Color m_HighlightColour;
+
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_InfoLabel;
     [SerializeField] TextMeshProUGUI m_UnlockConditionsLabel;
@@ -72,8 +74,8 @@ public class CharacterMenu : MonoBehaviour
             m_StartButtonRef.interactable = false;
 
             string message = "";
-            if (charIcon == m_IceMageIcon) message = UnlockManager.kIceMageCondition.FormatConditionMessage(UnlockManager.m_TrackedStats.iceDamageDealt);
-            if (charIcon == m_LightningMageIcon) message = UnlockManager.kLightningMageCondition.message;
+            if (charIcon == m_IceMageIcon) message = UnlockManager.GetUnlockConditionWithName("Ice Mage").FormatConditionMessage(UnlockManager.m_TrackedStats.iceDamageDealt);
+            if (charIcon == m_LightningMageIcon) message = UnlockManager.GetUnlockConditionWithName("Lightning Mage").message;
 
             m_UnlockConditionsLabel.text = message;
         }
@@ -89,7 +91,7 @@ public class CharacterMenu : MonoBehaviour
 
         CheckUnlocks();
 
-        charIcon.GetComponent<Image>().color = Color.yellow;
+        charIcon.GetComponent<Image>().color = m_HighlightColour;
         if (!charIcon.m_Unlocked) charIcon.GetComponent<Image>().color *= Color.grey;
     }
 

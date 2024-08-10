@@ -92,6 +92,8 @@ public class Ability : MonoBehaviour
 
     protected bool m_Enabled = false;     // If ability is enabled, it will fire as normal
 
+    public bool m_Unlocked = true;
+
     [HideInInspector] public bool m_isMaxed;      // If an ability is max level, it won't show up in the ability selection
 
     public bool m_IsSpell;

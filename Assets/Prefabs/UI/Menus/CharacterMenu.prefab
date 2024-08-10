@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796a511de43e85c439e8d137fdee488c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HighlighedColor: {r: 0.4, g: 1, b: 0.96862745, a: 1}
   m_Selectables:
   - {fileID: 6783627996667031087}
   - {fileID: 1580702159435479607}
@@ -1852,7 +1853,7 @@ PrefabInstance:
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1613330624, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      objectReference: {fileID: -146542664, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2074,7 +2075,7 @@ PrefabInstance:
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1068023403, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      objectReference: {fileID: 211959678, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2295,7 +2296,7 @@ PrefabInstance:
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 724091785, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+      objectReference: {fileID: -1550611491, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2311,6 +2312,14 @@ PrefabInstance:
     - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140319040663844767, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
