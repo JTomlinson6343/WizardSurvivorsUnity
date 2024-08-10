@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject m_CharMenuRef;
     [SerializeField] GameObject m_OptionsMenuRef;
+    [SerializeField] UnlockMenu m_UnlockMenuRef;
 
     private void Start()
     {
@@ -37,6 +38,11 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(false);
         m_OptionsMenuRef.SetActive(true);
         m_OptionsMenuRef.GetComponent<Navigator>().Start();
+    }
+
+    public void UnlockMenu()
+    {
+        m_UnlockMenuRef.Open(gameObject);
     }
 
     public void QuitButton()

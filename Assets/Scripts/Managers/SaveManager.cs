@@ -1,9 +1,8 @@
-﻿using System;
-using System.Xml;
-using System.IO;
-using UnityEditor;
+﻿using System.IO;
 using UnityEngine;
-using System.Xml.Linq;
+using System.Collections.Generic;
+using System.Linq;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 [System.Serializable]
 public struct SaveData
@@ -14,7 +13,7 @@ public struct SaveData
 
     public TrackedStats stats;
 
-    public Unlockables unlockables;
+    public Unlockable[] unlockables;
 }
 
 [System.Serializable]
@@ -95,10 +94,11 @@ public class SaveManager
     }
     private static void SaveUnlocks()
     {
-        UnlockManager.CheckUnlockConditions();
         m_SaveData.stats = UnlockManager.m_TrackedStats;
-        m_SaveData.unlockables = UnlockManager.m_Unlockables;
+
+        m_SaveData.unlockables = UnlockManager.m_Unlockables.ToArray();
     }
+
     public static void LoadFromFile(SkillTree[] skillTrees) // Called on game start
     {
         // Load json
@@ -153,7 +153,10 @@ public class SaveManager
     public static void LoadUnlocks()
     {
         UnlockManager.m_TrackedStats = m_SaveData.stats;
-        UnlockManager.m_Unlockables = m_SaveData.unlockables;
+
+        if (m_SaveData.unlockables.Length == 0) UnlockManager.PopulateUnlockables();
+        else UnlockManager.m_Unlockables = m_SaveData.unlockables?.ToList();
+
         UnlockManager.CheckUnlockConditions();
     }
 

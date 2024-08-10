@@ -140,7 +140,7 @@ public class CharacterMenu : MonoBehaviour
 
     void CheckUnlocks()
     {
-        m_IceMageIcon.SetUnlockState(!UnlockManager.m_Unlockables.iceMage);
-        m_LightningMageIcon.SetUnlockState(!UnlockManager.m_Unlockables.lightningMage);
+        m_IceMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Ice Mage").unlocked);
+        m_LightningMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Lightning Mage").unlocked);
     }
 }

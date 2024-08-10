@@ -6,10 +6,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public struct Unlockables
+public class Unlockable
 {
-    public bool iceMage;
-    public bool lightningMage;
+    public string name;
+    public bool unlocked;
+
+    public void Unlock()
+    {
+        unlocked = true;
+    }
 }
 
 [System.Serializable]
@@ -20,7 +25,7 @@ public struct TrackedStats
 }
 
 [System.Serializable]
-public struct UnlockCondition
+public class UnlockCondition
 {
     public string FormatConditionMessage(float current)
     {
@@ -43,15 +48,28 @@ public class UnlockManager: MonoBehaviour
 
     public static List<UnlockCondition> GetUnlockConditions() { return m_Instance.m_UnlockConditions; }
     public static UnlockCondition GetUnlockConditionWithName(string name) { return GetUnlockConditions().Find(x => x.name == name); }
+    public static Unlockable GetUnlockableWithName(string name) { return m_Unlockables.Find(x => x.name == name); }
 
     public static TrackedStats m_TrackedStats;
-    public static Unlockables  m_Unlockables;
+    public static List<Unlockable> m_Unlockables = new List<Unlockable>();
 
     private void Awake()
     {
         m_Instance = this;
 
         StartCoroutine(UnlockConditionCheckLoop());
+    }
+
+    public static void PopulateUnlockables()
+    {
+        m_Unlockables.Clear();
+        foreach (UnlockCondition condition in m_Instance.m_UnlockConditions)
+        {
+            Unlockable unlockable = new Unlockable();
+            unlockable.name = condition.name;
+            unlockable.unlocked = false;
+            m_Unlockables.Add(unlockable);
+        }
     }
 
     IEnumerator UnlockConditionCheckLoop()
@@ -65,19 +83,22 @@ public class UnlockManager: MonoBehaviour
 
     public static void CheckUnlockConditions()
     {
-        if (m_TrackedStats.iceDamageDealt >= GetUnlockConditionWithName("Ice Mage").condition && !m_Unlockables.iceMage)
+        if (m_TrackedStats.iceDamageDealt >= GetUnlockConditionWithName("Ice Mage").condition && !GetUnlockableWithName("Ice Mage").unlocked)
         {
-            m_Unlockables.iceMage = true;
-            m_Instance.QueueUnlockPopup("Ice Mage");
-            SaveManager.SaveToFile();
+            SetUnlocked("Ice Mage");
         }
-        if (m_TrackedStats.totalCooldown <= GetUnlockConditionWithName("Lightning Mage").condition && !m_Unlockables.lightningMage)
+        if (m_TrackedStats.totalCooldown <= GetUnlockConditionWithName("Lightning Mage").condition && !GetUnlockableWithName("Lightning Mage").unlocked)
         {
-            m_Unlockables.lightningMage = true;
-            m_Instance.QueueUnlockPopup("Lightning Mage");
-            SaveManager.SaveToFile();
+            SetUnlocked("Lightning Mage");
         }
         m_Instance.ShowUnlockPopups();
+    }
+
+    public static void SetUnlocked(string unlockName)
+    {
+        GetUnlockableWithName(unlockName).Unlock();
+        m_Instance.QueueUnlockPopup(unlockName);
+        SaveManager.SaveToFile();
     }
 
     void QueueUnlockPopup(string unlockName)
