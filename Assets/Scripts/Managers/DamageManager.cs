@@ -106,6 +106,5 @@ public class DamageManager : MonoBehaviour
         if (data.target == Player.m_Instance.gameObject) return;
 
         UnlockManager.m_TrackedStats.iceDamageDealt += data.amount;
-        UnlockManager.CheckUnlockConditions();
     }
 }

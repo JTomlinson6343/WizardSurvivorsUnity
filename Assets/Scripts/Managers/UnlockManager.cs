@@ -49,17 +49,17 @@ public class UnlockManager: MonoBehaviour
 
     private void Awake()
     {
-        if (!m_Instance) m_Instance = this;
+        m_Instance = this;
+
+        StartCoroutine(UnlockConditionCheckLoop());
     }
 
-    private void Update()
+    IEnumerator UnlockConditionCheckLoop()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        while (true)
         {
-            QueueUnlockPopup("Ice Mage");
-            QueueUnlockPopup("Lightning Mage");
-            QueueUnlockPopup("Ice Mage");
-            ShowUnlockPopups();
+            CheckUnlockConditions();
+            yield return new WaitForSeconds(3f);
         }
     }
 
@@ -68,17 +68,22 @@ public class UnlockManager: MonoBehaviour
         if (m_TrackedStats.iceDamageDealt >= GetUnlockConditionWithName("Ice Mage").condition && !m_Unlockables.iceMage)
         {
             m_Unlockables.iceMage = true;
+            m_Instance.QueueUnlockPopup("Ice Mage");
             SaveManager.SaveToFile();
         }
         if (m_TrackedStats.totalCooldown <= GetUnlockConditionWithName("Lightning Mage").condition && !m_Unlockables.lightningMage)
         {
             m_Unlockables.lightningMage = true;
+            m_Instance.QueueUnlockPopup("Lightning Mage");
             SaveManager.SaveToFile();
         }
+        m_Instance.ShowUnlockPopups();
     }
 
     void QueueUnlockPopup(string unlockName)
     {
+        if (m_PopupQueue.Exists(x => x.name == unlockName)) return;
+
         m_PopupQueue.Add(GetUnlockConditionWithName(unlockName));
     }
 
@@ -95,10 +100,10 @@ public class UnlockManager: MonoBehaviour
 
         popup.transform.SetParent(transform);
 
-        StartCoroutine(Utils.DelayedCall(2f, () =>
+        StartCoroutine(Utils.DelayedCall(2.34f, () =>
         {
             Destroy(popup);
-            m_PopupQueue.Remove(m_PopupQueue[0]);
+            if (m_PopupQueue.Count > 0) m_PopupQueue.Remove(m_PopupQueue[0]);
             ShowUnlockPopups();
         }));
     }
