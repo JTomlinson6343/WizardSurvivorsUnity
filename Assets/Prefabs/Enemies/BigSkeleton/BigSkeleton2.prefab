@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: -2020019679
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1954062390, guid: 5f1c9bfe1dd133f4c9c8fcb936bc9545, type: 3}
+  m_Sprite: {fileID: 747317024, guid: f62cde730cbfe98499ae4f72a0f502f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 4.6875, y: 4.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 3539283295389285344}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7897324335f7da442af9e940d70e0eef, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ec728622243c3f46bf078150368e63a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1200196674396833394}
   - component: {fileID: 5590783969377573857}
   m_Layer: 0
-  m_Name: BigSkeleton
+  m_Name: BigSkeleton2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,9 +369,9 @@ MonoBehaviour:
   m_DebuffImmune: 0
   m_Targetable: 1
   m_Stunned: 0
-  m_HealthModifier: 3
-  m_SpawnProbability: 0.5
-  m_MinWave: 2
+  m_HealthModifier: 5
+  m_SpawnProbability: 0.4
+  m_MinWave: 8
   m_XPAwarded: 4
   m_Speed: 0.5
   m_ContactDamage: 25
