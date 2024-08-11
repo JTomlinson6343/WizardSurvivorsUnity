@@ -22,6 +22,7 @@ public class UnlockMenu : MonoBehaviour
         GetComponent<Navigator>().Start();
         UpdateRowValues();
         m_Scrollbar.value = 0;
+        m_Scrollbar.gameObject.SetActive(m_UnlockPanel.transform.childCount > 3);
     }
 
     void PopulateUnlocksList()
