@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Unlocked: 1
+  m_Unlocked: 0
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1

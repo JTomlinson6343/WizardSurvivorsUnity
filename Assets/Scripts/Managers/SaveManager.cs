@@ -11,7 +11,7 @@ public struct SaveData
 
     public OptionsData options;
 
-    public TrackedStats stats;
+    public TrackedStat[] stats;
 
     public Unlockable[] unlockables;
 }
@@ -94,7 +94,7 @@ public class SaveManager
     }
     private static void SaveUnlocks()
     {
-        m_SaveData.stats = UnlockManager.m_TrackedStats;
+        m_SaveData.stats = UnlockManager.m_TrackedStats.ToArray();
 
         m_SaveData.unlockables = UnlockManager.m_Unlockables.ToArray();
     }
@@ -109,6 +109,8 @@ public class SaveManager
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
             SaveToFile();
+            UnlockManager.PopulateTrackedStats();
+            UnlockManager.PopulateUnlockables();
             return;
         }
 
@@ -152,7 +154,8 @@ public class SaveManager
 
     public static void LoadUnlocks()
     {
-        UnlockManager.m_TrackedStats = m_SaveData.stats;
+        if (m_SaveData.stats.Length == 0) UnlockManager.PopulateTrackedStats();
+        else UnlockManager.m_TrackedStats = m_SaveData.stats?.ToList();
 
         if (m_SaveData.unlockables.Length == 0) UnlockManager.PopulateUnlockables();
         else UnlockManager.m_Unlockables = m_SaveData.unlockables?.ToList();

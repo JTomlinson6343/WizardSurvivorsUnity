@@ -18,24 +18,34 @@ public class Unlockable
 }
 
 [System.Serializable]
-public struct TrackedStats
+public class TrackedStat
 {
-    public float iceDamageDealt; // Total ice damage dealt
-    public float totalCooldown; // Cooldown in one run. Resets after run
+    public string name;
+    public float stat;
+    //// GENERAL
+    //public int kills;
+    //public float totalDamageDealt;
+    //public float DoTDamageDealt;
+
+    //// SPECIFIC
+    //public float iceDamageDealt; // Total ice damage dealt
+    //public float totalCooldown; // Cooldown in one run. Resets after run
 }
 
 [System.Serializable]
 public class UnlockCondition
 {
-    public string FormatConditionMessage(float current)
+    public string FormatConditionMessage()
     {
-        return message + " (" + current.ToString() + "/" + condition.ToString() + ")";
+        return message + " (" + UnlockManager.GetTrackedStatWithName(trackedStatName).stat.ToString() + "/" + condition.ToString() + ")";
     }
 
     public string name;
     public Sprite image;
     public string message;
     public float condition;
+    public bool doFormatMessage;
+    public string trackedStatName;
 }
 public class UnlockManager: MonoBehaviour
 {
@@ -49,8 +59,9 @@ public class UnlockManager: MonoBehaviour
     public static List<UnlockCondition> GetUnlockConditions() { return m_Instance.m_UnlockConditions; }
     public static UnlockCondition GetUnlockConditionWithName(string name) { return GetUnlockConditions().Find(x => x.name == name); }
     public static Unlockable GetUnlockableWithName(string name) { return m_Unlockables.Find(x => x.name == name); }
+    public static TrackedStat GetTrackedStatWithName(string name) { return m_TrackedStats.Find(x => x.name == name); }
 
-    public static TrackedStats m_TrackedStats;
+    public static List<TrackedStat> m_TrackedStats = new List<TrackedStat>();
     public static List<Unlockable> m_Unlockables = new List<Unlockable>();
 
     private void Awake()
@@ -72,30 +83,58 @@ public class UnlockManager: MonoBehaviour
         }
     }
 
+    public static void PopulateTrackedStats()
+    {
+        m_TrackedStats.Clear();
+        foreach (UnlockCondition condition in m_Instance.m_UnlockConditions)
+        {
+            // If stat already exists, move on
+            if (GetTrackedStatWithName(condition.trackedStatName) != null) continue;
+
+            TrackedStat stat = new TrackedStat();
+            stat.name = condition.trackedStatName;
+            stat.stat = 0;
+            m_TrackedStats.Add(stat);
+        }
+    }
+
     IEnumerator UnlockConditionCheckLoop()
     {
         while (true)
         {
             CheckUnlockConditions();
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2.35f);
         }
     }
 
     public static void CheckUnlockConditions()
     {
-        if (m_TrackedStats.iceDamageDealt >= GetUnlockConditionWithName("Ice Mage").condition && !GetUnlockableWithName("Ice Mage").unlocked)
-        {
-            SetUnlocked("Ice Mage");
-        }
-        if (m_TrackedStats.totalCooldown <= GetUnlockConditionWithName("Lightning Mage").condition && !GetUnlockableWithName("Lightning Mage").unlocked)
-        {
-            SetUnlocked("Lightning Mage");
-        }
+        if (m_TrackedStats.Count == 0) return;
+
+        CheckConditionIsEqualOrMore("iceDamageDealt", "Ice Mage");
+        CheckConditionIsEqualOrLess("totalCooldown", "Lightning Mage");
+        CheckConditionIsEqualOrMore("kills", "Solarium Skull");
         m_Instance.ShowUnlockPopups();
+    }
+
+    static void CheckConditionIsEqualOrMore(string stat, string unlockName)
+    {
+        if (GetTrackedStatWithName(stat).stat >= GetUnlockConditionWithName(unlockName).condition && !GetUnlockableWithName(unlockName).unlocked)
+        {
+            SetUnlocked(unlockName);
+        }
+    }
+    static void CheckConditionIsEqualOrLess(string stat, string unlockName)
+    {
+        if (GetTrackedStatWithName(stat).stat <= GetUnlockConditionWithName(unlockName).condition && !GetUnlockableWithName(unlockName).unlocked)
+        {
+            SetUnlocked(unlockName);
+        }
     }
 
     public static void SetUnlocked(string unlockName)
     {
+        if (GetUnlockableWithName(unlockName).unlocked) return;
         GetUnlockableWithName(unlockName).Unlock();
         m_Instance.QueueUnlockPopup(unlockName);
         SaveManager.SaveToFile();

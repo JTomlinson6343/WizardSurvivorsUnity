@@ -80,7 +80,7 @@ public class DamageManager : MonoBehaviour
             data.didKill = damageOutput == Actor.DamageOutput.wasKilled;
             m_DamageInstanceEvent.Invoke(data);
         }
-        IncrementIceDamageDealt(data);
+        TryIncrementTrackedStats(data);
         return damageOutput;
     }
 
@@ -100,11 +100,32 @@ public class DamageManager : MonoBehaviour
         }
     }
 
+    void TryIncrementTrackedStats(DamageInstanceData data)
+    {
+        IncrementIceDamageDealt(data);
+        IncrementKills(data);
+        IncrementDamage(data);
+        IncrementDOTDamage(data);
+    }
+
     private void IncrementIceDamageDealt(DamageInstanceData data)
     {
         if (data.damageType != DamageType.Frost) return;
         if (data.target == Player.m_Instance.gameObject) return;
 
-        UnlockManager.m_TrackedStats.iceDamageDealt += data.amount;
+        UnlockManager.GetTrackedStatWithName("iceDamageDealt").stat += data.amount;
+    }
+
+    void IncrementKills(DamageInstanceData data)
+    {
+        if (data.didKill && data.user == Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("kills").stat++;
+    }
+    void IncrementDamage(DamageInstanceData data)
+    {
+        if (data.target != Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("damage").stat += data.amount;
+    }
+    void IncrementDOTDamage(DamageInstanceData data)
+    {
+        if (data.isDoT && data.target != Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("DoTDamageDealt").stat += data.amount;
     }
 }

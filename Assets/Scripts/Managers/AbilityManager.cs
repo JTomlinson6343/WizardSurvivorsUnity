@@ -43,6 +43,9 @@ public class AbilityManager : MonoBehaviour
         m_Icons = GetComponentsInChildren<AbilityIcon>();
 
         m_AbilityCanvas.SetActive(false);
+
+        CheckUnlocks(m_PassiveAbilities);
+        CheckUnlocks(m_BuffAbilities);
     }
 
     private void Update()
@@ -53,7 +56,7 @@ public class AbilityManager : MonoBehaviour
         //}
         //if (Input.GetKeyDown(KeyCode.N))
         //{
-        //    ShowAbilityOptions(m_BuffAbilities);
+        //    ShowAbilityOptions(m_BuffAbilities.FindAll(a => a.m_Unlocked));
         //}
         if (m_AbilityChoicesShown)
         {
@@ -61,16 +64,28 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+    private void CheckUnlocks(List<Ability> abilities)
+    {
+        foreach (Ability ability in abilities)
+        {
+            Unlockable unlock = UnlockManager.GetUnlockableWithName(ability.m_Data.name);
+
+            if (unlock == null) continue;
+
+            ability.m_Unlocked = unlock.unlocked;
+        }
+    }
+
     // Displays 4 spells for the player to choose
     public void ChoosePassiveAbility()
     {
-        ShowAbilityOptions(m_PassiveAbilities);
+        ShowAbilityOptions(m_PassiveAbilities.FindAll(a => a.m_Unlocked));
         m_InstructionsLabel.text = m_SpellInstructions;
     }
     // Displays 4 items for the player to choose
     public void ChooseBuffAbility()
     {
-        ShowAbilityOptions(m_BuffAbilities);
+        ShowAbilityOptions(m_BuffAbilities.FindAll(a => a.m_Unlocked));
         m_InstructionsLabel.text = m_ItemInstructions;
     }
 
@@ -243,7 +258,7 @@ public class AbilityManager : MonoBehaviour
 
         if (m_LightningDoubleCastOn) UpdateDoubleCastedSpell();
 
-        UnlockManager.m_TrackedStats.totalCooldown = GetAbilityStatBuffs().cooldown;
+        UnlockManager.GetTrackedStatWithName("totalCooldown").stat = GetAbilityStatBuffs().cooldown;
         UnlockManager.CheckUnlockConditions();
     }
 

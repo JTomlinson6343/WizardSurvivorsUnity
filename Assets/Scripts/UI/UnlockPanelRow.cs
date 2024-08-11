@@ -22,7 +22,9 @@ public class UnlockPanelRow : MonoBehaviour
     {
         m_Icon.sprite = m_Condition.image;
         m_NameLabel.text = m_Condition.name;
-        m_DescriptionLabel.text = m_Condition.message;
+
+        if (m_Condition.doFormatMessage) m_DescriptionLabel.text = m_Condition.FormatConditionMessage();
+        else m_DescriptionLabel.text = m_Condition.message;
 
         if (!UnlockManager.GetUnlockableWithName(m_Condition.name).unlocked) m_Icon.color = Color.grey;
         else m_Icon.color = Color.white;
