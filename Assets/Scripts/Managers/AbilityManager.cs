@@ -24,6 +24,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
     [SerializeField] TextMeshProUGUI m_InstructionsLabel;
+    [SerializeField] GameObject m_ConfirmButton;
 
     [SerializeField] string m_SpellInstructions;
     [SerializeField] string m_ItemInstructions;
@@ -159,6 +160,8 @@ public class AbilityManager : MonoBehaviour
         StateManager.UnPause();
 
         DeHighlightAbilityIcons();
+
+        m_ConfirmButton.SetActive(false);
     }
 
     bool CheckAlreadyDisplayed(Ability ability, Ability[] displayedAbilities)
@@ -210,6 +213,7 @@ public class AbilityManager : MonoBehaviour
         if (!icon.image.enabled) return;
 
         m_HighlightedIcon = icon;
+        m_ConfirmButton.SetActive(true);
         DeHighlightAbilityIcons();
         icon.GetComponent<Image>().color = Color.yellow;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
@@ -232,8 +236,10 @@ public class AbilityManager : MonoBehaviour
     }
 
     // Unlocks the currently highlighted ability
-    void UnlockAbility()
+    public void UnlockAbility()
     {
+        if (!m_HighlightedIcon) return;
+
         m_HighlightedIcon.displayedAbility.OnChosen();
         if (m_HighlightedIcon.displayedAbility.m_isMaxed)
         {
