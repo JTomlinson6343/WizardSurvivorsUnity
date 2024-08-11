@@ -105,7 +105,8 @@ public class DamageManager : MonoBehaviour
         IncrementIceDamageDealt(data);
         IncrementKills(data);
         IncrementDamage(data);
-        IncrementDOTDamage(data);
+        //IncrementDOTDamage(data);
+        IncrementSummonDamage(data);
     }
 
     private void IncrementIceDamageDealt(DamageInstanceData data)
@@ -124,8 +125,15 @@ public class DamageManager : MonoBehaviour
     {
         if (data.target != Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("damage").stat += data.amount;
     }
-    void IncrementDOTDamage(DamageInstanceData data)
+    //void IncrementDOTDamage(DamageInstanceData data)
+    //{
+    //    if (data.isDoT && data.target != Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("DoTDamageDealt").stat += data.amount;
+    //}
+    void IncrementSummonDamage(DamageInstanceData data)
     {
-        if (data.isDoT && data.target != Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("DoTDamageDealt").stat += data.amount;
+        if (!data.abilitySource.GetComponent<Spell>().HasTag(Spell.SpellTag.Summon)) return;
+        if (data.target == Player.m_Instance.gameObject) return;
+
+        UnlockManager.GetTrackedStatWithName("summonDamageDealt").stat += data.amount;
     }
 }

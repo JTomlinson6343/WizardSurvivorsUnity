@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Unlocked: 1
+  m_Unlocked: 0
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
@@ -490,26 +490,31 @@ MonoBehaviour:
     name: Emberfly Jar
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-2% spell cooldowns
+    levelUpInfo: '-20% spell damage
 
-      +30% summon damage'
+      +50% spell cooldowns
+
+      +100% summon
+      damage
+
+      +2 speed'
     icon: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0
-    summonDamage: 0
+    damage: -0.2
+    summonDamage: 1
     speed: 0
-    cooldown: -0.05
+    cooldown: 0.5
     amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_PlayerStatBuffs:
-    speed: 0
+    speed: 0.1
     maxHealth: 0
     pullDist: 0
     iFramesMod: 0
@@ -1637,12 +1642,12 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Data:
-    name: Etherweave Gloves
+    name: Aetherweave Gloves
     damageType: 6
     description: Increase knockback of spells and damage
     levelUpInfo: '+20% knockback
 
-      +10% spell damage'
+      +5% spell damage'
     icon: {fileID: -1899836446, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3452,7 +3457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a81493aba2aac49ba0845ae061d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Unlocked: 1
+  m_Unlocked: 0
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
@@ -3473,22 +3478,24 @@ MonoBehaviour:
     name: Orb of the Oracle
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+15% invincibility time
+    levelUpInfo: '+25% invincibility time
 
-      +15% pickup range
+      +25% pickup range
 
-      +4% spell
-      damage'
+      +7% spell
+      damage
+
+      -7% spell cooldowns'
     icon: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_AbilityStatBuffs:
     AOE: 0
     duration: 0
-    damage: 0.04
+    damage: 0.07
     summonDamage: 0
     speed: 0
-    cooldown: 0
+    cooldown: -0.07
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -3497,8 +3504,8 @@ MonoBehaviour:
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
-    pullDist: 0.15
-    iFramesMod: 0.15
+    pullDist: 0.25
+    iFramesMod: 0.25
     armor: 0
   m_HealModifier: 3
 --- !u!1 &5325821446040161954
