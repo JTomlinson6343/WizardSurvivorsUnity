@@ -37,7 +37,7 @@ public class UnlockCondition
 {
     public string FormatConditionMessage()
     {
-        return message + " (" + UnlockManager.GetTrackedStatWithName(trackedStatName).stat.ToString() + "/" + condition.ToString() + ")";
+        return message + " (" + Mathf.Clamp(UnlockManager.GetTrackedStatWithName(trackedStatName).stat, 0f, condition).ToString() + "/" + condition.ToString() + ")";
     }
 
     public string name;
@@ -103,7 +103,7 @@ public class UnlockManager: MonoBehaviour
         while (true)
         {
             CheckUnlockConditions();
-            yield return new WaitForSeconds(2.35f);
+            yield return new WaitForSeconds(2.5f);
         }
     }
 
@@ -114,6 +114,8 @@ public class UnlockManager: MonoBehaviour
         CheckConditionIsEqualOrMore("iceDamageDealt", "Ice Mage");
         CheckConditionIsEqualOrLess("totalCooldown", "Lightning Mage");
         CheckConditionIsEqualOrMore("kills", "Solarium Skull");
+        CheckConditionIsEqualOrMore("damage", "Orb of the Oracle");
+        CheckConditionIsEqualOrMore("summonDamageDealt", "Emberfly Jar");
         m_Instance.ShowUnlockPopups();
     }
 
