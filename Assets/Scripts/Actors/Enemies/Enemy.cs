@@ -14,7 +14,7 @@ public class Enemy : Actor
     private bool m_IsChampion = false;
     private readonly float kChampSizeMod = 2f;
     private readonly int kChampXPMod = 2;
-    private readonly float kChampHealthMod = 3f;
+    private readonly float kChampHealthMod = 4f;
     private readonly Color kChampColour = new Color(1, 0.3f, 0);
 
     public float m_Speed;
