@@ -136,13 +136,13 @@ MonoBehaviour:
     trackedStatName: kills
   - name: Emberfly Jar
     image: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-    message: Deal 5000 summon spell damage
+    message: Deal 5000 damage from summon spells.
     condition: 5000
     doFormatMessage: 1
     trackedStatName: summonDamageDealt
   - name: Orb of the Oracle
     image: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-    message: Deal damage
+    message: Deal 10000 damage
     condition: 10000
     doFormatMessage: 1
     trackedStatName: damage

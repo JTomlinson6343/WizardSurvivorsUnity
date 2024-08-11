@@ -350,8 +350,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.06350708, y: 0}
-  m_SizeDelta: {x: 19.8729, y: 20}
+  m_AnchoredPosition: {x: 0, y: 0.06350708}
+  m_SizeDelta: {x: 20, y: 19.8729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3512037361914923257
 CanvasRenderer:
@@ -417,19 +417,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2738189056223097749}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3630017806315159126}
   m_Father: {fileID: 6006830333647196747}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -33.8426, y: -0.3614}
-  m_SizeDelta: {x: 392.8797, y: 20.217}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -31, y: -0.3614}
+  m_SizeDelta: {x: 20.217, y: 392.8797}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &5993264024517828235
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 8544742073009873150}
   m_HandleRect: {fileID: 8079601686698390001}
-  m_Direction: 0
+  m_Direction: 3
   m_Value: 0
   m_Size: 0.25
   m_NumberOfSteps: 0
@@ -743,6 +743,7 @@ MonoBehaviour:
   - {fileID: 7969339312474926015}
   m_BackButton: {fileID: 0}
   m_Direction: 1
+  m_ScrollbarDirection: 0
   m_Type: 0
   m_LabelSelectEnabled: 0
   m_HighlightTextEnabled: 0

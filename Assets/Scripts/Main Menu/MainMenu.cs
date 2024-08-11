@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject m_OptionsMenuRef;
     [SerializeField] UnlockMenu m_UnlockMenuRef;
 
+    static Transform m_SelectedButton;
+
     private void Start()
     {
         SaveManager.LoadFromFile(m_CharMenuRef.GetComponent<CharacterMenu>().GetSkillTreeRefs());

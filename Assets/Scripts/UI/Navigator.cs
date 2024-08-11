@@ -20,7 +20,9 @@ public class Navigator : MonoBehaviour
     [SerializeField] Selectable[] m_Selectables;
     [SerializeField] protected Button m_BackButton;
 
+    [SerializeField] bool m_RememberSelectedButtonPos = true;
     [SerializeField] NavDirection m_Direction = NavDirection.Horizontal;
+    [SerializeField] NavDirection m_ScrollbarDirection = NavDirection.Horizontal;
     [SerializeField] Type m_Type = Type.Character;
 
     [SerializeField] bool m_LabelSelectEnabled;
@@ -30,7 +32,7 @@ public class Navigator : MonoBehaviour
 
     [SerializeField] protected Image[] m_ControllerButtons;
 
-    int m_SelectedButtonPos;
+    int m_SelectedButtonPos = 0;
     protected bool m_AxisInUse;
 
     float m_LastScrollbar;
@@ -39,8 +41,8 @@ public class Navigator : MonoBehaviour
     // Use this for initialization
     public virtual void Start()
     {
-        m_SelectedButtonPos = 0;
-        if (m_Type == Type.Character && Gamepad.current != null) Utils.SetSelectedAnimTarget(m_Selectables[0].transform);
+        if (!m_RememberSelectedButtonPos) m_SelectedButtonPos = 0;
+        if (m_Type == Type.Character && Gamepad.current != null) Utils.SetSelectedAnimTarget(m_Selectables[m_SelectedButtonPos].transform);
     }
 
     // Update is called once per frame
@@ -160,14 +162,27 @@ public class Navigator : MonoBehaviour
 
         m_LastScrollbar = now;
 
-        if (Input.GetAxis("HorizontalDPAD") < 0f)
+        string dpadDir;
+        int modifier = 1;
+        float change = 0;
+
+        if (m_ScrollbarDirection == NavDirection.Horizontal)
         {
-            scrollbar.value -= 0.1f;
+            dpadDir = "HorizontalDPAD";
         }
-        if (Input.GetAxis("HorizontalDPAD") > 0f)
+        else
         {
-            scrollbar.value += 0.1f;
+            dpadDir = "VerticalDPAD";
+            // Reverse direction if scrollbar is vertical
+            modifier = -1;
         }
+
+        if (Input.GetAxis(dpadDir) < 0f) change = -0.1f;
+        
+        if (Input.GetAxis(dpadDir) > 0f) change = 0.1f;
+        
+
+        scrollbar.value = Mathf.Clamp01(scrollbar.value + change * modifier);
     }
 
     private void HandleToggleInput(Toggle toggle)
