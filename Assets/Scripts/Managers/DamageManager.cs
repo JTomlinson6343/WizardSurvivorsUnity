@@ -102,6 +102,8 @@ public class DamageManager : MonoBehaviour
 
     void TryIncrementTrackedStats(DamageInstanceData data)
     {
+        if (data.target == Player.m_Instance.gameObject) return;
+
         IncrementIceDamageDealt(data);
         IncrementKills(data);
         IncrementDamage(data);
@@ -112,18 +114,17 @@ public class DamageManager : MonoBehaviour
     private void IncrementIceDamageDealt(DamageInstanceData data)
     {
         if (data.damageType != DamageType.Frost) return;
-        if (data.target == Player.m_Instance.gameObject) return;
 
         UnlockManager.GetTrackedStatWithName("iceDamageDealt").stat += data.amount;
     }
 
     void IncrementKills(DamageInstanceData data)
     {
-        if (data.didKill && data.user == Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("kills").stat++;
+        if (data.didKill) UnlockManager.GetTrackedStatWithName("kills").stat++;
     }
     void IncrementDamage(DamageInstanceData data)
     {
-        if (data.target != Player.m_Instance.gameObject) UnlockManager.GetTrackedStatWithName("damage").stat += data.amount;
+        UnlockManager.GetTrackedStatWithName("damage").stat += data.amount;
     }
     //void IncrementDOTDamage(DamageInstanceData data)
     //{
@@ -131,9 +132,8 @@ public class DamageManager : MonoBehaviour
     //}
     void IncrementSummonDamage(DamageInstanceData data)
     {
-        if (!data.abilitySource.GetComponent<Spell>()) return;
+        if (data.abilitySource.GetComponent<Spell>() == null) return;
         if (!data.abilitySource.GetComponent<Spell>().HasTag(Spell.SpellTag.Summon)) return;
-        if (data.target == Player.m_Instance.gameObject) return;
 
         UnlockManager.GetTrackedStatWithName("summonDamageDealt").stat += data.amount;
     }
