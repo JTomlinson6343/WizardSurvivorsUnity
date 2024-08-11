@@ -1313,6 +1313,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3360989057598416083}
     - target: {fileID: 3477896109159689038, guid: be5d183b07f028a4b97a1a01dc37d13f, type: 3}
+      propertyPath: m_RememberSelectedButtonPos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477896109159689038, guid: be5d183b07f028a4b97a1a01dc37d13f, type: 3}
       propertyPath: m_ControllerButtons.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1979,7 +1983,7 @@ MonoBehaviour:
   - {fileID: 7543858832266998644}
   - {fileID: 1009957403152652139}
   m_BackButton: {fileID: 0}
-  m_RememberSelectedButtonPos: 1
+  m_RememberSelectedButtonPos: 0
   m_Direction: 1
   m_ScrollbarDirection: 0
   m_Type: 0

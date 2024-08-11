@@ -22,6 +22,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnAutoFireValueChanged(bool value)
     {
+        if (Player.m_AutoFire == value) return;
         Player.m_AutoFire = value;
 
         if (!Player.m_Instance) return;
