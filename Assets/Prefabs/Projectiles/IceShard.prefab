@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5855194254980486322, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_HitParticlesPrefab
+      value: 
+      objectReference: {fileID: 1699988216953073705, guid: d27e9e1ddae172f42b5065dedfcb0e43, type: 3}
     - target: {fileID: 2441900490676211127, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.b
       value: 1

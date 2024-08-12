@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
 
     protected List<GameObject> m_HitTargets = new List<GameObject>();
 
+    [SerializeField] protected GameObject m_HitParticlesPrefab;
+
     virtual public void Init(Vector2 pos, Vector2 dir, float speed, Ability ability, float lifetime)
     {
         m_AbilitySource = ability;
@@ -46,6 +48,13 @@ public class Projectile : MonoBehaviour
 
         target.GetComponent<Actor>().KnockbackRoutine(GetComponent<Rigidbody2D>().velocity, m_AbilitySource.GetTotalStats().knockback);
         DamageTarget(target);
+        // Create hit particles
+        if (m_HitParticlesPrefab)
+        {
+            GameObject particles = Instantiate(m_HitParticlesPrefab);
+            particles.transform.position = transform.position;
+            particles.GetComponent<HitParticles>().FaceDirection(-transform.GetComponent<Rigidbody2D>().velocity.normalized);
+        }
 
         PierceRoutine();
     }

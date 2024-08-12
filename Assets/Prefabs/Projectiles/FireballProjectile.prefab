@@ -95,5 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_HitParticlesPrefab: {fileID: 5604627690144960847, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
   aoePrefab: {fileID: 0}
   aoeLifetime: 0
