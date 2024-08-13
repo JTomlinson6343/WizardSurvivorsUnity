@@ -132,7 +132,7 @@ public class DamageManager : MonoBehaviour
     //}
     void IncrementSummonDamage(DamageInstanceData data)
     {
-        if (data.abilitySource.GetComponent<Spell>() == null) return;
+        if (data.abilitySource?.GetComponent<Spell>() == null) return;
         if (!data.abilitySource.GetComponent<Spell>().HasTag(Spell.SpellTag.Summon)) return;
 
         UnlockManager.GetTrackedStatWithName("summonDamageDealt").stat += data.amount;

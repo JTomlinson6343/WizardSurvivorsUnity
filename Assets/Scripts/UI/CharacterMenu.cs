@@ -74,8 +74,8 @@ public class CharacterMenu : MonoBehaviour
             m_StartButtonRef.interactable = false;
 
             string message = "";
-            //if (charIcon == m_IceMageIcon) message = "To Unlock:" + UnlockManager.GetUnlockConditionWithName("Ice Mage").FormatConditionMessage(UnlockManager.m_TrackedStats.iceDamageDealt);
-            if (charIcon == m_LightningMageIcon) message = "To Unlock:" + UnlockManager.GetUnlockConditionWithName("Lightning Mage").message;
+            if (charIcon == m_IceMageIcon) message = "To Unlock: " + UnlockManager.GetUnlockConditionWithName("Ice Mage").FormatConditionMessage();
+            if (charIcon == m_LightningMageIcon) message = "To Unlock: " + UnlockManager.GetUnlockConditionWithName("Lightning Mage").message;
 
             m_UnlockConditionsLabel.text = message;
         }
