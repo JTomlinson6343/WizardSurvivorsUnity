@@ -4142,7 +4142,7 @@ MonoBehaviour:
     damage: 15
     summonDamage: 0
     speed: 8
-    cooldown: 1
+    cooldown: 1.5
     amount: 0
     knockback: 4
     pierceAmount: 0

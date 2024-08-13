@@ -15,6 +15,7 @@ public class Slime : Enemy
         for (int i = 0; i < m_BabySpawnAmount; i++)
         {
             GameObject slime = EnemyManager.m_Instance.SpawnBabySlime();
+            slime.transform.SetParent(EnemyManager.m_Instance.transform);
             slime.transform.position = transform.position;
             Slime slimeComponent = slime.GetComponent<Slime>();
 

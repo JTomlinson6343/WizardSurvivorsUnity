@@ -124,17 +124,17 @@ public class ProgressionManager : MonoBehaviour
     public void UpdateWaveLabel(int wave)
     {
         m_WaveLabel.GetComponent<TextMeshProUGUI>().text = "Wave: " + wave.ToString();
-        StartCoroutine(Utils.PulseAnim(m_WaveLabel.transform, 0.5f));
+        CoroutineHub.m_Instance.PulseAnim(m_WaveLabel.transform, 0.5f);
     }
     public void UpdateScoreLabel(int score)
     {
         m_ScoreLabel.GetComponent<TextMeshProUGUI>().text = "Gems: " + score.ToString();
-        StartCoroutine(Utils.PulseAnim(m_ScoreLabel.transform, 0.25f));
+        CoroutineHub.m_Instance.PulseAnim(m_ScoreLabel.transform, 0.25f);
     }
     public void UpdateLevelLabel()
     {
         m_LevelLabel.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(m_Level).ToString();
-        StartCoroutine(Utils.PulseAnim(m_LevelLabel.transform, 0.25f));
+        CoroutineHub.m_Instance.PulseAnim(m_LevelLabel.transform, 0.25f);
     }
 
     public void AddScore(int score)
