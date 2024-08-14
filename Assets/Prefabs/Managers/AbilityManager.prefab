@@ -2107,6 +2107,7 @@ MonoBehaviour:
   - {fileID: 1423585425821646238}
   - {fileID: 4421547036991409442}
   - {fileID: 9180728553056373929}
+  - {fileID: 9187097270961810285}
   m_BuffAbilities:
   - {fileID: 5325484372555029750}
   - {fileID: 4209457953118322408}
@@ -3691,6 +3692,81 @@ MonoBehaviour:
     iFramesMod: 0.25
     armor: 0
   m_HealModifier: 3
+--- !u!1 &5177238871402496470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7231473670737508595}
+  - component: {fileID: 9187097270961810285}
+  m_Layer: 0
+  m_Name: RayOfSickness
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7231473670737508595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177238871402496470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9187097270961810285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177238871402496470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f410d2ad5aa67649a9183e9b637fa60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Unlocked: 1
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_CastAmount: 1
+  m_BaseCastAmount: 1
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 15
+    summonDamage: 0
+    speed: 0
+    cooldown: 1.75
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: Ray of Sickness
+    damageType: 3
+    description: 
+    levelUpInfo: 
+    icon: {fileID: -494512639, guid: 0aed55716912bb942b6f906c1397928b, type: 3}
+  m_CooldownRemaining: 0
+  m_DefaultAutofireRange: 10
+  m_SpellTags: 00000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
+  m_Range: 8
+  m_LineDuration: 1.25
+  m_RayPrefab: {fileID: 4218416463898225001, guid: 33c84874e6d4a4943964505ca342f67c, type: 3}
 --- !u!1 &5325821446040161954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4532,6 +4608,7 @@ Transform:
   - {fileID: 9066816720827938978}
   - {fileID: 8539184454971773378}
   - {fileID: 1350365592647465899}
+  - {fileID: 7231473670737508595}
   - {fileID: 5902090598870088726}
   - {fileID: 2004064767481076761}
   - {fileID: 1663213935169272059}
