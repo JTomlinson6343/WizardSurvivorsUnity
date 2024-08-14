@@ -164,6 +164,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000004000000
+  m_SoundOnCast: 28
+  m_SoundOnCastVolume: 1
   m_Range: 7
   m_AOEPrefab: {fileID: 6689438443112598672, guid: 418d53cf17c2e074ea22111dba763fe5, type: 3}
 --- !u!1 &566947808422590544
@@ -331,6 +333,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 6.5
   m_SpellTags: 0000000005000000
+  m_SoundOnCast: 24
+  m_SoundOnCastVolume: 0.3
   m_LightningCone: {fileID: 6689438443112598672, guid: 88df434cefc5a0d45a9a31cf20ec6921, type: 3}
   m_Lifetime: 0.2
 --- !u!1 &906814858168519207
@@ -858,10 +862,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 00000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
-  m_SoundOnCast: 4
-  m_SoundOnCastVolume: 4
 --- !u!1 &1292142079074784689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,10 +1031,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000004000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 7034863490182940137, guid: 8f3e941ee978a4a4985657ee68e52396, type: 3}
-  m_SoundOnCast: 4
-  m_SoundOnCastVolume: 4
   m_AOEPrefab: {fileID: 6942711934382557578, guid: 146d44ef169bcd64392eaba1b5ff097e, type: 3}
 --- !u!1 &1328896173505012888
 GameObject:
@@ -1334,6 +1338,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 00000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_Lifetime: 2
 --- !u!1 &1764913179728977767
 GameObject:
@@ -1406,6 +1412,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 000000000400000006000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_Fog: {fileID: 601712490526155476}
   m_Snow: {fileID: 6251831300220787743}
   m_BlizzardPrefab: {fileID: 6689438443112598672, guid: 1ff7dae28a3955f4791c85436356a2f7, type: 3}
@@ -1570,10 +1578,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000006000000040000000500000002000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_ProjectileLifetime: 6
   m_BulletPrefab: {fileID: 2787149867258741970, guid: 0e9e75daed7a2ae408193753737a1bea, type: 3}
-  m_SoundOnCast: 4
-  m_SoundOnCastVolume: 4
 --- !u!1 &2048881655503188187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,10 +1653,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
   m_SpellTags: 000000000400000006000000
+  m_SoundOnCast: 16
+  m_SoundOnCastVolume: 1
   m_ProjectileLifetime: 0.75
   m_BulletPrefab: {fileID: 5326285300019030449, guid: 5d89be2b958f215468841cbf73851e6b, type: 3}
-  m_SoundOnCast: 4
-  m_SoundOnCastVolume: 4
   m_AOEPrefab: {fileID: 2792270806764247480, guid: 1864c8052dd3564418172ff5068f434a, type: 3}
 --- !u!1 &2161477861579764211
 GameObject:
@@ -2236,10 +2244,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 6
   m_SpellTags: 00000000030000000400000006000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_ProjectileLifetime: 2
   m_BulletPrefab: {fileID: 7256483112163839321, guid: 9d79a94f1e46cbc46b9fb096645fc54a, type: 3}
-  m_SoundOnCast: 4
-  m_SoundOnCastVolume: 4
   m_AOEPrefab: {fileID: 1210263044322745769, guid: 77722e6afa872214caff5eb564274dfd, type: 3}
 --- !u!1 &2530550909787924200
 GameObject:
@@ -2983,6 +2991,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 000000000300000004000000
+  m_SoundOnCast: 20
+  m_SoundOnCastVolume: 1
   m_Range: 7
   m_IcePrefab: {fileID: 7679647542523129580, guid: 25d27ec6b983d024eadf16c3478d5c3d, type: 3}
   m_LineDuration: 0.15
@@ -3401,6 +3411,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000005000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_Radius: 0
 --- !u!1 &4582819558458716496
 GameObject:
@@ -4157,10 +4169,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 00000000
-  m_ProjectileLifetime: 2
-  m_BulletPrefab: {fileID: 6069486459419601506, guid: f1ffd5f0579c6e8409df2fd90b20a171, type: 3}
   m_SoundOnCast: 19
   m_SoundOnCastVolume: 0.4
+  m_ProjectileLifetime: 2
+  m_BulletPrefab: {fileID: 6069486459419601506, guid: f1ffd5f0579c6e8409df2fd90b20a171, type: 3}
 --- !u!1 &6440927995132169176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4309,6 +4321,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
   m_SpellTags: 0000000002000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_SummonPrefab: {fileID: 5812882791923075411, guid: c8129cac05604a949ab5ee11cb179605, type: 3}
   m_SmokePrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
 --- !u!1 &6971340183586912971
@@ -4381,6 +4395,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 2.5
   m_SpellTags: 0000000002000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_SummonPrefab: {fileID: 5812882791923075411, guid: e2895ac9165284d4a93992a41219093d, type: 3}
   m_SmokePrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
 --- !u!1 &7015414226642637484
@@ -4776,10 +4792,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: -1
   m_SpellTags: 0400000007000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_ProjectileLifetime: 5
   m_BulletPrefab: {fileID: 6689438443112598672, guid: 5f7061e810dcf364cb5737f2f0674cc2, type: 3}
-  m_SoundOnCast: 4
-  m_SoundOnCastVolume: 4
 --- !u!1 &7944674399469636646
 GameObject:
   m_ObjectHideFlags: 0
@@ -5034,6 +5050,8 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 0000000005000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_LightningPrefab: {fileID: 5106067701834446676, guid: 01c88d37db1c12843bf69f8fe2addc82, type: 3}
 --- !u!1 &8619315044923377127
 GameObject:
@@ -5106,10 +5124,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
   m_SpellTags: 000000000400000006000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
   m_ProjectileLifetime: 3
   m_BulletPrefab: {fileID: 2787149867258741970, guid: ac646f8cf2e170849abd8c893b742d08, type: 3}
-  m_SoundOnCast: 4
-  m_SoundOnCastVolume: 4
 --- !u!1 &8653212588906527048
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,10 +5206,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
   m_SpellTags: 00000000
-  m_ProjectileLifetime: 5
-  m_BulletPrefab: {fileID: 6270093376227045094, guid: 9043407a6433b80449c26f7138d2963a, type: 3}
   m_SoundOnCast: 4
   m_SoundOnCastVolume: 4
+  m_ProjectileLifetime: 5
+  m_BulletPrefab: {fileID: 6270093376227045094, guid: 9043407a6433b80449c26f7138d2963a, type: 3}
 --- !u!1 &8684336262708932390
 GameObject:
   m_ObjectHideFlags: 0

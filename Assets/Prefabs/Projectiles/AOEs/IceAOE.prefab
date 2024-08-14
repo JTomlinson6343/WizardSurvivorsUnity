@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2811130900834861989, guid: f75819a02f3587343a741fa7731c02b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.71
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2811130900834861989, guid: f75819a02f3587343a741fa7731c02b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -108,11 +108,15 @@ PrefabInstance:
       objectReference: {fileID: 651810753, guid: ae27ff210e7ba854684ed2088fe75f65, type: 3}
     - target: {fileID: 534245749071217156, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_SortingLayer
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 534245749071217156, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_SortingLayerID
-      value: -163574329
+      value: -2020019679
+      objectReference: {fileID: 0}
+    - target: {fileID: 534245749071217156, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6689438443112598672, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_Name
@@ -120,7 +124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7509540750149949171, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7911920693324532900, guid: a91aeda9be88bfa4d95b9eb618672912, type: 3}
       propertyPath: m_RootOrder
@@ -208,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_HitParticlesPrefab: {fileID: 0}
   m_ActiveFramesDuration: 0
 --- !u!61 &7924909660703731177
 BoxCollider2D:
@@ -241,7 +246,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012010157, y: -0.41909006}
+  m_Offset: {x: -0.012010157, y: 0.95137554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -252,7 +257,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4823185, y: 1.0385826}
+  m_Size: {x: 1.4823185, y: 1.2009372}
   m_EdgeRadius: 0
 --- !u!1 &8985633140040845269 stripped
 GameObject:

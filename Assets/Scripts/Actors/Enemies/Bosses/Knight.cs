@@ -219,7 +219,7 @@ public class Knight : Boss
         while (elapsed < m_MidAirDuration)
         {
             Vector2 startPos = new Vector2(Random.Range(PlayerManager.m_Instance.m_BossArenaBounds.left, PlayerManager.m_Instance.m_BossArenaBounds.right), PlayerManager.m_Instance.m_BossArenaBounds.top + 0.5f);
-            AudioManager.m_Instance.PlaySound(25);
+            AudioManager.m_Instance.PlayRandomPitchSound(25);
             ProjectileManager.m_Instance.EnemyShot(
                 startPos,
                 Utils.GetDirectionToGameObject(startPos, Player.m_Instance.gameObject),

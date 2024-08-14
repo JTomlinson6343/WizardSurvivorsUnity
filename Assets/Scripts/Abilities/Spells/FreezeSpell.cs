@@ -27,7 +27,7 @@ public class FreezeSpell : Spell
 
         DisplayLine(enemy.transform.position);
 
-        AudioManager.m_Instance.PlaySound(20);
+        CastSound();
     }
 
     void DisplayLine(Vector2 enemyPos)

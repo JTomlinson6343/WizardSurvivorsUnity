@@ -99,7 +99,7 @@ public class Lich : Boss
             gameObject,
             DamageType.Dark);
 
-        AudioManager.m_Instance.PlaySound(15);
+        AudioManager.m_Instance.PlayRandomPitchSound(15);
 
         Invoke(nameof(EndProjectileCooldown), m_ProjectileCooldown);
         GetComponentInChildren<Animator>().Play("MagicDown", -1, 0f);

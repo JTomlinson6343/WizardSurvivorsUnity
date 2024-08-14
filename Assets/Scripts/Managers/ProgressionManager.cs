@@ -49,8 +49,8 @@ public class ProgressionManager : MonoBehaviour
     readonly float kPickupMoveSpeed = 15f;
 
     //XP
-    int m_CurrentXP = 0;
-    int m_NextLevelXP;
+    public int m_CurrentXP = 0;
+    public int m_NextLevelXP;
 
     [SerializeField] Curve m_LevelCurve;
 
@@ -203,6 +203,7 @@ public class ProgressionManager : MonoBehaviour
             OnLevelUp();
         }
 
+        AudioManager.m_Instance.PlayXPSound();
         m_XPBar.UpdateSize(m_CurrentXP, m_NextLevelXP);
         return false;
     }

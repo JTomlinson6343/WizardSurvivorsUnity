@@ -41,7 +41,8 @@ public class IceElemental : Summon
                 m_ProjectilePrefab
                 );
 
-            AudioManager.m_Instance.PlaySound(19,0.4f);
+            AudioManager.m_Instance.PlayRandomPitchSound(19, 0.4f);
+
             yield return new WaitForSeconds(m_ShotDelay);
         }
     }

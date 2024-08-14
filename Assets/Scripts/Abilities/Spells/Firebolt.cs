@@ -6,8 +6,7 @@ public class Firebolt : Spell
 {
     [SerializeField] protected float m_ProjectileLifetime;
     [SerializeField] protected GameObject m_BulletPrefab;
-    [SerializeField] int m_SoundOnCast = 4;
-    [SerializeField] float m_SoundOnCastVolume = 1f;
+
 
     public override void OnMouseInput(Vector2 aimDirection)
     {
@@ -15,7 +14,7 @@ public class Firebolt : Spell
             aimDirection,
             m_TotalStats.speed, this, m_ProjectileLifetime, m_BulletPrefab);
 
-        AudioManager.m_Instance.PlaySound(m_SoundOnCast, m_SoundOnCastVolume);
+        CastSound();
     }
 
     public override void OnCast()
@@ -36,6 +35,6 @@ public class Firebolt : Spell
             dir,
             m_TotalStats.speed, this, m_ProjectileLifetime, m_BulletPrefab);
 
-        AudioManager.m_Instance.PlaySound(m_SoundOnCast, m_SoundOnCastVolume);
+        CastSound();
     }
 }

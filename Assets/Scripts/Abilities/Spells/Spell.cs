@@ -20,6 +20,9 @@ public class Spell : Ability
 
     [SerializeField] SpellTag[] m_SpellTags;
 
+    [SerializeField] int m_SoundOnCast = 4;
+    [SerializeField] float m_SoundOnCastVolume = 1f;
+
     public bool HasTag(SpellTag tag)
     {
         if (m_SpellTags == null) return false;
@@ -44,5 +47,10 @@ public class Spell : Ability
         {
             m_TotalStats.damage += m_BonusStats.summonDamage * m_BaseStats.damage + AbilityManager.m_Instance.GetAbilityStatBuffs().summonDamage * m_BaseStats.damage;
         }
+    }
+
+    protected void CastSound()
+    {
+        AudioManager.m_Instance.PlayRandomPitchSound(m_SoundOnCast, m_SoundOnCastVolume);
     }
 }

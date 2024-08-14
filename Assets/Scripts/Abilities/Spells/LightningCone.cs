@@ -39,6 +39,6 @@ public class LightningCone : Spell
         cone.transform.SetParent(Player.m_Instance.transform);
         cone.transform.position = Player.m_Instance.GetStaffTransform().position;
 
-        AudioManager.m_Instance.PlaySound(24, 0.3f);
+        CastSound();
     }
 }

@@ -34,6 +34,6 @@ public class AOESpawningProtectileSpell : Firebolt
 
     virtual protected void PlaySound()
     {
-        AudioManager.m_Instance.PlaySound(4);
+        AudioManager.m_Instance.PlayRandomPitchSound(4);
     }
 }

@@ -142,7 +142,7 @@ public class AbilityManager : MonoBehaviour
             // Show the icon
             m_Icons[iconCounter].image.enabled = true;
 
-            AudioManager.m_Instance.PlaySound(7, 0.6f);
+            AudioManager.m_Instance.PlaySound(7, 0.4f);
 
             iconCounter++;
 

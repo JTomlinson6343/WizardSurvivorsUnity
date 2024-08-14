@@ -16,6 +16,9 @@ public class AudioManager : MonoBehaviour
 
     public static float m_MusicVolume = 1f;
     public static float m_SoundVolume = 1f;
+
+    static readonly float kXPSoundEffectCooldown = 0.05f;
+    static float m_LastXPSoundTime;
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,6 +40,8 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource source = GetFreeAudioSource();
 
+        source.pitch = 1f;
+
         if (source.volume != m_SoundVolume)
             source.volume = m_SoundVolume;
 
@@ -47,9 +52,43 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(int soundID, float volume)
     {
         AudioSource source = GetFreeAudioSource();
+
+        source.pitch = 1f;
         source.volume = volume * m_SoundVolume;
         source.clip = m_AudioClips[soundID];
         source.Play();
+    }
+
+    public void PlaySound(int soundID, float volume, float pitch)
+    {
+        AudioSource source = GetFreeAudioSource();
+        source.volume = volume * m_SoundVolume;
+        source.clip = m_AudioClips[soundID];
+        source.pitch = pitch;
+        source.Play();
+    }
+
+    public void PlayRandomPitchSound(int soundID, float volume)
+    {
+        AudioSource source = GetFreeAudioSource();
+        source.volume = volume * m_SoundVolume;
+        source.clip = m_AudioClips[soundID];
+        source.pitch = Random.Range(0.9f, 1.1f);
+        source.Play();
+    }
+    public void PlayRandomPitchSound(int soundID)
+    {
+        PlayRandomPitchSound(soundID, 1f);
+    }
+
+    public void PlayXPSound()
+    {
+        if (Time.time - m_LastXPSoundTime > kXPSoundEffectCooldown)
+        {
+            m_LastXPSoundTime = Time.time;
+            float pitch = 0.95f + (ProgressionManager.m_Instance.m_CurrentXP / (float)ProgressionManager.m_Instance.m_NextLevelXP) * 0.2f;
+            PlaySound(1, 0.4f, pitch);
+        }
     }
 
     public void PlayMusic(int soundID)

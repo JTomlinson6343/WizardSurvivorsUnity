@@ -39,7 +39,6 @@ public class AOESpawningSpell : Spell
 
     protected virtual void PlaySound()
     {
-        AudioManager.m_Instance.PlaySound(0);
-
+        CastSound();
     }
 }

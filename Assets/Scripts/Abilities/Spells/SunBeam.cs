@@ -12,6 +12,6 @@ public class SunBeam : AOESpawningSpell
 
     protected override void PlaySound()
     {
-        AudioManager.m_Instance.PlaySound(28);
+        CastSound();
     }
 }

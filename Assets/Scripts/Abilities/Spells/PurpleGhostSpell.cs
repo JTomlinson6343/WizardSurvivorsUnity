@@ -21,6 +21,6 @@ public class PurpleGhostSpell : Firebolt
 
         bullet.GetComponent<PurpleGhost>().m_CurrentTarget = closestEnemy;
 
-        AudioManager.m_Instance.PlaySound(4);
+        CastSound();
     }
 }
