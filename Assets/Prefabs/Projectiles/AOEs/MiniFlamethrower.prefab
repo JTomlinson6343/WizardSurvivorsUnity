@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4176058779138317872, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
+      propertyPath: m_Intensity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065239899580304172, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
+      propertyPath: m_Intensity
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8786373189316883401, guid: 8f43a1be71177c146a102f5e3036852c, type: 3}
       propertyPath: ShapeModule.angle
       value: 45

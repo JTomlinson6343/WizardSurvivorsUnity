@@ -43,7 +43,7 @@ public class EnemyManager : MonoBehaviour
     readonly float kGracePeriodTime = 2f;
     readonly float kChampionChance = 0.01f;
 
-    [SerializeField] GameObject m_SlimePrefab;
+    [SerializeField] GameObject[] m_SlimePrefabs;
 
     private Vector3 GetSpawnPosition()
     {
@@ -196,9 +196,9 @@ public class EnemyManager : MonoBehaviour
         return newEnemy;
     }
 
-    public GameObject SpawnBabySlime()
+    public GameObject SpawnBabySlime(int variant)
     {
-        return Instantiate(m_SlimePrefab);
+        return Instantiate(m_SlimePrefabs[variant]);
     }
 
     public Boss SpawnBoss()

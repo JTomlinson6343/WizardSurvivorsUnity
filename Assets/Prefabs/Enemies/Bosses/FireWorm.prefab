@@ -297,6 +297,7 @@ MonoBehaviour:
   m_DebuffPlacement: {fileID: 8335548373994432881}
   m_DebuffImmunities: 
   m_DebuffImmune: 0
+  m_Targetable: 1
   m_Stunned: 0
   m_HealthModifier: 0
   m_SpawnProbability: 0

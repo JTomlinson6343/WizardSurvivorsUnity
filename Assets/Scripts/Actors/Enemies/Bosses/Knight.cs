@@ -170,6 +170,7 @@ public class Knight : Boss
                 m_Animator.Play("Fall");
                 return;
             case State.Dead:
+                StopAllCoroutines();
                 m_Animator.Play("Death");
                 rb.velocity = Vector2.zero;
                 return;

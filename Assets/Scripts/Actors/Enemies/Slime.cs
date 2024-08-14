@@ -9,12 +9,13 @@ public class Slime : Enemy
     public int m_SplitAmount;
     public int m_BabySpawnAmount;
     [SerializeField] float m_BabyBounceSpeed;
+    public int m_SlimeVariant;
 
     void Split()
     {
         for (int i = 0; i < m_BabySpawnAmount; i++)
         {
-            GameObject slime = EnemyManager.m_Instance.SpawnBabySlime();
+            GameObject slime = EnemyManager.m_Instance.SpawnBabySlime(m_SlimeVariant);
             slime.transform.SetParent(EnemyManager.m_Instance.transform);
             slime.transform.position = transform.position;
             Slime slimeComponent = slime.GetComponent<Slime>();
