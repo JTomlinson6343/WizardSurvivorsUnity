@@ -368,6 +368,14 @@ PrefabInstance:
       value: DropShadow
       objectReference: {fileID: 0}
     - target: {fileID: 4176259534903024057, guid: 9a67b8f5f1cfd2d48a1150daf3785db1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176259534903024057, guid: 9a67b8f5f1cfd2d48a1150daf3785db1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176259534903024057, guid: 9a67b8f5f1cfd2d48a1150daf3785db1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.141
       objectReference: {fileID: 0}
