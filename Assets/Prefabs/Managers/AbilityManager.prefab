@@ -66,7 +66,7 @@ MonoBehaviour:
     damageType: 6
     description: Increase size of zone effects and increase max health by a small
       amount
-    levelUpInfo: '+20% Zone Spell Size
+    levelUpInfo: '<color=green>+20% Zone Spell Size</color>
 
 '
     icon: {fileID: 708844268, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -234,12 +234,12 @@ MonoBehaviour:
     damageType: 0
     description: Reduce spell cooldowns and increase size of zone effects in exchange
       for speed
-    levelUpInfo: '-4% spell cooldowns
+    levelUpInfo: '<color=green>-4% spell cooldowns</color>
 
-      +8% zone effect size
+      <color=green>+8%
+      zone effect size</color>
 
-      -0.5 move
-      speed'
+      <color=red>-0.5 move speed</color>'
     icon: {fileID: -772767292, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -536,11 +536,12 @@ MonoBehaviour:
     name: Emerald Geode
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+5% zone spell size
+    levelUpInfo: '<color=green>+5% zone spell size</color>
 
-      -2% cooldown
+      <color=green>-2%
+      spell cooldowns</color>
 
-      +5% knockback'
+      <color=green>+5% knockback</color>'
     icon: {fileID: -400035921, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -628,14 +629,15 @@ MonoBehaviour:
     name: Emberfly Jar
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-20% spell damage
+    levelUpInfo: '<color=red>-20% spell damage</color>
 
-      +50% spell cooldowns
+      <color=red>+50% spell
+      cooldowns</color>
 
-      +100% summon
-      damage
+      <color=green>+100% summon damage</color>
 
-      +2 speed'
+      <color=green>+2
+      speed</color>'
     icon: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -931,11 +933,12 @@ MonoBehaviour:
     name: Gold Ring
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+5% spell damage
+    levelUpInfo: '<color=green>+5% spell damage</color>
 
-      +5% knockback
+      <color=green>+5% knockback</color>
 
-      -2% spell cooldowns'
+      <color=green>-2%
+      spell cooldowns</color>'
     icon: {fileID: 1297763807, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -945,7 +948,7 @@ MonoBehaviour:
     damage: 0.05
     summonDamage: 0
     speed: 0
-    cooldown: 0
+    cooldown: -0.02
     amount: 0
     knockback: 0.05
     pierceAmount: 0
@@ -1236,14 +1239,15 @@ MonoBehaviour:
     damageType: 0
     description: Increase summon damage but increase spell cooldowns, reduce spell
       damage and reduce max health
-    levelUpInfo: '+66% summon damage
+    levelUpInfo: '<color=green>+66% summon damage</color>
 
-      +6% spell cooldowns
+      <color=red>+6% spell
+      cooldowns</color>
 
-      -6% spell
-      damage
+      <color=red>-6% spell damage</color>
 
-      -66 max health'
+      <color=red>-66
+      max health</color>'
     icon: {fileID: -422744207, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -1482,9 +1486,10 @@ MonoBehaviour:
     name: Stormcrest Royal Brooch
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+1 speed
+    levelUpInfo: '<color=green>+1 speed</color>
 
-      +25% increased invincibility time'
+      <color=green>+25% increased
+      invincibility time</color>'
     icon: {fileID: 869148269, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -1929,9 +1934,10 @@ MonoBehaviour:
     name: Aetherweave Gloves
     damageType: 6
     description: Increase knockback of spells and damage
-    levelUpInfo: '+20% knockback
+    levelUpInfo: '<color=green>+20% knockback</color>
 
-      +5% spell damage'
+      <color=green>+5% spell
+      damage</color>'
     icon: {fileID: -1899836446, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2019,9 +2025,10 @@ MonoBehaviour:
     name: Cake
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+15 max health
+    levelUpInfo: '<color=green>+15 max health</color>
 
-      Restore 45 health'
+      <color=green>Restore
+      45 health</color>'
     icon: {fileID: -1119882579, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2314,11 +2321,12 @@ MonoBehaviour:
     damageType: 0
     description: Increase health and reduce spell cooldowns in exchange for lower
       speed
-    levelUpInfo: '+10% spell damage
+    levelUpInfo: '<color=green>+10% spell damage</color>
 
-      +2 speed
+      <color=green>+2 speed</color>
 
-      -5% spell cooldowns'
+      <color=green>-5%
+      spell cooldowns</color>'
     icon: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2406,9 +2414,10 @@ MonoBehaviour:
     name: Embersilk Ribbon
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-5% spell cooldowns
+    levelUpInfo: '<color=green>-5% spell cooldowns</color>
 
-      +15% item pickup range'
+      <color=green>+15%
+      item pickup range</color>'
     icon: {fileID: -47419999, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2496,9 +2505,9 @@ MonoBehaviour:
     name: Whispersilk Witchcap
     damageType: 0
     description: Increase health and spell damage
-    levelUpInfo: '+1 armor
+    levelUpInfo: '<color=green>+1 armor</color>
 
-      +5% Spell damage'
+      <color=green>+5% Spell damage</color>'
     icon: {fileID: -1798245941, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2798,9 +2807,10 @@ MonoBehaviour:
     name: Ironwood Staff
     damageType: 6
     description: Projectile spells pierce enemies
-    levelUpInfo: 'Projectile spells pierce +1 additional enemy
+    levelUpInfo: '<color=green>Projectile spells pierce +1 additional enemy</color>
 
-      +3% spell damage'
+      <color=green>+3%
+      spell damage</color>'
     icon: {fileID: -1783879092, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2888,14 +2898,14 @@ MonoBehaviour:
     name: Tanzanite Geode
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-4% cooldown
+    levelUpInfo: '<color=green>-4% cooldown</color>
 
-      +2% spell damage
+      <color=green>+2% spell
+      damage</color>
 
-      -1 speed
+      <color=red>-1 speed</color>
 
-      +5%
-      knockback'
+      <color=green>+5% knockback</color>'
     icon: {fileID: 1002653379, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3164,9 +3174,10 @@ MonoBehaviour:
     name: Eclipse Caverns Bat
     damageType: 0
     description: Increase damage of summon spells, sacrificing your speed in return
-    levelUpInfo: '+25% Summon damage
+    levelUpInfo: '<color=green>+25% Summon damage</color>
 
-      -1 move speed'
+      <color=red>-1 move
+      speed</color>'
     icon: {fileID: 824492668, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3254,9 +3265,10 @@ MonoBehaviour:
     name: Old Bandage
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+20 max health
+    levelUpInfo: '<color=green>+20 max health</color>
 
-      Restore 20 health'
+      <color=green>Restore
+      20 health</color>'
     icon: {fileID: -50417994, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3478,11 +3490,12 @@ MonoBehaviour:
     name: Green Ithildorian Fan
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+10% zone spell size
+    levelUpInfo: '<color=green>+10% zone spell size</color>
 
-      -4% spell cooldown
+      <color=green>-4%
+      spell cooldown</color>
 
-      +5% knockback'
+      <color=green>+5% knockback</color>'
     icon: {fileID: -1333174561, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3570,9 +3583,10 @@ MonoBehaviour:
     name: Red Ithildorian Fan
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+10% spell damage
+    levelUpInfo: '<color=green>+10% spell damage</color>
 
-      +5% zone effect size'
+      <color=green>+5%
+      zone effect size</color>'
     icon: {fileID: -905934401, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3660,14 +3674,15 @@ MonoBehaviour:
     name: Orb of the Oracle
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+25% invincibility time
+    levelUpInfo: '<color=green>+25% invincibility time</color>
 
-      +25% pickup range
+      <color=green>+25%
+      pickup range</color>
 
-      +7% spell
-      damage
+      <color=green>+7% spell damage</color>
 
-      -7% spell cooldowns'
+      <color=green>-7%
+      spell cooldowns</color>'
     icon: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3964,9 +3979,10 @@ MonoBehaviour:
     name: Moonweave Cloak
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+1 armor
+    levelUpInfo: '<color=green>+1 armor</color>
 
-      +20% invincibility time'
+      <color=green>+20% invincibility
+      time</color>'
     icon: {fileID: -1162172179, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4054,11 +4070,12 @@ MonoBehaviour:
     name: Magnetic Ring
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+1 armor
+    levelUpInfo: '<color=green>+1 armor</color>
 
-      -3% spell cooldowns
+      <color=green>-3% spell cooldowns</color>
 
-      +10% pickup range'
+      <color=green>+10%
+      pickup range</color>'
     icon: {fileID: 1831217539, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4146,11 +4163,12 @@ MonoBehaviour:
     name: Lunarium Skull
     damageType: 0
     description: Increase spell damage and speed in exchange for longer spell cooldowns
-    levelUpInfo: '+5% spell damage
+    levelUpInfo: '<color=green>+5% spell damage</color>
 
-      +1 speed
+      <color=green>+1 speed</color>
 
-      +5% spell cooldowns'
+      <color=red>+5%
+      spell cooldowns</color>'
     icon: {fileID: -989054158, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4538,11 +4556,12 @@ MonoBehaviour:
     name: Sweetened Roll
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+15 max health
+    levelUpInfo: '<color=green>+15 max health</color>
 
-      Restore 30 health
+      <color=green>Restore
+      30 health</color>
 
-      +1 speed'
+      <color=green>+1 speed</color>'
     icon: {fileID: 824609226, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4681,9 +4700,10 @@ MonoBehaviour:
     name: Celestial Hourglass
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '-5% spell cooldowns
+    levelUpInfo: '<color=green>-5% spell cooldowns</color>
 
-      +1 move speed'
+      <color=green>+1
+      move speed</color>'
     icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4771,9 +4791,10 @@ MonoBehaviour:
     name: Tome of Incantations
     damageType: 6
     description: Increase ability damage and reduce cooldowns
-    levelUpInfo: '+5% spell damage
+    levelUpInfo: '<color=green>+5% spell damage</color>
 
-      -5% spell cooldowns'
+      <color=green>-5% spell
+      cooldowns</color>'
     icon: {fileID: 2089560657, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4936,9 +4957,10 @@ MonoBehaviour:
     name: Elixir of vitality
     damageType: 0
     description: Increase max health and heal the player for triple the amount
-    levelUpInfo: '+20 max health
+    levelUpInfo: '<color=green>+20 max health</color>
 
-      Restore 40 health'
+      <color=green>Restore
+      40 health</color>'
     icon: {fileID: -2124382934, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -5026,11 +5048,12 @@ MonoBehaviour:
     name: Philosopher's Tome
     damageType: 0
     description: 'Increase damage and '
-    levelUpInfo: '-4% spell cooldowns
+    levelUpInfo: '<color=green>-4% spell cooldowns</color>
 
-      +1 move speed
+      <color=green>+1
+      move speed</color>
 
-      -10 max health'
+      <color=red>-10 max health</color>'
     icon: {fileID: -431026227, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -5350,11 +5373,12 @@ MonoBehaviour:
     name: Elderfruit Pie
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+20 max health
+    levelUpInfo: '<color=green>+20 max health</color>
 
-      Restore 40 health
+      <color=green>Restore
+      40 health</color>
 
-      +5% zone spell size'
+      <color=green>+5% zone spell size</color>'
     icon: {fileID: -434661629, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -5442,12 +5466,12 @@ MonoBehaviour:
     name: Dragontooth Necklace
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '+1 speed
+    levelUpInfo: '<color=green>+1 speed</color>
 
-      +5% spell damage
+      <color=green>+5% spell damage</color>
 
-      Projectile spells pierce
-      +1 additional enemy'
+      <color=green>Projectile
+      spells pierce +1 additional enemy</color>'
     icon: {fileID: 1831038322, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -5613,11 +5637,12 @@ MonoBehaviour:
     damageType: 0
     description: Increase damage of summon spells, sacrificing your own damage and
       speed in return
-    levelUpInfo: '+30% Summon damage
+    levelUpInfo: '<color=green>+30% Summon damage</color>
 
-      -5% Damage
+      <color=red>-5% Damage</color>
 
-      +1 move speed'
+      <color=green>+1
+      move speed</color>'
     icon: {fileID: -477654465, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
