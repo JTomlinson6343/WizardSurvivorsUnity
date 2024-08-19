@@ -171,11 +171,19 @@ public class AbilityManager : MonoBehaviour
         LeanTween.delayedCall(1.3f, () => { m_AbilityChoicesShown = true; }).setIgnoreTimeScale(true);
     }
 
+    void PopOutAnim()
+    {
+        LeanTween.scale(m_IconPanel, Vector3.zero, 0.25f).setIgnoreTimeScale(true);
+        LeanTween.scale(m_InfoPanel, Vector3.zero, 0.25f).setIgnoreTimeScale(true);
+
+        LeanTween.delayedCall(0.5f, () => { m_AbilityCanvas.SetActive(false); }).setIgnoreTimeScale(true);
+    }
+
     void HideAbilityOptions()
     {
         m_AbilityChoicesShown = false;
 
-        m_AbilityCanvas.SetActive(false);
+        PopOutAnim();
 
         ProgressionManager.m_Instance.ToggleHUD(true);
 
