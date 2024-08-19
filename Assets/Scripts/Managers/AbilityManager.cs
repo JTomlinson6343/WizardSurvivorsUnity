@@ -20,6 +20,10 @@ public class AbilityManager : MonoBehaviour
     AbilityIcon m_HighlightedIcon;
 
     [SerializeField] GameObject m_AbilityCanvas;
+    [SerializeField] RectTransform m_IconPanel;
+    [SerializeField] RectTransform m_InfoPanel;
+    [SerializeField] RectTransform m_IconsGUI;
+    [SerializeField] RectTransform m_InstructionLabelTrans;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
@@ -107,7 +111,6 @@ public class AbilityManager : MonoBehaviour
             icon.image.enabled = false;
         }
 
-        m_AbilityChoicesShown = true;
         Ability[] displayedAbilities = new Ability[4];
 
         int iconCounter = 0;
@@ -142,14 +145,32 @@ public class AbilityManager : MonoBehaviour
             // Show the icon
             m_Icons[iconCounter].image.enabled = true;
 
-            AudioManager.m_Instance.PlaySound(7, 0.4f);
+            AudioManager.m_Instance.PlaySound(30, 0.4f);
 
             iconCounter++;
 
             count++;
         }
+        PopInAnim();
         ProgressionManager.m_Instance.ToggleHUD(false);
         StateManager.ChangeState(StateManager.State.UPGRADING);
+    }
+
+    void PopInAnim()
+    {
+        m_InfoPanel.transform.localScale = Vector3.zero;
+        m_IconPanel.transform.localScale = Vector3.zero;
+        m_IconsGUI.transform.localScale = Vector3.zero;
+        m_InstructionLabelTrans.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(m_IconPanel, Vector3.one, 0.25f).setIgnoreTimeScale(true);
+        LeanTween.scale(m_InfoPanel, Vector3.one, 0.25f).setIgnoreTimeScale(true);
+        LeanTween.scale(m_InstructionLabelTrans, Vector3.one, 0.35f).setDelay(0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(m_IconsGUI, Vector3.one, 0.35f).setDelay(0.95f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeOutSine);
+
+        LeanTween.move()
+
+        LeanTween.delayedCall(1.3f, () => { m_AbilityChoicesShown = true; }).setIgnoreTimeScale(true);
     }
 
     void HideAbilityOptions()

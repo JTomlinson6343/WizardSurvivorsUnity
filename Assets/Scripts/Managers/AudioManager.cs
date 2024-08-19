@@ -87,7 +87,7 @@ public class AudioManager : MonoBehaviour
         {
             m_LastXPSoundTime = Time.time;
             float pitch = 0.95f + (ProgressionManager.m_Instance.m_CurrentXP / (float)ProgressionManager.m_Instance.m_NextLevelXP) * 0.2f;
-            PlaySound(1, 0.4f, pitch);
+            PlaySound(1, 0.3f, pitch);
         }
     }
 

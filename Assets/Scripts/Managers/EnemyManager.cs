@@ -39,7 +39,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Curve m_SpawnCooldownCurve;
     [SerializeField] Curve m_HealthCurve;
 
-    readonly int   kEnemyHardLimit = 100;
+    readonly int   kEnemyHardLimit = 150;
     readonly float kGracePeriodTime = 2f;
     readonly float kChampionChance = 0.01f;
 

@@ -1071,11 +1071,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6045382624821829031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 6, y: -24.4}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 6, y: 153.1}
   m_SizeDelta: {x: 356.206, y: 50}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2432302340226672147
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2149,6 +2149,10 @@ MonoBehaviour:
   - {fileID: 5614360329423494240}
   - {fileID: 3597712576150352928}
   m_AbilityCanvas: {fileID: 3061035875882456239}
+  m_IconPanel: {fileID: 6045382624821829031}
+  m_InfoPanel: {fileID: 4796808638339748648}
+  m_IconsGUI: {fileID: 5855464565257950640}
+  m_InstructionLabelTrans: {fileID: 8610575651749738589}
   m_NameLabel: {fileID: 5122924956905146136}
   m_DescriptionLabel: {fileID: 5542008527140442702}
   m_InstructionsLabel: {fileID: 8013665831323494006}
@@ -2679,6 +2683,7 @@ GameObject:
   - component: {fileID: 6045382624821829031}
   - component: {fileID: 7267825061599170283}
   - component: {fileID: 8200221965362912789}
+  - component: {fileID: 3684797857415370443}
   m_Layer: 5
   m_Name: IconPanel
   m_TagString: Untagged
@@ -2702,11 +2707,11 @@ RectTransform:
   - {fileID: 5855464565257950640}
   m_Father: {fileID: 8528037471524502612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -200, y: 0}
   m_SizeDelta: {x: 390, y: 400}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7267825061599170283
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2745,6 +2750,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3684797857415370443
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3084035245284782139}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23a0d2bde51fbdf4a8dd608d023f3489, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3440518475695790614
 GameObject:
   m_ObjectHideFlags: 0
@@ -4279,6 +4305,7 @@ GameObject:
   - component: {fileID: 4796808638339748648}
   - component: {fileID: 8126355097399815980}
   - component: {fileID: 3201358534703814998}
+  - component: {fileID: 9061935591890161504}
   m_Layer: 5
   m_Name: InfoPanel
   m_TagString: Untagged
@@ -4303,11 +4330,11 @@ RectTransform:
   - {fileID: 5396003452201024134}
   m_Father: {fileID: 8528037471524502612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 390, y: 400}
-  m_Pivot: {x: 1, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8126355097399815980
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4346,6 +4373,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &9061935591890161504
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440927995132169176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23a0d2bde51fbdf4a8dd608d023f3489, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6557763007172853116
 GameObject:
   m_ObjectHideFlags: 0
