@@ -168,8 +168,6 @@ public class AbilityManager : MonoBehaviour
         LeanTween.scale(m_InstructionLabelTrans, Vector3.one, 0.35f).setDelay(0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(m_IconsGUI, Vector3.one, 0.35f).setDelay(0.95f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeOutSine);
 
-        LeanTween.move()
-
         LeanTween.delayedCall(1.3f, () => { m_AbilityChoicesShown = true; }).setIgnoreTimeScale(true);
     }
 
