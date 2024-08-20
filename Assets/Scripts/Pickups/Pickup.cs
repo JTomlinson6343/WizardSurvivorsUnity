@@ -13,17 +13,22 @@ public class Pickup : MonoBehaviour
 
     private bool m_FinishedDropping = false;
     public bool  m_StartedAttracting = false;
+    public bool  m_PickedUp = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player")) return;
+        if (!collision.gameObject.CompareTag("Player") || m_PickedUp) return;
 
         OnPickup();
     }
 
     virtual protected void OnPickup()
     {
-        Destroy(gameObject);
+        m_PickedUp = true;
+        LeanTween.scale(gameObject, Vector3.zero, 0.2f).setOnComplete(()=>
+        {
+            Destroy(gameObject);
+        });
     }
 
     private void Awake()
