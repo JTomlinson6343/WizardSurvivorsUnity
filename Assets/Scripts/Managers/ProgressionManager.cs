@@ -268,7 +268,7 @@ public class ProgressionManager : MonoBehaviour
         m_GameOverInfoLabel.text = "";
         m_GameOverInfoLabel.text += "XP Gained: " + m_XPGained.ToString() + "\n";
 
-        m_GameOverInfoLabel.text += "Skill Points Gained: " + m_SkillPointsGained.ToString() + "\n";
+        m_GameOverInfoLabel.text += "Skill Gems Collected: " + m_SkillPointsGained.ToString() + "\n";
 
         m_GameOverInfoLabel.text += "Enemies Killed: " + m_EnemiesKilled.ToString() + "\n";
         if (m_ChampionsKilled > 0)
