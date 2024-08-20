@@ -178,27 +178,14 @@ public static class Utils
         }
     }
 
-    public static IEnumerator PulseAnim(Transform target, float duration)
+    public static void PulseAnim(RectTransform target, float duration)
     {
-        Vector3 minScale = target.localScale;
-        Vector3 maxScale = target.localScale * 1.2f;
+        if (LeanTween.isTweening(target)) return;
 
-        float timer = 0;
+        Vector3 initScale = target.localScale;
 
-        while (timer < duration)
-        {
-            if (timer < duration / 2)
-            {
-                target.localScale = Vector3.Lerp(minScale, maxScale, timer / duration);
-            }
-            else
-            {
-                target.localScale = Vector3.Lerp(maxScale, minScale, timer / duration);
-            }
-
-            timer += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-        pulsed_targets.Remove(target);
+        LTSeq seq = LeanTween.sequence();
+        seq.append( LeanTween.scale(target, new Vector3(1.2f, 1.2f, 1f), duration / 2).setIgnoreTimeScale(true) );
+        seq.append( LeanTween.scale(target, initScale, duration / 2).setIgnoreTimeScale(true) );
     }
 }

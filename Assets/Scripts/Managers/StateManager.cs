@@ -11,6 +11,7 @@ public static class StateManager
         PLAYING,
         UPGRADING,
         PAUSED,
+        TUTORIAL,
         PRE_BOSS,
         BOSS,
         GAME_OVER
@@ -34,6 +35,9 @@ public static class StateManager
                 m_PreviousState = state;
                 break;
             case State.GAME_OVER:
+                m_PreviousState = state;
+                break;
+            case State.TUTORIAL:
                 m_PreviousState = state;
                 break;
             // Otherwise switch the state to the new state

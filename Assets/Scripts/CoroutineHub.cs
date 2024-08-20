@@ -15,12 +15,4 @@ public class CoroutineHub : MonoBehaviour
     {
         StartCoroutine(Utils.SelectedAnim());
     }
-
-    public void PulseAnim(Transform target, float duration)
-    {
-        if (Utils.pulsed_targets.Contains(target)) return;
-        Utils.pulsed_targets.Add(target);
-
-        StartCoroutine(Utils.PulseAnim(target, duration));
-    }
 }

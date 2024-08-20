@@ -91,15 +91,15 @@ public class ProgressionManager : MonoBehaviour
 
     public void PauseMenuInput()
     {
-        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING || StateManager.GetCurrentState() == StateManager.State.GAME_OVER) return;
+        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING || StateManager.GetCurrentState() == StateManager.State.GAME_OVER || StateManager.GetCurrentState() == StateManager.State.TUTORIAL) return;
 
         if (Input.GetButtonDown("Pause"))
         {
             Pause();
-        }
 
-        // Show pause menu if in paused state
-        m_PauseMenu.SetActive(StateManager.GetCurrentState() == StateManager.State.PAUSED);
+            // Show pause menu if in paused state
+            m_PauseMenu.SetActive(StateManager.GetCurrentState() == StateManager.State.PAUSED);
+        }
     }
 
     void Pause()
@@ -124,17 +124,17 @@ public class ProgressionManager : MonoBehaviour
     public void UpdateWaveLabel(int wave)
     {
         m_WaveLabel.GetComponent<TextMeshProUGUI>().text = "Wave: " + wave.ToString();
-        CoroutineHub.m_Instance.PulseAnim(m_WaveLabel.transform, 0.5f);
+        Utils.PulseAnim(m_WaveLabel.GetComponent<RectTransform>(), 0.5f);
     }
     public void UpdateScoreLabel(int score)
     {
         m_ScoreLabel.GetComponent<TextMeshProUGUI>().text = "Gems: " + score.ToString();
-        CoroutineHub.m_Instance.PulseAnim(m_ScoreLabel.transform, 0.25f);
+        Utils.PulseAnim(m_ScoreLabel.GetComponent<RectTransform>(), 0.25f);
     }
     public void UpdateLevelLabel()
     {
         m_LevelLabel.GetComponent<TextMeshProUGUI>().text = "Level: " + Mathf.RoundToInt(m_Level).ToString();
-        CoroutineHub.m_Instance.PulseAnim(m_LevelLabel.transform, 0.25f);
+        Utils.PulseAnim(m_LevelLabel.GetComponent<RectTransform>(), 0.5f);
     }
 
     public void AddScore(int score)

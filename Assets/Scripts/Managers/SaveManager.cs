@@ -13,6 +13,8 @@ public struct SaveData
     public TrackedStat[] stats;
 
     public Unlockable[] unlockables;
+
+    public string[] viewedTutorials;
 }
 
 [System.Serializable]
@@ -49,6 +51,8 @@ public class SaveManager
         SaveOptions();
 
         SaveUnlocks();
+
+        SaveViewedTutorials();
 
         // Save data as JSON
         string json = JsonUtility.ToJson(m_SaveData, true);
@@ -97,6 +101,10 @@ public class SaveManager
 
         m_SaveData.unlockables = UnlockManager.m_Unlockables.ToArray();
     }
+    private static void SaveViewedTutorials()
+    {
+        m_SaveData.viewedTutorials = TutorialManager.m_ViewedTutorials.ToArray();
+    }
 
     public static void LoadFromFile(SkillTree[] skillTrees) // Called on game start
     {
@@ -122,6 +130,7 @@ public class SaveManager
         LoadSkills();
         LoadOptions();
         LoadUnlocks();
+        LoadViewedTutorials();
     }
 
     private static void LoadSkills()
@@ -160,6 +169,12 @@ public class SaveManager
         else UnlockManager.m_Unlockables = m_SaveData.unlockables?.ToList();
 
         UnlockManager.CheckUnlockConditions();
+    }
+
+    public static void LoadViewedTutorials()
+    {
+        if (m_SaveData.viewedTutorials.Length == 0) return;
+        TutorialManager.m_ViewedTutorials = m_SaveData.viewedTutorials?.ToList();
     }
 
     // Adds skill points to the specified tree. Called at the end of a run

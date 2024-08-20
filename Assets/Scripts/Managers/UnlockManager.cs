@@ -22,14 +22,6 @@ public class TrackedStat
 {
     public string name;
     public float stat;
-    //// GENERAL
-    //public int kills;
-    //public float totalDamageDealt;
-    //public float DoTDamageDealt;
-
-    //// SPECIFIC
-    //public float iceDamageDealt; // Total ice damage dealt
-    //public float totalCooldown; // Cooldown in one run. Resets after run
 }
 
 [System.Serializable]

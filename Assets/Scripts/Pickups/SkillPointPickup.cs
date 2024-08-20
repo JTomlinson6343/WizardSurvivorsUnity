@@ -9,5 +9,6 @@ public class SkillPointPickup : Pickup
         ProgressionManager.m_Instance.AddSkillPoints(1);
         AudioManager.m_Instance.PlayRandomPitchSound(13, 0.5f);
         base.OnPickup();
+        TutorialManager.DisplayTutorial("Skill Gems");
     }
 }
