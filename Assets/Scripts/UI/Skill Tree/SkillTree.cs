@@ -38,6 +38,8 @@ public class SkillTree : MonoBehaviour
         UpdateSkillPointsLabel();
         ColorCheckPass();
         ColourAllIcons();
+
+        if (m_TotalSkillPoints > 0) TutorialManager.DisplayTutorial("Skill Trees");
     }
 
     private void ColourAllIcons()
