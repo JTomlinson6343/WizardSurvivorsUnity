@@ -123,8 +123,8 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     public void SaveSkillPoints(int points)
     {
-        m_SkillTreeRef.m_TotalSkillPoints += points;
-        m_SkillTreeRef.m_CurrentSkillPoints += points;
+        m_SkillTreeRef.m_TotalSkillPoints = Mathf.Clamp(m_SkillTreeRef.m_TotalSkillPoints + points,0, SkillTree.kSkillPointCap);
+        m_SkillTreeRef.m_CurrentSkillPoints = Mathf.Clamp(m_SkillTreeRef.m_CurrentSkillPoints + points, 0, SkillTree.kSkillPointCap);
         SaveManager.SaveToFile();
     }
 
