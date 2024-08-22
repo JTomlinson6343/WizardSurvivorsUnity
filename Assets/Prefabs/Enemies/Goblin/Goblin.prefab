@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 100
   m_Health: 100
-  m_KnockbackResist: 1
+  m_KnockbackResist: 0.5
   m_DamageResistance: 0
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 5200942333771206442}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_DontStopRange: 6.5
   m_StopChancePerFrame: 0.01
   m_StopDuration: 3
-  m_DashSpeedModifier: 2
+  m_DashSpeedModifier: 1.5
   m_CamoAlphaValue: 0.25
   m_VanishDuration: 1
 --- !u!1 &5200942333771206442

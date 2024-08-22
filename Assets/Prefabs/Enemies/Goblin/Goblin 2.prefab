@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2675014441509356768, guid: 24e4e6de6fb8c03499135c9a7ee31d83, type: 3}
       propertyPath: m_DashSpeedModifier
-      value: 2.75
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 2675014441509356768, guid: 24e4e6de6fb8c03499135c9a7ee31d83, type: 3}
       propertyPath: m_KnockbackModifier

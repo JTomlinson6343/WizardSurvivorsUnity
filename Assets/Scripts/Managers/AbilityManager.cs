@@ -183,8 +183,6 @@ public class AbilityManager : MonoBehaviour
     {
         m_AbilityChoicesShown = false;
 
-        PopOutAnim();
-
         ProgressionManager.m_Instance.ToggleHUD(true);
 
         StateManager.UnPause();
@@ -192,6 +190,8 @@ public class AbilityManager : MonoBehaviour
         DeHighlightAbilityIcons();
 
         m_ConfirmButton.SetActive(false);
+
+        PopOutAnim();
     }
 
     bool CheckAlreadyDisplayed(Ability ability, Ability[] displayedAbilities)

@@ -156,4 +156,6 @@ MonoBehaviour:
     min: 40
     max: 1000
     alpha: 0.03
-  m_SlimePrefabs: []
+  m_SlimePrefabs:
+  - {fileID: 4782787995318582076, guid: 9be176070d5270e44b396b4f8d9a6f56, type: 3}
+  - {fileID: 4782787995318582076, guid: d2dbeee120f1cbf428dc940840896b25, type: 3}
