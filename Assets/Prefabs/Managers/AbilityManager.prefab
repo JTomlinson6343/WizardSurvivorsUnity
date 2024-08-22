@@ -3798,9 +3798,12 @@ MonoBehaviour:
   m_Data:
     name: Ray of Sickness
     damageType: 3
-    description: 
+    description: 'Fire a poisonous ray at a random enemy that deals constant damage
+      for a short time
+
+      (1.75s cooldown)'
     levelUpInfo: 
-    icon: {fileID: -494512639, guid: 0aed55716912bb942b6f906c1397928b, type: 3}
+    icon: {fileID: 1815339386, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 00000000
@@ -4284,9 +4287,11 @@ MonoBehaviour:
   m_Data:
     name: Frostbolt
     damageType: 1
-    description: Fires two frostbolts at the closest enemy
+    description: 'Fire two frostbolts at the closest enemy
+
+      (1.5s cooldown)'
     levelUpInfo: 
-    icon: {fileID: 264424629, guid: 7f08118edc51edb47b45aaf589fb0a6f, type: 3}
+    icon: {fileID: -1602132841, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 00000000
@@ -4699,9 +4704,12 @@ MonoBehaviour:
   m_Data:
     name: Control Flames
     damageType: 0
-    description: Fires a fireball at the closest enemy
+    description: 'Spawn a flame that moves through the nearest enemy and comes back
+      after a delay
+
+      (3s cooldown)'
     levelUpInfo: 
-    icon: {fileID: 21300000, guid: 5f1406262bf056c48be9f24818a69961, type: 3}
+    icon: {fileID: -516004458, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
   m_SpellTags: 000000000400000005000000
