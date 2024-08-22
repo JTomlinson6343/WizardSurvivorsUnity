@@ -255,8 +255,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionManager, Assembly-CSharp
+      - m_Target: {fileID: 400755870632121499}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: CloseTutorial
         m_Mode: 1
         m_Arguments:
@@ -316,19 +316,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b58283ab56b4444badded23a0ec66dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Panel: {fileID: 0}
-  m_Title: {fileID: 0}
-  m_Text: {fileID: 0}
+  m_Panel: {fileID: 807547690382724648}
+  m_Title: {fileID: 233474430306282935}
+  m_Text: {fileID: 7767841997257474145}
+  m_DarkenScreen: {fileID: 0}
   m_Tutorials:
   - name: Skill Gems
     title: Skill Gems
     text: You just collected a Skill Gem! Skill Gems can be spent on a character's
-      skill tree to learn new and powerful skills. Spent Skill Gems can be refunded
-      at any time.
+      skill tree to learn new and powerful skills.
   - name: Skill Trees
     title: Skill Trees
-    text: You just collected a Skill Gem! Skill Gems can be spent on a character's
-      skill tree to learn new and powerful skills.
+    text: 'This is the Skill Tree! Highlight a skill and press the Unlock button
+      to spend your Skill Gems and unlock the skill.
+
+      Spent Skill Gems may
+      be refunded at any time.
+
+      You can collect up to 500 Skill Gems per character.'
 --- !u!1 &7768810266170100996
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +630,7 @@ RectTransform:
   m_GameObject: {fileID: 9148011512747663878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6640442538661844935}

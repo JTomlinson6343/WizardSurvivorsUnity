@@ -14,7 +14,7 @@ public class SkillTree : MonoBehaviour
     public Color m_CharacterColour;
 
     public int m_TotalSkillPoints;
-    private int m_SkillPointCap;
+    public static readonly int kSkillPointCap = 300;
     public int m_CurrentSkillPoints;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
@@ -38,6 +38,8 @@ public class SkillTree : MonoBehaviour
         UpdateSkillPointsLabel();
         ColorCheckPass();
         ColourAllIcons();
+
+        if (m_TotalSkillPoints > 0) TutorialManager.DisplayTutorial("Skill Trees");
     }
 
     private void ColourAllIcons()
@@ -60,7 +62,9 @@ public class SkillTree : MonoBehaviour
 
     private void UpdateSkillPointsLabel()
     {
-        m_SkillPointsLabel.text = "Current: " + Mathf.Clamp(m_CurrentSkillPoints, 0, 999).ToString();
+        string colour1 = m_CurrentSkillPoints == kSkillPointCap ? "<color=orange>" : "";
+        string colour2 = m_CurrentSkillPoints == kSkillPointCap ? "</color>" : "";
+        m_SkillPointsLabel.text = "Current: " + colour1 + Mathf.Clamp(m_CurrentSkillPoints, 0, 999).ToString() + colour2;
     }
 
     private int GetCurrentLevelCost()
@@ -107,7 +111,10 @@ public class SkillTree : MonoBehaviour
                 m_DescriptionLabel.text = m_CurrentSkill.m_Description[m_CurrentSkill.m_Data.level-1];
         }
         m_OnLevelUpLabel.text = GetCurrentOnLevelUpMessage();
-        m_CostLabel.text = "Cost: " + GetCurrentLevelCost().ToString();
+
+        string colour1 = m_CurrentSkillPoints < GetCurrentLevelCost() ? "<color=red>" : "";
+        string colour2 = m_CurrentSkillPoints < GetCurrentLevelCost() ? "</color>" : "";
+        m_CostLabel.text = "Cost: " + colour1 + GetCurrentLevelCost().ToString() + colour2;
 
         // Display unlock button
         m_UnlockButton.gameObject.SetActive(true);
