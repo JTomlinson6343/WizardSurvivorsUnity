@@ -157,7 +157,7 @@ public class SaveManager
     {
         AudioManager.m_MusicVolume = m_SaveData.options.musicVolume;
         AudioManager.m_SoundVolume = m_SaveData.options.soundVolume;
-        Player.m_AutoFire          = m_SaveData.options.autoFire;
+        Player.m_AutoFire          = true;
     }
 
     public static void LoadUnlocks()

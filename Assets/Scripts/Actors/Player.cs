@@ -156,9 +156,10 @@ public class Player : Actor
     {
         Vector3 currentVelocity = m_RigidBody.velocity;
 
-        Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 moveDir = Joystick.m_Instance.Direction;
 
-        if (moveDir.magnitude > 1f) moveDir.Normalize();
+        moveDir.Normalize();
 
         Vector3 targetVelocity = moveDir * GetComponent<Player>().GetStats().speed;
 

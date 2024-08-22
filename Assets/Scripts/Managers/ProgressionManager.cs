@@ -96,13 +96,10 @@ public class ProgressionManager : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             Pause();
-
-            // Show pause menu if in paused state
-            m_PauseMenu.SetActive(StateManager.GetCurrentState() == StateManager.State.PAUSED);
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         if (StateManager.GetCurrentState() == StateManager.State.PAUSED)
         {
@@ -114,6 +111,9 @@ public class ProgressionManager : MonoBehaviour
             m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
             StateManager.ChangeState(StateManager.State.PAUSED);
         }
+
+        // Show pause menu if in paused state
+        m_PauseMenu.SetActive(StateManager.GetCurrentState() == StateManager.State.PAUSED);
     }
 
     public void ToggleHUD(bool toggle)

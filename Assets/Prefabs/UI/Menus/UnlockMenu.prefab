@@ -428,7 +428,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -31, y: -0.3614}
-  m_SizeDelta: {x: 20.217, y: 392.8797}
+  m_SizeDelta: {x: 27.9675, y: 392.8797}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &5993264024517828235
 CanvasRenderer:
@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Selectables:
   - {fileID: 7969339312474926015}
   m_BackButton: {fileID: 0}
+  m_RememberSelectedButtonPos: 1
   m_Direction: 1
   m_ScrollbarDirection: 0
   m_Type: 0

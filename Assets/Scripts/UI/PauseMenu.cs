@@ -17,7 +17,6 @@ public class PauseMenu : MonoBehaviour
     {
         m_MusicSlider.value = AudioManager.m_MusicVolume;
         m_SoundSlider.value = AudioManager.m_SoundVolume;
-        m_AutoFireToggle.isOn = Player.m_AutoFire;
     }
 
     public void OnAutoFireValueChanged(bool value)

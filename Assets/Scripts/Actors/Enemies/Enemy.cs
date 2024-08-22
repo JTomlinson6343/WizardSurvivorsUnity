@@ -22,7 +22,7 @@ public class Enemy : Actor
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;
-    private readonly float m_kBaseMoveSpeed = 2.2f;
+    private readonly float m_kBaseMoveSpeed = 2.0f;
 
     protected readonly float kSkillPointDropChance = 0.005f;
     private readonly int     m_MinChampSkillPoints = 2;
