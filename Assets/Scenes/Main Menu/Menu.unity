@@ -52673,6 +52673,7 @@ PrefabInstance:
     - {fileID: 616230413574678488, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3723269462680380664, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
+    - {fileID: 2181492694029425918, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3726613865668241289, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
@@ -53417,17 +53418,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1054748874 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8139869240870180789, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
-  m_PrefabInstance: {fileID: 664380066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1086658700
 GameObject:
   m_ObjectHideFlags: 0
@@ -53929,17 +53919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1231294531 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7324973389613821477, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
-  m_PrefabInstance: {fileID: 664380066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1237330525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1629681967590083628, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
@@ -54269,7 +54248,7 @@ MonoBehaviour:
   m_Selectables:
   - {fileID: 1660498430}
   - {fileID: 1709825017}
-  - {fileID: 1054748874}
+  - {fileID: 0}
   m_BackButton: {fileID: 69842482}
   m_RememberSelectedButtonPos: 1
   m_Direction: 1
@@ -54280,7 +54259,7 @@ MonoBehaviour:
   m_Labels:
   - {fileID: 1322052317}
   - {fileID: 351801312}
-  - {fileID: 1231294531}
+  - {fileID: 0}
   - {fileID: 1551110856}
   m_ControllerButtons:
   - {fileID: 2055109433}
