@@ -1298,6 +1298,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI Icons_56
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c60aeefa978514d9f3719598e7f5fb
+      internalID: -1602132841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Icons_57
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 0
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c11af79bd52024dbb846c8985138fd
+      internalID: 1815339386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1361,6 +1403,8 @@ TextureImporter:
       UI Icons_53: 1197766960
       UI Icons_54: 2130014849
       UI Icons_55: -1385427883
+      UI Icons_56: -1602132841
+      UI Icons_57: 1815339386
       UI Icons_6: -1899836446
       UI Icons_7: 1613330624
       UI Icons_8: -1068023403
