@@ -74,7 +74,7 @@ public class CharacterMenu : MonoBehaviour
             m_StartButtonRef.interactable = false;
 
             string message = "";
-            if (charIcon == m_IceMageIcon) message = "To Unlock: " + UnlockManager.GetUnlockConditionWithName("Ice Mage").FormatConditionMessage();
+            if (charIcon == m_IceMageIcon) message = "To Unlock: " + UnlockManager.GetUnlockConditionWithName("Ice Mage").message;
             if (charIcon == m_LightningMageIcon) message = "To Unlock: " + UnlockManager.GetUnlockConditionWithName("Lightning Mage").message;
 
             m_UnlockConditionsLabel.text = message;
@@ -140,7 +140,7 @@ public class CharacterMenu : MonoBehaviour
 
     void CheckUnlocks()
     {
-        m_IceMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Ice Mage").unlocked);
-        m_LightningMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Lightning Mage").unlocked);
+        m_IceMageIcon.SetUnlockState(true);
+        m_LightningMageIcon.SetUnlockState(true);
     }
 }

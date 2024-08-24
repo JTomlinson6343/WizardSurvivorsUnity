@@ -54168,7 +54168,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1473460951}
   m_OnClick:
     m_PersistentCalls:
@@ -54287,8 +54287,8 @@ PrefabInstance:
       value: UnlockManager
       objectReference: {fileID: 0}
     - target: {fileID: 4173082893178003642, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
-      propertyPath: m_UnlockConditions.Array.data[3].message
-      value: Deal 5000 damage with summon spells.
+      propertyPath: m_UnlockConditions.Array.data[0].doFormatMessage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7038671002124270075, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
       propertyPath: m_Pivot.x

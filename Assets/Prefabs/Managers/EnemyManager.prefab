@@ -48,18 +48,12 @@ MonoBehaviour:
   - {fileID: 4782787995318582076, guid: 41affc13d066f11498b357961699e749, type: 3}
   - {fileID: 1457567220182255292, guid: 699b757e7a7b9c1448cc2069ae20d6e4, type: 3}
   - {fileID: 3945503132666325212, guid: e5f8856ba41ca234c93fcc2a794c9143, type: 3}
-  - {fileID: 4782787995318582076, guid: 24e4e6de6fb8c03499135c9a7ee31d83, type: 3}
-  - {fileID: 856843315328563944, guid: 6be8b29c9c590a54db9c6b10f1fa11e1, type: 3}
   - {fileID: 4782787995318582076, guid: 34e791b29a3c12e45bb6b2b748ae3362, type: 3}
   - {fileID: 7985817876640661879, guid: 0ccd4de7dc0e01c43bb1be6e804f74e8, type: 3}
   - {fileID: 4782787995318582076, guid: 9be176070d5270e44b396b4f8d9a6f56, type: 3}
-  - {fileID: 6031074132664800199, guid: 8b6a8d303b6f59d4dadb0f5b24207af1, type: 3}
-  - {fileID: 6031074132664800199, guid: b461d3c271dc1fc4c8198d7e521b2617, type: 3}
   - {fileID: 4782787995318582076, guid: d2dbeee120f1cbf428dc940840896b25, type: 3}
   m_BossPrefabs:
-  - {fileID: 4782787995318582076, guid: 5c46fe11d484eaa499c810f793fe9330, type: 3}
   - {fileID: 4782787995318582076, guid: ca6d371efbf397840883c5b212c080ba, type: 3}
-  - {fileID: 383119644722088283, guid: 716440f747e78a84a82cfb1e142eb5a6, type: 3}
   m_SpawnCooldown: 0.3
   m_WaveTimer: 60
   m_SpawnRadius: 15
@@ -156,4 +150,6 @@ MonoBehaviour:
     min: 40
     max: 1000
     alpha: 0.03
-  m_SlimePrefabs: []
+  m_SlimePrefabs:
+  - {fileID: 4782787995318582076, guid: 9be176070d5270e44b396b4f8d9a6f56, type: 3}
+  - {fileID: 4782787995318582076, guid: d2dbeee120f1cbf428dc940840896b25, type: 3}

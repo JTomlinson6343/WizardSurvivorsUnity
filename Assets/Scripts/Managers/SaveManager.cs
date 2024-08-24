@@ -35,7 +35,7 @@ public class OptionsData
 
 public class SaveManager
 {
-    static readonly string m_Path = Application.persistentDataPath + "/save.json";
+    static readonly string m_Path = Application.persistentDataPath + "/save_demo.json";
 
     static SkillTree[] m_SkillTrees;
     static SaveData m_SaveData;

@@ -118,13 +118,13 @@ MonoBehaviour:
   m_UnlockConditions:
   - name: Ice Mage
     image: {fileID: 211959678, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Deal 50000 frost damage.
+    message: Available in the full game
     condition: 50000
-    doFormatMessage: 1
+    doFormatMessage: 0
     trackedStatName: iceDamageDealt
   - name: Lightning Mage
     image: {fileID: -146542664, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Reach a total of 50% spell cooldown reduction in a single run.
+    message: Available in the full game
     condition: -0.5
     doFormatMessage: 0
     trackedStatName: totalCooldown
