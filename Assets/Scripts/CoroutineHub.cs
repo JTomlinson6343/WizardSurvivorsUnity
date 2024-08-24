@@ -9,10 +9,6 @@ public class CoroutineHub : MonoBehaviour
     private void Awake()
     {
         m_Instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
         StartCoroutine(Utils.SelectedAnim());
     }
 }
