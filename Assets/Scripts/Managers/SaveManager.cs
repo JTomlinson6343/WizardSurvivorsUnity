@@ -93,7 +93,7 @@ public class SaveManager
         m_SaveData.options = new OptionsData();
         m_SaveData.options.musicVolume = AudioManager.m_MusicVolume;
         m_SaveData.options.soundVolume = AudioManager.m_SoundVolume;
-        m_SaveData.options.autoFire    = Player.m_AutoFire;
+        m_SaveData.options.autoFire    = true;
     }
     private static void SaveUnlocks()
     {
