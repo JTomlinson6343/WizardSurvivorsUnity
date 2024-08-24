@@ -163,6 +163,9 @@ public class AbilityManager : MonoBehaviour
         m_IconsGUI.transform.localScale = Vector3.zero;
         m_InstructionLabelTrans.transform.localScale = Vector3.zero;
 
+        if (LeanTween.isTweening(m_IconPanel)) LeanTween.cancel(m_IconPanel);
+        if (LeanTween.isTweening(m_InfoPanel)) LeanTween.cancel(m_InfoPanel);
+
         LeanTween.scale(m_IconPanel, Vector3.one, 0.25f).setIgnoreTimeScale(true);
         LeanTween.scale(m_InfoPanel, Vector3.one, 0.25f).setIgnoreTimeScale(true);
         LeanTween.scale(m_InstructionLabelTrans, Vector3.one, 0.35f).setDelay(0.5f).setIgnoreTimeScale(true);
@@ -176,7 +179,10 @@ public class AbilityManager : MonoBehaviour
         LeanTween.scale(m_IconPanel, Vector3.zero, 0.25f).setIgnoreTimeScale(true);
         LeanTween.scale(m_InfoPanel, Vector3.zero, 0.25f).setIgnoreTimeScale(true);
 
-        LeanTween.delayedCall(0.5f, () => { m_AbilityCanvas.SetActive(false); }).setIgnoreTimeScale(true);
+        LeanTween.delayedCall(0.5f, () => {
+            m_AbilityCanvas.SetActive(false);
+            StateManager.UnPause();
+        }).setIgnoreTimeScale(true);
     }
 
     void HideAbilityOptions()
@@ -184,8 +190,6 @@ public class AbilityManager : MonoBehaviour
         m_AbilityChoicesShown = false;
 
         ProgressionManager.m_Instance.ToggleHUD(true);
-
-        StateManager.UnPause();
 
         DeHighlightAbilityIcons();
 

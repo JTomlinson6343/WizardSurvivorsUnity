@@ -82,6 +82,8 @@ public class Flamethrower : Ability
         }
 
         m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
+
+        transform.position = Player.m_Instance.GetStaffTransform().position;
     }
 
     private bool ControllerInput()

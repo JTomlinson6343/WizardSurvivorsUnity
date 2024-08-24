@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PurpleGhost : ConstantDamageAOE
 {
-    const float kBounceRadius = 4f;
+    const float kBounceRadius = 8f;
     [SerializeField] int m_MaxBounces;
     int m_BounceCount = 0;
     public GameObject m_CurrentTarget;
