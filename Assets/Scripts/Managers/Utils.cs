@@ -165,11 +165,11 @@ public static class Utils
 
                 if (timer < duration / 2)
                 {
-                    selected_target.localScale = Vector3.Lerp(selected_target_init_scale, selected_target_max_scale, timer / duration);
+                    if (selected_target) selected_target.localScale = Vector3.Lerp(selected_target_init_scale, selected_target_max_scale, timer / duration);
                 }
                 else
                 {
-                    selected_target.localScale = Vector3.Lerp(selected_target_max_scale, selected_target_init_scale, timer / duration);
+                    if (selected_target) selected_target.localScale = Vector3.Lerp(selected_target_max_scale, selected_target_init_scale, timer / duration);
                 }
 
                 timer += Time.deltaTime;
