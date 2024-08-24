@@ -118,8 +118,8 @@ MonoBehaviour:
   m_UnlockConditions:
   - name: Ice Mage
     image: {fileID: 211959678, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Deal 50000 frost damage.
-    condition: 50000
+    message: Deal 20000 frost damage.
+    condition: 20000
     doFormatMessage: 1
     trackedStatName: iceDamageDealt
   - name: Lightning Mage

@@ -333,7 +333,7 @@ MonoBehaviour:
       Spent Skill Gems may
       be refunded at any time.
 
-      You can collect up to 500 Skill Gems per character.'
+      You can collect up to 300 Skill Gems per character.'
 --- !u!1 &7768810266170100996
 GameObject:
   m_ObjectHideFlags: 0
