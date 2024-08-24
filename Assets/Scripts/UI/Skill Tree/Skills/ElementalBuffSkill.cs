@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ElementalBuffSkill : Skill
@@ -13,7 +14,7 @@ public class ElementalBuffSkill : Skill
 
         for (int i = 0; i < data.level; i++)
         {
-            AbilityManager.m_Instance.AddElementalAbilityBonusStats(m_DamageType, m_StatBuffs);
+            if (AbilityManager.m_Instance) AbilityManager.m_Instance.AddElementalAbilityBonusStats(m_DamageType, m_StatBuffs);
         }
     }
 }

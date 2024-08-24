@@ -10,6 +10,8 @@ public class Flamethrower : Ability
     private float m_LastCast;
     private float m_LockoutTime = 0.5f;
 
+    bool m_Autofire = false;
+
     override public void Start()
     {
         base.Start();
@@ -22,17 +24,11 @@ public class Flamethrower : Ability
 
         if (!m_Enabled) return;
 
-        if (Player.m_AutoFire)
+        if (m_Autofire)
         {
             AutoCast();
             return;
         }
-        if (!(MouseInput() || ControllerInput()))
-        {
-            m_FlamethrowerObject.SetActive(false);
-        }
-
-        transform.position = Player.m_Instance.GetStaffTransform().position;
     }
 
     private bool MouseInput()
@@ -57,7 +53,7 @@ public class Flamethrower : Ability
 
     public override void ToggleAutofire(bool on)
     {
-        
+        m_Autofire = true;
     }
 
     private void AutoCast()
@@ -80,6 +76,8 @@ public class Flamethrower : Ability
         }
 
         m_FlamethrowerObject.transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
+
+        transform.position = Player.m_Instance.GetStaffTransform().position;
     }
 
     private bool ControllerInput()

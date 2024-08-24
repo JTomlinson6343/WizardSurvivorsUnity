@@ -154,7 +154,7 @@ public class Ability : MonoBehaviour
             while (m_CooldownRemaining > 0f) // Count down cooldown
             {
                 m_CooldownRemaining -= Time.deltaTime;
-                yield return new WaitForSeconds(Time.deltaTime);
+                yield return new WaitForEndOfFrame();
             }
             CastSpell();
         }

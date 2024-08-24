@@ -15,7 +15,7 @@ public class AbilityBuffSkill : Skill
         {
             if (!m_Ability)
             {
-                AbilityManager.m_Instance.AddAbilityStatBuffs(m_StatBuffs);
+                if (AbilityManager.m_Instance) AbilityManager.m_Instance.AddAbilityStatBuffs(m_StatBuffs);
                 continue;
             }
 
