@@ -10,6 +10,8 @@ public class Flamethrower : Ability
     private float m_LastCast;
     private float m_LockoutTime = 0.5f;
 
+    private bool m_Autofire = false;
+
     override public void Start()
     {
         base.Start();
@@ -22,7 +24,7 @@ public class Flamethrower : Ability
 
         if (!m_Enabled) return;
 
-        if (Player.m_AutoFire)
+        if (m_Autofire)
         {
             AutoCast();
             return;
@@ -57,7 +59,7 @@ public class Flamethrower : Ability
 
     public override void ToggleAutofire(bool on)
     {
-        
+        m_Autofire = on;
     }
 
     private void AutoCast()

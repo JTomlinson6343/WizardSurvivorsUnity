@@ -294,6 +294,7 @@ MonoBehaviour:
   m_DebuffPlacement: {fileID: 151483411280086891}
   m_DebuffImmunities: 
   m_DebuffImmune: 0
+  m_Targetable: 1
   m_Stunned: 0
   m_StaffPos: {fileID: 8211081490223675830}
   m_CentrePos: {fileID: 151483411280086891}
@@ -546,9 +547,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ba6f034ac7b4b45877ecd62a409e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Unlocked: 1
   m_isMaxed: 0
   m_IsSpell: 0
   m_CastAmount: 1
+  m_BaseCastAmount: 1
   m_BaseStats:
     AOE: 0
     duration: 0

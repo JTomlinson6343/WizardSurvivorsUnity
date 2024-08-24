@@ -90,7 +90,7 @@ public class Player : Actor
     {
         base.Start();
         UpdateStats();
-        ToggleAutoFire();
+        LeanTween.delayedCall(0.1f, () => { ToggleAutoFire(); });
     }
 
     public override void Update()

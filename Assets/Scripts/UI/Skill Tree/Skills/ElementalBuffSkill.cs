@@ -13,7 +13,7 @@ public class ElementalBuffSkill : Skill
 
         for (int i = 0; i < data.level; i++)
         {
-            AbilityManager.m_Instance.AddElementalAbilityBonusStats(m_DamageType, m_StatBuffs);
+            AbilityManager.m_Instance?.AddElementalAbilityBonusStats(m_DamageType, m_StatBuffs);
         }
     }
 }
