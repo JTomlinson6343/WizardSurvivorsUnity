@@ -15,6 +15,8 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_InfoLabel;
+    [SerializeField] TextMeshProUGUI m_StartSpellNameLabel;
+    [SerializeField] TextMeshProUGUI m_StartSpellDescLabel;
     [SerializeField] TextMeshProUGUI m_UnlockConditionsLabel;
 
     [SerializeField] Button m_StartButtonRef;
@@ -32,6 +34,8 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] CharacterIcon m_IceMageIcon;
     [SerializeField] CharacterIcon m_LightningMageIcon;
+
+    [SerializeField] SkillTree m_GlobalSkillTree;
 
     public void Awake()
     {
@@ -54,6 +58,8 @@ public class CharacterMenu : MonoBehaviour
 
         m_NameLabel.text = charIcon.m_CharName;
         m_InfoLabel.text = charIcon.m_Description;
+        m_StartSpellNameLabel.text = "Starting Spell:";
+        m_StartSpellDescLabel.text = charIcon.m_StartSpellName + ": " + charIcon.m_StartSpellDesc;
 
         if (charIcon.m_Unlocked)
         {
@@ -62,8 +68,6 @@ public class CharacterMenu : MonoBehaviour
 
             m_SkillTreeButtonRef.interactable = true;
             m_StartButtonRef.interactable = true;
-
-            m_UnlockConditionsLabel.text = "";
         }
         else
         {
@@ -72,12 +76,6 @@ public class CharacterMenu : MonoBehaviour
 
             m_SkillTreeButtonRef.interactable = false;
             m_StartButtonRef.interactable = false;
-
-            string message = "";
-            if (charIcon == m_IceMageIcon) message = "To Unlock: " + UnlockManager.GetUnlockConditionWithName("Ice Mage").FormatConditionMessage();
-            if (charIcon == m_LightningMageIcon) message = "To Unlock: " + UnlockManager.GetUnlockConditionWithName("Lightning Mage").message;
-
-            m_UnlockConditionsLabel.text = message;
         }
     }
 
@@ -105,14 +103,24 @@ public class CharacterMenu : MonoBehaviour
         m_CurrentCharacterSkillTree.gameObject.SetActive(true);
         m_CurrentCharacterSkillTree.GetComponent<Navigator2D>().Start();
     }
+    
+    public void LoadGlobalSkillTree()
+    {
+        gameObject.SetActive(false);
+
+        m_GlobalSkillTree.gameObject.SetActive(true);
+        m_GlobalSkillTree.GetComponent<Navigator2D>().Start();
+    }
 
     public SkillTree[] GetSkillTreeRefs()
     {
-        m_SkillTreeRefs = new SkillTree[GetComponentsInChildren<CharacterIcon>().Length];
+        m_SkillTreeRefs = new SkillTree[GetComponentsInChildren<CharacterIcon>().Length + 1];
+
+        m_SkillTreeRefs[0] = m_GlobalSkillTree;
 
         for (int i = 0; i < GetComponentsInChildren<CharacterIcon>().Length; i++)
         {
-            m_SkillTreeRefs[i] = GetComponentsInChildren<CharacterIcon>()[i].m_SkillTree;
+            m_SkillTreeRefs[i+1] = GetComponentsInChildren<CharacterIcon>()[i].m_SkillTree;
         }
 
         return m_SkillTreeRefs;
@@ -126,6 +134,7 @@ public class CharacterMenu : MonoBehaviour
 
         PlayerManager.m_Character = m_CurrentCharacter;
         PlayerManager.m_SkillTreeRef = m_CurrentCharacterSkillTree;
+        PlayerManager.m_GlobalSkillTreeRef = m_GlobalSkillTree;
         PlayerManager.m_SkillTreeRef.PassEnabledSkillsToManager();
         StateManager.ForceChangeState(StateManager.State.PLAYING);
         SceneManager.LoadScene("Main Scene");

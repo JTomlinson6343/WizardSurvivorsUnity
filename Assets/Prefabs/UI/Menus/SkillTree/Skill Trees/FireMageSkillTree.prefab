@@ -2916,7 +2916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
-      value: Increased move speed
+      value: Increase movement speed by 1
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[1]
@@ -2932,7 +2932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[0]
-      value: More speed!
+      value: +1 move speed
       objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x

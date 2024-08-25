@@ -64,7 +64,7 @@ public class SkillTree : MonoBehaviour
     {
         string colour1 = m_CurrentSkillPoints == kSkillPointCap ? "<color=orange>" : "";
         string colour2 = m_CurrentSkillPoints == kSkillPointCap ? "</color>" : "";
-        m_SkillPointsLabel.text = "Current: " + colour1 + Mathf.Clamp(m_CurrentSkillPoints, 0, 999).ToString() + colour2;
+        m_SkillPointsLabel.text = "Current: " + colour1 + m_CurrentSkillPoints.ToString() + colour2;
     }
 
     private int GetCurrentLevelCost()

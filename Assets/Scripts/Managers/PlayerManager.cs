@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
 
     public static GameObject m_Character;
     public static SkillTree m_SkillTreeRef;
+    public static SkillTree m_GlobalSkillTreeRef;
     public GameObject m_Camera;
     [SerializeField] float m_CameraSpeed;
 
@@ -124,11 +125,16 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     public void SaveSkillPoints(int points)
     {
         int difference = m_SkillTreeRef.m_TotalSkillPoints + points - SkillTree.kSkillPointCap;
+        int globalDifference = m_GlobalSkillTreeRef.m_TotalSkillPoints + points - 9999;
 
         m_SkillTreeRef.m_TotalSkillPoints = Mathf.Clamp(m_SkillTreeRef.m_TotalSkillPoints + points,0, SkillTree.kSkillPointCap);
         m_SkillTreeRef.m_CurrentSkillPoints += points;
-
         if (difference > 0) m_SkillTreeRef.m_CurrentSkillPoints -= difference;
+
+        m_GlobalSkillTreeRef.m_TotalSkillPoints = Mathf.Clamp(m_GlobalSkillTreeRef.m_TotalSkillPoints + points, 0, 9999);
+        m_GlobalSkillTreeRef.m_CurrentSkillPoints += points;
+        if (globalDifference > 0) m_GlobalSkillTreeRef.m_CurrentSkillPoints -= globalDifference;
+
         SaveManager.SaveToFile();
     }
 

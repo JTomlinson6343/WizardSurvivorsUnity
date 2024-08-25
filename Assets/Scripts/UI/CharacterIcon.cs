@@ -13,6 +13,9 @@ public class CharacterIcon : MonoBehaviour
     [TextArea(3, 10)]
     public string m_Description;
 
+    public string m_StartSpellName;
+    public string m_StartSpellDesc;
+
     public GameObject m_Character;
 
     public SkillTree m_SkillTree;
