@@ -19,6 +19,6 @@ public class XPOnDeathSkill : Skill
         if (Random.Range(0f, 1f) >= m_Chance * m_Data.level) return;
 
         ProgressionManager.m_Instance.SpawnXP(damageInstance.target.transform.position, 1);
-        AudioManager.m_Instance.PlayRandomPitchSound(31, 0.5f);
+        AudioManager.m_Instance.PlayRandomPitchSound(31, 0.65f);
     }
 }
