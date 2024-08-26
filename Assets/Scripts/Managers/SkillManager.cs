@@ -44,17 +44,19 @@ public class SkillManager : MonoBehaviour
 
         foreach (Skill skill in GetSkills())
         {
-            foreach(SkillData skillData in m_Skills)
+            bool unlocked = false;
+
+            foreach (SkillData skillData in m_Skills)
             {
-                if (skill.m_Data.id == skillData.id && PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id) || PlayerManager.m_GlobalSkillTreeRef.GetSkillIconWithID(skill.m_Data.id))
+                if (skill.m_Data.id == skillData.id && (PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id) || PlayerManager.m_GlobalSkillTreeRef.GetSkillIconWithID(skill.m_Data.id)))
                 {
+                    unlocked = true;
                     skill.Init(skillData);
-                }
-                else
-                {
-                    skill.gameObject.SetActive(false);
+                    break;
                 }
             }
+
+            if (!unlocked) skill.gameObject.SetActive(false);
         }
     }
 

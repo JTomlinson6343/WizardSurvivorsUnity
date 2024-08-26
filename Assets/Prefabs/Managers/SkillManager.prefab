@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &715462513039821988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677541569699114544}
+  - component: {fileID: 2439135290087561708}
+  m_Layer: 0
+  m_Name: GlobalXPMod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &677541569699114544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715462513039821988}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2439135290087561708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715462513039821988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a32f29c9fcc1f44e93217e81eced7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 31
+    level: 0
+    maxLevel: 5
+  m_StatBuffs:
+    speed: 0
+    maxHealth: 0
+    pullDist: 0
+    iFramesMod: 0
+    armor: 0
+    xpMod: 0.01
+  m_ResistanceBuffs: 0
 --- !u!1 &791004598650594280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,6 +1388,7 @@ Transform:
   - {fileID: 9010800579644723048}
   - {fileID: 4684348516125808189}
   - {fileID: 6506384968189440543}
+  - {fileID: 677541569699114544}
   - {fileID: 3595311466339439494}
   - {fileID: 4784452056959266501}
   - {fileID: 8916725221641740600}
@@ -1482,7 +1539,7 @@ MonoBehaviour:
     pullDist: 0
     iFramesMod: 0
     armor: 0
-    xpMod: 100
+    xpMod: 0.05
   m_ResistanceBuffs: 0
 --- !u!1 &6642608127596531292
 GameObject:
@@ -1676,7 +1733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5222238434217040331}
-  - component: {fileID: 4652528547433555909}
+  - component: {fileID: 1582699924921158255}
   m_Layer: 0
   m_Name: GlobalXpOnDeath
   m_TagString: Untagged
@@ -1699,7 +1756,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4652528547433555909
+--- !u!114 &1582699924921158255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1708,21 +1765,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7929618480535056838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd94ed7cb421ad40ac42bb259cd4f55, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b3e83d3ff2b5e346bf0e4d3037de226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
-    id: 35
+    id: 36
     level: 0
-    maxLevel: 3
-  m_StatBuffs:
-    speed: 0
-    maxHealth: 0
-    pullDist: 0
-    iFramesMod: 0
-    armor: 0
-    xpMod: 100
-  m_ResistanceBuffs: 0
+    maxLevel: 0
+  m_Chance: 0.01
 --- !u!1 &7974651767422089317
 GameObject:
   m_ObjectHideFlags: 0
