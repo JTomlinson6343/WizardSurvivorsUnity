@@ -218,11 +218,11 @@ public class SkillTree : MonoBehaviour
     }
 
     // Enable certain skills in skill manager in the main game depending on which skills are enabled on the menu
-    public void PassEnabledSkillsToManager()
+    public void PassEnabledSkillsToManager(bool dontClear)
     {
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
-        SkillManager.m_Instance.ResetSkillsAdded();
+        if (!dontClear) SkillManager.m_Instance.ResetSkillsAdded();
 
         foreach (SkillIcon skillIcon in skills)
         {

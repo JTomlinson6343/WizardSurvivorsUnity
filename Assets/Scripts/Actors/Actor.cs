@@ -22,10 +22,10 @@ public class Actor : MonoBehaviour
 
     private Material m_DefaultMaterial;
     public Material m_WhiteFlashMaterial;
-    private float m_FlashTime = 0.1f;
+    private readonly float m_FlashTime = 0.1f;
 
     public GameObject m_DebuffPlacement;
-    public List<Debuff> m_Debuffs = new List<Debuff>();
+    public List<Debuff> m_Debuffs = new();
     public Debuff.DebuffType[] m_DebuffImmunities;
     public bool m_DebuffImmune = false;
     public bool m_Targetable = true;

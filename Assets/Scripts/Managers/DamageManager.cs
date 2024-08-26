@@ -40,7 +40,7 @@ public class DamageManager : MonoBehaviour
     public static DamageManager m_Instance;
     public class DamageDataEvent : UnityEvent<DamageInstanceData> { }
 
-    public static DamageDataEvent m_DamageInstanceEvent = new DamageDataEvent();
+    public static DamageDataEvent m_DamageInstanceEvent = new();
 
     private readonly float kDamageNumberRandomRadius = 0.25f;
 
@@ -86,18 +86,17 @@ public class DamageManager : MonoBehaviour
 
     private Color GetDamageNumberColor(DamageType damageType)
     {
-        switch(damageType)
+        return damageType switch
         {
-            case DamageType.Fire: return new Color(1, 0.4f, 0);
-            case DamageType.Frost: return Color.cyan;
-            case DamageType.Light: return Color.white;
-            case DamageType.Dark: return Color.magenta;
-            case DamageType.Physical: return Color.red;
-            case DamageType.Poison: return Color.green;
-            case DamageType.Lightning: return Color.blue;
-            default:
-                return Color.white;
-        }
+            DamageType.Fire => new Color(1, 0.4f, 0),
+            DamageType.Frost => Color.cyan,
+            DamageType.Light => Color.white,
+            DamageType.Dark => Color.magenta,
+            DamageType.Physical => Color.red,
+            DamageType.Poison => Color.green,
+            DamageType.Lightning => Color.blue,
+            _ => Color.white,
+        };
     }
 
     void TryIncrementTrackedStats(DamageInstanceData data)
@@ -132,7 +131,7 @@ public class DamageManager : MonoBehaviour
     //}
     void IncrementSummonDamage(DamageInstanceData data)
     {
-        if (data.abilitySource?.GetComponent<Spell>() == null) return;
+        if (data.abilitySource.GetComponent<Spell>() == null) return;
         if (!data.abilitySource.GetComponent<Spell>().HasTag(Spell.SpellTag.Summon)) return;
 
         UnlockManager.GetTrackedStatWithName("summonDamageDealt").stat += data.amount;

@@ -133,9 +133,10 @@ public class CharacterMenu : MonoBehaviour
             return;
 
         PlayerManager.m_Character = m_CurrentCharacter;
-        PlayerManager.m_SkillTreeRef = m_CurrentCharacterSkillTree;
         PlayerManager.m_GlobalSkillTreeRef = m_GlobalSkillTree;
-        PlayerManager.m_SkillTreeRef.PassEnabledSkillsToManager();
+        PlayerManager.m_SkillTreeRef = m_CurrentCharacterSkillTree;
+        PlayerManager.m_GlobalSkillTreeRef.PassEnabledSkillsToManager(false);
+        PlayerManager.m_SkillTreeRef.PassEnabledSkillsToManager(true);
         StateManager.ForceChangeState(StateManager.State.PLAYING);
         SceneManager.LoadScene("Main Scene");
     }

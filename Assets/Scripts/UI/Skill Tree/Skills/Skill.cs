@@ -30,7 +30,18 @@ public enum SkillID
     IceSlowSpread,
     IceFreezeChance,
     IceElementalSkill,
-    IceBlizzardSkill
+    IceBlizzardSkill,
+    GlobalHealth,
+    GlobalDamage,
+    GlobalCDR,
+    GlobalSpeed,
+    GlobalResist,
+    GlobalXP,
+    GlobalAOE,
+    GlobalGoldGem,
+    GlobalReroll,
+    GlobalLowHealthXP,
+    GlobalXPOnKill,
 }
 
 [System.Serializable]

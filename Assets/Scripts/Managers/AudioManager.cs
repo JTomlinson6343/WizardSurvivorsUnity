@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioClip[] m_AudioClips;
 
-    AudioSource[] m_AudioSources = new AudioSource[64];
+    readonly AudioSource[] m_AudioSources = new AudioSource[64];
     AudioSource m_MusicSource;
     float m_CurrentMusicVolume = 1f;
 
@@ -86,7 +86,7 @@ public class AudioManager : MonoBehaviour
         if (Time.time - m_LastXPSoundTime > kXPSoundEffectCooldown)
         {
             m_LastXPSoundTime = Time.time;
-            float pitch = 0.95f + (ProgressionManager.m_Instance.m_CurrentXP / (float)ProgressionManager.m_Instance.m_NextLevelXP) * 0.2f;
+            float pitch = 0.95f + (ProgressionManager.m_Instance.m_CurrentXP / ProgressionManager.m_Instance.m_NextLevelXP) * 0.2f;
             PlaySound(1, 0.3f, pitch);
         }
     }

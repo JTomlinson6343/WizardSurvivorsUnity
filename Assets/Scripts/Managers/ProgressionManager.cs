@@ -49,8 +49,8 @@ public class ProgressionManager : MonoBehaviour
     readonly float kPickupMoveSpeed = 15f;
 
     //XP
-    public int m_CurrentXP = 0;
-    public int m_NextLevelXP;
+    public float m_CurrentXP = 0;
+    public float m_NextLevelXP;
 
     [SerializeField] Curve m_LevelCurve;
 
@@ -58,7 +58,7 @@ public class ProgressionManager : MonoBehaviour
     private int m_EnemiesKilled = 0;
     private int m_ChampionsKilled = 0;
     private int m_SkillPointsGained = 0;
-    private int m_XPGained = 0;
+    private float m_XPGained = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -186,17 +186,18 @@ public class ProgressionManager : MonoBehaviour
 
         if (now < m_NextXPSpawn) return;
 
-        GameObject pickup = SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + Utils.GetRandomDirectionV3() * m_XPSpawnRadius);
+        SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + Utils.GetRandomDirectionV3() * m_XPSpawnRadius);
 
         m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter);
     }
     #endregion
 
-    public bool AddXP(int xp)
+    public bool AddXP(float xp)
     {
+        float addedXP = xp * (1f + Player.m_Instance.GetStats().xpMod);
         // Increase XP
-        m_CurrentXP += xp;
-        m_XPGained += xp;
+        m_CurrentXP += addedXP;
+        m_XPGained += addedXP;
 
         if (m_CurrentXP >= m_NextLevelXP)
         {
@@ -266,7 +267,7 @@ public class ProgressionManager : MonoBehaviour
 
         // Display game over screen
         m_GameOverInfoLabel.text = "";
-        m_GameOverInfoLabel.text += "XP Gained: " + m_XPGained.ToString() + "\n";
+        m_GameOverInfoLabel.text += "XP Gained: " + Mathf.RoundToInt(m_XPGained).ToString() + "\n";
 
         m_GameOverInfoLabel.text += "Skill Gems Collected: " + m_SkillPointsGained.ToString() + "\n";
 

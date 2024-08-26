@@ -46,7 +46,7 @@ public class SkillManager : MonoBehaviour
         {
             foreach(SkillData skillData in m_Skills)
             {
-                if (skill.m_Data.id == skillData.id && PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id))
+                if (skill.m_Data.id == skillData.id && PlayerManager.m_SkillTreeRef.GetSkillIconWithID(skill.m_Data.id) || PlayerManager.m_GlobalSkillTreeRef.GetSkillIconWithID(skill.m_Data.id))
                 {
                     skill.Init(skillData);
                 }

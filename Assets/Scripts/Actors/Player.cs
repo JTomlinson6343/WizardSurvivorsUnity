@@ -14,6 +14,7 @@ public struct PlayerStats
         newstats.pullDist = left.pullDist + right.pullDist;
         newstats.iFramesMod = left.iFramesMod + right.iFramesMod;
         newstats.armor = left.armor + right.armor;
+        newstats.xpMod = left.xpMod + right.xpMod;
         return newstats;
     }
     // Overload + operator to allow two PlayerStats structs together
@@ -25,6 +26,7 @@ public struct PlayerStats
         newstats.pullDist = left.pullDist - right.pullDist;
         newstats.iFramesMod = left.iFramesMod - right.iFramesMod;
         newstats.armor = left.armor - right.armor;
+        newstats.xpMod = left.xpMod - right.xpMod;
         return newstats;
     }
     public static PlayerStats operator *(PlayerStats left, PlayerStats right)
@@ -35,6 +37,7 @@ public struct PlayerStats
         newstats.pullDist = left.pullDist * right.pullDist;
         newstats.iFramesMod = left.iFramesMod * right.iFramesMod;
         newstats.armor = left.armor * right.armor;
+        newstats.xpMod = left.xpMod * right.xpMod;
         return newstats;
     }
     public float speed;
@@ -42,8 +45,9 @@ public struct PlayerStats
     public float pullDist;
     public float iFramesMod;
     public float armor;
+    public float xpMod;
 
-    public static PlayerStats Zero = new PlayerStats();
+    public static PlayerStats Zero = new();
 }
 
 public class Player : Actor
@@ -72,7 +76,7 @@ public class Player : Actor
     Vector3 staffStartPos;
 
     private Rigidbody2D m_RigidBody;
-    private float m_Acceleration = 0.5f;
+    private readonly float m_Acceleration = 0.5f;
 
     [SerializeField] private Animator m_Animator;
 
@@ -156,7 +160,7 @@ public class Player : Actor
     {
         Vector3 currentVelocity = m_RigidBody.velocity;
 
-        Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 moveDir = new(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (moveDir.magnitude > 1f) moveDir.Normalize();
 
@@ -272,7 +276,7 @@ public class Player : Actor
     public void AddBonusStats(PlayerStats stats)
     {
         m_BonusStats += stats;
-    }
+    } 
 
     public void AddTempStats(PlayerStats stats, float duration)
     {
@@ -284,13 +288,18 @@ public class Player : Actor
     public override void KnockbackRoutine(Vector2 dir, float knockbackMagnitude)
     {
         knockbackMagnitude = Mathf.Clamp01(1f - m_KnockbackResist) * knockbackMagnitude;
-        GetComponent<Rigidbody2D>().AddForce(dir.normalized * knockbackMagnitude * m_kKnockback);
+        GetComponent<Rigidbody2D>().AddForce(knockbackMagnitude * m_kKnockback * dir.normalized);
     }
 
     private IEnumerator RemoveTempStats(PlayerStats stats, float duration)
     {
         yield return new WaitForSeconds(duration);
 
+        m_BonusStats -= stats;
+    }
+
+    public void RemoveBonusStats(PlayerStats stats)
+    {
         m_BonusStats -= stats;
     }
     #endregion
