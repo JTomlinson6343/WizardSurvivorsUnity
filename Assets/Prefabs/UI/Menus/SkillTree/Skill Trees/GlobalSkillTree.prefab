@@ -1236,27 +1236,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
-      value: Upon level-up, gain a 1% chance for a reroll option to appear, allowing
-        you to reroll your options.
-      objectReference: {fileID: 0}
-    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
-      propertyPath: m_Description.Array.data[1]
-      value: Upon level-up, gain a 2% chance for a reroll option to appear, allowing
-        you to reroll your options.
-      objectReference: {fileID: 0}
-    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
-      propertyPath: m_Description.Array.data[2]
       value: Upon level-up, gain a 3% chance for a reroll option to appear, allowing
         you to reroll your options.
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[1]
+      value: Upon level-up, gain a 6% chance for a reroll option to appear, allowing
+        you to reroll your options.
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Description.Array.data[2]
+      value: Upon level-up, gain a 9% chance for a reroll option to appear, allowing
+        you to reroll your options.
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[3]
-      value: Upon level-up, gain a 4% chance for a reroll option to appear, allowing
+      value: Upon level-up, gain a 12% chance for a reroll option to appear, allowing
         you to reroll your options.
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[4]
-      value: Upon level-up, gain a 5% chance for a reroll option to appear, allowing
+      value: Upon level-up, gain a 15% chance for a reroll option to appear, allowing
         you to reroll your options.
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -1269,19 +1269,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[0]
-      value: +1% chance
+      value: +3% chance
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[1]
-      value: +1% chance
+      value: +3% chance
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[2]
-      value: +1% chance
+      value: +3% chance
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[3]
-      value: +1% chance
+      value: +3% chance
       objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x

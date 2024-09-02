@@ -110,7 +110,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.5
+    cooldown: -0.25
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -239,6 +239,55 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
   m_Ability: {fileID: 0}
+--- !u!1 &1234040543147233054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6119245248560410155}
+  - component: {fileID: 1453193435512303887}
+  m_Layer: 0
+  m_Name: GlobalGoldGem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6119245248560410155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234040543147233054}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1453193435512303887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234040543147233054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c682643f5948ff74b9727d7b9ba4cac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 33
+    level: 0
+    maxLevel: 0
+  m_Chance: 0.1
 --- !u!1 &2228840155423396777
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +568,55 @@ MonoBehaviour:
   m_Radius: 3
   m_FireDebuffSkillRef: {fileID: 4598356389941605190}
   m_LineCreator: {fileID: 1334009107476647589, guid: 9a6e81a3778471f4f87d22158168592a, type: 3}
+--- !u!1 &3021758081792918914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667463046366395702}
+  - component: {fileID: 1668816928500253713}
+  m_Layer: 0
+  m_Name: GlobalReroll
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667463046366395702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021758081792918914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668816928500253713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021758081792918914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c49d8c120ae3d14c9d6924bfce3a5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 34
+    level: 0
+    maxLevel: 0
+  m_Chance: 0.03
 --- !u!1 &3066826550568844389
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,8 +702,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5112462595371928511}
+  m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2882575437999604054
@@ -822,7 +919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3605185406383346496}
+  m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2810872557042998658
 MonoBehaviour:
@@ -1394,12 +1491,15 @@ Transform:
   - {fileID: 8916725221641740600}
   - {fileID: 3753415932341645354}
   - {fileID: 5222238434217040331}
+  - {fileID: 6119245248560410155}
+  - {fileID: 1667463046366395702}
   - {fileID: 9219015484848714404}
   - {fileID: 4812586764241665464}
   - {fileID: 1679599635638595887}
   - {fileID: 2952040072457066399}
   - {fileID: 8585810826466197889}
   - {fileID: 530607284402098040}
+  - {fileID: 5112462595371928511}
   - {fileID: 3605185406383346496}
   - {fileID: 145443347349664950}
   - {fileID: 4481560067210504943}

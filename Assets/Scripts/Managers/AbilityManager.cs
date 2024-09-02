@@ -13,6 +13,8 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] List<Ability> m_PassiveAbilities;
     [SerializeField] List<Ability> m_BuffAbilities;
 
+    private List<Ability> m_OfferedAbilities;
+
     AbilityStats m_AbilityStatsBuffs;
 
     AbilityIcon[] m_Icons;
@@ -29,6 +31,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_DescriptionLabel;
     [SerializeField] TextMeshProUGUI m_InstructionsLabel;
     [SerializeField] GameObject m_ConfirmButton;
+    [SerializeField] GameObject m_RerollButton;
 
     [SerializeField] string m_SpellInstructions;
     [SerializeField] string m_ItemInstructions;
@@ -36,6 +39,7 @@ public class AbilityManager : MonoBehaviour
     bool m_AbilityChoicesShown;
 
     public bool m_LightningDoubleCastOn;
+    public static float m_RerollChance = 0f;
 
     private void Awake()
     {
@@ -59,11 +63,11 @@ public class AbilityManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                ShowAbilityOptions(m_PassiveAbilities);
+                ChoosePassiveAbility();
             }
             if (Input.GetKeyDown(KeyCode.N))
             {
-                ShowAbilityOptions(m_BuffAbilities.FindAll(a => a.m_Unlocked));
+                ChooseBuffAbility();
             }
         }
         if (m_AbilityChoicesShown)
@@ -87,19 +91,32 @@ public class AbilityManager : MonoBehaviour
     // Displays 4 spells for the player to choose
     public void ChoosePassiveAbility()
     {
-        ShowAbilityOptions(m_PassiveAbilities.FindAll(a => a.m_Unlocked));
+        m_OfferedAbilities = m_PassiveAbilities.FindAll(a => a.m_Unlocked);
+        ShowAbilityOptions();
         m_InstructionsLabel.text = m_SpellInstructions;
     }
     // Displays 4 items for the player to choose
     public void ChooseBuffAbility()
     {
-        ShowAbilityOptions(m_BuffAbilities.FindAll(a => a.m_Unlocked));
+        m_OfferedAbilities = m_BuffAbilities.FindAll(a => a.m_Unlocked);
+        ShowAbilityOptions();
         m_InstructionsLabel.text = m_ItemInstructions;
     }
 
-    private void ShowAbilityOptions(List<Ability> abilities)
+    private void ShowAbilityOptions()
     {
-        if (abilities.Count == 0) return;
+        RollAbilitiesOffered();
+        AudioManager.m_Instance.PlaySound(30, 0.4f);
+        PopInAnim();
+        ProgressionManager.m_Instance.ToggleHUD(false);
+        StateManager.ChangeState(StateManager.State.UPGRADING);
+    }
+
+    void RollAbilitiesOffered()
+    {
+        if (m_OfferedAbilities.Count == 0) return;
+
+        m_HighlightedIcon = null;
 
         // Reset info panel
         m_NameLabel.text = "";
@@ -119,9 +136,9 @@ public class AbilityManager : MonoBehaviour
 
         int optionCount;
 
-        if (abilities.Count < 4)
+        if (m_OfferedAbilities.Count < 4)
         {
-            optionCount = abilities.Count;
+            optionCount = m_OfferedAbilities.Count;
         }
         else
         {
@@ -130,7 +147,7 @@ public class AbilityManager : MonoBehaviour
         // Loop through each ability
         while (count < optionCount)
         {
-            Ability ability = abilities[Random.Range(0, abilities.Count)];
+            Ability ability = m_OfferedAbilities[Random.Range(0, m_OfferedAbilities.Count)];
 
             if (CheckAlreadyDisplayed(ability, displayedAbilities))
             {
@@ -145,15 +162,9 @@ public class AbilityManager : MonoBehaviour
             // Show the icon
             m_Icons[iconCounter].image.enabled = true;
 
-            AudioManager.m_Instance.PlaySound(30, 0.4f);
-
             iconCounter++;
-
             count++;
         }
-        PopInAnim();
-        ProgressionManager.m_Instance.ToggleHUD(false);
-        StateManager.ChangeState(StateManager.State.UPGRADING);
     }
 
     void PopInAnim()
@@ -162,6 +173,8 @@ public class AbilityManager : MonoBehaviour
         m_IconPanel.transform.localScale = Vector3.zero;
         m_IconsGUI.transform.localScale = Vector3.zero;
         m_InstructionLabelTrans.transform.localScale = Vector3.zero;
+        m_RerollButton.SetActive(false);
+        m_ConfirmButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, m_ConfirmButton.GetComponent<RectTransform>().anchoredPosition.y);
 
         if (LeanTween.isTweening(m_IconPanel)) LeanTween.cancel(m_IconPanel);
         if (LeanTween.isTweening(m_InfoPanel)) LeanTween.cancel(m_InfoPanel);
@@ -171,9 +184,24 @@ public class AbilityManager : MonoBehaviour
         LeanTween.scale(m_InstructionLabelTrans, Vector3.one, 0.35f).setDelay(0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(m_IconsGUI, Vector3.one, 0.35f).setDelay(0.95f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeOutSine);
 
-        LeanTween.delayedCall(1.3f, () => { m_AbilityChoicesShown = true; }).setIgnoreTimeScale(true);
-    }
+        float extraDelay = 0f;
+        if (Random.Range(0f, 1f) < m_RerollChance)
+        {
+            extraDelay = 0.4f;
+            ShowRerollButton(1.3f);
+        }
 
+        LeanTween.delayedCall(1.3f + extraDelay, () => { m_AbilityChoicesShown = true; }).setIgnoreTimeScale(true);
+    }
+    void ShowRerollButton(float delay)
+    {
+        m_RerollButton.SetActive(true);
+        m_RerollButton.transform.localScale = Vector3.zero;
+        m_RerollButton.GetComponent<Button>().interactable = true;
+
+        LeanTween.moveLocalX(m_ConfirmButton, 75f, 0.25f).setIgnoreTimeScale(true).setDelay(delay);
+        LeanTween.scale(m_RerollButton, Vector3.one, 0.15f).setIgnoreTimeScale(true).setDelay(0.5f + delay);
+    }
     void PopOutAnim()
     {
         LeanTween.scale(m_IconPanel, Vector3.zero, 0.25f).setIgnoreTimeScale(true);
@@ -181,6 +209,7 @@ public class AbilityManager : MonoBehaviour
 
         LeanTween.delayedCall(0.5f, () => {
             m_AbilityCanvas.SetActive(false);
+
             StateManager.UnPause();
         }).setIgnoreTimeScale(true);
     }
@@ -193,7 +222,7 @@ public class AbilityManager : MonoBehaviour
 
         DeHighlightAbilityIcons();
 
-        m_ConfirmButton.SetActive(false);
+        m_ConfirmButton.GetComponent<Button>().interactable = false;
 
         PopOutAnim();
     }
@@ -247,7 +276,7 @@ public class AbilityManager : MonoBehaviour
         if (!icon.image.enabled) return;
 
         m_HighlightedIcon = icon;
-        m_ConfirmButton.SetActive(true);
+        m_ConfirmButton.GetComponent<Button>().interactable = true;
         DeHighlightAbilityIcons();
         icon.GetComponent<Image>().color = Color.yellow;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
@@ -284,6 +313,15 @@ public class AbilityManager : MonoBehaviour
 
         UpdateAllAbilityStats();
         m_HighlightedIcon = null;
+    }
+
+    public void RerollButtonOnClick()
+    {
+        DeHighlightAbilityIcons();
+        RollAbilitiesOffered();
+        m_IconsGUI.localScale = Vector3.zero;
+        LeanTween.scale(m_IconsGUI, Vector3.one, 0.35f).setIgnoreTimeScale(true).setEase(LeanTweenType.easeOutSine);
+        m_RerollButton.GetComponent<Button>().interactable = false;
     }
 
     private void UpdateAllAbilityStats()

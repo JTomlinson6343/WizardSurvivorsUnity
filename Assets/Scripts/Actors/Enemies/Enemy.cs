@@ -14,15 +14,15 @@ public class Enemy : Actor
     private bool m_IsChampion = false;
     private readonly float kChampSizeMod = 2f;
     private readonly int kChampXPMod = 2;
-    private readonly float kChampHealthMod = 4f;
-    private readonly Color kChampColour = new Color(1, 0.3f, 0);
+    private readonly float kChampHealthMod = 6f;
+    private readonly Color kChampColour = new Color(0.8f, 0.8f, 0.8f);
 
     public float m_Speed;
     [SerializeField] protected float m_ContactDamage;
     [SerializeField] float m_KnockbackModifier;
 
     private readonly float m_kKnockback = 0.25f;
-    private readonly float m_kBaseMoveSpeed = 2.2f;
+    private readonly float m_kBaseMoveSpeed = 2.0f;
 
     protected readonly float kSkillPointDropChance = 0.005f;
     private readonly int     m_MinChampSkillPoints = 2;

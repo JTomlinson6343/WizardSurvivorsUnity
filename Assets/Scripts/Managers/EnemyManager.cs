@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
     private float m_NextSpawn = 0.0f;
     [SerializeField] private float m_SpawnCooldown = 1.0f;
     [SerializeField] private float m_WaveTimer = 1.0f; // Time before a new wave starts prematurely
-    public float m_SpawnRadius = 30.0f;
+    public float m_SpawnRadius = 15.0f;
 
     private int m_EnemyCount;
     private int m_EnemiesKilledThisWave;

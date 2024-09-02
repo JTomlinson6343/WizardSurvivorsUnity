@@ -124,8 +124,8 @@ MonoBehaviour:
     trackedStatName: iceDamageDealt
   - name: Lightning Mage
     image: {fileID: -146542664, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Reach a total of 50% spell cooldown reduction in a single run.
-    condition: -0.5
+    message: Reach a total of 20% spell cooldown reduction in a single run.
+    condition: -0.2
     doFormatMessage: 0
     trackedStatName: totalCooldown
   - name: Solarium Skull
@@ -143,6 +143,6 @@ MonoBehaviour:
   - name: Orb of the Oracle
     image: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
     message: Deal 10000 damage
-    condition: 10000
+    condition: 25000
     doFormatMessage: 1
     trackedStatName: damage

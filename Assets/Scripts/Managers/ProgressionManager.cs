@@ -34,6 +34,7 @@ public class ProgressionManager : MonoBehaviour
     //Wave system
     int m_Score = 0;
     int m_Level = 1;
+
     [HideInInspector] public int m_WaveCounter = 0;
 
     private readonly float kBossGracePeriodTime = 6f;
@@ -41,7 +42,9 @@ public class ProgressionManager : MonoBehaviour
     //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
     [SerializeField] GameObject m_SkillPointOrbPrefab;
+    [SerializeField] GameObject m_GoldSkillPointOrbPrefab;
 
+    public float m_GoldGemChance = 0f;
     [SerializeField] float m_XPSpawnRadius;
     private float m_NextXPSpawn;
     [SerializeField] Curve m_SpawnCooldown;
@@ -175,7 +178,27 @@ public class ProgressionManager : MonoBehaviour
     }
     public void SpawnSkillPoint(Vector2 pos, int amount)
     {
-        SpawnPickup(m_SkillPointOrbPrefab, pos, amount);
+        SpawnSkillPointWithChance(pos, amount);
+    }
+
+    private void SpawnSkillPointWithChance(Vector2 pos, int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject pickup;
+
+            if (Random.Range(0f, 1f) < m_GoldGemChance) pickup = SpawnPickup(m_GoldSkillPointOrbPrefab, pos);
+            else pickup = SpawnPickup(m_SkillPointOrbPrefab, pos);
+
+            Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
+            if (!rb) return;
+
+            float modifier = 1f + amount / 100f;
+
+            // Fire pickup in a random direction
+            rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier),
+                Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier));
+        }
     }
 
     private void SpawnXPRandomly()
@@ -311,7 +334,7 @@ public class ProgressionManager : MonoBehaviour
         Boss boss = EnemyManager.m_Instance.SpawnBoss();
         boss.BossFightInit();
 
-        if (m_WaveCounter >= 10)
+        if (m_WaveCounter >= 8)
         {
             // Make the boss enraged
             boss.Enraged(m_WaveCounter/5);

@@ -2,10 +2,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public struct SaveData
 {
+    public string version;
     public SkillTreeData[] skillTrees;
 
     public OptionsData options;
@@ -35,6 +37,8 @@ public class OptionsData
 
 public class SaveManager
 {
+    static string versionNumber = "0.0.7";
+
     static readonly string m_Path = Application.persistentDataPath + "/save.json";
 
     static SkillTree[] m_SkillTrees;
@@ -44,8 +48,17 @@ public class SaveManager
     {
         m_SkillTrees = trees;
     }
+
+    private static void NewVersion()
+    {
+        // Things to do if the game version changes.
+        if (m_SaveData.version == versionNumber) return;
+
+
+    }
     public static void SaveToFile() // Called every time skill menu is closed
     {
+        m_SaveData.version = versionNumber;
         SaveSkills();
 
         SaveOptions();
@@ -127,6 +140,7 @@ public class SaveManager
 
         PopulateSkillTreesArray(skillTrees);
 
+        NewVersion();
         LoadSkills();
         LoadOptions();
         LoadUnlocks();
