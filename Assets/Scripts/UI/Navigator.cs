@@ -11,7 +11,7 @@ public class Navigator : MonoBehaviour
         Horizontal,
         Vertical
     }
-    private enum Type
+    protected enum Type
     {
         Options,
         Character
@@ -23,7 +23,7 @@ public class Navigator : MonoBehaviour
     [SerializeField] bool m_RememberSelectedButtonPos = true;
     [SerializeField] NavDirection m_Direction = NavDirection.Horizontal;
     [SerializeField] NavDirection m_ScrollbarDirection = NavDirection.Horizontal;
-    [SerializeField] Type m_Type = Type.Character;
+    [SerializeField] protected Type m_Type = Type.Character;
 
     [SerializeField] bool m_LabelSelectEnabled;
     [SerializeField] bool m_HighlightTextEnabled;

@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 3967390055935083961}
   - component: {fileID: 6081645984018058762}
   - component: {fileID: 7495386950226113708}
-  - component: {fileID: 6904154952756248001}
+  - component: {fileID: 643176332838027382}
   m_Layer: 0
   m_Name: CharacterMenu
   m_TagString: Untagged
@@ -798,7 +798,7 @@ MonoBehaviour:
   m_IceMageIcon: {fileID: 6151632097755728452}
   m_LightningMageIcon: {fileID: 3169254749420906455}
   m_GlobalSkillTree: {fileID: 0}
---- !u!114 &6904154952756248001
+--- !u!114 &643176332838027382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -807,26 +807,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629681967590083628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 796a511de43e85c439e8d137fdee488c, type: 3}
+  m_Script: {fileID: 11500000, guid: 579da523221871a4dae1f717ae98754e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Selectables:
-  - {fileID: 6783627996667031087}
-  - {fileID: 1580702159435479607}
-  - {fileID: 7731062726926325668}
-  - {fileID: 4210297317180675974}
-  - {fileID: 5313692203542926573}
-  - {fileID: 7577340679374381334}
+  m_Selectables: []
   m_BackButton: {fileID: 7577340679374381334}
   m_RememberSelectedButtonPos: 1
   m_Direction: 0
   m_ScrollbarDirection: 0
   m_Type: 1
   m_LabelSelectEnabled: 0
-  m_HighlightTextEnabled: 1
+  m_HighlightTextEnabled: 0
   m_Labels: []
   m_ControllerButtons:
   - {fileID: 5626990554349707091}
+  m_2DSelectables:
+  - row:
+    - {fileID: 3470013229442749095}
+    - {fileID: 4210297317180675974}
+    - {fileID: 5313692203542926573}
+  - row:
+    - {fileID: 6783627996667031087}
+    - {fileID: 1580702159435479607}
+    - {fileID: 7731062726926325668}
+  m_UnlockButton: {fileID: 0}
+  m_RespecButton: {fileID: 0}
+  m_DefaultSelectableIndex: {x: 0, y: 1}
 --- !u!1 &2424751185252111872
 GameObject:
   m_ObjectHideFlags: 0

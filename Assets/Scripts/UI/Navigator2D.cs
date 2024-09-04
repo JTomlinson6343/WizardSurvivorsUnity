@@ -8,32 +8,33 @@ using UnityEngine.UI;
 public class Navigator2D : Navigator
 {
     [System.Serializable]
-    private struct Selectable2DArray{
+    protected struct Selectable2DArray{
         public Selectable[] row;
     }
 
-    [SerializeField] Selectable2DArray[] m_2DSelectables;
-    Vector2 m_SelectedButtonPosV2;
+    [SerializeField] protected Selectable2DArray[] m_2DSelectables;
+    protected Vector2 m_SelectedButtonPosV2;
     [SerializeField] Button m_UnlockButton;
     [SerializeField] Button m_RespecButton;
+    [SerializeField] Vector2Int m_DefaultSelectableIndex = new Vector2Int(0,0);
 
     public override void Start()
     {
-        m_SelectedButtonPosV2 = Vector2.zero;
+        m_SelectedButtonPosV2 = m_DefaultSelectableIndex;
         Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPosV2).transform);
         GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>().onClick.Invoke();
     }
 
     protected override void HandleInput()
     {
-        TextMeshProUGUI unlockText = m_UnlockButton.GetComponentInChildren<TextMeshProUGUI>();
-        TextMeshProUGUI respecText = m_RespecButton.GetComponentInChildren<TextMeshProUGUI>();
-        TextMeshProUGUI backText = m_BackButton.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI unlockText = m_UnlockButton?.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI respecText = m_RespecButton?.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI backText = m_BackButton?.GetComponentInChildren<TextMeshProUGUI>();
 
         if (Gamepad.current != null)
         {
-            unlockText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
-            respecText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+            if (unlockText) unlockText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+            if (respecText) respecText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
             backText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
 
             foreach (Image button in m_ControllerButtons)
@@ -100,7 +101,7 @@ public class Navigator2D : Navigator
     }
 
     // Change in x or y
-    private void ChangeButtonChoice(int x, int y)
+    virtual protected void ChangeButtonChoice(int x, int y)
     {
         m_SelectedButtonPosV2.x += x;
         m_SelectedButtonPosV2.y += y;
@@ -127,12 +128,12 @@ public class Navigator2D : Navigator
         if (button) button.onClick.Invoke();
     }
 
-    Selectable GetSelectableFromXY(int x, int y)
+    protected Selectable GetSelectableFromXY(int x, int y)
     {
         return m_2DSelectables[y].row[x];
     }
 
-    Selectable GetSelectableFromXY(Vector2 xy)
+    protected Selectable GetSelectableFromXY(Vector2 xy)
     {
         return m_2DSelectables[(int)xy.y].row[(int)xy.x];
     }
