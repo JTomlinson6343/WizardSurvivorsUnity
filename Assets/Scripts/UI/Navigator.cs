@@ -42,7 +42,7 @@ public class Navigator : MonoBehaviour
     public virtual void Start()
     {
         if (!m_RememberSelectedButtonPos) m_SelectedButtonPos = 0;
-        if (m_Type == Type.Character && Gamepad.current != null) Utils.SetSelectedAnimTarget(m_Selectables[m_SelectedButtonPos].transform);
+        if (m_Selectables.Length >0 && m_Type == Type.Character && Gamepad.current != null) Utils.SetSelectedAnimTarget(m_Selectables[m_SelectedButtonPos].transform);
     }
 
     // Update is called once per frame
@@ -74,6 +74,8 @@ public class Navigator : MonoBehaviour
 
     protected virtual void HandleInput()
     {
+        if (m_Selectables.Length == 0) return;
+
         ColourSelectedButton();
         HandleSelectionInput();
 

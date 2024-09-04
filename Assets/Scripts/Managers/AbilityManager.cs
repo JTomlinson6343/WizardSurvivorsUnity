@@ -37,6 +37,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] string m_ItemInstructions;
 
     bool m_AbilityChoicesShown;
+    bool m_RerollActive;
 
     public bool m_LightningDoubleCastOn;
     public static float m_RerollChance = 0f;
@@ -189,6 +190,11 @@ public class AbilityManager : MonoBehaviour
         {
             extraDelay = 0.4f;
             ShowRerollButton(1.3f);
+            m_RerollActive = true;
+        }
+        else
+        {
+            m_RerollActive = false;
         }
 
         LeanTween.delayedCall(1.3f + extraDelay, () => { m_AbilityChoicesShown = true; }).setIgnoreTimeScale(true);
@@ -268,6 +274,13 @@ public class AbilityManager : MonoBehaviour
                 UnlockAbility();
             }
         }
+        if (Input.GetButtonDown("Respec")) {
+            if (m_RerollActive)
+            {
+                // Check if icon is displayed and then enable the ability displayed
+                RerollButtonOnClick();
+            }
+        }
     }
 
     // Called whenever an ability is highlighted
@@ -317,6 +330,7 @@ public class AbilityManager : MonoBehaviour
 
     public void RerollButtonOnClick()
     {
+        m_RerollActive = false;
         DeHighlightAbilityIcons();
         RollAbilitiesOffered();
         m_IconsGUI.localScale = Vector3.zero;

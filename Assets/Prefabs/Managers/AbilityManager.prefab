@@ -2454,16 +2454,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Selectables:
   - {fileID: 3409496868329401847}
+  - {fileID: 6339923965900325099}
   m_BackButton: {fileID: 0}
   m_RememberSelectedButtonPos: 1
   m_Direction: 0
   m_ScrollbarDirection: 0
-  m_Type: 1
+  m_Type: 0
   m_LabelSelectEnabled: 0
-  m_HighlightTextEnabled: 1
+  m_HighlightTextEnabled: 0
   m_Labels: []
   m_ControllerButtons:
   - {fileID: 1016228834883743496}
+  - {fileID: 1802205791574537812}
 --- !u!1 &2471490994338420301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6653,11 +6655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6689,7 +6691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -57
+      value: -41
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6716,6 +6718,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
+--- !u!114 &1802205791574537812 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8443957820465591516, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
+  m_PrefabInstance: {fileID: 7794691332941283976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6175646369707828387 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
@@ -6735,7 +6748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879597651638513760, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_Pivot.x
@@ -6763,11 +6776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6799,7 +6812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -57
+      value: -41
       objectReference: {fileID: 0}
     - target: {fileID: 4150071313422460459, guid: 7faa15f2568be9b408840e6e79ff30fc, type: 3}
       propertyPath: m_AnchoredPosition.y
