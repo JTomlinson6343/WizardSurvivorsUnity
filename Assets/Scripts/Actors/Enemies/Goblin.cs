@@ -67,7 +67,9 @@ public class Goblin : Enemy
 
     IEnumerator Stop()
     {
+        m_KnockbackResist = 1;
         yield return new WaitForSeconds(m_StopDuration);
+        m_KnockbackResist = 0;
 
         m_Speed *= m_DashSpeedModifier;
 
