@@ -2377,6 +2377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033ec6437df752d438c07fa7f4f54745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HighlightColour: {r: 0.40784314, g: 0.99215686, b: 0.43137255, a: 1}
   m_PassiveAbilities:
   - {fileID: 2211182422588704078}
   - {fileID: 9205272294203817715}

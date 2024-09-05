@@ -142,7 +142,7 @@ MonoBehaviour:
     trackedStatName: summonDamageDealt
   - name: Orb of the Oracle
     image: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-    message: Deal 10000 damage
+    message: Deal 25000 damage
     condition: 25000
     doFormatMessage: 1
     trackedStatName: damage

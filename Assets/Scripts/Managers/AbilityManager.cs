@@ -10,6 +10,7 @@ public class AbilityManager : MonoBehaviour
 
     public static AbilityManager m_Instance;
 
+    [SerializeField] Color m_HighlightColour;
     [SerializeField] List<Ability> m_PassiveAbilities;
     [SerializeField] List<Ability> m_BuffAbilities;
 
@@ -291,7 +292,7 @@ public class AbilityManager : MonoBehaviour
         m_HighlightedIcon = icon;
         m_ConfirmButton.GetComponent<Button>().interactable = true;
         DeHighlightAbilityIcons();
-        icon.GetComponent<Image>().color = Color.yellow;
+        icon.GetComponent<Image>().color = m_HighlightColour;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
         if (icon.displayedAbility.m_IsSpell) m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
         else
