@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject m_CharMenuRef;
     [SerializeField] GameObject m_OptionsMenuRef;
     [SerializeField] UnlockMenu m_UnlockMenuRef;
+    [SerializeField] GameObject m_CreditsMenuRef;
 
     static Transform m_SelectedButton;
 
@@ -42,6 +43,13 @@ public class MainMenu : MonoBehaviour
         m_OptionsMenuRef.GetComponent<Navigator>().Start();
     }
 
+    public void Credits()
+    {
+        gameObject.SetActive(false);
+        m_CreditsMenuRef.SetActive(true);
+        m_CreditsMenuRef.GetComponent<Navigator>().Start();
+    }
+
     public void UnlockMenu()
     {
         m_UnlockMenuRef.Open(gameObject);
@@ -51,5 +59,12 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Game has been closed");
+    }
+
+    public void CloseMenu(GameObject menu)
+    {
+        menu.SetActive(false);
+        gameObject.SetActive(true);
+        GetComponent<MainMenuNavigator2D>().Start();
     }
 }

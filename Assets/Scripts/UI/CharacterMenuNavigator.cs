@@ -37,6 +37,10 @@ public class CharacterMenuNavigator : Navigator2D
             Button button = GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>();
             if (button) button.onClick.Invoke();
         }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (m_BackButton) m_BackButton.onClick.Invoke();
+        }
     }
 
     protected override void ChangeButtonChoice(int x, int y)

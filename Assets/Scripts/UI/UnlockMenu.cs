@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,8 +58,6 @@ public class UnlockMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
-        gameObject.SetActive(false);
-        m_MainMenuRef.gameObject.SetActive(true);
-        m_MainMenuRef.GetComponent<Navigator>().Start();
+        m_MainMenuRef.CloseMenu(gameObject);
     }
 }

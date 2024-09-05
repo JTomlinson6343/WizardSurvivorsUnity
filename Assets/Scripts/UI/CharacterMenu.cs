@@ -143,9 +143,7 @@ public class CharacterMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
-        gameObject.SetActive(false);
-        m_MainMenuRef.gameObject.SetActive(true);
-        m_MainMenuRef.GetComponent<Navigator>().Start();
+        m_MainMenuRef.CloseMenu(gameObject);
     }
 
     void CheckUnlocks()
