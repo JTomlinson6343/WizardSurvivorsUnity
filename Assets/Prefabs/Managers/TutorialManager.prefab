@@ -324,16 +324,16 @@ MonoBehaviour:
   - name: Skill Gems
     title: Skill Gems
     text: You just collected a Skill Gem! Skill Gems can be spent on a character's
-      skill tree to learn new and powerful skills.
+      skill tree to learn new and powerful skills. Collecting a skill gem additionally
+      adds a skill point to the Global Skill Tree.
   - name: Skill Trees
     title: Skill Trees
-    text: 'This is the Skill Tree! Highlight a skill and press the Unlock button
-      to spend your Skill Gems and unlock the skill.
+    text: 'This is a Skill Tree! Highlight a skill and press the Unlock button to
+      spend your Skill Gems and unlock the skill. Spent Skill Gems may be refunded
+      at any time.
 
-      Spent Skill Gems may
-      be refunded at any time.
-
-      You can collect up to 300 Skill Gems per character.'
+      You can collect up to 300 Skill Gems per character. The
+      Global Skill Tree has no Skill Gem limit.'
 --- !u!1 &7768810266170100996
 GameObject:
   m_ObjectHideFlags: 0
