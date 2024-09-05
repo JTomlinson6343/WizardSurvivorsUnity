@@ -850,7 +850,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 20
+    damage: 15
     summonDamage: 0
     speed: 5
     cooldown: 0.5
