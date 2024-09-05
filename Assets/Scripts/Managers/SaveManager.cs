@@ -128,6 +128,7 @@ public class SaveManager
         {
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
+            PopulateSkillTreesArray(skillTrees);
             SaveToFile();
             UnlockManager.PopulateTrackedStats();
             UnlockManager.PopulateUnlockables();
