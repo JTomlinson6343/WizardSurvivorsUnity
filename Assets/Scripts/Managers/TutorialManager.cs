@@ -73,7 +73,7 @@ public class TutorialManager : MonoBehaviour
 
     public void CloseTutorial()
     {
-        m_Instance.m_QuitGameButton.interactable = true;
+        m_Instance.m_QuitGameButton.interactable = false;
 
         LeanTween.scale(m_Panel, Vector3.zero, 0.25f).setIgnoreTimeScale(true);
         LeanTween.alpha(m_Instance.m_DarkenScreen.GetComponent<RectTransform>(), 0, 0.25f).setIgnoreTimeScale(true).setOnComplete(() =>
@@ -82,7 +82,6 @@ public class TutorialManager : MonoBehaviour
         });
 
         LeanTween.delayedCall(0.25f, () => {
-            m_Instance.m_QuitGameButton.interactable = false;
             StateManager.UnPause();
             }).setIgnoreTimeScale(true);
     }

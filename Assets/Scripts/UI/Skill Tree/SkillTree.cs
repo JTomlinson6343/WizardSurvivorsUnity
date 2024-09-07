@@ -14,7 +14,7 @@ public class SkillTree : MonoBehaviour
     public Color m_CharacterColour;
 
     public int m_TotalSkillPoints;
-    public static readonly int kSkillPointCap = 300;
+    public static readonly int kSkillPointCap = 999;
     public int m_CurrentSkillPoints;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
@@ -62,9 +62,7 @@ public class SkillTree : MonoBehaviour
 
     private void UpdateSkillPointsLabel()
     {
-        string colour1 = m_CurrentSkillPoints == kSkillPointCap ? "<color=orange>" : "";
-        string colour2 = m_CurrentSkillPoints == kSkillPointCap ? "</color>" : "";
-        m_SkillPointsLabel.text = "Current: " + colour1 + m_CurrentSkillPoints.ToString() + colour2;
+        m_SkillPointsLabel.text = "Current: " + m_CurrentSkillPoints.ToString();
     }
 
     private int GetCurrentLevelCost()
