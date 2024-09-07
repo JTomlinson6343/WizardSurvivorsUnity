@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -21,6 +22,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_Title;
     [SerializeField] TextMeshProUGUI m_Text;
 
+    [SerializeField] Button m_QuitGameButton;
+    [SerializeField] Image m_BButton;
+
     [SerializeField] Image m_DarkenScreen;
 
     [SerializeField] List<TutorialData> m_Tutorials;
@@ -34,11 +38,20 @@ public class TutorialManager : MonoBehaviour
         m_Instance = this;
     }
 
+    private void Update()
+    {
+        m_BButton.gameObject.SetActive(Gamepad.current != null);
+        if (Input.GetButtonDown("Submit") && m_Instance.m_QuitGameButton.interactable)
+        {
+            m_QuitGameButton.onClick.Invoke();
+        }
+    }
+
     public static void DisplayTutorial(string tutorialName)
     {
         if (WasTutorialViewed(tutorialName)) return;
 
-        StateManager.ChangeState(StateManager.State.PAUSED);
+        StateManager.ChangeState(StateManager.State.TUTORIAL);
 
         TutorialData data = GetTutorialWithName(tutorialName);
 
@@ -49,7 +62,10 @@ public class TutorialManager : MonoBehaviour
 
         LeanTween.scale(m_Instance.m_Panel, Vector3.one, 0.25f).setIgnoreTimeScale(true);
         m_Instance.m_DarkenScreen.enabled = true;
-        LeanTween.alpha(m_Instance.m_DarkenScreen.GetComponent<RectTransform>(), 0.75f, 0.25f).setIgnoreTimeScale(true);
+        LeanTween.alpha(m_Instance.m_DarkenScreen.GetComponent<RectTransform>(), 0.75f, 0.25f).setIgnoreTimeScale(true).setOnComplete(() =>
+        {
+            m_Instance.m_QuitGameButton.interactable = true;
+        });
 
         m_ViewedTutorials.Add(tutorialName);
         SaveManager.SaveToFile();
@@ -57,12 +73,17 @@ public class TutorialManager : MonoBehaviour
 
     public void CloseTutorial()
     {
+        m_Instance.m_QuitGameButton.interactable = true;
+
         LeanTween.scale(m_Panel, Vector3.zero, 0.25f).setIgnoreTimeScale(true);
         LeanTween.alpha(m_Instance.m_DarkenScreen.GetComponent<RectTransform>(), 0, 0.25f).setIgnoreTimeScale(true).setOnComplete(() =>
         {
             m_Instance.m_DarkenScreen.enabled = false;
         });
 
-        LeanTween.delayedCall(0.25f, () => { StateManager.UnPause(); }).setIgnoreTimeScale(true);
+        LeanTween.delayedCall(0.25f, () => {
+            m_Instance.m_QuitGameButton.interactable = false;
+            StateManager.UnPause();
+            }).setIgnoreTimeScale(true);
     }
 }

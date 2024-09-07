@@ -48,6 +48,8 @@ public class Navigator : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (StateManager.GetCurrentState() == StateManager.State.PAUSED) return;
+
         if (Gamepad.current != null)
         {
             HandleInput();

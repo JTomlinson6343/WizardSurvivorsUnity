@@ -52,6 +52,7 @@ public static class StateManager
             case State.PAUSED:
             case State.UPGRADING:
             case State.GAME_OVER:
+            case State.TUTORIAL:
                 Pause();
                 break;
             default:

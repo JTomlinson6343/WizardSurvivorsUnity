@@ -269,7 +269,7 @@ public class AbilityManager : MonoBehaviour
             AbilityWasSelected(m_Icons[3]);
         }
         if (Input.GetButtonDown("Submit")) {
-            if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null)
+            if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null && m_AbilityChoicesShown)
             {
                 // Check if icon is displayed and then enable the ability displayed
                 UnlockAbility();
