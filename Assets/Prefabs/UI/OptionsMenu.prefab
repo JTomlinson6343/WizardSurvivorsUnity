@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnBackButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1267176653283227383, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -34.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2063942846974975643, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -250,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4363569348788555127, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5741384470894786120, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_text
       value: Back
@@ -342,6 +350,7 @@ PrefabInstance:
     - {fileID: 1289359036472414860, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2063653071200302478, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+    - {fileID: 2598866290407751716, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4100940549894893696, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       insertIndex: -1

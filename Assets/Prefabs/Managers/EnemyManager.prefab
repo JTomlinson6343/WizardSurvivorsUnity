@@ -116,9 +116,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 0.05
-    max: 0.15
-    alpha: 0.1
+    min: 0.03
+    max: 0.2
+    alpha: 0.04
   m_HealthCurve:
     curve:
       serializedVersion: 2

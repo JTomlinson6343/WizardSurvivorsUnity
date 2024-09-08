@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -118,13 +118,13 @@ MonoBehaviour:
   m_UnlockConditions:
   - name: Ice Mage
     image: {fileID: 211959678, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Deal 20000 frost damage.
-    condition: 20000
+    message: Deal 30000 frost damage.
+    condition: 30000
     doFormatMessage: 1
     trackedStatName: iceDamageDealt
   - name: Lightning Mage
     image: {fileID: -146542664, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Reach a total of 20% spell cooldown reduction in a single run.
+    message: Reach a total of 30% spell cooldown reduction in a single run.
     condition: -0.2
     doFormatMessage: 0
     trackedStatName: totalCooldown
@@ -142,7 +142,7 @@ MonoBehaviour:
     trackedStatName: summonDamageDealt
   - name: Orb of the Oracle
     image: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-    message: Deal 25000 damage
-    condition: 25000
+    message: Deal 50000 damage
+    condition: 50000
     doFormatMessage: 1
     trackedStatName: damage

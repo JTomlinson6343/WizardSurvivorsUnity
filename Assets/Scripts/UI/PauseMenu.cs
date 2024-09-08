@@ -20,6 +20,12 @@ public class PauseMenu : MonoBehaviour
         m_AutoFireToggle.isOn = Player.m_AutoFire;
     }
 
+    public void ToggleMenu(bool on)
+    {
+        gameObject.SetActive(on);
+        GetComponent<Navigator>().Start();
+    }
+
     public void OnAutoFireValueChanged(bool value)
     {
         if (Player.m_AutoFire == value) return;
