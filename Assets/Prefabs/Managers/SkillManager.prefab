@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_Cooldown: 7
   m_HUDSkillIconRef: {fileID: 0}
   m_BonusSpeed:
-    speed: 0.1
+    speed: 0.5
     maxHealth: 0
     pullDist: 0
     iFramesMod: 0
