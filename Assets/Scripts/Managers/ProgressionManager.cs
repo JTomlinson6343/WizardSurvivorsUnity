@@ -38,9 +38,11 @@ public class ProgressionManager : MonoBehaviour
     [HideInInspector] public int m_WaveCounter = 0;
 
     private readonly float kBossGracePeriodTime = 6f;
+    private readonly float kHealthPickupChance = 0.001f;
 
     //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
+    [SerializeField] GameObject m_HealthPickupPrefab;
     [SerializeField] GameObject m_SkillPointOrbPrefab;
     [SerializeField] GameObject m_GoldSkillPointOrbPrefab;
 
@@ -173,7 +175,14 @@ public class ProgressionManager : MonoBehaviour
 
     public void SpawnXP(Vector2 pos, int amount)
     {
-        SpawnPickup(m_XPOrbPrefab, pos, amount);
+        if (Random.Range(0f,1f) < kHealthPickupChance)
+        {
+            SpawnPickup(m_HealthPickupPrefab, pos, 1);
+        }
+        else
+        {
+            SpawnPickup(m_XPOrbPrefab, pos, amount);
+        }
     }
     public void SpawnSkillPoint(Vector2 pos, int amount)
     {
@@ -209,7 +218,7 @@ public class ProgressionManager : MonoBehaviour
         if (now < m_NextXPSpawn) return;
 
         SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + Utils.GetRandomDirectionV3() * m_XPSpawnRadius);
-
+        
         m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter);
     }
     #endregion
