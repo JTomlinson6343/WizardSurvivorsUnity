@@ -16,8 +16,8 @@ public class Navigator2D : Navigator
     protected Vector2 m_SelectedButtonPosV2;
     [SerializeField] Button m_UnlockButton;
     [SerializeField] Button m_RespecButton;
-    [SerializeField] Vector2Int m_DefaultSelectableIndex = new Vector2Int(0,0);
-    [SerializeField] bool m_InvokeOnSelect = true;
+    [SerializeField] protected Vector2Int m_DefaultSelectableIndex = new Vector2Int(0,0);
+    [SerializeField] protected bool m_InvokeOnSelect = true;
 
     public override void Start()
     {

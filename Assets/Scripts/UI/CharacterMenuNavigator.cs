@@ -7,6 +7,12 @@ using UnityEngine.UI;
 
 public class CharacterMenuNavigator : Navigator2D
 {
+    public override void Start()
+    {
+        m_SelectedButtonPosV2 = m_DefaultSelectableIndex;
+        if (Gamepad.current != null)Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPosV2).transform);
+        if (m_InvokeOnSelect) GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>().onClick.Invoke();
+    }
     protected override void HandleInput()
     {
         TextMeshProUGUI backText = m_BackButton?.GetComponentInChildren<TextMeshProUGUI>();
