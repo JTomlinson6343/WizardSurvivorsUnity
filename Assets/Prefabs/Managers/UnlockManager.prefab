@@ -118,14 +118,14 @@ MonoBehaviour:
   m_UnlockConditions:
   - name: Ice Mage
     image: {fileID: 211959678, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Deal 30000 frost damage.
-    condition: 30000
+    message: Deal 50000 frost damage.
+    condition: 50000
     doFormatMessage: 1
     trackedStatName: iceDamageDealt
   - name: Lightning Mage
     image: {fileID: -146542664, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Reach a total of 30% spell cooldown reduction in a single run.
-    condition: -0.2
+    message: Reach a total of 40% spell cooldown reduction in a single run.
+    condition: -0.4
     doFormatMessage: 0
     trackedStatName: totalCooldown
   - name: Solarium Skull
@@ -136,13 +136,13 @@ MonoBehaviour:
     trackedStatName: kills
   - name: Emberfly Jar
     image: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-    message: Deal 5000 damage from summon spells.
-    condition: 5000
+    message: Deal 10000 damage from summon spells.
+    condition: 10000
     doFormatMessage: 1
     trackedStatName: summonDamageDealt
   - name: Orb of the Oracle
     image: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
     message: Deal 50000 damage
-    condition: 50000
+    condition: 75000
     doFormatMessage: 1
     trackedStatName: damage
