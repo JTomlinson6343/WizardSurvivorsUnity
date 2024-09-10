@@ -116,8 +116,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 0.03
-    max: 0.2
+    min: 0.01
+    max: 0.15
     alpha: 0.04
   m_HealthCurve:
     curve:
@@ -133,15 +133,6 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.45101696
-        value: 0.48945507
-        inSlope: 1.6184361
-        outSlope: 1.6184361
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.094148174
-      - serializedVersion: 3
         time: 1
         value: 1
         inSlope: 2
@@ -153,8 +144,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    min: 40
-    max: 1000
+    min: 35
+    max: 750
     alpha: 0.03
   m_SlimePrefabs:
   - {fileID: 4782787995318582076, guid: 9be176070d5270e44b396b4f8d9a6f56, type: 3}

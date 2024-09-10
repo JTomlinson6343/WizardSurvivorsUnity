@@ -211,7 +211,7 @@ public class SkillTree : MonoBehaviour
         OnCloseSkillTreeMenu();
         gameObject.SetActive(false);
         CharacterMenu.m_Instance.gameObject.SetActive(true);
-        CharacterMenu.m_Instance.gameObject.GetComponent<Navigator>().Start();
+        CharacterMenu.m_Instance.gameObject.GetComponent<CharacterMenuNavigator>().Start();
 
     }
 

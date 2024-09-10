@@ -7,10 +7,13 @@ using UnityEngine.UI;
 
 public class CharacterMenuNavigator : Navigator2D
 {
+    bool firstTimeOpened = true;
     public override void Start()
     {
+        if (Gamepad.current == null) return;
+
         m_SelectedButtonPosV2 = m_DefaultSelectableIndex;
-        if (Gamepad.current != null)Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPosV2).transform);
+        Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPosV2).transform);
         if (m_InvokeOnSelect) GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>().onClick.Invoke();
     }
     protected override void HandleInput()
