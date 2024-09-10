@@ -50,7 +50,22 @@ public class UnlockManager: MonoBehaviour
 
     public static List<UnlockCondition> GetUnlockConditions() { return m_Instance.m_UnlockConditions; }
     public static UnlockCondition GetUnlockConditionWithName(string name) { return GetUnlockConditions().Find(x => x.name == name); }
-    public static Unlockable GetUnlockableWithName(string name) { return m_Unlockables.Find(x => x.name == name); }
+    public static Unlockable GetUnlockableWithName(string name) {
+        Unlockable unlockable = m_Unlockables.Find(x => x.name == name);
+        if (unlockable == null)
+        {
+            Unlockable newUnlockable = new Unlockable();
+            newUnlockable.name = name;
+            newUnlockable.unlocked = false;
+            m_Unlockables.Add(newUnlockable);
+            SaveManager.SaveToFile();
+            return newUnlockable;
+        }
+        else
+        {
+            return unlockable;
+        }
+    }
     public static TrackedStat GetTrackedStatWithName(string name) { return m_TrackedStats.Find(x => x.name == name); }
 
     public static List<TrackedStat> m_TrackedStats = new List<TrackedStat>();

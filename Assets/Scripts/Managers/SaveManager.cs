@@ -37,7 +37,7 @@ public class OptionsData
 
 public class SaveManager
 {
-    static string versionNumber = "0.0.7";
+    static string versionNumber = "1.2";
 
     static readonly string m_Path = Application.persistentDataPath + "/save.json";
 
@@ -49,13 +49,6 @@ public class SaveManager
         m_SkillTrees = trees;
     }
 
-    private static void NewVersion()
-    {
-        // Things to do if the game version changes.
-        if (m_SaveData.version == versionNumber) return;
-
-
-    }
     public static void SaveToFile() // Called every time skill menu is closed
     {
         m_SaveData.version = versionNumber;
@@ -141,11 +134,11 @@ public class SaveManager
 
         PopulateSkillTreesArray(skillTrees);
 
-        NewVersion();
         LoadSkills();
         LoadOptions();
         LoadUnlocks();
         LoadViewedTutorials();
+        NewVersion();
     }
 
     private static void LoadSkills()
@@ -190,6 +183,12 @@ public class SaveManager
     {
         if (m_SaveData.viewedTutorials.Length == 0) return;
         TutorialManager.m_ViewedTutorials = m_SaveData.viewedTutorials?.ToList();
+    }
+
+    private static void NewVersion()
+    {
+        // Things to do if the game version changes.
+        if (m_SaveData.version == versionNumber) return;
     }
 
     // Adds skill points to the specified tree. Called at the end of a run

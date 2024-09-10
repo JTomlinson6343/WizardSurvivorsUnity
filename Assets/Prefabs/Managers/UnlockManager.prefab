@@ -128,6 +128,12 @@ MonoBehaviour:
     condition: -0.4
     doFormatMessage: 0
     trackedStatName: totalCooldown
+  - name: Necromancer
+    image: {fileID: 29506600, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
+    message: CONDITION HERE
+    condition: 0
+    doFormatMessage: 1
+    trackedStatName: damage
   - name: Solarium Skull
     image: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
     message: Kill 2000 enemies.

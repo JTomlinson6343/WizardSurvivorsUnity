@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c840bb209f1b08459c8129b4b3ef2a1
+guid: f8d11eee117f3c24fbcb9cfc217629e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35.5
+  spritePixelsToUnits: 28
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,6 +69,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,144 +119,215 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Big UI Icons_0
+      name: Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d38c385493a98fa4bbf1d2abe5661933
-      internalID: 751749377
+      spriteID: 87bdc414a696d4043b72c3d260c0e265
+      internalID: -1838310749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_1
+      name: Idle_1
       rect:
         serializedVersion: 2
-        x: 71
+        x: 140
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2b47c13b2db304d9e50966b69ef1a8
-      internalID: -1550611491
+      spriteID: 2031aa5fd411f7446a663b19690b1e8e
+      internalID: 764370687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_2
+      name: Idle_2
       rect:
         serializedVersion: 2
-        x: 142
+        x: 280
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f483eef3fd720444b823c56f50a1a59c
-      internalID: 211959678
+      spriteID: 56d07b21ab5a6c74bb2758f69e77cbd4
+      internalID: 1026436605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_3
+      name: Idle_3
       rect:
         serializedVersion: 2
-        x: 213
+        x: 420
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cc2a66e233a8c14f876a6204fc7cf0b
-      internalID: -146542664
+      spriteID: c2586188a761439459bfb998ddc91401
+      internalID: -1303937790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_4
+      name: Idle_4
       rect:
         serializedVersion: 2
-        x: 284
+        x: 560
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b071446ccd49f0449a6ecde409f688ef
-      internalID: -516004458
+      spriteID: 629c3f49b003e314f914fdafb20c89c5
+      internalID: -1893371507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_5
+      name: Idle_5
       rect:
         serializedVersion: 2
-        x: 355
+        x: 700
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a273556206d48c4429c9342600526ac2
-      internalID: 29506600
+      spriteID: d75df11db8b39894c9e9f230e732348d
+      internalID: -1530380480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_6
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf51f901d4a652b40ab7202d30cc95ea
+      internalID: -1753558454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_7
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 0
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3f133f312232c47b66c7da4cedd256
+      internalID: -120458461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_8
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad07b8197e4660146b589df0d1f7fc4d
+      internalID: -432115638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_9
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 140
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0612449e17371474abbfee9e667909d6
+      internalID: 1504393552
       vertices: []
       indices: 
       edges: []
@@ -259,12 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Big UI Icons_0: 751749377
-      Big UI Icons_1: -1550611491
-      Big UI Icons_2: 211959678
-      Big UI Icons_3: -146542664
-      Big UI Icons_4: -516004458
-      Big UI Icons_5: 29506600
+      Idle_0: -1838310749
+      Idle_1: 764370687
+      Idle_2: 1026436605
+      Idle_3: -1303937790
+      Idle_4: -1893371507
+      Idle_5: -1530380480
+      Idle_6: -1753558454
+      Idle_7: -120458461
+      Idle_8: -432115638
+      Idle_9: 1504393552
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

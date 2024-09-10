@@ -260,6 +260,7 @@ Transform:
   - {fileID: 392566256}
   - {fileID: 1416561097}
   - {fileID: 1225650446}
+  - {fileID: 1591716766}
   - {fileID: 1619876286}
   - {fileID: 926074072}
   m_Father: {fileID: 0}
@@ -574,6 +575,67 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &187296670
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 146286815}
+    m_Modifications:
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762798856558134100, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_Name
+      value: NecroSkillTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762798856558134100, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
 --- !u!114 &195413893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1604304808497722282, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
@@ -53580,6 +53642,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_Character
+      value: 
+      objectReference: {fileID: 3149948031472934145, guid: 1aee21c83eee70e439fa4a0a54aea447, type: 3}
+    - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTree
       value: 
       objectReference: {fileID: 392566257}
@@ -53606,6 +53672,14 @@ PrefabInstance:
     - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_HighlightColour.r
       value: 0.40784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013724038083419710, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1591716767}
+    - target: {fileID: 9013724038083419710, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_StartSpellDesc
+      value: Summon a friendly skeleton to fight for you for a duration
       objectReference: {fileID: 0}
     - target: {fileID: 9059021381213392815, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -55120,6 +55194,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ad14bfa7d48b0a418cf259364e4ad78, type: 3}
+--- !u!4 &1591716766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+  m_PrefabInstance: {fileID: 187296670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1591716767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2563516355548538394, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+  m_PrefabInstance: {fileID: 187296670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1619876285
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] CharacterIcon m_IceMageIcon;
     [SerializeField] CharacterIcon m_LightningMageIcon;
+    [SerializeField] CharacterIcon m_NecroIcon;
 
     [SerializeField] SkillTree m_GlobalSkillTree;
 
@@ -150,5 +151,6 @@ public class CharacterMenu : MonoBehaviour
     {
         m_IceMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Ice Mage").unlocked);
         m_LightningMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Lightning Mage").unlocked);
+        m_NecroIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Necromancer").unlocked);
     }
 }
