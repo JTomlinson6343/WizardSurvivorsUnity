@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: 383119644722088283, guid: 716440f747e78a84a82cfb1e142eb5a6, type: 3}
   m_SpawnCooldown: 0.1
   m_WaveTimer: 60
-  m_SpawnRadius: 15
+  m_SpawnRadius: 18
   m_SpawnCurve:
     curve:
       serializedVersion: 2
