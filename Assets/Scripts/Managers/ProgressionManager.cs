@@ -87,6 +87,12 @@ public class ProgressionManager : MonoBehaviour
                 StateManager.ChangeState(StateManager.State.PAUSED);
             }
         }
+
+        if (Debug.isDebugBuild)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+                PreBoss();
+        }
         m_LastGamepadPluggedInState = Gamepad.current != null;
 
         SpawnXPRandomly();

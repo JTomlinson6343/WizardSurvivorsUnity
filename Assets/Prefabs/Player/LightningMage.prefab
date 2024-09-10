@@ -80,6 +80,22 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8451655563064316095, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5114589
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451655563064316095, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.55445296
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451655563064316095, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.103153884
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451655563064316095, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2322264
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

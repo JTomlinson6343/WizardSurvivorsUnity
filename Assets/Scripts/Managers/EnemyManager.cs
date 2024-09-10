@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 [System.Serializable]
 struct Curve
@@ -19,6 +21,8 @@ struct Curve
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager m_Instance;
+
+    public static List<Enemy> m_Enemies = new List<Enemy>();
 
     private GameObject m_PlayerReference;
     [SerializeField] private GameObject[] m_EnemyPrefabs;
@@ -39,7 +43,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Curve m_SpawnCooldownCurve;
     [SerializeField] Curve m_HealthCurve;
 
-    readonly int   kEnemyHardLimit = 150;
+    readonly int   kEnemyHardLimit = 300;
     readonly float kGracePeriodTime = 2f;
     readonly float kChampionChance = 0.01f;
 
@@ -60,8 +64,9 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         StartNewWave();
+        StartCoroutine(SetEnemyDir());
 
-        if (Player.m_Instance == null)  return;
+        if (Player.m_Instance == null) return;
 
         m_PlayerReference = Player.m_Instance.gameObject;
     }
@@ -74,14 +79,6 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.B))
-        //{
-        //    CancelInvoke(nameof(GracePeriod));
-        //    ProgressionManager.m_Instance.PreBoss();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.P)) StartNewWave();
-
         if (m_EnemyCount >= kEnemyHardLimit) return;
 
         if (m_EnemiesKilledThisWave >= m_SpawnLimit)
@@ -98,6 +95,30 @@ public class EnemyManager : MonoBehaviour
     {
         Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(Player.m_Instance.transform.position, m_SpawnRadius);
+    }
+
+    IEnumerator SetEnemyDir()
+    {
+        while (true)
+        {
+            if (Player.m_Instance == null)
+            {
+                yield return new WaitForSeconds(0.5f);
+                continue;
+            }
+
+            m_Enemies.ForEach((e) =>
+            {
+                if (!e.m_FollowPlayer) return;
+
+                Vector2 dir = (Player.m_Instance.gameObject.transform.position - e.transform.position).normalized;
+
+                e.SetAnimState(dir);
+                e.m_MoveDir = dir;
+            });
+
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     private float CalculateSpawnProbability()
@@ -129,8 +150,8 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
         {
-            new WaitForSeconds(Time.deltaTime);
-            Destroy(enemy.gameObject);
+            yield return new WaitForSeconds(Time.deltaTime);
+            enemy.DestroyEnemy();
         }
         yield return null;
     }
@@ -156,6 +177,7 @@ public class EnemyManager : MonoBehaviour
         if (Random.Range(0f, 1f) < kChampionChance * ProgressionManager.m_Instance.m_WaveCounter)
             newEnemy.GetComponent<Enemy>().MakeChampion();
 
+        m_Enemies.Add(newEnemy.GetComponent<Enemy>());
         m_EnemyCount++;
         m_EnemiesSpawnedThisWave++;
     }

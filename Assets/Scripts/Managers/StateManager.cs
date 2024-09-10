@@ -136,6 +136,6 @@ public static class StateManager
 
     public static bool IsGameplayStopped()
     {
-        return m_CurrentState == State.UPGRADING || m_CurrentState == State.PAUSED || m_CurrentState == State.GAME_OVER;
+        return m_CurrentState == State.UPGRADING || m_CurrentState == State.PAUSED || m_CurrentState == State.GAME_OVER || m_CurrentState == State.TUTORIAL;
     }
 }

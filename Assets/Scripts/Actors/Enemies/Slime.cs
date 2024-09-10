@@ -20,6 +20,8 @@ public class Slime : Enemy
             slime.transform.position = transform.position;
             Slime slimeComponent = slime.GetComponent<Slime>();
 
+            EnemyManager.m_Enemies.Add(slimeComponent);
+
             slimeComponent.InitBaby(m_SplitAmount, m_ContactDamage, m_MaxHealth, transform.localScale);
 
             slime.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f) / 1f * m_BabyBounceSpeed, Random.Range(-1f, 1f) / 1f * m_BabyBounceSpeed);

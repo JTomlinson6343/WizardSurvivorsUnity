@@ -25,12 +25,7 @@ public class Goblin : Enemy
 
     public override void Update()
     {
-        if (StateManager.IsGameplayStopped())
-        {
-            rb.velocity = Vector3.zero;
-            return;
-        }
-        RespawnCheck();
+        base.Update();
 
         Brain();
     }
@@ -39,8 +34,12 @@ public class Goblin : Enemy
     {
         if (!m_Stopped)
         {
-            FollowPlayer();
+            m_FollowPlayer = true;
             RandomStop();
+        }
+        else
+        {
+            m_FollowPlayer = false;
         }
     }
 

@@ -88,6 +88,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1299336938, guid: b59492deb20c9c841b93534c7cd7034b, type: 3}
+    - target: {fileID: 8451655563064316095, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.56284225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451655563064316095, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.057462208
+      objectReference: {fileID: 0}
     - target: {fileID: 8586813334062294181, guid: 5fff95baf7aa5654e981c6d513bf5af0, type: 3}
       propertyPath: m_BulletPrefab
       value: 

@@ -171,7 +171,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.04
+    cooldown: -0.02
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
     damage: 0.2
     summonDamage: 0
     speed: 0
-    cooldown: -0.2
+    cooldown: -0.1
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
     damage: 0
     summonDamage: 0
     speed: 0
-    cooldown: -0.15
+    cooldown: -0.1
     amount: 0
     knockback: 0
     pierceAmount: 0

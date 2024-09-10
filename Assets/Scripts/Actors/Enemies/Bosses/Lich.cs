@@ -127,7 +127,10 @@ public class Lich : Boss
         {
             GameObject spawnedEnemy = EnemyManager.m_Instance.CreateNewEnemy(m_SpawnedEnemyPrefab);
             spawnedEnemy.transform.position = m_QuakePos.transform.position + Utils.GetRandomDirectionV3() * m_EnemySpawnRadius;
-            spawnedEnemy.GetComponent<Skeleton>().CrawlFromGround();
+            Skeleton skeleton = spawnedEnemy.GetComponent<Skeleton>();
+            skeleton.CrawlFromGround();
+            skeleton.m_FollowPlayer = true;
+            EnemyManager.m_Enemies.Add(skeleton);
         }
     }
 
