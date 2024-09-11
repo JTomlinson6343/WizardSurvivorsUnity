@@ -149,7 +149,6 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (Enemy enemy in GetComponentsInChildren<Enemy>())
         {
-            yield return new WaitForSeconds(Time.deltaTime);
             enemy.DestroyEnemy();
         }
         yield return null;

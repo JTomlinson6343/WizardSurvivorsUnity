@@ -369,6 +369,8 @@ MonoBehaviour:
   m_DebuffImmune: 0
   m_Targetable: 1
   m_Stunned: 0
+  m_MoveDir: {x: 0, y: 0}
+  m_FollowPlayer: 0
   m_HealthModifier: 0.9
   m_SpawnProbability: 1
   m_MinWave: 1

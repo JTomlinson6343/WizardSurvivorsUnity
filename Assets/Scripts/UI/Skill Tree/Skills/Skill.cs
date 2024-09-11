@@ -42,6 +42,16 @@ public enum SkillID
     GlobalReroll,
     GlobalLowHealthXP,
     GlobalXPOnKill,
+    NecroPoisonDamage,
+    NecroDarkDamage,
+    NecroSummonDamage,
+    NecroLifeDrain,
+    NecroSkeletonDuration,
+    NecroBleed,
+    NecroMoreSkeleton,
+    NecroBleedDamage,
+    NecroRevive,
+    NecroTurned
 }
 
 [System.Serializable]

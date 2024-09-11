@@ -256,6 +256,8 @@ MonoBehaviour:
   m_DebuffImmune: 0
   m_Targetable: 1
   m_Stunned: 0
+  m_MoveDir: {x: 0, y: 0}
+  m_FollowPlayer: 0
   m_HealthModifier: 1
   m_SpawnProbability: 0
   m_MinWave: 0
@@ -321,8 +323,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.093580365, y: 1.4000001}
-  m_Size: {x: 1.7442796, y: 3.08}
+  m_Offset: {x: -0.26654172, y: 1.4000001}
+  m_Size: {x: 1.3983569, y: 3.08}
   m_Direction: 0
 --- !u!1 &8335548373994432881
 GameObject:

@@ -623,6 +623,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2563516355548538394, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_CharacterColour.b
+      value: 0.745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563516355548538394, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_CharacterColour.g
+      value: 0.010546438
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563516355548538394, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_CharacterColour.r
+      value: 0.45538685
+      objectReference: {fileID: 0}
     - target: {fileID: 3762798856558134100, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
       propertyPath: m_Name
       value: NecroSkillTree
