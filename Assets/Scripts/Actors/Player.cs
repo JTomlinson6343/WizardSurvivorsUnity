@@ -64,7 +64,7 @@ public class Player : Actor
     PlayerStats m_TotalStats;
 
     public Ability m_ActiveAbility;
-    public static bool m_AutoFire = false;
+    public static bool m_AutoFire = true;
 
     float m_LastShot = 0;
 

@@ -205,7 +205,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &2558855753744608550
 CapsuleCollider2D:
@@ -292,6 +292,7 @@ MonoBehaviour:
   m_MaxHealth: 2000
   m_Health: 2000
   m_KnockbackResist: 1
+  m_isKnockedBack: 0
   m_DamageResistance: 0
   m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
   m_DebuffPlacement: {fileID: 8335548373994432881}
@@ -299,6 +300,8 @@ MonoBehaviour:
   m_DebuffImmune: 0
   m_Targetable: 1
   m_Stunned: 0
+  m_MoveDir: {x: 0, y: 0}
+  m_FollowPlayer: 0
   m_HealthModifier: 0
   m_SpawnProbability: 0
   m_MinWave: 0

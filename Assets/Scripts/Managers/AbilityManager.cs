@@ -85,8 +85,7 @@ public class AbilityManager : MonoBehaviour
             Unlockable unlock = UnlockManager.GetUnlockableWithName(ability.m_Data.name);
 
             if (unlock == null) continue;
-
-            ability.m_Unlocked = unlock.unlocked;
+            if (!ability.m_Unlocked) ability.m_Unlocked = unlock.unlocked;
         }
     }
 
@@ -94,6 +93,10 @@ public class AbilityManager : MonoBehaviour
     public void ChoosePassiveAbility()
     {
         m_OfferedAbilities = m_PassiveAbilities.FindAll(a => a.m_Unlocked);
+        if (m_OfferedAbilities.Count == 0) {
+            ChooseBuffAbility();
+            return;
+        };
         ShowAbilityOptions();
         m_InstructionsLabel.text = m_SpellInstructions;
     }
@@ -101,6 +104,7 @@ public class AbilityManager : MonoBehaviour
     public void ChooseBuffAbility()
     {
         m_OfferedAbilities = m_BuffAbilities.FindAll(a => a.m_Unlocked);
+        if (m_OfferedAbilities.Count == 0) return;
         ShowAbilityOptions();
         m_InstructionsLabel.text = m_ItemInstructions;
     }
@@ -116,8 +120,6 @@ public class AbilityManager : MonoBehaviour
 
     void RollAbilitiesOffered()
     {
-        if (m_OfferedAbilities.Count == 0) return;
-
         m_HighlightedIcon = null;
 
         // Reset info panel

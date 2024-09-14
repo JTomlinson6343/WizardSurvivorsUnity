@@ -4027,6 +4027,80 @@ MonoBehaviour:
     armor: 0
     xpMod: 0
   m_HealModifier: 3
+--- !u!1 &4726338157125540422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7175310712639681622}
+  - component: {fileID: 4190392912260912225}
+  m_Layer: 0
+  m_Name: RaiseDead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7175310712639681622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726338157125540422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4190392912260912225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726338157125540422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48a67d087d0b514094e7ab8478731a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Unlocked: 1
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_CastAmount: 1
+  m_BaseCastAmount: 1
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 2
+    summonDamage: 0
+    speed: 0
+    cooldown: 5
+    amount: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: Raise Dead
+    damageType: 5
+    description: Summon a skeleton to fight for you for a short time. (5s cd)
+    levelUpInfo: 
+    icon: {fileID: -868569548, guid: 2e29250e4e5df704a9efc131b8f1f0a5, type: 3}
+  m_CooldownRemaining: 0
+  m_DefaultAutofireRange: 6
+  m_SpellTags: 0200000000000000
+  m_SoundOnCast: 4
+  m_SoundOnCastVolume: 1
+  m_SkeletonPrefab: {fileID: 8408751920650444170, guid: df45fd29c62d542459b39d1561c68e85, type: 3}
+  m_BaseDuration: 5
 --- !u!1 &5177238871402496470
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,6 +5139,7 @@ Transform:
   - {fileID: 6806180191049746346}
   - {fileID: 9161394284357566154}
   - {fileID: 7218801882491176593}
+  - {fileID: 7175310712639681622}
   m_Father: {fileID: 108723972155499655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7609364591772771841

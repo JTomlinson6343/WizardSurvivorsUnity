@@ -32,14 +32,14 @@ public class OptionsData
 {
     public float musicVolume = 1f;
     public float soundVolume = 1f;
-    public bool  autoFire;
+    public bool  autoFire = true;
 }
 
 public class SaveManager
 {
     static string versionNumber = "1.2";
 
-    static readonly string m_Path = Application.persistentDataPath + "/save.json";
+    static readonly string m_Path = Application.persistentDataPath + "/save_beta.json";
 
     static SkillTree[] m_SkillTrees;
     static SaveData m_SaveData;
@@ -111,7 +111,6 @@ public class SaveManager
     {
         m_SaveData.viewedTutorials = TutorialManager.m_ViewedTutorials.ToArray();
     }
-
     public static void LoadFromFile(SkillTree[] skillTrees) // Called on game start
     {
         // Load json

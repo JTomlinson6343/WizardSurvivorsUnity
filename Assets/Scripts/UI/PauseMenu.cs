@@ -7,7 +7,6 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] Scrollbar m_MusicSlider;
     [SerializeField] Scrollbar m_SoundSlider;
-    [SerializeField] Toggle m_AutoFireToggle;
 
     private void Awake()
     {
@@ -17,7 +16,6 @@ public class PauseMenu : MonoBehaviour
     {
         m_MusicSlider.value = AudioManager.m_MusicVolume;
         m_SoundSlider.value = AudioManager.m_SoundVolume;
-        m_AutoFireToggle.isOn = Player.m_AutoFire;
     }
 
     public void ToggleMenu(bool on)

@@ -53656,7 +53656,7 @@ PrefabInstance:
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_Character
       value: 
-      objectReference: {fileID: 3149948031472934145, guid: 1aee21c83eee70e439fa4a0a54aea447, type: 3}
+      objectReference: {fileID: 3150333768604526943, guid: 37fd856cc5b85df43b1c084b31af0e13, type: 3}
     - target: {fileID: 6931310180832408527, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTree
       value: 
@@ -55233,10 +55233,6 @@ PrefabInstance:
     - target: {fileID: 3895281563268265117, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
       propertyPath: m_Name
       value: UnlockManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4173082893178003642, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
-      propertyPath: m_UnlockConditions.Array.data[3].message
-      value: Deal 5000 damage with summon spells.
       objectReference: {fileID: 0}
     - target: {fileID: 7038671002124270075, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
       propertyPath: m_Pivot.x

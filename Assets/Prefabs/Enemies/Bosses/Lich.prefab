@@ -232,7 +232,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &6864563779063590246
 MonoBehaviour:
@@ -249,6 +249,7 @@ MonoBehaviour:
   m_MaxHealth: 1750
   m_Health: 1750
   m_KnockbackResist: 1
+  m_isKnockedBack: 0
   m_DamageResistance: 0
   m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
   m_DebuffPlacement: {fileID: 8335548373994432881}

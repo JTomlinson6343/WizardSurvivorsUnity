@@ -186,6 +186,11 @@ public class Enemy : Actor
         m_MaxHealth *= kChampHealthMod;
         m_XPAwarded *= kChampXPMod;
         GetComponentInChildren<SpriteRenderer>().color = kChampColour;
+        AddHealthBar();
+    }
+
+    public void AddHealthBar()
+    {
         GameObject hpBar = Instantiate(m_HealthbarPrefab);
         hpBar.transform.SetParent(transform, false);
         hpBar.GetComponentInChildren<BasicBar>().m_Actor = this;
