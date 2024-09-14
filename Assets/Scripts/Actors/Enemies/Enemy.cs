@@ -70,6 +70,8 @@ public class Enemy : Actor
 
     protected void FollowPlayerCheck()
     {
+        if (m_isKnockedBack) return;
+        
         if (m_FollowPlayer)
         {
             rb.velocity = m_kBaseMoveSpeed * m_Speed * m_MoveDir;
