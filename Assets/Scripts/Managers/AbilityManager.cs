@@ -40,7 +40,6 @@ public class AbilityManager : MonoBehaviour
     bool m_AbilityChoicesShown;
     bool m_RerollActive;
 
-    public bool m_LightningDoubleCastOn;
     public static float m_RerollChance = 0f;
 
     private void Awake()
@@ -351,7 +350,7 @@ public class AbilityManager : MonoBehaviour
             ability.UpdateTotalStats();
         }
 
-        if (m_LightningDoubleCastOn) UpdateDoubleCastedSpell();
+        if (Skill.lightningDoubleCastOn) UpdateDoubleCastedSpell();
 
         UnlockManager.GetTrackedStatWithName("totalCooldown").stat = GetAbilityStatBuffs().cooldown;
         UnlockManager.CheckUnlockConditions();

@@ -40,7 +40,8 @@ public class FriendlySkeleton : Actor
             return;
         }
 
-        if (m_IsMidAnimation || Vector2.Distance(Player.m_Instance.transform.position, transform.position) < m_PlayerMinDist)
+        // Stop movement if mid crawl out of ground animation
+        if (m_IsMidAnimation)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             return;
@@ -48,18 +49,29 @@ public class FriendlySkeleton : Actor
 
         if (!m_TargetedEnemy)
         {
+            // If not currently targeting an enemy, try and find one to target
             m_TargetedEnemy = Utils.GetClosestEnemyInRange(transform.position, m_Range);
 
             if (!m_TargetedEnemy)
             {
+                // If it fails, follow the player
+
                 Vector2 pDir = (Player.m_Instance.transform.position - transform.position).normalized;
                 FaceForward(pDir);
 
-                GetComponent<Rigidbody2D>().velocity = pDir * m_Speed;
+                if (Vector2.Distance(Player.m_Instance.transform.position, transform.position) < m_PlayerMinDist)
+                {
+                    // If too close to the player, stop
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().velocity = pDir * m_Speed;
+                }
                 return;
             }
         }
-
+        // If we are targeting an enemy, move towards it
         Vector2 dir = (m_TargetedEnemy.transform.position - transform.position).normalized;
         FaceForward(dir);
 
@@ -131,6 +143,5 @@ public class FriendlySkeleton : Actor
 
         GameObject smoke = Instantiate(m_DeathParticlesPrefab);
         smoke.transform.position = transform.position;
-        // TODO: Explode
     }
 }

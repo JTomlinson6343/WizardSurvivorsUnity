@@ -116,6 +116,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 5594848806876810358, guid: e9a5b442d6c10b64e87a1823d8a2adc0, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594848806876810358, guid: e9a5b442d6c10b64e87a1823d8a2adc0, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594848806876810358, guid: e9a5b442d6c10b64e87a1823d8a2adc0, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8340632842504487954, guid: e9a5b442d6c10b64e87a1823d8a2adc0, type: 3}
     m_RemovedGameObjects: []
@@ -175,8 +187,8 @@ MonoBehaviour:
   m_Animator: {fileID: 7750839698572174613}
   m_AnimatorMask: {fileID: 4285770326118885393}
   m_Range: 4
-  m_PlayerMinDist: 0.5
-  m_Speed: 2
+  m_PlayerMinDist: 2
+  m_Speed: 3
   m_HitboxDelay: 0.25
   m_DeathParticlesPrefab: {fileID: 4749949310919408515, guid: e738b13bd857ea344a00c4e4c13d3f7d, type: 3}
 --- !u!1 &9134274736796133788 stripped

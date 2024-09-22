@@ -33,7 +33,7 @@ public class Actor : MonoBehaviour
     public bool m_Targetable = true;
 
     protected bool m_IsMidAnimation;
-    bool m_IsDead;
+    protected bool m_IsDead;
     public bool m_Stunned;
 
     public virtual void Start()
@@ -62,6 +62,7 @@ public class Actor : MonoBehaviour
     virtual public DamageOutput OnDamage(float amount)
     {
         if (m_IsDead) return DamageOutput.invalidHit;
+
         StartFlashing();
 
         m_Health -= amount;

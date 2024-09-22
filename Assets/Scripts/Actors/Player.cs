@@ -247,6 +247,30 @@ public class Player : Actor
         return OnDamage(amount);
     }
 
+    public DamageOutput TakeDOTDamage(float amount)
+    {
+        amount -= m_TotalStats.armor;
+        return OnDOTDamage(amount);
+    }
+
+    public DamageOutput OnDOTDamage(float amount)
+    {
+        if (m_IsDead) return DamageOutput.invalidHit;
+
+        m_Health -= amount;
+
+        if (m_Health <= 0)
+        {
+            // If this has no hp left, destroy it
+            m_Health = 0;
+            OnDeath();
+            m_IsDead = true;
+            return DamageOutput.wasKilled;
+        }
+
+        return DamageOutput.validHit;
+    }
+
     protected override void StartFlashing()
     {
         m_IsInvincible = true;
@@ -332,6 +356,7 @@ public class Player : Actor
     }
     public void Heal(float amount)
     {
+        DamageManager.m_Instance.SpawnDamageNumbers(amount, m_DebuffPlacement.transform.position, DamageType.Healing);
         StartCoroutine(HealAnim(amount,m_HealSpeed));
     }
 

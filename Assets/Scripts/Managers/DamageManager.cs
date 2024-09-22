@@ -12,7 +12,8 @@ public enum DamageType
     Light,
     Dark,
     Physical,
-    None
+    None,
+    Healing
 }
 
 // An instance of damage dealt to an actor
@@ -55,12 +56,25 @@ public class DamageManager : MonoBehaviour
     public Actor.DamageOutput DamageInstance(DamageInstanceData data, Vector2 pos)
     {
         Actor actorComponent = data.target.GetComponent<Actor>();
+        bool isSelfDamage = data.target == data.user;
 
         float damageDealt = data.amount * (1f - actorComponent.m_DamageResistance);
 
+        if (data.target.CompareTag("Player") && Skill.necroBleedEnabled && !data.isDoT) damageDealt *= 0.5f;
+
         if (damageDealt <= 0f) { damageDealt = 1f; }
 
-        Actor.DamageOutput damageOutput = actorComponent.TakeDamage(damageDealt);
+        Actor.DamageOutput damageOutput;
+
+
+        if (data.isDoT && data.target.CompareTag("Player"))
+        {
+            damageOutput = data.target.GetComponent<Player>().TakeDOTDamage(damageDealt);
+        }
+        else
+        {
+            damageOutput = actorComponent.TakeDamage(damageDealt);
+        }
 
         if (damageOutput == Actor.DamageOutput.invalidHit) return damageOutput;
 
@@ -72,16 +86,22 @@ public class DamageManager : MonoBehaviour
         }
         if (data.doDamageNumbers)
         {
-            // Spawn damage numbers
-            GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
-            damageNumber.transform.position = pos + new Vector2(Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius), Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius));
-            damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(data.damageType);
-            damageNumber.GetComponent<FloatingDamage>().m_Damage = damageDealt;
+            SpawnDamageNumbers(damageDealt, pos, data.damageType);
             data.didKill = damageOutput == Actor.DamageOutput.wasKilled;
-            m_DamageInstanceEvent.Invoke(data);
+            if (!isSelfDamage) m_DamageInstanceEvent.Invoke(data);
         }
-        TryIncrementTrackedStats(data);
+
+        if (!isSelfDamage) TryIncrementTrackedStats(data);
         return damageOutput;
+    }
+
+    public void SpawnDamageNumbers(float amount, Vector2 pos, DamageType damageType)
+    {
+        // Spawn damage numbers
+        GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
+        damageNumber.transform.position = pos + new Vector2(Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius), Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius));
+        damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(damageType);
+        damageNumber.GetComponent<FloatingDamage>().m_Damage = amount;
     }
 
     private Color GetDamageNumberColor(DamageType damageType)
@@ -93,8 +113,9 @@ public class DamageManager : MonoBehaviour
             DamageType.Light => Color.white,
             DamageType.Dark => Color.magenta,
             DamageType.Physical => Color.red,
-            DamageType.Poison => Color.green,
+            DamageType.Poison => new Color(0, 0.2f, 0),
             DamageType.Lightning => Color.blue,
+            DamageType.Healing => Color.green,
             _ => Color.white,
         };
     }

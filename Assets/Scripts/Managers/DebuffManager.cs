@@ -65,7 +65,7 @@ public class DebuffManager : MonoBehaviour
         {
             debuffData.OnTick(actor);
 
-            yield return new WaitForSeconds(debuffData.kTickRate);
+            yield return new WaitForSeconds(Debuff.kTickRate);
         }
 
         if (actor)

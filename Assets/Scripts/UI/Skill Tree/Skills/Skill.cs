@@ -68,6 +68,9 @@ public class Skill : MonoBehaviour
 
     protected bool m_Active;
 
+    public static bool necroBleedEnabled = false;
+    public static bool lightningDoubleCastOn;
+
     public virtual void Init(SkillData data)
     {
         m_Data = data;

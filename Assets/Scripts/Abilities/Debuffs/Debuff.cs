@@ -11,11 +11,12 @@ public class Debuff
         FrozenSkill,
         Paralysed,
         Frostbite,
-        Curse
+        Curse,
+        Bleed
     }
 
     // Consts
-    public readonly float kTickRate = 0.25f; // Ticks are every 0.25s
+    public static readonly float kTickRate = 0.25f; // Ticks are every 0.25s
     private readonly float kMaxStacks;
     private readonly float kDuration;
 
