@@ -130,9 +130,10 @@ MonoBehaviour:
     trackedStatName: totalCooldown
   - name: Necromancer
     image: {fileID: 29506600, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Deal 0 damage
+    message: Defeat Varkarth, Deathlord of the Crypt in his Enraged form without
+      getting hit.
     condition: 0
-    doFormatMessage: 1
+    doFormatMessage: 0
     trackedStatName: damage
   - name: Solarium Skull
     image: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}

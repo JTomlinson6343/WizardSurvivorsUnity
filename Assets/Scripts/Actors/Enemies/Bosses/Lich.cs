@@ -33,8 +33,12 @@ public class Lich : Boss
     [SerializeField] GameObject m_SmokePrefab;
     [SerializeField] GameObject m_SpawnedEnemyPrefab;
 
+    private bool m_IsEnraged = false;
+
     public override void Enraged(int bossNumber)
     {
+        m_IsEnraged = true;
+
         m_MaxHealth *= bossNumber;
         m_StompDamage *= 1f + bossNumber * 0.1f;
         m_ProjectileDamage *= 1f + bossNumber * 0.1f;
@@ -200,4 +204,11 @@ public class Lich : Boss
     }
 
     public override void ToggleStunned(bool enabled) { }
+
+    protected override void OnDeath()
+    {
+        base.OnDeath();
+
+        if (m_IsEnraged && !m_DidDamagePlayer) UnlockManager.SetUnlocked("Necromancer");
+    }
 }
