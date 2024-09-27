@@ -4090,7 +4090,7 @@ MonoBehaviour:
   m_Data:
     name: Raise Dead
     damageType: 5
-    description: Summon a skeleton to fight for you for a short time. (5s cd)
+    description: Summon a skeleton to fight for you for a short time. (4s cd)
     levelUpInfo: 
     icon: {fileID: -868569548, guid: 2e29250e4e5df704a9efc131b8f1f0a5, type: 3}
   m_CooldownRemaining: 0
