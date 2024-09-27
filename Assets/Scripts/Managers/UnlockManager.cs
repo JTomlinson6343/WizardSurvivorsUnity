@@ -121,6 +121,7 @@ public class UnlockManager: MonoBehaviour
         CheckConditionIsEqualOrMore("iceDamageDealt", "Ice Mage");
         CheckConditionIsEqualOrLess("totalCooldown", "Lightning Mage");
         CheckConditionIsEqualOrMore("kills", "Solarium Skull");
+        CheckConditionIsEqualOrMore("kills", "Necromancer");
         CheckConditionIsEqualOrMore("damage", "Orb of the Oracle");
         CheckConditionIsEqualOrMore("summonDamageDealt", "Emberfly Jar");
         m_Instance.ShowUnlockPopups();
