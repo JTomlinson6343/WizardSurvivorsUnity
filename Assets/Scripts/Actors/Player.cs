@@ -71,6 +71,8 @@ public class Player : Actor
     public float m_IFramesTime;
     public bool m_IsInvincible;
 
+    public bool m_Reviving;
+
     [SerializeField] float m_HealSpeed;
 
     Vector3 staffStartPos;
@@ -99,7 +101,7 @@ public class Player : Actor
 
     public override void Update()
     {
-        if (StateManager.IsGameplayStopped()) { return; }
+        if (StateManager.IsGameplayStopped() || m_Reviving) { return; }
 
         //if (Input.GetKeyDown(KeyCode.H))
         //{
@@ -236,10 +238,7 @@ public class Player : Actor
     // If actor has i-frames, return false. Else, return true
     override public DamageOutput TakeDamage(float amount)
     {
-        if (m_IsInvincible)
-        {
-            return DamageOutput.invalidHit;
-        }
+        if (m_IsInvincible || m_Reviving) return DamageOutput.invalidHit;
 
         PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
 
@@ -249,6 +248,8 @@ public class Player : Actor
 
     public DamageOutput TakeDOTDamage(float amount)
     {
+        if (m_Reviving) return DamageOutput.invalidHit;
+
         amount -= m_TotalStats.armor;
         return OnDOTDamage(amount);
     }
@@ -278,7 +279,7 @@ public class Player : Actor
         Invoke(nameof(EndFlashing), m_IFramesTime * (1f + m_TotalStats.iFramesMod));
     }
 
-    protected override void EndFlashing ()
+    protected override void EndFlashing()
     {
         m_IsInvincible = false;
         base.EndFlashing();
@@ -286,8 +287,14 @@ public class Player : Actor
 
     protected override void OnDeath()
     {
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+        if (Skill.reviveAvailable)
+        {
+            NecroRevive.m_Instance.Revive();
+            return;
+        }
         GetComponentInChildren<Renderer>().enabled = false;
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         ProgressionManager.m_Instance.GameOver();
         Destroy(m_HealthBar);
     }
@@ -356,6 +363,7 @@ public class Player : Actor
     }
     public void Heal(float amount)
     {
+        if (m_Reviving) return;
         DamageManager.m_Instance.SpawnDamageNumbers(amount, m_DebuffPlacement.transform.position, DamageType.Healing);
         StartCoroutine(HealAnim(amount,m_HealSpeed));
     }

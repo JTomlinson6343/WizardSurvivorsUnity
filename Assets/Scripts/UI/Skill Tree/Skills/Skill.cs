@@ -69,7 +69,9 @@ public class Skill : MonoBehaviour
     protected bool m_Active;
 
     public static bool necroBleedEnabled = false;
-    public static bool lightningDoubleCastOn;
+    public static bool lightningDoubleCastOn = false;
+    public static bool bleedDamageSkillActivated = false;
+    public static bool reviveAvailable = false;
 
     public virtual void Init(SkillData data)
     {

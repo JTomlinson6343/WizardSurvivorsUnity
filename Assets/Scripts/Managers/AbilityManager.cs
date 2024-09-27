@@ -369,6 +369,14 @@ public class AbilityManager : MonoBehaviour
         UpdateAllAbilityStats();
     }
 
+    public void RemoveAbilityStatBuffs(AbilityStats stats)
+    {
+        m_AbilityStatsBuffs -= stats;
+        if (m_AbilityStatsBuffs.cooldown < kCooldownCap) m_AbilityStatsBuffs.cooldown = kCooldownCap;
+        m_AbilityStatsBuffs.pierceAmount -= stats.pierceAmount;
+        UpdateAllAbilityStats();
+    }
+
     public void AddElementalAbilityBonusStats(DamageType type, AbilityStats stats)
     {
         Ability[] abilities = GetComponentsInChildren<Ability>();

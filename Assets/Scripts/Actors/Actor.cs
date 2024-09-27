@@ -33,7 +33,7 @@ public class Actor : MonoBehaviour
     public bool m_Targetable = true;
 
     protected bool m_IsMidAnimation;
-    protected bool m_IsDead;
+    public bool m_IsDead;
     public bool m_Stunned;
 
     public virtual void Start()

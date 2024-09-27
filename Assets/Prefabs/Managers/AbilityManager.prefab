@@ -2440,7 +2440,6 @@ MonoBehaviour:
   m_RerollButton: {fileID: 1266692334176297125}
   m_SpellInstructions: Level up! Level up! Tap a direction to select a spell
   m_ItemInstructions: Level up! Tap a direction to select an item
-  m_LightningDoubleCastOn: 0
 --- !u!114 &923224489303346524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4079,7 +4078,7 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 5
+    damage: 4
     summonDamage: 0
     speed: 0
     cooldown: 4

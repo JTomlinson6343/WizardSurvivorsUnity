@@ -18,12 +18,14 @@ public class NecroBleedDebuff : Debuff
     {
         base.OnApply(actor);
         // Increade damage reduction
-        actor.GetComponent<Actor>().m_DamageResistance += m_Resistance;
+        Player.m_Instance.m_DamageResistance += m_Resistance;
+        if (Skill.bleedDamageSkillActivated) AbilityManager.m_Instance.AddAbilityStatBuffs(NecroBleedDamage.stats);
     }
 
     public override void OnEnd(Actor actor)
     {
         base.OnEnd(actor);
         actor.GetComponent<Actor>().m_DamageResistance -= m_Resistance;
+        if (Skill.bleedDamageSkillActivated) AbilityManager.m_Instance.RemoveAbilityStatBuffs(NecroBleedDamage.stats);
     }
 }
