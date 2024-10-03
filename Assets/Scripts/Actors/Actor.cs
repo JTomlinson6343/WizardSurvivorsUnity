@@ -110,7 +110,7 @@ public class Actor : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = vec;
         },
-        dir.normalized * knockbackMagnitude, Vector3.zero, 0.2f).setOnComplete(() =>
+        dir.normalized * knockbackMagnitude, Vector3.zero, knockbackMagnitude/20f).setOnComplete(() =>
         {
             m_isKnockedBack = false;
         }).setEase(LeanTweenType.easeOutBack);

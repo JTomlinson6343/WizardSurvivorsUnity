@@ -15,7 +15,7 @@ public class NecroDrainSoulSkill : CooldownSkill
     public void OnDamageInstance(DamageInstanceData damageInstance)
     {
         if (m_OnCooldown) return;
-        if (Player.m_Instance.m_Reviving) return;
+        if (StateManager.GetCurrentState() == StateManager.State.REVIVING) return;
         if (!damageInstance.user.CompareTag("Player")) return;
         if (!damageInstance.didKill) return;
 

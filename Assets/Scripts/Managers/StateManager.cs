@@ -11,6 +11,7 @@ public static class StateManager
         PLAYING,
         UPGRADING,
         PAUSED,
+        REVIVING,
         TUTORIAL,
         PRE_BOSS,
         BOSS,
@@ -38,6 +39,9 @@ public static class StateManager
                 m_PreviousState = state;
                 break;
             case State.TUTORIAL:
+                m_PreviousState = state;
+                break;
+            case State.REVIVING:
                 m_PreviousState = state;
                 break;
             // Otherwise switch the state to the new state
@@ -136,6 +140,10 @@ public static class StateManager
 
     public static bool IsGameplayStopped()
     {
-        return m_CurrentState == State.UPGRADING || m_CurrentState == State.PAUSED || m_CurrentState == State.GAME_OVER || m_CurrentState == State.TUTORIAL;
+        return m_CurrentState == State.UPGRADING
+            || m_CurrentState == State.PAUSED
+            || m_CurrentState == State.GAME_OVER
+            || m_CurrentState == State.TUTORIAL
+            || m_CurrentState == State.REVIVING;
     }
 }

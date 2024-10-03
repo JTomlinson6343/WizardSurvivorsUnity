@@ -71,8 +71,6 @@ public class Player : Actor
     public float m_IFramesTime;
     public bool m_IsInvincible;
 
-    public bool m_Reviving;
-
     [SerializeField] float m_HealSpeed;
 
     Vector3 staffStartPos;
@@ -101,7 +99,7 @@ public class Player : Actor
 
     public override void Update()
     {
-        if (StateManager.IsGameplayStopped() || m_Reviving) { return; }
+        if (StateManager.IsGameplayStopped()) { return; }
 
         //if (Input.GetKeyDown(KeyCode.H))
         //{
@@ -238,9 +236,9 @@ public class Player : Actor
     // If actor has i-frames, return false. Else, return true
     override public DamageOutput TakeDamage(float amount)
     {
-        if (m_IsInvincible || m_Reviving) return DamageOutput.invalidHit;
+        if (m_IsInvincible) return DamageOutput.invalidHit;
 
-        PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
+        if (StateManager.GetCurrentState() != StateManager.State.REVIVING) PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
 
         amount -= m_TotalStats.armor;
         return OnDamage(amount);
@@ -248,8 +246,6 @@ public class Player : Actor
 
     public DamageOutput TakeDOTDamage(float amount)
     {
-        if (m_Reviving) return DamageOutput.invalidHit;
-
         amount -= m_TotalStats.armor;
         return OnDOTDamage(amount);
     }
@@ -363,7 +359,6 @@ public class Player : Actor
     }
     public void Heal(float amount)
     {
-        if (m_Reviving) return;
         DamageManager.m_Instance.SpawnDamageNumbers(amount, m_DebuffPlacement.transform.position, DamageType.Healing);
         StartCoroutine(HealAnim(amount,m_HealSpeed));
     }

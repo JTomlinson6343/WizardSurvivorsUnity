@@ -102,7 +102,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void PauseMenuInput()
     {
-        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING || StateManager.GetCurrentState() == StateManager.State.GAME_OVER || StateManager.GetCurrentState() == StateManager.State.TUTORIAL) return;
+        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING || StateManager.GetCurrentState() == StateManager.State.GAME_OVER || StateManager.GetCurrentState() == StateManager.State.TUTORIAL || StateManager.GetCurrentState() == StateManager.State.REVIVING) return;
 
         if (Input.GetButtonDown("Pause"))
         {

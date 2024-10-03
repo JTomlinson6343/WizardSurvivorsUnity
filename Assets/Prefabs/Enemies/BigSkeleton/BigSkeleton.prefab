@@ -363,13 +363,17 @@ MonoBehaviour:
   m_MaxHealth: 20
   m_Health: 19
   m_KnockbackResist: 1
+  m_isKnockedBack: 0
   m_DamageResistance: 0
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 8143398116230612771}
   m_DebuffImmunities: 
   m_DebuffImmune: 0
   m_Targetable: 1
+  m_IsDead: 0
   m_Stunned: 0
+  m_MoveDir: {x: 0, y: 0}
+  m_FollowPlayer: 0
   m_HealthModifier: 3
   m_SpawnProbability: 0.5
   m_MinWave: 2

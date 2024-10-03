@@ -30,7 +30,7 @@ public class NecroRevive : Skill
         reviveAvailable = false;
 
         player.m_IsInvincible = true;
-        player.m_Reviving = true;
+        StateManager.ChangeState(StateManager.State.REVIVING);
 
         foreach (Animator animator in player.GetComponentsInChildren<Animator>())
         {
@@ -39,9 +39,11 @@ public class NecroRevive : Skill
 
         LeanTween.delayedCall(2.25f, () =>
         {
-            if (StateManager.GetCurrentState() != StateManager.State.PLAYING) return;
-            SpawnQuake();
+            if (StateManager.GetCurrentState() != StateManager.State.REVIVING) return;
             player.m_IsDead = false;
+            player.m_IsInvincible = true;
+            player.m_KnockbackResist = 1f;
+            player.ClearDebuffs();
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             player.PercentHeal(0.25f);
             foreach (Animator animator in player.GetComponentsInChildren<Animator>())
@@ -52,8 +54,17 @@ public class NecroRevive : Skill
 
         LeanTween.delayedCall(2.75f, () =>
         {
-            player.m_Reviving = false;
+            if (StateManager.GetCurrentState() == StateManager.State.REVIVING)
+            {
+                SpawnQuake();
+                PlayerManager.m_Instance.StartShake(0.45f, 0.25f);
+                StateManager.UnPause();
+            }
+        });
+        LeanTween.delayedCall(4.75f, () =>
+        {
             player.m_IsInvincible = false;
+            player.m_KnockbackResist = 0f;
         });
     }
 

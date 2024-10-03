@@ -241,7 +241,7 @@ MonoBehaviour:
     speed: 0
     cooldown: 0
     amount: 0
-    knockback: 16
+    knockback: 12
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
