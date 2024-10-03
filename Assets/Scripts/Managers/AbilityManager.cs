@@ -110,11 +110,15 @@ public class AbilityManager : MonoBehaviour
 
     private void ShowAbilityOptions()
     {
+        StateManager.ChangeState(StateManager.State.UPGRADING);
+    }
+
+    public void OnUpgradingState()
+    {
         RollAbilitiesOffered();
         AudioManager.m_Instance.PlaySound(30, 0.4f);
         PopInAnim();
         ProgressionManager.m_Instance.ToggleHUD(false);
-        StateManager.ChangeState(StateManager.State.UPGRADING);
     }
 
     void RollAbilitiesOffered()

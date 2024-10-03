@@ -62,6 +62,8 @@ public class DamageManager : MonoBehaviour
 
         if (data.target.CompareTag("Player") && Skill.necroBleedEnabled && !data.isDoT) damageDealt *= 0.5f;
 
+        if (data.target.CompareTag("Player") && !data.isDoT) damageDealt = Mathf.Clamp(damageDealt - data.target.GetComponent<Player>().GetStats().armor, 1f, float.MaxValue);
+
         if (damageDealt <= 0f) { damageDealt = 1f; }
 
         Actor.DamageOutput damageOutput;

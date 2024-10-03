@@ -240,13 +240,11 @@ public class Player : Actor
 
         if (StateManager.GetCurrentState() != StateManager.State.REVIVING) PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
 
-        amount -= m_TotalStats.armor;
         return OnDamage(amount);
     }
 
     public DamageOutput TakeDOTDamage(float amount)
     {
-        amount -= m_TotalStats.armor;
         return OnDOTDamage(amount);
     }
 
