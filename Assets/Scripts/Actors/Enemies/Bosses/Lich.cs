@@ -207,8 +207,16 @@ public class Lich : Boss
 
     protected override void OnDeath()
     {
+        SteamworksManager.UnlockAchievement("LICH_KILL");
         base.OnDeath();
+        if (!m_DidDamagePlayer)
+        {
+            SteamworksManager.UnlockAchievement("LICH_HITLESS");
+            if (m_IsEnraged)
+            {
+                UnlockManager.SetUnlocked("Necromancer");
 
-        if (m_IsEnraged && !m_DidDamagePlayer) UnlockManager.SetUnlocked("Necromancer");
+            }
+        }
     }
 }

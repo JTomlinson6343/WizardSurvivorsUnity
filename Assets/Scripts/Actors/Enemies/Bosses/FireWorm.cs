@@ -257,4 +257,13 @@ public class FireWorm : Boss
         Debuff debuff = new Debuff(Debuff.DebuffType.Blaze, DamageType.Fire, 2f, 1, 3f, gameObject);
         DebuffManager.m_Instance.AddDebuff(collision.GetComponent<Actor>(), debuff);
     }
+    protected override void OnDeath()
+    {
+        SteamworksManager.UnlockAchievement("WORM_KILL");
+        base.OnDeath();
+        if (!m_DidDamagePlayer)
+        {
+            SteamworksManager.UnlockAchievement("WORM_HITLESS");
+        }
+    }
 }
