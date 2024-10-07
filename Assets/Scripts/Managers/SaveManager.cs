@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using System;
 
 [System.Serializable]
 public struct SaveData
@@ -39,7 +40,8 @@ public class SaveManager
 {
     static string versionNumber = "1.2";
 
-    static readonly string m_Path = Application.persistentDataPath + "/save_beta.json";
+    static readonly string m_Filename = "save_beta.json";
+    static readonly string m_Path = Application.persistentDataPath + "/" + m_Filename;
 
     static SkillTree[] m_SkillTrees;
     static SaveData m_SaveData;
@@ -64,6 +66,8 @@ public class SaveManager
         string json = JsonUtility.ToJson(m_SaveData, true);
         if (json == null) return;
         File.WriteAllText(m_Path, json);
+        if (Steamworks.SteamRemoteStorage.IsCloudEnabled)
+            Steamworks.SteamRemoteStorage.FileWrite(m_Filename, File.ReadAllBytes(m_Path));
         Debug.Log(json);
     }
 
@@ -115,8 +119,9 @@ public class SaveManager
     {
         // Load json
         // Set values in json to files in skill tree class
+        bool cloudExists = Steamworks.SteamRemoteStorage.FileExists(m_Filename);
 
-        if (!File.Exists(m_Path))
+        if (!File.Exists(m_Path) && !cloudExists)
         {
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
@@ -127,8 +132,19 @@ public class SaveManager
             return;
         }
 
-        // Convert json into save data format
-        string json = File.ReadAllText(m_Path);
+        string json;
+
+        if (Steamworks.SteamRemoteStorage.IsCloudEnabled && Steamworks.SteamRemoteStorage.FileExists(m_Filename))
+        {
+            byte[] buffer = Steamworks.SteamRemoteStorage.FileRead(m_Filename);
+            json = System.Text.Encoding.UTF8.GetString(buffer);
+        }
+        else
+        {
+            // Convert json into save data format
+            json = File.ReadAllText(m_Path);
+        }
+
         m_SaveData = JsonUtility.FromJson<SaveData>(json);
 
         PopulateSkillTreesArray(skillTrees);

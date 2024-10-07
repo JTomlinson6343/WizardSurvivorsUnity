@@ -6,6 +6,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
+public class InternalAchievement
+{
+    public string name;
+    public string id;
+
+    public bool isUnlocked()
+    {
+        return SteamworksManager.isAchievementUnlocked(id);
+    }
+
+    public void Unlock()
+    {
+        SteamworksManager.UnlockAchievement(id);
+    }
+}
+
+[System.Serializable]
 public class Unlockable
 {
     public string name;
@@ -47,9 +64,11 @@ public class UnlockManager: MonoBehaviour
     List<UnlockCondition> m_PopupQueue = new List<UnlockCondition>();
 
     public List<UnlockCondition> m_UnlockConditions;
+    public List<InternalAchievement> m_Achievements;
 
     public static List<UnlockCondition> GetUnlockConditions() { return m_Instance.m_UnlockConditions; }
     public static UnlockCondition GetUnlockConditionWithName(string name) { return GetUnlockConditions().Find(x => x.name == name); }
+    public static InternalAchievement GetAchievementWithName(string name) { return m_Instance.m_Achievements.Find(x => x.name == name); }
     public static Unlockable GetUnlockableWithName(string name) {
         Unlockable unlockable = m_Unlockables.Find(x => x.name == name);
         if (unlockable == null)
@@ -146,6 +165,7 @@ public class UnlockManager: MonoBehaviour
     {
         if (GetUnlockableWithName(unlockName).unlocked) return;
         GetUnlockableWithName(unlockName).Unlock();
+        GetAchievementWithName(unlockName)?.Unlock();
         m_Instance.QueueUnlockPopup(unlockName);
         SaveManager.SaveToFile();
     }
