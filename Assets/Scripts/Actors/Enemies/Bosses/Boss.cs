@@ -25,7 +25,7 @@ public abstract class Boss : Enemy
 
     public void OnDamageInstance(DamageInstanceData damageInstance)
     {
-        if (!damageInstance.user.CompareTag("Player")) return;
+        if (!damageInstance.target.CompareTag("Player")) return;
 
         m_DidDamagePlayer = true;
     }
