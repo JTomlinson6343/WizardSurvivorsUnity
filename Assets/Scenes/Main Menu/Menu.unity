@@ -55279,6 +55279,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnlockManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4173082893178003642, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
+      propertyPath: m_Achievements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173082893178003642, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
+      propertyPath: m_Achievements.Array.data[1].id
+      value: NECROMANCER_UNLOCK
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173082893178003642, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
+      propertyPath: m_Achievements.Array.data[1].name
+      value: Necromancer
+      objectReference: {fileID: 0}
     - target: {fileID: 7038671002124270075, guid: 386aba5494da9314ba37f7befb2a4c59, type: 3}
       propertyPath: m_Pivot.x
       value: 0

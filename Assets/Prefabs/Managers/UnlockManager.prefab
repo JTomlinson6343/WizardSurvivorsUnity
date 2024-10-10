@@ -153,3 +153,10 @@ MonoBehaviour:
     condition: 75000
     doFormatMessage: 1
     trackedStatName: damage
+  m_Achievements:
+  - name: Necromancer
+    id: NECROMANCER_UNLOCK
+  - name: Ice Mage
+    id: ICE_MAGE_UNLOCK
+  - name: Lightning Mage
+    id: LIGHTNING_MAGE_UNLOCK

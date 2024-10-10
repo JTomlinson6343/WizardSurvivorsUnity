@@ -68,7 +68,6 @@ public class DamageManager : MonoBehaviour
 
         Actor.DamageOutput damageOutput;
 
-
         if (data.isDoT && data.target.CompareTag("Player"))
         {
             damageOutput = data.target.GetComponent<Player>().TakeDOTDamage(damageDealt);
@@ -138,11 +137,16 @@ public class DamageManager : MonoBehaviour
         if (data.damageType != DamageType.Frost) return;
 
         UnlockManager.GetTrackedStatWithName("iceDamageDealt").stat += data.amount;
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("frost_dmg", 1);
     }
 
     void IncrementKills(DamageInstanceData data)
     {
-        if (data.didKill) UnlockManager.GetTrackedStatWithName("kills").stat++;
+        if (data.didKill)
+        {
+            UnlockManager.GetTrackedStatWithName("kills").stat++;
+            if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("kills", 1);
+        }
     }
     void IncrementDamage(DamageInstanceData data)
     {

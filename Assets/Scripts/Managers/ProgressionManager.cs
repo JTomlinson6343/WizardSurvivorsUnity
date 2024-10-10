@@ -316,6 +316,8 @@ public class ProgressionManager : MonoBehaviour
 
         m_GameOverScreen.SetActive(true);
 
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.StoreStats();
+
         Time.timeScale = 0;
     }
 

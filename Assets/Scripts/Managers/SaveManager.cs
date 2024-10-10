@@ -66,7 +66,7 @@ public class SaveManager
         string json = JsonUtility.ToJson(m_SaveData, true);
         if (json == null) return;
         File.WriteAllText(m_Path, json);
-        if (Steamworks.SteamRemoteStorage.IsCloudEnabled)
+        if (!SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled)
             Steamworks.SteamRemoteStorage.FileWrite(m_Filename, File.ReadAllBytes(m_Path));
         Debug.Log(json);
     }
@@ -119,7 +119,8 @@ public class SaveManager
     {
         // Load json
         // Set values in json to files in skill tree class
-        bool cloudExists = Steamworks.SteamRemoteStorage.FileExists(m_Filename);
+        bool cloudExists = false;
+        if (!SteamworksManager.failed) cloudExists = Steamworks.SteamRemoteStorage.FileExists(m_Filename);
 
         if (!File.Exists(m_Path) && !cloudExists)
         {
@@ -133,20 +134,20 @@ public class SaveManager
         }
 
         string json;
-
-        if (Steamworks.SteamRemoteStorage.IsCloudEnabled && Steamworks.SteamRemoteStorage.FileExists(m_Filename))
+        if (!SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled && Steamworks.SteamRemoteStorage.FileExists(m_Filename) && !Debug.isDebugBuild)
         {
             byte[] buffer = Steamworks.SteamRemoteStorage.FileRead(m_Filename);
             json = System.Text.Encoding.UTF8.GetString(buffer);
+
+            m_SaveData = JsonUtility.FromJson<SaveData>(json);
+            SaveToFile();
         }
         else
         {
             // Convert json into save data format
             json = File.ReadAllText(m_Path);
+            m_SaveData = JsonUtility.FromJson<SaveData>(json);
         }
-
-        m_SaveData = JsonUtility.FromJson<SaveData>(json);
-
         PopulateSkillTreesArray(skillTrees);
 
         LoadSkills();
