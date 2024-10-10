@@ -134,13 +134,12 @@ public class SaveManager
         }
 
         string json;
-        if (!SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled && Steamworks.SteamRemoteStorage.FileExists(m_Filename) && !Debug.isDebugBuild)
+        if (!SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled && Steamworks.SteamRemoteStorage.FileExists(m_Filename))
         {
             byte[] buffer = Steamworks.SteamRemoteStorage.FileRead(m_Filename);
             json = System.Text.Encoding.UTF8.GetString(buffer);
 
             m_SaveData = JsonUtility.FromJson<SaveData>(json);
-            SaveToFile();
         }
         else
         {
