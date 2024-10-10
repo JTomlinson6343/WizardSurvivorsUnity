@@ -22,6 +22,7 @@ public class CharacterIcon : MonoBehaviour
 
     public void SetUnlockState(bool locked)
     {
+        UnlockManager.GetAchievementWithName(m_CharName)?.Unlock();
         m_Unlocked = !locked;
         if (locked)
         {
