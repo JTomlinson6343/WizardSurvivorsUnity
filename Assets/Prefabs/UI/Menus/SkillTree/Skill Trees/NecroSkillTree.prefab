@@ -661,6 +661,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6789039183623301046}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: Killing an enemy restores 1 health (4s cooldown)
       objectReference: {fileID: 0}
@@ -672,6 +676,14 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[2]
       value: -6% damage taken
       objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[0]
+      value: 
+      objectReference: {fileID: 2355055812840822194}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1054962825262294236}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
       value: 1
@@ -786,6 +798,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
   m_PrefabInstance: {fileID: 815664405415555463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5400706318760681623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+  m_PrefabInstance: {fileID: 815664405415555463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6810902731424665320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -858,6 +881,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6789039183623301046}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: Take 50% of the damage you take as bleed damage over time. While bleeding,
         you take 10% reduced damage.
@@ -870,6 +897,10 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[2]
       value: -6% damage taken
       objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[0]
+      value: 
+      objectReference: {fileID: 5400706318760681623}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
       value: 0
@@ -984,6 +1015,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
   m_PrefabInstance: {fileID: 1121287235463148019}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5633272440277475555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+  m_PrefabInstance: {fileID: 1121287235463148019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6510904659266408092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -1056,6 +1098,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6789039183623301046}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: Whenever you summon a skeleton, summon an additional one
       objectReference: {fileID: 0}
@@ -1067,6 +1113,10 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[2]
       value: -6% damage taken
       objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1159759145944050835}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
       value: 0
@@ -1176,6 +1226,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+--- !u!114 &423921176640106898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+  m_PrefabInstance: {fileID: 4918187720434475138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1266659569473953773 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -1373,6 +1434,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+--- !u!114 &1054962825262294236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+  m_PrefabInstance: {fileID: 5692832113821824460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1933729942072085155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -1450,6 +1522,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6789039183623301046}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: Upon taking lethal damage, let out an earthquake that knocks all enemies
         back and then revive on 25% health.
@@ -1462,6 +1538,10 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[2]
       value: -6% damage taken
       objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[0]
+      value: 
+      objectReference: {fileID: 5633272440277475555}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
       value: 0
@@ -1648,6 +1728,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6789039183623301046}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: Increase the duration of summoned skeletons by 20%.
       objectReference: {fileID: 0}
@@ -1659,6 +1743,14 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[2]
       value: -6% damage taken
       objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1054962825262294236}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[1]
+      value: 
+      objectReference: {fileID: 4451753095715333755}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
       value: 1
@@ -1777,6 +1869,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1159759145944050835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+  m_PrefabInstance: {fileID: 5889214559654788483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8169514574800360432 stripped
@@ -2205,6 +2308,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+--- !u!114 &2355055812840822194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+  m_PrefabInstance: {fileID: 6993014299179467938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3808023222963059661 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6184846941713039215, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -2282,6 +2396,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6789039183623301046}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: Killing an enemy has a 5% chance to summon a skeleton
       objectReference: {fileID: 0}
@@ -2293,6 +2411,10 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[2]
       value: -6% damage taken
       objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[0]
+      value: 
+      objectReference: {fileID: 423921176640106898}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
       value: 0
@@ -2610,6 +2732,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4451753095715333755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+  m_PrefabInstance: {fileID: 8963630446350104427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec61f458c7cdd8458361e3982c5b133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6665456289147050264 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
@@ -2676,6 +2809,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6789039183623301046}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: While bleeding from Defy Death, deal 10% increased damage.
       objectReference: {fileID: 0}
@@ -2687,6 +2824,10 @@ PrefabInstance:
       propertyPath: m_Description.Array.data[2]
       value: -6% damage taken
       objectReference: {fileID: 0}
+    - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
+      propertyPath: m_Prerequisites.Array.data[0]
+      value: 
+      objectReference: {fileID: 5633272440277475555}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
       value: 1

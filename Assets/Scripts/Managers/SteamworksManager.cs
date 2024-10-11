@@ -10,7 +10,11 @@ public class SteamworksManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (instance) Destroy(gameObject);
+        if (instance) {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
         try
         {
             Steamworks.SteamClient.Init(3146730);
