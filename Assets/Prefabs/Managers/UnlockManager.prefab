@@ -134,7 +134,7 @@ MonoBehaviour:
       getting hit.
     condition: 0
     doFormatMessage: 0
-    trackedStatName: damage
+    trackedStatName: 
   - name: Solarium Skull
     image: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
     message: Kill 2000 enemies.

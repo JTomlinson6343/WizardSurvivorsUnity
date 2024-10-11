@@ -40,7 +40,7 @@ public class SaveManager
 {
     static string versionNumber = "1.2";
 
-    static readonly string m_Filename = "save_beta.json";
+    static readonly string m_Filename = "save_.json";
     static readonly string m_Path = Application.persistentDataPath + "/" + m_Filename;
 
     static SkillTree[] m_SkillTrees;
