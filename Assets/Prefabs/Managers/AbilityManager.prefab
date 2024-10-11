@@ -1383,10 +1383,7 @@ MonoBehaviour:
       <color=red>+6% spell
       cooldowns</color>
 
-      <color=red>-6% spell damage</color>
-
-      <color=red>-66
-      max health</color>'
+      <color=red>-6% spell damage</color>'
     icon: {fileID: -422744207, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -1404,7 +1401,7 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: -66
+    maxHealth: 0
     pullDist: 0
     iFramesMod: 0
     armor: 0
@@ -5563,9 +5560,7 @@ MonoBehaviour:
     levelUpInfo: '<color=green>-4% spell cooldowns</color>
 
       <color=green>+1
-      move speed</color>
-
-      <color=red>-10 max health</color>'
+      move speed</color>'
     icon: {fileID: -431026227, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -5583,7 +5578,7 @@ MonoBehaviour:
     neverPierce: 0
   m_PlayerStatBuffs:
     speed: 0
-    maxHealth: -10
+    maxHealth: 0
     pullDist: 0
     iFramesMod: 0
     armor: 0
