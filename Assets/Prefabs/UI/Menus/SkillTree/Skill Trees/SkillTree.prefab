@@ -2108,6 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CharacterColour: {r: 0, g: 0, b: 0, a: 0}
+  m_CharacterName: 
   m_TotalSkillPoints: 0
   m_CurrentSkillPoints: 0
   m_NameLabel: {fileID: 3285808856858108849}
@@ -2117,6 +2118,7 @@ MonoBehaviour:
   m_CantUnlockLabel: {fileID: 7405669823302653677}
   m_SkillLevelLabel: {fileID: 0}
   m_SkillPointsLabel: {fileID: 4548374801903261086}
+  m_SkillTreePanel: {fileID: 2872583896427796451}
   m_UnlockButton: {fileID: 2382391296056949527}
   m_RespecButton: {fileID: 7554867220127377238}
   m_BackButton: {fileID: 7544294128432470254}

@@ -1791,6 +1791,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5793845932905406119}
     - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
+      propertyPath: m_CharacterName
+      value: Lightning Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_CharacterColour.a
       value: 1
       objectReference: {fileID: 0}

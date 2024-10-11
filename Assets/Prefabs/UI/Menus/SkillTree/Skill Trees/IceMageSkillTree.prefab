@@ -1746,6 +1746,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6037208742536354646}
     - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
+      propertyPath: m_CharacterName
+      value: Ice Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_CharacterColour.b
       value: 1
       objectReference: {fileID: 0}

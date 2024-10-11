@@ -134,7 +134,7 @@ public class SaveManager
         }
 
         string json;
-        if (!SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled && Steamworks.SteamRemoteStorage.FileExists(m_Filename))
+        if (!SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled && Steamworks.SteamRemoteStorage.FileExists(m_Filename) && !Debug.isDebugBuild)
         {
             byte[] buffer = Steamworks.SteamRemoteStorage.FileRead(m_Filename);
             json = System.Text.Encoding.UTF8.GetString(buffer);
@@ -173,6 +173,7 @@ public class SaveManager
             {
                 tree.GetComponentsInChildren<SkillIcon>()[j].InitFromFile(skillData[j]);
             }
+            tree.TryUnlockAchievement();
         }
     }
 

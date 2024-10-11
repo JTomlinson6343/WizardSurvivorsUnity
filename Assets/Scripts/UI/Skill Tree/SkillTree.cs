@@ -12,6 +12,7 @@ public class SkillTree : MonoBehaviour
     private SkillIcon m_CurrentSkill;
 
     public Color m_CharacterColour;
+    public string m_CharacterName;
 
     public int m_TotalSkillPoints;
     public static readonly int kSkillPointCap = 999;
@@ -24,6 +25,7 @@ public class SkillTree : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_CantUnlockLabel;
     [SerializeField] TextMeshProUGUI m_SkillLevelLabel;
     [SerializeField] TextMeshProUGUI m_SkillPointsLabel;
+    [SerializeField] GameObject m_SkillTreePanel;
 
     [SerializeField] Button          m_UnlockButton;
     [SerializeField] Button          m_RespecButton;
@@ -171,6 +173,7 @@ public class SkillTree : MonoBehaviour
 
         SetHighlightedSkill(m_CurrentSkill);
         ColorCheckPass();
+        TryUnlockAchievement();
     }
 
     public void OnRespecPressed()
@@ -203,6 +206,22 @@ public class SkillTree : MonoBehaviour
         {
             skill.ColorCheck();
         }
+    }
+
+    bool AllSkillsMaxedCheck()
+    {
+        bool areMaxed = true;
+        foreach (SkillIcon skill in m_SkillTreePanel.GetComponentsInChildren<SkillIcon>())
+        {
+            if (!skill.IsMaxed()) areMaxed = false;
+        }
+        return areMaxed;
+    }
+
+    public void TryUnlockAchievement()
+    {
+        if (AllSkillsMaxedCheck() && m_CharacterName != null && m_CharacterName != "")
+            UnlockManager.GetAchievementWithName("Maxed_" + m_CharacterName).Unlock();
     }
 
     // Return to character menu

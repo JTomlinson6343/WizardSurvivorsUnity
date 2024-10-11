@@ -160,3 +160,11 @@ MonoBehaviour:
     id: ICE_MAGE_UNLOCK
   - name: Lightning Mage
     id: LIGHTNING_MAGE_UNLOCK
+  - name: Maxed_Necromancer
+    id: NECROMANCER_MAXED
+  - name: Maxed_Lightning Mage
+    id: LIGHTNING_MAGE_MAXED
+  - name: Maxed_Pyromancer
+    id: PYROMANCER_MAXED
+  - name: Maxed_Ice Mage
+    id: ICE_MAGE_MAXED
