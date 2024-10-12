@@ -199,7 +199,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.027172983, y: 0.21062574}
@@ -230,13 +230,17 @@ MonoBehaviour:
   m_MaxHealth: 100
   m_Health: 100
   m_KnockbackResist: 0.6
+  m_isKnockedBack: 0
   m_DamageResistance: 0
   m_WhiteFlashMaterial: {fileID: -876546973899608171, guid: dc6242cc18a3f81459a4f184b9d90991, type: 3}
   m_DebuffPlacement: {fileID: 5200942333771206442}
   m_DebuffImmunities: 
   m_DebuffImmune: 0
   m_Targetable: 1
+  m_IsDead: 0
   m_Stunned: 0
+  m_MoveDir: {x: 0, y: 0}
+  m_FollowPlayer: 0
   m_HealthModifier: 2
   m_SpawnProbability: 0.2
   m_MinWave: 7
