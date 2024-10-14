@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
         m_Character.transform.position = Vector3.zero;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (StateManager.GetCurrentState() == StateManager.State.BOSS ||
             (StateManager.GetPreviousState() == StateManager.State.BOSS && (StateManager.GetPreviousState() == StateManager.State.UPGRADING || StateManager.GetPreviousState() == StateManager.State.GAME_OVER)))

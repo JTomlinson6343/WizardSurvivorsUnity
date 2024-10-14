@@ -40,7 +40,7 @@ public class SaveManager
 {
     static string versionNumber = "1.2";
 
-    static readonly string m_Filename = "save_.json";
+    static readonly string m_Filename = "save.json";
     static readonly string m_Path = Application.persistentDataPath + "/" + m_Filename;
 
     static SkillTree[] m_SkillTrees;
@@ -103,7 +103,7 @@ public class SaveManager
         m_SaveData.options = new OptionsData();
         m_SaveData.options.musicVolume = AudioManager.m_MusicVolume;
         m_SaveData.options.soundVolume = AudioManager.m_SoundVolume;
-        m_SaveData.options.autoFire    = Player.m_AutoFire;
+        m_SaveData.options.autoFire    = true;
     }
     private static void SaveUnlocks()
     {
@@ -122,7 +122,7 @@ public class SaveManager
         bool cloudExists = false;
         if (!SteamworksManager.failed) cloudExists = Steamworks.SteamRemoteStorage.FileExists(m_Filename);
 
-        if (!File.Exists(m_Path) && !cloudExists)
+        if (!File.Exists(m_Path) && !(cloudExists && !Debug.isDebugBuild))
         {
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
@@ -146,6 +146,7 @@ public class SaveManager
             // Convert json into save data format
             json = File.ReadAllText(m_Path);
             m_SaveData = JsonUtility.FromJson<SaveData>(json);
+            
         }
         PopulateSkillTreesArray(skillTrees);
 
@@ -181,7 +182,7 @@ public class SaveManager
     {
         AudioManager.m_MusicVolume = m_SaveData.options.musicVolume;
         AudioManager.m_SoundVolume = m_SaveData.options.soundVolume;
-        Player.m_AutoFire          = m_SaveData.options.autoFire;
+        Player.m_AutoFire          = true;
     }
 
     public static void LoadUnlocks()

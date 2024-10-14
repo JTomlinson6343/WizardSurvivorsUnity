@@ -22,7 +22,6 @@ public class CharacterIcon : MonoBehaviour
 
     public void SetUnlockState(bool locked)
     {
-        UnlockManager.GetAchievementWithName(m_CharName)?.Unlock();
         m_Unlocked = !locked;
         if (locked)
         {
@@ -30,6 +29,7 @@ public class CharacterIcon : MonoBehaviour
         }
         else
         {
+            UnlockManager.GetAchievementWithName(m_CharName)?.Unlock();
             GetComponent<Image>().color = Color.white;
         }
     }

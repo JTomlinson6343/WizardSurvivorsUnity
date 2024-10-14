@@ -56,4 +56,12 @@ public class SteamworksManager : MonoBehaviour
         ach.Trigger();
         Steamworks.SteamUserStats.StoreStats();
     }
+
+    public static void ClearAchievement(string id)
+    {
+        if (failed) return;
+        var ach = new Steamworks.Data.Achievement(id);
+        ach.Clear();
+        Steamworks.SteamUserStats.StoreStats();
+    }
 }
