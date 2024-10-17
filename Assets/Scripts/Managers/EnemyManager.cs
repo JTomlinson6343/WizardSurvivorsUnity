@@ -255,7 +255,6 @@ public class EnemyManager : MonoBehaviour
         ProgressionManager.m_Instance.UpdateWaveLabel(ProgressionManager.m_Instance.m_WaveCounter);
 
         m_TotalSpawnProbability = CalculateSpawnProbability();
-
         CancelInvoke(nameof(GracePeriod));
         CancelInvoke(nameof(StartNewWave));
 
