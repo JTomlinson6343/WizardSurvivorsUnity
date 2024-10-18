@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MultiMageMenu : MonoBehaviour
 {
-    [SerializeField] GameObject m_LeftCharacterPanel;
-    [SerializeField] GameObject m_RightCharacterPanel;
+    [SerializeField] MultiMageCharacterPanel m_LeftCharacterPanel;
+    [SerializeField] MultiMageCharacterPanel m_RightCharacterPanel;
 
     /*
      * 1. Player selects an icon, left or right.
@@ -24,5 +24,12 @@ public class MultiMageMenu : MonoBehaviour
     public void CloseMenu()
     {
         gameObject.SetActive(false);
+    }
+
+    public void SwapCharacters()
+    {
+        (m_LeftCharacterPanel.m_SelectedIcon, m_RightCharacterPanel.m_SelectedIcon) = (m_RightCharacterPanel.m_SelectedIcon, m_LeftCharacterPanel.m_SelectedIcon);
+        m_LeftCharacterPanel.CloseMenu();
+        m_RightCharacterPanel.CloseMenu();
     }
 }

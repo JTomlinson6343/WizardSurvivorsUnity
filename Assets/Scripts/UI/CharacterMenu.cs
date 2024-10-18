@@ -11,7 +11,7 @@ public class CharacterMenu : MonoBehaviour
 {
     public static CharacterMenu m_Instance;
 
-    [SerializeField] Color m_HighlightColour;
+    public Color m_HighlightColour;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_InfoLabel;
