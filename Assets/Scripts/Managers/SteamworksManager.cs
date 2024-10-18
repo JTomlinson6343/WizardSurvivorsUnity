@@ -39,6 +39,7 @@ public class SteamworksManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        SaveManager.SaveToFile(true);
         Steamworks.SteamClient.Shutdown();
     }
 

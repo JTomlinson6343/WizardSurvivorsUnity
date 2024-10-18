@@ -51,7 +51,7 @@ public class SaveManager
         m_SkillTrees = trees;
     }
 
-    public static void SaveToFile() // Called every time skill menu is closed
+    public static void SaveToFile(bool withCloud = false) // Called every time skill menu is closed
     {
         m_SaveData.version = versionNumber;
         SaveSkills();
@@ -66,9 +66,10 @@ public class SaveManager
         string json = JsonUtility.ToJson(m_SaveData, true);
         if (json == null) return;
         File.WriteAllText(m_Path, json);
-        if (!SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled)
-            Steamworks.SteamRemoteStorage.FileWrite(m_Filename, File.ReadAllBytes(m_Path));
         Debug.Log(json);
+
+        if (withCloud && !SteamworksManager.failed && Steamworks.SteamRemoteStorage.IsCloudEnabled)
+            Steamworks.SteamRemoteStorage.FileWrite(m_Filename, File.ReadAllBytes(m_Path));
     }
 
     private static void SaveSkills()
@@ -127,7 +128,7 @@ public class SaveManager
             Debug.LogWarning("Save file not found: " + m_Path);
             m_SaveData = new SaveData(); // or null, depending on your needs
             PopulateSkillTreesArray(skillTrees);
-            SaveToFile();
+            SaveToFile(false);
             UnlockManager.PopulateTrackedStats();
             UnlockManager.PopulateUnlockables();
             return;
