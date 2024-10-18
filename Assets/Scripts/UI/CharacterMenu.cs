@@ -21,10 +21,11 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] Button m_StartButtonRef;
     [SerializeField] Button m_SkillTreeButtonRef;
+    [SerializeField] Button m_CustomiseButtonRef;
 
     [SerializeField] MainMenu m_MainMenuRef;
 
-    SkillTree[] m_SkillTreeRefs;
+    [SerializeField] SkillTree[] m_SkillTreeRefs;
 
     private GameObject m_CurrentCharacter;
     private SkillTree  m_CurrentCharacterSkillTree;
@@ -37,6 +38,8 @@ public class CharacterMenu : MonoBehaviour
     [SerializeField] CharacterIcon m_NecroIcon;
 
     [SerializeField] SkillTree m_GlobalSkillTree;
+
+    [SerializeField] MultiMageMenu m_MultiMageMenu;
 
     public void Awake()
     {
@@ -88,6 +91,8 @@ public class CharacterMenu : MonoBehaviour
             icon.GetComponent<Image>().color = Color.white;
         }
 
+        ToggleCustomiseButton(false);
+
         CheckUnlocks();
 
         charIcon.GetComponent<Image>().color = m_HighlightColour;
@@ -115,16 +120,26 @@ public class CharacterMenu : MonoBehaviour
 
     public SkillTree[] GetSkillTreeRefs()
     {
-        m_SkillTreeRefs = new SkillTree[GetComponentsInChildren<CharacterIcon>().Length + 1];
-
-        m_SkillTreeRefs[0] = m_GlobalSkillTree;
-
-        for (int i = 0; i < GetComponentsInChildren<CharacterIcon>().Length; i++)
-        {
-            m_SkillTreeRefs[i+1] = GetComponentsInChildren<CharacterIcon>()[i].m_SkillTree;
-        }
 
         return m_SkillTreeRefs;
+    }
+
+    public void OnMultiMageSelected()
+    {
+        ToggleCustomiseButton(true);
+    }
+
+    private void ToggleCustomiseButton(bool on)
+    {
+        m_SkillTreeButtonRef.gameObject.SetActive(!on);
+        m_CustomiseButtonRef.gameObject.SetActive(on);
+    }
+
+    public void OnCustomisePressed()
+    {
+        gameObject.SetActive(false);
+
+        m_MultiMageMenu.OpenMenu();
     }
 
     // Pass character information into player manager and load main scene
