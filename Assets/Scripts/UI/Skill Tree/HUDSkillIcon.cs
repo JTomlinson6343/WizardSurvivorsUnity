@@ -30,6 +30,7 @@ public class HUDSkillIcon : MonoBehaviour
 
     public void StartCooldown(float cooldown)
     {
+        StopAllCoroutines();
         StartCoroutine(StartCooldownAnim(cooldown));
     }
 
@@ -41,10 +42,10 @@ public class HUDSkillIcon : MonoBehaviour
 
         float timeLeft = cooldown;
 
-        while (true)
+        SetText(timeLeft);
+        while (timeLeft > 0f)
         {
-            if (image.color == Color.white) break;
-
+            yield return new WaitForSeconds(kCooldownAnimationInterval);
             // Increment alpha for the lerp
             alpha += 1f / cooldown;
 
@@ -54,16 +55,19 @@ public class HUDSkillIcon : MonoBehaviour
             // Decrease time over time
             timeLeft -= kCooldownAnimationInterval;
 
-            // Display time left on icon
-            if (timeLeft > 0) m_SecondsIndicator.text = ((int)timeLeft).ToString();
-            else m_SecondsIndicator.text = "";
-
-            yield return new WaitForSeconds(kCooldownAnimationInterval);
+            SetText(timeLeft);
         }
 
         // Set colour to the character's colour
         image.color = m_Color;
 
         yield return null;
+    }
+
+    private void SetText(float timeLeft)
+    {
+        // Display time left on icon
+        if (timeLeft > 0) m_SecondsIndicator.text = ((int)timeLeft).ToString();
+        else m_SecondsIndicator.text = "";
     }
 }

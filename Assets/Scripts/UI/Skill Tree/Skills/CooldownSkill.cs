@@ -24,12 +24,10 @@ public class CooldownSkill : Skill
     protected void StartCooldown()
     {
         m_OnCooldown = true;
-        Invoke(nameof(EndCooldown), m_Cooldown);
+        LeanTween.delayedCall(m_Cooldown, () =>
+        {
+            m_OnCooldown = false;
+        });
         m_HUDSkillIconRef.StartCooldown(m_Cooldown);
-    }
-
-    private void EndCooldown()
-    {
-        m_OnCooldown = false;
     }
 }

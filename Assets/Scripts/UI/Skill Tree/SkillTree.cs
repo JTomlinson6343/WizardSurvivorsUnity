@@ -253,6 +253,6 @@ public class SkillTree : MonoBehaviour
 
     void OnCloseSkillTreeMenu()
     {
-        SaveManager.SaveToFile();
+        SaveManager.SaveToFile(false);
     }
 }

@@ -182,11 +182,12 @@ MonoBehaviour:
   m_DebuffImmunities: 
   m_DebuffImmune: 0
   m_Targetable: 0
+  m_IsDead: 0
   m_Stunned: 0
   m_AbilitySource: {fileID: 0}
   m_Animator: {fileID: 7750839698572174613}
   m_AnimatorMask: {fileID: 4285770326118885393}
-  m_Range: 4
+  m_Range: 6
   m_PlayerMinDist: 2
   m_Speed: 3
   m_HitboxDelay: 0.25

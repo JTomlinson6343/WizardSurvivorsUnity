@@ -634,13 +634,10 @@ MonoBehaviour:
     description: Reduce spell cooldowns and increase movement speed
     levelUpInfo: '<color=red>-20% spell damage</color>
 
-      <color=red>+50% spell
-      cooldowns</color>
+      <color=green>+200%
+      summon damage</color>
 
-      <color=green>+200% summon damage</color>
-
-      <color=green>+2
-      speed</color>'
+      <color=green>+2 speed</color>'
     icon: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -650,7 +647,7 @@ MonoBehaviour:
     damage: -0.2
     summonDamage: 2
     speed: 0
-    cooldown: 0.5
+    cooldown: 0
     amount: 0
     knockback: 0
     pierceAmount: 0
@@ -3731,7 +3728,10 @@ MonoBehaviour:
   m_Data:
     name: Orbiting Stars
     damageType: 4
-    description: Spawn two stars that orbit the player and deal damage
+    description: 'Spawn two stars that orbit the player and deal damage.
+
+      Cooldown
+      reduction increases orbit speed.'
     levelUpInfo: 
     icon: {fileID: -1650322923, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -5796,7 +5796,7 @@ MonoBehaviour:
     infinitePierce: 1
     neverPierce: 0
   m_Data:
-    name: Vengeful Spirit
+    name: Summon Vengeful Spirit
     damageType: 5
     description: 'Send a dark spirit to seek out an enemy in range. It then bounces
       to other enemies. (2s cooldown)
@@ -5811,7 +5811,7 @@ MonoBehaviour:
     icon: {fileID: 2130014849, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 8
-  m_SpellTags: 00000000
+  m_SpellTags: 0000000002000000
   m_SoundOnCast: 4
   m_SoundOnCastVolume: 4
   m_ProjectileLifetime: 5

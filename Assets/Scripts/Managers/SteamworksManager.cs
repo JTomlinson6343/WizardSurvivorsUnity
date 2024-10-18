@@ -39,6 +39,7 @@ public class SteamworksManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        SaveManager.SaveToFile(true);
         Steamworks.SteamClient.Shutdown();
     }
 
@@ -54,6 +55,14 @@ public class SteamworksManager : MonoBehaviour
         if (failed) return;
         var ach = new Steamworks.Data.Achievement(id);
         ach.Trigger();
+        Steamworks.SteamUserStats.StoreStats();
+    }
+
+    public static void ClearAchievement(string id)
+    {
+        if (failed) return;
+        var ach = new Steamworks.Data.Achievement(id);
+        ach.Clear();
         Steamworks.SteamUserStats.StoreStats();
     }
 }

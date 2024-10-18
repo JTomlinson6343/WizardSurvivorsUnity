@@ -30,7 +30,7 @@ public class SpinningProjectile : Projectile
     {
         if (StateManager.GetCurrentState() == StateManager.State.UPGRADING) return;
         // Increment the angle
-        angle += m_Speed * Time.deltaTime * Mathf.Deg2Rad;
+        angle += m_Speed * 1f/(1f+AbilityManager.m_Instance.GetAbilityStatBuffs().cooldown) * Time.deltaTime * Mathf.Deg2Rad;
 
         float sinAngle = Mathf.Sin(angle);
         float cosAngle = Mathf.Cos(angle);

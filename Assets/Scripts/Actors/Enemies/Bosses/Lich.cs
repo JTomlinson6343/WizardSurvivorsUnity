@@ -215,7 +215,6 @@ public class Lich : Boss
             if (m_IsEnraged)
             {
                 UnlockManager.SetUnlocked("Necromancer");
-
             }
         }
     }

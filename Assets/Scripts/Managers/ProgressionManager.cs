@@ -116,7 +116,7 @@ public class ProgressionManager : MonoBehaviour
     {
         if (StateManager.GetCurrentState() == StateManager.State.PAUSED)
         {
-            SaveManager.SaveToFile();
+            SaveManager.SaveToFile(false);
             StateManager.UnPause();
         }
         else
