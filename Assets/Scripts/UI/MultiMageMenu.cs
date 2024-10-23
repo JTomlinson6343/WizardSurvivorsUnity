@@ -32,4 +32,10 @@ public class MultiMageMenu : MonoBehaviour
         m_LeftCharacterPanel.CloseMenu();
         m_RightCharacterPanel.CloseMenu();
     }
+
+    // Checks if two options have been selected for the multi mage
+    public bool IsCustomisationValid()
+    {
+        return m_LeftCharacterPanel.m_SelectedIcon && m_RightCharacterPanel.m_SelectedIcon;
+    }
 }

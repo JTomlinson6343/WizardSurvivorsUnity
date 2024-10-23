@@ -22,6 +22,7 @@ public class CharacterMenu : MonoBehaviour
     [SerializeField] Button m_StartButtonRef;
     [SerializeField] Button m_SkillTreeButtonRef;
     [SerializeField] Button m_CustomiseButtonRef;
+    [SerializeField] Button m_PlayButtonRef;
 
     [SerializeField] MainMenu m_MainMenuRef;
 
@@ -92,7 +93,13 @@ public class CharacterMenu : MonoBehaviour
         }
 
         ToggleCustomiseButton(false);
+        TogglePlayButton(true);
+        ToggleSpellInfo(true);
+        IconColourPass(charIcon);
+    }
 
+    private void IconColourPass(CharacterIcon charIcon)
+    {
         CheckUnlocks();
 
         charIcon.GetComponent<Image>().color = m_HighlightColour;
@@ -124,15 +131,31 @@ public class CharacterMenu : MonoBehaviour
         return m_SkillTreeRefs;
     }
 
-    public void OnMultiMageSelected()
+    public void OnMultiMageSelected(CharacterIcon charIcon)
     {
+        SetCurrentIcon(charIcon);
+
         ToggleCustomiseButton(true);
+        TogglePlayButton(false);
+        ToggleSpellInfo(false);
+
+        m_StartButtonRef.interactable = m_MultiMageMenu.IsCustomisationValid();
     }
 
     private void ToggleCustomiseButton(bool on)
     {
         m_SkillTreeButtonRef.gameObject.SetActive(!on);
         m_CustomiseButtonRef.gameObject.SetActive(on);
+    }
+    private void TogglePlayButton(bool on)
+    {
+        m_PlayButtonRef.gameObject.SetActive(on);
+    }
+
+    private void ToggleSpellInfo(bool on)
+    {
+        m_StartSpellNameLabel.gameObject.SetActive(on);
+        m_StartSpellDescLabel.gameObject.SetActive(on);
     }
 
     public void OnCustomisePressed()

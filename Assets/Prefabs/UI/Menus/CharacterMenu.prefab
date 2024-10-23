@@ -794,6 +794,7 @@ MonoBehaviour:
   m_StartButtonRef: {fileID: 5313692203542926573}
   m_SkillTreeButtonRef: {fileID: 4210297317180675974}
   m_CustomiseButtonRef: {fileID: 6188074481443998735}
+  m_PlayButtonRef: {fileID: 5313692203542926573}
   m_MainMenuRef: {fileID: 0}
   m_SkillTreeRefs: []
   m_DefaultCharIcon: {fileID: 6931310180832408527}
@@ -829,15 +830,21 @@ MonoBehaviour:
   - row:
     - {fileID: 3470013229442749095}
     - {fileID: 4210297317180675974}
+    - {fileID: 6188074481443998735}
     - {fileID: 5313692203542926573}
+  - row:
+    - {fileID: 4828863872288375774}
+    - {fileID: 7916126880833565894}
   - row:
     - {fileID: 6783627996667031087}
     - {fileID: 1580702159435479607}
     - {fileID: 7731062726926325668}
   m_UnlockButton: {fileID: 0}
   m_RespecButton: {fileID: 0}
-  m_DefaultSelectableIndex: {x: 0, y: 1}
+  m_DefaultSelectableIndex: {x: 0, y: 2}
   m_InvokeOnSelect: 1
+  m_ResetXRows:
+  - 0
 --- !u!1 &2338018436295309563
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,9 +879,9 @@ RectTransform:
   - {fileID: 1316759128356496960}
   m_Father: {fileID: 3100497485502791964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 99.1, y: 47.8}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 47.8}
   m_SizeDelta: {x: 140, y: 37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2047421329206440015
@@ -2915,7 +2922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_CharName
-      value: Necromancer
+      value: Amalgamage
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Unlocked
@@ -2924,15 +2931,18 @@ PrefabInstance:
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Character
       value: 
-      objectReference: {fileID: 3149948031472934145, guid: 1aee21c83eee70e439fa4a0a54aea447, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTree
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Description
-      value: Reanimate the dead to do your bidding as you wield dark powers to defy
-        death itself!
+      value: 'Choose two wizards to combine.
+
+        Your skills, basic spell and
+        appearance are determined by the ones you choose. Your left choice determines
+        the appearance and the right choice determines the basic attack.'
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_SkillTreeScene
@@ -2940,11 +2950,11 @@ PrefabInstance:
       objectReference: {fileID: 102900000, guid: 1c86dfdaaf349d64a94225298ab159cc, type: 3}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_StartSpellDesc
-      value: Hurl a cloud of cold air that damages all enemies it passes through
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_StartSpellName
-      value: <color=#ff00ffff>Raise Dead</color>
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_RootOrder
@@ -3064,7 +3074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3673529806344428230, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3673529806344428230, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3077,10 +3087,10 @@ PrefabInstance:
     - target: {fileID: 3673529806344428230, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6039053523372124454}
     - target: {fileID: 3673529806344428230, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: CharacterIcon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6545004135443619162, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Name
@@ -3116,6 +3126,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+--- !u!114 &6039053523372124454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+  m_PrefabInstance: {fileID: 6854835500146585088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884193415cae57746b77d4c2de002736, type: 3}
+  m_Name: Fire Mage
+  m_EditorClassIdentifier: 
+--- !u!114 &7916126880833565894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3673529806344428230, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+  m_PrefabInstance: {fileID: 6854835500146585088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8874870905139965133 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
@@ -3528,6 +3560,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+--- !u!114 &4828863872288375774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3673529806344428230, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+  m_PrefabInstance: {fileID: 8212716336574322968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6192952507109940181 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}

@@ -137,6 +137,15 @@ public class Navigator2D : Navigator
 
     protected Selectable GetSelectableFromXY(Vector2 xy)
     {
-        return m_2DSelectables[(int)xy.y].row[(int)xy.x];
+        try
+        {
+            Selectable selectable = m_2DSelectables[(int)xy.y].row[(int)xy.x];
+            return selectable;
+        }
+        catch
+        {
+            Debug.Log("Couldnt get selectable " +  xy.x.ToString() + ", " + xy.y.ToString());
+            return null;
+        }
     }
 }
