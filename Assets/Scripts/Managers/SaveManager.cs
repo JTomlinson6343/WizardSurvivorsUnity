@@ -23,9 +23,11 @@ public struct SaveData
 [System.Serializable]
 public struct SkillTreeData
 {
+    public string name;
     public int[] skills;
     public int   totalPoints;
     public int   currentPoints;
+    public int   spentPoints;
 }
 
 [System.Serializable]
@@ -38,9 +40,9 @@ public class OptionsData
 
 public class SaveManager
 {
-    static string versionNumber = "1.2";
+    static string versionNumber = "1.3";
 
-    static readonly string m_Filename = "save.json";
+    static readonly string m_Filename = "save_beta.json";
     static readonly string m_Path = Application.persistentDataPath + "/" + m_Filename;
 
     static SkillTree[] m_SkillTrees;
@@ -91,7 +93,9 @@ public class SaveManager
             // Serialise data in skill tree into save data format
             m_SaveData.skillTrees[i].totalPoints = tree.m_TotalSkillPoints;
             m_SaveData.skillTrees[i].currentPoints = tree.m_CurrentSkillPoints;
+            m_SaveData.skillTrees[i].spentPoints = tree.m_SpentPoints;
             m_SaveData.skillTrees[i].skills = new int[skills.Length];
+            m_SaveData.skillTrees[i].name = tree.m_CharacterName;
 
             for (int j = 0; j < skills.Length; j++)
             {
@@ -170,6 +174,7 @@ public class SaveManager
 
             tree.m_TotalSkillPoints = treeData.totalPoints;
             tree.m_CurrentSkillPoints = treeData.currentPoints;
+            tree.m_SpentPoints = treeData.spentPoints;
 
             for (int j = 0; j < skillData.Length; j++)
             {

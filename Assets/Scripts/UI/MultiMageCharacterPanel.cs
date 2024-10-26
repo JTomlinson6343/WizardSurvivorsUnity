@@ -20,6 +20,9 @@ public class MultiMageCharacterPanel : MonoBehaviour
 
     public void SetSelectedIcon(CharacterIcon icon)
     {
+        // Refund all points from previous selected character
+        m_SelectedIcon?.m_SkillTree.OnRespecPressed();
+
         m_SelectedIcon = icon;
         Debug.Log(icon.m_CharName + " selected");
 

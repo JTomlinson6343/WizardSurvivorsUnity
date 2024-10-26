@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 6081645984018058762}
   - component: {fileID: 643176332838027382}
   - component: {fileID: 2379245406031051907}
-  - component: {fileID: 4669120940548328974}
+  - component: {fileID: 5071852681282620067}
   m_Layer: 0
   m_Name: MultiMageScreen
   m_TagString: Untagged
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_RespecButton: {fileID: 0}
   m_DefaultSelectableIndex: {x: 0, y: 1}
   m_InvokeOnSelect: 0
+  m_ResetXRows: []
 --- !u!114 &2379245406031051907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,42 +294,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LeftCharacterPanel: {fileID: 3426303889716264673}
   m_RightCharacterPanel: {fileID: 6076538828187205484}
---- !u!114 &4669120940548328974
+  m_CombinedTree: {fileID: 5071852681282620067}
+--- !u!114 &5071852681282620067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629681967590083628}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba78663be0615946a5b028f180936a5, type: 3}
+  m_Script: {fileID: 11500000, guid: b1a06f9edcb12c7428bbfdd68e87cb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Selectables: []
-  m_BackButton: {fileID: 7577340679374381334}
-  m_RememberSelectedButtonPos: 0
-  m_Direction: 0
-  m_ScrollbarDirection: 0
-  m_Type: 1
-  m_LabelSelectEnabled: 0
-  m_HighlightTextEnabled: 0
-  m_Labels: []
-  m_ControllerButtons:
-  - {fileID: 5626990554349707091}
-  - {fileID: 4026544792335863924}
-  m_2DSelectables:
-  - row:
-    - {fileID: 1636978931224798855}
-    - {fileID: 1718862575989577279}
-  - row:
-    - {fileID: 3830816063326771353}
-    - {fileID: 1923661939723162564}
-    - {fileID: 6689517180621826452}
+  m_CharacterColour: {r: 0, g: 0, b: 0, a: 0}
+  m_CharacterName: 
+  m_TotalSkillPoints: 0
+  m_CurrentSkillPoints: 0
+  m_SpentPoints: 0
+  m_NameLabel: {fileID: 0}
+  m_CostLabel: {fileID: 0}
+  m_DescriptionLabel: {fileID: 0}
+  m_OnLevelUpLabel: {fileID: 0}
+  m_CantUnlockLabel: {fileID: 0}
+  m_SkillLevelLabel: {fileID: 0}
+  m_SkillPointsLabel: {fileID: 0}
+  m_SkillTreePanel: {fileID: 0}
   m_UnlockButton: {fileID: 0}
   m_RespecButton: {fileID: 0}
-  m_DefaultSelectableIndex: {x: 0, y: 1}
-  m_InvokeOnSelect: 0
+  m_BackButton: {fileID: 0}
+  m_NotEnoughSkillPointsMsg: 
+  m_SkillMaxedMsg: 
+  m_PrereqMsg: 
+  m_FromMultiMage: 0
 --- !u!1 &2424751185252111872
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,9 +901,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterMenu, Assembly-CSharp
-        m_MethodName: OnBackPressed
+      - m_Target: {fileID: 2379245406031051907}
+        m_TargetAssemblyTypeName: MultiMageMenu, Assembly-CSharp
+        m_MethodName: OnStartPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1170,13 +1168,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterMenu, Assembly-CSharp
-        m_MethodName: LoadSkillTree
-        m_Mode: 1
+      - m_Target: {fileID: 2379245406031051907}
+        m_TargetAssemblyTypeName: MultiMageMenu, Assembly-CSharp
+        m_MethodName: OpenSkillTree
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 3426303889716264673}
+          m_ObjectArgumentAssemblyTypeName: MultiMageCharacterPanel, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1692,13 +1690,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterMenu, Assembly-CSharp
-        m_MethodName: LoadSkillTree
-        m_Mode: 1
+      - m_Target: {fileID: 2379245406031051907}
+        m_TargetAssemblyTypeName: MultiMageMenu, Assembly-CSharp
+        m_MethodName: OpenSkillTree
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 6076538828187205484}
+          m_ObjectArgumentAssemblyTypeName: MultiMageCharacterPanel, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

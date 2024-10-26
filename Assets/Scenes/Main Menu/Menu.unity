@@ -297,9 +297,10 @@ Transform:
   - {fileID: 1416561097}
   - {fileID: 1225650446}
   - {fileID: 1591716766}
+  - {fileID: 472112507}
+  - {fileID: 112969014}
   - {fileID: 1619876286}
   - {fileID: 926074072}
-  - {fileID: 112969014}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &146286816
@@ -51922,6 +51923,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 902368424054573691, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1511450485}
     - target: {fileID: 1399394667365797148, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -52002,6 +52007,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1628795845917168545, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1561536887}
     - target: {fileID: 1629681967590083628, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_Name
       value: MultiMageScreen
@@ -52010,6 +52019,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1636978931224798855, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636978931224798855, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636978931224798855, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636978931224798855, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924268421217661138, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1109853319}
+    - target: {fileID: 2379245406031051907, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_CombinedTree
+      value: 
+      objectReference: {fileID: 472112508}
     - target: {fileID: 2622005873286238096, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -52034,6 +52067,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3289438602142065238, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 2037979142}
     - target: {fileID: 3626163856890770745, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -52130,6 +52167,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6232682952640586715, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 2037979142}
     - target: {fileID: 6898286020833447453, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -52154,6 +52195,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7020198169498284383, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1109853319}
+    - target: {fileID: 7872920881882894892, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1561536887}
+    - target: {fileID: 8601107457892781046, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1511450485}
     - target: {fileID: 9122066472883840560, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -52178,7 +52231,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5071852681282620067, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -52802,6 +52856,70 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83453e8798cec2946a4d274bc5017edc, type: 3}
+--- !u!1 &472112506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 472112507}
+  - component: {fileID: 472112508}
+  m_Layer: 0
+  m_Name: CombinedSkillTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &472112507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472112506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 146286815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &472112508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472112506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a06f9edcb12c7428bbfdd68e87cb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CharacterColour: {r: 0, g: 0, b: 0, a: 0}
+  m_CharacterName: 
+  m_TotalSkillPoints: 0
+  m_CurrentSkillPoints: 0
+  m_SpentPoints: 0
+  m_NameLabel: {fileID: 0}
+  m_CostLabel: {fileID: 0}
+  m_DescriptionLabel: {fileID: 0}
+  m_OnLevelUpLabel: {fileID: 0}
+  m_CantUnlockLabel: {fileID: 0}
+  m_SkillLevelLabel: {fileID: 0}
+  m_SkillPointsLabel: {fileID: 0}
+  m_SkillTreePanel: {fileID: 0}
+  m_UnlockButton: {fileID: 0}
+  m_RespecButton: {fileID: 0}
+  m_BackButton: {fileID: 0}
+  m_NotEnoughSkillPointsMsg: 
+  m_SkillMaxedMsg: 
+  m_PrereqMsg: 
+  m_FromMultiMage: 0
 --- !u!1 &490009865
 GameObject:
   m_ObjectHideFlags: 0
@@ -54026,7 +54144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTreeRefs.Array.size
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTreeRefs.Array.data[0]
@@ -54048,6 +54166,26 @@ PrefabInstance:
       propertyPath: m_SkillTreeRefs.Array.data[4]
       value: 
       objectReference: {fileID: 1591716767}
+    - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTreeRefs.Array.data[5]
+      value: 
+      objectReference: {fileID: 472112508}
+    - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTreeRefs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1109853319}
+    - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTreeRefs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1511450485}
+    - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTreeRefs.Array.data[8]
+      value: 
+      objectReference: {fileID: 2037979142}
+    - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTreeRefs.Array.data[9]
+      value: 
+      objectReference: {fileID: 1561536887}
     - target: {fileID: 9013724038083419710, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTree
       value: 
@@ -54740,6 +54878,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3799507802252995062, guid: d0c62923748d14b4b96c55c122bd2c12, type: 3}
+      propertyPath: m_FromMultiMage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54750,6 +54892,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1950099225873126320, guid: d0c62923748d14b4b96c55c122bd2c12, type: 3}
   m_PrefabInstance: {fileID: 1109853317}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1109853319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3799507802252995062, guid: d0c62923748d14b4b96c55c122bd2c12, type: 3}
+  m_PrefabInstance: {fileID: 1109853317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1170086420
 GameObject:
   m_ObjectHideFlags: 0
@@ -55638,6 +55791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2731231053370029858, guid: 14515c0ae4eec314cb2594cb7386bf93, type: 3}
+      propertyPath: m_FromMultiMage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3624303929662755436, guid: 14515c0ae4eec314cb2594cb7386bf93, type: 3}
       propertyPath: m_Name
       value: LightningMageSkillTree_1
@@ -55656,6 +55813,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 742527633250651492, guid: 14515c0ae4eec314cb2594cb7386bf93, type: 3}
   m_PrefabInstance: {fileID: 1511450483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1511450485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2731231053370029858, guid: 14515c0ae4eec314cb2594cb7386bf93, type: 3}
+  m_PrefabInstance: {fileID: 1511450483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1534976494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3726613865668241289, guid: bd2fe0fbd8d053d4dadbcdfe3f11eeb6, type: 3}
@@ -55745,6 +55913,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2563516355548538394, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+      propertyPath: m_FromMultiMage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563516355548538394, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
       propertyPath: m_CharacterColour.b
       value: 0.745283
       objectReference: {fileID: 0}
@@ -55774,6 +55946,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 880951074904349788, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
   m_PrefabInstance: {fileID: 1561536885}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1561536887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2563516355548538394, guid: b5f38902d0a663b4293b19e2986270b3, type: 3}
+  m_PrefabInstance: {fileID: 1561536885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1571627987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56957,6 +57140,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2563516355548538394, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+      propertyPath: m_FromMultiMage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563516355548538394, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
       propertyPath: m_CharacterColour.a
       value: 1
       objectReference: {fileID: 0}
@@ -56978,6 +57165,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 880951074904349788, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
   m_PrefabInstance: {fileID: 2037979140}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2037979142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2563516355548538394, guid: 967bcf3e3bbc06f4bb24cff3b3db9e6a, type: 3}
+  m_PrefabInstance: {fileID: 2037979140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2092828073
 GameObject:
   m_ObjectHideFlags: 0

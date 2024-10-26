@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MultiMageMenu : MonoBehaviour
 {
+    public static MultiMageMenu m_Instance;
     [SerializeField] MultiMageCharacterPanel m_LeftCharacterPanel;
     [SerializeField] MultiMageCharacterPanel m_RightCharacterPanel;
+
+    public CombinedSkillTree m_CombinedTree;
 
     /*
      * 1. Player selects an icon, left or right.
@@ -16,6 +20,11 @@ public class MultiMageMenu : MonoBehaviour
      * The total skill points are displayed in the middle.
      */
 
+    private void Awake()
+    {
+        m_Instance = this;
+    }
+
     public void OpenMenu()
     {
         gameObject.SetActive(true);
@@ -24,6 +33,33 @@ public class MultiMageMenu : MonoBehaviour
     public void CloseMenu()
     {
         gameObject.SetActive(false);
+        CharacterMenu.m_Instance.gameObject.SetActive(true);
+        CharacterMenu.m_Instance.gameObject.GetComponent<CharacterMenuNavigator>().Start();
+    }
+
+    public void OpenSkillTree(MultiMageCharacterPanel panel)
+    {
+        SkillTree tree = panel.m_SelectedIcon.m_SkillTree;
+        gameObject.SetActive(false);
+
+        tree.gameObject.SetActive(true);
+        tree.GetComponent<Navigator2D>().Start();
+        tree.Start();
+    }
+
+    public void OnStartPressed()
+    {
+        if (!m_LeftCharacterPanel.m_SelectedIcon || !m_RightCharacterPanel.m_SelectedIcon) return;
+
+        GenerateCombinedSkillTree();
+
+        PlayerManager.m_Character = m_LeftCharacterPanel.m_SelectedIcon.m_Character;
+        PlayerManager.m_GlobalSkillTreeRef = CharacterMenu.m_Instance.m_GlobalSkillTree;
+        PlayerManager.m_SkillTreeRef = m_CombinedTree;
+        PlayerManager.m_GlobalSkillTreeRef.PassEnabledSkillsToManager(false);
+        PlayerManager.m_SkillTreeRef.PassEnabledSkillsToManager(true);
+        StateManager.ForceChangeState(StateManager.State.PLAYING);
+        SceneManager.LoadScene("Main Scene");
     }
 
     public void SwapCharacters()
@@ -37,5 +73,13 @@ public class MultiMageMenu : MonoBehaviour
     public bool IsCustomisationValid()
     {
         return m_LeftCharacterPanel.m_SelectedIcon && m_RightCharacterPanel.m_SelectedIcon;
+    }
+
+    public void GenerateCombinedSkillTree()
+    {
+        m_CombinedTree.SetSkillTrees(
+            m_LeftCharacterPanel.m_SelectedIcon.m_SkillTree,
+            m_RightCharacterPanel.m_SelectedIcon.m_SkillTree
+        );
     }
 }

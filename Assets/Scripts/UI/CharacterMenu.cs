@@ -38,7 +38,7 @@ public class CharacterMenu : MonoBehaviour
     [SerializeField] CharacterIcon m_LightningMageIcon;
     [SerializeField] CharacterIcon m_NecroIcon;
 
-    [SerializeField] SkillTree m_GlobalSkillTree;
+    public SkillTree m_GlobalSkillTree;
 
     [SerializeField] MultiMageMenu m_MultiMageMenu;
 
