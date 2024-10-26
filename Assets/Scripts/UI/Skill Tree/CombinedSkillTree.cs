@@ -20,7 +20,8 @@ public class CombinedSkillTree : SkillTree
         m_Trees[0] = tree1;
         m_Trees[1] = tree2;
 
-        m_CharacterColour = Color.Lerp(tree1.m_CharacterColour, tree2.m_CharacterColour, 0.5f);
+        //m_CharacterColour = Color.Lerp(tree1.m_CharacterColour, tree2.m_CharacterColour, 0.5f);
+        m_CharacterColour = Color.Lerp(tree2.m_CharacterColour, Color.white, 0.5f);
     }
 
     public override SkillIcon GetSkillIconWithID(SkillID id)

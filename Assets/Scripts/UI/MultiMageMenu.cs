@@ -54,10 +54,12 @@ public class MultiMageMenu : MonoBehaviour
         GenerateCombinedSkillTree();
 
         PlayerManager.m_Character = m_LeftCharacterPanel.m_SelectedIcon.m_Character;
+        PlayerManager.m_MultiMageRightCharacterActiveAbilityName = m_RightCharacterPanel.m_SelectedIcon.m_Character.GetComponentInChildren<Player>().m_ActiveAbility.m_Data.name;
         PlayerManager.m_GlobalSkillTreeRef = CharacterMenu.m_Instance.m_GlobalSkillTree;
         PlayerManager.m_SkillTreeRef = m_CombinedTree;
         PlayerManager.m_GlobalSkillTreeRef.PassEnabledSkillsToManager(false);
         PlayerManager.m_SkillTreeRef.PassEnabledSkillsToManager(true);
+        PlayerManager.m_DoSpawnMultiMage = true;
         StateManager.ForceChangeState(StateManager.State.PLAYING);
         SceneManager.LoadScene("Main Scene");
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -76,6 +77,8 @@ public class AbilityManager : MonoBehaviour
             HandleInput();
         }
     }
+
+    public Ability GetAbilityWithName(string name) { return GetComponentsInChildren<Ability>().First(x => x.m_Data.name == name); }
 
     private void CheckUnlocks(List<Ability> abilities)
     {

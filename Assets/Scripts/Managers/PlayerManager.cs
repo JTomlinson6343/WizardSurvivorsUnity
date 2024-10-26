@@ -29,6 +29,10 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     public static GameObject m_Character;
     public static SkillTree m_SkillTreeRef;
     public static SkillTree m_GlobalSkillTreeRef;
+
+    public static bool m_DoSpawnMultiMage = false;
+    public static string m_MultiMageRightCharacterActiveAbilityName;
+
     public GameObject m_Camera;
     [SerializeField] float m_CameraSpeed;
 
@@ -55,8 +59,16 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
             return;
 
         // Spawn character passed in by character menu
-        Instantiate(m_Character);
-        m_Character.transform.position = Vector3.zero;
+        GameObject player = Instantiate(m_Character);
+
+        player.transform.position = Vector3.zero;
+        if (m_DoSpawnMultiMage) MultiMageModifications(player);
+    }
+
+    public void MultiMageModifications(GameObject character)
+    {
+        character.GetComponentInChildren<SpriteRenderer>().color = MultiMageMenu.m_Instance.m_CombinedTree.m_CharacterColour;
+        character.GetComponentInChildren<Player>().m_ActiveAbility = AbilityManager.m_Instance.GetAbilityWithName(m_MultiMageRightCharacterActiveAbilityName);
     }
 
     private void FixedUpdate()
