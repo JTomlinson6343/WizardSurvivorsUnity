@@ -45,14 +45,19 @@ public class CharacterMenu : MonoBehaviour
     public void Awake()
     {
         m_Instance = this;
-
-        SetCurrentIcon(m_DefaultCharIcon);
-        CheckUnlocks();
     }
 
     private void Update()
     {
         UpdateInfo(m_CurrentCharIcon);
+    }
+
+    public void OpenMenu()
+    {
+        gameObject.SetActive(true);
+        GetComponent<Navigator>().Start();
+        SetCurrentIcon(m_DefaultCharIcon);
+        CheckUnlocks();
     }
 
     // Display info on info panel based on selected character

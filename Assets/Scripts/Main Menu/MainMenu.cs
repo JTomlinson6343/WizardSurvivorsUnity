@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         SaveManager.LoadFromFile(m_CharMenuRef.GetComponent<CharacterMenu>().GetSkillTreeRefs());
+        MultiMageMenu.m_Instance.gameObject.SetActive(false);
+        CharacterMenu.m_Instance.gameObject.SetActive(false);
         AudioManager.m_Instance.PlayMusic(27, 0.7f);
     }
 
@@ -30,9 +32,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         gameObject.SetActive(false);
-        m_CharMenuRef.SetActive(true);
-        m_CharMenuRef.GetComponent<CharacterMenu>().Awake();
-        m_CharMenuRef.GetComponent<Navigator>().Start();
+        m_CharMenuRef.GetComponent<CharacterMenu>().OpenMenu();
         Time.timeScale = 1.0f;
     }
 

@@ -18,6 +18,8 @@ public class MultiMageCharacterPanel : MonoBehaviour
     [SerializeField] GameObject m_SkillTreeButton;
     [SerializeField] TextMeshProUGUI m_NameLabel;
 
+    private CharacterIcon GetCharIconByName(string name) { return GetComponentsInChildren<CharacterIcon>().First(c => c.m_CharName == name); }
+
     public void SetSelectedIcon(CharacterIcon icon)
     {
         // Refund all points from previous selected character
@@ -32,6 +34,13 @@ public class MultiMageCharacterPanel : MonoBehaviour
         }
 
         icon.GetComponent<Image>().color = CharacterMenu.m_Instance.m_HighlightColour;
+    }
+
+    public void LoadSelectedIcon(string charName)
+    {
+        if (charName == null || charName == "") return;
+        m_SelectedIcon = GetCharIconByName(charName);
+        CloseMenu();
     }
 
     public void OpenMenu()

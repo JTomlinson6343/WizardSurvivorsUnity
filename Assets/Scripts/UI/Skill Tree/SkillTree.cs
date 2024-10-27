@@ -18,6 +18,7 @@ public class SkillTree : MonoBehaviour
     public static readonly int kSkillPointCap = 999;
     public int m_CurrentSkillPoints;
     public int m_SpentPoints = 0;
+    public static readonly int kMultiMageSpentPointsCap = 300;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
@@ -26,6 +27,7 @@ public class SkillTree : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_CantUnlockLabel;
     [SerializeField] TextMeshProUGUI m_SkillLevelLabel;
     [SerializeField] TextMeshProUGUI m_SkillPointsLabel;
+    [SerializeField] TextMeshProUGUI m_SpentPointsLabel;
     [SerializeField] GameObject m_SkillTreePanel;
 
     [SerializeField] Button          m_UnlockButton;
@@ -33,6 +35,7 @@ public class SkillTree : MonoBehaviour
     [SerializeField] Button          m_BackButton;
 
     [SerializeField] string m_NotEnoughSkillPointsMsg;
+    [SerializeField] string m_SkillPointsLimitReached;
     [SerializeField] string m_SkillMaxedMsg;
     [SerializeField] string m_PrereqMsg;
 
@@ -42,7 +45,7 @@ public class SkillTree : MonoBehaviour
     {
         if (m_FromMultiMage)
         {
-            m_CurrentSkillPoints = MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints;
+            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap - m_SpentPoints);
         }
         UpdateSkillPointsLabel();
         ColorCheckPass();
@@ -71,7 +74,19 @@ public class SkillTree : MonoBehaviour
 
     private void UpdateSkillPointsLabel()
     {
-        m_SkillPointsLabel.text = "Current: " + m_CurrentSkillPoints.ToString();
+        string pointsText;
+        if (m_CurrentSkillPoints >= kMultiMageSpentPointsCap && m_FromMultiMage)
+        {
+            pointsText = "<color=orange>" + m_CurrentSkillPoints.ToString() + "</color>";
+        }
+        else
+        {
+            pointsText = m_CurrentSkillPoints.ToString();
+        }
+
+        m_SkillPointsLabel.text = "Current: " + pointsText;
+
+        m_SpentPointsLabel.text = "Spent: " + m_SpentPoints.ToString();
     }
 
     private int GetCurrentLevelCost()
@@ -185,7 +200,6 @@ public class SkillTree : MonoBehaviour
         m_CurrentSkill.SetLevelIndicator();
 
         // Ability unlock animation goes here
-
         SetHighlightedSkill(m_CurrentSkill);
         ColorCheckPass();
         TryUnlockAchievement();
@@ -202,17 +216,18 @@ public class SkillTree : MonoBehaviour
             skill.m_Data.level = 0;
         }
 
+        m_SpentPoints = 0;
+
         // Refund all spent skill points.
         if (m_FromMultiMage)
         {
             MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints += m_SpentPoints;
-            m_CurrentSkillPoints = MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints;
+            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap - m_SpentPoints);
         }
         else
         {
             m_CurrentSkillPoints = m_TotalSkillPoints;
         }
-        m_SpentPoints = 0;
 
         // Reset the skill tree visuals
         UpdateSkillPointsLabel();
@@ -257,7 +272,7 @@ public class SkillTree : MonoBehaviour
         {
             MultiMageMenu.m_Instance.gameObject.SetActive(true);
             MultiMageMenu.m_Instance.gameObject.GetComponent<CharacterMenuNavigator>().Start();
-            m_CurrentSkillPoints = MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints;
+            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap - m_SpentPoints);
         }
         else
         {

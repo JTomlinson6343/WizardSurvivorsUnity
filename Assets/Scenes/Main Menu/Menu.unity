@@ -52017,7 +52017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1629681967590083628, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1636978931224798855, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -54048,7 +54048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1629681967590083628, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169254749420906455, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTree
@@ -56468,9 +56468,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1086658703}
-  - {fileID: 317946533}
-  - {fileID: 1331368250}
   - {fileID: 271959446}
+  - {fileID: 1331368250}
+  - {fileID: 317946533}
   - {fileID: 1763635597}
   - {fileID: 1250841644}
   - {fileID: 42850793}

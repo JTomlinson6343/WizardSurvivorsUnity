@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class MultiMageMenu : MonoBehaviour
 {
     public static MultiMageMenu m_Instance;
-    [SerializeField] MultiMageCharacterPanel m_LeftCharacterPanel;
-    [SerializeField] MultiMageCharacterPanel m_RightCharacterPanel;
+    public MultiMageCharacterPanel m_LeftCharacterPanel;
+    public MultiMageCharacterPanel m_RightCharacterPanel;
 
     public CombinedSkillTree m_CombinedTree;
 
@@ -35,6 +35,7 @@ public class MultiMageMenu : MonoBehaviour
         gameObject.SetActive(false);
         CharacterMenu.m_Instance.gameObject.SetActive(true);
         CharacterMenu.m_Instance.gameObject.GetComponent<CharacterMenuNavigator>().Start();
+        SaveManager.SaveToFile();
     }
 
     public void OpenSkillTree(MultiMageCharacterPanel panel)

@@ -18,6 +18,8 @@ public struct SaveData
     public Unlockable[] unlockables;
 
     public string[] viewedTutorials;
+
+    public MultiMageData multiMageData;
 }
 
 [System.Serializable]
@@ -36,6 +38,13 @@ public class OptionsData
     public float musicVolume = 1f;
     public float soundVolume = 1f;
     public bool  autoFire = true;
+}
+
+[System.Serializable]
+public class MultiMageData
+{
+    public string leftWizard;
+    public string rightWizard;
 }
 
 public class SaveManager
@@ -63,6 +72,8 @@ public class SaveManager
         SaveUnlocks();
 
         SaveViewedTutorials();
+
+        SaveMultiMageSetup();
 
         // Save data as JSON
         string json = JsonUtility.ToJson(m_SaveData, true);
@@ -120,6 +131,14 @@ public class SaveManager
     {
         m_SaveData.viewedTutorials = TutorialManager.m_ViewedTutorials.ToArray();
     }
+
+    private static void SaveMultiMageSetup()
+    {
+        m_SaveData.multiMageData = new MultiMageData();
+        m_SaveData.multiMageData.leftWizard = MultiMageMenu.m_Instance.m_LeftCharacterPanel.m_SelectedIcon?.m_CharName;
+        m_SaveData.multiMageData.rightWizard = MultiMageMenu.m_Instance.m_RightCharacterPanel.m_SelectedIcon?.m_CharName;
+    }
+
     public static void LoadFromFile(SkillTree[] skillTrees) // Called on game start
     {
         // Load json
@@ -159,6 +178,7 @@ public class SaveManager
         LoadOptions();
         LoadUnlocks();
         LoadViewedTutorials();
+        LoadMultiMageSetup();
         NewVersion();
     }
 
@@ -206,6 +226,12 @@ public class SaveManager
     {
         if (m_SaveData.viewedTutorials.Length == 0) return;
         TutorialManager.m_ViewedTutorials = m_SaveData.viewedTutorials?.ToList();
+    }
+
+    public static void LoadMultiMageSetup()
+    {
+        MultiMageMenu.m_Instance.m_LeftCharacterPanel.LoadSelectedIcon(m_SaveData.multiMageData.leftWizard);
+        MultiMageMenu.m_Instance.m_RightCharacterPanel.LoadSelectedIcon(m_SaveData.multiMageData.rightWizard);
     }
 
     private static void NewVersion()
