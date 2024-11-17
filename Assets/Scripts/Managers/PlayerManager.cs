@@ -68,6 +68,7 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     public void MultiMageModifications(GameObject character)
     {
         character.GetComponentInChildren<SpriteRenderer>().color = MultiMageMenu.m_Instance.m_CombinedTree.m_CharacterColour;
+        character.GetComponentInChildren<Player>().m_IsMultiMage = true;
         character.GetComponentInChildren<Player>().m_ActiveAbility = AbilityManager.m_Instance.GetAbilityWithName(m_MultiMageRightCharacterActiveAbilityName);
     }
 

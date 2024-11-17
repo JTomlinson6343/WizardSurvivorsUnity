@@ -83,6 +83,8 @@ public class Player : Actor
     [SerializeField] private Animator m_AnimatorMask;
     [SerializeField] private SpriteRenderer spriteMask;
 
+    public bool m_IsMultiMage;
+
     private void Awake()
     {
         m_Instance = this;
@@ -270,12 +272,14 @@ public class Player : Actor
     {
         m_IsInvincible = true;
         GetComponentInChildren<SpriteRenderer>().material = m_WhiteFlashMaterial;
+        if (m_IsMultiMage) GetComponentInChildren<SpriteRenderer>().color = Color.white;
         Invoke(nameof(EndFlashing), m_IFramesTime * (1f + m_TotalStats.iFramesMod));
     }
 
     protected override void EndFlashing()
     {
         m_IsInvincible = false;
+        if (m_IsMultiMage) GetComponentInChildren<SpriteRenderer>().color = MultiMageMenu.m_Instance.m_CombinedTree.m_CharacterColour;
         base.EndFlashing();
     }
 
