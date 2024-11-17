@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8092347585982174538}
   - component: {fileID: 5276009217686193574}
   - component: {fileID: 1906512895104790762}
+  - component: {fileID: 7945321176770727729}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Enemy
@@ -51,13 +52,17 @@ MonoBehaviour:
   m_MaxHealth: 1500
   m_Health: 1500
   m_KnockbackResist: 0
+  m_isKnockedBack: 0
   m_DamageResistance: 0
   m_WhiteFlashMaterial: {fileID: 2100000, guid: 026bdf0d5bd8520429b5f41e478de9d5, type: 2}
   m_DebuffPlacement: {fileID: 6766566669394949135}
   m_DebuffImmunities: 
   m_DebuffImmune: 0
   m_Targetable: 1
+  m_IsDead: 0
   m_Stunned: 0
+  m_MoveDir: {x: 0, y: 0}
+  m_FollowPlayer: 0
   m_HealthModifier: 1
   m_SpawnProbability: 0
   m_MinWave: 0
@@ -112,7 +117,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &1906512895104790762
 CapsuleCollider2D:
@@ -146,8 +151,43 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10922238, y: 0.056104064}
-  m_Size: {x: 0.91702956, y: 1.7093251}
+  m_Offset: {x: 0.018768787, y: -0.15358388}
+  m_Size: {x: 1.0979369, y: 2.128701}
+  m_Direction: 0
+--- !u!70 &7945321176770727729
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383119644722088283}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01406467, y: -0.60207057}
+  m_Size: {x: 1.2342222, y: 1.2537541}
   m_Direction: 0
 --- !u!1 &6766566669394949135
 GameObject:

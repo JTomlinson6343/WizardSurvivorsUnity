@@ -11,6 +11,7 @@ public static class StateManager
         PLAYING,
         UPGRADING,
         PAUSED,
+        REVIVING,
         TUTORIAL,
         PRE_BOSS,
         BOSS,
@@ -40,6 +41,9 @@ public static class StateManager
             case State.TUTORIAL:
                 m_PreviousState = state;
                 break;
+            case State.REVIVING:
+                m_PreviousState = state;
+                break;
             // Otherwise switch the state to the new state
             default:
                 m_PreviousState = m_CurrentState;
@@ -49,9 +53,13 @@ public static class StateManager
 
         switch (state)
         {
-            case State.PAUSED:
             case State.UPGRADING:
+                AbilityManager.m_Instance.OnUpgradingState();
+                Pause();
+                break;
+            case State.PAUSED:
             case State.GAME_OVER:
+            case State.TUTORIAL:
                 Pause();
                 break;
             default:
@@ -63,6 +71,7 @@ public static class StateManager
     public static void ForceChangeState(State state)
     {
         m_CurrentState = state;
+        if (m_CurrentState == State.UPGRADING) AbilityManager.m_Instance.OnUpgradingState();
         PrintState();
     }
 
@@ -90,6 +99,8 @@ public static class StateManager
         Time.timeScale = 1;
 
         (m_PreviousState, m_CurrentState) = (m_CurrentState, m_PreviousState);
+
+        if (m_CurrentState == State.UPGRADING) AbilityManager.m_Instance.OnUpgradingState();
 
         PrintState();
     }
@@ -135,6 +146,10 @@ public static class StateManager
 
     public static bool IsGameplayStopped()
     {
-        return m_CurrentState == State.UPGRADING || m_CurrentState == State.PAUSED || m_CurrentState == State.GAME_OVER;
+        return m_CurrentState == State.UPGRADING
+            || m_CurrentState == State.PAUSED
+            || m_CurrentState == State.GAME_OVER
+            || m_CurrentState == State.TUTORIAL
+            || m_CurrentState == State.REVIVING;
     }
 }

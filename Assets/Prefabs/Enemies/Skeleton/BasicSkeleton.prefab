@@ -309,8 +309,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025545156, y: 0.2711438}
-  m_Size: {x: 0.8303358, y: 0.8303358}
+  m_Offset: {x: -0.0023630625, y: 0.0717824}
+  m_Size: {x: 0.43162236, y: 0.43162236}
   m_Direction: 1
 --- !u!70 &3599725834311313513
 CapsuleCollider2D:
@@ -344,8 +344,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01956898, y: 0.41034544}
-  m_Size: {x: 0.629032, y: 1.106277}
+  m_Offset: {x: 0.0016264915, y: 0.15915203}
+  m_Size: {x: 0.401762, y: 0.47629976}
   m_Direction: 0
 --- !u!114 &7644056101305145373
 MonoBehaviour:
@@ -369,6 +369,8 @@ MonoBehaviour:
   m_DebuffImmune: 0
   m_Targetable: 1
   m_Stunned: 0
+  m_MoveDir: {x: 0, y: 0}
+  m_FollowPlayer: 0
   m_HealthModifier: 0.9
   m_SpawnProbability: 1
   m_MinWave: 1

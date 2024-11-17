@@ -8,6 +8,6 @@ public class LightningDoubleCast : Skill
     {
         base.Init(data);
 
-        AbilityManager.m_Instance.m_LightningDoubleCastOn = true;
+        lightningDoubleCastOn = true;
     }
 }

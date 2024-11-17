@@ -42,6 +42,16 @@ public enum SkillID
     GlobalReroll,
     GlobalLowHealthXP,
     GlobalXPOnKill,
+    NecroPoisonDamage,
+    NecroDarkDamage,
+    NecroSummonDamage,
+    NecroLifeDrain,
+    NecroSkeletonDuration,
+    NecroBleed,
+    NecroMoreSkeleton,
+    NecroBleedDamage,
+    NecroRevive,
+    NecroTurned
 }
 
 [System.Serializable]
@@ -57,6 +67,11 @@ public class Skill : MonoBehaviour
     public SkillData m_Data;
 
     protected bool m_Active;
+
+    public static bool necroBleedEnabled = false;
+    public static bool lightningDoubleCastOn = false;
+    public static bool bleedDamageSkillActivated = false;
+    public static bool reviveAvailable = false;
 
     public virtual void Init(SkillData data)
     {

@@ -64,7 +64,7 @@ public class Player : Actor
     PlayerStats m_TotalStats;
 
     public Ability m_ActiveAbility;
-    public static bool m_AutoFire = false;
+    public static bool m_AutoFire = true;
 
     float m_LastShot = 0;
 
@@ -99,7 +99,6 @@ public class Player : Actor
 
     public override void Update()
     {
-        Cursor.visible = Gamepad.current == null;
         if (StateManager.IsGameplayStopped()) { return; }
 
         //if (Input.GetKeyDown(KeyCode.H))
@@ -237,15 +236,34 @@ public class Player : Actor
     // If actor has i-frames, return false. Else, return true
     override public DamageOutput TakeDamage(float amount)
     {
-        if (m_IsInvincible)
+        if (m_IsInvincible) return DamageOutput.invalidHit;
+
+        if (StateManager.GetCurrentState() != StateManager.State.REVIVING) PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
+
+        return OnDamage(amount);
+    }
+
+    public DamageOutput TakeDOTDamage(float amount)
+    {
+        return OnDOTDamage(amount);
+    }
+
+    public DamageOutput OnDOTDamage(float amount)
+    {
+        if (m_IsDead) return DamageOutput.invalidHit;
+
+        m_Health -= amount;
+
+        if (m_Health <= 0)
         {
-            return DamageOutput.invalidHit;
+            // If this has no hp left, destroy it
+            m_Health = 0;
+            OnDeath();
+            m_IsDead = true;
+            return DamageOutput.wasKilled;
         }
 
-        PlayerManager.m_Instance.StartShake(0.15f, 0.25f);
-
-        amount -= m_TotalStats.armor;
-        return OnDamage(amount);
+        return DamageOutput.validHit;
     }
 
     protected override void StartFlashing()
@@ -255,7 +273,7 @@ public class Player : Actor
         Invoke(nameof(EndFlashing), m_IFramesTime * (1f + m_TotalStats.iFramesMod));
     }
 
-    protected override void EndFlashing ()
+    protected override void EndFlashing()
     {
         m_IsInvincible = false;
         base.EndFlashing();
@@ -263,8 +281,14 @@ public class Player : Actor
 
     protected override void OnDeath()
     {
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+        if (Skill.reviveAvailable)
+        {
+            NecroRevive.m_Instance.Revive();
+            return;
+        }
         GetComponentInChildren<Renderer>().enabled = false;
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         ProgressionManager.m_Instance.GameOver();
         Destroy(m_HealthBar);
     }
@@ -333,6 +357,7 @@ public class Player : Actor
     }
     public void Heal(float amount)
     {
+        DamageManager.m_Instance.SpawnDamageNumbers(amount, m_DebuffPlacement.transform.position, DamageType.Healing);
         StartCoroutine(HealAnim(amount,m_HealSpeed));
     }
 

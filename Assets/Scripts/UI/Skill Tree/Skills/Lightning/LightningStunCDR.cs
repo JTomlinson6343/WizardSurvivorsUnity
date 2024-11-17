@@ -16,6 +16,7 @@ public class LightningStunCDR : CooldownSkill
     override public void Init(SkillData data)
     {
         base.Init(data);
+        if (data.level == 2) m_Duration *= m_DurationUpgradeModifier;
         DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
     }
 
@@ -25,8 +26,6 @@ public class LightningStunCDR : CooldownSkill
         if (!damageInstance.user.CompareTag("Player")) return;
         if (DebuffManager.GetDebuffIfPresent(damageInstance.target.GetComponent<Actor>(), Debuff.DebuffType.Paralysed) == null) return;
         if (!damageInstance.didKill) return;
-
-        if (m_Data.level == 2) m_Duration *= m_DurationUpgradeModifier;
 
         StartCooldown();
 

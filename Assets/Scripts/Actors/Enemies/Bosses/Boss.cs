@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Boss : Enemy
 {
+    protected bool m_DidDamagePlayer = false;
+
     public string m_BossName;
 
     [SerializeField] int m_MinSkillPoints;
@@ -18,6 +20,14 @@ public abstract class Boss : Enemy
     public virtual void BossFightInit()
     {
         PlayerManager.m_Instance.m_ActorsToBind = new Actor[] { Player.m_Instance, this };
+        DamageManager.m_DamageInstanceEvent.AddListener(OnDamageInstance);
+    }
+
+    public void OnDamageInstance(DamageInstanceData damageInstance)
+    {
+        if (!damageInstance.target.CompareTag("Player")) return;
+
+        m_DidDamagePlayer = true;
     }
 
     protected override void OnDeath()

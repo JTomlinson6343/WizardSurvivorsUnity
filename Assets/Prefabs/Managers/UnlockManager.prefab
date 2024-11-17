@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -118,16 +118,23 @@ MonoBehaviour:
   m_UnlockConditions:
   - name: Ice Mage
     image: {fileID: 211959678, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Deal 20000 frost damage.
-    condition: 20000
+    message: Deal 50000 frost damage.
+    condition: 50000
     doFormatMessage: 1
     trackedStatName: iceDamageDealt
   - name: Lightning Mage
     image: {fileID: -146542664, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
-    message: Reach a total of 20% spell cooldown reduction in a single run.
-    condition: -0.2
+    message: Reach a total of 40% spell cooldown reduction in a single run.
+    condition: -0.4
     doFormatMessage: 0
     trackedStatName: totalCooldown
+  - name: Necromancer
+    image: {fileID: 29506600, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
+    message: Defeat Varkarth, Deathlord of the Crypt in his Enraged form without
+      getting hit.
+    condition: 0
+    doFormatMessage: 0
+    trackedStatName: 
   - name: Solarium Skull
     image: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
     message: Kill 2000 enemies.
@@ -136,13 +143,28 @@ MonoBehaviour:
     trackedStatName: kills
   - name: Emberfly Jar
     image: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-    message: Deal 5000 damage from summon spells.
-    condition: 5000
+    message: Deal 10000 damage from summon spells.
+    condition: 10000
     doFormatMessage: 1
     trackedStatName: summonDamageDealt
   - name: Orb of the Oracle
     image: {fileID: 2026033976, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
-    message: Deal 10000 damage
-    condition: 25000
+    message: Deal 50000 damage
+    condition: 75000
     doFormatMessage: 1
     trackedStatName: damage
+  m_Achievements:
+  - name: Necromancer
+    id: NECROMANCER_UNLOCK
+  - name: Ice Mage
+    id: ICE_MAGE_UNLOCK
+  - name: Lightning Mage
+    id: LIGHTNING_MAGE_UNLOCK
+  - name: Maxed_Necromancer
+    id: NECROMANCER_MAXED
+  - name: Maxed_Lightning Mage
+    id: LIGHTNING_MAGE_MAXED
+  - name: Maxed_Pyromancer
+    id: PYROMANCER_MAXED
+  - name: Maxed_Ice Mage
+    id: ICE_MAGE_MAXED

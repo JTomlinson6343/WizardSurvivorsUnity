@@ -33,8 +33,12 @@ public class Lich : Boss
     [SerializeField] GameObject m_SmokePrefab;
     [SerializeField] GameObject m_SpawnedEnemyPrefab;
 
+    private bool m_IsEnraged = false;
+
     public override void Enraged(int bossNumber)
     {
+        m_IsEnraged = true;
+
         m_MaxHealth *= bossNumber;
         m_StompDamage *= 1f + bossNumber * 0.1f;
         m_ProjectileDamage *= 1f + bossNumber * 0.1f;
@@ -127,7 +131,10 @@ public class Lich : Boss
         {
             GameObject spawnedEnemy = EnemyManager.m_Instance.CreateNewEnemy(m_SpawnedEnemyPrefab);
             spawnedEnemy.transform.position = m_QuakePos.transform.position + Utils.GetRandomDirectionV3() * m_EnemySpawnRadius;
-            spawnedEnemy.GetComponent<Skeleton>().CrawlFromGround();
+            Skeleton skeleton = spawnedEnemy.GetComponent<Skeleton>();
+            skeleton.CrawlFromGround();
+            skeleton.m_FollowPlayer = true;
+            EnemyManager.m_Enemies.Add(skeleton);
         }
     }
 
@@ -197,4 +204,18 @@ public class Lich : Boss
     }
 
     public override void ToggleStunned(bool enabled) { }
+
+    protected override void OnDeath()
+    {
+        SteamworksManager.UnlockAchievement("LICH_KILL");
+        base.OnDeath();
+        if (!m_DidDamagePlayer)
+        {
+            SteamworksManager.UnlockAchievement("LICH_HITLESS");
+            if (m_IsEnraged)
+            {
+                UnlockManager.SetUnlocked("Necromancer");
+            }
+        }
+    }
 }

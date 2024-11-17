@@ -11,7 +11,7 @@ public class CharacterMenu : MonoBehaviour
 {
     public static CharacterMenu m_Instance;
 
-    [SerializeField] Color m_HighlightColour;
+    public Color m_HighlightColour;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_InfoLabel;
@@ -21,10 +21,12 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] Button m_StartButtonRef;
     [SerializeField] Button m_SkillTreeButtonRef;
+    [SerializeField] Button m_CustomiseButtonRef;
+    [SerializeField] Button m_PlayButtonRef;
 
     [SerializeField] MainMenu m_MainMenuRef;
 
-    SkillTree[] m_SkillTreeRefs;
+    [SerializeField] SkillTree[] m_SkillTreeRefs;
 
     private GameObject m_CurrentCharacter;
     private SkillTree  m_CurrentCharacterSkillTree;
@@ -34,20 +36,28 @@ public class CharacterMenu : MonoBehaviour
 
     [SerializeField] CharacterIcon m_IceMageIcon;
     [SerializeField] CharacterIcon m_LightningMageIcon;
+    [SerializeField] CharacterIcon m_NecroIcon;
 
-    [SerializeField] SkillTree m_GlobalSkillTree;
+    public SkillTree m_GlobalSkillTree;
+
+    [SerializeField] MultiMageMenu m_MultiMageMenu;
 
     public void Awake()
     {
         m_Instance = this;
-
-        SetCurrentIcon(m_DefaultCharIcon);
-        CheckUnlocks();
     }
 
     private void Update()
     {
         UpdateInfo(m_CurrentCharIcon);
+    }
+
+    public void OpenMenu()
+    {
+        gameObject.SetActive(true);
+        GetComponent<Navigator>().Start();
+        SetCurrentIcon(m_DefaultCharIcon);
+        CheckUnlocks();
     }
 
     // Display info on info panel based on selected character
@@ -87,6 +97,14 @@ public class CharacterMenu : MonoBehaviour
             icon.GetComponent<Image>().color = Color.white;
         }
 
+        ToggleCustomiseButton(false);
+        TogglePlayButton(true);
+        ToggleSpellInfo(true);
+        IconColourPass(charIcon);
+    }
+
+    private void IconColourPass(CharacterIcon charIcon)
+    {
         CheckUnlocks();
 
         charIcon.GetComponent<Image>().color = m_HighlightColour;
@@ -114,16 +132,42 @@ public class CharacterMenu : MonoBehaviour
 
     public SkillTree[] GetSkillTreeRefs()
     {
-        m_SkillTreeRefs = new SkillTree[GetComponentsInChildren<CharacterIcon>().Length + 1];
-
-        m_SkillTreeRefs[0] = m_GlobalSkillTree;
-
-        for (int i = 0; i < GetComponentsInChildren<CharacterIcon>().Length; i++)
-        {
-            m_SkillTreeRefs[i+1] = GetComponentsInChildren<CharacterIcon>()[i].m_SkillTree;
-        }
 
         return m_SkillTreeRefs;
+    }
+
+    public void OnMultiMageSelected(CharacterIcon charIcon)
+    {
+        SetCurrentIcon(charIcon);
+
+        ToggleCustomiseButton(true);
+        TogglePlayButton(false);
+        ToggleSpellInfo(false);
+
+        m_StartButtonRef.interactable = m_MultiMageMenu.IsCustomisationValid();
+    }
+
+    private void ToggleCustomiseButton(bool on)
+    {
+        m_SkillTreeButtonRef.gameObject.SetActive(!on);
+        m_CustomiseButtonRef.gameObject.SetActive(on);
+    }
+    private void TogglePlayButton(bool on)
+    {
+        m_PlayButtonRef.gameObject.SetActive(on);
+    }
+
+    private void ToggleSpellInfo(bool on)
+    {
+        m_StartSpellNameLabel.gameObject.SetActive(on);
+        m_StartSpellDescLabel.gameObject.SetActive(on);
+    }
+
+    public void OnCustomisePressed()
+    {
+        gameObject.SetActive(false);
+
+        m_MultiMageMenu.OpenMenu();
     }
 
     // Pass character information into player manager and load main scene
@@ -143,14 +187,13 @@ public class CharacterMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
-        gameObject.SetActive(false);
-        m_MainMenuRef.gameObject.SetActive(true);
-        m_MainMenuRef.GetComponent<Navigator>().Start();
+        m_MainMenuRef.CloseMenu(gameObject);
     }
 
     void CheckUnlocks()
     {
         m_IceMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Ice Mage").unlocked);
         m_LightningMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Lightning Mage").unlocked);
+        m_NecroIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Necromancer").unlocked);
     }
 }

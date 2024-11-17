@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Enemy : Actor
 {
+    public Vector2 m_MoveDir;
+    public bool m_FollowPlayer;
+
     public float m_HealthModifier;
     public float m_SpawnProbability; // The ratio of how common this spawns compared to other enemies
     public float m_MinWave; // Minimum wave number that enemy can spawn on
@@ -49,6 +52,8 @@ public class Enemy : Actor
         base.Start();
         m_Animator?.SetBool("Moving", true);
         m_AnimatorMask?.SetBool("Moving", true);
+
+        m_FollowPlayer = true;
     }
 
     // Update is called once per frame
@@ -59,25 +64,21 @@ public class Enemy : Actor
             rb.velocity = Vector3.zero;
             return;
         }
+        FollowPlayerCheck();
         RespawnCheck();
-        FollowPlayer();
     }
 
-    protected void FollowPlayer()
+    protected void FollowPlayerCheck()
     {
-        Vector3 currentPos = gameObject.transform.position;
-        if (Player.m_Instance != null)
+        if (m_isKnockedBack) return;
+        
+        if (m_FollowPlayer)
         {
-            Vector3 playerPos = Player.m_Instance.transform.position;
-            Vector3 moveDir = (playerPos - currentPos).normalized;
-            Vector3 targetVelocity = moveDir * m_kBaseMoveSpeed * m_Speed;
-            Vector3 currentVelocity = rb.velocity;
-
-            currentVelocity += (targetVelocity - currentVelocity) * Time.deltaTime * 5.0f;
-
-            rb.velocity = currentVelocity;
-
-            SetAnimState(targetVelocity);
+            rb.velocity = m_kBaseMoveSpeed * m_Speed * m_MoveDir;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
         }
     }
 
@@ -88,7 +89,7 @@ public class Enemy : Actor
         if (Vector2.Distance(Player.m_Instance.transform.position, transform.position) < EnemyManager.m_Instance.m_SpawnRadius) return;
 
         EnemyManager.m_Instance.OnRespawn();
-        Destroy(gameObject);
+        DestroyEnemy();
     }
     protected virtual void OnTriggerStay2D(Collider2D collision)
     {
@@ -112,9 +113,9 @@ public class Enemy : Actor
         playerBody.AddForce(GetComponent<Rigidbody2D>().velocity.normalized * m_kKnockback * m_KnockbackModifier);
     }
 
-    void SetAnimState(Vector3 targetVelocity)
+    public void SetAnimState(Vector3 dir)
     {
-        FaceForward(targetVelocity);
+        FaceForward(dir);
     }
 
     virtual protected void FaceForward(Vector3 targetVelocity)
@@ -136,7 +137,7 @@ public class Enemy : Actor
 
     protected override void OnDeath()
     {
-        base.OnDeath();
+        DestroyEnemy();
 
         if (m_IsChampion) ChampionDeath();
         else              NormalDeath();
@@ -144,6 +145,12 @@ public class Enemy : Actor
         ProgressionManager.m_Instance.SpawnXP(transform.position, m_XPAwarded);
         ProgressionManager.m_Instance.IncrementEnemyKills();
         EnemyManager.m_Instance.IncrementEnemiesKilled();
+    }
+
+    public void DestroyEnemy()
+    {
+        EnemyManager.m_Enemies.Remove(this);
+        Destroy(gameObject);
     }
 
     virtual protected void NormalDeath()
@@ -179,6 +186,11 @@ public class Enemy : Actor
         m_MaxHealth *= kChampHealthMod;
         m_XPAwarded *= kChampXPMod;
         GetComponentInChildren<SpriteRenderer>().color = kChampColour;
+        AddHealthBar();
+    }
+
+    public void AddHealthBar()
+    {
         GameObject hpBar = Instantiate(m_HealthbarPrefab);
         hpBar.transform.SetParent(transform, false);
         hpBar.GetComponentInChildren<BasicBar>().m_Actor = this;

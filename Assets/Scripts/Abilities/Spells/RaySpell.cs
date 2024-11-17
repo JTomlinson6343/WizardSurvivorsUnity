@@ -41,7 +41,11 @@ public class RaySpell : Spell
         while (elapsed < m_LineDuration)
         {
             line.SetPosition(0, Player.m_Instance.GetStaffTransform().position);
-            if (!m_TargetedEnemy) Destroy(ray);
+            if (!m_TargetedEnemy)
+            {
+                Destroy(ray);
+                yield break;
+            }
             line.SetPosition(1, m_TargetedEnemy.GetComponent<Enemy>().m_DebuffPlacement.transform.position);
 
             elapsed += Time.deltaTime;

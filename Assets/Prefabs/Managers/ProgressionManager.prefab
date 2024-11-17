@@ -342,8 +342,10 @@ MonoBehaviour:
   m_GameOverInfoLabel: {fileID: 4948284584994689657}
   m_WaveCounter: 0
   m_XPOrbPrefab: {fileID: 2768687642517184637, guid: 86a958f61d404a0419ba473565116eed, type: 3}
+  m_HealthPickupPrefab: {fileID: 2768687642517184637, guid: 8d89ec506e4637646877fb0a05d230bd, type: 3}
   m_SkillPointOrbPrefab: {fileID: 2768687642517184637, guid: 691ce5b8f6a5d2948917d85ce8b902a2, type: 3}
   m_GoldSkillPointOrbPrefab: {fileID: 7926104272378492982, guid: f52b6a74bdc95144c9f9870d151e3c41, type: 3}
+  m_GoldGemChance: 0
   m_XPSpawnRadius: 5
   m_SpawnCooldown:
     curve:
@@ -1886,10 +1888,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 42
       objectReference: {fileID: 0}
-    - target: {fileID: 1267176653283227383, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
     - target: {fileID: 1698396629431967484, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 225
@@ -1899,8 +1897,8 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1698396629431967484, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -47.7
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2063942846974975643, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_Pivot.x
@@ -1936,7 +1934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063942846974975643, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2063942846974975643, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1972,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063942846974975643, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2063942846974975643, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2063,12 +2061,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4363569348788555127, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 485.79395
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363569348788555127, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 5647858408854988342, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3360989057598416083}
+    - target: {fileID: 5647858408854988342, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 5647858408854988342, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProgressionManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5741384470894786120, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_text
@@ -2143,8 +2149,8 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7779814999026200305, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -111.6
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8625701042973494192, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
       propertyPath: m_IsOn
@@ -2200,6 +2206,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2063942846974975643, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
   m_PrefabInstance: {fileID: 2235349772218235076}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &926806167905885653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1430213435978327313, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+  m_PrefabInstance: {fileID: 2235349772218235076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1009957403152652139 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1225427899052584879, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
@@ -2265,6 +2282,7 @@ MonoBehaviour:
   - {fileID: 8907772033913044805}
   - {fileID: 7471615643816466014}
   - {fileID: 7543858832266998644}
+  - {fileID: 5865014421705744114}
   - {fileID: 1009957403152652139}
   m_BackButton: {fileID: 0}
   m_RememberSelectedButtonPos: 0
@@ -2277,6 +2295,7 @@ MonoBehaviour:
   - {fileID: 3763724168398989964}
   - {fileID: 1167293398637059429}
   - {fileID: 9070315809701317348}
+  - {fileID: 926806167905885653}
   - {fileID: 5812159234450771596}
   m_ControllerButtons:
   - {fileID: 2071320266234087485}
@@ -2300,6 +2319,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5865014421705744114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5647858408854988342, guid: 78d7193b8184cc04a9d24d6f8836c40e, type: 3}
+  m_PrefabInstance: {fileID: 2235349772218235076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7471615643816466014 stripped

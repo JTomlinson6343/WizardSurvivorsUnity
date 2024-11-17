@@ -6,17 +6,13 @@ public class Item : Ability
     [SerializeField] AbilityStats m_AbilityStatBuffs;
     [SerializeField] PlayerStats m_PlayerStatBuffs;
 
-    [SerializeField] float m_HealModifier = 3f;
     public override void LevelUp()
     {
         AbilityManager.m_Instance.AddAbilityStatBuffs(m_AbilityStatBuffs);
         Player.m_Instance.AddBonusStats(m_PlayerStatBuffs);
 
-        if (m_PlayerStatBuffs.maxHealth > 0)
-        {
-            Player.m_Instance.IncreaseMaxHealth(m_PlayerStatBuffs.maxHealth);
-            Player.m_Instance.Heal(m_PlayerStatBuffs.maxHealth * m_HealModifier);
-        }
+        Player.m_Instance.Heal(m_PlayerStatBuffs.maxHealth);
+        
         base.LevelUp();
     }
 

@@ -16,13 +16,14 @@ public class Navigator2D : Navigator
     protected Vector2 m_SelectedButtonPosV2;
     [SerializeField] Button m_UnlockButton;
     [SerializeField] Button m_RespecButton;
-    [SerializeField] Vector2Int m_DefaultSelectableIndex = new Vector2Int(0,0);
+    [SerializeField] protected Vector2Int m_DefaultSelectableIndex = new Vector2Int(0,0);
+    [SerializeField] protected bool m_InvokeOnSelect = true;
 
     public override void Start()
     {
         m_SelectedButtonPosV2 = m_DefaultSelectableIndex;
         Utils.SetSelectedAnimTarget(GetSelectableFromXY(m_SelectedButtonPosV2).transform);
-        GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>().onClick.Invoke();
+        if(m_InvokeOnSelect) GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>().onClick.Invoke();
     }
 
     protected override void HandleInput()
@@ -35,7 +36,7 @@ public class Navigator2D : Navigator
         {
             if (unlockText) unlockText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
             if (respecText) respecText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
-            backText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
+            if (backText)   backText.GetComponent<RectTransform>().anchoredPosition = new Vector2(18, 0);
 
             foreach (Image button in m_ControllerButtons)
             {
@@ -44,9 +45,9 @@ public class Navigator2D : Navigator
         }
         else
         {
-            unlockText.transform.position = Vector2.zero;
-            respecText.transform.position = Vector2.zero;
-            backText.transform.position = Vector2.zero;
+            if (unlockText) unlockText.transform.position = Vector2.zero;
+            if (respecText) respecText.transform.position = Vector2.zero;
+            if (backText)   backText.transform.position = Vector2.zero;
 
             foreach (Image button in m_ControllerButtons)
             {
@@ -122,6 +123,7 @@ public class Navigator2D : Navigator
         {
             m_SelectedButtonPosV2.x = m_2DSelectables[(int)m_SelectedButtonPosV2.y].row.Length - 1;
         }
+        if (!m_InvokeOnSelect) return;
 
         Button button = GetSelectableFromXY(m_SelectedButtonPosV2).GetComponent<Button>();
 
@@ -135,6 +137,15 @@ public class Navigator2D : Navigator
 
     protected Selectable GetSelectableFromXY(Vector2 xy)
     {
-        return m_2DSelectables[(int)xy.y].row[(int)xy.x];
+        try
+        {
+            Selectable selectable = m_2DSelectables[(int)xy.y].row[(int)xy.x];
+            return selectable;
+        }
+        catch
+        {
+            Debug.Log("Couldnt get selectable " +  xy.x.ToString() + ", " + xy.y.ToString());
+            return null;
+        }
     }
 }

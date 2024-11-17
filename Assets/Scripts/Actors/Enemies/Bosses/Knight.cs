@@ -285,10 +285,16 @@ public class Knight : Boss
 
     protected override void OnDeath()
     {
+        SteamworksManager.UnlockAchievement("KNIGHT_KILL");
+        if (!m_DidDamagePlayer)
+        {
+            SteamworksManager.UnlockAchievement("KNIGHT_HITLESS");
+        }
         SetState(State.Dead);
         StartCoroutine(Utils.DelayedCall(2f, () =>
         {
             base.OnDeath();
+
         }));
     }
 }

@@ -11,7 +11,6 @@ public class SummonedSkeleton : Skeleton
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             return;
         }
-
-        FollowPlayer();
+        FollowPlayerCheck();
     }
 }

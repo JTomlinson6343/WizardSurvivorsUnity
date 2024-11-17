@@ -37,7 +37,10 @@ public class FloatingDamage : MonoBehaviour
 
     private string DamageToText()
     {
-        return Mathf.RoundToInt(m_Damage).ToString();
+        int damage = Mathf.RoundToInt(m_Damage);
+        if (damage <= 0) Destroy(gameObject);
+
+        return damage.ToString();
     }
 
     private void DestroySelf()

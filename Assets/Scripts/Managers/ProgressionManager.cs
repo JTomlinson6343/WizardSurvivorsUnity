@@ -38,9 +38,11 @@ public class ProgressionManager : MonoBehaviour
     [HideInInspector] public int m_WaveCounter = 0;
 
     private readonly float kBossGracePeriodTime = 6f;
+    private readonly float kHealthPickupChance = 0.001f;
 
     //Pickup
     [SerializeField] GameObject m_XPOrbPrefab;
+    [SerializeField] GameObject m_HealthPickupPrefab;
     [SerializeField] GameObject m_SkillPointOrbPrefab;
     [SerializeField] GameObject m_GoldSkillPointOrbPrefab;
 
@@ -85,6 +87,14 @@ public class ProgressionManager : MonoBehaviour
                 StateManager.ChangeState(StateManager.State.PAUSED);
             }
         }
+
+        if (Debug.isDebugBuild)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+                PreBoss();
+            if (Input.GetKeyDown(KeyCode.K))
+                Steamworks.SteamUserStats.AddStat("kills", 5000);
+        }
         m_LastGamepadPluggedInState = Gamepad.current != null;
 
         SpawnXPRandomly();
@@ -94,22 +104,19 @@ public class ProgressionManager : MonoBehaviour
 
     public void PauseMenuInput()
     {
-        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING || StateManager.GetCurrentState() == StateManager.State.GAME_OVER || StateManager.GetCurrentState() == StateManager.State.TUTORIAL) return;
+        if (StateManager.GetCurrentState() == StateManager.State.UPGRADING || StateManager.GetCurrentState() == StateManager.State.GAME_OVER || StateManager.GetCurrentState() == StateManager.State.TUTORIAL || StateManager.GetCurrentState() == StateManager.State.REVIVING) return;
 
         if (Input.GetButtonDown("Pause"))
         {
             Pause();
-
-            // Show pause menu if in paused state
-            m_PauseMenu.SetActive(StateManager.GetCurrentState() == StateManager.State.PAUSED);
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         if (StateManager.GetCurrentState() == StateManager.State.PAUSED)
         {
-            SaveManager.SaveToFile();
+            SaveManager.SaveToFile(false);
             StateManager.UnPause();
         }
         else
@@ -117,6 +124,8 @@ public class ProgressionManager : MonoBehaviour
             m_PauseMenu.GetComponent<PauseMenu>().InitPauseMenu();
             StateManager.ChangeState(StateManager.State.PAUSED);
         }
+        // Show pause menu if in paused state
+        m_PauseMenu.GetComponent<PauseMenu>().ToggleMenu(StateManager.GetCurrentState() == StateManager.State.PAUSED);
     }
 
     public void ToggleHUD(bool toggle)
@@ -174,7 +183,14 @@ public class ProgressionManager : MonoBehaviour
 
     public void SpawnXP(Vector2 pos, int amount)
     {
-        SpawnPickup(m_XPOrbPrefab, pos, amount);
+        if (Random.Range(0f,1f) < kHealthPickupChance)
+        {
+            SpawnPickup(m_HealthPickupPrefab, pos, 1);
+        }
+        else
+        {
+            SpawnPickup(m_XPOrbPrefab, pos, amount);
+        }
     }
     public void SpawnSkillPoint(Vector2 pos, int amount)
     {
@@ -210,7 +226,7 @@ public class ProgressionManager : MonoBehaviour
         if (now < m_NextXPSpawn) return;
 
         SpawnPickup(m_XPOrbPrefab, Player.m_Instance.transform.position + Utils.GetRandomDirectionV3() * m_XPSpawnRadius);
-
+        
         m_NextXPSpawn = now + m_SpawnCooldown.Evaluate(m_WaveCounter);
     }
     #endregion
@@ -301,6 +317,8 @@ public class ProgressionManager : MonoBehaviour
         }
 
         m_GameOverScreen.SetActive(true);
+
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.StoreStats();
 
         Time.timeScale = 0;
     }

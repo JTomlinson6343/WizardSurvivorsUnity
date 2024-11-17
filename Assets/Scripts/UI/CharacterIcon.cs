@@ -29,6 +29,7 @@ public class CharacterIcon : MonoBehaviour
         }
         else
         {
+            UnlockManager.GetAchievementWithName(m_CharName)?.Unlock();
             GetComponent<Image>().color = Color.white;
         }
     }

@@ -25,6 +25,8 @@ public class AOEObject : Projectile
 
         ProjectileManager.m_Instance.EndTargetCooldown(enemy, m_HitboxDelay, m_HitTargets);
 
+        enemy.GetComponent<Actor>().KnockbackRoutine(Utils.GetDirectionToGameObject(transform.position, enemy), m_AbilitySource.GetTotalStats().knockback);
+
         DamageTarget(enemy);
     }
 

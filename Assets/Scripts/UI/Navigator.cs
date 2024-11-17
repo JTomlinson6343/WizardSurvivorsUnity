@@ -20,7 +20,7 @@ public class Navigator : MonoBehaviour
     [SerializeField] Selectable[] m_Selectables;
     [SerializeField] protected Button m_BackButton;
 
-    [SerializeField] bool m_RememberSelectedButtonPos = true;
+    [SerializeField] protected bool m_RememberSelectedButtonPos = true;
     [SerializeField] NavDirection m_Direction = NavDirection.Horizontal;
     [SerializeField] NavDirection m_ScrollbarDirection = NavDirection.Horizontal;
     [SerializeField] protected Type m_Type = Type.Character;
@@ -48,6 +48,8 @@ public class Navigator : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (StateManager.GetCurrentState() == StateManager.State.TUTORIAL) return;
+
         if (Gamepad.current != null)
         {
             HandleInput();

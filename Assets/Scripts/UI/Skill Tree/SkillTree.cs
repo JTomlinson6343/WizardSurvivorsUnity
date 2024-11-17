@@ -12,10 +12,13 @@ public class SkillTree : MonoBehaviour
     private SkillIcon m_CurrentSkill;
 
     public Color m_CharacterColour;
+    public string m_CharacterName;
 
     public int m_TotalSkillPoints;
-    public static readonly int kSkillPointCap = 300;
+    public static readonly int kSkillPointCap = 999;
     public int m_CurrentSkillPoints;
+    public int m_SpentPoints = 0;
+    public static readonly int kMultiMageSpentPointsCap = 300;
 
     [SerializeField] TextMeshProUGUI m_NameLabel;
     [SerializeField] TextMeshProUGUI m_CostLabel;
@@ -24,17 +27,26 @@ public class SkillTree : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_CantUnlockLabel;
     [SerializeField] TextMeshProUGUI m_SkillLevelLabel;
     [SerializeField] TextMeshProUGUI m_SkillPointsLabel;
+    [SerializeField] TextMeshProUGUI m_SpentPointsLabel;
+    [SerializeField] GameObject m_SkillTreePanel;
 
     [SerializeField] Button          m_UnlockButton;
     [SerializeField] Button          m_RespecButton;
     [SerializeField] Button          m_BackButton;
 
     [SerializeField] string m_NotEnoughSkillPointsMsg;
+    [SerializeField] string m_SkillPointsLimitReached;
     [SerializeField] string m_SkillMaxedMsg;
     [SerializeField] string m_PrereqMsg;
 
-    private void Start()
+    [SerializeField] bool m_FromMultiMage = false;
+
+    virtual public void Start()
     {
+        if (m_FromMultiMage)
+        {
+            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap - m_SpentPoints);
+        }
         UpdateSkillPointsLabel();
         ColorCheckPass();
         ColourAllIcons();
@@ -50,7 +62,7 @@ public class SkillTree : MonoBehaviour
         }
     }
 
-    public SkillIcon GetSkillIconWithID(SkillID id)
+    virtual public SkillIcon GetSkillIconWithID(SkillID id)
     {
         foreach (SkillIcon icon in GetComponentsInChildren<SkillIcon>())
         {
@@ -62,9 +74,19 @@ public class SkillTree : MonoBehaviour
 
     private void UpdateSkillPointsLabel()
     {
-        string colour1 = m_CurrentSkillPoints == kSkillPointCap ? "<color=orange>" : "";
-        string colour2 = m_CurrentSkillPoints == kSkillPointCap ? "</color>" : "";
-        m_SkillPointsLabel.text = "Current: " + colour1 + m_CurrentSkillPoints.ToString() + colour2;
+        string pointsText;
+        if (m_CurrentSkillPoints >= kMultiMageSpentPointsCap && m_FromMultiMage)
+        {
+            pointsText = "<color=orange>" + m_CurrentSkillPoints.ToString() + "</color>";
+        }
+        else
+        {
+            pointsText = m_CurrentSkillPoints.ToString();
+        }
+
+        m_SkillPointsLabel.text = "Current: " + pointsText;
+
+        m_SpentPointsLabel.text = "Spent: " + m_SpentPoints.ToString();
     }
 
     private int GetCurrentLevelCost()
@@ -164,15 +186,23 @@ public class SkillTree : MonoBehaviour
     public void OnUnlockPressed()
     {
         m_CurrentSkill.Unlock();
-        m_CurrentSkillPoints -= GetCurrentLevelCost();
+        int cost = GetCurrentLevelCost();
+
+        if (m_FromMultiMage)
+        {
+            MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints -= cost;
+        }
+        m_CurrentSkillPoints -= cost;
+        m_SpentPoints += cost;
+
         UpdateSkillPointsLabel();
         m_CurrentSkill.LevelUp();
         m_CurrentSkill.SetLevelIndicator();
 
         // Ability unlock animation goes here
-
         SetHighlightedSkill(m_CurrentSkill);
         ColorCheckPass();
+        TryUnlockAchievement();
     }
 
     public void OnRespecPressed()
@@ -186,8 +216,18 @@ public class SkillTree : MonoBehaviour
             skill.m_Data.level = 0;
         }
 
+        m_SpentPoints = 0;
+
         // Refund all spent skill points.
-        m_CurrentSkillPoints = m_TotalSkillPoints;
+        if (m_FromMultiMage)
+        {
+            MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints += m_SpentPoints;
+            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap - m_SpentPoints);
+        }
+        else
+        {
+            m_CurrentSkillPoints = m_TotalSkillPoints;
+        }
 
         // Reset the skill tree visuals
         UpdateSkillPointsLabel();
@@ -207,18 +247,42 @@ public class SkillTree : MonoBehaviour
         }
     }
 
+    bool AllSkillsMaxedCheck()
+    {
+        bool areMaxed = true;
+        foreach (SkillIcon skill in m_SkillTreePanel.GetComponentsInChildren<SkillIcon>())
+        {
+            if (!skill.IsMaxed()) areMaxed = false;
+        }
+        return areMaxed;
+    }
+
+    virtual public void TryUnlockAchievement()
+    {
+        if (AllSkillsMaxedCheck() && m_CharacterName != null && m_CharacterName != "")
+            UnlockManager.GetAchievementWithName("Maxed_" + m_CharacterName).Unlock();
+    }
+
     // Return to character menu
     public void OnBackPressed()
     {
         OnCloseSkillTreeMenu();
         gameObject.SetActive(false);
-        CharacterMenu.m_Instance.gameObject.SetActive(true);
-        CharacterMenu.m_Instance.gameObject.GetComponent<Navigator>().Start();
-
+        if (m_FromMultiMage)
+        {
+            MultiMageMenu.m_Instance.gameObject.SetActive(true);
+            MultiMageMenu.m_Instance.gameObject.GetComponent<CharacterMenuNavigator>().Start();
+            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap - m_SpentPoints);
+        }
+        else
+        {
+            CharacterMenu.m_Instance.gameObject.SetActive(true);
+            CharacterMenu.m_Instance.gameObject.GetComponent<CharacterMenuNavigator>().Start();
+        }
     }
 
     // Enable certain skills in skill manager in the main game depending on which skills are enabled on the menu
-    public void PassEnabledSkillsToManager(bool dontClear)
+    virtual public void PassEnabledSkillsToManager(bool dontClear)
     {
         SkillIcon[] skills = GetComponentsInChildren<SkillIcon>();
 
@@ -236,6 +300,6 @@ public class SkillTree : MonoBehaviour
 
     void OnCloseSkillTreeMenu()
     {
-        SaveManager.SaveToFile();
+        SaveManager.SaveToFile(false);
     }
 }

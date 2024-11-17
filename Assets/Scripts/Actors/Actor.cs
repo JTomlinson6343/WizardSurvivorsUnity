@@ -17,6 +17,8 @@ public class Actor : MonoBehaviour
     public float m_Health = 100.0f;
 
     public float m_KnockbackResist;
+    public bool m_isKnockedBack;
+    private readonly float kKnockbackConstant = 2f;
 
     public float m_DamageResistance;
 
@@ -31,7 +33,7 @@ public class Actor : MonoBehaviour
     public bool m_Targetable = true;
 
     protected bool m_IsMidAnimation;
-    bool m_IsDead;
+    public bool m_IsDead;
     public bool m_Stunned;
 
     public virtual void Start()
@@ -60,6 +62,7 @@ public class Actor : MonoBehaviour
     virtual public DamageOutput OnDamage(float amount)
     {
         if (m_IsDead) return DamageOutput.invalidHit;
+
         StartFlashing();
 
         m_Health -= amount;
@@ -98,8 +101,19 @@ public class Actor : MonoBehaviour
     // Called whenever this actor is knocked back
     virtual public void KnockbackRoutine(Vector2 dir, float knockbackMagnitude)
     {
-        knockbackMagnitude = Mathf.Clamp01(1f - m_KnockbackResist) * knockbackMagnitude;
-        GetComponent<Rigidbody2D>().velocity += dir.normalized * knockbackMagnitude;
+        knockbackMagnitude = Mathf.Clamp01(1f - m_KnockbackResist) * knockbackMagnitude * kKnockbackConstant;
+        GetComponent<Rigidbody2D>().velocity = dir.normalized * knockbackMagnitude;
+        m_isKnockedBack = true;
+
+        LeanTween.cancel(gameObject);
+        LeanTween.value(gameObject, (Vector3 vec) =>
+        {
+            GetComponent<Rigidbody2D>().velocity = vec;
+        },
+        dir.normalized * knockbackMagnitude, Vector3.zero, knockbackMagnitude/20f).setOnComplete(() =>
+        {
+            m_isKnockedBack = false;
+        }).setEase(LeanTweenType.easeOutBack);
     }
 
     virtual protected void StartFlashing()

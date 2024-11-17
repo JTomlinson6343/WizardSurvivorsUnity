@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class AbilityManager : MonoBehaviour
 
     public static AbilityManager m_Instance;
 
+    [SerializeField] Color m_HighlightColour;
     [SerializeField] List<Ability> m_PassiveAbilities;
     [SerializeField] List<Ability> m_BuffAbilities;
 
@@ -39,7 +41,6 @@ public class AbilityManager : MonoBehaviour
     bool m_AbilityChoicesShown;
     bool m_RerollActive;
 
-    public bool m_LightningDoubleCastOn;
     public static float m_RerollChance = 0f;
 
     private void Awake()
@@ -77,6 +78,8 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+    public Ability GetAbilityWithName(string name) { return GetComponentsInChildren<Ability>().First(x => x.m_Data.name == name); }
+
     private void CheckUnlocks(List<Ability> abilities)
     {
         foreach (Ability ability in abilities)
@@ -84,8 +87,7 @@ public class AbilityManager : MonoBehaviour
             Unlockable unlock = UnlockManager.GetUnlockableWithName(ability.m_Data.name);
 
             if (unlock == null) continue;
-
-            ability.m_Unlocked = unlock.unlocked;
+            if (!ability.m_Unlocked) ability.m_Unlocked = unlock.unlocked;
         }
     }
 
@@ -93,6 +95,10 @@ public class AbilityManager : MonoBehaviour
     public void ChoosePassiveAbility()
     {
         m_OfferedAbilities = m_PassiveAbilities.FindAll(a => a.m_Unlocked);
+        if (m_OfferedAbilities.Count == 0) {
+            ChooseBuffAbility();
+            return;
+        };
         ShowAbilityOptions();
         m_InstructionsLabel.text = m_SpellInstructions;
     }
@@ -100,23 +106,26 @@ public class AbilityManager : MonoBehaviour
     public void ChooseBuffAbility()
     {
         m_OfferedAbilities = m_BuffAbilities.FindAll(a => a.m_Unlocked);
+        if (m_OfferedAbilities.Count == 0) return;
         ShowAbilityOptions();
         m_InstructionsLabel.text = m_ItemInstructions;
     }
 
     private void ShowAbilityOptions()
     {
+        StateManager.ChangeState(StateManager.State.UPGRADING);
+    }
+
+    public void OnUpgradingState()
+    {
         RollAbilitiesOffered();
         AudioManager.m_Instance.PlaySound(30, 0.4f);
         PopInAnim();
         ProgressionManager.m_Instance.ToggleHUD(false);
-        StateManager.ChangeState(StateManager.State.UPGRADING);
     }
 
     void RollAbilitiesOffered()
     {
-        if (m_OfferedAbilities.Count == 0) return;
-
         m_HighlightedIcon = null;
 
         // Reset info panel
@@ -268,7 +277,7 @@ public class AbilityManager : MonoBehaviour
             AbilityWasSelected(m_Icons[3]);
         }
         if (Input.GetButtonDown("Submit")) {
-            if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null)
+            if (m_HighlightedIcon.image.enabled && m_HighlightedIcon.displayedAbility != null && m_AbilityChoicesShown)
             {
                 // Check if icon is displayed and then enable the ability displayed
                 UnlockAbility();
@@ -291,7 +300,7 @@ public class AbilityManager : MonoBehaviour
         m_HighlightedIcon = icon;
         m_ConfirmButton.GetComponent<Button>().interactable = true;
         DeHighlightAbilityIcons();
-        icon.GetComponent<Image>().color = Color.yellow;
+        icon.GetComponent<Image>().color = m_HighlightColour;
         m_NameLabel.text = icon.displayedAbility.m_Data.name;
         if (icon.displayedAbility.m_IsSpell) m_DescriptionLabel.text = icon.displayedAbility.m_Data.description;
         else
@@ -348,7 +357,7 @@ public class AbilityManager : MonoBehaviour
             ability.UpdateTotalStats();
         }
 
-        if (m_LightningDoubleCastOn) UpdateDoubleCastedSpell();
+        if (Skill.lightningDoubleCastOn) UpdateDoubleCastedSpell();
 
         UnlockManager.GetTrackedStatWithName("totalCooldown").stat = GetAbilityStatBuffs().cooldown;
         UnlockManager.CheckUnlockConditions();
@@ -364,6 +373,14 @@ public class AbilityManager : MonoBehaviour
         m_AbilityStatsBuffs += stats;
         if (m_AbilityStatsBuffs.cooldown < kCooldownCap) m_AbilityStatsBuffs.cooldown = kCooldownCap;
         m_AbilityStatsBuffs.pierceAmount += stats.pierceAmount;
+        UpdateAllAbilityStats();
+    }
+
+    public void RemoveAbilityStatBuffs(AbilityStats stats)
+    {
+        m_AbilityStatsBuffs -= stats;
+        if (m_AbilityStatsBuffs.cooldown < kCooldownCap) m_AbilityStatsBuffs.cooldown = kCooldownCap;
+        m_AbilityStatsBuffs.pierceAmount -= stats.pierceAmount;
         UpdateAllAbilityStats();
     }
 

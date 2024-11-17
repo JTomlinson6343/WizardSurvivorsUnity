@@ -34,7 +34,7 @@ public class IceElemental : Summon
 
             ProjectileManager.m_Instance.Shoot(
                 m_Staff.transform.position,
-                Utils.GetDirectionToGameObject(transform.position, target),
+                Utils.GetDirectionToGameObject(m_Staff.transform.position, target),
                 m_AbilitySource.GetTotalStats().speed,
                 m_AbilitySource,
                 m_ProjectileLifetime,

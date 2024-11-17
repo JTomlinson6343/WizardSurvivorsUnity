@@ -241,6 +241,14 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.057513747
       objectReference: {fileID: 0}
+    - target: {fileID: 8663774117399515222, guid: 62ebe611e871de54c81899026eb0d82a, type: 3}
+      propertyPath: m_SortingLayer
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663774117399515222, guid: 62ebe611e871de54c81899026eb0d82a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2020019679
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
