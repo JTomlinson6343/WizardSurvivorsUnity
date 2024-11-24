@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530607284402098040}
-  - component: {fileID: 3756599865588111469}
+  - component: {fileID: 539470018053914516}
   m_Layer: 0
   m_Name: FireballAttackSpeed
   m_TagString: Untagged
@@ -137,7 +137,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3756599865588111469
+--- !u!114 &539470018053914516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 791004598650594280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fe67b5d1394349ac6206a93df6f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
@@ -165,7 +165,6 @@ MonoBehaviour:
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
-  m_Ability: {fileID: 0}
 --- !u!1 &796085899487776985
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120784277570585620}
-  - component: {fileID: 6784876905424443291}
+  - component: {fileID: 641311855741167336}
   m_Layer: 0
   m_Name: LightningConeUpgrade
   m_TagString: Untagged
@@ -346,7 +345,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6784876905424443291
+--- !u!114 &641311855741167336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,7 +354,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1219942037892573271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fe67b5d1394349ac6206a93df6f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
@@ -374,7 +373,6 @@ MonoBehaviour:
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
-  m_Ability: {fileID: 0}
 --- !u!1 &1234040543147233054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5112462595371928511}
-  - component: {fileID: 2810872557042998658}
+  - component: {fileID: 7287850603441605165}
   m_Layer: 0
   m_Name: FireballDamage
   m_TagString: Untagged
@@ -1337,7 +1335,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2810872557042998658
+--- !u!114 &7287850603441605165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1346,13 +1344,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4963950462257010715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fe67b5d1394349ac6206a93df6f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
     id: 8
     level: 0
-    maxLevel: 1
+    maxLevel: 0
   m_StatBuffs:
     AOE: 0
     duration: 0
@@ -1365,7 +1363,6 @@ MonoBehaviour:
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
-  m_Ability: {fileID: 0}
 --- !u!1 &5110542835106140633
 GameObject:
   m_ObjectHideFlags: 0
