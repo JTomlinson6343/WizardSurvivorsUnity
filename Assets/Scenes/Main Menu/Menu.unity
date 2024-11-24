@@ -52912,11 +52912,13 @@ MonoBehaviour:
   m_CantUnlockLabel: {fileID: 0}
   m_SkillLevelLabel: {fileID: 0}
   m_SkillPointsLabel: {fileID: 0}
+  m_SpentPointsLabel: {fileID: 0}
   m_SkillTreePanel: {fileID: 0}
   m_UnlockButton: {fileID: 0}
   m_RespecButton: {fileID: 0}
   m_BackButton: {fileID: 0}
   m_NotEnoughSkillPointsMsg: 
+  m_SkillPointsLimitReached: 
   m_SkillMaxedMsg: 
   m_PrereqMsg: 
   m_FromMultiMage: 0

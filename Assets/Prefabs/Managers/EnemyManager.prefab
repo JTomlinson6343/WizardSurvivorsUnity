@@ -56,6 +56,7 @@ MonoBehaviour:
   - {fileID: 6031074132664800199, guid: 8b6a8d303b6f59d4dadb0f5b24207af1, type: 3}
   - {fileID: 6031074132664800199, guid: b461d3c271dc1fc4c8198d7e521b2617, type: 3}
   - {fileID: 4782787995318582076, guid: d2dbeee120f1cbf428dc940840896b25, type: 3}
+  - {fileID: 4782787995318582076, guid: 7bfdf0fccb139fb438a8e8374d18dd30, type: 3}
   m_BossPrefabs:
   - {fileID: 4782787995318582076, guid: 5c46fe11d484eaa499c810f793fe9330, type: 3}
   - {fileID: 4782787995318582076, guid: ca6d371efbf397840883c5b212c080ba, type: 3}
