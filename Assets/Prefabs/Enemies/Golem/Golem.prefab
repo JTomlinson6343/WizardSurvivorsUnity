@@ -374,15 +374,15 @@ MonoBehaviour:
   m_MoveDir: {x: 0, y: 0}
   m_FollowPlayer: 0
   m_HealthModifier: 8
-  m_SpawnProbability: 1000
-  m_MinWave: 0
-  m_XPAwarded: 1
+  m_SpawnProbability: 0.5
+  m_MinWave: 5
+  m_XPAwarded: 2
   m_Speed: 0.25
   m_ContactDamage: 30
   m_KnockbackModifier: 1
   m_HealthbarPrefab: {fileID: 4744852511909570002, guid: 8428296ae52269e4999616608d4f9e7d, type: 3}
   m_DeathParticlesPrefab: {fileID: 2362491013042287582, guid: 0c5bf3cd92d6bd04f8e85bccca0356a8, type: 3}
-  m_UnamoredSpeedMult: 4
+  m_UnamoredSpeedMult: 6
   m_UnamoredDamageMult: 0.5
 --- !u!1 &5200942333771206442
 GameObject:

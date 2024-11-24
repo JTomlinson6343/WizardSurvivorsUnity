@@ -92,6 +92,8 @@ public class ProgressionManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
                 PreBoss();
+            if (Input.GetKeyDown(KeyCode.L))
+                EnemyManager.m_Instance.GracePeriod(0);
             if (Input.GetKeyDown(KeyCode.K))
                 Steamworks.SteamUserStats.AddStat("kills", 5000);
         }

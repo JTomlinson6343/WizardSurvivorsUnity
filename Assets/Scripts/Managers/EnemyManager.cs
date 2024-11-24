@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -37,6 +37,8 @@ public class EnemyManager : MonoBehaviour
     private int m_EnemiesKilledThisWave;
     private int m_SpawnLimit;
     private int m_EnemiesSpawnedThisWave;
+
+    private float m_SpawnCooldownMult = 1f;
 
     [SerializeField] Curve m_SpawnCurve;
     [SerializeField] Curve m_SpawnCooldownCurve;
@@ -183,6 +185,28 @@ public class EnemyManager : MonoBehaviour
     // Returns the stats of a new enemy based on current wave with random prefab
     public GameObject CreateNewEnemy()
     {
+        // Check wave if it is going to be a special wave
+        switch (ProgressionManager.m_Instance.m_WaveCounter)
+        {
+            case 2:
+                m_SpawnCooldownMult = 0.25f;
+                return CreateNewEnemy(m_EnemyPrefabs.First(x => x.name == "BasicSkeleton"));
+            case 7:
+                m_SpawnCooldownMult = 0.5f;
+                return CreateNewEnemy(m_EnemyPrefabs.First(x => x.name == "Goblin"));
+            case 10:
+                m_SpawnCooldownMult = 0.5f;
+                return CreateNewEnemy(m_EnemyPrefabs.First(x => x.name == "Slime"));
+            case 14:
+                m_SpawnCooldownMult = 0.25f;
+                return CreateNewEnemy(m_EnemyPrefabs.First(x => x.name == "BigSkeleton"));
+            case 18:
+                m_SpawnCooldownMult = 0.5f;
+                return CreateNewEnemy(m_EnemyPrefabs.First(x => x.name == "Golem"));
+            case 22:
+                return CreateNewEnemy(m_EnemyPrefabs.First(x => x.name == "EyeMonster"));
+        }
+
         GameObject enemyToSpawn = null;
 
         // Generate a random number between 0 and the total probability
@@ -249,6 +273,7 @@ public class EnemyManager : MonoBehaviour
 
     private void StartNewWave()
     {
+        m_SpawnCooldownMult = 1f;
         m_SpawnLimit = Mathf.RoundToInt(m_SpawnCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter));
 
         ProgressionManager.m_Instance.m_WaveCounter++;
@@ -285,6 +310,6 @@ public class EnemyManager : MonoBehaviour
     private float GetSpawnCooldown()
     {
         Debug.Log(m_SpawnCooldownCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1));
-        return m_SpawnCooldownCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1);
+        return m_SpawnCooldownCurve.Evaluate(ProgressionManager.m_Instance.m_WaveCounter - 1) * m_SpawnCooldownMult;
     }
 }
