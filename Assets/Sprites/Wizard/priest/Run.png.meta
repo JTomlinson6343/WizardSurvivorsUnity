@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c840bb209f1b08459c8129b4b3ef2a1
+guid: 8051f5da4f586aa46aadeefc488d3715
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,9 +46,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35.5
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.33}
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,6 +69,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,186 +119,173 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Big UI Icons_0
+      name: Run_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d38c385493a98fa4bbf1d2abe5661933
-      internalID: 751749377
+      spriteID: 495cb0c645c81db4a87d0dbc4a02a894
+      internalID: 58646518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_1
+      name: Run_1
       rect:
         serializedVersion: 2
-        x: 71
+        x: 250
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2b47c13b2db304d9e50966b69ef1a8
-      internalID: -1550611491
+      spriteID: 03c2f3141d475e5489c808fbe20ff7a1
+      internalID: -322656993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_2
+      name: Run_2
       rect:
         serializedVersion: 2
-        x: 142
+        x: 500
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f483eef3fd720444b823c56f50a1a59c
-      internalID: 211959678
+      spriteID: 4151ca2dd19392b428cf67d8a0a8a1fa
+      internalID: -1087528175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_3
+      name: Run_3
       rect:
         serializedVersion: 2
-        x: 213
+        x: 750
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cc2a66e233a8c14f876a6204fc7cf0b
-      internalID: -146542664
+      spriteID: 2684146e8c6d2f442b9dd7ac025f6085
+      internalID: 236642552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_4
+      name: Run_4
       rect:
         serializedVersion: 2
-        x: 284
+        x: 1000
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b071446ccd49f0449a6ecde409f688ef
-      internalID: -516004458
+      spriteID: 3a3d1cf53e106da4ea516413a1c968b8
+      internalID: -1315627736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_5
+      name: Run_5
       rect:
         serializedVersion: 2
-        x: 355
+        x: 1250
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a273556206d48c4429c9342600526ac2
-      internalID: 29506600
+      spriteID: 1de2ab9862e42dc42b2a688c3d8e4532
+      internalID: -460997062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_6
+      name: Run_6
       rect:
         serializedVersion: 2
-        x: 426
+        x: 1500
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 701a2cea279e65a4abb7bdeceb4bfff4
-      internalID: -1183093027
+      spriteID: 962863c24229dc9408be9781cb2adb26
+      internalID: -1703879643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big UI Icons_7
+      name: Run_7
       rect:
         serializedVersion: 2
-        x: 497
+        x: 1750
         y: 0
-        width: 71
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 250
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b15be52576d2134888f74387e380a3d
-      internalID: -287311187
+      spriteID: 25110704d12c3514588c746577495ee6
+      internalID: -1389944319
       vertices: []
       indices: 
       edges: []
@@ -301,14 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Big UI Icons_0: 751749377
-      Big UI Icons_1: -1550611491
-      Big UI Icons_2: 211959678
-      Big UI Icons_3: -146542664
-      Big UI Icons_4: -516004458
-      Big UI Icons_5: 29506600
-      Big UI Icons_6: -1183093027
-      Big UI Icons_7: -287311187
+      Run_0: 58646518
+      Run_1: -322656993
+      Run_2: -1087528175
+      Run_3: 236642552
+      Run_4: -1315627736
+      Run_5: -460997062
+      Run_6: -1703879643
+      Run_7: -1389944319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

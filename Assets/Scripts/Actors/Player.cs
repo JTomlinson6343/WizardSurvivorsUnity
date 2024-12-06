@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [System.Serializable]
 public struct PlayerStats
@@ -78,9 +77,9 @@ public class Player : Actor
     private Rigidbody2D m_RigidBody;
     private readonly float m_Acceleration = 0.5f;
 
-    [SerializeField] private Animator m_Animator;
+    [SerializeField] protected Animator m_Animator;
+    [SerializeField] protected Animator m_AnimatorMask;
 
-    [SerializeField] private Animator m_AnimatorMask;
     [SerializeField] private SpriteRenderer spriteMask;
 
     public bool m_IsMultiMage;
@@ -225,7 +224,7 @@ public class Player : Actor
         }
     }
 
-    private void FaceDirection(Vector2 dir)
+    protected virtual void FaceDirection(Vector2 dir)
     {
         SpriteRenderer sprite = transform.GetComponentInChildren<SpriteRenderer>();
 
