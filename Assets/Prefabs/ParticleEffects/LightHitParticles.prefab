@@ -34,15 +34,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394703836798999257, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.b
-      value: 1
+      value: 0.6313726
       objectReference: {fileID: 0}
     - target: {fileID: 1394703836798999257, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.g
-      value: 0.9647059
+      value: 0.95686275
       objectReference: {fileID: 0}
     - target: {fileID: 1394703836798999257, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.r
-      value: 0.654902
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1394703836798999257, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key1.b
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5604627690144960847, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: m_Name
-      value: IceHitParticles
+      value: LightHitParticles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

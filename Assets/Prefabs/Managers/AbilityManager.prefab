@@ -49,6 +49,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -140,6 +141,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 3
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 1
@@ -217,6 +219,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -311,6 +314,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -520,6 +524,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -613,6 +618,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -840,6 +846,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1048,6 +1055,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1141,6 +1149,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 4.5
     duration: 0.75
@@ -1353,6 +1362,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1447,6 +1457,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1523,6 +1534,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 4
     duration: -1
@@ -1734,6 +1746,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1825,6 +1838,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -1900,6 +1914,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 4
     duration: 5
@@ -1977,6 +1992,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2182,6 +2198,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2273,6 +2290,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2516,6 +2534,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 3
     duration: 3
@@ -2594,6 +2613,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2688,6 +2708,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -2779,6 +2800,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3103,6 +3125,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3194,6 +3217,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3290,6 +3314,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 5
@@ -3470,6 +3495,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3561,6 +3587,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3710,6 +3737,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 2.5
     duration: 0
@@ -3786,6 +3814,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3879,6 +3908,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -3970,6 +4000,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4066,6 +4097,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4143,6 +4175,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4221,6 +4254,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4462,6 +4496,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4553,6 +4588,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4646,6 +4682,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4701,7 +4738,7 @@ GameObject:
   - component: {fileID: 3824720010750439261}
   - component: {fileID: 9180728553056373929}
   m_Layer: 0
-  m_Name: Frostbolt
+  m_Name: LightMote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4737,23 +4774,24 @@ MonoBehaviour:
   m_Unlocked: 1
   m_isMaxed: 0
   m_IsSpell: 1
-  m_CastAmount: 2
-  m_BaseCastAmount: 2
+  m_CastAmount: 3
+  m_BaseCastAmount: 3
+  multiCastDelay: 0.1
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 15
+    damage: 10
     summonDamage: 0
-    speed: 8
-    cooldown: 1.5
+    speed: 16
+    cooldown: 2
     amount: 0
-    knockback: 4
+    knockback: 2
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
   m_Data:
     name: Frostbolt
-    damageType: 1
+    damageType: 4
     description: 'Fire two frostbolts at the closest enemy
 
       (1.5s cooldown)'
@@ -4762,10 +4800,10 @@ MonoBehaviour:
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
   m_SpellTags: 00000000
-  m_SoundOnCast: 19
+  m_SoundOnCast: 4
   m_SoundOnCastVolume: 0.4
   m_ProjectileLifetime: 2
-  m_BulletPrefab: {fileID: 6069486459419601506, guid: f1ffd5f0579c6e8409df2fd90b20a171, type: 3}
+  m_BulletPrefab: {fileID: 6270093376227045094, guid: 611958d8da1600d4f8cb2c479070c8e2, type: 3}
 --- !u!1 &6440927995132169176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4916,6 +4954,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -4990,6 +5029,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -5064,6 +5104,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -5124,6 +5165,7 @@ Transform:
   - {fileID: 1492004237946260043}
   - {fileID: 2342396618249145315}
   - {fileID: 3824720010750439261}
+  - {fileID: 5976176336024603559}
   - {fileID: 839096251397896697}
   - {fileID: 1676737976221650996}
   - {fileID: 5551550952803688504}
@@ -5194,6 +5236,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -5285,6 +5328,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -5376,6 +5420,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1.5
     duration: 0
@@ -5451,6 +5496,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -5539,6 +5585,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -5581,6 +5628,83 @@ MonoBehaviour:
     iFramesMod: 0
     armor: 0
     xpMod: 0
+--- !u!1 &8045503971114051638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5976176336024603559}
+  - component: {fileID: 3628906099178264187}
+  m_Layer: 0
+  m_Name: Frostbolt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5976176336024603559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8045503971114051638}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3553034378635206584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3628906099178264187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8045503971114051638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb896f140784e81438ab7914a54a78a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Unlocked: 0
+  m_isMaxed: 0
+  m_IsSpell: 1
+  m_CastAmount: 2
+  m_BaseCastAmount: 2
+  multiCastDelay: 0.3
+  m_BaseStats:
+    AOE: 0
+    duration: 0
+    damage: 15
+    summonDamage: 0
+    speed: 8
+    cooldown: 1.5
+    amount: 0
+    knockback: 4
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+  m_Data:
+    name: Frostbolt
+    damageType: 1
+    description: 'Fire two frostbolts at the closest enemy
+
+      (1.5s cooldown)'
+    levelUpInfo: 
+    icon: {fileID: -1602132841, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
+  m_CooldownRemaining: 0
+  m_DefaultAutofireRange: 10
+  m_SpellTags: 00000000
+  m_SoundOnCast: 19
+  m_SoundOnCastVolume: 0.4
+  m_ProjectileLifetime: 2
+  m_BulletPrefab: {fileID: 6069486459419601506, guid: f1ffd5f0579c6e8409df2fd90b20a171, type: 3}
 --- !u!1 &8590091372280641179
 GameObject:
   m_ObjectHideFlags: 0
@@ -5630,6 +5754,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -5705,6 +5830,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -5780,6 +5906,7 @@ MonoBehaviour:
   m_IsSpell: 1
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -5862,6 +5989,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -5954,6 +6082,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -6124,6 +6253,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0

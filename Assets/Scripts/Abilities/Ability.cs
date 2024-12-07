@@ -100,7 +100,7 @@ public class Ability : MonoBehaviour
 
     public int     m_CastAmount = 1;
     public int     m_BaseCastAmount = 1;
-    readonly float kMultiCastDelay = 0.3f;
+    public float   multiCastDelay = 0.3f;
 
     public AbilityStats    m_BaseStats;   // Base stats of the ability
     protected AbilityStats m_BonusStats;  // Bonus stats gained when ability is leveled up
@@ -177,7 +177,7 @@ public class Ability : MonoBehaviour
         {
             OnCast();
 
-            yield return new WaitForSeconds(kMultiCastDelay);
+            yield return new WaitForSeconds(multiCastDelay);
         }
     }
 
