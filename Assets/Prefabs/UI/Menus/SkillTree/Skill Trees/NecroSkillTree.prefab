@@ -2017,7 +2017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_CharacterColour.b
-      value: 0.6117647
+      value: 0.77254903
       objectReference: {fileID: 0}
     - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_CharacterColour.g
@@ -2025,7 +2025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8939779801319940111, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_CharacterColour.r
-      value: 0.36862746
+      value: 0.46666667
       objectReference: {fileID: 0}
     - target: {fileID: 8990472463458172838, guid: 355e551040190e14f890f633b14c1cf2, type: 3}
       propertyPath: m_LocalRotation.w

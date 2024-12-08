@@ -57,12 +57,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Ethereal Candle
     damageType: 6
@@ -81,12 +81,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Unlocked: 1
   m_isMaxed: 0
   m_IsSpell: 1
-  m_CastAmount: 1
+  m_CastAmount: 3
   m_BaseCastAmount: 3
   multiCastDelay: 0.3
   m_BaseStats:
@@ -151,12 +151,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 4
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Sun Beam
     damageType: 4
@@ -230,12 +230,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Leather Goggles
     damageType: 0
@@ -257,12 +257,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.04
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: -0.025
     maxHealth: 0
@@ -327,12 +327,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 1.5
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Cone of Lightning
     damageType: 2
@@ -538,12 +538,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Emerald Geode
     damageType: 0
@@ -564,12 +564,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.02
-    amount: 0
     knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -634,12 +634,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Emberfly Jar
     damageType: 0
@@ -660,12 +660,12 @@ MonoBehaviour:
     summonDamage: 2
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.1
     maxHealth: 0
@@ -864,12 +864,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 5
     cooldown: 0.5
-    amount: 0
     knockback: 4
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Firebolt
     damageType: 0
@@ -1074,12 +1074,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Gold Ring
     damageType: 0
@@ -1100,12 +1100,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.02
-    amount: 0
     knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -1170,12 +1170,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 5
     cooldown: 5
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 1
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Fireball
     damageType: 0
@@ -1384,12 +1384,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Cursed Voodoo Doll
     damageType: 0
@@ -1411,12 +1411,12 @@ MonoBehaviour:
     summonDamage: 0.66
     speed: 0
     cooldown: 0.06
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -1481,12 +1481,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 10
     cooldown: 1
-    amount: 4
     knockback: 4
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Cross Shot
     damageType: 0
@@ -1559,12 +1559,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -1
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Blizzard
     damageType: 1
@@ -1772,12 +1772,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Stormcrest Royal Brooch
     damageType: 0
@@ -1796,12 +1796,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.05
     maxHealth: 0
@@ -1866,12 +1866,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 3
     cooldown: 4
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 1
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Summon Lightning Elemental
     damageType: 2
@@ -1943,12 +1943,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 3
     cooldown: 11
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 1
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Poison Mist
     damageType: 3
@@ -2022,12 +2022,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: 
     damageType: 0
@@ -2229,12 +2229,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Aetherweave Gloves
     damageType: 6
@@ -2253,12 +2253,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0.2
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -2323,12 +2323,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Cake
     damageType: 0
@@ -2349,12 +2349,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: -0.05
     maxHealth: 0
@@ -2371,12 +2371,12 @@ MonoBehaviour:
       summonDamage: 0
       speed: 0
       cooldown: -0.05
-      amount: 0
       knockback: 0
       pierceAmount: 0
       infinitePierce: 0
       neverPierce: 0
       critChance: 0
+      castAmount: 0
 --- !u!1 &2428647305684531859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,12 +2570,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 2.5
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 1
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Black Hole
     damageType: 5
@@ -2650,12 +2650,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Solarium Skull
     damageType: 0
@@ -2677,12 +2677,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.05
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.1
     maxHealth: 0
@@ -2747,12 +2747,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Embersilk Ribbon
     damageType: 0
@@ -2771,12 +2771,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.05
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -2841,12 +2841,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Whispersilk Witchcap
     damageType: 0
@@ -2864,12 +2864,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -3168,12 +3168,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Ironwood Staff
     damageType: 6
@@ -3192,12 +3192,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 1
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -3262,12 +3262,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Tanzanite Geode
     damageType: 0
@@ -3290,12 +3290,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.04
-    amount: 0
     knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: -0.05
     maxHealth: 0
@@ -3361,12 +3361,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 6
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Freeze
     damageType: 1
@@ -3543,12 +3543,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Eclipse Caverns Bat
     damageType: 0
@@ -3567,12 +3567,12 @@ MonoBehaviour:
     summonDamage: 0.25
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: -0.05
     maxHealth: 0
@@ -3637,12 +3637,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Old Bandage
     damageType: 0
@@ -3658,12 +3658,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 25
@@ -3789,12 +3789,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 100
     cooldown: -1
-    amount: 2
     knockback: 0
     pierceAmount: 0
     infinitePierce: 1
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Orbiting Stars
     damageType: 4
@@ -3867,12 +3867,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Green Ithildorian Fan
     damageType: 0
@@ -3893,12 +3893,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.04
-    amount: 0
     knockback: 0.05
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -3963,12 +3963,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Red Ithildorian Fan
     damageType: 0
@@ -3987,12 +3987,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -4057,12 +4057,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Orb of the Oracle
     damageType: 0
@@ -4086,12 +4086,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.07
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -4156,12 +4156,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 4
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Raise Dead
     damageType: 5
@@ -4235,12 +4235,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 1.75
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Ray of Sickness
     damageType: 3
@@ -4315,12 +4315,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Sweetened Roll
     damageType: 0
@@ -4341,12 +4341,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.05
     maxHealth: 0
@@ -4363,12 +4363,12 @@ MonoBehaviour:
       summonDamage: 0
       speed: 0
       cooldown: 0
-      amount: 0
       knockback: 0.1
       pierceAmount: 0
       infinitePierce: 0
       neverPierce: 0
       critChance: 0
+      castAmount: 0
 --- !u!1 &5325821446040161954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4560,12 +4560,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Moonweave Cloak
     damageType: 0
@@ -4584,12 +4584,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -4654,12 +4654,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Magnetic Ring
     damageType: 0
@@ -4680,12 +4680,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.03
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -4750,12 +4750,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Lunarium Skull
     damageType: 0
@@ -4776,12 +4776,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0.05
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.05
     maxHealth: 0
@@ -4842,22 +4842,22 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 10
+    damage: 12
     summonDamage: 0
     speed: 16
     cooldown: 2
-    amount: 0
     knockback: 2
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Frostbolt
     damageType: 4
     description: 'Fire two frostbolts at the closest enemy
 
-      (1.5s cooldown)'
+      (2s cooldown)'
     levelUpInfo: 
     icon: {fileID: -1602132841, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -5025,12 +5025,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 10
     cooldown: -1
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: 'Summon: Ice Elemental'
     damageType: 1
@@ -5101,12 +5101,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -1
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: 'Summon: Fire Elemental'
     damageType: 0
@@ -5177,12 +5177,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 4
     cooldown: 3
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 1
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Control Flames
     damageType: 0
@@ -5310,12 +5310,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Celestial Hourglass
     damageType: 0
@@ -5334,12 +5334,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.05
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.05
     maxHealth: 0
@@ -5404,12 +5404,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Tome of Incantations
     damageType: 6
@@ -5428,12 +5428,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.05
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -5498,12 +5498,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 5
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Cursed Earth
     damageType: 5
@@ -5575,12 +5575,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Elixir of vitality
     damageType: 0
@@ -5596,12 +5596,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 50
@@ -5666,12 +5666,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Philosopher's Tome
     damageType: 0
@@ -5690,12 +5690,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.06
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.05
     maxHealth: 0
@@ -5760,12 +5760,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 8
     cooldown: 1.5
-    amount: 0
     knockback: 4
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Frostbolt
     damageType: 1
@@ -5838,12 +5838,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 5
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Lightning
     damageType: 2
@@ -5915,12 +5915,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 2.5
     cooldown: 2
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 1
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Ice Storm
     damageType: 1
@@ -5992,12 +5992,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 4
     cooldown: 2
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 1
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Summon Vengeful Spirit
     damageType: 5
@@ -6076,12 +6076,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Elderfruit Pie
     damageType: 0
@@ -6100,12 +6100,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0
     maxHealth: 0
@@ -6171,12 +6171,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Dragontooth Necklace
     damageType: 0
@@ -6197,12 +6197,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 1
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.05
     maxHealth: 0
@@ -6344,12 +6344,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 10
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_Data:
     name: Gloomveil Woods Cat
     damageType: 0
@@ -6371,12 +6371,12 @@ MonoBehaviour:
     summonDamage: 0.3
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
+    castAmount: 0
   m_PlayerStatBuffs:
     speed: 0.05
     maxHealth: 0

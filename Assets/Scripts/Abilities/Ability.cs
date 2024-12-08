@@ -30,7 +30,7 @@ public struct AbilityStats
         stats.summonDamage = left.summonDamage + right.summonDamage;
         stats.speed = left.speed + right.speed;
         stats.cooldown = left.cooldown + right.cooldown;
-        stats.amount = left.amount + right.amount;
+        stats.castAmount = left.castAmount + right.castAmount;
         stats.knockback =  left.knockback + right.knockback;
         stats.critChance =  left.critChance + right.critChance;
         stats.pierceAmount = left.pierceAmount;
@@ -48,7 +48,7 @@ public struct AbilityStats
         stats.damage = left.damage - right.damage;
         stats.speed = left.speed - right.speed;
         stats.cooldown = left.cooldown - right.cooldown;
-        stats.amount = left.amount - right.amount;
+        stats.castAmount = left.castAmount - right.castAmount;
         stats.knockback =  left.knockback - right.knockback;
         stats.critChance = left.critChance - right.critChance;
         stats.pierceAmount = left.pierceAmount;
@@ -66,7 +66,7 @@ public struct AbilityStats
         stats.summonDamage = left.summonDamage * right.summonDamage;
         stats.speed = left.speed * right.speed;
         stats.cooldown = left.cooldown * right.cooldown;
-        stats.amount = left.amount * right.amount;
+        stats.castAmount = left.castAmount * right.castAmount;
         stats.knockback = left.knockback * right.knockback;
         stats.critChance = left.critChance * right.critChance;
         stats.pierceAmount = left.pierceAmount;
@@ -82,12 +82,12 @@ public struct AbilityStats
     public float summonDamage;
     public float speed;         // Speed of projectile/animation of the ability
     public float cooldown;      // Cooldown in seconds of the ability
-    public int   amount;        // Amount of projectiles fired by the ability
     public float knockback;     // Knockback of the ability
     public int   pierceAmount;  // Number of enemies that can be pierced
     public bool  infinitePierce;
     public bool  neverPierce;
     public float critChance;
+    public int   castAmount;
 }
 
 public class Ability : MonoBehaviour
@@ -234,6 +234,7 @@ public class Ability : MonoBehaviour
             m_TotalStats.cooldown = m_BaseStats.cooldown * kMinCooldownModifier;
 
         m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
+        m_CastAmount = m_BonusStats.castAmount + m_BaseCastAmount;
     }
 
     public void AddTempStats(AbilityStats stats, float duration)
