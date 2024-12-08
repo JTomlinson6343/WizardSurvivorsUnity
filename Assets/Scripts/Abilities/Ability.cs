@@ -32,6 +32,7 @@ public struct AbilityStats
         stats.cooldown = left.cooldown + right.cooldown;
         stats.amount = left.amount + right.amount;
         stats.knockback =  left.knockback + right.knockback;
+        stats.critChance =  left.critChance + right.critChance;
         stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
         stats.neverPierce = left.neverPierce;
@@ -49,6 +50,7 @@ public struct AbilityStats
         stats.cooldown = left.cooldown - right.cooldown;
         stats.amount = left.amount - right.amount;
         stats.knockback =  left.knockback - right.knockback;
+        stats.critChance = left.critChance - right.critChance;
         stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
         stats.neverPierce = left.neverPierce;
@@ -66,6 +68,7 @@ public struct AbilityStats
         stats.cooldown = left.cooldown * right.cooldown;
         stats.amount = left.amount * right.amount;
         stats.knockback = left.knockback * right.knockback;
+        stats.critChance = left.critChance * right.critChance;
         stats.pierceAmount = left.pierceAmount;
         stats.infinitePierce = left.infinitePierce;
         stats.neverPierce = left.neverPierce;
@@ -84,6 +87,7 @@ public struct AbilityStats
     public int   pierceAmount;  // Number of enemies that can be pierced
     public bool  infinitePierce;
     public bool  neverPierce;
+    public float critChance;
 }
 
 public class Ability : MonoBehaviour

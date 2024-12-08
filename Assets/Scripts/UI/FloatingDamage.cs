@@ -6,8 +6,8 @@ using UnityEngine;
 public class FloatingDamage : MonoBehaviour
 {
     [SerializeField] private float m_RiseSpeed;
-    [SerializeField] private float m_ShrinkTime;
-    [SerializeField] private Vector3 m_StartSize;
+    [SerializeField] public float m_ShrinkTime;
+    [SerializeField] public Vector3 m_StartSize;
     [SerializeField] private Vector3 m_EndSize;
 
     private float m_Gradient;

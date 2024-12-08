@@ -45,6 +45,8 @@ public class DamageManager : MonoBehaviour
 
     private readonly float kDamageNumberRandomRadius = 0.25f;
 
+    public static float m_CritDamageModifier = 1.5f;
+
     private void Awake()
     {
         m_Instance = this;
@@ -58,7 +60,10 @@ public class DamageManager : MonoBehaviour
         Actor actorComponent = data.target.GetComponent<Actor>();
         bool isSelfDamage = data.target == data.user;
 
-        float damageDealt = data.amount * (1f - actorComponent.m_DamageResistance);
+        bool didCrit = data.abilitySource && data.abilitySource.GetTotalStats().critChance > 0f && Random.Range(0f, 1f) < data.abilitySource.GetTotalStats().critChance;
+        float critModifier = didCrit ? m_CritDamageModifier : 1f;
+
+        float damageDealt = data.amount * critModifier * (1f - actorComponent.m_DamageResistance);
 
         if (data.target.CompareTag("Player") && Skill.necroBleedEnabled && !data.isDoT) damageDealt *= 0.5f;
 
@@ -83,11 +88,20 @@ public class DamageManager : MonoBehaviour
         {
             // Play damage sound effect
             if (data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(21);
-            else AudioManager.m_Instance.PlaySound(0);
+            else
+            {
+                if (didCrit) AudioManager.m_Instance.PlaySound(33, 0.75f);
+                else AudioManager.m_Instance.PlaySound(0);
+            }
         }
+        else
+        {
+            if (didCrit && !data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(33, 0.75f);
+        }
+
         if (data.doDamageNumbers)
         {
-            SpawnDamageNumbers(damageDealt, pos, data.damageType);
+            SpawnDamageNumbers(damageDealt, pos, data.damageType, didCrit);
             data.didKill = damageOutput == Actor.DamageOutput.wasKilled;
             if (!isSelfDamage) m_DamageInstanceEvent.Invoke(data);
         }
@@ -96,22 +110,31 @@ public class DamageManager : MonoBehaviour
         return damageOutput;
     }
 
-    public void SpawnDamageNumbers(float amount, Vector2 pos, DamageType damageType)
+    public void SpawnDamageNumbers(float amount, Vector2 pos, DamageType damageType, bool isCrit)
     {
         // Spawn damage numbers
         GameObject damageNumber = Instantiate(m_DamageNumberPrefab);
         damageNumber.transform.position = pos + new Vector2(Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius), Random.Range(-kDamageNumberRandomRadius, kDamageNumberRandomRadius));
-        damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(damageType);
         damageNumber.GetComponent<FloatingDamage>().m_Damage = amount;
+        if (isCrit) {
+            damageNumber.GetComponent<FloatingDamage>().m_Colour = new Color(1, 0.15f, 0);//Color.Lerp(GetDamageNumberColor(damageType), Color.yellow, 0.5f);
+            damageNumber.GetComponent<FloatingDamage>().m_StartSize *= 2f;
+            damageNumber.GetComponent<FloatingDamage>().m_ShrinkTime *= 1.5f;
+            PlayerManager.m_Instance.StartShake(0.1f, 0.1f);
+        }
+        else
+        {
+            damageNumber.GetComponent<FloatingDamage>().m_Colour = GetDamageNumberColor(damageType);
+        }
     }
 
     private Color GetDamageNumberColor(DamageType damageType)
     {
         return damageType switch
         {
-            DamageType.Fire => new Color(1, 0.4f, 0),
+            DamageType.Fire => new Color(1, 0.35f, 0),
             DamageType.Frost => Color.cyan,
-            DamageType.Light => Color.white,
+            DamageType.Light => new Color(1f, 1f, 0.5f),
             DamageType.Dark => Color.magenta,
             DamageType.Physical => Color.red,
             DamageType.Poison => new Color(0, 0.2f, 0),

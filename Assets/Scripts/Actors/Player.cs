@@ -360,7 +360,7 @@ public class Player : Actor
     }
     public void Heal(float amount)
     {
-        DamageManager.m_Instance.SpawnDamageNumbers(amount, m_DebuffPlacement.transform.position, DamageType.Healing);
+        DamageManager.m_Instance.SpawnDamageNumbers(amount, m_DebuffPlacement.transform.position, DamageType.Healing, false);
         StartCoroutine(HealAnim(amount,m_HealSpeed));
     }
 
