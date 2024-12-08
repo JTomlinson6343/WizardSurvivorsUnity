@@ -4842,10 +4842,10 @@ MonoBehaviour:
   m_BaseStats:
     AOE: 0
     duration: 0
-    damage: 12
+    damage: 8
     summonDamage: 0
     speed: 16
-    cooldown: 2
+    cooldown: 2.5
     knockback: 2
     pierceAmount: 0
     infinitePierce: 0
@@ -4857,11 +4857,11 @@ MonoBehaviour:
     damageType: 4
     description: 'Fire two frostbolts at the closest enemy
 
-      (2s cooldown)'
+      (2.5s cooldown)'
     levelUpInfo: 
     icon: {fileID: -1602132841, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
-  m_DefaultAutofireRange: 10
+  m_DefaultAutofireRange: 5
   m_SpellTags: 00000000
   m_SoundOnCast: 4
   m_SoundOnCastVolume: 0.4

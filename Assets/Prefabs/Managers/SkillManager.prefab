@@ -2251,6 +2251,7 @@ Transform:
   - {fileID: 4374719393910344393}
   - {fileID: 6088661160652509150}
   - {fileID: 3711352989803025903}
+  - {fileID: 6414117275602877729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3743831669789018582
@@ -2436,6 +2437,60 @@ MonoBehaviour:
     critChance: 0
     castAmount: 0
   m_Ability: {fileID: 0}
+--- !u!1 &6785898896812293407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6414117275602877729}
+  - component: {fileID: 7349067353447194417}
+  m_Layer: 0
+  m_Name: PriestAOE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6414117275602877729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785898896812293407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7349067353447194417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785898896812293407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92f3b839fe96ac4583dc57791a06536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 53
+    level: 0
+    maxLevel: 0
+  m_Cooldown: 5
+  m_HUDSkillIconRef: {fileID: 0}
+  m_Damage: 5
+  m_Radius: 5
+  m_SunbeamEffectPrefab: {fileID: 4854207113787265867, guid: b801d4175229aac47bb4fe4b0d89d243, type: 3}
+  m_LineCreator: {fileID: 1334009107476647589, guid: 9a6e81a3778471f4f87d22158168592a, type: 3}
 --- !u!1 &7037023527803388237
 GameObject:
   m_ObjectHideFlags: 0

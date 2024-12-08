@@ -128,7 +128,7 @@ public class DamageManager : MonoBehaviour
         }
     }
 
-    private Color GetDamageNumberColor(DamageType damageType)
+    public static Color GetDamageNumberColor(DamageType damageType)
     {
         return damageType switch
         {
