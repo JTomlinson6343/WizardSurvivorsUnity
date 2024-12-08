@@ -234,6 +234,7 @@ public class Ability : MonoBehaviour
             m_TotalStats.cooldown = m_BaseStats.cooldown * kMinCooldownModifier;
 
         m_TotalStats.pierceAmount = m_BaseStats.pierceAmount + AbilityManager.m_Instance.GetAbilityStatBuffs().pierceAmount;
+        m_TotalStats.critChance = m_BaseStats.critChance + m_BonusStats.critChance + AbilityManager.m_Instance.GetAbilityStatBuffs().critChance;
         m_CastAmount = m_BonusStats.castAmount + m_BaseCastAmount;
     }
 

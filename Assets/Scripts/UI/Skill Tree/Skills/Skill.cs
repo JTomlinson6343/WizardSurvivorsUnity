@@ -55,7 +55,12 @@ public enum SkillID
     PriestShotAmount,
     PriestBasicSpellDamage,
     PriestBasicSpellCrit,
-    PriestAllSpellCrit
+    PriestAllSpellCrit,
+    PriestCritDamage,
+    PriestCritCDReduce,
+    PriestSmite,
+    PriestRicochet,
+    PriestRadiantDamage
 }
 
 [System.Serializable]

@@ -51,6 +51,8 @@ public class SaveManager
 {
     static string versionNumber = "1.3";
 
+    public static bool m_isBeta;
+
     static readonly string m_Filename = "save_beta.json";
     static readonly string m_Path = Application.persistentDataPath + "/" + m_Filename;
 

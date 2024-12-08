@@ -52919,8 +52919,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CharacterColour: {r: 0, g: 0, b: 0, a: 0}
   m_CharacterName: 
-  m_TotalSkillPoints: 0
-  m_CurrentSkillPoints: 0
+  m_TotalSkillPoints: 999
+  m_CurrentSkillPoints: 999
   m_SpentPoints: 0
   m_NameLabel: {fileID: 0}
   m_CostLabel: {fileID: 0}

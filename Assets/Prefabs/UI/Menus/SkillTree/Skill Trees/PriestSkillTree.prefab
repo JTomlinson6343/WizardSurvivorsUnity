@@ -1033,7 +1033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Data.id
-      value: 2
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillName
@@ -1479,7 +1479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Data.id
-      value: 2
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillName
@@ -1708,7 +1708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Data.id
-      value: 2
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillName
@@ -1926,7 +1926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Data.id
-      value: 2
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillName
@@ -1991,7 +1991,7 @@ PrefabInstance:
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
       value: Whenever you land a critical hit, reduce the remaining cooldown of all
-        your spells by 1%
+        your spells by 3%.
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
@@ -2003,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[0]
-      value: Blaze can now stack up to 3 times
+      value: reduce remaining cooldowns by an additional 3%
       objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x
@@ -2133,7 +2133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Data.id
-      value: 2
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_SkillName

@@ -45,7 +45,7 @@ public class DamageManager : MonoBehaviour
 
     private readonly float kDamageNumberRandomRadius = 0.25f;
 
-    public static float m_CritDamageModifier = 1.5f;
+    public float m_CritDamageModifier = 1.5f;
 
     private void Awake()
     {
@@ -60,8 +60,8 @@ public class DamageManager : MonoBehaviour
         Actor actorComponent = data.target.GetComponent<Actor>();
         bool isSelfDamage = data.target == data.user;
 
-        bool didCrit = data.abilitySource && data.abilitySource.GetTotalStats().critChance > 0f && Random.Range(0f, 1f) < data.abilitySource.GetTotalStats().critChance;
-        float critModifier = didCrit ? m_CritDamageModifier : 1f;
+        data.didCrit = data.abilitySource && data.abilitySource.GetTotalStats().critChance > 0f && Random.Range(0f, 1f) < data.abilitySource.GetTotalStats().critChance;
+        float critModifier = data.didCrit ? m_CritDamageModifier : 1f;
 
         float damageDealt = data.amount * critModifier * (1f - actorComponent.m_DamageResistance);
 
@@ -90,18 +90,18 @@ public class DamageManager : MonoBehaviour
             if (data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(21);
             else
             {
-                if (didCrit) AudioManager.m_Instance.PlaySound(33, 0.75f);
+                if (data.didCrit) AudioManager.m_Instance.PlaySound(33, 0.75f);
                 else AudioManager.m_Instance.PlaySound(0);
             }
         }
         else
         {
-            if (didCrit && !data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(33, 0.75f);
+            if (data.didCrit && !data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(33, 0.75f);
         }
 
         if (data.doDamageNumbers)
         {
-            SpawnDamageNumbers(damageDealt, pos, data.damageType, didCrit);
+            SpawnDamageNumbers(damageDealt, pos, data.damageType, data.didCrit);
             data.didKill = damageOutput == Actor.DamageOutput.wasKilled;
             if (!isSelfDamage) m_DamageInstanceEvent.Invoke(data);
         }
