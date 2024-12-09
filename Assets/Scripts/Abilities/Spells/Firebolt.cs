@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Firebolt : Spell
 {
-    [SerializeField] protected float m_ProjectileLifetime;
+    public float m_ProjectileLifetime;
     [SerializeField] protected GameObject m_BulletPrefab;
 
 
@@ -29,9 +29,16 @@ public class Firebolt : Spell
             return;
         }
 
-        Vector2 dir = Utils.GetDirectionToGameObject(Player.m_Instance.GetStaffTransform().position, closestEnemy);
+        FireShot(Player.m_Instance.GetStaffTransform().position, closestEnemy);
+    }
 
-        ProjectileManager.m_Instance.Shoot(Player.m_Instance.GetStaffTransform().position,
+    public void FireShot(Vector2 pos, GameObject enemy)
+    {
+        if (!enemy) return;
+
+        Vector2 dir = Utils.GetDirectionToGameObject(pos, enemy);
+
+        ProjectileManager.m_Instance.Shoot(pos,
             dir,
             m_TotalStats.speed, this, m_ProjectileLifetime, m_BulletPrefab);
 

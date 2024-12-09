@@ -1772,8 +1772,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Description.Array.data[0]
-      value: Shots from Radiant Light have a 10% chance to bounce and hit a random
-        enemy in range.
+      value: Shots from Radiant Light have a 2% chance to spawn another shot aimed
+        at a random enemy in range.
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Prerequisites.Array.data[0]
@@ -1781,11 +1781,11 @@ PrefabInstance:
       objectReference: {fileID: 5234912669991969633}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4493752689443122928, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_OnLevelUpDescription.Array.data[0]
-      value: Blaze can now stack up to 3 times
+      value: +2% chance
       objectReference: {fileID: 0}
     - target: {fileID: 2370374756472073843, guid: e418bdc8580275d48803e6e5eeb8a986, type: 3}
       propertyPath: m_Pivot.x

@@ -4853,7 +4853,7 @@ MonoBehaviour:
     critChance: 0
     castAmount: 0
   m_Data:
-    name: Frostbolt
+    name: Radiant Bolt
     damageType: 4
     description: 'Fire two frostbolts at the closest enemy
 
