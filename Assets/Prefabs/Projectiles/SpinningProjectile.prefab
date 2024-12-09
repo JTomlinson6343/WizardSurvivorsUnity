@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2797514019960074390, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5363b493446cdf2448ff3cf897fd4b29, type: 3}
+    - target: {fileID: 2797514019960074390, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.a
       value: 0.18431373
       objectReference: {fileID: 0}
@@ -30,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3497046635279025321, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.3211992
       objectReference: {fileID: 0}
     - target: {fileID: 3497046635279025321, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.6157198
       objectReference: {fileID: 0}
     - target: {fileID: 3497046635279025321, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68,6 +72,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2846347
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.28184086
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0010784939
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0027340055
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538981066157079279, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6270093376227045094, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Name
       value: SpinningProjectile
@@ -78,18 +110,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.5990566
       objectReference: {fileID: 0}
     - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.9604534
       objectReference: {fileID: 0}
     - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_Intensity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_LightVolumeIntensity
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_LightVolumeIntensityEnabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5855194254980486322, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+    - {fileID: 4805826714399943553, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -115,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_HitParticlesPrefab: {fileID: 1699988216953073705, guid: 1edfe8c8696212d479422fea5fa09afd, type: 3}
   m_Speed: 0
   m_Radius: 0
   m_Offset: 0

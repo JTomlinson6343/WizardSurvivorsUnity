@@ -1486,7 +1486,7 @@ MonoBehaviour:
     infinitePierce: 0
     neverPierce: 0
     critChance: 0
-    castAmount: 0
+    castAmount: 4
   m_Data:
     name: Cross Shot
     damageType: 0
@@ -3794,11 +3794,11 @@ MonoBehaviour:
     infinitePierce: 1
     neverPierce: 0
     critChance: 0
-    castAmount: 0
+    castAmount: 3
   m_Data:
     name: Orbiting Stars
     damageType: 4
-    description: 'Spawn two stars that orbit the player and deal damage.
+    description: 'Spawn three stars that orbit the player and deal damage.
 
       Cooldown
       reduction increases orbit speed.'
