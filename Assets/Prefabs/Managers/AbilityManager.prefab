@@ -3798,7 +3798,7 @@ MonoBehaviour:
   m_Data:
     name: Orbiting Stars
     damageType: 4
-    description: 'Spawn three stars that orbit the player and deal damage.
+    description: 'Spawn two stars that orbit the player and deal damage.
 
       Cooldown
       reduction increases orbit speed.'
@@ -4865,7 +4865,7 @@ MonoBehaviour:
   m_SpellTags: 00000000
   m_SoundOnCast: 4
   m_SoundOnCastVolume: 0.4
-  m_ProjectileLifetime: 2
+  m_ProjectileLifetime: 0.5
   m_BulletPrefab: {fileID: 6270093376227045094, guid: 611958d8da1600d4f8cb2c479070c8e2, type: 3}
 --- !u!1 &6440927995132169176
 GameObject:

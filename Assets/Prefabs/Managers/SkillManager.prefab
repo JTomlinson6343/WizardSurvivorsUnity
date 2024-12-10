@@ -2602,7 +2602,7 @@ MonoBehaviour:
     maxLevel: 0
   m_Cooldown: 5
   m_HUDSkillIconRef: {fileID: 0}
-  m_Damage: 5
+  m_Damage: 30
   m_Radius: 5
   m_SunbeamEffectPrefab: {fileID: 4854207113787265867, guid: b801d4175229aac47bb4fe4b0d89d243, type: 3}
   m_LineCreator: {fileID: 1334009107476647589, guid: 9a6e81a3778471f4f87d22158168592a, type: 3}
