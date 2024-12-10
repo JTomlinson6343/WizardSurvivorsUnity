@@ -30,38 +30,26 @@ public class HUDSkillIcon : MonoBehaviour
 
     public void StartCooldown(float cooldown)
     {
-        StopAllCoroutines();
-        StartCoroutine(StartCooldownAnim(cooldown));
-    }
-
-    private IEnumerator StartCooldownAnim(float cooldown)
-    {
         Image image = GetComponent<Image>();
+        // Reset color to black
         image.color = Color.black;
-        float alpha = 0f;
 
-        float timeLeft = cooldown;
+        // Start the LeanTween animation
+        LeanTween.value(gameObject, 0f, 1f, cooldown)
+            .setOnUpdate((float alpha) =>
+            {
+                // Lerp color from black to white
+                image.color = Color.Lerp(Color.black, Color.white, alpha);
 
-        SetText(timeLeft);
-        while (timeLeft > 0f)
-        {
-            yield return new WaitForSeconds(kCooldownAnimationInterval);
-            // Increment alpha for the lerp
-            alpha += 1f / cooldown;
-
-            // Lerp between black and white
-            image.color = Color.Lerp(Color.black, Color.white, alpha * kCooldownAnimationInterval);
-
-            // Decrease time over time
-            timeLeft -= kCooldownAnimationInterval;
-
-            SetText(timeLeft);
-        }
-
-        // Set colour to the character's colour
-        image.color = m_Color;
-
-        yield return null;
+                // Update remaining time
+                float timeLeft = Mathf.Lerp(cooldown, 0f, alpha);
+                SetText(timeLeft);
+            })
+            .setOnComplete(() =>
+            {
+                // Set to final color after completion
+                image.color = m_Color;
+            });
     }
 
     private void SetText(float timeLeft)
