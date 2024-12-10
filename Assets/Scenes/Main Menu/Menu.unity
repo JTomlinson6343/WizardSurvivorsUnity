@@ -52057,6 +52057,10 @@ PrefabInstance:
       propertyPath: m_SkillTree
       value: 
       objectReference: {fileID: 1109853319}
+    - target: {fileID: 2344122403520428829, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1452790070}
     - target: {fileID: 2379245406031051907, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_CombinedTree
       value: 
@@ -52189,6 +52193,10 @@ PrefabInstance:
       propertyPath: m_SkillTree
       value: 
       objectReference: {fileID: 2037979142}
+    - target: {fileID: 6584086791089453712, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
+      propertyPath: m_SkillTree
+      value: 
+      objectReference: {fileID: 1452790070}
     - target: {fileID: 6898286020833447453, guid: a0be01a0a0c0b8747b4151ec04af9f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -54212,7 +54220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTreeRefs.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_SkillTreeRefs.Array.data[0]
@@ -54258,6 +54266,10 @@ PrefabInstance:
       propertyPath: m_SkillTreeRefs.Array.data[10]
       value: 
       objectReference: {fileID: 92591080}
+    - target: {fileID: 7495386950226113708, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
+      propertyPath: m_SkillTreeRefs.Array.data[11]
+      value: 
+      objectReference: {fileID: 1452790070}
     - target: {fileID: 8874870905139965133, guid: 6f04370a0783c174e82402fae3e819bc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -55722,6 +55734,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6347651432707276404, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
+      propertyPath: m_FromMultiMage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8628289432123327538, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -55772,6 +55788,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8628289432123327538, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
   m_PrefabInstance: {fileID: 1452790068}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1452790070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6347651432707276404, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
+  m_PrefabInstance: {fileID: 1452790068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a119c34f06f441a971ace48ed4902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1473460948
 GameObject:
   m_ObjectHideFlags: 0
