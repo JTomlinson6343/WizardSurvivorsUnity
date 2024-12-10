@@ -91,7 +91,7 @@ public class DamageManager : MonoBehaviour
             if (data.target.CompareTag("Player")) AudioManager.m_Instance.PlaySound(21);
             else
             {
-                if (data.didCrit) AudioManager.m_Instance.PlaySound(33, 0.75f);
+                if (data.didCrit) AudioManager.m_Instance.PlaySound(33, 0.5f);
                 else AudioManager.m_Instance.PlaySound(0);
             }
         }

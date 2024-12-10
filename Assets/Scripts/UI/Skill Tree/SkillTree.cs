@@ -216,18 +216,18 @@ public class SkillTree : MonoBehaviour
             skill.m_Data.level = 0;
         }
 
-        m_SpentPoints = 0;
-
         // Refund all spent skill points.
         if (m_FromMultiMage)
         {
             MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints += m_SpentPoints;
-            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap - m_SpentPoints);
+            m_CurrentSkillPoints = Mathf.Min(MultiMageMenu.m_Instance.m_CombinedTree.m_CurrentSkillPoints, kMultiMageSpentPointsCap);
         }
         else
         {
             m_CurrentSkillPoints = m_TotalSkillPoints;
         }
+
+        m_SpentPoints = 0;
 
         // Reset the skill tree visuals
         UpdateSkillPointsLabel();
@@ -260,7 +260,7 @@ public class SkillTree : MonoBehaviour
     virtual public void TryUnlockAchievement()
     {
         if (AllSkillsMaxedCheck() && m_CharacterName != null && m_CharacterName != "")
-            UnlockManager.GetAchievementWithName("Maxed_" + m_CharacterName).Unlock();
+            UnlockManager.GetAchievementWithName("Maxed_" + m_CharacterName)?.Unlock();
     }
 
     // Return to character menu

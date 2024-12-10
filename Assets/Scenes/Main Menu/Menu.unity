@@ -55735,8 +55735,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6347651432707276404, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
+      propertyPath: m_CharacterName
+      value: Devout
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347651432707276404, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
       propertyPath: m_FromMultiMage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347651432707276404, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
+      propertyPath: m_TotalSkillPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347651432707276404, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
+      propertyPath: m_CurrentSkillPoints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8628289432123327538, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57280,6 +57292,10 @@ PrefabInstance:
     - target: {fileID: 5745526926387125050, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347651432707276404, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
+      propertyPath: m_CharacterName
+      value: Devout
       objectReference: {fileID: 0}
     - target: {fileID: 8628289432123327538, guid: d16da0f2147c7d24cbcb77a8a82fd465, type: 3}
       propertyPath: m_LocalPosition.x
