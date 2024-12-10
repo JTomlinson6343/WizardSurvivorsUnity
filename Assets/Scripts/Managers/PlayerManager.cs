@@ -33,6 +33,8 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     public static bool m_DoSpawnMultiMage = false;
     public static string m_MultiMageRightCharacterActiveAbilityName;
 
+    bool m_CameraIsShaking;
+
     public GameObject m_Camera;
     [SerializeField] float m_CameraSpeed;
 
@@ -166,6 +168,9 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
     }
     private IEnumerator Shake(float duration, float magnitude)
     {
+        if (m_CameraIsShaking) yield return null;
+        m_CameraIsShaking = true;
+
         float elapsed = 0f;
 
         Vector3 originalPos = m_Camera.transform.localPosition;
@@ -185,7 +190,8 @@ public class PlayerManager : MonoBehaviour // Manager that controls the player i
         }
 
         m_Camera.transform.localPosition = originalPos;
-        
+        m_CameraIsShaking = false;
+
         yield return null;
     }
 }

@@ -38,11 +38,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394703836798999257, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.g
-      value: 0.9664701
+      value: 0.9647059
       objectReference: {fileID: 0}
     - target: {fileID: 1394703836798999257, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.r
-      value: 0.6556604
+      value: 0.654902
       objectReference: {fileID: 0}
     - target: {fileID: 1394703836798999257, guid: 9103d5dbbab28a64ba6fcd553c0afecb, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key1.b

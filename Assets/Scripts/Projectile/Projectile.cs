@@ -83,6 +83,7 @@ public class Projectile : MonoBehaviour
         data.damageType = m_AbilitySource.m_Data.damageType;
         data.target = target;
         data.abilitySource = m_AbilitySource;
+        data.hitPosition = transform.position;
         DamageManager.m_Instance.DamageInstance(data, transform.position);
     }
 

@@ -13,7 +13,7 @@ public class CrossShot : Spell
 
         ProjectileManager.m_Instance.MultiShot(
             Player.m_Instance.GetStaffTransform().position, m_TotalStats.speed,
-            m_TotalStats.amount, this, m_Lifetime);
+            m_TotalStats.castAmount, this, m_Lifetime);
 
         CastSound();
     }

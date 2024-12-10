@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &159944966222493879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3711352989803025903}
+  - component: {fileID: 848183805419481127}
+  m_Layer: 0
+  m_Name: PriestSpellCDReduce
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3711352989803025903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159944966222493879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &848183805419481127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159944966222493879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d83658003cb044da7d27f4a39fe71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 52
+    level: 0
+    maxLevel: 0
+  m_RemainingCooldownReducedPercent: 0.03
 --- !u!1 &461224840616284997
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530607284402098040}
-  - component: {fileID: 3756599865588111469}
+  - component: {fileID: 539470018053914516}
   m_Layer: 0
   m_Name: FireballAttackSpeed
   m_TagString: Untagged
@@ -137,7 +186,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3756599865588111469
+--- !u!114 &539470018053914516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 791004598650594280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fe67b5d1394349ac6206a93df6f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
@@ -160,12 +209,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.25
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
-  m_Ability: {fileID: 0}
+    critChance: 0
+    castAmount: 0
 --- !u!1 &796085899487776985
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +282,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -240,11 +290,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 12
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Data:
     name: 
     damageType: 6
@@ -308,11 +359,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.02
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Ability: {fileID: 0}
 --- !u!1 &1219942037892573271
 GameObject:
@@ -323,7 +375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120784277570585620}
-  - component: {fileID: 6784876905424443291}
+  - component: {fileID: 641311855741167336}
   m_Layer: 0
   m_Name: LightningConeUpgrade
   m_TagString: Untagged
@@ -346,7 +398,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6784876905424443291
+--- !u!114 &641311855741167336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,7 +407,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1219942037892573271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fe67b5d1394349ac6206a93df6f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
@@ -369,12 +421,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.1
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
-  m_Ability: {fileID: 0}
+    critChance: 0
+    castAmount: 0
 --- !u!1 &1234040543147233054
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,11 +531,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_DamageType: 5
 --- !u!1 &2228840155423396777
 GameObject:
@@ -540,11 +593,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.1
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_DamageType: 2
 --- !u!1 &2245578745351590977
 GameObject:
@@ -597,6 +651,57 @@ MonoBehaviour:
   m_BaseChance: 0.02
   m_UpgradedChance: 0.04
   m_Duration: 2
+--- !u!1 &2247174560549456153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8425847115809441726}
+  - component: {fileID: 6466692680096679863}
+  m_Layer: 0
+  m_Name: PriestRicochet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8425847115809441726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247174560549456153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6466692680096679863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247174560549456153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba54b2551abf4604aba35ca50b193434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 54
+    level: 0
+    maxLevel: 0
+  m_Radius: 4
+  m_Chance: 0.02
+  m_RicochetShotPrefab: {fileID: 8335807863439738337, guid: de00b7519e6d46a40a16ce16db385796, type: 3}
 --- !u!1 &2273551790503682528
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,11 +757,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.01
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Ability: {fileID: 0}
 --- !u!1 &2535485973356852505
 GameObject:
@@ -767,11 +873,12 @@ MonoBehaviour:
     summonDamage: 0.5
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Ability: {fileID: 0}
 --- !u!1 &2552562239275552613
 GameObject:
@@ -986,11 +1093,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_DamageType: 3
 --- !u!1 &3183462911509279723
 GameObject:
@@ -1096,11 +1204,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_DamageType: 2
 --- !u!1 &3881162243243389226
 GameObject:
@@ -1151,6 +1260,68 @@ MonoBehaviour:
     level: 0
     maxLevel: 0
   m_Resistance: 0.1
+--- !u!1 &3893602791112610434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4374719393910344393}
+  - component: {fileID: 1420461263027571046}
+  m_Layer: 0
+  m_Name: PriestSpellCritChance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4374719393910344393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893602791112610434}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420461263027571046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893602791112610434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3fe67b5d1394349ac6206a93df6f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 50
+    level: 0
+    maxLevel: 0
+  m_StatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0
+    summonDamage: 0
+    speed: 0
+    cooldown: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+    critChance: 0.05
+    castAmount: 0
+  m_Ability: {fileID: 0}
 --- !u!1 &3918836835782066003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1378,67 @@ MonoBehaviour:
     armor: 0
     xpMod: 0
   m_ResistanceBuffs: 0.01
+--- !u!1 &3939630029997397068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4749252082403559638}
+  - component: {fileID: 7858251402065895770}
+  m_Layer: 0
+  m_Name: PriestBasicAttackShotAmount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4749252082403559638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939630029997397068}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7858251402065895770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939630029997397068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 47
+    level: 0
+    maxLevel: 0
+  m_StatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0
+    summonDamage: 0
+    speed: 0
+    cooldown: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+    critChance: 0
+    castAmount: 1
 --- !u!1 &4156569816159653657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1487,67 @@ MonoBehaviour:
     id: 43
     level: 0
     maxLevel: 0
+--- !u!1 &4661390236467880533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6946743558895851701}
+  - component: {fileID: 565753732386913326}
+  m_Layer: 0
+  m_Name: PriestBasicAttackCrit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6946743558895851701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4661390236467880533}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &565753732386913326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4661390236467880533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 49
+    level: 0
+    maxLevel: 0
+  m_StatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0
+    summonDamage: 0
+    speed: 0
+    cooldown: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+    critChance: 0.1
+    castAmount: 0
 --- !u!1 &4709343382575169714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5112462595371928511}
-  - component: {fileID: 2810872557042998658}
+  - component: {fileID: 7287850603441605165}
   m_Layer: 0
   m_Name: FireballDamage
   m_TagString: Untagged
@@ -1337,7 +1630,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3722616304487041102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2810872557042998658
+--- !u!114 &7287850603441605165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1346,13 +1639,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4963950462257010715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3fe67b5d1394349ac6206a93df6f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
     id: 8
     level: 0
-    maxLevel: 1
+    maxLevel: 0
   m_StatBuffs:
     AOE: 0
     duration: 0
@@ -1360,12 +1653,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0.5
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
-  m_Ability: {fileID: 0}
+    critChance: 0
+    castAmount: 0
 --- !u!1 &5110542835106140633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,11 +1714,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_DamageType: 0
 --- !u!1 &5142990584596400050
 GameObject:
@@ -1589,11 +1883,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Ability: {fileID: 0}
 --- !u!1 &5988118848108651720
 GameObject:
@@ -1665,6 +1960,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -1672,11 +1968,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Data:
     name: 
     damageType: 2
@@ -1753,6 +2050,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 0
     duration: 0
@@ -1760,11 +2058,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 10
     cooldown: -1
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Data:
     name: 
     damageType: 1
@@ -1899,6 +2198,7 @@ MonoBehaviour:
   m_IsSpell: 0
   m_CastAmount: 1
   m_BaseCastAmount: 1
+  multiCastDelay: 0.3
   m_BaseStats:
     AOE: 1
     duration: 0
@@ -1906,11 +2206,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Data:
     name: 
     damageType: 1
@@ -1995,6 +2296,15 @@ Transform:
   - {fileID: 1547254298012747330}
   - {fileID: 6177408858453625142}
   - {fileID: 5102784337803749112}
+  - {fileID: 6946743558895851701}
+  - {fileID: 4749252082403559638}
+  - {fileID: 7633895526247294863}
+  - {fileID: 4374719393910344393}
+  - {fileID: 6088661160652509150}
+  - {fileID: 3711352989803025903}
+  - {fileID: 6414117275602877729}
+  - {fileID: 8425847115809441726}
+  - {fileID: 5896549850212174177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3743831669789018582
@@ -2062,6 +2372,68 @@ MonoBehaviour:
   m_Radius: 4
   m_IceSlowSkillRef: {fileID: 6990112183150666070}
   m_LineCreator: {fileID: 1334009107476647589, guid: 9a6e81a3778471f4f87d22158168592a, type: 3}
+--- !u!1 &6591012909172861517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5896549850212174177}
+  - component: {fileID: 1301058207782738117}
+  m_Layer: 0
+  m_Name: PriestRadiantDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5896549850212174177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591012909172861517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1301058207782738117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591012909172861517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f9298887464248ac1f1ca2eb91a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 55
+    level: 0
+    maxLevel: 0
+  m_StatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0.05
+    summonDamage: 0
+    speed: 0
+    cooldown: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+    critChance: 0
+    castAmount: 0
+  m_DamageType: 4
 --- !u!1 &6622909734206012098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,12 +2545,67 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Ability: {fileID: 0}
+--- !u!1 &6785898896812293407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6414117275602877729}
+  - component: {fileID: 7349067353447194417}
+  m_Layer: 0
+  m_Name: PriestAOE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6414117275602877729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785898896812293407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7349067353447194417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785898896812293407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92f3b839fe96ac4583dc57791a06536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 53
+    level: 0
+    maxLevel: 0
+  m_Cooldown: 5
+  m_HUDSkillIconRef: {fileID: 0}
+  m_Damage: 30
+  m_Radius: 5
+  m_SunbeamEffectPrefab: {fileID: 4854207113787265867, guid: b801d4175229aac47bb4fe4b0d89d243, type: 3}
+  m_LineCreator: {fileID: 1334009107476647589, guid: 9a6e81a3778471f4f87d22158168592a, type: 3}
 --- !u!1 &7037023527803388237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,11 +2661,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Ability: {fileID: 0}
 --- !u!1 &7892497034288363374
 GameObject:
@@ -2295,11 +2723,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_DamageType: 1
 --- !u!1 &7929618480535056838
 GameObject:
@@ -2454,6 +2883,55 @@ MonoBehaviour:
     maxLevel: 1
   m_Damage: 5
   m_DamageType: 0
+--- !u!1 &8251339134220934035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6088661160652509150}
+  - component: {fileID: 1431487260145956358}
+  m_Layer: 0
+  m_Name: PriestSpellCritDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6088661160652509150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251339134220934035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1431487260145956358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251339134220934035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afd5986d3a55ef4184a6ce5dc3c6c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 51
+    level: 0
+    maxLevel: 0
+  m_IncreaseAmount: 0.25
 --- !u!1 &8385840606852709741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,14 +3093,76 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: -0.15
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
   m_Duration: 5
   m_DurationUpgradeModifier: 1.5
   m_Sparks: {fileID: 3485410154440569457, guid: 46bf493c4b546954ab742ef55848e517, type: 3}
+--- !u!1 &8886927395972482222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7633895526247294863}
+  - component: {fileID: 2902776249694605261}
+  m_Layer: 0
+  m_Name: PriestBasicAttackDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7633895526247294863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886927395972482222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722616304487041102}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2902776249694605261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886927395972482222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aa26cd51003344f9dd7dbbd941bdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data:
+    id: 48
+    level: 0
+    maxLevel: 0
+  m_StatBuffs:
+    AOE: 0
+    duration: 0
+    damage: 0.1
+    summonDamage: 0
+    speed: 0
+    cooldown: 0
+    knockback: 0
+    pierceAmount: 0
+    infinitePierce: 0
+    neverPierce: 0
+    critChance: 0
+    castAmount: 0
 --- !u!1 &8975141264384055795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,11 +3276,12 @@ MonoBehaviour:
     summonDamage: 0
     speed: 0
     cooldown: 0
-    amount: 0
     knockback: 0
     pierceAmount: 0
     infinitePierce: 0
     neverPierce: 0
+    critChance: 0
+    castAmount: 0
 --- !u!1 &9206538454447021627
 GameObject:
   m_ObjectHideFlags: 0

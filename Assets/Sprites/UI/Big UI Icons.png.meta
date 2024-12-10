@@ -269,6 +269,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Big UI Icons_7
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 0
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b15be52576d2134888f74387e380a3d
+      internalID: -287311187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -287,6 +308,7 @@ TextureImporter:
       Big UI Icons_4: -516004458
       Big UI Icons_5: 29506600
       Big UI Icons_6: -1183093027
+      Big UI Icons_7: -287311187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

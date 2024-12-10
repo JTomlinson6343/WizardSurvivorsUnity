@@ -51,7 +51,16 @@ public enum SkillID
     NecroMoreSkeleton,
     NecroBleedDamage,
     NecroRevive,
-    NecroTurned
+    NecroTurned,
+    PriestShotAmount,
+    PriestBasicSpellDamage,
+    PriestBasicSpellCrit,
+    PriestAllSpellCrit,
+    PriestCritDamage,
+    PriestCritCDReduce,
+    PriestSmite,
+    PriestRicochet,
+    PriestRadiantDamage
 }
 
 [System.Serializable]

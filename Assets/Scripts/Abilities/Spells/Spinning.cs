@@ -9,7 +9,7 @@ public class Spinning : Spell
     {
         base.OnCast();
 
-        ProjectileManager.m_Instance.ShootMultipleSpinning(m_TotalStats.speed, this, m_Radius, m_TotalStats.amount);
+        ProjectileManager.m_Instance.ShootMultipleSpinning(m_TotalStats.speed, this, m_Radius, m_TotalStats.castAmount);
 
         CastSound();
     }
