@@ -35,7 +35,7 @@ public class ChunkManager : MonoBehaviour
             if (chunkPrefab.CompareTag("NonStaticChunk"))
             {
                 int randomIndex = Random.Range(0, randomChunks.Length);
-                GameObject randomChunkPrefab = randomChunks[randomIndex];
+                GameObject randomChunkPrefab = ChooseRandomChunkToGenerate();
                 GameObject chunkInstance = Instantiate(randomChunkPrefab, position, rotation, gameObject.transform);
 
                 chunks[i] = chunkInstance; // Replace the element in the chunks array
@@ -47,6 +47,39 @@ public class ChunkManager : MonoBehaviour
                 activeChunks.Add(new TileInstanceData(chunkInstance, position));
             }
         }
+    }
+
+    private GameObject ChooseRandomChunkToGenerate()
+    {
+        GameObject chunkToSpawn = null;
+        // Generate a random number between 0 and the total probability
+        float randomValue = Random.Range(0f, CalculateSpawnProbability());
+
+        // Select the enemy based on the generated random value
+        foreach (GameObject chunk in randomChunks)
+        {
+            ChunkData data = chunk.GetComponent<ChunkData>();
+
+            if (randomValue < data.m_Probability)
+            {
+                chunkToSpawn = chunk;
+                break;
+            }
+            randomValue -= data.m_Probability;
+        }
+        return chunkToSpawn;
+    }
+
+    private float CalculateSpawnProbability()
+    {
+        float totalProbability = 0f;
+        // Calculate the total spawn probability
+        foreach (GameObject chunk in randomChunks)
+        {
+            ChunkData data = chunk.GetComponent<ChunkData>();
+            totalProbability += data.m_Probability;
+        }
+        return totalProbability;
     }
 
     private void DisableChunksOutsideView()
