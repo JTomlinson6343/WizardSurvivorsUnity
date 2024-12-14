@@ -48,11 +48,6 @@ public class Pickup : MonoBehaviour
         }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        // If pickup has stopped moving, set bool to true
-        if (rb.velocity.magnitude <= 0.2f) {
-            m_FinishedDropping = true;
-            return; 
-        }
 
         // Decelerate
         rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, kDeceleration);

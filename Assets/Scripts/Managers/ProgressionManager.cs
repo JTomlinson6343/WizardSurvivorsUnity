@@ -1,13 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class ProgressionManager : MonoBehaviour
 {
@@ -187,7 +183,7 @@ public class ProgressionManager : MonoBehaviour
             Vector2 rotatedVelocity = Quaternion.Euler(0, 0, Random.Range(-45f * modifier, 45f * modifier)) * velocity;
 
             // Fire pickup in a random direction
-            rb.velocity = rotatedVelocity * kPickupMoveSpeed * modifier;
+            rb.velocity = kPickupMoveSpeed * modifier * rotatedVelocity;
         }
     }
 

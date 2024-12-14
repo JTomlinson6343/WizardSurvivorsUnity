@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2557569372825694208}
   - component: {fileID: 1631702082522540259}
   - component: {fileID: 5839808107377181193}
-  - component: {fileID: 2653331046961814442}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -147,23 +146,4 @@ MonoBehaviour:
   m_OpenSprite: {fileID: 260001714, guid: 9663783b727ee4544947a459e0158807, type: 3}
   m_MinDropAmount: 3
   m_MaxDropAmount: 5
-  m_Type: 0
---- !u!114 &2653331046961814442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8074328246142825131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62afff8932daf7489379f8de0d4236e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LootTable:
-  - name: SkillGem
-    loot: {fileID: 2768687642517184637, guid: 691ce5b8f6a5d2948917d85ce8b902a2, type: 3}
-    probability: 1
-  - name: GoldSkillGem
-    loot: {fileID: 7926104272378492982, guid: f52b6a74bdc95144c9f9870d151e3c41, type: 3}
-    probability: 0.1
+  m_LootTableName: BasicChest

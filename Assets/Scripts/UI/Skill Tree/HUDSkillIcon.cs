@@ -10,8 +10,6 @@ public class HUDSkillIcon : MonoBehaviour
 
     private Color m_Color;
 
-    private readonly float kCooldownAnimationInterval = 0.5f;
-
     [SerializeField] TextMeshProUGUI m_SecondsIndicator;
 
     public void Init(SkillData data)
