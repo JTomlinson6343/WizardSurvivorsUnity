@@ -144,12 +144,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props + shadow_1
+      name: ChestClosed
       rect:
         serializedVersion: 2
         x: 96
         y: 451
-        width: 37
+        width: 39
         height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -333,7 +333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props + shadow_10
+      name: ChestOpen
       rect:
         serializedVersion: 2
         x: 96
@@ -1246,9 +1246,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      ChestClosed: -960171435
+      ChestOpen: 260001714
       TX Props + shadow_0: 1083822536
-      TX Props + shadow_1: -960171435
-      TX Props + shadow_10: 260001714
       TX Props + shadow_11: -1284348483
       TX Props + shadow_12: -2043933458
       TX Props + shadow_13: 921412208

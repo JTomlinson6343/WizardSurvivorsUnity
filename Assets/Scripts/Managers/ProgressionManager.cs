@@ -174,6 +174,23 @@ public class ProgressionManager : MonoBehaviour
         }
     }
 
+    public void SpawnPickup(GameObject pickupPrefab, Vector2 pos, int amount, Vector2 velocity)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject pickup = SpawnPickup(pickupPrefab, pos);
+            Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
+            if (!rb) return;
+
+            float modifier = 1f + amount / 100f;
+
+            Vector2 rotatedVelocity = Quaternion.Euler(0, 0, Random.Range(-45f * modifier, 45f * modifier)) * velocity;
+
+            // Fire pickup in a random direction
+            rb.velocity = rotatedVelocity * kPickupMoveSpeed * modifier;
+        }
+    }
+
     public GameObject SpawnPickup(GameObject pickupPrefab, Vector2 pos)
     {
         GameObject pickup = Instantiate(pickupPrefab);
