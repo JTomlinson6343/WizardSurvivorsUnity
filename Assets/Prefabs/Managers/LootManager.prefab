@@ -48,10 +48,10 @@ MonoBehaviour:
   - name: BasicChest
     m_LootTable:
     - loot: {fileID: 2768687642517184637, guid: 691ce5b8f6a5d2948917d85ce8b902a2, type: 3}
-      probability: 1
+      probability: 2
     - loot: {fileID: 7926104272378492982, guid: f52b6a74bdc95144c9f9870d151e3c41, type: 3}
       probability: 0.05
     - loot: {fileID: 2768687642517184637, guid: 86a958f61d404a0419ba473565116eed, type: 3}
-      probability: 1
+      probability: 0.5
     - loot: {fileID: 2768687642517184637, guid: 8d89ec506e4637646877fb0a05d230bd, type: 3}
       probability: 0.01
