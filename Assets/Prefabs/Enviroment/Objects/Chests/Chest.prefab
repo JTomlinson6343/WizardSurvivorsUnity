@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OpenSprite: {fileID: 260001714, guid: 9663783b727ee4544947a459e0158807, type: 3}
-  m_MinDropAmount: 3
-  m_MaxDropAmount: 5
+  m_MinDropAmount: 5
+  m_MaxDropAmount: 10
   m_LootTableName: BasicChest

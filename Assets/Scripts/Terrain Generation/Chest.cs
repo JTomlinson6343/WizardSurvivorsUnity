@@ -15,22 +15,25 @@ public class Chest : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (m_Opened) return;
+        if (m_Opened || !collision.gameObject.CompareTag("Player")) return;
         GetComponent<SpriteRenderer>().sprite = m_OpenSprite;
         m_Opened = true;
 
         SpawnLoot();
+        AudioManager.m_Instance.PlayRandomPitchSound(34);
     }
 
     void SpawnLoot()
     {
         int amount = Random.Range(m_MinDropAmount, m_MaxDropAmount);
 
+        float modifier = 1f + amount / 10f;
+
         for (int i = 0; i < amount; i++)
         {
             GameObject loot = LootManager.GetLootTableWithName("BasicChest").GetLoot();
 
-            ProgressionManager.m_Instance.SpawnPickup(loot, transform.position, 1, new Vector2(0f, -1f));
+            ProgressionManager.m_Instance.SpawnPickup(loot, transform.position, 1, new Vector2(0f, -1f * modifier));
         }
     }
 }
