@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5877643404640474462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4706584543174072010}
+  - component: {fileID: 4962093473470472665}
+  m_Layer: 0
+  m_Name: LootManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4706584543174072010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877643404640474462}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4962093473470472665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877643404640474462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eafe89dd6ecb3741bffdc16e3666ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LootTables:
+  - name: BasicChest
+    m_LootTable:
+    - loot: {fileID: 2768687642517184637, guid: 691ce5b8f6a5d2948917d85ce8b902a2, type: 3}
+      probability: 2
+    - loot: {fileID: 7926104272378492982, guid: f52b6a74bdc95144c9f9870d151e3c41, type: 3}
+      probability: 0.05
+    - loot: {fileID: 2768687642517184637, guid: 86a958f61d404a0419ba473565116eed, type: 3}
+      probability: 0.5
+    - loot: {fileID: 2768687642517184637, guid: 8d89ec506e4637646877fb0a05d230bd, type: 3}
+      probability: 0.01
