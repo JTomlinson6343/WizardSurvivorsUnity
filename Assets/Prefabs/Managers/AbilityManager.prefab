@@ -246,7 +246,7 @@ MonoBehaviour:
       <color=green>+8%
       zone effect size</color>
 
-      <color=red>-0.5 move speed</color>'
+      <color=red>-2 move speed</color>'
     icon: {fileID: -772767292, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -264,7 +264,7 @@ MonoBehaviour:
     critChance: 0
     castAmount: 0
   m_PlayerStatBuffs:
-    speed: -0.025
+    speed: -0.02
     maxHealth: 0
     pullDist: 0
     iFramesMod: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
       <color=green>+200%
       summon damage</color>
 
-      <color=green>+2 speed</color>'
+      <color=green>+10 speed</color>'
     icon: {fileID: -1935763771, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -1782,7 +1782,7 @@ MonoBehaviour:
     name: Stormcrest Royal Brooch
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '<color=green>+1 speed</color>
+    levelUpInfo: '<color=green>+5 speed</color>
 
       <color=green>+25% increased
       invincibility time</color>'
@@ -2338,7 +2338,7 @@ MonoBehaviour:
       <color=green>-5%
       Frost Spell Cooldowns</color>
 
-      <color=red>-1 Speed</color>'
+      <color=red>-5 Speed</color>'
     icon: {fileID: -1119882579, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -2663,10 +2663,10 @@ MonoBehaviour:
       speed
     levelUpInfo: '<color=green>+10% spell damage</color>
 
-      <color=green>+2 speed</color>
+      <color=green>+10
+      speed</color>
 
-      <color=green>-5%
-      spell cooldowns</color>'
+      <color=green>-5% spell cooldowns</color>'
     icon: {fileID: 983024945, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -3277,7 +3277,7 @@ MonoBehaviour:
       <color=green>+2% spell
       damage</color>
 
-      <color=red>-1 speed</color>
+      <color=red>-5 speed</color>
 
       <color=green>+5% knockback</color>'
     icon: {fileID: 1002653379, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
@@ -3555,7 +3555,7 @@ MonoBehaviour:
     description: Increase damage of summon spells, sacrificing your speed in return
     levelUpInfo: '<color=green>+25% Summon damage</color>
 
-      <color=red>-1 move
+      <color=red>-5 move
       speed</color>'
     icon: {fileID: 824492668, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -4330,7 +4330,7 @@ MonoBehaviour:
       <color=green>+5% Lightning
       Spell Damage</color>
 
-      <color=green>+1 speed</color>'
+      <color=green>+5 speed</color>'
     icon: {fileID: 824609226, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
   m_DefaultAutofireRange: 10
@@ -4762,7 +4762,7 @@ MonoBehaviour:
     description: Increase spell damage and speed in exchange for longer spell cooldowns
     levelUpInfo: '<color=green>+5% spell damage</color>
 
-      <color=green>+1 speed</color>
+      <color=green>+5 speed</color>
 
       <color=red>+5%
       spell cooldowns</color>'
@@ -5322,7 +5322,7 @@ MonoBehaviour:
     description: Reduce spell cooldowns and increase movement speed
     levelUpInfo: '<color=green>-5% spell cooldowns</color>
 
-      <color=green>+1
+      <color=green>+5
       move speed</color>'
     icon: {fileID: -8884545, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -5678,7 +5678,7 @@ MonoBehaviour:
     description: 'Increase damage and '
     levelUpInfo: '<color=green>-6% spell cooldowns</color>
 
-      <color=green>+1
+      <color=green>+5
       move speed</color>'
     icon: {fileID: -431026227, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
@@ -6181,7 +6181,7 @@ MonoBehaviour:
     name: Dragontooth Necklace
     damageType: 0
     description: Reduce spell cooldowns and increase movement speed
-    levelUpInfo: '<color=green>+1 speed</color>
+    levelUpInfo: '<color=green>+5 speed</color>
 
       <color=green>+5% spell damage</color>
 
@@ -6359,7 +6359,7 @@ MonoBehaviour:
 
       <color=red>-5% Damage</color>
 
-      <color=green>+1
+      <color=green>+5
       move speed</color>'
     icon: {fileID: -477654465, guid: 90669c338d025c14ba54703e55dc9d46, type: 3}
   m_CooldownRemaining: 0
