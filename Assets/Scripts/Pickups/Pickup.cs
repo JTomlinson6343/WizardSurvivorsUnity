@@ -15,9 +15,9 @@ public class Pickup : MonoBehaviour
     public bool  m_StartedAttracting = false;
     public bool  m_PickedUp = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player") || m_PickedUp) return;
+        if (!collision.gameObject.CompareTag("Player") || m_PickedUp || !m_FinishedDropping) return;
 
         OnPickup();
     }
@@ -36,6 +36,8 @@ public class Pickup : MonoBehaviour
         Invoke(nameof(DestroySelf), kLifetime);
 
         m_PullSpeed = kPullBaseSpeed;
+
+        LeanTween.delayedCall(1f, () => { m_FinishedDropping = true; });
     }
     private void Update()
     {
@@ -46,11 +48,6 @@ public class Pickup : MonoBehaviour
         }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        // If pickup has stopped moving, set bool to true
-        if (rb.velocity.magnitude <= 0.2f) {
-            m_FinishedDropping = true;
-            return; 
-        }
 
         // Decelerate
         rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, kDeceleration);

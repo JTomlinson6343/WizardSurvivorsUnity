@@ -1,13 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class ProgressionManager : MonoBehaviour
 {
@@ -171,6 +167,23 @@ public class ProgressionManager : MonoBehaviour
             // Fire pickup in a random direction
             rb.velocity = new Vector2(Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier),
                 Random.Range(-kPickupMoveSpeed * modifier, kPickupMoveSpeed * modifier));
+        }
+    }
+
+    public void SpawnPickup(GameObject pickupPrefab, Vector2 pos, int amount, Vector2 velocity)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject pickup = SpawnPickup(pickupPrefab, pos);
+            Rigidbody2D rb = pickup.GetComponent<Rigidbody2D>();
+            if (!rb) return;
+
+            float modifier = 1f + amount / 100f;
+
+            Vector2 rotatedVelocity = Quaternion.Euler(0, 0, Random.Range(-45f * modifier, 45f * modifier)) * velocity;
+
+            // Fire pickup in a random direction
+            rb.velocity = kPickupMoveSpeed * modifier * rotatedVelocity;
         }
     }
 
