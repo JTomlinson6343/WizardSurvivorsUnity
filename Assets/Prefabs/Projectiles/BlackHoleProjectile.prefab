@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2302720242327455668, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.345
+      objectReference: {fileID: 0}
     - target: {fileID: 2441900490676211127, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.b
       value: 0.4716981
@@ -94,7 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
       propertyPath: m_Color.r
-      value: 0.6041722
+      value: 0.2999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_LightVolumeIntensity
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696211012566448572, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
+      propertyPath: m_LightVolumeIntensityEnabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5855194254980486322, guid: 0a116454f58f10645b5c0c685d4049d0, type: 3}
@@ -123,5 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AbilitySource: {fileID: 0}
+  m_HitParticlesPrefab: {fileID: 0}
   aoePrefab: {fileID: 0}
   aoeLifetime: 0

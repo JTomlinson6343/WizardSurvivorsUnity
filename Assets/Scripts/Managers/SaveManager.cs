@@ -215,16 +215,8 @@ public class SaveManager
 
     public static void LoadUnlocks()
     {
-        //if (m_SaveData.stats.Length == 0) UnlockManager.PopulateTrackedStats(null);
-        //else
-        //{
-        //}
-
         UnlockManager.PopulateTrackedStats(m_SaveData.stats?.ToList());
         UnlockManager.PopulateUnlockables(m_SaveData.unlockables?.ToList());
-
-        //if (m_SaveData.unlockables.Length == 0) UnlockManager.PopulateUnlockables();
-        //else UnlockManager.m_Unlockables = m_SaveData.unlockables?.ToList();
 
         UnlockManager.CheckUnlockConditions();
     }
