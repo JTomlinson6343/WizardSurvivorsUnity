@@ -162,7 +162,7 @@ public class DamageManager : MonoBehaviour
         if (data.damageType != DamageType.Frost) return;
 
         UnlockManager.GetTrackedStatWithName("iceDamageDealt").stat += data.amount;
-        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("frost_dmg", 1);
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("frost_dmg", data.amount);
     }
 
     void IncrementKills(DamageInstanceData data)
@@ -194,5 +194,6 @@ public class DamageManager : MonoBehaviour
         if (data.abilitySource != Player.m_Instance.m_ActiveAbility) return;
 
         UnlockManager.GetTrackedStatWithName("basicSpellDamageDealt").stat += data.amount;
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("basic_spell_damage", data.amount);
     }
 }

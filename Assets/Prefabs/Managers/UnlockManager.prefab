@@ -180,3 +180,11 @@ MonoBehaviour:
     id: PYROMANCER_MAXED
   - name: Maxed_Ice Mage
     id: ICE_MAGE_MAXED
+  - name: Amalgamage
+    id: MULTIMAGE_UNLOCK
+  - name: Maxed_Amalgamage
+    id: MULTIMAGE_MAXED
+  - name: Divine Acolyte
+    id: PRIEST_UNLOCK
+  - name: Maxed_Divine Acolyte
+    id: PRIEST_MAXED
