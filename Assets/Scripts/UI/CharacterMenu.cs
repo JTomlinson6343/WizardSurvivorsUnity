@@ -38,6 +38,7 @@ public class CharacterMenu : MonoBehaviour
     [SerializeField] CharacterIcon m_LightningMageIcon;
     [SerializeField] CharacterIcon m_NecroIcon;
     [SerializeField] CharacterIcon m_PriestIcon;
+    [SerializeField] CharacterIcon m_AmalgamageIcon;
 
     public SkillTree m_GlobalSkillTree;
 
@@ -196,5 +197,7 @@ public class CharacterMenu : MonoBehaviour
         m_IceMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Ice Mage").unlocked);
         m_LightningMageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Lightning Mage").unlocked);
         m_NecroIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Necromancer").unlocked);
+        m_AmalgamageIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Amalgamage").unlocked);
+        m_PriestIcon.SetUnlockState(!UnlockManager.GetUnlockableWithName("Divine Acolyte").unlocked);
     }
 }

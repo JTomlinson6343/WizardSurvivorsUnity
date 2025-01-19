@@ -265,6 +265,7 @@ public class ProgressionManager : MonoBehaviour
 
     public void AddSkillPoints(int points) {
         m_SkillPointsGained += points;
+        UnlockManager.GetTrackedStatWithName("skillGemCount").stat += points;
         AddScore(points);
     }
 

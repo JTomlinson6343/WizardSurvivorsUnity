@@ -154,8 +154,8 @@ public class SaveManager
             m_SaveData = new SaveData(); // or null, depending on your needs
             PopulateSkillTreesArray(skillTrees);
             SaveToFile(false);
-            UnlockManager.PopulateTrackedStats();
-            UnlockManager.PopulateUnlockables();
+            UnlockManager.PopulateTrackedStats(null);
+            UnlockManager.PopulateUnlockables(null);
             return;
         }
 
@@ -215,11 +215,16 @@ public class SaveManager
 
     public static void LoadUnlocks()
     {
-        if (m_SaveData.stats.Length == 0) UnlockManager.PopulateTrackedStats();
-        else UnlockManager.m_TrackedStats = m_SaveData.stats?.ToList();
+        //if (m_SaveData.stats.Length == 0) UnlockManager.PopulateTrackedStats(null);
+        //else
+        //{
+        //}
 
-        if (m_SaveData.unlockables.Length == 0) UnlockManager.PopulateUnlockables();
-        else UnlockManager.m_Unlockables = m_SaveData.unlockables?.ToList();
+        UnlockManager.PopulateTrackedStats(m_SaveData.stats?.ToList());
+        UnlockManager.PopulateUnlockables(m_SaveData.unlockables?.ToList());
+
+        //if (m_SaveData.unlockables.Length == 0) UnlockManager.PopulateUnlockables();
+        //else UnlockManager.m_Unlockables = m_SaveData.unlockables?.ToList();
 
         UnlockManager.CheckUnlockConditions();
     }

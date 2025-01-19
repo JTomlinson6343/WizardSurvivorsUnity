@@ -154,6 +154,7 @@ public class DamageManager : MonoBehaviour
         IncrementDamage(data);
         //IncrementDOTDamage(data);
         IncrementSummonDamage(data);
+        IncrementBasicSpellDamage(data);
     }
 
     private void IncrementIceDamageDealt(DamageInstanceData data)
@@ -186,5 +187,12 @@ public class DamageManager : MonoBehaviour
         if (!data.abilitySource.GetComponent<Spell>().HasTag(Spell.SpellTag.Summon)) return;
 
         UnlockManager.GetTrackedStatWithName("summonDamageDealt").stat += data.amount;
+    }
+    void IncrementBasicSpellDamage(DamageInstanceData data)
+    {
+        if (data.abilitySource?.GetComponent<Spell>() == null) return;
+        if (data.abilitySource != Player.m_Instance.m_ActiveAbility) return;
+
+        UnlockManager.GetTrackedStatWithName("basicSpellDamageDealt").stat += data.amount;
     }
 }

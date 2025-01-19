@@ -801,6 +801,8 @@ MonoBehaviour:
   m_IceMageIcon: {fileID: 6151632097755728452}
   m_LightningMageIcon: {fileID: 3169254749420906455}
   m_NecroIcon: {fileID: 9013724038083419710}
+  m_PriestIcon: {fileID: 9195653378111096759}
+  m_AmalgamageIcon: {fileID: 6039053523372124454}
   m_GlobalSkillTree: {fileID: 0}
   m_MultiMageMenu: {fileID: 0}
 --- !u!114 &643176332838027382
@@ -3606,7 +3608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_CharName
-      value: Priest
+      value: Divine Acolyte
       objectReference: {fileID: 0}
     - target: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
       propertyPath: m_Unlocked
@@ -3795,3 +3797,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2596506057319137997, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
   m_PrefabInstance: {fileID: 8319210337664303249}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9195653378111096759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 931756661802256166, guid: cc687aa050cbb1341a141d748ed119ed, type: 3}
+  m_PrefabInstance: {fileID: 8319210337664303249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884193415cae57746b77d4c2de002736, type: 3}
+  m_Name: Fire Mage
+  m_EditorClassIdentifier: 
