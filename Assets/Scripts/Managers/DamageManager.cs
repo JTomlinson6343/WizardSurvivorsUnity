@@ -154,6 +154,7 @@ public class DamageManager : MonoBehaviour
         IncrementDamage(data);
         //IncrementDOTDamage(data);
         IncrementSummonDamage(data);
+        IncrementBasicSpellDamage(data);
     }
 
     private void IncrementIceDamageDealt(DamageInstanceData data)
@@ -161,7 +162,7 @@ public class DamageManager : MonoBehaviour
         if (data.damageType != DamageType.Frost) return;
 
         UnlockManager.GetTrackedStatWithName("iceDamageDealt").stat += data.amount;
-        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("frost_dmg", 1);
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("frost_dmg", data.amount);
     }
 
     void IncrementKills(DamageInstanceData data)
@@ -186,5 +187,13 @@ public class DamageManager : MonoBehaviour
         if (!data.abilitySource.GetComponent<Spell>().HasTag(Spell.SpellTag.Summon)) return;
 
         UnlockManager.GetTrackedStatWithName("summonDamageDealt").stat += data.amount;
+    }
+    void IncrementBasicSpellDamage(DamageInstanceData data)
+    {
+        if (data.abilitySource?.GetComponent<Spell>() == null) return;
+        if (data.abilitySource != Player.m_Instance.m_ActiveAbility) return;
+
+        UnlockManager.GetTrackedStatWithName("basicSpellDamageDealt").stat += data.amount;
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("basic_spell_damage", data.amount);
     }
 }

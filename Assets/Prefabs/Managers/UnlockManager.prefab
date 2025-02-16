@@ -153,6 +153,18 @@ MonoBehaviour:
     condition: 75000
     doFormatMessage: 1
     trackedStatName: damage
+  - name: Amalgamage
+    image: {fileID: -1183093027, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
+    message: Collect 1000 Skill Gems
+    condition: 1000
+    doFormatMessage: 1
+    trackedStatName: skillGemCount
+  - name: Divine Acolyte
+    image: {fileID: -287311187, guid: 2c840bb209f1b08459c8129b4b3ef2a1, type: 3}
+    message: Deal 50,000 damage with basic spells
+    condition: 50000
+    doFormatMessage: 1
+    trackedStatName: basicSpellDamageDealt
   m_Achievements:
   - name: Necromancer
     id: NECROMANCER_UNLOCK
@@ -168,3 +180,11 @@ MonoBehaviour:
     id: PYROMANCER_MAXED
   - name: Maxed_Ice Mage
     id: ICE_MAGE_MAXED
+  - name: Amalgamage
+    id: MULTIMAGE_UNLOCK
+  - name: Maxed_Amalgamage
+    id: MULTIMAGE_MAXED
+  - name: Divine Acolyte
+    id: PRIEST_UNLOCK
+  - name: Maxed_Divine Acolyte
+    id: PRIEST_MAXED

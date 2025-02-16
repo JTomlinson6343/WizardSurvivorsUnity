@@ -97,29 +97,49 @@ public class UnlockManager: MonoBehaviour
         StartCoroutine(UnlockConditionCheckLoop());
     }
 
-    public static void PopulateUnlockables()
+    public static void PopulateUnlockables(List<Unlockable> saveFileUnlockables)
     {
         m_Unlockables.Clear();
         foreach (UnlockCondition condition in m_Instance.m_UnlockConditions)
         {
             Unlockable unlockable = new Unlockable();
-            unlockable.name = condition.name;
-            unlockable.unlocked = false;
+
+            Unlockable savedUnlockable = saveFileUnlockables?.Find(tS => tS.name == condition.name);
+            if (savedUnlockable != null && savedUnlockable.unlocked)
+            {
+                unlockable = savedUnlockable;
+            }
+            else
+            {
+                unlockable.name = condition.name;
+            }
+
             m_Unlockables.Add(unlockable);
         }
     }
 
-    public static void PopulateTrackedStats()
+    public static void PopulateTrackedStats(List<TrackedStat> saveFileStats)
     {
         m_TrackedStats.Clear();
         foreach (UnlockCondition condition in m_Instance.m_UnlockConditions)
         {
+            if (condition.trackedStatName == "") continue;
             // If stat already exists, move on
             if (GetTrackedStatWithName(condition.trackedStatName) != null) continue;
 
             TrackedStat stat = new TrackedStat();
-            stat.name = condition.trackedStatName;
-            stat.stat = 0;
+
+            TrackedStat savedStat = saveFileStats?.Find(tS => tS.name == condition.trackedStatName);
+            if (savedStat != null && savedStat.stat != 0) {
+                stat.stat = savedStat.stat;
+                stat.name = condition.trackedStatName;
+            }
+            else
+            {
+                stat.name = condition.trackedStatName;
+                stat.stat = 0;
+            }
+
             m_TrackedStats.Add(stat);
         }
     }
@@ -142,11 +162,17 @@ public class UnlockManager: MonoBehaviour
         CheckConditionIsEqualOrMore("kills", "Solarium Skull");
         CheckConditionIsEqualOrMore("damage", "Orb of the Oracle");
         CheckConditionIsEqualOrMore("summonDamageDealt", "Emberfly Jar");
+        CheckConditionIsEqualOrMore("skillGemCount", "Amalgamage");
+        CheckConditionIsEqualOrMore("basicSpellDamageDealt", "Divine Acolyte");
         m_Instance.ShowUnlockPopups();
     }
 
     static void CheckConditionIsEqualOrMore(string stat, string unlockName)
     {
+        var stat2 = GetTrackedStatWithName(stat);
+        var unlockName2 = GetUnlockConditionWithName(unlockName);
+        var unlockable = GetUnlockableWithName(unlockName);
+
         if (GetTrackedStatWithName(stat).stat >= GetUnlockConditionWithName(unlockName).condition && !GetUnlockableWithName(unlockName).unlocked)
         {
             SetUnlocked(unlockName);

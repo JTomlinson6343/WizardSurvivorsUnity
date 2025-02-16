@@ -265,6 +265,8 @@ public class ProgressionManager : MonoBehaviour
 
     public void AddSkillPoints(int points) {
         m_SkillPointsGained += points;
+        UnlockManager.GetTrackedStatWithName("skillGemCount").stat += points;
+        if (!SteamworksManager.failed) Steamworks.SteamUserStats.AddStat("skill_gems", points);
         AddScore(points);
     }
 

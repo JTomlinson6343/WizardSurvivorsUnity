@@ -260,7 +260,9 @@ public class SkillTree : MonoBehaviour
     virtual public void TryUnlockAchievement()
     {
         if (AllSkillsMaxedCheck() && m_CharacterName != null && m_CharacterName != "")
+        {
             UnlockManager.GetAchievementWithName("Maxed_" + m_CharacterName)?.Unlock();
+        }
     }
 
     // Return to character menu
